@@ -1,0 +1,905 @@
+INFO-FLOW: Workspace /home/npr29/hls6775/ece6775Final/bnn.prj/solution1 opened at Mon Nov 11 23:25:39 EST 2024
+Execute     set_part xc7z020clg484-1 
+Execute       ap_part_info -name xc7z020clg484-1 -data single -quiet 
+Command       ap_part_info done; 1.35 sec.
+Execute       ap_part_info -name xc7z020clg484-1 -data info 
+Execute       add_library xilinx/zynq/zynq:xc7z020:-clg484:-1 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         ap_part_info -data single -name xc7z020-clg484-1 
+Execute         ap_part_info -name xc7z020-clg484-1 -data resources 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         config_chip_info -quiet -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP48E 220} {BRAM 280} {URAM 0} 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         config_chip_info -quiet -speed slow 
+Command       add_library done; 0.13 sec.
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.lib 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       get_default_platform 
+Command     set_part done; 1.54 sec.
+Execute     create_clock -period 10 
+Execute       config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     csim_design -O 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/aes_test.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/aes_test.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/aes_new.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/aes_new.cpp 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       source run_sim.tcl 
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command     csim_design done; 0.43 sec.
+Execute     csynth_design 
+Execute       get_config_compile -dump_cfg 
+Execute       get_config_compile -effort 
+Execute       get_config_compile -enable_clang39 
+Execute       get_config_compile -g 
+Execute       get_config_compile -ng 
+Execute       get_config_compile -opt_fp 
+Execute       get_config_compile -skip_cdt 
+Execute       get_config_compile -skip_syncheck 
+Execute       get_config_compile -skip_transform 
+Execute       get_config_compile -keep_printf 
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute         get_config_schedule -relax_ii_for_timing 
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+Execute         get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file 'aes_new.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling aes_new.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted aes_new.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "aes_new.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E aes_new.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp
+Command         clang done; 1.08 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.07 sec.
+INFO-FLOW: Done: GCC PP time: 2.2 seconds per iteration
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/try/try.tcl 
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp std=c++11 -directive=/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp std=c++11 -directive=/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.aes_new.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.aes_new.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.aes_new.pp.0.cpp.err.log 
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp std=c++11 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/tidy-3.1.aes_new.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/tidy-3.1.aes_new.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/tidy-3.1.aes_new.pp.0.cpp.err.log 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.aes_new.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.aes_new.pp.0.cpp.err.log 
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pragma.1.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pragma.1.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.bc
+Command         clang done; 1.09 sec.
+INFO-FLOW: Linking Debug ...
+Execute         llvm-ld /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_new.g.bc -hls-opt -except-internalize dut -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lhlsm -lhlsmc++ -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g 
+Command         llvm-ld done; 0.55 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 10673 ; free virtual = 26448
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 10673 ; free virtual = 26448
+Execute         get_config_sdx -target 
+Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute           cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute           transform -promote-dbg-pointer /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.pp.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.pp.0.bc -f 
+Execute           llvm-ld /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lfloatconversion -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.0 
+Command           llvm-ld done; 0.54 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top dut -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.0.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 10671 ; free virtual = 26446
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.1.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO: [XFORM 203-602] Inlining function 'invShiftRow' into 'invShiftRows' (aes_new.cpp:517) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (aes_new.cpp:509) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (aes_new.cpp:589) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (aes_new.cpp:590) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (aes_new.cpp:601) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_invRound' into 'aes_invMain' (aes_new.cpp:606) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (aes_new.cpp:611) automatically.
+Command           transform done; 0.11 sec.
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute           transform -syn-check /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 10669 ; free virtual = 26445
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.g.1.bc to /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute           transform -hls -tmp /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.1.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-102] Automatically partitioning small array 'column' (aes_new.cpp:537) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'cpy' (aes_new.cpp:561) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'column' (aes_new.cpp:537) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'cpy' (aes_new.cpp:561) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'invShiftRow' into 'invShiftRows' (aes_new.cpp:517) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (aes_new.cpp:509) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (aes_new.cpp:589) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (aes_new.cpp:590) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (aes_new.cpp:601) automatically.
+INFO: [XFORM 203-602] Inlining function 'aes_invRound' into 'aes_invMain' (aes_new.cpp:606) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (aes_new.cpp:611) automatically.
+WARNING: [XFORM 203-561] Updating loop upper bound from 255 to 3 for loop 'Loop-0-0' in function 'invShiftRows'.
+Command           transform done; 0.18 sec.
+INFO-FLOW: Presyn 2...
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-11] Balancing expressions in function 'invMixColumn' (aes_new.cpp:559)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 10652 ; free virtual = 26428
+INFO-FLOW: Building ssdm...
+Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.2.bc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [XFORM 203-631] Renaming function 'galois_multiplication' to 'galois_multiplicatio' (aes_new.cpp:308:36)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:529:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:530:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:554:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'roundKey' (aes_new.cpp:391:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:300:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:509:20)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:300:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:509:20)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (aes_new.cpp:300:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'block' (aes_new.cpp:675:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (aes_new.cpp:689:17)
+Command           transform done; 0.37 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 10593 ; free virtual = 26369
+INFO-FLOW: Finish building internal data model.
+Command         opt_and_import_c done; 1.38 sec.
+Command       elaborate done; 5.4 sec.
+Execute       autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'dut' ...
+Execute         ap_set_top_model dut 
+Execute         get_model_list dut -filter all-wo-channel -topdown 
+Execute         preproc_iomode -model dut 
+Execute         preproc_iomode -model aes_decrypt 
+Execute         preproc_iomode -model aes_invMain 
+Execute         preproc_iomode -model invMixColumns 
+Execute         preproc_iomode -model invMixColumn 
+Execute         preproc_iomode -model galois_multiplicatio 
+Execute         preproc_iomode -model invShiftRows 
+Execute         preproc_iomode -model createRoundKey 
+Execute         get_model_list dut -filter all-wo-channel 
+INFO-FLOW: Model list for configure: createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut
+INFO-FLOW: Configuring Module : createRoundKey ...
+Execute         set_default_model createRoundKey 
+Execute         apply_spec_resource_limit createRoundKey 
+INFO-FLOW: Configuring Module : invShiftRows ...
+Execute         set_default_model invShiftRows 
+Execute         apply_spec_resource_limit invShiftRows 
+INFO-FLOW: Configuring Module : galois_multiplicatio ...
+Execute         set_default_model galois_multiplicatio 
+Execute         apply_spec_resource_limit galois_multiplicatio 
+INFO-FLOW: Configuring Module : invMixColumn ...
+Execute         set_default_model invMixColumn 
+Execute         apply_spec_resource_limit invMixColumn 
+INFO-FLOW: Configuring Module : invMixColumns ...
+Execute         set_default_model invMixColumns 
+Execute         apply_spec_resource_limit invMixColumns 
+INFO-FLOW: Configuring Module : aes_invMain ...
+Execute         set_default_model aes_invMain 
+Execute         apply_spec_resource_limit aes_invMain 
+INFO-FLOW: Configuring Module : aes_decrypt ...
+Execute         set_default_model aes_decrypt 
+Execute         apply_spec_resource_limit aes_decrypt 
+INFO-FLOW: Configuring Module : dut ...
+Execute         set_default_model dut 
+Execute         apply_spec_resource_limit dut 
+INFO-FLOW: Model list for preprocess: createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut
+INFO-FLOW: Preprocessing Module: createRoundKey ...
+Execute         set_default_model createRoundKey 
+Execute         cdfg_preprocess -model createRoundKey 
+Execute         rtl_gen_preprocess createRoundKey 
+INFO-FLOW: Preprocessing Module: invShiftRows ...
+Execute         set_default_model invShiftRows 
+Execute         cdfg_preprocess -model invShiftRows 
+Execute         rtl_gen_preprocess invShiftRows 
+INFO-FLOW: Preprocessing Module: galois_multiplicatio ...
+Execute         set_default_model galois_multiplicatio 
+Execute         cdfg_preprocess -model galois_multiplicatio 
+Execute         rtl_gen_preprocess galois_multiplicatio 
+INFO-FLOW: Preprocessing Module: invMixColumn ...
+Execute         set_default_model invMixColumn 
+Execute         cdfg_preprocess -model invMixColumn 
+Execute         rtl_gen_preprocess invMixColumn 
+INFO-FLOW: Preprocessing Module: invMixColumns ...
+Execute         set_default_model invMixColumns 
+Execute         cdfg_preprocess -model invMixColumns 
+Execute         rtl_gen_preprocess invMixColumns 
+INFO-FLOW: Preprocessing Module: aes_invMain ...
+Execute         set_default_model aes_invMain 
+Execute         cdfg_preprocess -model aes_invMain 
+Execute         rtl_gen_preprocess aes_invMain 
+INFO-FLOW: Preprocessing Module: aes_decrypt ...
+Execute         set_default_model aes_decrypt 
+Execute         cdfg_preprocess -model aes_decrypt 
+Execute         rtl_gen_preprocess aes_decrypt 
+INFO-FLOW: Preprocessing Module: dut ...
+Execute         set_default_model dut 
+Execute         cdfg_preprocess -model dut 
+Execute         rtl_gen_preprocess dut 
+INFO-FLOW: Model list for synthesis: createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model createRoundKey 
+Execute         schedule -model createRoundKey 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 7.66 seconds; current allocated memory: 183.543 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.sched.adb -f 
+INFO-FLOW: Finish scheduling createRoundKey.
+Execute         set_default_model createRoundKey 
+Execute         bind -model createRoundKey 
+BIND OPTION: model=createRoundKey
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 183.678 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.bind.adb -f 
+INFO-FLOW: Finish binding createRoundKey.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invShiftRows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model invShiftRows 
+Execute         schedule -model invShiftRows 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 183.837 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.sched.adb -f 
+INFO-FLOW: Finish scheduling invShiftRows.
+Execute         set_default_model invShiftRows 
+Execute         bind -model invShiftRows 
+BIND OPTION: model=invShiftRows
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 184.027 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.bind.adb -f 
+INFO-FLOW: Finish binding invShiftRows.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model galois_multiplicatio 
+Execute         schedule -model galois_multiplicatio 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 184.126 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.sched.adb -f 
+INFO-FLOW: Finish scheduling galois_multiplicatio.
+Execute         set_default_model galois_multiplicatio 
+Execute         bind -model galois_multiplicatio 
+BIND OPTION: model=galois_multiplicatio
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 184.232 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.bind.adb -f 
+INFO-FLOW: Finish binding galois_multiplicatio.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model invMixColumn 
+Execute         schedule -model invMixColumn 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 184.425 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.sched.adb -f 
+INFO-FLOW: Finish scheduling invMixColumn.
+Execute         set_default_model invMixColumn 
+Execute         bind -model invMixColumn 
+BIND OPTION: model=invMixColumn
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 184.740 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.bind.adb -f 
+INFO-FLOW: Finish binding invMixColumn.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model invMixColumns 
+Execute         schedule -model invMixColumns 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 185.029 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.sched.adb -f 
+INFO-FLOW: Finish scheduling invMixColumns.
+Execute         set_default_model invMixColumns 
+Execute         bind -model invMixColumns 
+BIND OPTION: model=invMixColumns
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 185.305 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.bind.adb -f 
+INFO-FLOW: Finish binding invMixColumns.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_invMain 
+Execute         schedule -model aes_invMain 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 185.692 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_invMain.
+Execute         set_default_model aes_invMain 
+Execute         bind -model aes_invMain 
+BIND OPTION: model=aes_invMain
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.11 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 186.167 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.bind.adb -f 
+INFO-FLOW: Finish binding aes_invMain.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_decrypt 
+Execute         schedule -model aes_decrypt 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 186.473 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_decrypt.
+Execute         set_default_model aes_decrypt 
+Execute         bind -model aes_decrypt 
+BIND OPTION: model=aes_decrypt
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 186.721 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.bind.adb -f 
+INFO-FLOW: Finish binding aes_decrypt.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model dut 
+Execute         schedule -model dut 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 186.933 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.sched.adb -f 
+INFO-FLOW: Finish scheduling dut.
+Execute         set_default_model dut 
+Execute         bind -model dut 
+BIND OPTION: model=dut
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 187.030 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.verbose.bind.rpt 
+Command         syn_report done; 0.11 sec.
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.bind.adb -f 
+INFO-FLOW: Finish binding dut.
+Execute         get_model_list dut -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute         rtl_gen_preprocess createRoundKey 
+Execute         rtl_gen_preprocess invShiftRows 
+Execute         rtl_gen_preprocess galois_multiplicatio 
+Execute         rtl_gen_preprocess invMixColumn 
+Execute         rtl_gen_preprocess invMixColumns 
+Execute         rtl_gen_preprocess aes_invMain 
+Execute         rtl_gen_preprocess aes_decrypt 
+Execute         rtl_gen_preprocess dut 
+INFO-FLOW: Model list for RTL generation: createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model createRoundKey -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'createRoundKey_empty' to 'createRoundKey_embkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'createRoundKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 187.438 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl createRoundKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/createRoundKey -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl createRoundKey -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/createRoundKey 
+Execute         gen_rtl createRoundKey -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/createRoundKey 
+Execute         syn_report -csynth -model createRoundKey -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/createRoundKey_csynth.rpt 
+Execute         syn_report -rtlxml -model createRoundKey -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/createRoundKey_csynth.xml 
+Execute         syn_report -verbosereport -model createRoundKey -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.verbose.rpt 
+Execute         db_write -model createRoundKey -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.adb 
+Execute         gen_tb_info createRoundKey -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invShiftRows' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model invShiftRows -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invShiftRows'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 188.373 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl invShiftRows -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/invShiftRows -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl invShiftRows -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/invShiftRows 
+Execute         gen_rtl invShiftRows -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/invShiftRows 
+Execute         syn_report -csynth -model invShiftRows -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/invShiftRows_csynth.rpt 
+Execute         syn_report -rtlxml -model invShiftRows -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/invShiftRows_csynth.xml 
+Execute         syn_report -verbosereport -model invShiftRows -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.verbose.rpt 
+Execute         db_write -model invShiftRows -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.adb 
+Execute         gen_tb_info invShiftRows -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model galois_multiplicatio -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'galois_multiplicatio'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 189.216 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl galois_multiplicatio -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/galois_multiplicatio -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl galois_multiplicatio -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/galois_multiplicatio 
+Execute         gen_rtl galois_multiplicatio -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/galois_multiplicatio 
+Execute         syn_report -csynth -model galois_multiplicatio -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/galois_multiplicatio_csynth.rpt 
+Execute         syn_report -rtlxml -model galois_multiplicatio -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/galois_multiplicatio_csynth.xml 
+Execute         syn_report -verbosereport -model galois_multiplicatio -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.rpt 
+Execute         db_write -model galois_multiplicatio -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.adb 
+Execute         gen_tb_info galois_multiplicatio -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model invMixColumn -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invMixColumn'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 190.302 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl invMixColumn -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/invMixColumn -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl invMixColumn -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/invMixColumn 
+Execute         gen_rtl invMixColumn -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/invMixColumn 
+Execute         syn_report -csynth -model invMixColumn -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/invMixColumn_csynth.rpt 
+Execute         syn_report -rtlxml -model invMixColumn -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/invMixColumn_csynth.xml 
+Execute         syn_report -verbosereport -model invMixColumn -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.verbose.rpt 
+Execute         db_write -model invMixColumn -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.adb 
+Execute         gen_tb_info invMixColumn -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model invMixColumns -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invMixColumns'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 191.980 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl invMixColumns -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/invMixColumns -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl invMixColumns -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/invMixColumns 
+Execute         gen_rtl invMixColumns -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/invMixColumns 
+Execute         syn_report -csynth -model invMixColumns -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/invMixColumns_csynth.rpt 
+Execute         syn_report -rtlxml -model invMixColumns -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/invMixColumns_csynth.xml 
+Execute         syn_report -verbosereport -model invMixColumns -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.verbose.rpt 
+Execute         db_write -model invMixColumns -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.adb 
+Execute         gen_tb_info invMixColumns -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_invMain -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'aes_invMain_roundKey' to 'aes_invMain_roundcud' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_invMain'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 193.762 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_invMain -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/aes_invMain -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl aes_invMain -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/aes_invMain 
+Execute         gen_rtl aes_invMain -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/aes_invMain 
+Execute         syn_report -csynth -model aes_invMain -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/aes_invMain_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_invMain -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/aes_invMain_csynth.xml 
+Execute         syn_report -verbosereport -model aes_invMain -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.verbose.rpt 
+Execute         db_write -model aes_invMain -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.adb 
+Execute         gen_tb_info aes_invMain -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_decrypt -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'aes_decrypt_ciphertext' to 'aes_decrypt_ciphedEe' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_decrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 195.749 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_decrypt -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/aes_decrypt -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl aes_decrypt -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/aes_decrypt 
+Execute         gen_rtl aes_decrypt -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/aes_decrypt 
+Execute         syn_report -csynth -model aes_decrypt -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/aes_decrypt_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_decrypt -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/aes_decrypt_csynth.xml 
+Execute         syn_report -verbosereport -model aes_decrypt -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.verbose.rpt 
+Execute         db_write -model aes_decrypt -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.adb 
+Execute         gen_tb_info aes_decrypt -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model dut -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on function 'dut' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dut'.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 197.083 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl dut -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/systemc/dut -synmodules createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut 
+Execute         gen_rtl dut -istop -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/vhdl/dut 
+Execute         gen_rtl dut -istop -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/verilog/dut 
+Execute         syn_report -csynth -model dut -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/dut_csynth.rpt 
+Execute         syn_report -rtlxml -model dut -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/syn/report/dut_csynth.xml 
+Execute         syn_report -verbosereport -model dut -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.verbose.rpt 
+Execute         db_write -model dut -f -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.adb 
+Execute         gen_tb_info dut -p /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut 
+Execute         export_constraint_db -f -tool general -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.constraint.tcl 
+Execute         syn_report -designview -model dut -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.design.xml 
+Execute         get_config_rtl -disable_wave_debug 
+Execute         syn_report -wcfg -model dut -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut_dataflow_ana.wcfg 
+Execute         syn_report -protoinst -model dut -o /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.protoinst 
+Execute         get_config_debug -directory 
+Execute         sc_get_clocks dut 
+Execute         get_config_export -vivado_clock 
+Execute         sc_get_portdomain dut 
+INFO-FLOW: Model list for RTL component generation: createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut
+INFO-FLOW: Handling components in module [createRoundKey] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+INFO-FLOW: Found component createRoundKey_embkb.
+INFO-FLOW: Append model createRoundKey_embkb
+INFO-FLOW: Handling components in module [invShiftRows] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.compgen.tcl 
+INFO-FLOW: Handling components in module [galois_multiplicatio] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+INFO-FLOW: Handling components in module [invMixColumn] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+INFO-FLOW: Found component dut_mux_42_8_1_1.
+INFO-FLOW: Append model dut_mux_42_8_1_1
+INFO-FLOW: Handling components in module [invMixColumns] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+INFO-FLOW: Handling components in module [aes_invMain] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+INFO-FLOW: Found component aes_invMain_rsbox.
+INFO-FLOW: Append model aes_invMain_rsbox
+INFO-FLOW: Found component aes_invMain_roundcud.
+INFO-FLOW: Append model aes_invMain_roundcud
+INFO-FLOW: Handling components in module [aes_decrypt] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+INFO-FLOW: Found component aes_decrypt_ciphedEe.
+INFO-FLOW: Append model aes_decrypt_ciphedEe
+INFO-FLOW: Handling components in module [dut] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO-FLOW: Found component dut_decryptedtext.
+INFO-FLOW: Append model dut_decryptedtext
+INFO-FLOW: Append model createRoundKey
+INFO-FLOW: Append model invShiftRows
+INFO-FLOW: Append model galois_multiplicatio
+INFO-FLOW: Append model invMixColumn
+INFO-FLOW: Append model invMixColumns
+INFO-FLOW: Append model aes_invMain
+INFO-FLOW: Append model aes_decrypt
+INFO-FLOW: Append model dut
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: createRoundKey_embkb dut_mux_42_8_1_1 aes_invMain_rsbox aes_invMain_roundcud aes_decrypt_ciphedEe dut_decryptedtext createRoundKey invShiftRows galois_multiplicatio invMixColumn invMixColumns aes_invMain aes_decrypt dut
+INFO-FLOW: To file: write model createRoundKey_embkb
+INFO-FLOW: To file: write model dut_mux_42_8_1_1
+INFO-FLOW: To file: write model aes_invMain_rsbox
+INFO-FLOW: To file: write model aes_invMain_roundcud
+INFO-FLOW: To file: write model aes_decrypt_ciphedEe
+INFO-FLOW: To file: write model dut_decryptedtext
+INFO-FLOW: To file: write model createRoundKey
+INFO-FLOW: To file: write model invShiftRows
+INFO-FLOW: To file: write model galois_multiplicatio
+INFO-FLOW: To file: write model invMixColumn
+INFO-FLOW: To file: write model invMixColumns
+INFO-FLOW: To file: write model aes_invMain
+INFO-FLOW: To file: write model aes_decrypt
+INFO-FLOW: To file: write model dut
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute         syn_report -model dut -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 144.84 MHz
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/npr29/hls6775/ece6775Final/bnn.prj/solution1
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'createRoundKey_embkb_rom' using auto ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'aes_invMain_rsbox_rom' using auto ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-278] Implementing memory 'aes_invMain_roundcud_ram (RAM)' using distributed RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'aes_decrypt_ciphedEe_rom' using distributed ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO: [RTMG 210-278] Implementing memory 'dut_decryptedtext_ram (RAM)' using distributed RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/npr29/hls6775/ece6775Final/bnn.prj/solution1
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=dut xml_exists=0
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.constraint.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=4
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=1
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=14 #gSsdmPorts=4
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_export -xo 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_sdx -target 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.compgen.dataonly.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.constraint.tcl 
+Execute         sc_get_clocks dut 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_debug -directory 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/createRoundKey.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invShiftRows.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/galois_multiplicatio.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumn.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/invMixColumns.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_invMain.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/aes_decrypt.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         get_config_sdx -target 
+Execute         get_config_sdx -profile 
+Execute         get_config_rtl -kernel_profile 
+Execute         get_config_rtl -stall_sig_gen 
+Execute         get_config_rtl -profile 
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1232.148 ; gain = 594.125 ; free physical = 10487 ; free virtual = 26274
+INFO: [VHDL 208-304] Generating VHDL RTL for dut.
+INFO: [VLOG 209-307] Generating Verilog RTL for dut.
+Command       autosyn done; 4.15 sec.
+Command     csynth_design done; 9.56 sec.
+Execute     cleanup_all 

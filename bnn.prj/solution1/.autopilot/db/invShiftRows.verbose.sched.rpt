@@ -1,0 +1,196 @@
+
+
+================================================================
+== Vivado HLS Report for 'invShiftRows'
+================================================================
+* Date:           Mon Nov 11 23:25:47 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        bnn.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 4.644 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max   | min | max |   Type  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+    |        9|      117| 90.000 ns | 1.170 us |    9|  117|   none  |
+    +---------+---------+-----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |                 |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count | Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+-------+----------+
+        |- Loop 1         |        8|      116|  2 ~ 29  |          -|          -|      4|    no    |
+        | + Loop 1.1      |        0|       27|         9|          -|          -| 0 ~ 3 |    no    |
+        |  ++ Loop 1.1.1  |        6|        6|         2|          -|          -|      3|    no    |
+        +-----------------+---------+---------+----------+-----------+-----------+-------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 2 
+4 --> 5 
+5 --> 6 3 
+6 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 7 [1/1] (1.76ns)   --->   "br label %invShiftRow.exit" [aes_new.cpp:516]   --->   Operation 7 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 1.76>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %invShiftRow.exit.loopexit ]"   --->   Operation 8 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (1.13ns)   --->   "%icmp_ln516 = icmp eq i3 %i_0, -4" [aes_new.cpp:516]   --->   Operation 9 'icmp' 'icmp_ln516' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 10 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [aes_new.cpp:516]   --->   Operation 11 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "br i1 %icmp_ln516, label %7, label %1" [aes_new.cpp:516]   --->   Operation 12 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%trunc_ln517 = trunc i3 %i_0 to i2" [aes_new.cpp:517]   --->   Operation 13 'trunc' 'trunc_ln517' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%shl_ln = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln517, i2 0)" [aes_new.cpp:517]   --->   Operation 14 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln517 = zext i4 %shl_ln to i64" [aes_new.cpp:517]   --->   Operation 15 'zext' 'zext_ln517' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln517" [aes_new.cpp:520->aes_new.cpp:517]   --->   Operation 16 'getelementptr' 'state_addr' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%or_ln527 = or i4 %shl_ln, 3" [aes_new.cpp:527->aes_new.cpp:517]   --->   Operation 17 'or' 'or_ln527' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%zext_ln527 = zext i4 %or_ln527 to i64" [aes_new.cpp:527->aes_new.cpp:517]   --->   Operation 18 'zext' 'zext_ln527' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%state_addr_1 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln527" [aes_new.cpp:527->aes_new.cpp:517]   --->   Operation 19 'getelementptr' 'state_addr_1' <Predicate = (!icmp_ln516)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (1.76ns)   --->   "br label %2" [aes_new.cpp:525->aes_new.cpp:517]   --->   Operation 20 'br' <Predicate = (!icmp_ln516)> <Delay = 1.76>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "ret void" [aes_new.cpp:518]   --->   Operation 21 'ret' <Predicate = (icmp_ln516)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.32>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%i_0_i = phi i2 [ 0, %1 ], [ %i_1, %6 ]"   --->   Operation 22 'phi' 'i_0_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.95ns)   --->   "%icmp_ln525 = icmp eq i2 %i_0_i, %trunc_ln517" [aes_new.cpp:525->aes_new.cpp:517]   --->   Operation 23 'icmp' 'icmp_ln525' <Predicate = true> <Delay = 0.95> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 3, i64 0)"   --->   Operation 24 'speclooptripcount' 'empty_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (1.56ns)   --->   "%i_1 = add i2 %i_0_i, 1" [aes_new.cpp:525->aes_new.cpp:517]   --->   Operation 25 'add' 'i_1' <Predicate = true> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "br i1 %icmp_ln525, label %invShiftRow.exit.loopexit, label %3" [aes_new.cpp:525->aes_new.cpp:517]   --->   Operation 26 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [2/2] (2.32ns)   --->   "%tmp = load i8* %state_addr_1, align 1" [aes_new.cpp:527->aes_new.cpp:517]   --->   Operation 27 'load' 'tmp' <Predicate = (!icmp_ln525)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "br label %invShiftRow.exit"   --->   Operation 28 'br' <Predicate = (icmp_ln525)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 2.32>
+ST_4 : Operation 29 [1/2] (2.32ns)   --->   "%tmp = load i8* %state_addr_1, align 1" [aes_new.cpp:527->aes_new.cpp:517]   --->   Operation 29 'load' 'tmp' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 30 [1/1] (1.76ns)   --->   "br label %4" [aes_new.cpp:528->aes_new.cpp:517]   --->   Operation 30 'br' <Predicate = true> <Delay = 1.76>
+
+State 5 <SV = 4> <Delay = 3.88>
+ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%j_0_i = phi i2 [ -1, %3 ], [ %j, %5 ]"   --->   Operation 31 'phi' 'j_0_i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 32 [1/1] (0.95ns)   --->   "%icmp_ln528 = icmp eq i2 %j_0_i, 0" [aes_new.cpp:528->aes_new.cpp:517]   --->   Operation 32 'icmp' 'icmp_ln528' <Predicate = true> <Delay = 0.95> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.95> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 33 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 33 'speclooptripcount' 'empty_6' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 34 [1/1] (0.00ns)   --->   "br i1 %icmp_ln528, label %6, label %5" [aes_new.cpp:528->aes_new.cpp:517]   --->   Operation 34 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 35 [1/1] (1.56ns)   --->   "%j = add i2 %j_0_i, -1" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 35 'add' 'j' <Predicate = (!icmp_ln528)> <Delay = 1.56> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.56> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "%add_ln529_1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln517, i2 %j)" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 36 'bitconcatenate' 'add_ln529_1' <Predicate = (!icmp_ln528)> <Delay = 0.00>
+ST_5 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln529 = zext i4 %add_ln529_1 to i64" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 37 'zext' 'zext_ln529' <Predicate = (!icmp_ln528)> <Delay = 0.00>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%state_addr_2 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln529" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 38 'getelementptr' 'state_addr_2' <Predicate = (!icmp_ln528)> <Delay = 0.00>
+ST_5 : Operation 39 [2/2] (2.32ns)   --->   "%state_load = load i8* %state_addr_2, align 1" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 39 'load' 'state_load' <Predicate = (!icmp_ln528)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_5 : Operation 40 [1/1] (2.32ns)   --->   "store i8 %tmp, i8* %state_addr, align 1" [aes_new.cpp:530->aes_new.cpp:517]   --->   Operation 40 'store' <Predicate = (icmp_ln528)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "br label %2" [aes_new.cpp:525->aes_new.cpp:517]   --->   Operation 41 'br' <Predicate = (icmp_ln528)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 4.64>
+ST_6 : Operation 42 [1/2] (2.32ns)   --->   "%state_load = load i8* %state_addr_2, align 1" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 42 'load' 'state_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%add_ln529_2 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln517, i2 %j_0_i)" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 43 'bitconcatenate' 'add_ln529_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln529_1 = zext i4 %add_ln529_2 to i64" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 44 'zext' 'zext_ln529_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%state_addr_3 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln529_1" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 45 'getelementptr' 'state_addr_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (2.32ns)   --->   "store i8 %state_load, i8* %state_addr_3, align 1" [aes_new.cpp:529->aes_new.cpp:517]   --->   Operation 46 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "br label %4" [aes_new.cpp:528->aes_new.cpp:517]   --->   Operation 47 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes_new.cpp:516) [4]  (1.77 ns)
+
+ <State 2>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', aes_new.cpp:525->aes_new.cpp:517) [19]  (1.77 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('tmp', aes_new.cpp:527->aes_new.cpp:517) on array 'state' [25]  (2.32 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('tmp', aes_new.cpp:527->aes_new.cpp:517) on array 'state' [25]  (2.32 ns)
+
+ <State 5>: 3.89ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', aes_new.cpp:529->aes_new.cpp:517) [28]  (0 ns)
+	'add' operation ('j', aes_new.cpp:529->aes_new.cpp:517) [33]  (1.56 ns)
+	'getelementptr' operation ('state_addr_2', aes_new.cpp:529->aes_new.cpp:517) [36]  (0 ns)
+	'load' operation ('state_load', aes_new.cpp:529->aes_new.cpp:517) on array 'state' [37]  (2.32 ns)
+
+ <State 6>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('state_load', aes_new.cpp:529->aes_new.cpp:517) on array 'state' [37]  (2.32 ns)
+	'store' operation ('store_ln529', aes_new.cpp:529->aes_new.cpp:517) of variable 'state_load', aes_new.cpp:529->aes_new.cpp:517 on array 'state' [41]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

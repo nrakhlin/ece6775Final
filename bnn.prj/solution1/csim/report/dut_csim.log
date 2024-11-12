@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../aes_test.cpp in release mode
+   Compiling ../../../../aes_new.cpp in release mode
+   Generating csim.exe
+Plaintext: 61 62 63 64 65 66 31 32 33 34 35 36 37 38 39 30 
+Ciphertext (Encrypted): 39 62 8b cc c1 cd 48 e4 5f dd b5 e8 9c bf 9d 02 
+Decrypted Text: 61 62 63 64 65 66 31 32 33 34 35 36 37 38 39 30 
+Success: Decrypted text matches the original plaintext.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
