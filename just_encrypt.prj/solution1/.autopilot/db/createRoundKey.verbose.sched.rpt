@@ -1,0 +1,173 @@
+
+
+================================================================
+== Vivado HLS Report for 'createRoundKey'
+================================================================
+* Date:           Thu Nov 14 13:06:45 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        just_encrypt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.923 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       41|       41| 0.410 us | 0.410 us |   41|   41|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |       40|       40|        10|          -|          -|     4|    no    |
+        | + Loop 1.1  |        8|        8|         2|          -|          -|     4|    no    |
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 2 
+4 --> 3 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%ptr_read = call i10 @_ssdm_op_Read.ap_auto.i10(i10 %ptr)" [just_encrypt.cpp:312]   --->   Operation 5 'read' 'ptr_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%trunc_ln320 = trunc i10 %ptr_read to i8" [just_encrypt.cpp:320]   --->   Operation 6 'trunc' 'trunc_ln320' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.76ns)   --->   "br label %.loopexit" [just_encrypt.cpp:316]   --->   Operation 7 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 1.76>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 8 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln316 = zext i3 %i_0 to i4" [just_encrypt.cpp:316]   --->   Operation 9 'zext' 'zext_ln316' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (1.13ns)   --->   "%icmp_ln316 = icmp eq i3 %i_0, -4" [just_encrypt.cpp:316]   --->   Operation 10 'icmp' 'icmp_ln316' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [just_encrypt.cpp:316]   --->   Operation 12 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln316, label %2, label %.preheader.preheader" [just_encrypt.cpp:316]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%trunc_ln320_1 = trunc i3 %i_0 to i2" [just_encrypt.cpp:320]   --->   Operation 14 'trunc' 'trunc_ln320_1' <Predicate = (!icmp_ln316)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%shl_ln = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln320_1, i2 0)" [just_encrypt.cpp:320]   --->   Operation 15 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln316)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%zext_ln320_1 = zext i4 %shl_ln to i8" [just_encrypt.cpp:320]   --->   Operation 16 'zext' 'zext_ln320_1' <Predicate = (!icmp_ln316)> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (1.76ns)   --->   "br label %.preheader" [just_encrypt.cpp:319]   --->   Operation 17 'br' <Predicate = (!icmp_ln316)> <Delay = 1.76>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "ret void" [just_encrypt.cpp:322]   --->   Operation 18 'ret' <Predicate = (icmp_ln316)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 6.92>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ %j, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 19 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln319 = zext i3 %j_0 to i8" [just_encrypt.cpp:319]   --->   Operation 20 'zext' 'zext_ln319' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (1.13ns)   --->   "%icmp_ln319 = icmp eq i3 %j_0, -4" [just_encrypt.cpp:319]   --->   Operation 21 'icmp' 'icmp_ln319' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 22 'speclooptripcount' 'empty_13' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [just_encrypt.cpp:319]   --->   Operation 23 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br i1 %icmp_ln319, label %.loopexit.loopexit, label %1" [just_encrypt.cpp:319]   --->   Operation 24 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln320 = add i8 %trunc_ln320, %zext_ln319" [just_encrypt.cpp:320]   --->   Operation 25 'add' 'add_ln320' <Predicate = (!icmp_ln319)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 26 [1/1] (3.66ns) (root node of TernaryAdder)   --->   "%add_ln320_1 = add i8 %zext_ln320_1, %add_ln320" [just_encrypt.cpp:320]   --->   Operation 26 'add' 'add_ln320_1' <Predicate = (!icmp_ln319)> <Delay = 3.66> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%zext_ln320_2 = zext i8 %add_ln320_1 to i64" [just_encrypt.cpp:320]   --->   Operation 27 'zext' 'zext_ln320_2' <Predicate = (!icmp_ln319)> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%expandedKey_addr = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln320_2" [just_encrypt.cpp:320]   --->   Operation 28 'getelementptr' 'expandedKey_addr' <Predicate = (!icmp_ln319)> <Delay = 0.00>
+ST_3 : Operation 29 [2/2] (3.25ns)   --->   "%expandedKey_load = load i8* %expandedKey_addr, align 1" [just_encrypt.cpp:320]   --->   Operation 29 'load' 'expandedKey_load' <Predicate = (!icmp_ln319)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln320_2 = trunc i3 %j_0 to i2" [just_encrypt.cpp:320]   --->   Operation 30 'trunc' 'trunc_ln320_2' <Predicate = (!icmp_ln319)> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%shl_ln320_1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln320_2, i2 0)" [just_encrypt.cpp:320]   --->   Operation 31 'bitconcatenate' 'shl_ln320_1' <Predicate = (!icmp_ln319)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (1.73ns)   --->   "%add_ln320_2 = add i4 %zext_ln316, %shl_ln320_1" [just_encrypt.cpp:320]   --->   Operation 32 'add' 'add_ln320_2' <Predicate = (!icmp_ln319)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 33 'br' <Predicate = (icmp_ln319)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 5.57>
+ST_4 : Operation 34 [1/2] (3.25ns)   --->   "%expandedKey_load = load i8* %expandedKey_addr, align 1" [just_encrypt.cpp:320]   --->   Operation 34 'load' 'expandedKey_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%zext_ln320 = zext i4 %add_ln320_2 to i64" [just_encrypt.cpp:320]   --->   Operation 35 'zext' 'zext_ln320' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%roundKey_addr = getelementptr [16 x i8]* %roundKey, i64 0, i64 %zext_ln320" [just_encrypt.cpp:320]   --->   Operation 36 'getelementptr' 'roundKey_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (2.32ns)   --->   "store i8 %expandedKey_load, i8* %roundKey_addr, align 1" [just_encrypt.cpp:320]   --->   Operation 37 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "br label %.preheader" [just_encrypt.cpp:319]   --->   Operation 38 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', just_encrypt.cpp:316) [8]  (1.77 ns)
+
+ <State 2>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', just_encrypt.cpp:319) [20]  (1.77 ns)
+
+ <State 3>: 6.92ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', just_encrypt.cpp:319) [20]  (0 ns)
+	'add' operation ('add_ln320', just_encrypt.cpp:320) [27]  (0 ns)
+	'add' operation ('add_ln320_1', just_encrypt.cpp:320) [28]  (3.67 ns)
+	'getelementptr' operation ('expandedKey_addr', just_encrypt.cpp:320) [30]  (0 ns)
+	'load' operation ('expandedKey_load', just_encrypt.cpp:320) on array 'expandedKey' [31]  (3.25 ns)
+
+ <State 4>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('expandedKey_load', just_encrypt.cpp:320) on array 'expandedKey' [31]  (3.25 ns)
+	'store' operation ('store_ln320', just_encrypt.cpp:320) of variable 'expandedKey_load', just_encrypt.cpp:320 on array 'roundKey' [37]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

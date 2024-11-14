@@ -1,0 +1,13 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../just_decrypt_test.cpp in release mode
+   Compiling ../../../../just_decrypt.cpp in release mode
+   Generating csim.exe
+Ciphertext: 69 6a 79 7d 6b 32 6b 77 8f b3 4f e9 19 26 2f 63 
+Decrypted plaintext: a2 13 dd d8 09 09 d8 9c 4e 22 60 a3 1f 77 96 84 
+Decryption failed! The output does not match the expected plaintext.
+
+Ciphertext2: 4f 1f 9f 7e 3a 0b 6d d5 f0 94 64 5b be 77 99 e7 
+Decrypted plaintext2: e9 8a 68 c2 5b 8b b8 63 bb 83 81 45 e5 68 d9 35 
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

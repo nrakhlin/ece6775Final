@@ -1,0 +1,53 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'aes_invMain'" level="0">
+<item name = "Date">Thu Nov 14 13:05:34 2024
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">just_decrypt.prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 6.923 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">2991, 2991, 29.910 us, 29.910 us, 2991, 2991, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_aes_invRound_fu_219">aes_invRound, 261, 261, 2.610 us, 2.610 us, 261, 261, none</column>
+<column name="grp_createRoundKey_fu_228">createRoundKey, 41, 41, 0.410 us, 0.410 us, 41, 41, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">32, 32, 2, -, -, 16, no</column>
+<column name="- Loop 2">2754, 2754, 306, -, -, 9, no</column>
+<column name="- Loop 3">36, 36, 9, -, -, 4, no</column>
+<column name=" + Loop 3.1">6, 6, 2, -, -, 3, no</column>
+<column name="- Loop 4">48, 48, 3, -, -, 16, no</column>
+<column name="- Loop 5">32, 32, 2, -, -, 16, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

@@ -1,0 +1,361 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_invMain'
+================================================================
+* Date:           Thu Nov 14 13:05:34 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        just_decrypt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.923 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     2991|     2991| 29.910 us | 29.910 us |  2991|  2991|   none  |
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |       32|       32|         2|          -|          -|    16|    no    |
+        |- Loop 2     |     2754|     2754|       306|          -|          -|     9|    no    |
+        |- Loop 3     |       36|       36|         9|          -|          -|     4|    no    |
+        | + Loop 3.1  |        6|        6|         2|          -|          -|     3|    no    |
+        |- Loop 4     |       48|       48|         3|          -|          -|    16|    no    |
+        |- Loop 5     |       32|       32|         2|          -|          -|    16|    no    |
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 18
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 5 
+4 --> 3 
+5 --> 6 9 
+6 --> 7 
+7 --> 8 
+8 --> 5 
+9 --> 10 
+10 --> 11 14 
+11 --> 12 
+12 --> 13 10 
+13 --> 12 
+14 --> 15 17 
+15 --> 16 
+16 --> 14 
+17 --> 18 
+18 --> 17 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.81>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%roundKey = alloca [16 x i8], align 16" [just_decrypt.cpp:319]   --->   Operation 19 'alloca' 'roundKey' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_1 : Operation 20 [2/2] (1.81ns)   --->   "call fastcc void @createRoundKey([176 x i8]* %expandedKey, [16 x i8]* %roundKey, i9 160)" [just_decrypt.cpp:321]   --->   Operation 20 'call' <Predicate = true> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 1.76>
+ST_2 : Operation 21 [1/2] (0.00ns)   --->   "call fastcc void @createRoundKey([176 x i8]* %expandedKey, [16 x i8]* %roundKey, i9 160)" [just_decrypt.cpp:321]   --->   Operation 21 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 22 [1/1] (1.76ns)   --->   "br label %1" [just_decrypt.cpp:172->just_decrypt.cpp:322]   --->   Operation 22 'br' <Predicate = true> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 2.32>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%i_0_i = phi i5 [ 0, %0 ], [ %i_7, %2 ]"   --->   Operation 23 'phi' 'i_0_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (1.36ns)   --->   "%icmp_ln172 = icmp eq i5 %i_0_i, -16" [just_decrypt.cpp:172->just_decrypt.cpp:322]   --->   Operation 24 'icmp' 'icmp_ln172' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 25 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (1.78ns)   --->   "%i_7 = add i5 %i_0_i, 1" [just_decrypt.cpp:172->just_decrypt.cpp:322]   --->   Operation 26 'add' 'i_7' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln172, label %addRoundKey.exit.preheader, label %2" [just_decrypt.cpp:172->just_decrypt.cpp:322]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%zext_ln173 = zext i5 %i_0_i to i64" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 28 'zext' 'zext_ln173' <Predicate = (!icmp_ln172)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln173" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 29 'getelementptr' 'state_addr' <Predicate = (!icmp_ln172)> <Delay = 0.00>
+ST_3 : Operation 30 [2/2] (2.32ns)   --->   "%state_load = load i8* %state_addr, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 30 'load' 'state_load' <Predicate = (!icmp_ln172)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%roundKey_addr = getelementptr [16 x i8]* %roundKey, i64 0, i64 %zext_ln173" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 31 'getelementptr' 'roundKey_addr' <Predicate = (!icmp_ln172)> <Delay = 0.00>
+ST_3 : Operation 32 [2/2] (2.32ns)   --->   "%roundKey_load = load i8* %roundKey_addr, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 32 'load' 'roundKey_load' <Predicate = (!icmp_ln172)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 33 [1/1] (1.76ns)   --->   "br label %addRoundKey.exit" [just_decrypt.cpp:324]   --->   Operation 33 'br' <Predicate = (icmp_ln172)> <Delay = 1.76>
+
+State 4 <SV = 3> <Delay = 5.63>
+ST_4 : Operation 34 [1/2] (2.32ns)   --->   "%state_load = load i8* %state_addr, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 34 'load' 'state_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 35 [1/2] (2.32ns)   --->   "%roundKey_load = load i8* %roundKey_addr, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 35 'load' 'roundKey_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 36 [1/1] (0.99ns)   --->   "%xor_ln173 = xor i8 %roundKey_load, %state_load" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 36 'xor' 'xor_ln173' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 37 [1/1] (2.32ns)   --->   "store i8 %xor_ln173, i8* %state_addr, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:322]   --->   Operation 37 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "br label %1" [just_decrypt.cpp:172->just_decrypt.cpp:322]   --->   Operation 38 'br' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 1.81>
+ST_5 : Operation 39 [1/1] (0.00ns)   --->   "%i = phi i4 [ %add_ln324, %3 ], [ -7, %addRoundKey.exit.preheader ]" [just_decrypt.cpp:324]   --->   Operation 39 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 40 [1/1] (1.30ns)   --->   "%icmp_ln324 = icmp eq i4 %i, 0" [just_decrypt.cpp:324]   --->   Operation 40 'icmp' 'icmp_ln324' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"   --->   Operation 41 'speclooptripcount' 'empty_22' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "br i1 %icmp_ln324, label %4, label %3" [just_decrypt.cpp:324]   --->   Operation 42 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%shl_ln = call i8 @_ssdm_op_BitConcatenate.i8.i4.i4(i4 %i, i4 0)" [just_decrypt.cpp:326]   --->   Operation 43 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln324)> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln326 = zext i8 %shl_ln to i9" [just_decrypt.cpp:326]   --->   Operation 44 'zext' 'zext_ln326' <Predicate = (!icmp_ln324)> <Delay = 0.00>
+ST_5 : Operation 45 [2/2] (1.81ns)   --->   "call fastcc void @createRoundKey([176 x i8]* %expandedKey, [16 x i8]* %roundKey, i9 %zext_ln326)" [just_decrypt.cpp:326]   --->   Operation 45 'call' <Predicate = (!icmp_ln324)> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 46 [1/1] (1.73ns)   --->   "%add_ln324 = add i4 %i, -1" [just_decrypt.cpp:324]   --->   Operation 46 'add' 'add_ln324' <Predicate = (!icmp_ln324)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 47 [2/2] (1.81ns)   --->   "call fastcc void @createRoundKey([176 x i8]* %expandedKey, [16 x i8]* %roundKey, i9 0)" [just_decrypt.cpp:330]   --->   Operation 47 'call' <Predicate = (icmp_ln324)> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 4> <Delay = 0.00>
+ST_6 : Operation 48 [1/2] (0.00ns)   --->   "call fastcc void @createRoundKey([176 x i8]* %expandedKey, [16 x i8]* %roundKey, i9 %zext_ln326)" [just_decrypt.cpp:326]   --->   Operation 48 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 5> <Delay = 0.00>
+ST_7 : Operation 49 [2/2] (0.00ns)   --->   "call fastcc void @aes_invRound([16 x i8]* %state, [16 x i8]* %roundKey)" [just_decrypt.cpp:327]   --->   Operation 49 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 6> <Delay = 0.00>
+ST_8 : Operation 50 [1/2] (0.00ns)   --->   "call fastcc void @aes_invRound([16 x i8]* %state, [16 x i8]* %roundKey)" [just_decrypt.cpp:327]   --->   Operation 50 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_8 : Operation 51 [1/1] (0.00ns)   --->   "br label %addRoundKey.exit" [just_decrypt.cpp:324]   --->   Operation 51 'br' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 4> <Delay = 1.76>
+ST_9 : Operation 52 [1/2] (0.00ns)   --->   "call fastcc void @createRoundKey([176 x i8]* %expandedKey, [16 x i8]* %roundKey, i9 0)" [just_decrypt.cpp:330]   --->   Operation 52 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_9 : Operation 53 [1/1] (0.00ns)   --->   "%state_addr_7 = getelementptr [16 x i8]* %state, i64 0, i64 15" [just_decrypt.cpp:231->just_decrypt.cpp:331]   --->   Operation 53 'getelementptr' 'state_addr_7' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 54 [1/1] (0.00ns)   --->   "%state_addr_8 = getelementptr [16 x i8]* %state, i64 0, i64 12" [just_decrypt.cpp:234->just_decrypt.cpp:331]   --->   Operation 54 'getelementptr' 'state_addr_8' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 55 [1/1] (1.76ns)   --->   "br label %.preheader.i" [just_decrypt.cpp:229->just_decrypt.cpp:331]   --->   Operation 55 'br' <Predicate = true> <Delay = 1.76>
+
+State 10 <SV = 5> <Delay = 2.32>
+ST_10 : Operation 56 [1/1] (0.00ns)   --->   "%k_0_i = phi i3 [ %k, %8 ], [ 0, %4 ]"   --->   Operation 56 'phi' 'k_0_i' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 57 [1/1] (1.13ns)   --->   "%icmp_ln229 = icmp eq i3 %k_0_i, -4" [just_decrypt.cpp:229->just_decrypt.cpp:331]   --->   Operation 57 'icmp' 'icmp_ln229' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 58 [1/1] (0.00ns)   --->   "%empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 58 'speclooptripcount' 'empty_23' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 59 [1/1] (1.65ns)   --->   "%k = add i3 %k_0_i, 1" [just_decrypt.cpp:229->just_decrypt.cpp:331]   --->   Operation 59 'add' 'k' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 60 [1/1] (0.00ns)   --->   "br i1 %icmp_ln229, label %invShiftRows.exit.preheader, label %5" [just_decrypt.cpp:229->just_decrypt.cpp:331]   --->   Operation 60 'br' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 61 [2/2] (2.32ns)   --->   "%tmp = load i8* %state_addr_7, align 1" [just_decrypt.cpp:231->just_decrypt.cpp:331]   --->   Operation 61 'load' 'tmp' <Predicate = (!icmp_ln229)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_10 : Operation 62 [1/1] (1.76ns)   --->   "br label %invShiftRows.exit" [just_decrypt.cpp:213->just_decrypt.cpp:332]   --->   Operation 62 'br' <Predicate = (icmp_ln229)> <Delay = 1.76>
+
+State 11 <SV = 6> <Delay = 2.32>
+ST_11 : Operation 63 [1/2] (2.32ns)   --->   "%tmp = load i8* %state_addr_7, align 1" [just_decrypt.cpp:231->just_decrypt.cpp:331]   --->   Operation 63 'load' 'tmp' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_11 : Operation 64 [1/1] (1.76ns)   --->   "br label %6" [just_decrypt.cpp:232->just_decrypt.cpp:331]   --->   Operation 64 'br' <Predicate = true> <Delay = 1.76>
+
+State 12 <SV = 7> <Delay = 3.97>
+ST_12 : Operation 65 [1/1] (0.00ns)   --->   "%j_0_i = phi i3 [ -1, %5 ], [ %j, %7 ]"   --->   Operation 65 'phi' 'j_0_i' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 66 [1/1] (0.00ns)   --->   "%sext_ln232 = sext i3 %j_0_i to i4" [just_decrypt.cpp:232->just_decrypt.cpp:331]   --->   Operation 66 'sext' 'sext_ln232' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 67 [1/1] (1.13ns)   --->   "%icmp_ln232 = icmp ugt i3 %j_0_i, -4" [just_decrypt.cpp:232->just_decrypt.cpp:331]   --->   Operation 67 'icmp' 'icmp_ln232' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 68 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 68 'speclooptripcount' 'empty_24' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 69 [1/1] (0.00ns)   --->   "br i1 %icmp_ln232, label %7, label %8" [just_decrypt.cpp:232->just_decrypt.cpp:331]   --->   Operation 69 'br' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 70 [1/1] (1.65ns)   --->   "%j = add i3 %j_0_i, -1" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 70 'add' 'j' <Predicate = (icmp_ln232)> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 71 [1/1] (0.00ns)   --->   "%sext_ln233 = sext i3 %j to i4" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 71 'sext' 'sext_ln233' <Predicate = (icmp_ln232)> <Delay = 0.00>
+ST_12 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln233 = zext i4 %sext_ln233 to i64" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 72 'zext' 'zext_ln233' <Predicate = (icmp_ln232)> <Delay = 0.00>
+ST_12 : Operation 73 [1/1] (0.00ns)   --->   "%state_addr_10 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln233" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 73 'getelementptr' 'state_addr_10' <Predicate = (icmp_ln232)> <Delay = 0.00>
+ST_12 : Operation 74 [2/2] (2.32ns)   --->   "%state_load_4 = load i8* %state_addr_10, align 1" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 74 'load' 'state_load_4' <Predicate = (icmp_ln232)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_12 : Operation 75 [1/1] (2.32ns)   --->   "store i8 %tmp, i8* %state_addr_8, align 1" [just_decrypt.cpp:234->just_decrypt.cpp:331]   --->   Operation 75 'store' <Predicate = (!icmp_ln232)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_12 : Operation 76 [1/1] (0.00ns)   --->   "br label %.preheader.i" [just_decrypt.cpp:229->just_decrypt.cpp:331]   --->   Operation 76 'br' <Predicate = (!icmp_ln232)> <Delay = 0.00>
+
+State 13 <SV = 8> <Delay = 4.64>
+ST_13 : Operation 77 [1/2] (2.32ns)   --->   "%state_load_4 = load i8* %state_addr_10, align 1" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 77 'load' 'state_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln233_2 = zext i4 %sext_ln232 to i64" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 78 'zext' 'zext_ln233_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 79 [1/1] (0.00ns)   --->   "%state_addr_11 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln233_2" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 79 'getelementptr' 'state_addr_11' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 80 [1/1] (2.32ns)   --->   "store i8 %state_load_4, i8* %state_addr_11, align 1" [just_decrypt.cpp:233->just_decrypt.cpp:331]   --->   Operation 80 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 81 [1/1] (0.00ns)   --->   "br label %6" [just_decrypt.cpp:232->just_decrypt.cpp:331]   --->   Operation 81 'br' <Predicate = true> <Delay = 0.00>
+
+State 14 <SV = 6> <Delay = 2.32>
+ST_14 : Operation 82 [1/1] (0.00ns)   --->   "%i_0_i4 = phi i5 [ %i_8, %9 ], [ 0, %invShiftRows.exit.preheader ]"   --->   Operation 82 'phi' 'i_0_i4' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 83 [1/1] (1.36ns)   --->   "%icmp_ln213 = icmp eq i5 %i_0_i4, -16" [just_decrypt.cpp:213->just_decrypt.cpp:332]   --->   Operation 83 'icmp' 'icmp_ln213' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 84 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 84 'speclooptripcount' 'empty_25' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 85 [1/1] (1.78ns)   --->   "%i_8 = add i5 %i_0_i4, 1" [just_decrypt.cpp:213->just_decrypt.cpp:332]   --->   Operation 85 'add' 'i_8' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 86 [1/1] (0.00ns)   --->   "br i1 %icmp_ln213, label %invSubBytes.exit.preheader, label %9" [just_decrypt.cpp:213->just_decrypt.cpp:332]   --->   Operation 86 'br' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln214 = zext i5 %i_0_i4 to i64" [just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 87 'zext' 'zext_ln214' <Predicate = (!icmp_ln213)> <Delay = 0.00>
+ST_14 : Operation 88 [1/1] (0.00ns)   --->   "%state_addr_9 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln214" [just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 88 'getelementptr' 'state_addr_9' <Predicate = (!icmp_ln213)> <Delay = 0.00>
+ST_14 : Operation 89 [2/2] (2.32ns)   --->   "%state_load_7 = load i8* %state_addr_9, align 1" [just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 89 'load' 'state_load_7' <Predicate = (!icmp_ln213)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_14 : Operation 90 [1/1] (1.76ns)   --->   "br label %invSubBytes.exit" [just_decrypt.cpp:172->just_decrypt.cpp:333]   --->   Operation 90 'br' <Predicate = (icmp_ln213)> <Delay = 1.76>
+
+State 15 <SV = 7> <Delay = 5.57>
+ST_15 : Operation 91 [1/2] (2.32ns)   --->   "%state_load_7 = load i8* %state_addr_9, align 1" [just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 91 'load' 'state_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln69 = zext i8 %state_load_7 to i64" [just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 92 'zext' 'zext_ln69' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 93 [1/1] (0.00ns)   --->   "%rsbox_addr = getelementptr inbounds [256 x i8]* @rsbox, i64 0, i64 %zext_ln69" [just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 93 'getelementptr' 'rsbox_addr' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 94 [2/2] (3.25ns)   --->   "%rsbox_load = load i8* %rsbox_addr, align 1" [just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 94 'load' 'rsbox_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+
+State 16 <SV = 8> <Delay = 5.57>
+ST_16 : Operation 95 [1/2] (3.25ns)   --->   "%rsbox_load = load i8* %rsbox_addr, align 1" [just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 95 'load' 'rsbox_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_16 : Operation 96 [1/1] (2.32ns)   --->   "store i8 %rsbox_load, i8* %state_addr_9, align 1" [just_decrypt.cpp:214->just_decrypt.cpp:332]   --->   Operation 96 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_16 : Operation 97 [1/1] (0.00ns)   --->   "br label %invShiftRows.exit" [just_decrypt.cpp:213->just_decrypt.cpp:332]   --->   Operation 97 'br' <Predicate = true> <Delay = 0.00>
+
+State 17 <SV = 7> <Delay = 2.32>
+ST_17 : Operation 98 [1/1] (0.00ns)   --->   "%i_0_i8 = phi i5 [ %i_9, %10 ], [ 0, %invSubBytes.exit.preheader ]"   --->   Operation 98 'phi' 'i_0_i8' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 99 [1/1] (1.36ns)   --->   "%icmp_ln172_1 = icmp eq i5 %i_0_i8, -16" [just_decrypt.cpp:172->just_decrypt.cpp:333]   --->   Operation 99 'icmp' 'icmp_ln172_1' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 100 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 100 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 101 [1/1] (1.78ns)   --->   "%i_9 = add i5 %i_0_i8, 1" [just_decrypt.cpp:172->just_decrypt.cpp:333]   --->   Operation 101 'add' 'i_9' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 102 [1/1] (0.00ns)   --->   "br i1 %icmp_ln172_1, label %addRoundKey.exit17, label %10" [just_decrypt.cpp:172->just_decrypt.cpp:333]   --->   Operation 102 'br' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln173_1 = zext i5 %i_0_i8 to i64" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 103 'zext' 'zext_ln173_1' <Predicate = (!icmp_ln172_1)> <Delay = 0.00>
+ST_17 : Operation 104 [1/1] (0.00ns)   --->   "%state_addr_12 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln173_1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 104 'getelementptr' 'state_addr_12' <Predicate = (!icmp_ln172_1)> <Delay = 0.00>
+ST_17 : Operation 105 [2/2] (2.32ns)   --->   "%state_load_5 = load i8* %state_addr_12, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 105 'load' 'state_load_5' <Predicate = (!icmp_ln172_1)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_17 : Operation 106 [1/1] (0.00ns)   --->   "%roundKey_addr_1 = getelementptr [16 x i8]* %roundKey, i64 0, i64 %zext_ln173_1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 106 'getelementptr' 'roundKey_addr_1' <Predicate = (!icmp_ln172_1)> <Delay = 0.00>
+ST_17 : Operation 107 [2/2] (2.32ns)   --->   "%roundKey_load_1 = load i8* %roundKey_addr_1, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 107 'load' 'roundKey_load_1' <Predicate = (!icmp_ln172_1)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_17 : Operation 108 [1/1] (0.00ns)   --->   "ret void" [just_decrypt.cpp:334]   --->   Operation 108 'ret' <Predicate = (icmp_ln172_1)> <Delay = 0.00>
+
+State 18 <SV = 8> <Delay = 5.63>
+ST_18 : Operation 109 [1/2] (2.32ns)   --->   "%state_load_5 = load i8* %state_addr_12, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 109 'load' 'state_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_18 : Operation 110 [1/2] (2.32ns)   --->   "%roundKey_load_1 = load i8* %roundKey_addr_1, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 110 'load' 'roundKey_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_18 : Operation 111 [1/1] (0.99ns)   --->   "%xor_ln173_1 = xor i8 %roundKey_load_1, %state_load_5" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 111 'xor' 'xor_ln173_1' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 112 [1/1] (2.32ns)   --->   "store i8 %xor_ln173_1, i8* %state_addr_12, align 1" [just_decrypt.cpp:173->just_decrypt.cpp:333]   --->   Operation 112 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_18 : Operation 113 [1/1] (0.00ns)   --->   "br label %invSubBytes.exit" [just_decrypt.cpp:172->just_decrypt.cpp:333]   --->   Operation 113 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.81ns
+The critical path consists of the following:
+	'alloca' operation ('roundKey', just_decrypt.cpp:319) [5]  (0 ns)
+	'call' operation ('call_ln321', just_decrypt.cpp:321) to 'createRoundKey' [6]  (1.81 ns)
+
+ <State 2>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', just_decrypt.cpp:172->just_decrypt.cpp:322) [9]  (1.77 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', just_decrypt.cpp:172->just_decrypt.cpp:322) [9]  (0 ns)
+	'getelementptr' operation ('state_addr', just_decrypt.cpp:173->just_decrypt.cpp:322) [16]  (0 ns)
+	'load' operation ('state_load', just_decrypt.cpp:173->just_decrypt.cpp:322) on array 'state' [17]  (2.32 ns)
+
+ <State 4>: 5.63ns
+The critical path consists of the following:
+	'load' operation ('state_load', just_decrypt.cpp:173->just_decrypt.cpp:322) on array 'state' [17]  (2.32 ns)
+	'xor' operation ('xor_ln173', just_decrypt.cpp:173->just_decrypt.cpp:322) [20]  (0.99 ns)
+	'store' operation ('store_ln173', just_decrypt.cpp:173->just_decrypt.cpp:322) of variable 'xor_ln173', just_decrypt.cpp:173->just_decrypt.cpp:322 on array 'state' [21]  (2.32 ns)
+
+ <State 5>: 1.81ns
+The critical path consists of the following:
+	'phi' operation ('i', just_decrypt.cpp:324) with incoming values : ('add_ln324', just_decrypt.cpp:324) [26]  (0 ns)
+	'call' operation ('call_ln326', just_decrypt.cpp:326) to 'createRoundKey' [33]  (1.81 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('k') with incoming values : ('k', just_decrypt.cpp:229->just_decrypt.cpp:331) [43]  (1.77 ns)
+
+ <State 10>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('tmp', just_decrypt.cpp:231->just_decrypt.cpp:331) on array 'state' [49]  (2.32 ns)
+
+ <State 11>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('tmp', just_decrypt.cpp:231->just_decrypt.cpp:331) on array 'state' [49]  (2.32 ns)
+
+ <State 12>: 3.97ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', just_decrypt.cpp:233->just_decrypt.cpp:331) [52]  (0 ns)
+	'add' operation ('j', just_decrypt.cpp:233->just_decrypt.cpp:331) [58]  (1.65 ns)
+	'getelementptr' operation ('state_addr_10', just_decrypt.cpp:233->just_decrypt.cpp:331) [61]  (0 ns)
+	'load' operation ('state_load_4', just_decrypt.cpp:233->just_decrypt.cpp:331) on array 'state' [62]  (2.32 ns)
+
+ <State 13>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('state_load_4', just_decrypt.cpp:233->just_decrypt.cpp:331) on array 'state' [62]  (2.32 ns)
+	'store' operation ('store_ln233', just_decrypt.cpp:233->just_decrypt.cpp:331) of variable 'state_load_4', just_decrypt.cpp:233->just_decrypt.cpp:331 on array 'state' [65]  (2.32 ns)
+
+ <State 14>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', just_decrypt.cpp:213->just_decrypt.cpp:332) [73]  (0 ns)
+	'getelementptr' operation ('state_addr_9', just_decrypt.cpp:214->just_decrypt.cpp:332) [80]  (0 ns)
+	'load' operation ('num', just_decrypt.cpp:214->just_decrypt.cpp:332) on array 'state' [81]  (2.32 ns)
+
+ <State 15>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('num', just_decrypt.cpp:214->just_decrypt.cpp:332) on array 'state' [81]  (2.32 ns)
+	'getelementptr' operation ('rsbox_addr', just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332) [83]  (0 ns)
+	'load' operation ('rsbox_load', just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332) on array 'rsbox' [84]  (3.25 ns)
+
+ <State 16>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('rsbox_load', just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332) on array 'rsbox' [84]  (3.25 ns)
+	'store' operation ('store_ln214', just_decrypt.cpp:214->just_decrypt.cpp:332) of variable 'rsbox_load', just_decrypt.cpp:69->just_decrypt.cpp:214->just_decrypt.cpp:332 on array 'state' [85]  (2.32 ns)
+
+ <State 17>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', just_decrypt.cpp:172->just_decrypt.cpp:333) [90]  (0 ns)
+	'getelementptr' operation ('state_addr_12', just_decrypt.cpp:173->just_decrypt.cpp:333) [97]  (0 ns)
+	'load' operation ('state_load_5', just_decrypt.cpp:173->just_decrypt.cpp:333) on array 'state' [98]  (2.32 ns)
+
+ <State 18>: 5.63ns
+The critical path consists of the following:
+	'load' operation ('state_load_5', just_decrypt.cpp:173->just_decrypt.cpp:333) on array 'state' [98]  (2.32 ns)
+	'xor' operation ('xor_ln173_1', just_decrypt.cpp:173->just_decrypt.cpp:333) [101]  (0.99 ns)
+	'store' operation ('store_ln173', just_decrypt.cpp:173->just_decrypt.cpp:333) of variable 'xor_ln173_1', just_decrypt.cpp:173->just_decrypt.cpp:333 on array 'state' [102]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

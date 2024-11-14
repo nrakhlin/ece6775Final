@@ -2375,7 +2375,7 @@ unsigned char getSBoxInvert(unsigned char num);
 void rotate(unsigned char *word);
 unsigned char getRconValue(unsigned char num);
 void core(unsigned char *word, int iteration);
-void expandKey(unsigned char *expandedKey, unsigned char *key, enum keySize size, size_t expandedKeySize);
+void expandKey(unsigned char *expandedKey, unsigned char *key, int size, size_t expandedKeySize);
 
 
 void subBytes(unsigned char *state);
@@ -2388,7 +2388,7 @@ void mixColumn(unsigned char *column);
 void aes_round(unsigned char *state, unsigned char *roundKey);
 void createRoundKey(unsigned char *expandedKey, unsigned char *roundKey);
 void aes_main(unsigned char *state, unsigned char *expandedKey, int nbrRounds);
-char aes_encrypt(unsigned char *input, unsigned char *output, unsigned char *key, enum keySize size);
+char aes_encrypt(unsigned char *input, unsigned char *output, unsigned char *key, int size);
 
 
 void invSubBytes(unsigned char *state);
@@ -2398,7 +2398,7 @@ void invMixColumns(unsigned char *state);
 void invMixColumn(unsigned char *column);
 void aes_invRound(unsigned char *state, unsigned char *roundKey);
 void aes_invMain(unsigned char *state, unsigned char *expandedKey, int nbrRounds);
-char aes_decrypt(unsigned char *input, unsigned char *output, unsigned char *key, enum keySize size);
+char aes_decrypt(unsigned char *input, unsigned char *output, unsigned char *key, int size);
 
 
 extern unsigned char sbox[256];
@@ -2479,10 +2479,10 @@ int dut()
     expandKey(expandedKey, key, size, expandedKeySize);
 
 
-    aes_encrypt(plaintext, ciphertext, key, SIZE_16);
+    aes_encrypt(plaintext, ciphertext, key, 16);
 
 
-    aes_decrypt(ciphertext, decryptedtext, key, SIZE_16);
+    aes_decrypt(ciphertext, decryptedtext, key, 16);
 
     return 0;
 }
@@ -2532,17 +2532,18 @@ void core(unsigned char *word, int iteration)
 # 214 "aes_new.cpp"
 void expandKey(unsigned char *expandedKey,
                unsigned char *key,
-               enum keySize size,
+               int size,
                size_t expandedKeySize)
 {
+#pragma HLS INLINE
 
-    int currentSize = 0;
+ int currentSize = 0;
     int rconIteration = 1;
     int i;
     unsigned char t[4] = {0};
 
 
-    for (i = 0; i < size; i++)
+    for (i = 0; i < 16; i++)
         expandedKey[i] = key[i];
     currentSize += size;
 
@@ -2735,7 +2736,7 @@ void aes_main(unsigned char *state, unsigned char *expandedKey, int nbrRounds)
 char aes_encrypt(unsigned char *input,
                  unsigned char *output,
                  unsigned char *key,
-                 enum keySize size)
+                 int size)
 {
 
     int expandedKeySize;
@@ -2750,7 +2751,7 @@ char aes_encrypt(unsigned char *input,
     unsigned char block[16];
 
     int i, j;
-# 451 "aes_new.cpp"
+# 452 "aes_new.cpp"
     nbrRounds = 10;
 
     expandedKeySize = (16 * (nbrRounds + 1));
@@ -2764,7 +2765,7 @@ char aes_encrypt(unsigned char *input,
     }
     else
     {
-# 473 "aes_new.cpp"
+# 474 "aes_new.cpp"
         for (i = 0; i < 4; i++)
         {
 
@@ -2910,7 +2911,7 @@ void aes_invMain(unsigned char *state, unsigned char *expandedKey, int nbrRounds
 char aes_decrypt(unsigned char *input,
                  unsigned char *output,
                  unsigned char *key,
-                 enum keySize size)
+                 int size)
 {
 
     int expandedKeySize;
@@ -2925,7 +2926,7 @@ char aes_decrypt(unsigned char *input,
     unsigned char block[16];
 
     int i, j;
-# 650 "aes_new.cpp"
+# 651 "aes_new.cpp"
     nbrRounds = 10;
     expandedKeySize = (16 * (nbrRounds + 1));
 
@@ -2938,7 +2939,7 @@ char aes_decrypt(unsigned char *input,
     }
     else
     {
-# 671 "aes_new.cpp"
+# 672 "aes_new.cpp"
         for (i = 0; i < 4; i++)
         {
 

@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="bnn.prj" top="dut">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="bnn.prj" top="aes_encrypt">
     <Simulation argv="">
         <SimFlow name="csim" setup="false" optimizeCompile="true" clean="false" ldflags="" mflags=""/>
     </Simulation>

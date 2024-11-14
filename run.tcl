@@ -10,7 +10,7 @@ set hls_prj bnn.prj
 open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
-set_top dut
+set_top aes_encrypt
 
 # Add design and testbench files
 add_files aes_new.cpp -cflags "-std=c++11"
@@ -34,5 +34,5 @@ csim_design -O
 # Synthesize the design
 csynth_design
 # Co-simulate the design
-#cosim_design
+cosim_design
 exit

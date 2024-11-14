@@ -1,0 +1,211 @@
+
+
+================================================================
+== Vivado HLS Report for 'invMixColumn'
+================================================================
+* Date:           Thu Nov 14 13:05:33 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        just_decrypt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 3.968 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       15|       15| 0.150 us | 0.150 us |   15|   15|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        4|        4|         1|          -|          -|     4|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 2 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%cpy_3 = alloca i8"   --->   Operation 4 'alloca' 'cpy_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%cpy_3_1 = alloca i8"   --->   Operation 5 'alloca' 'cpy_3_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%cpy_3_2 = alloca i8"   --->   Operation 6 'alloca' 'cpy_3_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%cpy_3_3 = alloca i8"   --->   Operation 7 'alloca' 'cpy_3_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [just_decrypt.cpp:280]   --->   Operation 8 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [just_decrypt.cpp:280]   --->   Operation 9 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [just_decrypt.cpp:280]   --->   Operation 10 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [just_decrypt.cpp:280]   --->   Operation 11 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (1.76ns)   --->   "br label %branch0" [just_decrypt.cpp:284]   --->   Operation 12 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.96>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %branch0.backedge ]"   --->   Operation 13 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (1.13ns)   --->   "%icmp_ln284 = icmp eq i3 %i_0, -4" [just_decrypt.cpp:284]   --->   Operation 14 'icmp' 'icmp_ln284' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 15 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [just_decrypt.cpp:284]   --->   Operation 16 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br i1 %icmp_ln284, label %2, label %1" [just_decrypt.cpp:284]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%trunc_ln286 = trunc i3 %i_0 to i2" [just_decrypt.cpp:286]   --->   Operation 18 'trunc' 'trunc_ln286' <Predicate = (!icmp_ln284)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.95ns)   --->   "%cpy_0 = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %column_0_read_1, i8 %column_1_read_1, i8 %column_2_read_1, i8 %column_3_read_1, i2 %trunc_ln286)" [just_decrypt.cpp:286]   --->   Operation 19 'mux' 'cpy_0' <Predicate = (!icmp_ln284)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (1.30ns)   --->   "switch i2 %trunc_ln286, label %branch3 [
+    i2 0, label %.branch0.backedge_crit_edge
+    i2 1, label %branch1
+    i2 -2, label %branch2
+  ]" [just_decrypt.cpp:286]   --->   Operation 20 'switch' <Predicate = (!icmp_ln284)> <Delay = 1.30>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_2" [just_decrypt.cpp:286]   --->   Operation 21 'store' <Predicate = (!icmp_ln284 & trunc_ln286 == 2)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [just_decrypt.cpp:286]   --->   Operation 22 'br' <Predicate = (!icmp_ln284 & trunc_ln286 == 2)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_1" [just_decrypt.cpp:286]   --->   Operation 23 'store' <Predicate = (!icmp_ln284 & trunc_ln286 == 1)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [just_decrypt.cpp:286]   --->   Operation 24 'br' <Predicate = (!icmp_ln284 & trunc_ln286 == 1)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3" [just_decrypt.cpp:286]   --->   Operation 25 'store' <Predicate = (!icmp_ln284 & trunc_ln286 == 0)> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [just_decrypt.cpp:286]   --->   Operation 26 'br' <Predicate = (!icmp_ln284 & trunc_ln286 == 0)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_3" [just_decrypt.cpp:286]   --->   Operation 27 'store' <Predicate = (!icmp_ln284 & trunc_ln286 == 3)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [just_decrypt.cpp:286]   --->   Operation 28 'br' <Predicate = (!icmp_ln284 & trunc_ln286 == 3)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "br label %branch0"   --->   Operation 29 'br' <Predicate = (!icmp_ln284)> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%cpy_3_load = load i8* %cpy_3" [just_decrypt.cpp:288]   --->   Operation 30 'load' 'cpy_3_load' <Predicate = (icmp_ln284)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%cpy_3_1_load = load i8* %cpy_3_1" [just_decrypt.cpp:291]   --->   Operation 31 'load' 'cpy_3_1_load' <Predicate = (icmp_ln284)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%cpy_3_2_load = load i8* %cpy_3_2" [just_decrypt.cpp:290]   --->   Operation 32 'load' 'cpy_3_2_load' <Predicate = (icmp_ln284)> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%cpy_3_3_load = load i8* %cpy_3_3" [just_decrypt.cpp:289]   --->   Operation 33 'load' 'cpy_3_3_load' <Predicate = (icmp_ln284)> <Delay = 0.00>
+ST_2 : Operation 34 [2/2] (3.96ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 14)" [just_decrypt.cpp:288]   --->   Operation 34 'call' 'tmp' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 35 [2/2] (3.96ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 9)" [just_decrypt.cpp:289]   --->   Operation 35 'call' 'tmp_1' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 36 [2/2] (3.96ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 13)" [just_decrypt.cpp:290]   --->   Operation 36 'call' 'tmp_2' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 37 [2/2] (3.96ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 11)" [just_decrypt.cpp:291]   --->   Operation 37 'call' 'tmp_3' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 38 [2/2] (3.96ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 14)" [just_decrypt.cpp:292]   --->   Operation 38 'call' 'tmp_4' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 39 [2/2] (3.96ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 9)" [just_decrypt.cpp:293]   --->   Operation 39 'call' 'tmp_5' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 40 [2/2] (3.96ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 13)" [just_decrypt.cpp:294]   --->   Operation 40 'call' 'tmp_6' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 41 [2/2] (3.96ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 11)" [just_decrypt.cpp:295]   --->   Operation 41 'call' 'tmp_7' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 42 [2/2] (3.96ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 14)" [just_decrypt.cpp:296]   --->   Operation 42 'call' 'tmp_8' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 43 [2/2] (3.96ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 9)" [just_decrypt.cpp:297]   --->   Operation 43 'call' 'tmp_9' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 44 [2/2] (3.96ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 13)" [just_decrypt.cpp:298]   --->   Operation 44 'call' 'tmp_s' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 45 [2/2] (3.96ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 11)" [just_decrypt.cpp:299]   --->   Operation 45 'call' 'tmp_10' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 46 [2/2] (3.96ns)   --->   "%tmp_11 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 14)" [just_decrypt.cpp:300]   --->   Operation 46 'call' 'tmp_11' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 47 [2/2] (3.96ns)   --->   "%tmp_12 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 9)" [just_decrypt.cpp:301]   --->   Operation 47 'call' 'tmp_12' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 48 [2/2] (3.96ns)   --->   "%tmp_13 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 13)" [just_decrypt.cpp:302]   --->   Operation 48 'call' 'tmp_13' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 49 [2/2] (3.96ns)   --->   "%tmp_14 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 11)" [just_decrypt.cpp:303]   --->   Operation 49 'call' 'tmp_14' <Predicate = (icmp_ln284)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.99>
+ST_3 : Operation 50 [1/2] (0.00ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 14)" [just_decrypt.cpp:288]   --->   Operation 50 'call' 'tmp' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 51 [1/2] (0.00ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 9)" [just_decrypt.cpp:289]   --->   Operation 51 'call' 'tmp_1' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 52 [1/2] (0.00ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 13)" [just_decrypt.cpp:290]   --->   Operation 52 'call' 'tmp_2' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 53 [1/2] (0.00ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 11)" [just_decrypt.cpp:291]   --->   Operation 53 'call' 'tmp_3' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 54 [1/1] (0.00ns) (grouped into LUT with out node xor_ln291_2)   --->   "%xor_ln291 = xor i8 %tmp_1, %tmp" [just_decrypt.cpp:291]   --->   Operation 54 'xor' 'xor_ln291' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 55 [1/1] (0.00ns) (grouped into LUT with out node xor_ln291_2)   --->   "%xor_ln291_1 = xor i8 %tmp_2, %tmp_3" [just_decrypt.cpp:291]   --->   Operation 55 'xor' 'xor_ln291_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 56 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln291_2 = xor i8 %xor_ln291_1, %xor_ln291" [just_decrypt.cpp:291]   --->   Operation 56 'xor' 'xor_ln291_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 57 [1/2] (0.00ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 14)" [just_decrypt.cpp:292]   --->   Operation 57 'call' 'tmp_4' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 58 [1/2] (0.00ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 9)" [just_decrypt.cpp:293]   --->   Operation 58 'call' 'tmp_5' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 59 [1/2] (0.00ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 13)" [just_decrypt.cpp:294]   --->   Operation 59 'call' 'tmp_6' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 60 [1/2] (0.00ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 11)" [just_decrypt.cpp:295]   --->   Operation 60 'call' 'tmp_7' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 61 [1/1] (0.00ns) (grouped into LUT with out node xor_ln295_2)   --->   "%xor_ln295 = xor i8 %tmp_5, %tmp_4" [just_decrypt.cpp:295]   --->   Operation 61 'xor' 'xor_ln295' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node xor_ln295_2)   --->   "%xor_ln295_1 = xor i8 %tmp_6, %tmp_7" [just_decrypt.cpp:295]   --->   Operation 62 'xor' 'xor_ln295_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 63 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln295_2 = xor i8 %xor_ln295_1, %xor_ln295" [just_decrypt.cpp:295]   --->   Operation 63 'xor' 'xor_ln295_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 64 [1/2] (0.00ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 14)" [just_decrypt.cpp:296]   --->   Operation 64 'call' 'tmp_8' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 65 [1/2] (0.00ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 9)" [just_decrypt.cpp:297]   --->   Operation 65 'call' 'tmp_9' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 66 [1/2] (0.00ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 13)" [just_decrypt.cpp:298]   --->   Operation 66 'call' 'tmp_s' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 67 [1/2] (0.00ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 11)" [just_decrypt.cpp:299]   --->   Operation 67 'call' 'tmp_10' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node xor_ln299_2)   --->   "%xor_ln299 = xor i8 %tmp_9, %tmp_8" [just_decrypt.cpp:299]   --->   Operation 68 'xor' 'xor_ln299' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 69 [1/1] (0.00ns) (grouped into LUT with out node xor_ln299_2)   --->   "%xor_ln299_1 = xor i8 %tmp_s, %tmp_10" [just_decrypt.cpp:299]   --->   Operation 69 'xor' 'xor_ln299_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 70 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln299_2 = xor i8 %xor_ln299_1, %xor_ln299" [just_decrypt.cpp:299]   --->   Operation 70 'xor' 'xor_ln299_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 71 [1/2] (0.00ns)   --->   "%tmp_11 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 14)" [just_decrypt.cpp:300]   --->   Operation 71 'call' 'tmp_11' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 72 [1/2] (0.00ns)   --->   "%tmp_12 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 9)" [just_decrypt.cpp:301]   --->   Operation 72 'call' 'tmp_12' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 73 [1/2] (0.00ns)   --->   "%tmp_13 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 13)" [just_decrypt.cpp:302]   --->   Operation 73 'call' 'tmp_13' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 74 [1/2] (0.00ns)   --->   "%tmp_14 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 11)" [just_decrypt.cpp:303]   --->   Operation 74 'call' 'tmp_14' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 75 [1/1] (0.00ns) (grouped into LUT with out node xor_ln303_2)   --->   "%xor_ln303 = xor i8 %tmp_12, %tmp_11" [just_decrypt.cpp:303]   --->   Operation 75 'xor' 'xor_ln303' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 76 [1/1] (0.00ns) (grouped into LUT with out node xor_ln303_2)   --->   "%xor_ln303_1 = xor i8 %tmp_13, %tmp_14" [just_decrypt.cpp:303]   --->   Operation 76 'xor' 'xor_ln303_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 77 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln303_2 = xor i8 %xor_ln303_1, %xor_ln303" [just_decrypt.cpp:303]   --->   Operation 77 'xor' 'xor_ln303_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln291_2, 0" [just_decrypt.cpp:304]   --->   Operation 78 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln295_2, 1" [just_decrypt.cpp:304]   --->   Operation 79 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln299_2, 2" [just_decrypt.cpp:304]   --->   Operation 80 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln303_2, 3" [just_decrypt.cpp:304]   --->   Operation 81 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [just_decrypt.cpp:304]   --->   Operation 82 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', just_decrypt.cpp:284) [15]  (1.77 ns)
+
+ <State 2>: 3.97ns
+The critical path consists of the following:
+	'load' operation ('cpy_3_load', just_decrypt.cpp:288) on local variable 'cpy[3]' [39]  (0 ns)
+	'call' operation ('tmp', just_decrypt.cpp:288) to 'galois_multiplicatio' [43]  (3.97 ns)
+
+ <State 3>: 0.99ns
+The critical path consists of the following:
+	'call' operation ('tmp', just_decrypt.cpp:288) to 'galois_multiplicatio' [43]  (0 ns)
+	'xor' operation ('xor_ln291', just_decrypt.cpp:291) [47]  (0 ns)
+	'xor' operation ('column[0]', just_decrypt.cpp:291) [49]  (0.99 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

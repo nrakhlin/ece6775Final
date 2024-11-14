@@ -146,10 +146,10 @@ int dut()
     expandKey(expandedKey, key, size, expandedKeySize);
 
     // AES Encryption
-    aes_encrypt(plaintext, ciphertext, key, SIZE_16);
+    aes_encrypt(plaintext, ciphertext, key, 16);
 
     // AES Decryption
-    aes_decrypt(ciphertext, decryptedtext, key, SIZE_16);
+    aes_decrypt(ciphertext, decryptedtext, key, 16);
 
     return 0;
 }
@@ -213,9 +213,10 @@ void core(unsigned char *word, int iteration)
 
 void expandKey(unsigned char *expandedKey,
                unsigned char *key,
-               enum keySize size,
+               int size,
                size_t expandedKeySize)
 {
+    #pragma HLS INLINE
     // current expanded keySize, in bytes
     int currentSize = 0;
     int rconIteration = 1;
@@ -223,7 +224,7 @@ void expandKey(unsigned char *expandedKey,
     unsigned char t[4] = {0}; // temporary 4-byte variable
 
     // set the 16,24,32 bytes of the expanded key to the input key
-    for (i = 0; i < size; i++)
+    for (i = 0; i < 16; i++)
         expandedKey[i] = key[i];
     currentSize += size;
 
@@ -416,7 +417,7 @@ void aes_main(unsigned char *state, unsigned char *expandedKey, int nbrRounds)
 char aes_encrypt(unsigned char *input,
                  unsigned char *output,
                  unsigned char *key,
-                 enum keySize size)
+                 int size)
 {
     // the expanded keySize
     int expandedKeySize;
@@ -615,7 +616,7 @@ void aes_invMain(unsigned char *state, unsigned char *expandedKey, int nbrRounds
 char aes_decrypt(unsigned char *input,
                  unsigned char *output,
                  unsigned char *key,
-                 enum keySize size)
+                 int size)
 {
     // the expanded keySize
     int expandedKeySize;

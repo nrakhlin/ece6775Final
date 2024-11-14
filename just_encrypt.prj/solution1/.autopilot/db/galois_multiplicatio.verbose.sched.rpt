@@ -1,0 +1,140 @@
+
+
+================================================================
+== Vivado HLS Report for 'galois_multiplicatio'
+================================================================
+* Date:           Thu Nov 14 13:06:45 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        just_encrypt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 1.769 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        8|        8|         1|          -|          -|     8|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [just_encrypt.cpp:232]   --->   Operation 3 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [just_encrypt.cpp:232]   --->   Operation 4 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (1.76ns)   --->   "br label %1" [just_encrypt.cpp:237]   --->   Operation 5 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 1.73>
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%counter_0 = phi i4 [ 0, %0 ], [ %counter, %2 ]"   --->   Operation 6 'phi' 'counter_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%p_0 = phi i8 [ 0, %0 ], [ %xor_ln239, %2 ]" [just_encrypt.cpp:239]   --->   Operation 7 'phi' 'p_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%b_assign_1 = phi i3 [ %b_read, %0 ], [ %zext_ln245, %2 ]" [just_encrypt.cpp:232]   --->   Operation 8 'phi' 'b_assign_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%p_0_7 = phi i8 [ %a_read, %0 ], [ %select_ln243, %2 ]" [just_encrypt.cpp:232]   --->   Operation 9 'phi' 'p_0_7' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (1.30ns)   --->   "%icmp_ln237 = icmp eq i4 %counter_0, -8" [just_encrypt.cpp:237]   --->   Operation 10 'icmp' 'icmp_ln237' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.73ns)   --->   "%counter = add i4 %counter_0, 1" [just_encrypt.cpp:237]   --->   Operation 12 'add' 'counter' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln237, label %3, label %2" [just_encrypt.cpp:237]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node xor_ln239)   --->   "%trunc_ln237 = trunc i3 %b_assign_1 to i1" [just_encrypt.cpp:237]   --->   Operation 14 'trunc' 'trunc_ln237' <Predicate = (!icmp_ln237)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node xor_ln239)   --->   "%select_ln239 = select i1 %trunc_ln237, i8 %p_0_7, i8 0" [just_encrypt.cpp:239]   --->   Operation 15 'select' 'select_ln239' <Predicate = (!icmp_ln237)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln239 = xor i8 %select_ln239, %p_0" [just_encrypt.cpp:239]   --->   Operation 16 'xor' 'xor_ln239' <Predicate = (!icmp_ln237)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%shl_ln242 = shl i8 %p_0_7, 1" [just_encrypt.cpp:242]   --->   Operation 17 'shl' 'shl_ln242' <Predicate = (!icmp_ln237)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node select_ln243)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %p_0_7, i32 7)" [just_encrypt.cpp:243]   --->   Operation 18 'bitselect' 'tmp' <Predicate = (!icmp_ln237)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node select_ln243)   --->   "%xor_ln244 = xor i8 %shl_ln242, 27" [just_encrypt.cpp:244]   --->   Operation 19 'xor' 'xor_ln244' <Predicate = (!icmp_ln237)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln243 = select i1 %tmp, i8 %xor_ln244, i8 %shl_ln242" [just_encrypt.cpp:243]   --->   Operation 20 'select' 'select_ln243' <Predicate = (!icmp_ln237)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%b_assign = call i2 @_ssdm_op_PartSelect.i2.i3.i32.i32(i3 %b_assign_1, i32 1, i32 2)" [just_encrypt.cpp:245]   --->   Operation 21 'partselect' 'b_assign' <Predicate = (!icmp_ln237)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln245 = zext i2 %b_assign to i3" [just_encrypt.cpp:245]   --->   Operation 22 'zext' 'zext_ln245' <Predicate = (!icmp_ln237)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "br label %1" [just_encrypt.cpp:237]   --->   Operation 23 'br' <Predicate = (!icmp_ln237)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "ret i8 %p_0" [just_encrypt.cpp:247]   --->   Operation 24 'ret' <Predicate = (icmp_ln237)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('counter') with incoming values : ('counter', just_encrypt.cpp:237) [7]  (1.77 ns)
+
+ <State 2>: 1.74ns
+The critical path consists of the following:
+	'phi' operation ('counter') with incoming values : ('counter', just_encrypt.cpp:237) [7]  (0 ns)
+	'add' operation ('counter', just_encrypt.cpp:237) [13]  (1.74 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

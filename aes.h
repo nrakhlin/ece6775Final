@@ -3,6 +3,26 @@
 
 #include <stddef.h> // for size_t
 
+
+
+// switch (size)
+    // {
+    // case SIZE_16:
+    //     nbrRounds = 10;
+    //     break;
+    // case SIZE_24:
+    //     nbrRounds = 12;
+    //     break;
+    // case SIZE_32:
+    //     nbrRounds = 14;
+    //     break;
+    // default:
+    //     return ERROR_AES_UNKNOWN_KEYSIZE;
+    //     break;
+    // }
+#define MAX_LENGTH 16
+#define NBRROUNDS 10
+
 /* Error Codes */
 enum errorCode {
     SUCCESS = 0,
@@ -29,7 +49,7 @@ unsigned char getSBoxInvert(unsigned char num);
 void rotate(unsigned char *word);
 unsigned char getRconValue(unsigned char num);
 void core(unsigned char *word, int iteration);
-void expandKey(unsigned char *expandedKey, unsigned char *key, enum keySize size, size_t expandedKeySize);
+void expandKey(unsigned char *expandedKey, unsigned char *key, int size, size_t expandedKeySize);
 
 // AES Encryption/Decryption Functions
 void subBytes(unsigned char *state);
@@ -42,7 +62,7 @@ void mixColumn(unsigned char *column);
 void aes_round(unsigned char *state, unsigned char *roundKey);
 void createRoundKey(unsigned char *expandedKey, unsigned char *roundKey);
 void aes_main(unsigned char *state, unsigned char *expandedKey, int nbrRounds);
-char aes_encrypt(unsigned char *input, unsigned char *output, unsigned char *key, enum keySize size);
+char aes_encrypt(unsigned char *input, unsigned char *output, unsigned char *key, int size);
 
 // AES Decryption Functions
 void invSubBytes(unsigned char *state);
@@ -52,7 +72,7 @@ void invMixColumns(unsigned char *state);
 void invMixColumn(unsigned char *column);
 void aes_invRound(unsigned char *state, unsigned char *roundKey);
 void aes_invMain(unsigned char *state, unsigned char *expandedKey, int nbrRounds);
-char aes_decrypt(unsigned char *input, unsigned char *output, unsigned char *key, enum keySize size);
+char aes_decrypt(unsigned char *input, unsigned char *output, unsigned char *key, int size);
 
 // Global Variables (Optional: If you need to include them, though they can also be externalized in implementation files)
 extern unsigned char sbox[256];

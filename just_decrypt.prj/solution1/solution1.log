@@ -1,0 +1,227 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'just_decrypt.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6884 ; free virtual = 26933
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6884 ; free virtual = 26933
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6883 ; free virtual = 26933
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'rotate' into 'core' (just_decrypt.cpp:100) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'core' (just_decrypt.cpp:105) automatically.
+INFO: [XFORM 203-602] Inlining function 'getRconValue' into 'core' (just_decrypt.cpp:109) automatically.
+INFO: [XFORM 203-602] Inlining function 'core' into 'expandKey' (just_decrypt.cpp:148) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (just_decrypt.cpp:214) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invRound' (just_decrypt.cpp:309) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (just_decrypt.cpp:310) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (just_decrypt.cpp:311) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (just_decrypt.cpp:322) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invMain' (just_decrypt.cpp:331) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (just_decrypt.cpp:332) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6883 ; free virtual = 26933
+INFO: [XFORM 203-102] Automatically partitioning small array 'column' (just_decrypt.cpp:258) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'cpy' (just_decrypt.cpp:282) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 't' (just_decrypt.cpp:128) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'column' (just_decrypt.cpp:258) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'cpy' (just_decrypt.cpp:282) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 't' (just_decrypt.cpp:128) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'core' (just_decrypt.cpp:105) automatically.
+INFO: [XFORM 203-602] Inlining function 'getRconValue' into 'core' (just_decrypt.cpp:109) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (just_decrypt.cpp:214) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invRound' (just_decrypt.cpp:309) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (just_decrypt.cpp:310) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (just_decrypt.cpp:311) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (just_decrypt.cpp:322) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invMain' (just_decrypt.cpp:331) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (just_decrypt.cpp:332) automatically.
+INFO: [XFORM 203-602] Inlining function 'rotate' into 'core' (just_decrypt.cpp:100) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'invMixColumn' (just_decrypt.cpp:280)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6869 ; free virtual = 26919
+WARNING: [XFORM 203-631] Renaming function 'galois_multiplication' to 'galois_multiplicatio' (just_decrypt.cpp:181:36)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:275:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'expandedKey' (just_decrypt.cpp:132:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'expandedKey' (just_decrypt.cpp:163:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'roundKey' (just_decrypt.cpp:202:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:233:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:234:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:214:20)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:173:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:173:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:233:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:234:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:214:20)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (just_decrypt.cpp:173:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'block' (just_decrypt.cpp:368:13)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1207.180 ; gain = 569.156 ; free physical = 6793 ; free virtual = 26843
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'decrypt_dut' ...
+WARNING: [SYN 201-107] Renaming port name 'decrypt_dut/input' to 'decrypt_dut/input_r' to avoid the conflict with HDL keywords or other object names.
+WARNING: [SYN 201-107] Renaming port name 'decrypt_dut/output' to 'decrypt_dut/output_r' to avoid the conflict with HDL keywords or other object names.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 7.32 seconds; current allocated memory: 205.083 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 205.459 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'expandKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 205.772 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 206.293 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 206.416 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 206.542 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 206.641 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 206.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 206.929 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 207.248 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 207.535 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 207.848 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 208.173 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 208.419 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 208.806 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 209.183 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 209.540 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 209.868 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'decrypt_dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 210.097 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 210.182 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'decrypt_dut_mux_42_1_1_1' to 'decrypt_dut_mux_4bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'decrypt_dut_mux_42_8_1_1' to 'decrypt_dut_mux_4cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'decrypt_dut_mux_4bkb': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'decrypt_dut_mux_4cud': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'core'.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 210.945 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'expandKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'decrypt_dut_mux_4cud': 5 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'expandKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 213.114 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'createRoundKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 215.202 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'galois_multiplicatio'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 215.914 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
