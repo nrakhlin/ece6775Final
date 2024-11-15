@@ -10,13 +10,13 @@ set hls_prj blowfish.prj
 open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
-set_top Blowfish::EncryptBlock
+set_top Blowfish::Encrypt_Decrypt_SetKey
 
 # Add design and testbench files
 add_files blowfish.cpp
 add_files blowfish.h
 add_files initial_data.h
-add_files -tb test.cpp
+add_files -tb test2.cpp
 
 open_solution "solution1"
 # Use Zynq device
@@ -34,5 +34,6 @@ csim_design
 # Synthesize the design
 csynth_design
 # Co-simulate the design
-#cosim_design
+cosim_design
+
 exit

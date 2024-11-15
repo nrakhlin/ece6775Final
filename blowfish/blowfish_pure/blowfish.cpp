@@ -8,8 +8,6 @@
 // ========================================================================================
 // TODO: Ensure sDecryptBlock and DecryptBlock are the same (same for encrypt functions)
 
-
-
 // Define a helper union to handle endianess conversion
 union Converter32 {
     uint32_t bit_32;
@@ -45,7 +43,7 @@ void Blowfish::SetKey(const unsigned char key[MAX_KEY_BYTE_LENGTH], int key_byte
     // Calculate the maximum buffer length and the actual buffer length
     // NOTE, we cannot use the GCD Function because it uses while loop...
     // Therefore, we need to be conservative and use max case. GCD (4, x) where x < 56 will NEVER
-    // be more than 4! 
+    // be more than 4!
     const int max_buffer_length = MAX_KEY_BYTE_LENGTH / 4;
     const int buffer_length = key_byte_length / 4;
 
@@ -131,6 +129,7 @@ void Blowfish::Encrypt(unsigned char dst[BLOCK_SIZE], const unsigned char src[BL
     uint32_t right_new;
     // Encrypt the block
     sEncryptBlock(left, right, left_new, right_new);
+    // ssEncryptBlock(left, right);
     
     // Store the encrypted values back into dst (reassemble 32-bit words back into 8 bytes)
     dst[0] = (left_new >> 24) & 0xFF;
@@ -217,7 +216,6 @@ void Blowfish::DecryptBlock(uint32_t *left, uint32_t *right) const {
 }
 
 
-
 void Blowfish::sEncryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, uint32_t &right_new) const {
     left_new = left;
     right_new = right;
@@ -242,7 +240,6 @@ void Blowfish::sEncryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, 
     right_new ^= pary_[16];
     left_new ^= pary_[17];
 }
-
 
 
 void Blowfish::sDecryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, uint32_t &right_new) const {
@@ -282,4 +279,24 @@ uint32_t Blowfish::Feistel(uint32_t value) const {
     uint8_t d = converter.bit_8.byte3;
     
     return ((sbox_[0][a] + sbox_[1][b]) ^ sbox_[2][c]) + sbox_[3][d];
+}
+
+
+
+void Blowfish::Encrypt_SetKey(bool set_key, const unsigned char key[MAX_KEY_BYTE_LENGTH], int key_byte_length, unsigned char encrypted[BLOCK_SIZE], const unsigned char plaintext[BLOCK_SIZE]) { 
+    if(set_key){
+        SetKey(key, key_byte_length);  // SetKey is non-const
+    }
+
+    Encrypt(encrypted, plaintext);  // Ensure dst and src are passed correctly
+}
+
+
+void Blowfish::Encrypt_Decrypt_SetKey(bool set_key, const unsigned char key[MAX_KEY_BYTE_LENGTH], int key_byte_length, unsigned char decrypted[BLOCK_SIZE], unsigned char encrypted[BLOCK_SIZE], const unsigned char plaintext[BLOCK_SIZE]) { 
+    if(set_key){
+        SetKey(key, key_byte_length);  // SetKey is non-const
+    }
+
+    Encrypt(encrypted, plaintext);  // Ensure dst and src are passed correctly
+    Decrypt(decrypted, encrypted);
 }

@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../test_vivado.cpp in debug mode
+   Compiling ../../../../blowfish.cpp in debug mode
+   Generating csim.exe
+Key: My Key!
+Size of the key: 7 bytes
+Original text: Tsisss?
+Size of the plaintext: 7 bytes
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

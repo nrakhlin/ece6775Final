@@ -1,1 +1,10 @@
-Blowfish_EncryptBlock
+Blowfish_Encrypt_cud
+Blowfish_Encrypt_dEe
+SetKey_initial_pabkb
+SetKey_initial_sbox
+SetKey_key_buffer
+sEncryptBlock
+SetKey
+Encrypt
+Decrypt
+Blowfish_Encrypt_Decrypt_SetKey

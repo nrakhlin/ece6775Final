@@ -1,5 +1,5 @@
 
-set TopModule "Blowfish_EncryptBlock"
+set TopModule "Blowfish_Encrypt_Decrypt_SetKey"
 set ClockPeriod 10
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
@@ -43,7 +43,7 @@ set TargetInfo xc7z020:-clg484:-1
 set SourceFiles {sc {} c {../../initial_data.h ../../blowfish.h ../../blowfish.cpp}}
 set SourceFlags {sc {} c {{ } {} { } {} { } {}}}
 set DirectiveFile /home/jjm469/ece6775/final_project/Blowfish/blowfish.prj/solution1/solution1.directive
-set TBFiles {verilog ../../test.cpp bc ../../test.cpp sc ../../test.cpp vhdl ../../test.cpp c {} cas ../../test.cpp}
+set TBFiles {verilog ../../test2.cpp bc ../../test2.cpp sc ../../test2.cpp vhdl ../../test2.cpp c {} cas ../../test2.cpp}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

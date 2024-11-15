@@ -1172,10 +1172,12 @@ typedef __uintmax_t uintmax_t;
 
 class Blowfish {
 public:
-
     void SetKey(const unsigned char key[56], int key_byte_length);
     void Encrypt(unsigned char* dst, const unsigned char* src) const;
     void Decrypt(unsigned char* dst, const unsigned char* src) const;
+    void Encrypt_SetKey(bool set_key, const unsigned char key[56], int key_byte_length, unsigned char encrypted[8], const unsigned char plaintext[8]);
+    void Encrypt_Decrypt_SetKey(bool set_key, const unsigned char key[56], int key_byte_length, unsigned char decrypted[8], unsigned char encrypted[8], const unsigned char plaintext[8]);
+
 
 private:
     void EncryptBlock(uint32_t *left, uint32_t *right) const;
@@ -1382,7 +1384,7 @@ const uint32_t initial_sbox[4][256] = {
     }
 };
 # 3 "blowfish.cpp" 2
-# 14 "blowfish.cpp"
+# 12 "blowfish.cpp"
 union Converter32 {
     uint32_t bit_32;
     struct {
@@ -1505,6 +1507,7 @@ void Blowfish::Encrypt(unsigned char dst[8], const unsigned char src[8]) const
     sEncryptBlock(left, right, left_new, right_new);
 
 
+
     dst[0] = (left_new >> 24) & 0xFF;
     dst[1] = (left_new >> 16) & 0xFF;
     dst[2] = (left_new >> 8) & 0xFF;
@@ -1589,7 +1592,6 @@ void Blowfish::DecryptBlock(uint32_t *left, uint32_t *right) const {
 }
 
 
-
 void Blowfish::sEncryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, uint32_t &right_new) const {
     left_new = left;
     right_new = right;
@@ -1614,7 +1616,6 @@ void Blowfish::sEncryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, 
     right_new ^= pary_[16];
     left_new ^= pary_[17];
 }
-
 
 
 void Blowfish::sDecryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, uint32_t &right_new) const {
@@ -1654,4 +1655,24 @@ uint32_t Blowfish::Feistel(uint32_t value) const {
     uint8_t d = converter.bit_8.byte3;
 
     return ((sbox_[0][a] + sbox_[1][b]) ^ sbox_[2][c]) + sbox_[3][d];
+}
+
+
+
+void Blowfish::Encrypt_SetKey(bool set_key, const unsigned char key[56], int key_byte_length, unsigned char encrypted[8], const unsigned char plaintext[8]) {_ssdm_SpecArrayDimSize(key, 56);_ssdm_SpecArrayDimSize(encrypted, 8);_ssdm_SpecArrayDimSize(plaintext, 8);
+    if(set_key){
+        SetKey(key, key_byte_length);
+    }
+
+    Encrypt(encrypted, plaintext);
+}
+
+
+void Blowfish::Encrypt_Decrypt_SetKey(bool set_key, const unsigned char key[56], int key_byte_length, unsigned char decrypted[8], unsigned char encrypted[8], const unsigned char plaintext[8]) {_ssdm_SpecArrayDimSize(key, 56);_ssdm_SpecArrayDimSize(decrypted, 8);_ssdm_SpecArrayDimSize(encrypted, 8);_ssdm_SpecArrayDimSize(plaintext, 8);
+    if(set_key){
+        SetKey(key, key_byte_length);
+    }
+
+    Encrypt(encrypted, plaintext);
+    Decrypt(decrypted, encrypted);
 }
