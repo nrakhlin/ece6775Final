@@ -5,7 +5,7 @@
     <includePaths/>
     <libraryFlag/>
     <files>
-        <file name="../../test2.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
+        <file name="../../test3.cpp" sc="0" tb="1" cflags=" -Wno-unknown-pragmas" csimflags=" -Wno-unknown-pragmas" blackbox="false"/>
         <file name="initial_data.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="blowfish.h" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>
         <file name="blowfish.cpp" sc="0" tb="false" cflags="" csimflags="" blackbox="false"/>

@@ -16,7 +16,7 @@ set_top Blowfish::Encrypt_Decrypt_SetKey
 add_files blowfish.cpp
 add_files blowfish.h
 add_files initial_data.h
-add_files -tb test2.cpp
+add_files -tb random_tests.cpp
 
 open_solution "solution1"
 # Use Zynq device

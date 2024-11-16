@@ -178,14 +178,14 @@
       "impl\/verilog\/Blowfish_Encrypt_Decrypt_SetKey.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.autopilot\/db\/Blowfish_Encrypt_Decrypt_SetKey.design.xml",
-    "DebugDir": "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.debug",
+    "DesignXml": "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.autopilot\/db\/Blowfish_Encrypt_Decrypt_SetKey.design.xml",
+    "DebugDir": "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.debug",
     "ProtoInst": [
-      "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.debug\/Blowfish_SetKey.protoinst",
-      "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.debug\/Blowfish_EncryptBlock.protoinst",
-      "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.debug\/Blowfish_Encrypt.protoinst",
-      "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.debug\/Blowfish_Encrypt_SetKey.protoinst",
-      "\/home\/jjm469\/ece6775\/final_project\/Blowfish\/blowfish.prj\/solution1\/.debug\/Blowfish_Encrypt_Decrypt_SetKey.protoinst"
+      "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.debug\/Blowfish_EncryptBlock.protoinst",
+      "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.debug\/Blowfish_SetKey.protoinst",
+      "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.debug\/Blowfish_Encrypt.protoinst",
+      "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.debug\/Blowfish_Encrypt_SetKey.protoinst",
+      "\/home\/jjm469\/ece6775\/final_project\/repo\/blowfish\/blowfish_pure\/blowfish.prj\/solution1\/.debug\/Blowfish_Encrypt_Decrypt_SetKey.protoinst"
     ]
   },
   "SubcoreInfo": {
@@ -1081,7 +1081,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-11-15 16:39:44 EST",
+    "Time": "2024-11-15 17:08:11 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

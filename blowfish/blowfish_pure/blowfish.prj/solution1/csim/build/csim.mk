@@ -18,7 +18,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../test2.cpp ../../../../blowfish.cpp
+HLS_SOURCES = ../../../../test3.cpp ../../../../blowfish.cpp
 
 TARGET := csim.exe
 
@@ -70,11 +70,11 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/test2.o: ../../../../test2.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../test2.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/test3.o: ../../../../test3.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../test3.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/test2.d
+-include $(ObjDir)/test3.d
 
 $(ObjDir)/blowfish.o: ../../../../blowfish.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../blowfish.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

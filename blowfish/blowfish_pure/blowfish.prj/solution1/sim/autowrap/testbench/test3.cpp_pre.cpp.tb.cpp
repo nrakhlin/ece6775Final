@@ -2,12 +2,12 @@
 // Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
-# 1 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp"
+# 1 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/test3.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 1 "<command-line>" 2
-# 1 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp"
+# 1 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/test3.cpp"
 # 1 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/iostream" 1 3
 # 36 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/iostream" 3
        
@@ -27246,7 +27246,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 }
-# 2 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp" 2
+# 2 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/test3.cpp" 2
 # 1 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/iomanip" 1 3
 # 36 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/iomanip" 3
        
@@ -35249,7 +35249,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 }
-# 3 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp" 2
+# 3 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/test3.cpp" 2
 # 1 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/cstring" 1 3
 # 39 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/cstring" 3
        
@@ -35678,9 +35678,9 @@ namespace std __attribute__ ((__visibility__ ("default")))
 # 120 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/cstring" 3
 
 }
-# 4 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp" 2
-# 1 "/home/jjm469/ece6775/final_project/Blowfish/blowfish.h" 1
-# 9 "/home/jjm469/ece6775/final_project/Blowfish/blowfish.h"
+# 4 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/test3.cpp" 2
+# 1 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/blowfish.h" 1
+# 9 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/blowfish.h"
        
 
 
@@ -35690,14 +35690,14 @@ namespace std __attribute__ ((__visibility__ ("default")))
 # 39 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/cstdio" 3
        
 # 40 "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/include/c++/6.2.0/cstdio" 3
-# 15 "/home/jjm469/ece6775/final_project/Blowfish/blowfish.h" 2
+# 15 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/blowfish.h" 2
 
 
 
 
 
 
-# 20 "/home/jjm469/ece6775/final_project/Blowfish/blowfish.h"
+# 20 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/blowfish.h"
 class Blowfish {
 public:
     void SetKey(const unsigned char key[56], int key_byte_length);
@@ -35718,7 +35718,23 @@ private:
     uint32_t pary_[18];
     uint32_t sbox_[4][256];
 };
-# 5 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp" 2
+# 5 "/home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/test3.cpp" 2
+
+
+unsigned char simpleRandomByte() {
+    static unsigned char seed = 0;
+    seed = (seed + 31) % 256;
+    return seed;
+}
+
+
+void generateRandomString(unsigned char *str) {
+    for (size_t i = 0; i < 8; ++i) {
+        str[i] = simpleRandomByte();
+    }
+    printf("Size of the plaintext: %zu bytes\n", sizeof(str));
+
+}
 
 int main() {
 
@@ -35726,38 +35742,63 @@ int main() {
     printf("Key: %s\n", key);
     printf("Size of the key: %zu bytes\n", sizeof(key));
 
-    const unsigned char plaintext[] = "Tsisss?";
 
-    std::cout << "Original text: " << plaintext << std::endl;
-    printf("Size of the plaintext: %zu bytes\n", sizeof(plaintext));
+    const int n = 10;
 
 
-
-    unsigned char encrypted[sizeof(plaintext)];
-    unsigned char decrypted[sizeof(plaintext)];
+    unsigned char encrypted[8];
+    unsigned char decrypted[8];
 
 
     Blowfish blowfish;
-# 33 "/home/jjm469/ece6775/final_project/Blowfish/test2.cpp"
-    blowfish.Encrypt_Decrypt_SetKey(true, key, sizeof(key), decrypted, encrypted, plaintext);
+    blowfish.SetKey(key, sizeof(key));
+
+    bool allTestsPassed = true;
 
 
+    for (int i = 0; i < n; ++i) {
+
+        unsigned char randomText[8];
+        generateRandomString(randomText);
 
 
-    std::cout << "Encrypted text: ";
-    for (size_t i = 0; i < sizeof(encrypted); ++i) {
-        std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)encrypted[i];
+        std::cout << "Original random text #" << i + 1 << ": ";
+        for (size_t j = 0; j < 8; ++j) {
+            std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)randomText[j];
+        }
+        std::cout << std::dec << std::endl;
+
+
+        blowfish.Encrypt_Decrypt_SetKey(true, key, sizeof(key), decrypted, encrypted, randomText);
+
+
+        std::cout << "Encrypted text: ";
+        for (size_t j = 0; j < 8; ++j) {
+            std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)encrypted[j];
+        }
+        std::cout << std::dec << std::endl;
+
+
+        std::cout << "Decrypted text: ";
+        for (size_t j = 0; j < 8; ++j) {
+            std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)decrypted[j];
+        }
+        std::cout << std::dec << std::endl;
+
+
+        if (std::memcmp(randomText, decrypted, 8) == 0) {
+            std::cout << "Encryption and decryption successful for test #" << i + 1 << "!" << std::endl;
+        } else {
+            std::cout << "Test #" << i + 1 << " failed: decrypted text does not match the original plaintext." << std::endl;
+            allTestsPassed = false;
+        }
     }
-    std::cout << std::dec << std::endl;
 
 
-    std::cout << "Decrypted text: " << decrypted << std::endl;
-
-
-    if (std::memcmp(plaintext, decrypted, sizeof(plaintext)) == 0) {
-        std::cout << "Encryption and decryption successful!" << std::endl;
+    if (allTestsPassed) {
+        std::cout << "\nAll tests passed successfully!" << std::endl;
     } else {
-        std::cout << "Test failed: decrypted text does not match the original plaintext." << std::endl;
+        std::cout << "\nSome tests failed. Please check the results above." << std::endl;
     }
 
     return 0;

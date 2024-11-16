@@ -173,14 +173,14 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "Blowfish_pary_s", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "Blowfish_pary_s"},
+					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "Blowfish_pary_s"},
 					{"ID" : "1", "SubInstance" : "grp_SetKey_fu_48", "Port" : "Blowfish_pary_s"},
-					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "Blowfish_pary_s"}]},
+					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "Blowfish_pary_s"}]},
 			{"Name" : "Blowfish_sbox_s", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "Blowfish_sbox_s"},
+					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "Blowfish_sbox_s"},
 					{"ID" : "1", "SubInstance" : "grp_SetKey_fu_48", "Port" : "Blowfish_sbox_s"},
-					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "Blowfish_sbox_s"}]},
+					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "Blowfish_sbox_s"}]},
 			{"Name" : "set_key", "Type" : "None", "Direction" : "I"},
 			{"Name" : "key", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
@@ -191,8 +191,8 @@ set RtlHierarchyInfo {[
 					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "dst"}]},
 			{"Name" : "encrypted", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "dst"},
-					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "src"}]},
+					{"ID" : "11", "SubInstance" : "grp_Decrypt_fu_64", "Port" : "src"},
+					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "dst"}]},
 			{"Name" : "plaintext", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "12", "SubInstance" : "grp_Encrypt_fu_76", "Port" : "src"}]},

@@ -1,14 +1,61 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../test2.cpp in debug mode
+   Compiling ../../../../test3.cpp in debug mode
    Compiling ../../../../blowfish.cpp in debug mode
    Generating csim.exe
 Key: My Key!
 Size of the key: 8 bytes
-Original text: Tsisss?
 Size of the plaintext: 8 bytes
-Encrypted text: 00b249124a39d582
-Decrypted text: Tsisss?
-Encryption and decryption successful!
+Original random text #1: 1f3e5d7c9bbad9f8
+Encrypted text: de46ceb1278cb444
+Decrypted text: 1f3e5d7c9bbad9f8
+Encryption and decryption successful for test #1!
+Size of the plaintext: 8 bytes
+Original random text #2: 1736557493b2d1f0
+Encrypted text: 0916863455ce0397
+Decrypted text: 1736557493b2d1f0
+Encryption and decryption successful for test #2!
+Size of the plaintext: 8 bytes
+Original random text #3: 0f2e4d6c8baac9e8
+Encrypted text: 30f50869b7acbe0d
+Decrypted text: 0f2e4d6c8baac9e8
+Encryption and decryption successful for test #3!
+Size of the plaintext: 8 bytes
+Original random text #4: 0726456483a2c1e0
+Encrypted text: 67472ac4eaf1bebe
+Decrypted text: 0726456483a2c1e0
+Encryption and decryption successful for test #4!
+Size of the plaintext: 8 bytes
+Original random text #5: ff1e3d5c7b9ab9d8
+Encrypted text: 649c4331480a533a
+Decrypted text: ff1e3d5c7b9ab9d8
+Encryption and decryption successful for test #5!
+Size of the plaintext: 8 bytes
+Original random text #6: f71635547392b1d0
+Encrypted text: 1f3ba0f434f4cc59
+Decrypted text: f71635547392b1d0
+Encryption and decryption successful for test #6!
+Size of the plaintext: 8 bytes
+Original random text #7: ef0e2d4c6b8aa9c8
+Encrypted text: effbe7eb0749c7e1
+Decrypted text: ef0e2d4c6b8aa9c8
+Encryption and decryption successful for test #7!
+Size of the plaintext: 8 bytes
+Original random text #8: e70625446382a1c0
+Encrypted text: 2280e4b97bebac36
+Decrypted text: e70625446382a1c0
+Encryption and decryption successful for test #8!
+Size of the plaintext: 8 bytes
+Original random text #9: dffe1d3c5b7a99b8
+Encrypted text: ef9abb7c4f4509a8
+Decrypted text: dffe1d3c5b7a99b8
+Encryption and decryption successful for test #9!
+Size of the plaintext: 8 bytes
+Original random text #10: d7f61534537291b0
+Encrypted text: ef344d3dbd1b965a
+Decrypted text: d7f61534537291b0
+Encryption and decryption successful for test #10!
+
+All tests passed successfully!
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************
