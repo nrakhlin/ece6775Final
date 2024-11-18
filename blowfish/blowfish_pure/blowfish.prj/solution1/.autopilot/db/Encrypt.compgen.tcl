@@ -11,17 +11,17 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 19 \
-    name Blowfish_pary_s \
+    id 13 \
+    name plaintext \
     reset_level 1 \
     sync_rst true \
     dir I \
-    corename Blowfish_pary_s \
+    corename plaintext \
     op interface \
-    ports { Blowfish_pary_s_address0 { O 5 vector } Blowfish_pary_s_ce0 { O 1 bit } Blowfish_pary_s_q0 { I 32 vector } } \
+    ports { plaintext_address0 { O 3 vector } plaintext_ce0 { O 1 bit } plaintext_q0 { I 8 vector } plaintext_address1 { O 3 vector } plaintext_ce1 { O 1 bit } plaintext_q1 { I 8 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'Blowfish_pary_s'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'plaintext'"
 }
 }
 
@@ -30,17 +30,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 20 \
-    name Blowfish_sbox_s \
+    id 14 \
+    name ciphertext \
     reset_level 1 \
     sync_rst true \
-    dir I \
-    corename Blowfish_sbox_s \
+    dir O \
+    corename ciphertext \
     op interface \
-    ports { Blowfish_sbox_s_address0 { O 10 vector } Blowfish_sbox_s_ce0 { O 1 bit } Blowfish_sbox_s_q0 { I 32 vector } Blowfish_sbox_s_address1 { O 10 vector } Blowfish_sbox_s_ce1 { O 1 bit } Blowfish_sbox_s_q1 { I 32 vector } } \
+    ports { ciphertext_address0 { O 3 vector } ciphertext_ce0 { O 1 bit } ciphertext_we0 { O 1 bit } ciphertext_d0 { O 8 vector } ciphertext_address1 { O 3 vector } ciphertext_ce1 { O 1 bit } ciphertext_we1 { O 1 bit } ciphertext_d1 { O 8 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'Blowfish_sbox_s'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'ciphertext'"
 }
 }
 
@@ -49,17 +49,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 21 \
-    name dst \
+    id 15 \
+    name P \
     reset_level 1 \
     sync_rst true \
-    dir IO \
-    corename dst \
+    dir I \
+    corename P \
     op interface \
-    ports { dst_address0 { O 3 vector } dst_ce0 { O 1 bit } dst_we0 { O 1 bit } dst_d0 { O 8 vector } dst_q0 { I 8 vector } dst_address1 { O 3 vector } dst_ce1 { O 1 bit } dst_we1 { O 1 bit } dst_d1 { O 8 vector } dst_q1 { I 8 vector } } \
+    ports { P_address0 { O 5 vector } P_ce0 { O 1 bit } P_q0 { I 32 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'dst'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'P'"
 }
 }
 
@@ -68,17 +68,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 22 \
-    name src \
+    id 16 \
+    name S \
     reset_level 1 \
     sync_rst true \
     dir I \
-    corename src \
+    corename S \
     op interface \
-    ports { src_address0 { O 3 vector } src_ce0 { O 1 bit } src_q0 { I 8 vector } } \
+    ports { S_address0 { O 10 vector } S_ce0 { O 1 bit } S_q0 { I 32 vector } S_address1 { O 10 vector } S_ce1 { O 1 bit } S_q1 { I 32 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'src'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'S'"
 }
 }
 

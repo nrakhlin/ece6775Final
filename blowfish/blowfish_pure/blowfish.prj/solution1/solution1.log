@@ -74,46 +74,58 @@ Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+ERROR: [HLS 200-70] Compilation errors found: In file included from blowfish.cpp:1:
+blowfish.cpp:72:5: error: use of undeclared identifier 'printf'; did you mean 'wprintf'?
+    printf("KEY (chars): ");
+    ^~~~~~
+    wprintf
+/usr/include/wchar.h:587:12: note: 'wprintf' declared here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+           ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:72:12: error: cannot initialize a parameter of type 'const wchar_t *' with an lvalue of type 'const char [14]'
+    printf("KEY (chars): ");
+           ^~~~~~~~~~~~~~~
+/usr/include/wchar.h:587:47: note: passing argument to parameter '__format' here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+                                              ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:74:9: error: use of undeclared identifier 'printf'
+        printf("%c", key[i]);
+        ^
+blowfish.cpp:76:5: error: use of undeclared identifier 'printf'; did you mean 'wprintf'?
+    printf("\n");
+    ^~~~~~
+    wprintf
+/usr/include/wchar.h:587:12: note: 'wprintf' declared here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+           ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:76:12: error: cannot initialize a parameter of type 'const wchar_t *' with an lvalue of type 'const char [2]'
+    printf("\n");
+           ^~~~
+/usr/include/wchar.h:587:47: note: passing argument to parameter '__format' here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+                                              ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:77:5: error: use of undeclared identifier 'printf'
+    printf("size: %d\n", key_size);
+    ^
+blowfish.cpp:91:13: error: use of undeclared identifier 'printf'
+            printf("KEY[KEYINDEX]: %d\n", key[keyIndex]);
+            ^
+blowfish.cpp:92:13: error: use of undeclared identifier 'printf'
+            printf("KEYINDEX: %d\n", keyIndex);
+            ^
+8 errors generated.
 ==============================================================
 Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
@@ -154,1157 +166,98 @@ INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
 INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 306 ; free virtual = 22243
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 306 ; free virtual = 22243
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3364 ; free virtual = 18869
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3364 ; free virtual = 18869
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 305 ; free virtual = 22242
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3361 ; free virtual = 18867
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 305 ; free virtual = 22242
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 289 ; free virtual = 22226
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 265 ; free virtual = 22201
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt_SetKey' (blowfish.cpp:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Encrypt' (blowfish.cpp:25) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt' (blowfish.cpp:29) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt' (blowfish.cpp:30) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Encrypt' (blowfish.cpp:35) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3359 ; free virtual = 18865
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt_SetKey' (blowfish.cpp:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Encrypt' (blowfish.cpp:25) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt' (blowfish.cpp:29) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt' (blowfish.cpp:30) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Encrypt' (blowfish.cpp:35) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3338 ; free virtual = 18845
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3319 ; free virtual = 18826
 INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
+INFO: [HLS 200-10] Synthesizing 'SetKey_Encrypt' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.2 seconds; current allocated memory: 146.467 MB.
+INFO: [HLS 200-111]  Elapsed time: 8.51 seconds; current allocated memory: 153.993 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 146.919 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 147.150 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 147.374 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 154.223 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'SetKey' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 147.833 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 154.727 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 148.533 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 155.332 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_SetKey' 
+INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 148.692 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 155.699 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 148.771 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.115 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.185 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.298 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 156.739 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'SetKey_Encrypt_urem_64ns_64ns_64_68_seq_1' to 'SetKey_Encrypt_urcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'SetKey_Encrypt_urcud': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 158.935 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt'.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 149.512 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 161.746 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
+INFO: [HLS 200-10] -- Generating RTL for module 'SetKey_Encrypt' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 151.687 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'Blowfish_Encrypt_SetKey_srem_7ns_32ns_32_11_seq_1' to 'Blowfish_Encrypt_cud' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'Blowfish_Encrypt_SetKey_srem_6ns_31ns_31_10_seq_1' to 'Blowfish_Encrypt_dEe' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_Encrypt_cud': 4 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_Encrypt_dEe': 1 instance(s).
-INFO: [RTGEN 206-100] Finished creating RTL model for 'SetKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 153.765 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Encrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_Encrypt_SetKey/Blowfish_pary_s' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_Encrypt_SetKey/Blowfish_sbox_s' to 'ap_memory'.
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 827 ; free virtual = 22136
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 827 ; free virtual = 22136
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 824 ; free virtual = 22134
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 823 ; free virtual = 22133
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 805 ; free virtual = 22115
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:117:9)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:135:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:136:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:137:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:138:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:139:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:140:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:141:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'dst' (blowfish.cpp:142:5)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 774 ; free virtual = 22084
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 8.14 seconds; current allocated memory: 156.771 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.020 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.540 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.202 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.571 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 158.999 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.340 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.771 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.846 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 160.019 MB.
-==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 701 ; free virtual = 22010
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 701 ; free virtual = 22010
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 699 ; free virtual = 22008
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 699 ; free virtual = 22008
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 676 ; free virtual = 21985
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 639 ; free virtual = 21948
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.83 seconds; current allocated memory: 156.789 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.022 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.540 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.204 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.574 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.003 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.343 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.773 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.853 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.026 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.488 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 851 ; free virtual = 22161
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 851 ; free virtual = 22161
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 850 ; free virtual = 22160
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 850 ; free virtual = 22160
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 831 ; free virtual = 22141
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1189.180 ; gain = 551.156 ; free physical = 798 ; free virtual = 22108
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.98 seconds; current allocated memory: 156.787 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.020 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 157.523 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 158.186 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 158.556 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 158.984 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.326 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.756 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.836 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.010 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.471 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 322 ; free virtual = 20439
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 322 ; free virtual = 20439
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 318 ; free virtual = 20435
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 318 ; free virtual = 20435
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 301 ; free virtual = 20418
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 268 ; free virtual = 20386
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 8.07 seconds; current allocated memory: 156.791 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.024 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.554 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.218 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.599 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.027 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.378 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.808 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.887 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 160.061 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.523 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 355 ; free virtual = 20425
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 355 ; free virtual = 20425
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 353 ; free virtual = 20424
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 353 ; free virtual = 20424
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 335 ; free virtual = 20406
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 302 ; free virtual = 20373
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.64 seconds; current allocated memory: 156.792 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.026 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.555 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 158.218 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 158.600 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.029 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.378 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.809 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.887 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.062 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.523 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 321 ; free virtual = 20393
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 321 ; free virtual = 20393
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 319 ; free virtual = 20391
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 319 ; free virtual = 20390
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 301 ; free virtual = 20373
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 268 ; free virtual = 20339
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.9 seconds; current allocated memory: 156.790 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.023 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.553 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.216 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.598 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.026 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.375 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.806 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.886 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.063 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.523 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 298 ; free virtual = 19997
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 298 ; free virtual = 19997
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 293 ; free virtual = 19992
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 293 ; free virtual = 19992
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 276 ; free virtual = 19975
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 245 ; free virtual = 19943
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.69 seconds; current allocated memory: 156.792 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.026 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 157.555 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.219 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.600 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.029 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.378 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.809 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.888 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.064 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.523 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 295 ; free virtual = 19870
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 295 ; free virtual = 19870
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 292 ; free virtual = 19867
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 292 ; free virtual = 19867
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 266 ; free virtual = 19842
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 257 ; free virtual = 19803
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.93 seconds; current allocated memory: 156.790 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.024 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.555 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.218 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.599 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.028 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.376 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 159.807 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.888 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.062 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.524 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 351 ; free virtual = 19812
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 351 ; free virtual = 19812
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 350 ; free virtual = 19811
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 349 ; free virtual = 19811
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 332 ; free virtual = 19793
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 298 ; free virtual = 19759
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.52 seconds; current allocated memory: 156.791 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.024 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 157.555 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.217 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 158.599 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.028 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.378 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.807 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.886 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.060 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 160.522 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
-Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-==============================================================
-INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
-INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 384 ; free virtual = 19657
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 384 ; free virtual = 19657
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 382 ; free virtual = 19656
-INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 382 ; free virtual = 19656
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sEncryptBlock' (blowfish.cpp:226) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sEncryptBlock' into 'Blowfish::Encrypt' (blowfish.cpp:131) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::Feistel' into 'Blowfish::sDecryptBlock' (blowfish.cpp:253) automatically.
-INFO: [XFORM 203-602] Inlining function 'Blowfish::sDecryptBlock' into 'Blowfish::Decrypt' (blowfish.cpp:166) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 364 ; free virtual = 19638
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::sEncryptBlock' to 'sEncryptBlock' (blowfish.cpp:219)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::SetKey' to 'SetKey' (blowfish.cpp:30)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Encrypt' to 'Encrypt' (blowfish.cpp:113)
-WARNING: [XFORM 203-631] Renaming function 'Blowfish::Decrypt' to 'Decrypt' (blowfish.cpp:146)
-INFO: [HLS 200-472] Inferring partial write operation for 'key_buffer' (blowfish.cpp:64:13)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 325 ; free virtual = 19598
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish::Encrypt_Decrypt_SetKey' ...
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name.
-WARNING: [SYN 201-103] Top function name 'Blowfish::Encrypt_Decrypt_SetKey' is not a legal RTL name and is changed to 'Blowfish_Encrypt_Decrypt_SetKey'; this may result in automatic C/RTL co-simulation failure.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.42 seconds; current allocated memory: 156.792 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 157.025 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 157.556 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 158.219 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 158.601 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.029 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Decrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 159.378 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 159.808 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt_Decrypt_SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 159.890 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 160.064 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sEncryptBlock' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sEncryptBlock'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 160.525 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
-INFO: [SYN 201-210]
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/set_key' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/key_size' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/plaintext' to 'ap_memory'.

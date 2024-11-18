@@ -1,0 +1,441 @@
+<stg><name>SetKey_Encrypt</name>
+
+
+<trans_list>
+
+<trans id="22" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp><literal name="set_key_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="23" from="1" to="3">
+<condition id="-1">
+<or_exp><and_exp><literal name="set_key_read" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="25" from="2" to="3">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="26" from="3" to="4">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="0" op_0_bw="0" op_1_bw="1">
+<![CDATA[
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i1 %set_key) nounwind, !map !52
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:1  call void (...)* @_ssdm_op_SpecBitsMap([56 x i8]* %key) nounwind, !map !58
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="0" op_0_bw="0" op_1_bw="64">
+<![CDATA[
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i64 %key_size) nounwind, !map !64
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:3  call void (...)* @_ssdm_op_SpecBitsMap([8 x i8]* %plaintext) nounwind, !map !68
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:4  call void (...)* @_ssdm_op_SpecBitsMap([8 x i8]* %ciphertext) nounwind, !map !74
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="0" op_0_bw="0" op_1_bw="32">
+<![CDATA[
+:5  call void (...)* @_ssdm_op_SpecBitsMap([18 x i32]* %P) nounwind, !map !78
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="11" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="18" bw="0" op_0_bw="0" op_1_bw="32">
+<![CDATA[
+:6  call void (...)* @_ssdm_op_SpecBitsMap([1024 x i32]* %S) nounwind, !map !84
+
+]]></Node>
+<StgValue><ssdm name="specbitsmap_ln0"/></StgValue>
+</operation>
+
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="19" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+:7  call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @SetKey_Encrypt_str) nounwind
+
+]]></Node>
+<StgValue><ssdm name="spectopmodule_ln0"/></StgValue>
+</operation>
+
+<operation id="13" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="20" bw="64" op_0_bw="64" op_1_bw="64">
+<![CDATA[
+:8  %key_size_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %key_size) nounwind
+
+]]></Node>
+<StgValue><ssdm name="key_size_read"/></StgValue>
+</operation>
+
+<operation id="14" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+:9  %set_key_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %set_key) nounwind
+
+]]></Node>
+<StgValue><ssdm name="set_key_read"/></StgValue>
+</operation>
+
+<operation id="15" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="22" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+:10  br i1 %set_key_read, label %1, label %._crit_edge
+
+]]></Node>
+<StgValue><ssdm name="br_ln114"/></StgValue>
+</operation>
+
+<operation id="16" st_id="1" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="set_key_read" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="64" op_3_bw="32" op_4_bw="32" op_5_bw="32" op_6_bw="32">
+<![CDATA[
+:0  call fastcc void @SetKey([56 x i8]* %key, i64 %key_size_read, [18 x i32]* %P, [1024 x i32]* %S) nounwind
+
+]]></Node>
+<StgValue><ssdm name="call_ln115"/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="17" st_id="2" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="24" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="64" op_3_bw="32" op_4_bw="32" op_5_bw="32" op_6_bw="32">
+<![CDATA[
+:0  call fastcc void @SetKey([56 x i8]* %key, i64 %key_size_read, [18 x i32]* %P, [1024 x i32]* %S) nounwind
+
+]]></Node>
+<StgValue><ssdm name="call_ln115"/></StgValue>
+</operation>
+
+<operation id="18" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="25" bw="0" op_0_bw="0">
+<![CDATA[
+:1  br label %._crit_edge
+
+]]></Node>
+<StgValue><ssdm name="br_ln117"/></StgValue>
+</operation>
+</state>
+
+<state id="3" st_id="3">
+
+<operation id="19" st_id="3" stage="2" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="27" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="0">
+<![CDATA[
+._crit_edge:0  call fastcc void @Encrypt([8 x i8]* %plaintext, [8 x i8]* %ciphertext, [18 x i32]* %P, [1024 x i32]* %S) nounwind
+
+]]></Node>
+<StgValue><ssdm name="call_ln118"/></StgValue>
+</operation>
+</state>
+
+<state id="4" st_id="4">
+
+<operation id="20" st_id="4" stage="1" lat="2">
+<core></core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="27" bw="0" op_0_bw="0" op_1_bw="8" op_2_bw="8" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="0">
+<![CDATA[
+._crit_edge:0  call fastcc void @Encrypt([8 x i8]* %plaintext, [8 x i8]* %ciphertext, [18 x i32]* %P, [1024 x i32]* %S) nounwind
+
+]]></Node>
+<StgValue><ssdm name="call_ln118"/></StgValue>
+</operation>
+
+<operation id="21" st_id="4" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="28" bw="0">
+<![CDATA[
+._crit_edge:1  ret void
+
+]]></Node>
+<StgValue><ssdm name="ret_ln119"/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="27" name="set_key" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="set_key"/></StgValue>
+</port>
+<port id="28" name="key" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="key"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="29" name="key_size" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="key_size"/></StgValue>
+</port>
+<port id="30" name="plaintext" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="plaintext"/><MemPortTyVec>1 1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="31" name="ciphertext" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="ciphertext"/><MemPortTyVec>0 0 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="32" name="P" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="P"/><MemPortTyVec>2 2 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="33" name="S" dir="2" iftype="1">
+<core>RAM</core><StgValue><ssdm name="S"/><MemPortTyVec>2 2 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="34" name="initial_parray" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="initial_parray"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</port>
+<port id="35" name="initial_sbox" dir="0" iftype="1">
+<core>ROM_nP</core><StgValue><ssdm name="initial_sbox"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="37" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="5">
+</dataflow>
+<dataflow id="38" from="set_key" to="specbitsmap_ln0" fromId="27" toId="5">
+</dataflow>
+<dataflow id="39" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="6">
+</dataflow>
+<dataflow id="40" from="key" to="specbitsmap_ln0" fromId="28" toId="6">
+</dataflow>
+<dataflow id="41" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="7">
+</dataflow>
+<dataflow id="42" from="key_size" to="specbitsmap_ln0" fromId="29" toId="7">
+</dataflow>
+<dataflow id="43" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="8">
+</dataflow>
+<dataflow id="44" from="plaintext" to="specbitsmap_ln0" fromId="30" toId="8">
+</dataflow>
+<dataflow id="45" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="9">
+</dataflow>
+<dataflow id="46" from="ciphertext" to="specbitsmap_ln0" fromId="31" toId="9">
+</dataflow>
+<dataflow id="47" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="10">
+</dataflow>
+<dataflow id="48" from="P" to="specbitsmap_ln0" fromId="32" toId="10">
+</dataflow>
+<dataflow id="49" from="_ssdm_op_SpecBitsMap" to="specbitsmap_ln0" fromId="36" toId="11">
+</dataflow>
+<dataflow id="50" from="S" to="specbitsmap_ln0" fromId="33" toId="11">
+</dataflow>
+<dataflow id="52" from="_ssdm_op_SpecTopModule" to="spectopmodule_ln0" fromId="51" toId="12">
+</dataflow>
+<dataflow id="54" from="SetKey_Encrypt_str" to="spectopmodule_ln0" fromId="53" toId="12">
+</dataflow>
+<dataflow id="56" from="_ssdm_op_Read.ap_auto.i64" to="key_size_read" fromId="55" toId="13">
+</dataflow>
+<dataflow id="57" from="key_size" to="key_size_read" fromId="29" toId="13">
+</dataflow>
+<dataflow id="59" from="_ssdm_op_Read.ap_auto.i1" to="set_key_read" fromId="58" toId="14">
+</dataflow>
+<dataflow id="60" from="set_key" to="set_key_read" fromId="27" toId="14">
+</dataflow>
+<dataflow id="61" from="set_key_read" to="br_ln114" fromId="14" toId="15">
+</dataflow>
+<dataflow id="63" from="SetKey" to="call_ln115" fromId="62" toId="16">
+</dataflow>
+<dataflow id="64" from="key" to="call_ln115" fromId="28" toId="16">
+</dataflow>
+<dataflow id="65" from="key_size_read" to="call_ln115" fromId="13" toId="16">
+</dataflow>
+<dataflow id="66" from="P" to="call_ln115" fromId="32" toId="16">
+</dataflow>
+<dataflow id="67" from="S" to="call_ln115" fromId="33" toId="16">
+</dataflow>
+<dataflow id="68" from="initial_parray" to="call_ln115" fromId="34" toId="16">
+</dataflow>
+<dataflow id="69" from="initial_sbox" to="call_ln115" fromId="35" toId="16">
+</dataflow>
+<dataflow id="70" from="SetKey" to="call_ln115" fromId="62" toId="17">
+</dataflow>
+<dataflow id="71" from="key" to="call_ln115" fromId="28" toId="17">
+</dataflow>
+<dataflow id="72" from="key_size_read" to="call_ln115" fromId="13" toId="17">
+</dataflow>
+<dataflow id="73" from="P" to="call_ln115" fromId="32" toId="17">
+</dataflow>
+<dataflow id="74" from="S" to="call_ln115" fromId="33" toId="17">
+</dataflow>
+<dataflow id="75" from="initial_parray" to="call_ln115" fromId="34" toId="17">
+</dataflow>
+<dataflow id="76" from="initial_sbox" to="call_ln115" fromId="35" toId="17">
+</dataflow>
+<dataflow id="78" from="Encrypt" to="call_ln118" fromId="77" toId="19">
+</dataflow>
+<dataflow id="79" from="plaintext" to="call_ln118" fromId="30" toId="19">
+</dataflow>
+<dataflow id="80" from="ciphertext" to="call_ln118" fromId="31" toId="19">
+</dataflow>
+<dataflow id="81" from="P" to="call_ln118" fromId="32" toId="19">
+</dataflow>
+<dataflow id="82" from="S" to="call_ln118" fromId="33" toId="19">
+</dataflow>
+<dataflow id="83" from="Encrypt" to="call_ln118" fromId="77" toId="20">
+</dataflow>
+<dataflow id="84" from="plaintext" to="call_ln118" fromId="30" toId="20">
+</dataflow>
+<dataflow id="85" from="ciphertext" to="call_ln118" fromId="31" toId="20">
+</dataflow>
+<dataflow id="86" from="P" to="call_ln118" fromId="32" toId="20">
+</dataflow>
+<dataflow id="87" from="S" to="call_ln118" fromId="33" toId="20">
+</dataflow>
+<dataflow id="88" from="set_key_read" to="StgValue_1" fromId="14" toId="1">
+</dataflow>
+</dataflows>
+
+
+</stg>

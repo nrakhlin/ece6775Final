@@ -1,2 +1,2 @@
-obj/blowfish.o: ../../../../blowfish.cpp ../../../../blowfish.h \
- ../../../../initial_data.h
+obj/blowfish.o: ../../../../blowfish.cpp ../../../../initial_data.h \
+ ../../../../blowfish.h

@@ -6,6 +6,8 @@
 #define PARRAY_SIZE 18
 #define SBOX_SIZE_1 4
 #define SBOX_SIZE_2 256
+#define BLOCK_SIZE 8+1
+#define MAX_KEY_BYTE_LENGTH 56
 
 const uint32_t initial_parray[PARRAY_SIZE] = {
     0x243f6a88, 0x85a308d3, 0x13198a2e, 0x03707344, 0xa4093822, 0x299f31d0,

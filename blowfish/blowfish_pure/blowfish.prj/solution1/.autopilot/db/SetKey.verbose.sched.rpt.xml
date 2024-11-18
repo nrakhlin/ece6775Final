@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'SetKey'" level="0">
-<item name = "Date">Fri Nov 15 17:08:08 2024
+<item name = "Date">Mon Nov 18 01:18:17 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">blowfish.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 6.992 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.591 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">38273, 38427, 0.383 ms, 0.384 ms, 38273, 38427, none</column>
+<column name="">43004, 43004, 0.430 ms, 0.430 ms, 43004, 43004, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,13 +35,14 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- SETKEY1">36, 36, 2, -, -, 18, no</column>
+<column name="- Loop 1">36, 36, 2, -, -, 18, no</column>
 <column name="- Loop 2">2056, 2056, 514, -, -, 4, no</column>
-<column name=" + SETKEY2">512, 512, 2, -, -, 256, no</column>
-<column name="- SETKEY3">28, 182, 2 ~ 13, -, -, 14, no</column>
-<column name="- SETKEY4">198, 198, 11, -, -, 18, no</column>
-<column name="- SETKEY5">621, 621, 69, -, -, 9, no</column>
-<column name="- SETKEY6">35328, 35328, 69, -, -, 512, no</column>
+<column name=" + Loop 2.1">512, 512, 2, -, -, 256, no</column>
+<column name="- Loop 3">4950, 4950, 275, -, -, 18, no</column>
+<column name=" + Loop 3.1">272, 272, 68, -, -, 4, no</column>
+<column name="- Loop 4">621, 621, 69, -, -, 9, no</column>
+<column name="- Loop 5">35336, 35336, 8834, -, -, 4, no</column>
+<column name=" + Loop 5.1">8832, 8832, 69, -, -, 128, no</column>
 </table>
 </item>
 </section>

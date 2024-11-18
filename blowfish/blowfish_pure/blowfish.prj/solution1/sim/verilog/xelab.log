@@ -1,0 +1,62 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_SetKey_Encrypt_top glbl -prj SetKey_Encrypt.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s SetKey_Encrypt 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/SetKey_Encrypt.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_SetKey_Encrypt_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/AESL_automem_key.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_key
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/AESL_automem_plaintext.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_plaintext
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/AESL_automem_ciphertext.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_ciphertext
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/AESL_automem_P.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_P
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/AESL_automem_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/Encrypt_SetKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Encrypt_SetKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/SetKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SetKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/Encrypt.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Encrypt
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/SetKey_Encrypt.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SetKey_Encrypt
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/SetKey_Encrypt_urcud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SetKey_Encrypt_urcud_div_u
+INFO: [VRFC 10-311] analyzing module SetKey_Encrypt_urcud_div
+INFO: [VRFC 10-311] analyzing module SetKey_Encrypt_urcud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/SetKey_initial_pabkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SetKey_initial_pabkb_rom
+INFO: [VRFC 10-311] analyzing module SetKey_initial_pabkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/sim/verilog/SetKey_initial_sbox.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SetKey_initial_sbox_rom
+INFO: [VRFC 10-311] analyzing module SetKey_initial_sbox
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.SetKey_initial_pabkb_rom
+Compiling module xil_defaultlib.SetKey_initial_pabkb(DataWidth=3...
+Compiling module xil_defaultlib.SetKey_initial_sbox_rom
+Compiling module xil_defaultlib.SetKey_initial_sbox(DataWidth=32...
+Compiling module xil_defaultlib.Encrypt_SetKey
+Compiling module xil_defaultlib.SetKey_Encrypt_urcud_div_u(in0_W...
+Compiling module xil_defaultlib.SetKey_Encrypt_urcud_div(in0_WID...
+Compiling module xil_defaultlib.SetKey_Encrypt_urcud(ID=1,NUM_ST...
+Compiling module xil_defaultlib.SetKey
+Compiling module xil_defaultlib.Encrypt
+Compiling module xil_defaultlib.SetKey_Encrypt
+Compiling module xil_defaultlib.AESL_automem_key
+Compiling module xil_defaultlib.AESL_automem_plaintext
+Compiling module xil_defaultlib.AESL_automem_ciphertext
+Compiling module xil_defaultlib.AESL_automem_P
+Compiling module xil_defaultlib.AESL_automem_S
+Compiling module xil_defaultlib.apatb_SetKey_Encrypt_top
+Compiling module work.glbl
+Built simulation snapshot SetKey_Encrypt

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'Encrypt'" level="0">
-<item name = "Date">Fri Nov 15 17:08:08 2024
+<item name = "Date">Mon Nov 18 01:18:17 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">blowfish.prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">90, 90, 0.900 us, 0.900 us, 90, 90, none</column>
+<column name="">73, 73, 0.730 us, 0.730 us, 73, 73, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">16, 16, 2, -, -, 8, no</column>
-<column name="- ENCRYPTBLOCK1">64, 64, 4, -, -, 16, no</column>
+<column name="- Loop 1">64, 64, 4, -, -, 16, no</column>
 </table>
 </item>
 </section>

@@ -1,5 +1,5 @@
 
-set TopModule "Blowfish_Encrypt_Decrypt_SetKey"
+set TopModule "SetKey_Encrypt"
 set ClockPeriod 10
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
@@ -40,10 +40,10 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7z020:-clg484:-1
-set SourceFiles {sc {} c {../../initial_data.h ../../blowfish.h ../../blowfish.cpp}}
-set SourceFlags {sc {} c {{ } {} { } {} { } {}}}
-set DirectiveFile /home/jjm469/ece6775/final_project/repo/blowfish/blowfish_pure/blowfish.prj/solution1/solution1.directive
-set TBFiles {verilog ../../test3.cpp bc ../../test3.cpp sc ../../test3.cpp vhdl ../../test3.cpp c {} cas ../../test3.cpp}
+set SourceFiles {sc {} c ../../blowfish.cpp}
+set SourceFlags {sc {} c {{ } {}}}
+set DirectiveFile /home/jjm469/ece6775/final_project/Blowfish4/blowfish.prj/solution1/solution1.directive
+set TBFiles {verilog ../../main.cpp bc ../../main.cpp sc ../../main.cpp vhdl ../../main.cpp c {} cas ../../main.cpp}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

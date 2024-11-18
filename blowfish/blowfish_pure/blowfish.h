@@ -1,41 +1,17 @@
-//
-// Blowfish C++ implementation
-//
-// CC0 - PUBLIC DOMAIN
-// This work is free of known copyright restrictions.
-// http://creativecommons.org/publicdomain/zero/1.0/
-//
+#ifndef BLOWFISH_H
+#define BLOWFISH_H
 
-#pragma once
+#include <string>
+#include "initial_data.h"
 
-#ifndef __blowfish__
-#define __blowfish__
+// Function prototypes
+void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[18], unsigned int S[4][256]);
+void Encrypt(const unsigned char plaintext[BLOCK_SIZE], unsigned char ciphertext[BLOCK_SIZE], unsigned int P[18], unsigned int S[4][256]);
+void Decrypt(unsigned char ciphertext[BLOCK_SIZE], unsigned char decryptedtext[BLOCK_SIZE], unsigned int P[18], unsigned int S[4][256]);
+void SetKey_Encrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, const unsigned char plaintext[BLOCK_SIZE], unsigned char ciphertext[BLOCK_SIZE], unsigned int P[18], unsigned int S[4][256]);
+unsigned int feistel(unsigned int x, unsigned int S[4][256]);
+void SetKey(unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, unsigned int P[18], unsigned int S[4][256]);
+void blockToWords(const unsigned char block[BLOCK_SIZE], unsigned int& left, unsigned int& right);
+void wordsToBlock(unsigned int left, unsigned int right, unsigned char block[BLOCK_SIZE]);
 
-#include <cstdio>
-#include <stdint.h>
-
-#define BLOCK_SIZE 8               // Blowfish requires block size to be 64 bits or 8 bytes
-#define MAX_KEY_BYTE_LENGTH 56     // Max size of key in bytes
-
-class Blowfish {
-public:
-    void SetKey(const unsigned char key[MAX_KEY_BYTE_LENGTH], int key_byte_length);
-    void Encrypt(unsigned char* dst, const unsigned char* src) const;
-    void Decrypt(unsigned char* dst, const unsigned char* src) const;
-    void Encrypt_SetKey(bool set_key, const unsigned char key[MAX_KEY_BYTE_LENGTH], int key_byte_length, unsigned char encrypted[BLOCK_SIZE], const unsigned char plaintext[BLOCK_SIZE]);
-    void Encrypt_Decrypt_SetKey(bool set_key, const unsigned char key[MAX_KEY_BYTE_LENGTH], int key_byte_length, unsigned char decrypted[BLOCK_SIZE], unsigned char encrypted[BLOCK_SIZE], const unsigned char plaintext[BLOCK_SIZE]);
-
-
-private:
-    void EncryptBlock(uint32_t *left, uint32_t *right) const;
-    void DecryptBlock(uint32_t *left, uint32_t *right) const;
-    void sEncryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, uint32_t &right_new) const;
-    void sDecryptBlock(uint32_t left, uint32_t right, uint32_t &left_new, uint32_t &right_new) const;
-    uint32_t Feistel(uint32_t value) const;
-    
-private:
-    uint32_t pary_[18];
-    uint32_t sbox_[4][256];
-};
-
-#endif /* defined(__blowfish__) */
+#endif

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'SetKey'
 ================================================================
-* Date:           Fri Nov 15 17:08:09 2024
+* Date:           Mon Nov 18 01:18:17 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        blowfish.prj
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 6.992 ns |   1.25 ns  |
+    |ap_clk  | 10.00 ns | 8.591 ns |   1.25 ns  |
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -29,31 +29,32 @@
     |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
     |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
     +---------+---------+----------+----------+-------+-------+---------+
-    |    38273|    38427| 0.383 ms | 0.384 ms |  38273|  38427|   none  |
+    |    43004|    43004| 0.430 ms | 0.430 ms |  43004|  43004|   none  |
     +---------+---------+----------+----------+-------+-------+---------+
 
     + Detail: 
         * Instance: 
-        +--------------------------+---------------+---------+---------+----------+----------+-----+-----+---------+
-        |                          |               |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-        |         Instance         |     Module    |   min   |   max   |    min   |    max   | min | max |   Type  |
-        +--------------------------+---------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_sEncryptBlock_fu_403  |sEncryptBlock  |       66|       66| 0.660 us | 0.660 us |   66|   66|   none  |
-        +--------------------------+---------------+---------+---------+----------+----------+-----+-----+---------+
+        +---------------------------+----------------+---------+---------+----------+----------+-----+-----+---------+
+        |                           |                |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |          Instance         |     Module     |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +---------------------------+----------------+---------+---------+----------+----------+-----+-----+---------+
+        |grp_Encrypt_SetKey_fu_330  |Encrypt_SetKey  |       66|       66| 0.660 us | 0.660 us |   66|   66|   none  |
+        +---------------------------+----------------+---------+---------+----------+----------+-----+-----+---------+
 
         * Loop: 
-        +------------+---------+---------+----------+-----------+-----------+------+----------+
-        |            |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |  Loop Name |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- SETKEY1   |       36|       36|         2|          -|          -|    18|    no    |
-        |- Loop 2    |     2056|     2056|       514|          -|          -|     4|    no    |
-        | + SETKEY2  |      512|      512|         2|          -|          -|   256|    no    |
-        |- SETKEY3   |       28|      182|  2 ~ 13  |          -|          -|    14|    no    |
-        |- SETKEY4   |      198|      198|        11|          -|          -|    18|    no    |
-        |- SETKEY5   |      621|      621|        69|          -|          -|     9|    no    |
-        |- SETKEY6   |    35328|    35328|        69|          -|          -|   512|    no    |
-        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |       36|       36|         2|          -|          -|    18|    no    |
+        |- Loop 2     |     2056|     2056|       514|          -|          -|     4|    no    |
+        | + Loop 2.1  |      512|      512|         2|          -|          -|   256|    no    |
+        |- Loop 3     |     4950|     4950|       275|          -|          -|    18|    no    |
+        | + Loop 3.1  |      272|      272|        68|          -|          -|     4|    no    |
+        |- Loop 4     |      621|      621|        69|          -|          -|     9|    no    |
+        |- Loop 5     |    35336|    35336|      8834|          -|          -|     4|    no    |
+        | + Loop 5.1  |     8832|     8832|        69|          -|          -|   128|    no    |
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
 
@@ -65,34 +66,30 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
 +-----------------+---------+-------+--------+-------+-----+
 |DSP              |        -|      -|       -|      -|    -|
-|Expression       |        -|      -|       0|    394|    -|
+|Expression       |        -|      -|       0|    324|    -|
 |FIFO             |        -|      -|       -|      -|    -|
-|Instance         |        -|      -|    2183|   1591|    -|
-|Memory           |        2|      -|      96|     17|    0|
-|Multiplexer      |        -|      -|       -|    483|    -|
-|Register         |        -|      -|     330|      -|    -|
+|Instance         |        -|      -|    1003|    877|    -|
+|Memory           |        2|      -|      32|      9|    -|
+|Multiplexer      |        -|      -|       -|    705|    -|
+|Register         |        -|      -|     531|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        2|      0|    2609|   2485|    0|
+|Total            |        2|      0|    1566|   1915|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
-|Utilization (%)  |    ~0   |      0|       2|      4|    0|
+|Utilization (%)  |    ~0   |      0|       1|      3|    0|
 +-----------------+---------+-------+--------+-------+-----+
 
 + Detail: 
     * Instance: 
-    +--------------------------+----------------------+---------+-------+-----+-----+-----+
-    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT | URAM|
-    +--------------------------+----------------------+---------+-------+-----+-----+-----+
-    |Blowfish_Encrypt_cud_U5   |Blowfish_Encrypt_cud  |        0|      0|  394|  238|    0|
-    |Blowfish_Encrypt_cud_U6   |Blowfish_Encrypt_cud  |        0|      0|  394|  238|    0|
-    |Blowfish_Encrypt_cud_U7   |Blowfish_Encrypt_cud  |        0|      0|  394|  238|    0|
-    |Blowfish_Encrypt_cud_U8   |Blowfish_Encrypt_cud  |        0|      0|  394|  238|    0|
-    |Blowfish_Encrypt_dEe_U9   |Blowfish_Encrypt_dEe  |        0|      0|  383|  231|    0|
-    |grp_sEncryptBlock_fu_403  |sEncryptBlock         |        0|      0|  224|  408|    0|
-    +--------------------------+----------------------+---------+-------+-----+-----+-----+
-    |Total                     |                      |        0|      0| 2183| 1591|    0|
-    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    +---------------------------+----------------------+---------+-------+-----+-----+-----+
+    |          Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +---------------------------+----------------------+---------+-------+-----+-----+-----+
+    |grp_Encrypt_SetKey_fu_330  |Encrypt_SetKey        |        0|      0|  224|  408|    0|
+    |SetKey_Encrypt_urcud_U5    |SetKey_Encrypt_urcud  |        0|      0|  779|  469|    0|
+    +---------------------------+----------------------+---------+-------+-----+-----+-----+
+    |Total                      |                      |        0|      0| 1003|  877|    0|
+    +---------------------------+----------------------+---------+-------+-----+-----+-----+
 
     * DSP48E: 
     N/A
@@ -103,116 +100,117 @@
     +------------------+----------------------+---------+----+----+-----+------+-----+------+-------------+
     |initial_parray_U  |SetKey_initial_pabkb  |        0|  32|   9|    0|    18|   32|     1|          576|
     |initial_sbox_U    |SetKey_initial_sbox   |        2|   0|   0|    0|  1024|   32|     1|        32768|
-    |key_buffer_U      |SetKey_key_buffer     |        0|  64|   8|    0|    16|   32|     1|          512|
     +------------------+----------------------+---------+----+----+-----+------+-----+------+-------------+
-    |Total             |                      |        2|  96|  17|    0|  1058|   96|     3|        33856|
+    |Total             |                      |        2|  32|   9|    0|  1042|   64|     2|        33344|
     +------------------+----------------------+---------+----+----+-----+------+-----+------+-------------+
 
     * FIFO: 
     N/A
 
     * Expression: 
-    +-------------------------+----------+-------+---+----+------------+------------+
-    |      Variable Name      | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +-------------------------+----------+-------+---+----+------------+------------+
-    |add_ln104_1_fu_808_p2    |     +    |      0|  0|  14|          10|          10|
-    |add_ln104_fu_798_p2      |     +    |      0|  0|  15|           1|           9|
-    |add_ln41_fu_549_p2       |     +    |      0|  0|  12|          12|          12|
-    |i_1_fu_462_p2            |     +    |      0|  0|  12|           3|           1|
-    |i_2_fu_569_p2            |     +    |      0|  0|  13|           4|           1|
-    |i_3_fu_686_p2            |     +    |      0|  0|  15|           5|           1|
-    |i_4_fu_720_p2            |     +    |      0|  0|  13|           4|           1|
-    |i_5_fu_760_p2            |     +    |      0|  0|  14|           1|          10|
-    |i_fu_445_p2              |     +    |      0|  0|  15|           5|           1|
-    |j_fu_539_p2              |     +    |      0|  0|  15|           9|           1|
-    |sub_ln48_1_fu_506_p2     |     -    |      0|  0|  38|           1|          31|
-    |sub_ln48_fu_487_p2       |     -    |      0|  0|  39|           1|          32|
-    |icmp_ln100_fu_754_p2     |   icmp   |      0|  0|  13|          10|          11|
-    |icmp_ln34_fu_439_p2      |   icmp   |      0|  0|  11|           5|           5|
-    |icmp_ln39_fu_456_p2      |   icmp   |      0|  0|   9|           3|           4|
-    |icmp_ln40_fu_533_p2      |   icmp   |      0|  0|  13|           9|          10|
-    |icmp_ln56_fu_563_p2      |   icmp   |      0|  0|   9|           4|           3|
-    |icmp_ln57_fu_575_p2      |   icmp   |      0|  0|  18|          31|          31|
-    |icmp_ln70_fu_680_p2      |   icmp   |      0|  0|  11|           5|           5|
-    |icmp_ln87_fu_714_p2      |   icmp   |      0|  0|   9|           4|           4|
-    |or_ln61_fu_597_p2        |    or    |      0|  0|   6|           6|           1|
-    |or_ln62_fu_612_p2        |    or    |      0|  0|   6|           6|           2|
-    |or_ln63_fu_626_p2        |    or    |      0|  0|   6|           6|           2|
-    |or_ln91_fu_739_p2        |    or    |      0|  0|   5|           5|           1|
-    |buffer_length_fu_525_p3  |  select  |      0|  0|  31|           1|          31|
-    |xor_ln72_fu_707_p2       |    xor   |      0|  0|  32|          32|          32|
-    +-------------------------+----------+-------+---+----+------------+------------+
-    |Total                    |          |      0|  0| 394|         183|         252|
-    +-------------------------+----------+-------+---+----+------------+------------+
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |add_ln104_fu_586_p2   |     +    |      0|  0|  12|          12|          12|
+    |add_ln75_fu_426_p2    |     +    |      0|  0|  12|          12|          12|
+    |grp_fu_470_p0         |     +    |      0|  0|  71|           1|          64|
+    |i_1_fu_387_p2         |     +    |      0|  0|  12|           3|           1|
+    |i_2_fu_536_p2         |     +    |      0|  0|  15|           5|           2|
+    |i_3_fu_442_p2         |     +    |      0|  0|  15|           5|           1|
+    |i_4_fu_548_p2         |     +    |      0|  0|  12|           3|           1|
+    |i_fu_370_p2           |     +    |      0|  0|  15|           5|           1|
+    |j_1_fu_454_p2         |     +    |      0|  0|  12|           3|           1|
+    |j_2_fu_595_p2         |     +    |      0|  0|  15|           2|           9|
+    |j_fu_416_p2           |     +    |      0|  0|  15|           9|           1|
+    |icmp_ln101_fu_542_p2  |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln68_fu_364_p2   |   icmp   |      0|  0|  11|           5|           5|
+    |icmp_ln73_fu_381_p2   |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln74_fu_410_p2   |   icmp   |      0|  0|  13|           9|          10|
+    |icmp_ln82_fu_436_p2   |   icmp   |      0|  0|  11|           5|           5|
+    |icmp_ln84_fu_448_p2   |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln94_fu_504_p2   |   icmp   |      0|  0|  11|           5|           5|
+    |or_ln105_fu_615_p2    |    or    |      0|  0|   8|           8|           1|
+    |or_ln97_fu_525_p2     |    or    |      0|  0|   5|           5|           1|
+    |xor_ln88_fu_497_p2    |    xor   |      0|  0|  32|          32|          32|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0| 324|         138|         176|
+    +----------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +----------------------------------+-----+-----------+-----+-----------+
-    |               Name               | LUT | Input Size| Bits| Total Bits|
-    +----------------------------------+-----+-----------+-----+-----------+
-    |Blowfish_pary_s_address0          |   33|          6|    5|         30|
-    |Blowfish_pary_s_address1          |   15|          3|    5|         15|
-    |Blowfish_pary_s_ce0               |   15|          3|    1|          3|
-    |Blowfish_pary_s_ce1               |   15|          3|    1|          3|
-    |Blowfish_pary_s_d0                |   21|          4|   32|        128|
-    |Blowfish_sbox_s_address0          |   21|          4|   10|         40|
-    |Blowfish_sbox_s_address1          |   15|          3|   10|         30|
-    |Blowfish_sbox_s_ce0               |   15|          3|    1|          3|
-    |Blowfish_sbox_s_ce1               |   15|          3|    1|          3|
-    |Blowfish_sbox_s_d0                |   15|          3|   32|         96|
-    |ap_NS_fsm                         |  165|         37|    1|         37|
-    |grp_sEncryptBlock_fu_403_left_r   |   15|          3|   32|         96|
-    |grp_sEncryptBlock_fu_403_right_r  |   15|          3|   32|         96|
-    |i1_0_reg_309                      |    9|          2|    3|          6|
-    |i2_0_reg_331                      |    9|          2|    4|          8|
-    |i3_0_reg_343                      |    9|          2|    5|         10|
-    |i4_0_reg_379                      |    9|          2|    4|          8|
-    |i5_0_reg_391                      |    9|          2|   10|         20|
-    |i_0_reg_298                       |    9|          2|    5|         10|
-    |j_0_reg_320                       |    9|          2|    9|         18|
-    |key_address0                      |   15|          3|    6|         18|
-    |key_address1                      |   15|          3|    6|         18|
-    |key_buffer_address0               |   15|          3|    4|         12|
-    +----------------------------------+-----+-----------+-----+-----------+
-    |Total                             |  483|        101|  219|        708|
-    +----------------------------------+-----+-----------+-----+-----------+
+    +--------------------------------------+-----+-----------+-----+-----------+
+    |                 Name                 | LUT | Input Size| Bits| Total Bits|
+    +--------------------------------------+-----+-----------+-----+-----------+
+    |P_address0                            |   33|          6|    5|         30|
+    |P_address1                            |   15|          3|    5|         15|
+    |P_ce0                                 |   15|          3|    1|          3|
+    |P_ce1                                 |   15|          3|    1|          3|
+    |P_d0                                  |   21|          4|   32|        128|
+    |S_address0                            |   21|          4|   10|         40|
+    |S_address1                            |   15|          3|   10|         30|
+    |S_ce0                                 |   15|          3|    1|          3|
+    |S_ce1                                 |   15|          3|    1|          3|
+    |S_d0                                  |   15|          3|   32|         96|
+    |ap_NS_fsm                             |  369|         84|    1|         84|
+    |data_0_reg_248                        |    9|          2|   32|         64|
+    |grp_Encrypt_SetKey_fu_330_left_read   |   15|          3|   32|         96|
+    |grp_Encrypt_SetKey_fu_330_right_read  |   15|          3|   32|         96|
+    |i1_0_reg_214                          |    9|          2|    3|          6|
+    |i2_0_reg_236                          |    9|          2|    5|         10|
+    |i4_0_reg_295                          |    9|          2|    5|         10|
+    |i5_0_reg_307                          |    9|          2|    3|          6|
+    |i_0_reg_203                           |    9|          2|    5|         10|
+    |j3_0_reg_260                          |    9|          2|    3|          6|
+    |j6_0_reg_319                          |    9|          2|    9|         18|
+    |j_0_reg_225                           |    9|          2|    9|         18|
+    |keyIndex_1_fu_70                      |    9|          2|   64|        128|
+    |left_0_reg_283                        |    9|          2|   32|         64|
+    |left_1_fu_74                          |    9|          2|   32|         64|
+    |right_0_reg_271                       |    9|          2|   32|         64|
+    |right_1_fu_78                         |    9|          2|   32|         64|
+    +--------------------------------------+-----+-----------+-----+-----------+
+    |Total                                 |  705|        153|  429|       1159|
+    +--------------------------------------+-----+-----------+-----+-----------+
 
     * Register: 
-    +---------------------------------------+----+----+-----+-----------+
-    |                  Name                 | FF | LUT| Bits| Const Bits|
-    +---------------------------------------+----+----+-----+-----------+
-    |Blowfish_pary_addr_3_reg_971           |   5|   0|    5|          0|
-    |ap_CS_fsm                              |  36|   0|   36|          0|
-    |buffer_length_reg_861                  |  31|   0|   31|          0|
-    |grp_sEncryptBlock_fu_403_ap_start_reg  |   1|   0|    1|          0|
-    |i1_0_reg_309                           |   3|   0|    3|          0|
-    |i2_0_reg_331                           |   4|   0|    4|          0|
-    |i3_0_reg_343                           |   5|   0|    5|          0|
-    |i4_0_reg_379                           |   4|   0|    4|          0|
-    |i5_0_reg_391                           |  10|   0|   10|          0|
-    |i_0_reg_298                            |   5|   0|    5|          0|
-    |i_1_reg_851                            |   3|   0|    3|          0|
-    |i_2_reg_888                            |   4|   0|    4|          0|
-    |i_3_reg_961                            |   5|   0|    5|          0|
-    |i_4_reg_979                            |   4|   0|    4|          0|
-    |i_5_reg_992                            |  10|   0|   10|          0|
-    |i_reg_833                              |   5|   0|    5|          0|
-    |icmp_ln57_reg_893                      |   1|   0|    1|          0|
-    |j_0_reg_320                            |   9|   0|    9|          0|
-    |j_reg_870                              |   9|   0|    9|          0|
-    |key_load_1_reg_938                     |   8|   0|    8|          0|
-    |key_load_reg_933                       |   8|   0|    8|          0|
-    |left_1_014_reg_367                     |  32|   0|   32|          0|
-    |reg_425                                |  32|   0|   32|          0|
-    |reg_432                                |  32|   0|   32|          0|
-    |right_1_015_reg_355                    |  32|   0|   32|          0|
-    |shl_ln_reg_897                         |   4|   0|    6|          2|
-    |trunc_ln100_reg_984                    |   8|   0|    8|          0|
-    |zext_ln35_reg_838                      |   5|   0|   64|         59|
-    |zext_ln40_reg_856                      |   3|   0|   12|          9|
-    |zext_ln41_1_reg_875                    |  12|   0|   64|         52|
-    +---------------------------------------+----+----+-----+-----------+
-    |Total                                  | 330|   0|  452|        122|
-    +---------------------------------------+----+----+-----+-----------+
+    +----------------------------------------+----+----+-----+-----------+
+    |                  Name                  | FF | LUT| Bits| Const Bits|
+    +----------------------------------------+----+----+-----+-----------+
+    |P_addr_3_reg_720                        |   5|   0|    5|          0|
+    |add_ln104_reg_778                       |  12|   0|   12|          0|
+    |ap_CS_fsm                               |  83|   0|   83|          0|
+    |data_0_reg_248                          |  32|   0|   32|          0|
+    |data_reg_725                            |  32|   0|   32|          0|
+    |grp_Encrypt_SetKey_fu_330_ap_start_reg  |   1|   0|    1|          0|
+    |i1_0_reg_214                            |   3|   0|    3|          0|
+    |i2_0_reg_236                            |   5|   0|    5|          0|
+    |i4_0_reg_295                            |   5|   0|    5|          0|
+    |i5_0_reg_307                            |   3|   0|    3|          0|
+    |i_0_reg_203                             |   5|   0|    5|          0|
+    |i_1_reg_659                             |   3|   0|    3|          0|
+    |i_3_reg_697                             |   5|   0|    5|          0|
+    |i_4_reg_755                             |   3|   0|    3|          0|
+    |i_reg_641                               |   5|   0|    5|          0|
+    |j3_0_reg_260                            |   3|   0|    3|          0|
+    |j6_0_reg_319                            |   9|   0|    9|          0|
+    |j_0_reg_225                             |   9|   0|    9|          0|
+    |j_1_reg_705                             |   3|   0|    3|          0|
+    |j_2_reg_788                             |   9|   0|    9|          0|
+    |j_reg_679                               |   9|   0|    9|          0|
+    |keyIndex_1_fu_70                        |  64|   0|   64|          0|
+    |left_0_reg_283                          |  32|   0|   32|          0|
+    |left_1_fu_74                            |  32|   0|   32|          0|
+    |reg_350                                 |  32|   0|   32|          0|
+    |reg_357                                 |  32|   0|   32|          0|
+    |right_0_reg_271                         |  32|   0|   32|          0|
+    |right_1_fu_78                           |  32|   0|   32|          0|
+    |trunc_ln102_reg_783                     |   8|   0|    8|          0|
+    |zext_ln102_reg_760                      |   3|   0|   12|          9|
+    |zext_ln69_reg_646                       |   5|   0|   64|         59|
+    |zext_ln74_reg_664                       |   3|   0|   12|          9|
+    |zext_ln75_1_reg_684                     |  12|   0|   64|         52|
+    +----------------------------------------+----+----+-----+-----------+
+    |Total                                   | 531|   0|  660|        129|
+    +----------------------------------------+----+----+-----+-----------+
 
 
 
@@ -220,41 +218,38 @@
 == Interface
 ================================================================
 * Summary: 
-+--------------------------+-----+-----+------------+-----------------+--------------+
-|         RTL Ports        | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
-+--------------------------+-----+-----+------------+-----------------+--------------+
-|ap_clk                    |  in |    1| ap_ctrl_hs |      SetKey     | return value |
-|ap_rst                    |  in |    1| ap_ctrl_hs |      SetKey     | return value |
-|ap_start                  |  in |    1| ap_ctrl_hs |      SetKey     | return value |
-|ap_done                   | out |    1| ap_ctrl_hs |      SetKey     | return value |
-|ap_idle                   | out |    1| ap_ctrl_hs |      SetKey     | return value |
-|ap_ready                  | out |    1| ap_ctrl_hs |      SetKey     | return value |
-|Blowfish_pary_s_address0  | out |    5|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_ce0       | out |    1|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_we0       | out |    1|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_d0        | out |   32|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_q0        |  in |   32|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_address1  | out |    5|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_ce1       | out |    1|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_we1       | out |    1|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_d1        | out |   32|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_pary_s_q1        |  in |   32|  ap_memory | Blowfish_pary_s |     array    |
-|Blowfish_sbox_s_address0  | out |   10|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_ce0       | out |    1|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_we0       | out |    1|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_d0        | out |   32|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_q0        |  in |   32|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_address1  | out |   10|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_ce1       | out |    1|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_we1       | out |    1|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_d1        | out |   32|  ap_memory | Blowfish_sbox_s |     array    |
-|Blowfish_sbox_s_q1        |  in |   32|  ap_memory | Blowfish_sbox_s |     array    |
-|key_address0              | out |    6|  ap_memory |       key       |     array    |
-|key_ce0                   | out |    1|  ap_memory |       key       |     array    |
-|key_q0                    |  in |    8|  ap_memory |       key       |     array    |
-|key_address1              | out |    6|  ap_memory |       key       |     array    |
-|key_ce1                   | out |    1|  ap_memory |       key       |     array    |
-|key_q1                    |  in |    8|  ap_memory |       key       |     array    |
-|key_byte_length           |  in |   32|   ap_none  | key_byte_length |    scalar    |
-+--------------------------+-----+-----+------------+-----------------+--------------+
++--------------+-----+-----+------------+--------------+--------------+
+|   RTL Ports  | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------+-----+-----+------------+--------------+--------------+
+|ap_clk        |  in |    1| ap_ctrl_hs |    SetKey    | return value |
+|ap_rst        |  in |    1| ap_ctrl_hs |    SetKey    | return value |
+|ap_start      |  in |    1| ap_ctrl_hs |    SetKey    | return value |
+|ap_done       | out |    1| ap_ctrl_hs |    SetKey    | return value |
+|ap_idle       | out |    1| ap_ctrl_hs |    SetKey    | return value |
+|ap_ready      | out |    1| ap_ctrl_hs |    SetKey    | return value |
+|key_address0  | out |    6|  ap_memory |      key     |     array    |
+|key_ce0       | out |    1|  ap_memory |      key     |     array    |
+|key_q0        |  in |    8|  ap_memory |      key     |     array    |
+|key_size      |  in |   64|   ap_none  |   key_size   |    scalar    |
+|P_address0    | out |    5|  ap_memory |       P      |     array    |
+|P_ce0         | out |    1|  ap_memory |       P      |     array    |
+|P_we0         | out |    1|  ap_memory |       P      |     array    |
+|P_d0          | out |   32|  ap_memory |       P      |     array    |
+|P_q0          |  in |   32|  ap_memory |       P      |     array    |
+|P_address1    | out |    5|  ap_memory |       P      |     array    |
+|P_ce1         | out |    1|  ap_memory |       P      |     array    |
+|P_we1         | out |    1|  ap_memory |       P      |     array    |
+|P_d1          | out |   32|  ap_memory |       P      |     array    |
+|P_q1          |  in |   32|  ap_memory |       P      |     array    |
+|S_address0    | out |   10|  ap_memory |       S      |     array    |
+|S_ce0         | out |    1|  ap_memory |       S      |     array    |
+|S_we0         | out |    1|  ap_memory |       S      |     array    |
+|S_d0          | out |   32|  ap_memory |       S      |     array    |
+|S_q0          |  in |   32|  ap_memory |       S      |     array    |
+|S_address1    | out |   10|  ap_memory |       S      |     array    |
+|S_ce1         | out |    1|  ap_memory |       S      |     array    |
+|S_we1         | out |    1|  ap_memory |       S      |     array    |
+|S_d1          | out |   32|  ap_memory |       S      |     array    |
+|S_q1          |  in |   32|  ap_memory |       S      |     array    |
++--------------+-----+-----+------------+--------------+--------------+
 
