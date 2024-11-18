@@ -1,2 +1,0 @@
-Blowfish_Encrypt_bkb
-Blowfish_Encrypt

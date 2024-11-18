@@ -1,0 +1,5 @@
+   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling blowfish.cpp_pre.cpp.tb.cpp
+   Compiling apatb_Blowfish_SetKey_Encrypt.cpp
+   Compiling main.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe

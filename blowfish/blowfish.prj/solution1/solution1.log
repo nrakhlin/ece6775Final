@@ -1,0 +1,372 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+ERROR: [HLS 200-70] Compilation errors found: In file included from blowfish.cpp:1:
+blowfish.cpp:72:5: error: use of undeclared identifier 'printf'; did you mean 'wprintf'?
+    printf("KEY (chars): ");
+    ^~~~~~
+    wprintf
+/usr/include/wchar.h:587:12: note: 'wprintf' declared here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+           ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:72:12: error: cannot initialize a parameter of type 'const wchar_t *' with an lvalue of type 'const char [14]'
+    printf("KEY (chars): ");
+           ^~~~~~~~~~~~~~~
+/usr/include/wchar.h:587:47: note: passing argument to parameter '__format' here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+                                              ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:74:9: error: use of undeclared identifier 'printf'
+        printf("%c", key[i]);
+        ^
+blowfish.cpp:76:5: error: use of undeclared identifier 'printf'; did you mean 'wprintf'?
+    printf("\n");
+    ^~~~~~
+    wprintf
+/usr/include/wchar.h:587:12: note: 'wprintf' declared here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+           ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:76:12: error: cannot initialize a parameter of type 'const wchar_t *' with an lvalue of type 'const char [2]'
+    printf("\n");
+           ^~~~
+/usr/include/wchar.h:587:47: note: passing argument to parameter '__format' here
+extern int wprintf (const wchar_t *__restrict __format, ...)
+                                              ^
+In file included from blowfish.cpp:1:
+blowfish.cpp:77:5: error: use of undeclared identifier 'printf'
+    printf("size: %d\n", key_size);
+    ^
+blowfish.cpp:91:13: error: use of undeclared identifier 'printf'
+            printf("KEY[KEYINDEX]: %d\n", key[keyIndex]);
+            ^
+blowfish.cpp:92:13: error: use of undeclared identifier 'printf'
+            printf("KEYINDEX: %d\n", keyIndex);
+            ^
+8 errors generated.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3364 ; free virtual = 18869
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3364 ; free virtual = 18869
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3361 ; free virtual = 18867
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt_SetKey' (blowfish.cpp:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Encrypt' (blowfish.cpp:25) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt' (blowfish.cpp:29) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt' (blowfish.cpp:30) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Encrypt' (blowfish.cpp:35) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3359 ; free virtual = 18865
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt_SetKey' (blowfish.cpp:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Encrypt' (blowfish.cpp:25) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt' (blowfish.cpp:29) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt' (blowfish.cpp:30) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Encrypt' (blowfish.cpp:35) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3338 ; free virtual = 18845
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3319 ; free virtual = 18826
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 8.51 seconds; current allocated memory: 153.993 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 154.223 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 154.727 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 155.332 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 155.699 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.115 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.185 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.298 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 156.739 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'SetKey_initial_parray' to 'SetKey_initial_pabkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'SetKey_Encrypt_urem_64ns_64ns_64_68_seq_1' to 'SetKey_Encrypt_urcud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'SetKey_Encrypt_urcud': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 158.935 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 161.746 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/set_key' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/key_size' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'SetKey_Encrypt/plaintext' to 'ap_memory'.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5203 ; free virtual = 26328
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5203 ; free virtual = 26328
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5208 ; free virtual = 26334
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt_SetKey' (blowfish.cpp:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:25) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Blowfish_Encrypt' (blowfish.cpp:30) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:31) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:36) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5206 ; free virtual = 26332
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Encrypt_SetKey' (blowfish.cpp:14) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:25) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Blowfish_Encrypt' (blowfish.cpp:30) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:31) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:36) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5184 ; free virtual = 26311
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5165 ; free virtual = 26293
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 8.36 seconds; current allocated memory: 154.001 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 154.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 154.750 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 155.355 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 155.711 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 156.127 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 156.197 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 156.309 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 156.752 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_parray' to 'Blowfish_SetKey_ibkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox' to 'Blowfish_SetKey_icud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_urem_64ns_64ns_64_68_seq_1' to 'Blowfish_SetKey_EdEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_EdEe': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 158.966 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_Encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 161.779 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500]

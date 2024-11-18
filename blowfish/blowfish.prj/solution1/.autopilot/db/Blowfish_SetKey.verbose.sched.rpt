@@ -1,0 +1,987 @@
+
+
+================================================================
+== Vivado HLS Report for 'Blowfish_SetKey'
+================================================================
+* Date:           Mon Nov 18 10:54:15 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        blowfish.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.591 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    43004|    43004| 0.430 ms | 0.430 ms |  43004|  43004|   none  |
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |       36|       36|         2|          -|          -|    18|    no    |
+        |- Loop 2     |     2056|     2056|       514|          -|          -|     4|    no    |
+        | + Loop 2.1  |      512|      512|         2|          -|          -|   256|    no    |
+        |- Loop 3     |     4950|     4950|       275|          -|          -|    18|    no    |
+        | + Loop 3.1  |      272|      272|        68|          -|          -|     4|    no    |
+        |- Loop 4     |      621|      621|        69|          -|          -|     9|    no    |
+        |- Loop 5     |    35336|    35336|      8834|          -|          -|     4|    no    |
+        | + Loop 5.1  |     8832|     8832|        69|          -|          -|   128|    no    |
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 83
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 5 7 
+5 --> 6 4 
+6 --> 5 
+7 --> 8 77 
+8 --> 9 76 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 8 
+76 --> 7 
+77 --> 78 80 
+78 --> 79 
+79 --> 77 
+80 --> 81 
+81 --> 82 80 
+82 --> 83 
+83 --> 81 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%key_size_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %key_size)" [blowfish.cpp:70]   --->   Operation 84 'read' 'key_size_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 85 [1/1] (1.76ns)   --->   "br label %1" [blowfish.cpp:72]   --->   Operation 85 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.25>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ 0, %0 ], [ %i, %2 ]"   --->   Operation 86 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (1.36ns)   --->   "%icmp_ln72 = icmp eq i5 %i_0, -14" [blowfish.cpp:72]   --->   Operation 87 'icmp' 'icmp_ln72' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 18, i64 18, i64 18)"   --->   Operation 88 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 89 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [blowfish.cpp:72]   --->   Operation 89 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "br i1 %icmp_ln72, label %.preheader5.preheader, label %2" [blowfish.cpp:72]   --->   Operation 90 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%zext_ln73 = zext i5 %i_0 to i64" [blowfish.cpp:73]   --->   Operation 91 'zext' 'zext_ln73' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (0.00ns)   --->   "%initial_parray_addr = getelementptr inbounds [18 x i32]* @initial_parray, i64 0, i64 %zext_ln73" [blowfish.cpp:73]   --->   Operation 92 'getelementptr' 'initial_parray_addr' <Predicate = (!icmp_ln72)> <Delay = 0.00>
+ST_2 : Operation 93 [2/2] (3.25ns)   --->   "%initial_parray_load = load i32* %initial_parray_addr, align 4" [blowfish.cpp:73]   --->   Operation 93 'load' 'initial_parray_load' <Predicate = (!icmp_ln72)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 1024> <ROM>
+ST_2 : Operation 94 [1/1] (1.76ns)   --->   "br label %.preheader5" [blowfish.cpp:77]   --->   Operation 94 'br' <Predicate = (icmp_ln72)> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 5.57>
+ST_3 : Operation 95 [1/2] (3.25ns)   --->   "%initial_parray_load = load i32* %initial_parray_addr, align 4" [blowfish.cpp:73]   --->   Operation 95 'load' 'initial_parray_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 1024> <ROM>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%P_addr = getelementptr [18 x i32]* %P, i64 0, i64 %zext_ln73" [blowfish.cpp:73]   --->   Operation 96 'getelementptr' 'P_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (2.32ns)   --->   "store i32 %initial_parray_load, i32* %P_addr, align 4" [blowfish.cpp:73]   --->   Operation 97 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "br label %1" [blowfish.cpp:72]   --->   Operation 98 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.76>
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "%i1_0 = phi i3 [ %i_1, %.preheader5.loopexit ], [ 0, %.preheader5.preheader ]"   --->   Operation 99 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 100 [1/1] (1.13ns)   --->   "%icmp_ln77 = icmp eq i3 %i1_0, -4" [blowfish.cpp:77]   --->   Operation 100 'icmp' 'icmp_ln77' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 101 [1/1] (0.00ns)   --->   "%empty_35 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 101 'speclooptripcount' 'empty_35' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 102 [1/1] (1.65ns)   --->   "%i_1 = add i3 %i1_0, 1" [blowfish.cpp:77]   --->   Operation 102 'add' 'i_1' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 103 [1/1] (0.00ns)   --->   "br i1 %icmp_ln77, label %.preheader3.preheader, label %.preheader4.preheader" [blowfish.cpp:77]   --->   Operation 103 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_3 = call i11 @_ssdm_op_BitConcatenate.i11.i3.i8(i3 %i1_0, i8 0)" [blowfish.cpp:79]   --->   Operation 104 'bitconcatenate' 'tmp_3' <Predicate = (!icmp_ln77)> <Delay = 0.00>
+ST_4 : Operation 105 [1/1] (0.00ns)   --->   "%zext_ln78 = zext i11 %tmp_3 to i12" [blowfish.cpp:78]   --->   Operation 105 'zext' 'zext_ln78' <Predicate = (!icmp_ln77)> <Delay = 0.00>
+ST_4 : Operation 106 [1/1] (1.76ns)   --->   "br label %.preheader4" [blowfish.cpp:78]   --->   Operation 106 'br' <Predicate = (!icmp_ln77)> <Delay = 1.76>
+ST_4 : Operation 107 [1/1] (0.00ns)   --->   "%keyIndex_1 = alloca i64"   --->   Operation 107 'alloca' 'keyIndex_1' <Predicate = (icmp_ln77)> <Delay = 0.00>
+ST_4 : Operation 108 [1/1] (1.76ns)   --->   "store i64 0, i64* %keyIndex_1" [blowfish.cpp:86]   --->   Operation 108 'store' <Predicate = (icmp_ln77)> <Delay = 1.76>
+ST_4 : Operation 109 [1/1] (1.76ns)   --->   "br label %.preheader3" [blowfish.cpp:86]   --->   Operation 109 'br' <Predicate = (icmp_ln77)> <Delay = 1.76>
+
+State 5 <SV = 3> <Delay = 4.89>
+ST_5 : Operation 110 [1/1] (0.00ns)   --->   "%j_0 = phi i9 [ %j, %3 ], [ 0, %.preheader4.preheader ]"   --->   Operation 110 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 111 [1/1] (1.66ns)   --->   "%icmp_ln78 = icmp eq i9 %j_0, -256" [blowfish.cpp:78]   --->   Operation 111 'icmp' 'icmp_ln78' <Predicate = true> <Delay = 1.66> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 112 [1/1] (0.00ns)   --->   "%empty_36 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256)"   --->   Operation 112 'speclooptripcount' 'empty_36' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 113 [1/1] (1.82ns)   --->   "%j = add i9 %j_0, 1" [blowfish.cpp:78]   --->   Operation 113 'add' 'j' <Predicate = true> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 114 [1/1] (0.00ns)   --->   "br i1 %icmp_ln78, label %.preheader5.loopexit, label %3" [blowfish.cpp:78]   --->   Operation 114 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 115 [1/1] (0.00ns)   --->   "%zext_ln79 = zext i9 %j_0 to i12" [blowfish.cpp:79]   --->   Operation 115 'zext' 'zext_ln79' <Predicate = (!icmp_ln78)> <Delay = 0.00>
+ST_5 : Operation 116 [1/1] (1.63ns)   --->   "%add_ln79 = add i12 %zext_ln78, %zext_ln79" [blowfish.cpp:79]   --->   Operation 116 'add' 'add_ln79' <Predicate = (!icmp_ln78)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln79_1 = zext i12 %add_ln79 to i64" [blowfish.cpp:79]   --->   Operation 117 'zext' 'zext_ln79_1' <Predicate = (!icmp_ln78)> <Delay = 0.00>
+ST_5 : Operation 118 [1/1] (0.00ns)   --->   "%initial_sbox_addr = getelementptr [1024 x i32]* @initial_sbox, i64 0, i64 %zext_ln79_1" [blowfish.cpp:79]   --->   Operation 118 'getelementptr' 'initial_sbox_addr' <Predicate = (!icmp_ln78)> <Delay = 0.00>
+ST_5 : Operation 119 [2/2] (3.25ns)   --->   "%initial_sbox_load = load i32* %initial_sbox_addr, align 4" [blowfish.cpp:79]   --->   Operation 119 'load' 'initial_sbox_load' <Predicate = (!icmp_ln78)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 1024> <ROM>
+ST_5 : Operation 120 [1/1] (0.00ns)   --->   "br label %.preheader5"   --->   Operation 120 'br' <Predicate = (icmp_ln78)> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 6.50>
+ST_6 : Operation 121 [1/1] (0.00ns)   --->   "%S_addr13 = getelementptr [1024 x i32]* %S, i64 0, i64 %zext_ln79_1" [blowfish.cpp:79]   --->   Operation 121 'getelementptr' 'S_addr13' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 122 [1/2] (3.25ns)   --->   "%initial_sbox_load = load i32* %initial_sbox_addr, align 4" [blowfish.cpp:79]   --->   Operation 122 'load' 'initial_sbox_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 1024> <ROM>
+ST_6 : Operation 123 [1/1] (3.25ns)   --->   "store i32 %initial_sbox_load, i32* %S_addr13, align 4" [blowfish.cpp:79]   --->   Operation 123 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_6 : Operation 124 [1/1] (0.00ns)   --->   "br label %.preheader4" [blowfish.cpp:78]   --->   Operation 124 'br' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 3> <Delay = 1.78>
+ST_7 : Operation 125 [1/1] (0.00ns)   --->   "%i2_0 = phi i5 [ %i_3, %5 ], [ 0, %.preheader3.preheader ]"   --->   Operation 125 'phi' 'i2_0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 126 [1/1] (1.36ns)   --->   "%icmp_ln86 = icmp eq i5 %i2_0, -14" [blowfish.cpp:86]   --->   Operation 126 'icmp' 'icmp_ln86' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 127 [1/1] (0.00ns)   --->   "%empty_37 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 18, i64 18, i64 18)"   --->   Operation 127 'speclooptripcount' 'empty_37' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 128 [1/1] (1.78ns)   --->   "%i_3 = add i5 %i2_0, 1" [blowfish.cpp:86]   --->   Operation 128 'add' 'i_3' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 129 [1/1] (0.00ns)   --->   "br i1 %icmp_ln86, label %.preheader26.preheader, label %.preheader2.preheader" [blowfish.cpp:86]   --->   Operation 129 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 130 [1/1] (1.76ns)   --->   "br label %.preheader2" [blowfish.cpp:88]   --->   Operation 130 'br' <Predicate = (!icmp_ln86)> <Delay = 1.76>
+ST_7 : Operation 131 [1/1] (1.76ns)   --->   "br label %.preheader26" [blowfish.cpp:98]   --->   Operation 131 'br' <Predicate = (icmp_ln86)> <Delay = 1.76>
+
+State 8 <SV = 4> <Delay = 8.59>
+ST_8 : Operation 132 [1/1] (0.00ns)   --->   "%data_0 = phi i32 [ %data, %4 ], [ 0, %.preheader2.preheader ]"   --->   Operation 132 'phi' 'data_0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 133 [1/1] (0.00ns)   --->   "%j3_0 = phi i3 [ %j_1, %4 ], [ 0, %.preheader2.preheader ]"   --->   Operation 133 'phi' 'j3_0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 134 [1/1] (1.13ns)   --->   "%icmp_ln88 = icmp eq i3 %j3_0, -4" [blowfish.cpp:88]   --->   Operation 134 'icmp' 'icmp_ln88' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 135 [1/1] (0.00ns)   --->   "%empty_38 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 135 'speclooptripcount' 'empty_38' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 136 [1/1] (1.65ns)   --->   "%j_1 = add i3 %j3_0, 1" [blowfish.cpp:88]   --->   Operation 136 'add' 'j_1' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 137 [1/1] (0.00ns)   --->   "br i1 %icmp_ln88, label %5, label %4" [blowfish.cpp:88]   --->   Operation 137 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 138 [1/1] (0.00ns)   --->   "%keyIndex_1_load = load i64* %keyIndex_1" [blowfish.cpp:90]   --->   Operation 138 'load' 'keyIndex_1_load' <Predicate = (!icmp_ln88)> <Delay = 0.00>
+ST_8 : Operation 139 [1/1] (0.00ns)   --->   "%key_addr = getelementptr [56 x i8]* %key, i64 0, i64 %keyIndex_1_load" [blowfish.cpp:89]   --->   Operation 139 'getelementptr' 'key_addr' <Predicate = (!icmp_ln88)> <Delay = 0.00>
+ST_8 : Operation 140 [2/2] (2.32ns)   --->   "%key_load = load i8* %key_addr, align 1" [blowfish.cpp:89]   --->   Operation 140 'load' 'key_load' <Predicate = (!icmp_ln88)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_8 : Operation 141 [1/1] (3.52ns)   --->   "%add_ln90 = add i64 1, %keyIndex_1_load" [blowfish.cpp:90]   --->   Operation 141 'add' 'add_ln90' <Predicate = (!icmp_ln88)> <Delay = 3.52> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 142 [68/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 142 'urem' 'keyIndex' <Predicate = (!icmp_ln88)> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 143 [1/1] (0.00ns)   --->   "%zext_ln92 = zext i5 %i2_0 to i64" [blowfish.cpp:92]   --->   Operation 143 'zext' 'zext_ln92' <Predicate = (icmp_ln88)> <Delay = 0.00>
+ST_8 : Operation 144 [1/1] (0.00ns)   --->   "%P_addr_5 = getelementptr [18 x i32]* %P, i64 0, i64 %zext_ln92" [blowfish.cpp:92]   --->   Operation 144 'getelementptr' 'P_addr_5' <Predicate = (icmp_ln88)> <Delay = 0.00>
+ST_8 : Operation 145 [2/2] (2.32ns)   --->   "%P_load = load i32* %P_addr_5, align 4" [blowfish.cpp:92]   --->   Operation 145 'load' 'P_load' <Predicate = (icmp_ln88)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+
+State 9 <SV = 5> <Delay = 5.07>
+ST_9 : Operation 146 [1/2] (2.32ns)   --->   "%key_load = load i8* %key_addr, align 1" [blowfish.cpp:89]   --->   Operation 146 'load' 'key_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_9 : Operation 147 [1/1] (0.00ns)   --->   "%trunc_ln89 = trunc i32 %data_0 to i24" [blowfish.cpp:89]   --->   Operation 147 'trunc' 'trunc_ln89' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 148 [1/1] (0.00ns)   --->   "%data = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 %trunc_ln89, i8 %key_load)" [blowfish.cpp:89]   --->   Operation 148 'bitconcatenate' 'data' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 149 [67/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 149 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 6> <Delay = 5.07>
+ST_10 : Operation 150 [66/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 150 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 7> <Delay = 5.07>
+ST_11 : Operation 151 [65/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 151 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 8> <Delay = 5.07>
+ST_12 : Operation 152 [64/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 152 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 9> <Delay = 5.07>
+ST_13 : Operation 153 [63/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 153 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 10> <Delay = 5.07>
+ST_14 : Operation 154 [62/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 154 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 11> <Delay = 5.07>
+ST_15 : Operation 155 [61/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 155 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 12> <Delay = 5.07>
+ST_16 : Operation 156 [60/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 156 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 13> <Delay = 5.07>
+ST_17 : Operation 157 [59/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 157 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 14> <Delay = 5.07>
+ST_18 : Operation 158 [58/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 158 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 15> <Delay = 5.07>
+ST_19 : Operation 159 [57/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 159 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 16> <Delay = 5.07>
+ST_20 : Operation 160 [56/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 160 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 17> <Delay = 5.07>
+ST_21 : Operation 161 [55/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 161 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 18> <Delay = 5.07>
+ST_22 : Operation 162 [54/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 162 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 19> <Delay = 5.07>
+ST_23 : Operation 163 [53/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 163 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 20> <Delay = 5.07>
+ST_24 : Operation 164 [52/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 164 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 21> <Delay = 5.07>
+ST_25 : Operation 165 [51/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 165 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 22> <Delay = 5.07>
+ST_26 : Operation 166 [50/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 166 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 23> <Delay = 5.07>
+ST_27 : Operation 167 [49/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 167 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 24> <Delay = 5.07>
+ST_28 : Operation 168 [48/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 168 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 25> <Delay = 5.07>
+ST_29 : Operation 169 [47/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 169 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 26> <Delay = 5.07>
+ST_30 : Operation 170 [46/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 170 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 27> <Delay = 5.07>
+ST_31 : Operation 171 [45/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 171 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 28> <Delay = 5.07>
+ST_32 : Operation 172 [44/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 172 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 29> <Delay = 5.07>
+ST_33 : Operation 173 [43/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 173 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 30> <Delay = 5.07>
+ST_34 : Operation 174 [42/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 174 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 31> <Delay = 5.07>
+ST_35 : Operation 175 [41/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 175 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 32> <Delay = 5.07>
+ST_36 : Operation 176 [40/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 176 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 33> <Delay = 5.07>
+ST_37 : Operation 177 [39/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 177 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 34> <Delay = 5.07>
+ST_38 : Operation 178 [38/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 178 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 35> <Delay = 5.07>
+ST_39 : Operation 179 [37/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 179 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 36> <Delay = 5.07>
+ST_40 : Operation 180 [36/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 180 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 37> <Delay = 5.07>
+ST_41 : Operation 181 [35/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 181 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 38> <Delay = 5.07>
+ST_42 : Operation 182 [34/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 182 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 39> <Delay = 5.07>
+ST_43 : Operation 183 [33/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 183 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 40> <Delay = 5.07>
+ST_44 : Operation 184 [32/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 184 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 45 <SV = 41> <Delay = 5.07>
+ST_45 : Operation 185 [31/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 185 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 46 <SV = 42> <Delay = 5.07>
+ST_46 : Operation 186 [30/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 186 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 47 <SV = 43> <Delay = 5.07>
+ST_47 : Operation 187 [29/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 187 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 48 <SV = 44> <Delay = 5.07>
+ST_48 : Operation 188 [28/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 188 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 49 <SV = 45> <Delay = 5.07>
+ST_49 : Operation 189 [27/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 189 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 50 <SV = 46> <Delay = 5.07>
+ST_50 : Operation 190 [26/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 190 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 51 <SV = 47> <Delay = 5.07>
+ST_51 : Operation 191 [25/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 191 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 52 <SV = 48> <Delay = 5.07>
+ST_52 : Operation 192 [24/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 192 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 53 <SV = 49> <Delay = 5.07>
+ST_53 : Operation 193 [23/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 193 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 54 <SV = 50> <Delay = 5.07>
+ST_54 : Operation 194 [22/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 194 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 55 <SV = 51> <Delay = 5.07>
+ST_55 : Operation 195 [21/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 195 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 56 <SV = 52> <Delay = 5.07>
+ST_56 : Operation 196 [20/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 196 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 57 <SV = 53> <Delay = 5.07>
+ST_57 : Operation 197 [19/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 197 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 58 <SV = 54> <Delay = 5.07>
+ST_58 : Operation 198 [18/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 198 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 59 <SV = 55> <Delay = 5.07>
+ST_59 : Operation 199 [17/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 199 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 60 <SV = 56> <Delay = 5.07>
+ST_60 : Operation 200 [16/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 200 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 61 <SV = 57> <Delay = 5.07>
+ST_61 : Operation 201 [15/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 201 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 62 <SV = 58> <Delay = 5.07>
+ST_62 : Operation 202 [14/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 202 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 63 <SV = 59> <Delay = 5.07>
+ST_63 : Operation 203 [13/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 203 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 64 <SV = 60> <Delay = 5.07>
+ST_64 : Operation 204 [12/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 204 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 65 <SV = 61> <Delay = 5.07>
+ST_65 : Operation 205 [11/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 205 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 66 <SV = 62> <Delay = 5.07>
+ST_66 : Operation 206 [10/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 206 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 67 <SV = 63> <Delay = 5.07>
+ST_67 : Operation 207 [9/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 207 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 68 <SV = 64> <Delay = 5.07>
+ST_68 : Operation 208 [8/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 208 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 69 <SV = 65> <Delay = 5.07>
+ST_69 : Operation 209 [7/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 209 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 70 <SV = 66> <Delay = 5.07>
+ST_70 : Operation 210 [6/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 210 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 71 <SV = 67> <Delay = 5.07>
+ST_71 : Operation 211 [5/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 211 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 72 <SV = 68> <Delay = 5.07>
+ST_72 : Operation 212 [4/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 212 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 73 <SV = 69> <Delay = 5.07>
+ST_73 : Operation 213 [3/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 213 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 74 <SV = 70> <Delay = 5.07>
+ST_74 : Operation 214 [2/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 214 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 75 <SV = 71> <Delay = 6.84>
+ST_75 : Operation 215 [1/68] (5.07ns)   --->   "%keyIndex = urem i64 %add_ln90, %key_size_read" [blowfish.cpp:90]   --->   Operation 215 'urem' 'keyIndex' <Predicate = true> <Delay = 5.07> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 64> <Delay = 5.07> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 216 [1/1] (1.76ns)   --->   "store i64 %keyIndex, i64* %keyIndex_1" [blowfish.cpp:88]   --->   Operation 216 'store' <Predicate = true> <Delay = 1.76>
+ST_75 : Operation 217 [1/1] (0.00ns)   --->   "br label %.preheader2" [blowfish.cpp:88]   --->   Operation 217 'br' <Predicate = true> <Delay = 0.00>
+
+State 76 <SV = 5> <Delay = 5.63>
+ST_76 : Operation 218 [1/2] (2.32ns)   --->   "%P_load = load i32* %P_addr_5, align 4" [blowfish.cpp:92]   --->   Operation 218 'load' 'P_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_76 : Operation 219 [1/1] (0.99ns)   --->   "%xor_ln92 = xor i32 %P_load, %data_0" [blowfish.cpp:92]   --->   Operation 219 'xor' 'xor_ln92' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_76 : Operation 220 [1/1] (2.32ns)   --->   "store i32 %xor_ln92, i32* %P_addr_5, align 4" [blowfish.cpp:92]   --->   Operation 220 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_76 : Operation 221 [1/1] (0.00ns)   --->   "br label %.preheader3" [blowfish.cpp:86]   --->   Operation 221 'br' <Predicate = true> <Delay = 0.00>
+
+State 77 <SV = 4> <Delay = 3.53>
+ST_77 : Operation 222 [1/1] (0.00ns)   --->   "%right_0 = phi i32 [ %right, %6 ], [ 0, %.preheader26.preheader ]"   --->   Operation 222 'phi' 'right_0' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 223 [1/1] (0.00ns)   --->   "%left_0 = phi i32 [ %left, %6 ], [ 0, %.preheader26.preheader ]"   --->   Operation 223 'phi' 'left_0' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 224 [1/1] (0.00ns)   --->   "%i4_0 = phi i5 [ %i_2, %6 ], [ 0, %.preheader26.preheader ]"   --->   Operation 224 'phi' 'i4_0' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 225 [1/1] (1.36ns)   --->   "%icmp_ln98 = icmp ult i5 %i4_0, -14" [blowfish.cpp:98]   --->   Operation 225 'icmp' 'icmp_ln98' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 226 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"   --->   Operation 226 'speclooptripcount' 'empty_39' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 227 [1/1] (0.00ns)   --->   "br i1 %icmp_ln98, label %6, label %.preheader1.preheader" [blowfish.cpp:98]   --->   Operation 227 'br' <Predicate = true> <Delay = 0.00>
+ST_77 : Operation 228 [2/2] (3.53ns)   --->   "%call_ret2 = call fastcc { i32, i32 } @Encrypt_SetKey(i32 %left_0, i32 %right_0, [18 x i32]* %P, [1024 x i32]* %S)" [blowfish.cpp:99]   --->   Operation 228 'call' 'call_ret2' <Predicate = (icmp_ln98)> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_77 : Operation 229 [1/1] (0.00ns)   --->   "%left_1 = alloca i32"   --->   Operation 229 'alloca' 'left_1' <Predicate = (!icmp_ln98)> <Delay = 0.00>
+ST_77 : Operation 230 [1/1] (0.00ns)   --->   "%right_1 = alloca i32"   --->   Operation 230 'alloca' 'right_1' <Predicate = (!icmp_ln98)> <Delay = 0.00>
+ST_77 : Operation 231 [1/1] (1.76ns)   --->   "store i32 %right_0, i32* %right_1" [blowfish.cpp:105]   --->   Operation 231 'store' <Predicate = (!icmp_ln98)> <Delay = 1.76>
+ST_77 : Operation 232 [1/1] (1.76ns)   --->   "store i32 %left_0, i32* %left_1" [blowfish.cpp:105]   --->   Operation 232 'store' <Predicate = (!icmp_ln98)> <Delay = 1.76>
+ST_77 : Operation 233 [1/1] (1.76ns)   --->   "br label %.preheader1" [blowfish.cpp:105]   --->   Operation 233 'br' <Predicate = (!icmp_ln98)> <Delay = 1.76>
+
+State 78 <SV = 5> <Delay = 3.31>
+ST_78 : Operation 234 [1/2] (3.31ns)   --->   "%call_ret2 = call fastcc { i32, i32 } @Encrypt_SetKey(i32 %left_0, i32 %right_0, [18 x i32]* %P, [1024 x i32]* %S)" [blowfish.cpp:99]   --->   Operation 234 'call' 'call_ret2' <Predicate = true> <Delay = 3.31> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_78 : Operation 235 [1/1] (0.00ns)   --->   "%left = extractvalue { i32, i32 } %call_ret2, 0" [blowfish.cpp:99]   --->   Operation 235 'extractvalue' 'left' <Predicate = true> <Delay = 0.00>
+ST_78 : Operation 236 [1/1] (0.00ns)   --->   "%right = extractvalue { i32, i32 } %call_ret2, 1" [blowfish.cpp:99]   --->   Operation 236 'extractvalue' 'right' <Predicate = true> <Delay = 0.00>
+
+State 79 <SV = 6> <Delay = 2.32>
+ST_79 : Operation 237 [1/1] (0.00ns)   --->   "%zext_ln100 = zext i5 %i4_0 to i64" [blowfish.cpp:100]   --->   Operation 237 'zext' 'zext_ln100' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 238 [1/1] (0.00ns)   --->   "%P_addr_3 = getelementptr [18 x i32]* %P, i64 0, i64 %zext_ln100" [blowfish.cpp:100]   --->   Operation 238 'getelementptr' 'P_addr_3' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 239 [1/1] (2.32ns)   --->   "store i32 %left, i32* %P_addr_3, align 4" [blowfish.cpp:100]   --->   Operation 239 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_79 : Operation 240 [1/1] (0.00ns)   --->   "%or_ln101 = or i5 %i4_0, 1" [blowfish.cpp:101]   --->   Operation 240 'or' 'or_ln101' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 241 [1/1] (0.00ns)   --->   "%zext_ln101 = zext i5 %or_ln101 to i64" [blowfish.cpp:101]   --->   Operation 241 'zext' 'zext_ln101' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 242 [1/1] (0.00ns)   --->   "%P_addr_4 = getelementptr [18 x i32]* %P, i64 0, i64 %zext_ln101" [blowfish.cpp:101]   --->   Operation 242 'getelementptr' 'P_addr_4' <Predicate = true> <Delay = 0.00>
+ST_79 : Operation 243 [1/1] (2.32ns)   --->   "store i32 %right, i32* %P_addr_4, align 4" [blowfish.cpp:101]   --->   Operation 243 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_79 : Operation 244 [1/1] (1.78ns)   --->   "%i_2 = add i5 %i4_0, 2" [blowfish.cpp:98]   --->   Operation 244 'add' 'i_2' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_79 : Operation 245 [1/1] (0.00ns)   --->   "br label %.preheader26" [blowfish.cpp:98]   --->   Operation 245 'br' <Predicate = true> <Delay = 0.00>
+
+State 80 <SV = 5> <Delay = 1.76>
+ST_80 : Operation 246 [1/1] (0.00ns)   --->   "%i5_0 = phi i3 [ 0, %.preheader1.preheader ], [ %i_4, %.preheader1.loopexit ]"   --->   Operation 246 'phi' 'i5_0' <Predicate = true> <Delay = 0.00>
+ST_80 : Operation 247 [1/1] (1.13ns)   --->   "%icmp_ln105 = icmp eq i3 %i5_0, -4" [blowfish.cpp:105]   --->   Operation 247 'icmp' 'icmp_ln105' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_80 : Operation 248 [1/1] (0.00ns)   --->   "%empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 248 'speclooptripcount' 'empty_40' <Predicate = true> <Delay = 0.00>
+ST_80 : Operation 249 [1/1] (1.65ns)   --->   "%i_4 = add i3 %i5_0, 1" [blowfish.cpp:105]   --->   Operation 249 'add' 'i_4' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_80 : Operation 250 [1/1] (0.00ns)   --->   "br i1 %icmp_ln105, label %8, label %.preheader.preheader" [blowfish.cpp:105]   --->   Operation 250 'br' <Predicate = true> <Delay = 0.00>
+ST_80 : Operation 251 [1/1] (0.00ns)   --->   "%tmp_4 = call i11 @_ssdm_op_BitConcatenate.i11.i3.i8(i3 %i5_0, i8 0)" [blowfish.cpp:108]   --->   Operation 251 'bitconcatenate' 'tmp_4' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_80 : Operation 252 [1/1] (0.00ns)   --->   "%zext_ln106 = zext i11 %tmp_4 to i12" [blowfish.cpp:106]   --->   Operation 252 'zext' 'zext_ln106' <Predicate = (!icmp_ln105)> <Delay = 0.00>
+ST_80 : Operation 253 [1/1] (1.76ns)   --->   "br label %.preheader" [blowfish.cpp:106]   --->   Operation 253 'br' <Predicate = (!icmp_ln105)> <Delay = 1.76>
+ST_80 : Operation 254 [1/1] (0.00ns)   --->   "ret void" [blowfish.cpp:112]   --->   Operation 254 'ret' <Predicate = (icmp_ln105)> <Delay = 0.00>
+
+State 81 <SV = 6> <Delay = 3.53>
+ST_81 : Operation 255 [1/1] (0.00ns)   --->   "%j6_0 = phi i9 [ 0, %.preheader.preheader ], [ %j_2, %7 ]"   --->   Operation 255 'phi' 'j6_0' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 256 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %j6_0, i32 8)" [blowfish.cpp:106]   --->   Operation 256 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 257 [1/1] (0.00ns)   --->   "%empty_41 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)"   --->   Operation 257 'speclooptripcount' 'empty_41' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 258 [1/1] (0.00ns)   --->   "br i1 %tmp, label %.preheader1.loopexit, label %7" [blowfish.cpp:106]   --->   Operation 258 'br' <Predicate = true> <Delay = 0.00>
+ST_81 : Operation 259 [1/1] (0.00ns)   --->   "%left_1_load = load i32* %left_1" [blowfish.cpp:107]   --->   Operation 259 'load' 'left_1_load' <Predicate = (!tmp)> <Delay = 0.00>
+ST_81 : Operation 260 [1/1] (0.00ns)   --->   "%right_1_load = load i32* %right_1" [blowfish.cpp:107]   --->   Operation 260 'load' 'right_1_load' <Predicate = (!tmp)> <Delay = 0.00>
+ST_81 : Operation 261 [2/2] (3.53ns)   --->   "%call_ret = call fastcc { i32, i32 } @Encrypt_SetKey(i32 %left_1_load, i32 %right_1_load, [18 x i32]* %P, [1024 x i32]* %S)" [blowfish.cpp:107]   --->   Operation 261 'call' 'call_ret' <Predicate = (!tmp)> <Delay = 3.53> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_81 : Operation 262 [1/1] (0.00ns)   --->   "%zext_ln108 = zext i9 %j6_0 to i12" [blowfish.cpp:108]   --->   Operation 262 'zext' 'zext_ln108' <Predicate = (!tmp)> <Delay = 0.00>
+ST_81 : Operation 263 [1/1] (1.63ns)   --->   "%add_ln108 = add i12 %zext_ln108, %zext_ln106" [blowfish.cpp:108]   --->   Operation 263 'add' 'add_ln108' <Predicate = (!tmp)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_81 : Operation 264 [1/1] (0.00ns)   --->   "%trunc_ln106 = trunc i9 %j6_0 to i8" [blowfish.cpp:106]   --->   Operation 264 'trunc' 'trunc_ln106' <Predicate = (!tmp)> <Delay = 0.00>
+ST_81 : Operation 265 [1/1] (1.82ns)   --->   "%j_2 = add i9 2, %j6_0" [blowfish.cpp:106]   --->   Operation 265 'add' 'j_2' <Predicate = (!tmp)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_81 : Operation 266 [1/1] (0.00ns)   --->   "br label %.preheader1"   --->   Operation 266 'br' <Predicate = (tmp)> <Delay = 0.00>
+
+State 82 <SV = 7> <Delay = 5.08>
+ST_82 : Operation 267 [1/2] (3.31ns)   --->   "%call_ret = call fastcc { i32, i32 } @Encrypt_SetKey(i32 %left_1_load, i32 %right_1_load, [18 x i32]* %P, [1024 x i32]* %S)" [blowfish.cpp:107]   --->   Operation 267 'call' 'call_ret' <Predicate = true> <Delay = 3.31> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_82 : Operation 268 [1/1] (0.00ns)   --->   "%left_2 = extractvalue { i32, i32 } %call_ret, 0" [blowfish.cpp:107]   --->   Operation 268 'extractvalue' 'left_2' <Predicate = true> <Delay = 0.00>
+ST_82 : Operation 269 [1/1] (0.00ns)   --->   "%right_2 = extractvalue { i32, i32 } %call_ret, 1" [blowfish.cpp:107]   --->   Operation 269 'extractvalue' 'right_2' <Predicate = true> <Delay = 0.00>
+ST_82 : Operation 270 [1/1] (1.76ns)   --->   "store i32 %right_2, i32* %right_1" [blowfish.cpp:106]   --->   Operation 270 'store' <Predicate = true> <Delay = 1.76>
+ST_82 : Operation 271 [1/1] (1.76ns)   --->   "store i32 %left_2, i32* %left_1" [blowfish.cpp:106]   --->   Operation 271 'store' <Predicate = true> <Delay = 1.76>
+
+State 83 <SV = 8> <Delay = 3.25>
+ST_83 : Operation 272 [1/1] (0.00ns)   --->   "%zext_ln108_1 = zext i12 %add_ln108 to i64" [blowfish.cpp:108]   --->   Operation 272 'zext' 'zext_ln108_1' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 273 [1/1] (0.00ns)   --->   "%S_addr = getelementptr [1024 x i32]* %S, i64 0, i64 %zext_ln108_1" [blowfish.cpp:108]   --->   Operation 273 'getelementptr' 'S_addr' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 274 [1/1] (3.25ns)   --->   "store i32 %left_2, i32* %S_addr, align 4" [blowfish.cpp:108]   --->   Operation 274 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_83 : Operation 275 [1/1] (0.00ns)   --->   "%or_ln109 = or i8 %trunc_ln106, 1" [blowfish.cpp:109]   --->   Operation 275 'or' 'or_ln109' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 276 [1/1] (0.00ns)   --->   "%tmp_5 = call i11 @_ssdm_op_BitConcatenate.i11.i3.i8(i3 %i5_0, i8 %or_ln109)" [blowfish.cpp:109]   --->   Operation 276 'bitconcatenate' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 277 [1/1] (0.00ns)   --->   "%zext_ln109 = zext i11 %tmp_5 to i64" [blowfish.cpp:109]   --->   Operation 277 'zext' 'zext_ln109' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 278 [1/1] (0.00ns)   --->   "%S_addr_4 = getelementptr [1024 x i32]* %S, i64 0, i64 %zext_ln109" [blowfish.cpp:109]   --->   Operation 278 'getelementptr' 'S_addr_4' <Predicate = true> <Delay = 0.00>
+ST_83 : Operation 279 [1/1] (3.25ns)   --->   "store i32 %right_2, i32* %S_addr_4, align 4" [blowfish.cpp:109]   --->   Operation 279 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_83 : Operation 280 [1/1] (0.00ns)   --->   "br label %.preheader" [blowfish.cpp:106]   --->   Operation 280 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', blowfish.cpp:72) [12]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', blowfish.cpp:72) [12]  (0 ns)
+	'getelementptr' operation ('initial_parray_addr', blowfish.cpp:73) [19]  (0 ns)
+	'load' operation ('initial_parray_load', blowfish.cpp:73) on array 'initial_parray' [20]  (3.25 ns)
+
+ <State 3>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('initial_parray_load', blowfish.cpp:73) on array 'initial_parray' [20]  (3.25 ns)
+	'store' operation ('store_ln73', blowfish.cpp:73) of variable 'initial_parray_load', blowfish.cpp:73 on array 'P' [22]  (2.32 ns)
+
+ <State 4>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', blowfish.cpp:78) [37]  (1.77 ns)
+
+ <State 5>: 4.89ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', blowfish.cpp:78) [37]  (0 ns)
+	'add' operation ('add_ln79', blowfish.cpp:79) [44]  (1.64 ns)
+	'getelementptr' operation ('initial_sbox_addr', blowfish.cpp:79) [46]  (0 ns)
+	'load' operation ('initial_sbox_load', blowfish.cpp:79) on array 'initial_sbox' [48]  (3.25 ns)
+
+ <State 6>: 6.51ns
+The critical path consists of the following:
+	'load' operation ('initial_sbox_load', blowfish.cpp:79) on array 'initial_sbox' [48]  (3.25 ns)
+	'store' operation ('store_ln79', blowfish.cpp:79) of variable 'initial_sbox_load', blowfish.cpp:79 on array 'S' [49]  (3.25 ns)
+
+ <State 7>: 1.78ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', blowfish.cpp:86) [58]  (0 ns)
+	'add' operation ('i', blowfish.cpp:86) [61]  (1.78 ns)
+
+ <State 8>: 8.59ns
+The critical path consists of the following:
+	'load' operation ('keyIndex_1_load', blowfish.cpp:90) on local variable 'keyIndex' [73]  (0 ns)
+	'add' operation ('add_ln90', blowfish.cpp:90) [78]  (3.52 ns)
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 9>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 10>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 11>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 12>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 13>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 14>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 15>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 16>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 17>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 18>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 19>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 20>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 21>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 22>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 23>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 24>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 25>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 26>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 27>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 28>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 29>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 30>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 31>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 32>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 33>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 34>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 35>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 36>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 37>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 38>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 39>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 40>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 41>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 42>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 43>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 44>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 45>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 46>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 47>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 48>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 49>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 50>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 51>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 52>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 53>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 54>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 55>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 56>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 57>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 58>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 59>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 60>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 61>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 62>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 63>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 64>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 65>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 66>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 67>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 68>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 69>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 70>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 71>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 72>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 73>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 74>: 5.07ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+
+ <State 75>: 6.84ns
+The critical path consists of the following:
+	'urem' operation ('keyIndex', blowfish.cpp:90) [79]  (5.07 ns)
+	'store' operation ('store_ln88', blowfish.cpp:88) of variable 'keyIndex', blowfish.cpp:90 on local variable 'keyIndex' [80]  (1.77 ns)
+
+ <State 76>: 5.64ns
+The critical path consists of the following:
+	'load' operation ('P_load', blowfish.cpp:92) on array 'P' [85]  (2.32 ns)
+	'xor' operation ('xor_ln92', blowfish.cpp:92) [86]  (0.993 ns)
+	'store' operation ('store_ln92', blowfish.cpp:92) of variable 'xor_ln92', blowfish.cpp:92 on array 'P' [87]  (2.32 ns)
+
+ <State 77>: 3.54ns
+The critical path consists of the following:
+	'phi' operation ('right') with incoming values : ('right', blowfish.cpp:99) [92]  (0 ns)
+	'call' operation ('call_ret2', blowfish.cpp:99) to 'Encrypt_SetKey' [99]  (3.54 ns)
+
+ <State 78>: 3.31ns
+The critical path consists of the following:
+	'call' operation ('call_ret2', blowfish.cpp:99) to 'Encrypt_SetKey' [99]  (3.31 ns)
+
+ <State 79>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('P_addr_3', blowfish.cpp:100) [103]  (0 ns)
+	'store' operation ('store_ln100', blowfish.cpp:100) of variable 'left', blowfish.cpp:99 on array 'P' [104]  (2.32 ns)
+
+ <State 80>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', blowfish.cpp:106) [128]  (1.77 ns)
+
+ <State 81>: 3.54ns
+The critical path consists of the following:
+	'load' operation ('left_1_load', blowfish.cpp:107) on local variable 'left' [133]  (0 ns)
+	'call' operation ('call_ret', blowfish.cpp:107) to 'Encrypt_SetKey' [135]  (3.54 ns)
+
+ <State 82>: 5.08ns
+The critical path consists of the following:
+	'call' operation ('call_ret', blowfish.cpp:107) to 'Encrypt_SetKey' [135]  (3.31 ns)
+	'store' operation ('store_ln106', blowfish.cpp:106) of variable 'right', blowfish.cpp:107 on local variable 'right' [150]  (1.77 ns)
+
+ <State 83>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('S_addr', blowfish.cpp:108) [141]  (0 ns)
+	'store' operation ('store_ln108', blowfish.cpp:108) of variable 'left', blowfish.cpp:107 on array 'S' [142]  (3.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
