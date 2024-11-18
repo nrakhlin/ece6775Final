@@ -3,11 +3,64 @@ INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../../just_decrypt_test.cpp in release mode
    Compiling ../../../../just_decrypt.cpp in release mode
    Generating csim.exe
-Ciphertext: 69 6a 79 7d 6b 32 6b 77 8f b3 4f e9 19 26 2f 63 
-Decrypted plaintext: a2 13 dd d8 09 09 d8 9c 4e 22 60 a3 1f 77 96 84 
-Decryption failed! The output does not match the expected plaintext.
-
-Ciphertext2: 4f 1f 9f 7e 3a 0b 6d d5 f0 94 64 5b be 77 99 e7 
-Decrypted plaintext2: e9 8a 68 c2 5b 8b b8 63 bb 83 81 45 e5 68 d9 35 
-INFO: [SIM 1] CSim done with 0 errors.
+obj/just_decrypt.o:(.data+0x0): multiple definition of `sbox'
+obj/just_decrypt_test.o:(.data+0x0): first defined here
+obj/just_decrypt.o:(.data+0x100): multiple definition of `rsbox'
+obj/just_decrypt_test.o:(.data+0x100): first defined here
+obj/just_decrypt.o: In function `getSBoxValue(unsigned char)':
+just_decrypt.cpp:(.text+0x0): multiple definition of `getSBoxValue(unsigned char)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x0): first defined here
+obj/just_decrypt.o: In function `getSBoxInvert(unsigned char)':
+just_decrypt.cpp:(.text+0x1c): multiple definition of `getSBoxInvert(unsigned char)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x1c): first defined here
+obj/just_decrypt.o:(.data+0x200): multiple definition of `Rcon'
+obj/just_decrypt_test.o:(.data+0x200): first defined here
+obj/just_decrypt.o: In function `rotate(unsigned char*)':
+just_decrypt.cpp:(.text+0x38): multiple definition of `rotate(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x38): first defined here
+obj/just_decrypt.o: In function `getRconValue(unsigned char)':
+just_decrypt.cpp:(.text+0x90): multiple definition of `getRconValue(unsigned char)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x90): first defined here
+obj/just_decrypt.o: In function `core(unsigned char*, int)':
+just_decrypt.cpp:(.text+0xac): multiple definition of `core(unsigned char*, int)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0xac): first defined here
+obj/just_decrypt.o: In function `expandKey(unsigned char*, unsigned char*, int, int)':
+just_decrypt.cpp:(.text+0x12b): multiple definition of `expandKey(unsigned char*, unsigned char*, int, int)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x12b): first defined here
+obj/just_decrypt.o: In function `subBytes(unsigned char*)':
+just_decrypt.cpp:(.text+0x284): multiple definition of `subBytes(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x284): first defined here
+obj/just_decrypt.o: In function `shiftRows(unsigned char*)':
+just_decrypt.cpp:(.text+0x2d6): multiple definition of `shiftRows(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x2d6): first defined here
+obj/just_decrypt.o: In function `addRoundKey(unsigned char*, unsigned char*)':
+just_decrypt.cpp:(.text+0x374): multiple definition of `addRoundKey(unsigned char*, unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x374): first defined here
+obj/just_decrypt.o: In function `galois_multiplication(unsigned char, unsigned char)':
+just_decrypt.cpp:(.text+0x3c7): multiple definition of `galois_multiplication(unsigned char, unsigned char)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x3c7): first defined here
+obj/just_decrypt.o: In function `mixColumn(unsigned char*)':
+just_decrypt.cpp:(.text+0x42a): multiple definition of `mixColumn(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x42a): first defined here
+obj/just_decrypt.o: In function `mixColumns(unsigned char*)':
+just_decrypt.cpp:(.text+0x5f1): multiple definition of `mixColumns(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x5f1): first defined here
+obj/just_decrypt.o: In function `createRoundKey(unsigned char*, unsigned char*, int)':
+just_decrypt.cpp:(.text+0x696): multiple definition of `createRoundKey(unsigned char*, unsigned char*, int)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x696): first defined here
+obj/just_decrypt.o: In function `invSubBytes(unsigned char*)':
+just_decrypt.cpp:(.text+0x70a): multiple definition of `invSubBytes(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x70a): first defined here
+obj/just_decrypt.o: In function `invShiftRows(unsigned char*)':
+just_decrypt.cpp:(.text+0x75c): multiple definition of `invShiftRows(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x75c): first defined here
+obj/just_decrypt.o: In function `invMixColumn(unsigned char*)':
+just_decrypt.cpp:(.text+0x801): multiple definition of `invMixColumn(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x801): first defined here
+obj/just_decrypt.o: In function `invMixColumns(unsigned char*)':
+just_decrypt.cpp:(.text+0x9c8): multiple definition of `invMixColumns(unsigned char*)'
+obj/just_decrypt_test.o:just_decrypt_test.cpp:(.text+0x9c8): first defined here
+collect2: error: ld returned 1 exit status
+make: *** [Makefile.rules:402: csim.exe] Error 1
+ERR: [SIM 100] 'csim_design' failed: compilation error(s).
 INFO: [SIM 3] *************** CSIM finish ***************

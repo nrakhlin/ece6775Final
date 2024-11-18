@@ -1,0 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../encrypt_test.cpp in release mode
+   Compiling ../../../../helper.cpp in release mode
+   Compiling ../../../../encrypt.cpp in release mode
+   Generating csim.exe
+Plaintext: 32 88 31 e0 43 5a 31 37 f6 30 98 07 a8 8d a2 34 
+Key: 2b 7e 15 16 28 ae d2 a6 ab f7 97 75 46 20 63 ed 
+Encrypted Output: a0 3a 9a d9 9f 3b 62 0e 56 30 aa 55 a6 ce 52 04 
+AES encryption test passed successfully!
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -1,0 +1,191 @@
+# Query: int
+# Flags: WordMatch
+# Including: ./ece6775Final/refactored
+# Excluding: ./ece6775Final/refactored/encrypt.prj
+# ContextLines: 1
+
+54 results - 10 files
+
+ece6775Final/refactored/both_test.cpp:
+  20  // Function to print bytes in a readable format
+  21: void print_bytes(const char *label, unsigned char *data, int len)
+  22  {
+  23    printf("%s: ", label);
+  24:   for (int i = 0; i < len; i++)
+  25    {
+
+  30  
+  31: int main()
+  32  {
+
+  39    printf("input: \n");
+  40:   for (int i = 0; i < BLOCK_SIZE; i++)
+  41    {
+
+  46    printf("key: \n");
+  47:   for (int i = 0; i < BLOCK_SIZE; i++)
+  48    {
+
+  56    printf("Encrpyted Output: \n");
+  57:   for (int i = 0; i < BLOCK_SIZE; i++)
+  58    {
+
+  70    printf("Decrypted Text: \n");
+  71:   for (int i = 0; i < BLOCK_SIZE; i++)
+  72    {
+
+ece6775Final/refactored/decrypt_test.cpp:
+  14    {
+  15:     std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)data[i] << " ";
+  16    }
+
+  19  
+  20: int main()
+  21  {
+
+ece6775Final/refactored/decrypt.cpp:
+  23  
+  24: void aes_invMain(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_SIZE], int nbrRounds)
+  25  {
+  26:   int i = 0;
+  27  
+
+  51                   unsigned char key[KEY_SIZE],
+  52:                  int size)
+  53  {
+
+  59  
+  60:   int i, j;
+  61  
+
+ece6775Final/refactored/decrypt.h:
+  7  void aes_invRound(unsigned char state[16], unsigned char roundKey[16]);
+  8: void aes_invMain(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_SIZE], int nbrRounds);
+  9: void aes_decrypt(unsigned char input[16], unsigned char output[16], unsigned char key[KEY_SIZE], int size);
+  10  void decrypt_dut(unsigned char input[16], unsigned char output[16], unsigned char key[KEY_SIZE]);
+
+ece6775Final/refactored/encrypt_test.cpp:
+  33  
+  34: int main()
+  35  {
+
+ece6775Final/refactored/encrypt.cpp:
+  14  
+  15: void aes_main(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_SIZE], int nbrRounds)
+  16  {
+  17:   int i = 0;
+  18:   int j, k;
+  19    unsigned char roundKey[16];
+
+  38                   unsigned char key[KEY_SIZE],
+  39:                  int size)
+  40  {
+
+  42    unsigned char block[16]; // hard coded to 16
+  43:   int i, j;
+  44    unsigned char expandedKey[EXPAND_KEY_SIZE];
+
+  71  
+  72: // int dut(int argc, char *argv[])
+  73  void encrypt_dut(unsigned char input[16],
+
+  84  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  85: // int main() {}
+
+ece6775Final/refactored/encrypt.h:
+  7  void aes_round(unsigned char state[16], unsigned char roundKey[16]);
+  8: void aes_main(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_SIZE], int nbrRounds);
+  9: void aes_encrypt(unsigned char input[16], unsigned char output[16], unsigned char key[KEY_SIZE], int size);
+  10  
+
+ece6775Final/refactored/helper.cpp:
+   82    unsigned char c;
+   83:   int i;
+   84  
+
+   94  
+   95: void core(unsigned char word[4], int iteration)
+   96  {
+   97:   int i;
+   98  
+
+  113                 unsigned char key[KEY_SIZE],
+  114:                int size,
+  115:                int expandedKeySize)
+  116  {
+
+  118    // current expanded keySize, in bytes
+  119:   int currentSize = 0;
+  120:   int rconIteration = 1;
+  121:   int i;
+  122    unsigned char t[4] = {0}; // temporary 4-byte variable
+
+  165  {
+  166:   int i;
+  167    /* substitute all the values from the state with the value in the SBox
+
+  175    // 61 62 63 64 65 66 31 32 33 34 35 36 37 38 39 30
+  176:   int i;
+  177:   int ptr;
+  178    // iterate over the 4 rows and call shiftRow() with that row
+
+  183      ptr = i * 4;
+  184:     int k, j;
+  185      unsigned char tmp;
+
+  198  {
+  199:   int i;
+  200    for (i = 0; i < 16; i++)
+
+  223    unsigned char cpy[4];
+  224:   int i;
+  225    for (i = 0; i < 4; i++)
+
+  251  {
+  252:   int i, j;
+  253    unsigned char column[4];
+
+  274  
+  275: void createRoundKey(unsigned char expandedKey[EXPAND_KEY_SIZE], unsigned char roundKey[16], int ptr)
+  276  {
+  277:   int i, j;
+  278    // iterate over the columns
+
+  289  {
+  290:   int i;
+  291    /* substitute all the values from the state with the value in the SBox
+
+  301  {
+  302:   int i;
+  303:   int ptr;
+  304  
+
+  309      ptr = i * 4;
+  310:     int k, j;
+  311      unsigned char tmp;
+
+  325    unsigned char cpy[4];
+  326:   int i;
+  327    for (i = 0; i < 4; i++)
+
+  351  {
+  352:   int i, j;
+  353    unsigned char column[4];
+
+ece6775Final/refactored/helper.h:
+  37  unsigned char getRconValue(unsigned char num);
+  38: void core(unsigned char word[4], int iteration);
+  39  void expandKey(unsigned char expandedKey[EXPAND_KEY_SIZE],
+  40                 unsigned char key[KEY_SIZE],
+  41:                int size,
+  42:                int expandedKeySize);
+  43  
+
+  50  void mixColumns(unsigned char state[16]);
+  51: void createRoundKey(unsigned char expandedKey[EXPAND_KEY_SIZE], unsigned char roundKey[16], int ptr);
+  52  
+
+ece6775Final/refactored/test_helper.cpp:
+  85  
+  86: int main()
+  87  {

@@ -1,0 +1,24 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../refactored/encrypt_test.cpp in release mode
+   Compiling ../../../../refactored/encrypt.cpp in release mode
+   Generating csim.exe
+obj/encrypt.o: In function `aes_round(unsigned char*, unsigned char*)':
+encrypt.cpp:(.text+0x18): undefined reference to `subBytes(unsigned char*)'
+encrypt.cpp:(.text+0x24): undefined reference to `shiftRows(unsigned char*)'
+encrypt.cpp:(.text+0x30): undefined reference to `mixColumns(unsigned char*)'
+encrypt.cpp:(.text+0x43): undefined reference to `addRoundKey(unsigned char*, unsigned char*)'
+obj/encrypt.o: In function `aes_main(unsigned char*, unsigned char*, int)':
+encrypt.cpp:(.text+0x78): undefined reference to `createRoundKey(unsigned char*, unsigned char*, int)'
+encrypt.cpp:(.text+0x8b): undefined reference to `addRoundKey(unsigned char*, unsigned char*)'
+encrypt.cpp:(.text+0xb5): undefined reference to `createRoundKey(unsigned char*, unsigned char*, int)'
+encrypt.cpp:(.text+0xe9): undefined reference to `createRoundKey(unsigned char*, unsigned char*, int)'
+encrypt.cpp:(.text+0xf5): undefined reference to `subBytes(unsigned char*)'
+encrypt.cpp:(.text+0x101): undefined reference to `shiftRows(unsigned char*)'
+encrypt.cpp:(.text+0x114): undefined reference to `addRoundKey(unsigned char*, unsigned char*)'
+obj/encrypt.o: In function `aes_encrypt(unsigned char*, unsigned char*, unsigned char*, int)':
+encrypt.cpp:(.text+0x1ba): undefined reference to `expandKey(unsigned char*, unsigned char*, int, int)'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile.rules:402: csim.exe] Error 1
+ERR: [SIM 100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 3] *************** CSIM finish ***************
