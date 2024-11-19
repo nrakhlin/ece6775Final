@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'createRoundKey'" level="0">
-<item name = "Date">Sun Nov 17 11:18:48 2024
+<item name = "Date">Mon Nov 18 20:33:12 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -79,13 +79,13 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln283_1_fu_136_p2">+, 0, 0, 8, 8, 8</column>
-<column name="add_ln283_2_fu_158_p2">+, 0, 0, 13, 4, 4</column>
-<column name="add_ln283_fu_131_p2">+, 0, 0, 8, 8, 8</column>
+<column name="add_ln304_1_fu_136_p2">+, 0, 0, 8, 8, 8</column>
+<column name="add_ln304_2_fu_158_p2">+, 0, 0, 13, 4, 4</column>
+<column name="add_ln304_fu_131_p2">+, 0, 0, 8, 8, 8</column>
 <column name="i_fu_93_p2">+, 0, 0, 12, 3, 1</column>
 <column name="j_fu_125_p2">+, 0, 0, 12, 3, 1</column>
-<column name="icmp_ln279_fu_87_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln282_fu_119_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln300_fu_87_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln303_fu_119_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -97,15 +97,15 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln283_2_reg_203">4, 0, 4, 0</column>
+<column name="add_ln304_2_reg_203">4, 0, 4, 0</column>
 <column name="ap_CS_fsm">4, 0, 4, 0</column>
 <column name="i_0_reg_57">3, 0, 3, 0</column>
 <column name="i_reg_180">3, 0, 3, 0</column>
 <column name="j_0_reg_68">3, 0, 3, 0</column>
 <column name="j_reg_193">3, 0, 3, 0</column>
-<column name="trunc_ln283_reg_167">8, 0, 8, 0</column>
-<column name="zext_ln279_reg_172">3, 0, 4, 1</column>
-<column name="zext_ln283_1_reg_185">2, 0, 8, 6</column>
+<column name="trunc_ln304_reg_167">8, 0, 8, 0</column>
+<column name="zext_ln300_reg_172">3, 0, 4, 1</column>
+<column name="zext_ln304_1_reg_185">2, 0, 8, 6</column>
 </table>
 </item>
 </section>

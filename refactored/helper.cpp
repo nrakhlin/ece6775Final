@@ -172,26 +172,47 @@ void subBytes(unsigned char state[16])
 }
 void shiftRows(unsigned char state[16])
 {
-  // 61 62 63 64 65 66 31 32 33 34 35 36 37 38 39 30
-  int i;
+  // Row 0: No shift (no operation needed)
+  // Row 1: Shift left by 1
+  // Row 2: Shift left by 2
+  // Row 3: Shift left by 3
   int ptr;
-  // iterate over the 4 rows and call shiftRow() with that row
-  for (i = 0; i < 4; i++)
-  {
-    // shiftRow(state + i * 4, i);
+  int j;
+  unsigned char tmp, tmp2, tmp3;
 
-    ptr = i * 4;
-    int k, j;
-    unsigned char tmp;
-    // each iteration shifts the row to the left by 1
-    for (k = 0; k < i; k++)
-    {
-      tmp = state[ptr];
-      for (j = ptr; j < ptr + 3; j++)
-        state[j] = state[j + 1];
-      state[ptr + 3] = tmp;
-    }
-  }
+  // Row 0 (i == 0): No shift
+  ptr = 0 * 4;
+  // No shifting required for row 0
+
+  // Row 1 (i == 1): Shift left by 1
+  ptr = 1 * 4;
+  tmp = state[ptr];
+  // Shift elements left by 1 position
+  state[ptr] = state[ptr + 1];
+  state[ptr + 1] = state[ptr + 2];
+  state[ptr + 2] = state[ptr + 3];
+  state[ptr + 3] = tmp;
+
+  // Row 2 (i == 2): Shift left by 2
+  ptr = 2 * 4;
+  tmp = state[ptr];
+  tmp2 = state[ptr + 1];
+  // Shift elements left by 2 positions
+  state[ptr] = state[ptr + 2];
+  state[ptr + 1] = state[ptr + 3];
+  state[ptr + 2] = tmp;
+  state[ptr + 3] = tmp2;
+
+  // Row 3 (i == 3): Shift left by 3
+  ptr = 3 * 4;
+  tmp = state[ptr];
+  tmp2 = state[ptr + 1];
+  tmp3 = state[ptr + 2];
+  // Shift elements left by 3 positions
+  state[ptr] = state[ptr + 3];
+  state[ptr + 1] = tmp;
+  state[ptr + 2] = tmp2;
+  state[ptr + 3] = tmp3;
 }
 
 void addRoundKey(unsigned char state[16], unsigned char roundKey[16])
@@ -299,26 +320,58 @@ void invSubBytes(unsigned char state[16])
 
 void invShiftRows(unsigned char state[16])
 {
-  int i;
-  int ptr;
-
-  // iterate over the 4 rows and call invShiftRow() with that row
-  for (i = 0; i < 4; i++)
-  {
-    // invShiftRow(state + i * 4, i);
-    ptr = i * 4;
-    int k, j;
+    int ptr;
     unsigned char tmp;
-    // each iteration shifts the row to the right by 1
-    for (k = 0; k < i; k++)
-    {
-      tmp = state[ptr + 3];
-      for (j = ptr + 3; j > ptr; j--)
-        state[j] = state[j - 1];
-      state[ptr] = tmp;
-    }
-  }
+
+    // i = 0 (first row)
+    // No shift needed for row 0
+    
+    // i = 1 (second row)
+    ptr = 1 * 4;  // ptr = 4
+    // k = 0
+    tmp = state[ptr + 3];              // tmp = state[7]
+    state[ptr + 3] = state[ptr + 2];   // state[7] = state[6]
+    state[ptr + 2] = state[ptr + 1];   // state[6] = state[5]
+    state[ptr + 1] = state[ptr];       // state[5] = state[4]
+    state[ptr] = tmp;                  // state[4] = tmp
+    
+    // i = 2 (third row)
+    ptr = 2 * 4;  // ptr = 8
+    // k = 0
+    tmp = state[ptr + 3];              // tmp = state[11]
+    state[ptr + 3] = state[ptr + 2];   // state[11] = state[10]
+    state[ptr + 2] = state[ptr + 1];   // state[10] = state[9]
+    state[ptr + 1] = state[ptr];       // state[9] = state[8]
+    state[ptr] = tmp;                  // state[8] = tmp
+    // k = 1
+    tmp = state[ptr + 3];              // tmp = state[11]
+    state[ptr + 3] = state[ptr + 2];   // state[11] = state[10]
+    state[ptr + 2] = state[ptr + 1];   // state[10] = state[9]
+    state[ptr + 1] = state[ptr];       // state[9] = state[8]
+    state[ptr] = tmp;                  // state[8] = tmp
+    
+    // i = 3 (fourth row)
+    ptr = 3 * 4;  // ptr = 12
+    // k = 0
+    tmp = state[ptr + 3];              // tmp = state[15]
+    state[ptr + 3] = state[ptr + 2];   // state[15] = state[14]
+    state[ptr + 2] = state[ptr + 1];   // state[14] = state[13]
+    state[ptr + 1] = state[ptr];       // state[13] = state[12]
+    state[ptr] = tmp;                  // state[12] = tmp
+    // k = 1
+    tmp = state[ptr + 3];              // tmp = state[15]
+    state[ptr + 3] = state[ptr + 2];   // state[15] = state[14]
+    state[ptr + 2] = state[ptr + 1];   // state[14] = state[13]
+    state[ptr + 1] = state[ptr];       // state[13] = state[12]
+    state[ptr] = tmp;                  // state[12] = tmp
+    // k = 2
+    tmp = state[ptr + 3];              // tmp = state[15]
+    state[ptr + 3] = state[ptr + 2];   // state[15] = state[14]
+    state[ptr + 2] = state[ptr + 1];   // state[14] = state[13]
+    state[ptr + 1] = state[ptr];       // state[13] = state[12]
+    state[ptr] = tmp;                  // state[12] = tmp
 }
+
 
 void invMixColumn(unsigned char column[4])
 {

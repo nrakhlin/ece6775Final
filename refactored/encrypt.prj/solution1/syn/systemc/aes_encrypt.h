@@ -13,7 +13,7 @@
 
 #include "aes_main.h"
 #include "expandKey.h"
-#include "aes_main_roundKey.h"
+#include "aes_encrypt_block.h"
 #include "aes_encrypt_expandEe.h"
 
 namespace ap_rtl {
@@ -46,7 +46,7 @@ struct aes_encrypt : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    aes_main_roundKey* block_U;
+    aes_encrypt_block* block_U;
     aes_encrypt_expandEe* expandedKey_U;
     aes_main* grp_aes_main_fu_131;
     expandKey* grp_expandKey_fu_139;
@@ -69,8 +69,8 @@ struct aes_encrypt : public sc_module {
     sc_signal< sc_lv<4> > zext_ln62_fu_225_p1;
     sc_signal< sc_lv<4> > zext_ln62_reg_336;
     sc_signal< sc_logic > ap_CS_fsm_state8;
-    sc_signal< sc_lv<3> > i_11_fu_235_p2;
-    sc_signal< sc_lv<3> > i_11_reg_344;
+    sc_signal< sc_lv<3> > i_10_fu_235_p2;
+    sc_signal< sc_lv<3> > i_10_reg_344;
     sc_signal< sc_lv<4> > shl_ln2_fu_245_p3;
     sc_signal< sc_lv<4> > shl_ln2_reg_349;
     sc_signal< sc_lv<1> > icmp_ln62_fu_229_p2;
@@ -85,6 +85,9 @@ struct aes_encrypt : public sc_module {
     sc_signal< sc_logic > block_we0;
     sc_signal< sc_lv<8> > block_d0;
     sc_signal< sc_lv<8> > block_q0;
+    sc_signal< sc_logic > block_ce1;
+    sc_signal< sc_logic > block_we1;
+    sc_signal< sc_lv<8> > block_q1;
     sc_signal< sc_lv<8> > expandedKey_address0;
     sc_signal< sc_logic > expandedKey_ce0;
     sc_signal< sc_logic > expandedKey_we0;
@@ -97,6 +100,10 @@ struct aes_encrypt : public sc_module {
     sc_signal< sc_logic > grp_aes_main_fu_131_state_ce0;
     sc_signal< sc_logic > grp_aes_main_fu_131_state_we0;
     sc_signal< sc_lv<8> > grp_aes_main_fu_131_state_d0;
+    sc_signal< sc_lv<4> > grp_aes_main_fu_131_state_address1;
+    sc_signal< sc_logic > grp_aes_main_fu_131_state_ce1;
+    sc_signal< sc_logic > grp_aes_main_fu_131_state_we1;
+    sc_signal< sc_lv<8> > grp_aes_main_fu_131_state_d1;
     sc_signal< sc_lv<8> > grp_aes_main_fu_131_expandedKey_address0;
     sc_signal< sc_logic > grp_aes_main_fu_131_expandedKey_ce0;
     sc_signal< sc_logic > grp_expandKey_fu_139_ap_start;
@@ -185,14 +192,16 @@ struct aes_encrypt : public sc_module {
     void thread_ap_ready();
     void thread_block_address0();
     void thread_block_ce0();
+    void thread_block_ce1();
     void thread_block_d0();
     void thread_block_we0();
+    void thread_block_we1();
     void thread_expandedKey_address0();
     void thread_expandedKey_ce0();
     void thread_expandedKey_we0();
     void thread_grp_aes_main_fu_131_ap_start();
     void thread_grp_expandKey_fu_139_ap_start();
-    void thread_i_11_fu_235_p2();
+    void thread_i_10_fu_235_p2();
     void thread_i_fu_160_p2();
     void thread_icmp_ln46_fu_154_p2();
     void thread_icmp_ln49_fu_182_p2();

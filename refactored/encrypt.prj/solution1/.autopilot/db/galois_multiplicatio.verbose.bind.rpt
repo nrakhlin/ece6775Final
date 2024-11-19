@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'galois_multiplicatio'
 ================================================================
-* Date:           Sun Nov 17 11:18:47 2024
+* Date:           Mon Nov 18 20:33:11 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -81,30 +81,30 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [helper.cpp:203]   --->   Operation 3 'read' 'b_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:203]   --->   Operation 4 'read' 'a_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (1.76ns)   --->   "br label %1" [helper.cpp:208]   --->   Operation 5 'br' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [helper.cpp:224]   --->   Operation 3 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:224]   --->   Operation 4 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (1.76ns)   --->   "br label %1" [helper.cpp:229]   --->   Operation 5 'br' <Predicate = true> <Delay = 1.76>
 
 State 2 <SV = 1> <Delay = 1.73>
 ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%counter_0 = phi i4 [ 0, %0 ], [ %counter, %2 ]"   --->   Operation 6 'phi' 'counter_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%p_0 = phi i8 [ 0, %0 ], [ %xor_ln210, %2 ]" [helper.cpp:210]   --->   Operation 7 'phi' 'p_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%b_assign_1 = phi i3 [ %b_read, %0 ], [ %zext_ln216, %2 ]" [helper.cpp:203]   --->   Operation 8 'phi' 'b_assign_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%p_0_8 = phi i8 [ %a_read, %0 ], [ %select_ln214, %2 ]" [helper.cpp:203]   --->   Operation 9 'phi' 'p_0_8' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 10 [1/1] (1.30ns)   --->   "%icmp_ln208 = icmp eq i4 %counter_0, -8" [helper.cpp:208]   --->   Operation 10 'icmp' 'icmp_ln208' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%p_0 = phi i8 [ 0, %0 ], [ %xor_ln231, %2 ]" [helper.cpp:231]   --->   Operation 7 'phi' 'p_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%b_assign_1 = phi i3 [ %b_read, %0 ], [ %zext_ln237, %2 ]" [helper.cpp:224]   --->   Operation 8 'phi' 'b_assign_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%p_0_7 = phi i8 [ %a_read, %0 ], [ %select_ln235, %2 ]" [helper.cpp:224]   --->   Operation 9 'phi' 'p_0_7' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (1.30ns)   --->   "%icmp_ln229 = icmp eq i4 %counter_0, -8" [helper.cpp:229]   --->   Operation 10 'icmp' 'icmp_ln229' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 12 [1/1] (1.73ns)   --->   "%counter = add i4 %counter_0, 1" [helper.cpp:208]   --->   Operation 12 'add' 'counter' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln208, label %3, label %2" [helper.cpp:208]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node xor_ln210)   --->   "%trunc_ln208 = trunc i3 %b_assign_1 to i1" [helper.cpp:208]   --->   Operation 14 'trunc' 'trunc_ln208' <Predicate = (!icmp_ln208)> <Delay = 0.00>
-ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node xor_ln210)   --->   "%select_ln210 = select i1 %trunc_ln208, i8 %p_0_8, i8 0" [helper.cpp:210]   --->   Operation 15 'select' 'select_ln210' <Predicate = (!icmp_ln208)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 16 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln210 = xor i8 %select_ln210, %p_0" [helper.cpp:210]   --->   Operation 16 'xor' 'xor_ln210' <Predicate = (!icmp_ln208)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%shl_ln213 = shl i8 %p_0_8, 1" [helper.cpp:213]   --->   Operation 17 'shl' 'shl_ln213' <Predicate = (!icmp_ln208)> <Delay = 0.00>
-ST_2 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node select_ln214)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %p_0_8, i32 7)" [helper.cpp:214]   --->   Operation 18 'bitselect' 'tmp' <Predicate = (!icmp_ln208)> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node select_ln214)   --->   "%xor_ln215 = xor i8 %shl_ln213, 27" [helper.cpp:215]   --->   Operation 19 'xor' 'xor_ln215' <Predicate = (!icmp_ln208)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln214 = select i1 %tmp, i8 %xor_ln215, i8 %shl_ln213" [helper.cpp:214]   --->   Operation 20 'select' 'select_ln214' <Predicate = (!icmp_ln208)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%b_assign = call i2 @_ssdm_op_PartSelect.i2.i3.i32.i32(i3 %b_assign_1, i32 1, i32 2)" [helper.cpp:216]   --->   Operation 21 'partselect' 'b_assign' <Predicate = (!icmp_ln208)> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln216 = zext i2 %b_assign to i3" [helper.cpp:216]   --->   Operation 22 'zext' 'zext_ln216' <Predicate = (!icmp_ln208)> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "br label %1" [helper.cpp:208]   --->   Operation 23 'br' <Predicate = (!icmp_ln208)> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "ret i8 %p_0" [helper.cpp:218]   --->   Operation 24 'ret' <Predicate = (icmp_ln208)> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.73ns)   --->   "%counter = add i4 %counter_0, 1" [helper.cpp:229]   --->   Operation 12 'add' 'counter' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln229, label %3, label %2" [helper.cpp:229]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node xor_ln231)   --->   "%trunc_ln229 = trunc i3 %b_assign_1 to i1" [helper.cpp:229]   --->   Operation 14 'trunc' 'trunc_ln229' <Predicate = (!icmp_ln229)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node xor_ln231)   --->   "%select_ln231 = select i1 %trunc_ln229, i8 %p_0_7, i8 0" [helper.cpp:231]   --->   Operation 15 'select' 'select_ln231' <Predicate = (!icmp_ln229)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 16 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln231 = xor i8 %select_ln231, %p_0" [helper.cpp:231]   --->   Operation 16 'xor' 'xor_ln231' <Predicate = (!icmp_ln229)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%shl_ln234 = shl i8 %p_0_7, 1" [helper.cpp:234]   --->   Operation 17 'shl' 'shl_ln234' <Predicate = (!icmp_ln229)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node select_ln235)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %p_0_7, i32 7)" [helper.cpp:235]   --->   Operation 18 'bitselect' 'tmp' <Predicate = (!icmp_ln229)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node select_ln235)   --->   "%xor_ln236 = xor i8 %shl_ln234, 27" [helper.cpp:236]   --->   Operation 19 'xor' 'xor_ln236' <Predicate = (!icmp_ln229)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln235 = select i1 %tmp, i8 %xor_ln236, i8 %shl_ln234" [helper.cpp:235]   --->   Operation 20 'select' 'select_ln235' <Predicate = (!icmp_ln229)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%b_assign = call i2 @_ssdm_op_PartSelect.i2.i3.i32.i32(i3 %b_assign_1, i32 1, i32 2)" [helper.cpp:237]   --->   Operation 21 'partselect' 'b_assign' <Predicate = (!icmp_ln229)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln237 = zext i2 %b_assign to i3" [helper.cpp:237]   --->   Operation 22 'zext' 'zext_ln237' <Predicate = (!icmp_ln229)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "br label %1" [helper.cpp:229]   --->   Operation 23 'br' <Predicate = (!icmp_ln229)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "ret i8 %p_0" [helper.cpp:239]   --->   Operation 24 'ret' <Predicate = (icmp_ln229)> <Delay = 0.00>
 
 
 ============================================================
@@ -128,26 +128,26 @@ Port [ b]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0
 <method=bitvector/>
 b_read       (read             ) [ 011]
 a_read       (read             ) [ 011]
-br_ln208     (br               ) [ 011]
+br_ln229     (br               ) [ 011]
 counter_0    (phi              ) [ 001]
 p_0          (phi              ) [ 001]
 b_assign_1   (phi              ) [ 001]
-p_0_8        (phi              ) [ 001]
-icmp_ln208   (icmp             ) [ 001]
+p_0_7        (phi              ) [ 001]
+icmp_ln229   (icmp             ) [ 001]
 empty        (speclooptripcount) [ 000]
 counter      (add              ) [ 011]
-br_ln208     (br               ) [ 000]
-trunc_ln208  (trunc            ) [ 000]
-select_ln210 (select           ) [ 000]
-xor_ln210    (xor              ) [ 011]
-shl_ln213    (shl              ) [ 000]
+br_ln229     (br               ) [ 000]
+trunc_ln229  (trunc            ) [ 000]
+select_ln231 (select           ) [ 000]
+xor_ln231    (xor              ) [ 011]
+shl_ln234    (shl              ) [ 000]
 tmp          (bitselect        ) [ 000]
-xor_ln215    (xor              ) [ 000]
-select_ln214 (select           ) [ 011]
+xor_ln236    (xor              ) [ 000]
+select_ln235 (select           ) [ 011]
 b_assign     (partselect       ) [ 000]
-zext_ln216   (zext             ) [ 011]
-br_ln208     (br               ) [ 011]
-ret_ln218    (ret              ) [ 000]
+zext_ln237   (zext             ) [ 011]
+br_ln229     (br               ) [ 011]
+ret_ln239    (ret              ) [ 000]
 </LifeTime>
 
 <model>
@@ -402,17 +402,17 @@ ret_ln218    (ret              ) [ 000]
 </bind>
 </comp>
 
-<comp id="77" class="1005" name="p_0_8_reg_77">
+<comp id="77" class="1005" name="p_0_7_reg_77">
 <pin_list>
 <pin id="78" dir="0" index="0" bw="8" slack="2147483647"/>
 <pin id="79" dir="1" index="1" bw="8" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="p_0_8 (phireg) "/>
+<opset="p_0_7 (phireg) "/>
 </bind>
 </comp>
 
-<comp id="80" class="1004" name="p_0_8_phi_fu_80">
+<comp id="80" class="1004" name="p_0_7_phi_fu_80">
 <pin_list>
 <pin id="81" dir="0" index="0" bw="8" slack="1"/>
 <pin id="82" dir="0" index="1" bw="0" slack="2147483647"/>
@@ -422,11 +422,11 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
-<opset="p_0_8/2 "/>
+<opset="p_0_7/2 "/>
 </bind>
 </comp>
 
-<comp id="86" class="1004" name="icmp_ln208_fu_86">
+<comp id="86" class="1004" name="icmp_ln229_fu_86">
 <pin_list>
 <pin id="87" dir="0" index="0" bw="4" slack="0"/>
 <pin id="88" dir="0" index="1" bw="4" slack="0"/>
@@ -434,7 +434,7 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln208/2 "/>
+<opset="icmp_ln229/2 "/>
 </bind>
 </comp>
 
@@ -450,18 +450,18 @@ ret_ln218    (ret              ) [ 000]
 </bind>
 </comp>
 
-<comp id="98" class="1004" name="trunc_ln208_fu_98">
+<comp id="98" class="1004" name="trunc_ln229_fu_98">
 <pin_list>
 <pin id="99" dir="0" index="0" bw="3" slack="0"/>
 <pin id="100" dir="1" index="1" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln208/2 "/>
+<opset="trunc_ln229/2 "/>
 </bind>
 </comp>
 
-<comp id="102" class="1004" name="select_ln210_fu_102">
+<comp id="102" class="1004" name="select_ln231_fu_102">
 <pin_list>
 <pin id="103" dir="0" index="0" bw="1" slack="0"/>
 <pin id="104" dir="0" index="1" bw="8" slack="0"/>
@@ -470,11 +470,11 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln210/2 "/>
+<opset="select_ln231/2 "/>
 </bind>
 </comp>
 
-<comp id="110" class="1004" name="xor_ln210_fu_110">
+<comp id="110" class="1004" name="xor_ln231_fu_110">
 <pin_list>
 <pin id="111" dir="0" index="0" bw="8" slack="0"/>
 <pin id="112" dir="0" index="1" bw="8" slack="0"/>
@@ -482,11 +482,11 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln210/2 "/>
+<opset="xor_ln231/2 "/>
 </bind>
 </comp>
 
-<comp id="116" class="1004" name="shl_ln213_fu_116">
+<comp id="116" class="1004" name="shl_ln234_fu_116">
 <pin_list>
 <pin id="117" dir="0" index="0" bw="8" slack="0"/>
 <pin id="118" dir="0" index="1" bw="1" slack="0"/>
@@ -494,7 +494,7 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="shl(20) " fcode="shl"/>
-<opset="shl_ln213/2 "/>
+<opset="shl_ln234/2 "/>
 </bind>
 </comp>
 
@@ -511,7 +511,7 @@ ret_ln218    (ret              ) [ 000]
 </bind>
 </comp>
 
-<comp id="130" class="1004" name="xor_ln215_fu_130">
+<comp id="130" class="1004" name="xor_ln236_fu_130">
 <pin_list>
 <pin id="131" dir="0" index="0" bw="8" slack="0"/>
 <pin id="132" dir="0" index="1" bw="6" slack="0"/>
@@ -519,11 +519,11 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln215/2 "/>
+<opset="xor_ln236/2 "/>
 </bind>
 </comp>
 
-<comp id="136" class="1004" name="select_ln214_fu_136">
+<comp id="136" class="1004" name="select_ln235_fu_136">
 <pin_list>
 <pin id="137" dir="0" index="0" bw="1" slack="0"/>
 <pin id="138" dir="0" index="1" bw="8" slack="0"/>
@@ -532,7 +532,7 @@ ret_ln218    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln214/2 "/>
+<opset="select_ln235/2 "/>
 </bind>
 </comp>
 
@@ -550,14 +550,14 @@ ret_ln218    (ret              ) [ 000]
 </bind>
 </comp>
 
-<comp id="154" class="1004" name="zext_ln216_fu_154">
+<comp id="154" class="1004" name="zext_ln237_fu_154">
 <pin_list>
 <pin id="155" dir="0" index="0" bw="2" slack="0"/>
 <pin id="156" dir="1" index="1" bw="3" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln216/2 "/>
+<opset="zext_ln237/2 "/>
 </bind>
 </comp>
 
@@ -591,33 +591,33 @@ ret_ln218    (ret              ) [ 000]
 </bind>
 </comp>
 
-<comp id="176" class="1005" name="xor_ln210_reg_176">
+<comp id="176" class="1005" name="xor_ln231_reg_176">
 <pin_list>
 <pin id="177" dir="0" index="0" bw="8" slack="0"/>
 <pin id="178" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
-<opset="xor_ln210 "/>
+<opset="xor_ln231 "/>
 </bind>
 </comp>
 
-<comp id="181" class="1005" name="select_ln214_reg_181">
+<comp id="181" class="1005" name="select_ln235_reg_181">
 <pin_list>
 <pin id="182" dir="0" index="0" bw="8" slack="0"/>
 <pin id="183" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
-<opset="select_ln214 "/>
+<opset="select_ln235 "/>
 </bind>
 </comp>
 
-<comp id="186" class="1005" name="zext_ln216_reg_186">
+<comp id="186" class="1005" name="zext_ln237_reg_186">
 <pin_list>
 <pin id="187" dir="0" index="0" bw="3" slack="0"/>
 <pin id="188" dir="1" index="1" bw="3" slack="0"/>
 </pin_list>
 <bind>
-<opset="zext_ln216 "/>
+<opset="zext_ln237 "/>
 </bind>
 </comp>
 
@@ -727,19 +727,19 @@ ret_ln218    (ret              ) [ 000]
   - Chain level:
 	State 1
 	State 2
-		icmp_ln208 : 1
+		icmp_ln229 : 1
 		counter : 1
-		br_ln208 : 2
-		trunc_ln208 : 1
-		select_ln210 : 2
-		xor_ln210 : 3
-		shl_ln213 : 1
+		br_ln229 : 2
+		trunc_ln229 : 1
+		select_ln231 : 2
+		xor_ln231 : 3
+		shl_ln234 : 1
 		tmp : 1
-		xor_ln215 : 1
-		select_ln214 : 1
+		xor_ln236 : 1
+		select_ln235 : 1
 		b_assign : 1
-		zext_ln216 : 2
-		ret_ln218 : 1
+		zext_ln237 : 2
+		ret_ln239 : 1
 
 
 ============================================================
@@ -750,28 +750,28 @@ ret_ln218    (ret              ) [ 000]
 |----------|---------------------|---------|---------|
 | Operation|   Functional Unit   |    FF   |   LUT   |
 |----------|---------------------|---------|---------|
-|  select  | select_ln210_fu_102 |    0    |    8    |
-|          | select_ln214_fu_136 |    0    |    8    |
+|  select  | select_ln231_fu_102 |    0    |    8    |
+|          | select_ln235_fu_136 |    0    |    8    |
 |----------|---------------------|---------|---------|
-|    xor   |   xor_ln210_fu_110  |    0    |    8    |
-|          |   xor_ln215_fu_130  |    0    |    8    |
+|    xor   |   xor_ln231_fu_110  |    0    |    8    |
+|          |   xor_ln236_fu_130  |    0    |    8    |
 |----------|---------------------|---------|---------|
 |    add   |    counter_fu_92    |    0    |    13   |
 |----------|---------------------|---------|---------|
-|   icmp   |   icmp_ln208_fu_86  |    0    |    9    |
+|   icmp   |   icmp_ln229_fu_86  |    0    |    9    |
 |----------|---------------------|---------|---------|
 |   read   |  b_read_read_fu_34  |    0    |    0    |
 |          |  a_read_read_fu_40  |    0    |    0    |
 |----------|---------------------|---------|---------|
-|   trunc  |  trunc_ln208_fu_98  |    0    |    0    |
+|   trunc  |  trunc_ln229_fu_98  |    0    |    0    |
 |----------|---------------------|---------|---------|
-|    shl   |   shl_ln213_fu_116  |    0    |    0    |
+|    shl   |   shl_ln234_fu_116  |    0    |    0    |
 |----------|---------------------|---------|---------|
 | bitselect|      tmp_fu_122     |    0    |    0    |
 |----------|---------------------|---------|---------|
 |partselect|   b_assign_fu_144   |    0    |    0    |
 |----------|---------------------|---------|---------|
-|   zext   |  zext_ln216_fu_154  |    0    |    0    |
+|   zext   |  zext_ln237_fu_154  |    0    |    0    |
 |----------|---------------------|---------|---------|
 |   Total  |                     |    0    |    54   |
 |----------|---------------------|---------|---------|
@@ -788,11 +788,11 @@ N/A
 |   b_read_reg_158   |    3   |
 |  counter_0_reg_46  |    4   |
 |   counter_reg_171  |    4   |
-|    p_0_8_reg_77    |    8   |
+|    p_0_7_reg_77    |    8   |
 |     p_0_reg_57     |    8   |
-|select_ln214_reg_181|    8   |
-|  xor_ln210_reg_176 |    8   |
-| zext_ln216_reg_186 |    3   |
+|select_ln235_reg_181|    8   |
+|  xor_ln231_reg_176 |    8   |
+| zext_ln237_reg_186 |    3   |
 +--------------------+--------+
 |        Total       |   57   |
 +--------------------+--------+

@@ -78,7 +78,7 @@
 						<name>b_read</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>203</lineNumber>
+						<lineNumber>224</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -93,7 +93,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>203</second>
+										<second>224</second>
 									</item>
 								</second>
 							</item>
@@ -127,7 +127,7 @@
 						<name>a_read</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>203</lineNumber>
+						<lineNumber>224</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -142,7 +142,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>203</second>
+										<second>224</second>
 									</item>
 								</second>
 							</item>
@@ -173,10 +173,10 @@
 					<Obj>
 						<type>0</type>
 						<id>5</id>
-						<name>_ln208</name>
+						<name>_ln229</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>208</lineNumber>
+						<lineNumber>229</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -191,7 +191,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>208</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
@@ -261,7 +261,7 @@
 						<name>p_0</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>210</lineNumber>
+						<lineNumber>231</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -276,7 +276,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>210</second>
+										<second>231</second>
 									</item>
 								</second>
 							</item>
@@ -312,7 +312,7 @@
 						<name>b_assign_1</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>203</lineNumber>
+						<lineNumber>224</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -327,7 +327,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>203</second>
+										<second>224</second>
 									</item>
 								</second>
 							</item>
@@ -360,10 +360,10 @@
 					<Obj>
 						<type>0</type>
 						<id>10</id>
-						<name>p_0_8</name>
+						<name>p_0_7</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>203</lineNumber>
+						<lineNumber>224</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -378,7 +378,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>203</second>
+										<second>224</second>
 									</item>
 								</second>
 							</item>
@@ -411,10 +411,10 @@
 					<Obj>
 						<type>0</type>
 						<id>11</id>
-						<name>icmp_ln208</name>
+						<name>icmp_ln229</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>208</lineNumber>
+						<lineNumber>229</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -429,7 +429,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>208</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
@@ -463,7 +463,7 @@
 						<name>counter</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>208</lineNumber>
+						<lineNumber>229</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -478,7 +478,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>208</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
@@ -509,10 +509,10 @@
 					<Obj>
 						<type>0</type>
 						<id>14</id>
-						<name>_ln208</name>
+						<name>_ln229</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>208</lineNumber>
+						<lineNumber>229</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -527,7 +527,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>208</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
@@ -559,10 +559,10 @@
 					<Obj>
 						<type>0</type>
 						<id>16</id>
-						<name>trunc_ln208</name>
+						<name>trunc_ln229</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>208</lineNumber>
+						<lineNumber>229</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -577,7 +577,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>208</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
@@ -607,10 +607,10 @@
 					<Obj>
 						<type>0</type>
 						<id>17</id>
-						<name>select_ln210</name>
+						<name>select_ln231</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>210</lineNumber>
+						<lineNumber>231</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -625,7 +625,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>210</second>
+										<second>231</second>
 									</item>
 								</second>
 							</item>
@@ -657,10 +657,10 @@
 					<Obj>
 						<type>0</type>
 						<id>18</id>
-						<name>xor_ln210</name>
+						<name>xor_ln231</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>210</lineNumber>
+						<lineNumber>231</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -675,7 +675,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>210</second>
+										<second>231</second>
 									</item>
 								</second>
 							</item>
@@ -706,10 +706,10 @@
 					<Obj>
 						<type>0</type>
 						<id>19</id>
-						<name>shl_ln213</name>
+						<name>shl_ln234</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>213</lineNumber>
+						<lineNumber>234</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -724,7 +724,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>213</second>
+										<second>234</second>
 									</item>
 								</second>
 							</item>
@@ -758,7 +758,7 @@
 						<name>tmp</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>214</lineNumber>
+						<lineNumber>235</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -773,7 +773,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>214</second>
+										<second>235</second>
 									</item>
 								</second>
 							</item>
@@ -805,10 +805,10 @@
 					<Obj>
 						<type>0</type>
 						<id>21</id>
-						<name>xor_ln215</name>
+						<name>xor_ln236</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>215</lineNumber>
+						<lineNumber>236</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -823,7 +823,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>215</second>
+										<second>236</second>
 									</item>
 								</second>
 							</item>
@@ -854,10 +854,10 @@
 					<Obj>
 						<type>0</type>
 						<id>22</id>
-						<name>select_ln214</name>
+						<name>select_ln235</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>214</lineNumber>
+						<lineNumber>235</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -872,7 +872,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>214</second>
+										<second>235</second>
 									</item>
 								</second>
 							</item>
@@ -907,7 +907,7 @@
 						<name>b_assign</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>216</lineNumber>
+						<lineNumber>237</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -922,7 +922,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>216</second>
+										<second>237</second>
 									</item>
 								</second>
 							</item>
@@ -955,10 +955,10 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>zext_ln216</name>
+						<name>zext_ln237</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>216</lineNumber>
+						<lineNumber>237</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -973,7 +973,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>216</second>
+										<second>237</second>
 									</item>
 								</second>
 							</item>
@@ -1003,10 +1003,10 @@
 					<Obj>
 						<type>0</type>
 						<id>25</id>
-						<name>_ln208</name>
+						<name>_ln229</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>208</lineNumber>
+						<lineNumber>229</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -1021,7 +1021,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>208</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
@@ -1051,10 +1051,10 @@
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>_ln218</name>
+						<name>_ln239</name>
 						<fileName>helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
-						<lineNumber>218</lineNumber>
+						<lineNumber>239</lineNumber>
 						<contextFuncName>galois_multiplication</contextFuncName>
 						<inlineStackInfo>
 							<count>1</count>
@@ -1069,7 +1069,7 @@
 											<first>helper.cpp</first>
 											<second>galois_multiplication</second>
 										</first>
-										<second>218</second>
+										<second>239</second>
 									</item>
 								</second>
 							</item>
@@ -2411,7 +2411,7 @@
 			</second>
 		</item>
 		<item>
-			<first>icmp_ln208_fu_86</first>
+			<first>icmp_ln229_fu_86</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2419,7 +2419,7 @@
 			</second>
 		</item>
 		<item>
-			<first>p_0_8_phi_fu_80</first>
+			<first>p_0_7_phi_fu_80</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2435,7 +2435,7 @@
 			</second>
 		</item>
 		<item>
-			<first>select_ln210_fu_102</first>
+			<first>select_ln231_fu_102</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2443,7 +2443,7 @@
 			</second>
 		</item>
 		<item>
-			<first>select_ln214_fu_136</first>
+			<first>select_ln235_fu_136</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2451,7 +2451,7 @@
 			</second>
 		</item>
 		<item>
-			<first>shl_ln213_fu_116</first>
+			<first>shl_ln234_fu_116</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2467,7 +2467,7 @@
 			</second>
 		</item>
 		<item>
-			<first>trunc_ln208_fu_98</first>
+			<first>trunc_ln229_fu_98</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2475,7 +2475,7 @@
 			</second>
 		</item>
 		<item>
-			<first>xor_ln210_fu_110</first>
+			<first>xor_ln231_fu_110</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2483,7 +2483,7 @@
 			</second>
 		</item>
 		<item>
-			<first>xor_ln215_fu_130</first>
+			<first>xor_ln236_fu_130</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2491,7 +2491,7 @@
 			</second>
 		</item>
 		<item>
-			<first>zext_ln216_fu_154</first>
+			<first>zext_ln237_fu_154</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2659,7 +2659,7 @@
 			</second>
 		</item>
 		<item>
-			<first>p_0_8_reg_77</first>
+			<first>p_0_7_reg_77</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2675,7 +2675,7 @@
 			</second>
 		</item>
 		<item>
-			<first>select_ln214_reg_181</first>
+			<first>select_ln235_reg_181</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2683,7 +2683,7 @@
 			</second>
 		</item>
 		<item>
-			<first>xor_ln210_reg_176</first>
+			<first>xor_ln231_reg_176</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2691,7 +2691,7 @@
 			</second>
 		</item>
 		<item>
-			<first>zext_ln216_reg_186</first>
+			<first>zext_ln237_reg_186</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2755,7 +2755,7 @@
 			</second>
 		</item>
 		<item>
-			<first>p_0_8_reg_77</first>
+			<first>p_0_7_reg_77</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

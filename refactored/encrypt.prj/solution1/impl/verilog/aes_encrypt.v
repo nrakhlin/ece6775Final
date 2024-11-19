@@ -80,8 +80,8 @@ reg   [3:0] add_ln51_1_reg_331;
 wire   [3:0] zext_ln62_fu_225_p1;
 reg   [3:0] zext_ln62_reg_336;
 wire    ap_CS_fsm_state8;
-wire   [2:0] i_11_fu_235_p2;
-reg   [2:0] i_11_reg_344;
+wire   [2:0] i_10_fu_235_p2;
+reg   [2:0] i_10_reg_344;
 wire   [3:0] shl_ln2_fu_245_p3;
 reg   [3:0] shl_ln2_reg_349;
 wire   [0:0] icmp_ln62_fu_229_p2;
@@ -96,6 +96,9 @@ reg    block_ce0;
 reg    block_we0;
 reg   [7:0] block_d0;
 wire   [7:0] block_q0;
+reg    block_ce1;
+reg    block_we1;
+wire   [7:0] block_q1;
 reg   [7:0] expandedKey_address0;
 reg    expandedKey_ce0;
 reg    expandedKey_we0;
@@ -108,6 +111,10 @@ wire   [3:0] grp_aes_main_fu_131_state_address0;
 wire    grp_aes_main_fu_131_state_ce0;
 wire    grp_aes_main_fu_131_state_we0;
 wire   [7:0] grp_aes_main_fu_131_state_d0;
+wire   [3:0] grp_aes_main_fu_131_state_address1;
+wire    grp_aes_main_fu_131_state_ce1;
+wire    grp_aes_main_fu_131_state_we1;
+wire   [7:0] grp_aes_main_fu_131_state_d1;
 wire   [7:0] grp_aes_main_fu_131_expandedKey_address0;
 wire    grp_aes_main_fu_131_expandedKey_ce0;
 wire    grp_expandKey_fu_139_ap_start;
@@ -154,7 +161,7 @@ initial begin
 #0 grp_expandKey_fu_139_ap_start_reg = 1'b0;
 end
 
-aes_main_roundKey #(
+aes_encrypt_block #(
     .DataWidth( 8 ),
     .AddressRange( 16 ),
     .AddressWidth( 4 ))
@@ -165,7 +172,12 @@ block_U(
     .ce0(block_ce0),
     .we0(block_we0),
     .d0(block_d0),
-    .q0(block_q0)
+    .q0(block_q0),
+    .address1(grp_aes_main_fu_131_state_address1),
+    .ce1(block_ce1),
+    .we1(block_we1),
+    .d1(grp_aes_main_fu_131_state_d1),
+    .q1(block_q1)
 );
 
 aes_encrypt_expandEe #(
@@ -194,6 +206,11 @@ aes_main grp_aes_main_fu_131(
     .state_we0(grp_aes_main_fu_131_state_we0),
     .state_d0(grp_aes_main_fu_131_state_d0),
     .state_q0(block_q0),
+    .state_address1(grp_aes_main_fu_131_state_address1),
+    .state_ce1(grp_aes_main_fu_131_state_ce1),
+    .state_we1(grp_aes_main_fu_131_state_we1),
+    .state_d1(grp_aes_main_fu_131_state_d1),
+    .state_q1(block_q1),
     .expandedKey_address0(grp_aes_main_fu_131_expandedKey_address0),
     .expandedKey_ce0(grp_aes_main_fu_131_expandedKey_ce0),
     .expandedKey_q0(expandedKey_q0)
@@ -258,7 +275,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state9) & (icmp_ln65_fu_257_p2 == 1'd1))) begin
-        i_1_reg_109 <= i_11_reg_344;
+        i_1_reg_109 <= i_10_reg_344;
     end else if (((1'b1 == ap_CS_fsm_state7) & (grp_aes_main_fu_131_ap_done == 1'b1))) begin
         i_1_reg_109 <= 3'd0;
     end
@@ -294,7 +311,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state8)) begin
-        i_11_reg_344 <= i_11_fu_235_p2;
+        i_10_reg_344 <= i_10_fu_235_p2;
         zext_ln62_reg_336[2 : 0] <= zext_ln62_fu_225_p1[2 : 0];
     end
 end
@@ -377,6 +394,14 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state7)) begin
+        block_ce1 = grp_aes_main_fu_131_state_ce1;
+    end else begin
+        block_ce1 = 1'b0;
+    end
+end
+
+always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
         block_d0 = input_r_q0;
     end else if ((1'b1 == ap_CS_fsm_state7)) begin
@@ -393,6 +418,14 @@ always @ (*) begin
         block_we0 = grp_aes_main_fu_131_state_we0;
     end else begin
         block_we0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state7)) begin
+        block_we1 = grp_aes_main_fu_131_state_we1;
+    end else begin
+        block_we1 = 1'b0;
     end
 end
 
@@ -546,7 +579,7 @@ assign grp_aes_main_fu_131_ap_start = grp_aes_main_fu_131_ap_start_reg;
 
 assign grp_expandKey_fu_139_ap_start = grp_expandKey_fu_139_ap_start_reg;
 
-assign i_11_fu_235_p2 = (i_1_reg_109 + 3'd1);
+assign i_10_fu_235_p2 = (i_1_reg_109 + 3'd1);
 
 assign i_fu_160_p2 = (i_0_reg_87 + 3'd1);
 

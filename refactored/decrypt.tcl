@@ -16,7 +16,7 @@ set_top decrypt_dut
 add_files decrypt.cpp -cflags "-std=c++11"
 add_files helper.cpp -cflags "-std=c++11"
 # add_files -tb bnn_test.cpp -cflags "-std=c++11"
-add_files -tb encrypt_test.cpp -cflags "-std=c++11"
+add_files -tb decrypt_test.cpp -cflags "-std=c++11"
 # add_files -tb data
 
 open_solution "solution1"

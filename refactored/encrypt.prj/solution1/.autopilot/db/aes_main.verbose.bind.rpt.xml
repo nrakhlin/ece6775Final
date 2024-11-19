@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_main'" level="0">
-<item name = "Date">Sun Nov 17 11:18:48 2024
+<item name = "Date">Mon Nov 18 20:33:11 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -24,24 +24,21 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, ?, ?, none</column>
+<column name="">2720, 2720, 27.200 us, 27.200 us, 2720, 2720, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_mixColumns_fu_204">mixColumns, 141, 141, 1.410 us, 1.410 us, 141, 141, none</column>
-<column name="grp_shiftRows_fu_210">shiftRows, ?, ?, ?, ?, ?, ?, none</column>
-<column name="grp_createRoundKey_fu_216">createRoundKey, 41, 41, 0.410 us, 0.410 us, 41, 41, none</column>
+<column name="grp_aes_round_fu_285">aes_round, 234, 234, 2.340 us, 2.340 us, 234, 234, none</column>
+<column name="grp_createRoundKey_fu_294">createRoundKey, 41, 41, 0.410 us, 0.410 us, 41, 41, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">32, 32, 2, -, -, 16, no</column>
-<column name="- Loop 2">?, ?, ?, -, -, 9, no</column>
-<column name=" + Loop 2.1">48, 48, 3, -, -, 16, no</column>
-<column name=" + Loop 2.2">32, 32, 2, -, -, 16, no</column>
+<column name="- Loop 2">2511, 2511, 279, -, -, 9, no</column>
 <column name="- Loop 3">48, 48, 3, -, -, 16, no</column>
 <column name="- Loop 4">32, 32, 2, -, -, 16, no</column>
 </table>

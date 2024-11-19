@@ -283,7 +283,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.encrypt_dut_mux_4cud_U28", "Parent" : "0"}]}
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.encrypt_dut_mux_4cud_U27", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {

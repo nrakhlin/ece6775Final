@@ -67,7 +67,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3804", "EstimateLatencyMax" : "4484",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -92,13 +92,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "Rcon", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "grp_aes_encrypt_fu_18", "Port" : "Rcon"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18", "Parent" : "0", "Child" : ["2", "3", "4", "25"],
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18", "Parent" : "0", "Child" : ["2", "3", "4", "26"],
 		"CDFG" : "aes_encrypt",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "3803", "EstimateLatencyMax" : "4483",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -113,23 +113,23 @@ set RtlHierarchyInfo {[
 			{"Name" : "output_r", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "key", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "25", "SubInstance" : "grp_expandKey_fu_139", "Port" : "key"}]},
+					{"ID" : "26", "SubInstance" : "grp_expandKey_fu_139", "Port" : "key"}]},
 			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "25", "SubInstance" : "grp_expandKey_fu_139", "Port" : "sbox"},
+					{"ID" : "26", "SubInstance" : "grp_expandKey_fu_139", "Port" : "sbox"},
 					{"ID" : "4", "SubInstance" : "grp_aes_main_fu_131", "Port" : "sbox"}]},
 			{"Name" : "Rcon", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "25", "SubInstance" : "grp_expandKey_fu_139", "Port" : "Rcon"}]}]},
+					{"ID" : "26", "SubInstance" : "grp_expandKey_fu_139", "Port" : "Rcon"}]}]},
 	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.block_U", "Parent" : "1"},
 	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.expandedKey_U", "Parent" : "1"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131", "Parent" : "1", "Child" : ["5", "6", "7", "23", "24"],
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131", "Parent" : "1", "Child" : ["5", "6", "7", "25"],
 		"CDFG" : "aes_main",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2720", "EstimateLatencyMax" : "2720",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -137,24 +137,45 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state12", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mixColumns_fu_204"},
-			{"State" : "ap_ST_fsm_state10", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_shiftRows_fu_210"},
-			{"State" : "ap_ST_fsm_state19", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_shiftRows_fu_210"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_216"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_216"},
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_216"}],
+			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_round_fu_285"},
+			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_294"},
+			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_294"},
+			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_294"}],
 		"Port" : [
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "grp_mixColumns_fu_204", "Port" : "state"},
-					{"ID" : "23", "SubInstance" : "grp_shiftRows_fu_210", "Port" : "state"}]},
+					{"ID" : "7", "SubInstance" : "grp_aes_round_fu_285", "Port" : "state"}]},
 			{"Name" : "expandedKey", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "24", "SubInstance" : "grp_createRoundKey_fu_216", "Port" : "expandedKey"}]},
-			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I"}]},
+					{"ID" : "25", "SubInstance" : "grp_createRoundKey_fu_294", "Port" : "expandedKey"}]},
+			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_aes_round_fu_285", "Port" : "sbox"}]}]},
 	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.sbox_U", "Parent" : "4"},
 	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.roundKey_U", "Parent" : "4"},
-	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204", "Parent" : "4", "Child" : ["8", "22"],
+	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285", "Parent" : "4", "Child" : ["8", "9"],
+		"CDFG" : "aes_round",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "234", "EstimateLatencyMax" : "234",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"WaitState" : [
+			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mixColumns_fu_230"}],
+		"Port" : [
+			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
+				"SubConnect" : [
+					{"ID" : "9", "SubInstance" : "grp_mixColumns_fu_230", "Port" : "state"}]},
+			{"Name" : "roundKey", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I"}]},
+	{"ID" : "8", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.sbox_U", "Parent" : "7"},
+	{"ID" : "9", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230", "Parent" : "7", "Child" : ["10", "24"],
 		"CDFG" : "mixColumns",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -171,7 +192,7 @@ set RtlHierarchyInfo {[
 			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mixColumn_fu_246"}],
 		"Port" : [
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "8", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246", "Parent" : "7", "Child" : ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"],
+	{"ID" : "10", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246", "Parent" : "9", "Child" : ["11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
 		"CDFG" : "mixColumn",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -202,7 +223,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "column_1_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "column_2_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "column_3_read", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "9", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_89", "Parent" : "8",
+	{"ID" : "11", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_89", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -218,7 +239,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "10", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_96", "Parent" : "8",
+	{"ID" : "12", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_96", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -234,7 +255,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "11", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_103", "Parent" : "8",
+	{"ID" : "13", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_103", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -250,7 +271,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "12", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_110", "Parent" : "8",
+	{"ID" : "14", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_110", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -266,7 +287,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "13", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_117", "Parent" : "8",
+	{"ID" : "15", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_117", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -282,7 +303,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "14", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_124", "Parent" : "8",
+	{"ID" : "16", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_124", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -298,7 +319,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "15", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_131", "Parent" : "8",
+	{"ID" : "17", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_131", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -314,7 +335,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "16", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_138", "Parent" : "8",
+	{"ID" : "18", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_138", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -330,7 +351,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "17", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_145", "Parent" : "8",
+	{"ID" : "19", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_145", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -346,7 +367,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "18", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_152", "Parent" : "8",
+	{"ID" : "20", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_152", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -362,7 +383,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "19", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_159", "Parent" : "8",
+	{"ID" : "21", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_159", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -378,7 +399,7 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "20", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_166", "Parent" : "8",
+	{"ID" : "22", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_166", "Parent" : "10",
 		"CDFG" : "galois_multiplicatio",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -394,24 +415,9 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "21", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.grp_mixColumn_fu_246.encrypt_dut_mux_4cud_U28", "Parent" : "8"},
-	{"ID" : "22", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_mixColumns_fu_204.encrypt_dut_mux_4cud_U33", "Parent" : "7"},
-	{"ID" : "23", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_shiftRows_fu_210", "Parent" : "4",
-		"CDFG" : "shiftRows",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "state", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "24", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_createRoundKey_fu_216", "Parent" : "4",
+	{"ID" : "23", "Level" : "6", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.encrypt_dut_mux_4cud_U27", "Parent" : "10"},
+	{"ID" : "24", "Level" : "5", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_aes_round_fu_285.grp_mixColumns_fu_230.encrypt_dut_mux_4cud_U32", "Parent" : "9"},
+	{"ID" : "25", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_aes_main_fu_131.grp_createRoundKey_fu_294", "Parent" : "4",
 		"CDFG" : "createRoundKey",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -428,7 +434,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "expandedKey", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "roundKey", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "ptr", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139", "Parent" : "1", "Child" : ["26", "34", "35", "36", "37", "38"],
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139", "Parent" : "1", "Child" : ["27", "35", "36", "37", "38", "39"],
 		"CDFG" : "expandKey",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -448,11 +454,11 @@ set RtlHierarchyInfo {[
 			{"Name" : "key", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "26", "SubInstance" : "grp_core_fu_404", "Port" : "sbox"}]},
+					{"ID" : "27", "SubInstance" : "grp_core_fu_404", "Port" : "sbox"}]},
 			{"Name" : "Rcon", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "26", "SubInstance" : "grp_core_fu_404", "Port" : "Rcon"}]}]},
-	{"ID" : "26", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404", "Parent" : "25", "Child" : ["27", "28", "29", "30", "31", "32", "33"],
+					{"ID" : "27", "SubInstance" : "grp_core_fu_404", "Port" : "Rcon"}]}]},
+	{"ID" : "27", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404", "Parent" : "26", "Child" : ["28", "29", "30", "31", "32", "33", "34"],
 		"CDFG" : "core",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -473,18 +479,18 @@ set RtlHierarchyInfo {[
 			{"Name" : "iteration", "Type" : "None", "Direction" : "I"},
 			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "Rcon", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "27", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.sbox_U", "Parent" : "26"},
-	{"ID" : "28", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.Rcon_U", "Parent" : "26"},
-	{"ID" : "29", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4bkb_U1", "Parent" : "26"},
-	{"ID" : "30", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U2", "Parent" : "26"},
-	{"ID" : "31", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U3", "Parent" : "26"},
-	{"ID" : "32", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U4", "Parent" : "26"},
-	{"ID" : "33", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U5", "Parent" : "26"},
-	{"ID" : "34", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U15", "Parent" : "25"},
-	{"ID" : "35", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U16", "Parent" : "25"},
-	{"ID" : "36", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U17", "Parent" : "25"},
-	{"ID" : "37", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U18", "Parent" : "25"},
-	{"ID" : "38", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U19", "Parent" : "25"}]}
+	{"ID" : "28", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.sbox_U", "Parent" : "27"},
+	{"ID" : "29", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.Rcon_U", "Parent" : "27"},
+	{"ID" : "30", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4bkb_U1", "Parent" : "27"},
+	{"ID" : "31", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U2", "Parent" : "27"},
+	{"ID" : "32", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U3", "Parent" : "27"},
+	{"ID" : "33", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U4", "Parent" : "27"},
+	{"ID" : "34", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.grp_core_fu_404.encrypt_dut_mux_4cud_U5", "Parent" : "27"},
+	{"ID" : "35", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U15", "Parent" : "26"},
+	{"ID" : "36", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U16", "Parent" : "26"},
+	{"ID" : "37", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U17", "Parent" : "26"},
+	{"ID" : "38", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U18", "Parent" : "26"},
+	{"ID" : "39", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_encrypt_fu_18.grp_expandKey_fu_139.encrypt_dut_mux_4cud_U19", "Parent" : "26"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -501,8 +507,12 @@ set ArgLastReadFirstWriteLatency {
 		sbox {Type I LastRead -1 FirstWrite -1}
 		Rcon {Type I LastRead -1 FirstWrite -1}}
 	aes_main {
-		state {Type IO LastRead 9 FirstWrite 3}
+		state {Type IO LastRead 15 FirstWrite 2}
 		expandedKey {Type I LastRead 2 FirstWrite -1}
+		sbox {Type I LastRead -1 FirstWrite -1}}
+	aes_round {
+		state {Type IO LastRead 13 FirstWrite 2}
+		roundKey {Type I LastRead 13 FirstWrite -1}
 		sbox {Type I LastRead -1 FirstWrite -1}}
 	mixColumns {
 		state {Type IO LastRead 2 FirstWrite 4}}
@@ -547,8 +557,6 @@ set ArgLastReadFirstWriteLatency {
 	galois_multiplicatio {
 		a {Type I LastRead 0 FirstWrite -1}
 		b {Type I LastRead 0 FirstWrite -1}}
-	shiftRows {
-		state {Type IO LastRead 4 FirstWrite 4}}
 	createRoundKey {
 		expandedKey {Type I LastRead 2 FirstWrite -1}
 		roundKey {Type O LastRead -1 FirstWrite 3}
@@ -570,8 +578,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
-	, {"Name" : "Interval", "Min" : "0", "Max" : "0"}
+	{"Name" : "Latency", "Min" : "3804", "Max" : "4484"}
+	, {"Name" : "Interval", "Min" : "3805", "Max" : "4485"}
 ]}
 
 set PipelineEnableSignalInfo {[

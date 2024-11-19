@@ -287,8 +287,8 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "a", "Type" : "None", "Direction" : "I"},
 			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_mixColumn_fu_246.encrypt_dut_mux_4cud_U28", "Parent" : "1"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.encrypt_dut_mux_4cud_U33", "Parent" : "0"}]}
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_mixColumn_fu_246.encrypt_dut_mux_4cud_U27", "Parent" : "1"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.encrypt_dut_mux_4cud_U32", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {

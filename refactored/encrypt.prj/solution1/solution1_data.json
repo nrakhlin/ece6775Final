@@ -64,7 +64,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "undef",
+    "Latency": "3804",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -86,9 +86,11 @@
     ],
     "Vhdl": [
       "impl\/vhdl\/aes_encrypt.vhd",
+      "impl\/vhdl\/aes_encrypt_block.vhd",
       "impl\/vhdl\/aes_encrypt_expandEe.vhd",
       "impl\/vhdl\/aes_main.vhd",
       "impl\/vhdl\/aes_main_roundKey.vhd",
+      "impl\/vhdl\/aes_round.vhd",
       "impl\/vhdl\/core.vhd",
       "impl\/vhdl\/core_Rcon.vhd",
       "impl\/vhdl\/core_sbox.vhd",
@@ -99,14 +101,15 @@
       "impl\/vhdl\/galois_multiplicatio.vhd",
       "impl\/vhdl\/mixColumn.vhd",
       "impl\/vhdl\/mixColumns.vhd",
-      "impl\/vhdl\/shiftRows.vhd",
       "impl\/vhdl\/encrypt_dut.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/aes_encrypt.v",
+      "impl\/verilog\/aes_encrypt_block.v",
       "impl\/verilog\/aes_encrypt_expandEe.v",
       "impl\/verilog\/aes_main.v",
       "impl\/verilog\/aes_main_roundKey.v",
+      "impl\/verilog\/aes_round.v",
       "impl\/verilog\/core.v",
       "impl\/verilog\/core_Rcon.v",
       "impl\/verilog\/core_Rcon_rom.dat",
@@ -119,7 +122,6 @@
       "impl\/verilog\/galois_multiplicatio.v",
       "impl\/verilog\/mixColumn.v",
       "impl\/verilog\/mixColumns.v",
-      "impl\/verilog\/shiftRows.v",
       "impl\/verilog\/encrypt_dut.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
@@ -302,70 +304,70 @@
               "InstanceName": "grp_aes_main_fu_131",
               "Instances": [
                 {
-                  "ModuleName": "mixColumns",
-                  "InstanceName": "grp_mixColumns_fu_204",
+                  "ModuleName": "aes_round",
+                  "InstanceName": "grp_aes_round_fu_285",
                   "Instances": [{
-                      "ModuleName": "mixColumn",
-                      "InstanceName": "grp_mixColumn_fu_246",
-                      "Instances": [
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_89"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_96"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_103"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_110"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_117"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_124"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_131"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_138"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_145"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_152"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_159"
-                        },
-                        {
-                          "ModuleName": "galois_multiplicatio",
-                          "InstanceName": "grp_galois_multiplicatio_fu_166"
-                        }
-                      ]
+                      "ModuleName": "mixColumns",
+                      "InstanceName": "grp_mixColumns_fu_230",
+                      "Instances": [{
+                          "ModuleName": "mixColumn",
+                          "InstanceName": "grp_mixColumn_fu_246",
+                          "Instances": [
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_89"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_96"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_103"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_110"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_117"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_124"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_131"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_138"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_145"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_152"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_159"
+                            },
+                            {
+                              "ModuleName": "galois_multiplicatio",
+                              "InstanceName": "grp_galois_multiplicatio_fu_166"
+                            }
+                          ]
+                        }]
                     }]
                 },
                 {
-                  "ModuleName": "shiftRows",
-                  "InstanceName": "grp_shiftRows_fu_210"
-                },
-                {
                   "ModuleName": "createRoundKey",
-                  "InstanceName": "grp_createRoundKey_fu_216"
+                  "InstanceName": "grp_createRoundKey_fu_294"
                 }
               ]
             },
@@ -402,13 +404,6 @@
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "shiftRows": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "0",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
       "galois_multiplicatio": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
@@ -424,6 +419,13 @@
         "isOneStateSeq": "0"
       },
       "mixColumns": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "aes_round": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
         "isPipelined": "0",
@@ -594,49 +596,6 @@
           "URAM": "0"
         }
       },
-      "shiftRows": {
-        "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
-          "PipelineDepth": "",
-          "PipelineType": "none"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "4.874"
-        },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "4",
-            "Latency": "",
-            "PipelineII": "",
-            "PipelineDepth": "",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "",
-                "Latency": "",
-                "PipelineII": "",
-                "PipelineDepth": "",
-                "Loops": [{
-                    "Name": "Loop 1.1.1",
-                    "TripCount": "",
-                    "Latency": "",
-                    "PipelineII": "",
-                    "PipelineDepth": "2"
-                  }]
-              }]
-          }],
-        "Area": {
-          "FF": "96",
-          "LUT": "208",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
-        }
-      },
       "galois_multiplicatio": {
         "Latency": {
           "LatencyBest": "9",
@@ -740,12 +699,50 @@
           "URAM": "0"
         }
       },
+      "aes_round": {
+        "Latency": {
+          "LatencyBest": "234",
+          "LatencyAvg": "234",
+          "LatencyWorst": "234",
+          "PipelineII": "234",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "5.634"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "16",
+            "Latency": "48",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "1",
+          "FF": "760",
+          "LUT": "2275",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
       "aes_main": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "2720",
+          "LatencyAvg": "2720",
+          "LatencyWorst": "2720",
+          "PipelineII": "2720",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -765,25 +762,9 @@
           {
             "Name": "Loop 2",
             "TripCount": "9",
-            "Latency": "",
+            "Latency": "2511",
             "PipelineII": "",
-            "PipelineDepth": "",
-            "Loops": [
-              {
-                "Name": "Loop 2.1",
-                "TripCount": "16",
-                "Latency": "48",
-                "PipelineII": "",
-                "PipelineDepth": "3"
-              },
-              {
-                "Name": "Loop 2.2",
-                "TripCount": "16",
-                "Latency": "32",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }
-            ]
+            "PipelineDepth": "279"
           },
           {
             "Name": "Loop 3",
@@ -801,19 +782,21 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "1",
-          "FF": "913",
-          "LUT": "2729",
+          "BRAM_18K": "2",
+          "FF": "936",
+          "LUT": "3038",
           "URAM": "0",
           "DSP48E": "0"
         }
       },
       "aes_encrypt": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "3803",
+          "LatencyAvg": "4163",
+          "LatencyWorst": "4483",
+          "PipelineIIMin": "3803",
+          "PipelineIIMax": "4483",
+          "PipelineII": "3803 ~ 4483",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -853,19 +836,21 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "4",
-          "FF": "1463",
-          "LUT": "4050",
+          "BRAM_18K": "6",
+          "FF": "1470",
+          "LUT": "4375",
           "URAM": "0",
           "DSP48E": "0"
         }
       },
       "encrypt_dut": {
         "Latency": {
-          "LatencyBest": "",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineII": "",
+          "LatencyBest": "3804",
+          "LatencyAvg": "4164",
+          "LatencyWorst": "4484",
+          "PipelineIIMin": "3805",
+          "PipelineIIMax": "4485",
+          "PipelineII": "3805 ~ 4485",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -875,9 +860,9 @@
           "Estimate": "7.498"
         },
         "Area": {
-          "BRAM_18K": "4",
-          "FF": "1466",
-          "LUT": "4065",
+          "BRAM_18K": "6",
+          "FF": "1473",
+          "LUT": "4390",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -894,7 +879,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-11-17 11:18:51 EST",
+    "Time": "2024-11-18 20:33:15 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

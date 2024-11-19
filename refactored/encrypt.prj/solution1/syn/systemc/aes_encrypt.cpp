@@ -43,7 +43,7 @@ const sc_lv<2> aes_encrypt::ap_const_lv2_0 = "00";
 const bool aes_encrypt::ap_const_boolean_1 = true;
 
 aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    block_U = new aes_main_roundKey("block_U");
+    block_U = new aes_encrypt_block("block_U");
     block_U->clk(ap_clk);
     block_U->reset(ap_rst);
     block_U->address0(block_address0);
@@ -51,6 +51,11 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     block_U->we0(block_we0);
     block_U->d0(block_d0);
     block_U->q0(block_q0);
+    block_U->address1(grp_aes_main_fu_131_state_address1);
+    block_U->ce1(block_ce1);
+    block_U->we1(block_we1);
+    block_U->d1(grp_aes_main_fu_131_state_d1);
+    block_U->q1(block_q1);
     expandedKey_U = new aes_encrypt_expandEe("expandedKey_U");
     expandedKey_U->clk(ap_clk);
     expandedKey_U->reset(ap_rst);
@@ -71,6 +76,11 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     grp_aes_main_fu_131->state_we0(grp_aes_main_fu_131_state_we0);
     grp_aes_main_fu_131->state_d0(grp_aes_main_fu_131_state_d0);
     grp_aes_main_fu_131->state_q0(block_q0);
+    grp_aes_main_fu_131->state_address1(grp_aes_main_fu_131_state_address1);
+    grp_aes_main_fu_131->state_ce1(grp_aes_main_fu_131_state_ce1);
+    grp_aes_main_fu_131->state_we1(grp_aes_main_fu_131_state_we1);
+    grp_aes_main_fu_131->state_d1(grp_aes_main_fu_131_state_d1);
+    grp_aes_main_fu_131->state_q1(block_q1);
     grp_aes_main_fu_131->expandedKey_address0(grp_aes_main_fu_131_expandedKey_address0);
     grp_aes_main_fu_131->expandedKey_ce0(grp_aes_main_fu_131_expandedKey_ce0);
     grp_aes_main_fu_131->expandedKey_q0(expandedKey_q0);
@@ -168,6 +178,10 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state4 );
     sensitive << ( ap_CS_fsm_state7 );
 
+    SC_METHOD(thread_block_ce1);
+    sensitive << ( grp_aes_main_fu_131_state_ce1 );
+    sensitive << ( ap_CS_fsm_state7 );
+
     SC_METHOD(thread_block_d0);
     sensitive << ( input_r_q0 );
     sensitive << ( grp_aes_main_fu_131_state_d0 );
@@ -177,6 +191,10 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_block_we0);
     sensitive << ( grp_aes_main_fu_131_state_we0 );
     sensitive << ( ap_CS_fsm_state4 );
+    sensitive << ( ap_CS_fsm_state7 );
+
+    SC_METHOD(thread_block_we1);
+    sensitive << ( grp_aes_main_fu_131_state_we1 );
     sensitive << ( ap_CS_fsm_state7 );
 
     SC_METHOD(thread_expandedKey_address0);
@@ -201,7 +219,7 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_grp_expandKey_fu_139_ap_start);
     sensitive << ( grp_expandKey_fu_139_ap_start_reg );
 
-    SC_METHOD(thread_i_11_fu_235_p2);
+    SC_METHOD(thread_i_10_fu_235_p2);
     sensitive << ( i_1_reg_109 );
 
     SC_METHOD(thread_i_fu_160_p2);
@@ -371,8 +389,8 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, zext_ln62_fu_225_p1, "zext_ln62_fu_225_p1");
     sc_trace(mVcdFile, zext_ln62_reg_336, "zext_ln62_reg_336");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
-    sc_trace(mVcdFile, i_11_fu_235_p2, "i_11_fu_235_p2");
-    sc_trace(mVcdFile, i_11_reg_344, "i_11_reg_344");
+    sc_trace(mVcdFile, i_10_fu_235_p2, "i_10_fu_235_p2");
+    sc_trace(mVcdFile, i_10_reg_344, "i_10_reg_344");
     sc_trace(mVcdFile, shl_ln2_fu_245_p3, "shl_ln2_fu_245_p3");
     sc_trace(mVcdFile, shl_ln2_reg_349, "shl_ln2_reg_349");
     sc_trace(mVcdFile, icmp_ln62_fu_229_p2, "icmp_ln62_fu_229_p2");
@@ -387,6 +405,9 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, block_we0, "block_we0");
     sc_trace(mVcdFile, block_d0, "block_d0");
     sc_trace(mVcdFile, block_q0, "block_q0");
+    sc_trace(mVcdFile, block_ce1, "block_ce1");
+    sc_trace(mVcdFile, block_we1, "block_we1");
+    sc_trace(mVcdFile, block_q1, "block_q1");
     sc_trace(mVcdFile, expandedKey_address0, "expandedKey_address0");
     sc_trace(mVcdFile, expandedKey_ce0, "expandedKey_ce0");
     sc_trace(mVcdFile, expandedKey_we0, "expandedKey_we0");
@@ -399,6 +420,10 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, grp_aes_main_fu_131_state_ce0, "grp_aes_main_fu_131_state_ce0");
     sc_trace(mVcdFile, grp_aes_main_fu_131_state_we0, "grp_aes_main_fu_131_state_we0");
     sc_trace(mVcdFile, grp_aes_main_fu_131_state_d0, "grp_aes_main_fu_131_state_d0");
+    sc_trace(mVcdFile, grp_aes_main_fu_131_state_address1, "grp_aes_main_fu_131_state_address1");
+    sc_trace(mVcdFile, grp_aes_main_fu_131_state_ce1, "grp_aes_main_fu_131_state_ce1");
+    sc_trace(mVcdFile, grp_aes_main_fu_131_state_we1, "grp_aes_main_fu_131_state_we1");
+    sc_trace(mVcdFile, grp_aes_main_fu_131_state_d1, "grp_aes_main_fu_131_state_d1");
     sc_trace(mVcdFile, grp_aes_main_fu_131_expandedKey_address0, "grp_aes_main_fu_131_expandedKey_address0");
     sc_trace(mVcdFile, grp_aes_main_fu_131_expandedKey_ce0, "grp_aes_main_fu_131_expandedKey_ce0");
     sc_trace(mVcdFile, grp_expandKey_fu_139_ap_start, "grp_expandKey_fu_139_ap_start");
@@ -486,7 +511,7 @@ void aes_encrypt::thread_ap_clk_no_reset_() {
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
          esl_seteq<1,1,1>(icmp_ln65_fu_257_p2.read(), ap_const_lv1_1))) {
-        i_1_reg_109 = i_11_reg_344.read();
+        i_1_reg_109 = i_10_reg_344.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
                 esl_seteq<1,1,1>(grp_aes_main_fu_131_ap_done.read(), ap_const_logic_1))) {
         i_1_reg_109 = ap_const_lv3_0;
@@ -510,7 +535,7 @@ void aes_encrypt::thread_ap_clk_no_reset_() {
         add_ln67_1_reg_367 = add_ln67_1_fu_291_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        i_11_reg_344 = i_11_fu_235_p2.read();
+        i_10_reg_344 = i_10_fu_235_p2.read();
         zext_ln62_reg_336 = zext_ln62_fu_225_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
@@ -639,6 +664,14 @@ void aes_encrypt::thread_block_ce0() {
     }
 }
 
+void aes_encrypt::thread_block_ce1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
+        block_ce1 = grp_aes_main_fu_131_state_ce1.read();
+    } else {
+        block_ce1 = ap_const_logic_0;
+    }
+}
+
 void aes_encrypt::thread_block_d0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
         block_d0 = input_r_q0.read();
@@ -656,6 +689,14 @@ void aes_encrypt::thread_block_we0() {
         block_we0 = grp_aes_main_fu_131_state_we0.read();
     } else {
         block_we0 = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_block_we1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
+        block_we1 = grp_aes_main_fu_131_state_we1.read();
+    } else {
+        block_we1 = ap_const_logic_0;
     }
 }
 
@@ -695,8 +736,8 @@ void aes_encrypt::thread_grp_expandKey_fu_139_ap_start() {
     grp_expandKey_fu_139_ap_start = grp_expandKey_fu_139_ap_start_reg.read();
 }
 
-void aes_encrypt::thread_i_11_fu_235_p2() {
-    i_11_fu_235_p2 = (!i_1_reg_109.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_1_reg_109.read()) + sc_biguint<3>(ap_const_lv3_1));
+void aes_encrypt::thread_i_10_fu_235_p2() {
+    i_10_fu_235_p2 = (!i_1_reg_109.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_1_reg_109.read()) + sc_biguint<3>(ap_const_lv3_1));
 }
 
 void aes_encrypt::thread_i_fu_160_p2() {

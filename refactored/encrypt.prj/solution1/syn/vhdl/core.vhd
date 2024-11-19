@@ -102,10 +102,10 @@ architecture behav of core is
     signal select_ln89_fu_247_p3 : STD_LOGIC_VECTOR (7 downto 0);
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal empty_15_fu_58 : STD_LOGIC_VECTOR (7 downto 0);
-    signal empty_16_fu_62 : STD_LOGIC_VECTOR (7 downto 0);
-    signal empty_17_fu_66 : STD_LOGIC_VECTOR (7 downto 0);
-    signal empty_18_fu_70 : STD_LOGIC_VECTOR (7 downto 0);
+    signal empty_14_fu_58 : STD_LOGIC_VECTOR (7 downto 0);
+    signal empty_15_fu_62 : STD_LOGIC_VECTOR (7 downto 0);
+    signal empty_16_fu_66 : STD_LOGIC_VECTOR (7 downto 0);
+    signal empty_17_fu_70 : STD_LOGIC_VECTOR (7 downto 0);
     signal word_1_0_fu_74 : STD_LOGIC_VECTOR (7 downto 0);
     signal word_2_0_fu_78 : STD_LOGIC_VECTOR (7 downto 0);
     signal word_3_0_fu_82 : STD_LOGIC_VECTOR (7 downto 0);
@@ -296,10 +296,10 @@ begin
         din4_WIDTH => 2,
         dout_WIDTH => 8)
     port map (
-        din0 => empty_15_fu_58,
-        din1 => empty_16_fu_62,
-        din2 => empty_17_fu_66,
-        din3 => empty_18_fu_70,
+        din0 => empty_14_fu_58,
+        din1 => empty_15_fu_62,
+        din2 => empty_16_fu_66,
+        din3 => empty_17_fu_70,
         din4 => num_assign_1_fu_362_p5,
         dout => num_assign_1_fu_362_p6);
 
@@ -375,46 +375,46 @@ begin
     end process;
 
 
-    empty_15_fu_58_assign_proc : process (ap_clk)
+    empty_14_fu_58_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((trunc_ln105_reg_590 = ap_const_lv2_0) and (ap_const_logic_1 = ap_CS_fsm_state5))) then 
-                empty_15_fu_58 <= sbox_q0;
+                empty_14_fu_58 <= sbox_q0;
             elsif (((icmp_ln86_fu_221_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                empty_15_fu_58 <= select_ln89_fu_247_p3;
+                empty_14_fu_58 <= select_ln89_fu_247_p3;
             end if; 
         end if;
     end process;
 
-    empty_16_fu_62_assign_proc : process (ap_clk)
+    empty_15_fu_62_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((trunc_ln105_reg_590 = ap_const_lv2_1) and (ap_const_logic_1 = ap_CS_fsm_state5))) then 
-                empty_16_fu_62 <= sbox_q0;
+                empty_15_fu_62 <= sbox_q0;
             elsif (((icmp_ln86_fu_221_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                empty_16_fu_62 <= word12_0_i_reg_175;
+                empty_15_fu_62 <= word12_0_i_reg_175;
             end if; 
         end if;
     end process;
 
-    empty_17_fu_66_assign_proc : process (ap_clk)
+    empty_16_fu_66_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((trunc_ln105_reg_590 = ap_const_lv2_2) and (ap_const_logic_1 = ap_CS_fsm_state5))) then 
-                empty_17_fu_66 <= sbox_q0;
+                empty_16_fu_66 <= sbox_q0;
             elsif (((icmp_ln86_fu_221_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                empty_17_fu_66 <= word2_0_i_reg_165;
+                empty_16_fu_66 <= word2_0_i_reg_165;
             end if; 
         end if;
     end process;
 
-    empty_18_fu_70_assign_proc : process (ap_clk)
+    empty_17_fu_70_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((trunc_ln105_reg_590 = ap_const_lv2_3) and (ap_const_logic_1 = ap_CS_fsm_state5))) then 
-                empty_18_fu_70 <= sbox_q0;
+                empty_17_fu_70 <= sbox_q0;
             elsif (((icmp_ln86_fu_221_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                empty_18_fu_70 <= word_0_read;
+                empty_17_fu_70 <= word_0_read;
             end if; 
         end if;
     end process;

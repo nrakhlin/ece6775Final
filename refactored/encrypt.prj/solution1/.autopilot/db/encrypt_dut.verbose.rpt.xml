@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'encrypt_dut'" level="0">
-<item name = "Date">Sun Nov 17 11:18:49 2024
+<item name = "Date">Mon Nov 18 20:33:13 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, ?, ?, none</column>
+<column name="">3804, 4484, 38.040 us, 44.840 us, 3804, 4484, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aes_encrypt_fu_18">aes_encrypt, ?, ?, ?, ?, ?, ?, none</column>
+<column name="grp_aes_encrypt_fu_18">aes_encrypt, 3803, 4483, 38.030 us, 44.830 us, 3803, 4483, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,19 +50,19 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, -, -, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">4, -, 1463, 4050, 0</column>
+<column name="Instance">6, -, 1470, 4375, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 15, -</column>
 <column name="Register">-, -, 3, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">1, 0, 1, 7, 0</specialColumn>
+<specialColumn name="Utilization (%)">2, 0, 1, 8, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_aes_encrypt_fu_18">aes_encrypt, 4, 0, 1463, 4050, 0</column>
+<column name="grp_aes_encrypt_fu_18">aes_encrypt, 6, 0, 1470, 4375, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">

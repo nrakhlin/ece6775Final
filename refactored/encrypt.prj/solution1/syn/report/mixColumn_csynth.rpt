@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mixColumn'
 ================================================================
-* Date:           Sun Nov 17 11:18:49 2024
+* Date:           Mon Nov 18 20:33:12 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -89,7 +89,7 @@
     +---------------------------------+----------------------+---------+-------+----+-----+-----+
     |             Instance            |        Module        | BRAM_18K| DSP48E| FF | LUT | URAM|
     +---------------------------------+----------------------+---------+-------+----+-----+-----+
-    |encrypt_dut_mux_4cud_U28         |encrypt_dut_mux_4cud  |        0|      0|   0|   21|    0|
+    |encrypt_dut_mux_4cud_U27         |encrypt_dut_mux_4cud  |        0|      0|   0|   21|    0|
     |grp_galois_multiplicatio_fu_89   |galois_multiplicatio  |        0|      0|  33|  116|    0|
     |grp_galois_multiplicatio_fu_96   |galois_multiplicatio  |        0|      0|  33|  116|    0|
     |grp_galois_multiplicatio_fu_103  |galois_multiplicatio  |        0|      0|  33|  116|    0|
@@ -120,20 +120,20 @@
     |          Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------------------+----------+-------+---+----+------------+------------+
     |i_fu_179_p2                      |     +    |      0|  0|  12|           3|           1|
-    |icmp_ln225_fu_173_p2             |   icmp   |      0|  0|   9|           3|           4|
+    |icmp_ln246_fu_173_p2             |   icmp   |      0|  0|   9|           3|           4|
     |ap_block_state3_on_subcall_done  |    or    |      0|  0|   2|           1|           1|
-    |xor_ln232_1_fu_249_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln232_2_fu_255_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln232_fu_243_p2              |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln237_1_fu_267_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln237_2_fu_273_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln237_fu_261_p2              |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln242_1_fu_285_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln242_2_fu_291_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln242_fu_279_p2              |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln247_1_fu_303_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln247_2_fu_309_p2            |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln247_fu_297_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln253_1_fu_249_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln253_2_fu_255_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln253_fu_243_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln258_1_fu_267_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln258_2_fu_273_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln258_fu_261_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln263_1_fu_285_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln263_2_fu_291_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln263_fu_279_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln268_1_fu_303_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln268_2_fu_309_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln268_fu_297_p2              |    xor   |      0|  0|   8|           8|           8|
     +---------------------------------+----------+-------+---+----+------------+------------+
     |Total                            |          |      0|  0| 119|         103|         102|
     +---------------------------------+----------+-------+---+----+------------+------------+

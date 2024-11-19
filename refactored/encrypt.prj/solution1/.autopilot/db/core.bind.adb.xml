@@ -380,10 +380,10 @@ rotate.exit:0  %word_load = alloca i8
 
 <Node id="41" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:1  %empty_15 = alloca i8
+rotate.exit:1  %empty_14 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_15"/></StgValue>
+<StgValue><ssdm name="empty_14"/></StgValue>
 </operation>
 
 <operation id="28" st_id="2" stage="1" lat="1">
@@ -396,10 +396,10 @@ rotate.exit:1  %empty_15 = alloca i8
 
 <Node id="42" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:2  %empty_16 = alloca i8
+rotate.exit:2  %empty_15 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_16"/></StgValue>
+<StgValue><ssdm name="empty_15"/></StgValue>
 </operation>
 
 <operation id="29" st_id="2" stage="1" lat="1">
@@ -412,10 +412,10 @@ rotate.exit:2  %empty_16 = alloca i8
 
 <Node id="43" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:3  %empty_17 = alloca i8
+rotate.exit:3  %empty_16 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_17"/></StgValue>
+<StgValue><ssdm name="empty_16"/></StgValue>
 </operation>
 
 <operation id="30" st_id="2" stage="1" lat="1">
@@ -428,10 +428,10 @@ rotate.exit:3  %empty_17 = alloca i8
 
 <Node id="44" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:4  %empty_18 = alloca i8
+rotate.exit:4  %empty_17 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_18"/></StgValue>
+<StgValue><ssdm name="empty_17"/></StgValue>
 </operation>
 
 <operation id="31" st_id="2" stage="1" lat="1">
@@ -556,7 +556,7 @@ rotate.exit:11  store i8 %word12_0_i, i8* %word_1_0
 
 <Node id="52" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:12  store i8 %word_0_read_1, i8* %empty_18
+rotate.exit:12  store i8 %word_0_read_1, i8* %empty_17
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -572,7 +572,7 @@ rotate.exit:12  store i8 %word_0_read_1, i8* %empty_18
 
 <Node id="53" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:13  store i8 %word2_0_i, i8* %empty_17
+rotate.exit:13  store i8 %word2_0_i, i8* %empty_16
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -588,7 +588,7 @@ rotate.exit:13  store i8 %word2_0_i, i8* %empty_17
 
 <Node id="54" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:14  store i8 %word12_0_i, i8* %empty_16
+rotate.exit:14  store i8 %word12_0_i, i8* %empty_15
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -604,7 +604,7 @@ rotate.exit:14  store i8 %word12_0_i, i8* %empty_16
 
 <Node id="55" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:15  store i8 %select_ln89, i8* %empty_15
+rotate.exit:15  store i8 %select_ln89, i8* %empty_14
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -762,10 +762,10 @@ branch0:1  %icmp_ln103 = icmp eq i3 %i_0, -4
 
 <Node id="61" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-branch0:2  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+branch0:2  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
 ]]></Node>
-<StgValue><ssdm name="empty_19"/></StgValue>
+<StgValue><ssdm name="empty_18"/></StgValue>
 </operation>
 
 <operation id="52" st_id="4" stage="1" lat="1">
@@ -808,7 +808,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="65" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:0  %p_load11 = load i8* %empty_15
+:0  %p_load11 = load i8* %empty_14
 
 ]]></Node>
 <StgValue><ssdm name="p_load11"/></StgValue>
@@ -824,7 +824,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="66" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:1  %p_load10 = load i8* %empty_16
+:1  %p_load10 = load i8* %empty_15
 
 ]]></Node>
 <StgValue><ssdm name="p_load10"/></StgValue>
@@ -840,7 +840,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="67" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:2  %p_load9 = load i8* %empty_17
+:2  %p_load9 = load i8* %empty_16
 
 ]]></Node>
 <StgValue><ssdm name="p_load9"/></StgValue>
@@ -856,7 +856,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="68" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:3  %p_load = load i8* %empty_18
+:3  %p_load = load i8* %empty_17
 
 ]]></Node>
 <StgValue><ssdm name="p_load"/></StgValue>
@@ -1069,7 +1069,7 @@ branch2:0  store i8 %sbox_load, i8* %word_2_0
 
 <Node id="77" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-branch2:1  store i8 %sbox_load, i8* %empty_17
+branch2:1  store i8 %sbox_load, i8* %empty_16
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1117,7 +1117,7 @@ branch1:0  store i8 %sbox_load, i8* %word_1_0
 
 <Node id="81" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-branch1:1  store i8 %sbox_load, i8* %empty_16
+branch1:1  store i8 %sbox_load, i8* %empty_15
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1149,7 +1149,7 @@ branch1:2  br label %branch0.backedge
 
 <Node id="84" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-.branch0.backedge_crit_edge:0  store i8 %sbox_load, i8* %empty_15
+.branch0.backedge_crit_edge:0  store i8 %sbox_load, i8* %empty_14
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1213,7 +1213,7 @@ branch3:0  store i8 %sbox_load, i8* %word_3_0
 
 <Node id="89" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-branch3:1  store i8 %sbox_load, i8* %empty_18
+branch3:1  store i8 %sbox_load, i8* %empty_17
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1587,13 +1587,13 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="172" from="StgValue_171" to="word_load" fromId="171" toId="26">
 </dataflow>
-<dataflow id="173" from="StgValue_171" to="empty_15" fromId="171" toId="27">
+<dataflow id="173" from="StgValue_171" to="empty_14" fromId="171" toId="27">
 </dataflow>
-<dataflow id="174" from="StgValue_171" to="empty_16" fromId="171" toId="28">
+<dataflow id="174" from="StgValue_171" to="empty_15" fromId="171" toId="28">
 </dataflow>
-<dataflow id="175" from="StgValue_171" to="empty_17" fromId="171" toId="29">
+<dataflow id="175" from="StgValue_171" to="empty_16" fromId="171" toId="29">
 </dataflow>
-<dataflow id="176" from="StgValue_171" to="empty_18" fromId="171" toId="30">
+<dataflow id="176" from="StgValue_171" to="empty_17" fromId="171" toId="30">
 </dataflow>
 <dataflow id="177" from="StgValue_171" to="word_1_0" fromId="171" toId="31">
 </dataflow>
@@ -1621,19 +1621,19 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="189" from="word_0_read_1" to="store_ln103" fromId="11" toId="38">
 </dataflow>
-<dataflow id="190" from="empty_18" to="store_ln103" fromId="30" toId="38">
+<dataflow id="190" from="empty_17" to="store_ln103" fromId="30" toId="38">
 </dataflow>
 <dataflow id="191" from="word2_0_i" to="store_ln103" fromId="15" toId="39">
 </dataflow>
-<dataflow id="192" from="empty_17" to="store_ln103" fromId="29" toId="39">
+<dataflow id="192" from="empty_16" to="store_ln103" fromId="29" toId="39">
 </dataflow>
 <dataflow id="193" from="word12_0_i" to="store_ln103" fromId="16" toId="40">
 </dataflow>
-<dataflow id="194" from="empty_16" to="store_ln103" fromId="28" toId="40">
+<dataflow id="194" from="empty_15" to="store_ln103" fromId="28" toId="40">
 </dataflow>
 <dataflow id="195" from="select_ln89" to="store_ln103" fromId="34" toId="41">
 </dataflow>
-<dataflow id="196" from="empty_15" to="store_ln103" fromId="27" toId="41">
+<dataflow id="196" from="empty_14" to="store_ln103" fromId="27" toId="41">
 </dataflow>
 <dataflow id="197" from="select_ln89" to="store_ln103" fromId="34" toId="42">
 </dataflow>
@@ -1724,13 +1724,13 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="231" from="StgValue_230" to="icmp_ln103" fromId="230" toId="50">
 </dataflow>
-<dataflow id="232" from="_ssdm_op_SpecLoopTripCount" to="empty_19" fromId="150" toId="51">
+<dataflow id="232" from="_ssdm_op_SpecLoopTripCount" to="empty_18" fromId="150" toId="51">
 </dataflow>
-<dataflow id="234" from="StgValue_233" to="empty_19" fromId="233" toId="51">
+<dataflow id="234" from="StgValue_233" to="empty_18" fromId="233" toId="51">
 </dataflow>
-<dataflow id="235" from="StgValue_233" to="empty_19" fromId="233" toId="51">
+<dataflow id="235" from="StgValue_233" to="empty_18" fromId="233" toId="51">
 </dataflow>
-<dataflow id="236" from="StgValue_233" to="empty_19" fromId="233" toId="51">
+<dataflow id="236" from="StgValue_233" to="empty_18" fromId="233" toId="51">
 </dataflow>
 <dataflow id="237" from="i_0" to="i" fromId="49" toId="52">
 </dataflow>
@@ -1738,13 +1738,13 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="240" from="icmp_ln103" to="br_ln103" fromId="50" toId="53">
 </dataflow>
-<dataflow id="241" from="empty_15" to="p_load11" fromId="27" toId="54">
+<dataflow id="241" from="empty_14" to="p_load11" fromId="27" toId="54">
 </dataflow>
-<dataflow id="242" from="empty_16" to="p_load10" fromId="28" toId="55">
+<dataflow id="242" from="empty_15" to="p_load10" fromId="28" toId="55">
 </dataflow>
-<dataflow id="243" from="empty_17" to="p_load9" fromId="29" toId="56">
+<dataflow id="243" from="empty_16" to="p_load9" fromId="29" toId="56">
 </dataflow>
-<dataflow id="244" from="empty_18" to="p_load" fromId="30" toId="57">
+<dataflow id="244" from="empty_17" to="p_load" fromId="30" toId="57">
 </dataflow>
 <dataflow id="245" from="i_0" to="trunc_ln105" fromId="49" toId="58">
 </dataflow>
@@ -1798,7 +1798,7 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="272" from="sbox_load" to="store_ln105" fromId="67" toId="70">
 </dataflow>
-<dataflow id="273" from="empty_17" to="store_ln105" fromId="29" toId="70">
+<dataflow id="273" from="empty_16" to="store_ln105" fromId="29" toId="70">
 </dataflow>
 <dataflow id="274" from="sbox_load" to="store_ln105" fromId="67" toId="72">
 </dataflow>
@@ -1806,11 +1806,11 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="276" from="sbox_load" to="store_ln105" fromId="67" toId="73">
 </dataflow>
-<dataflow id="277" from="empty_16" to="store_ln105" fromId="28" toId="73">
+<dataflow id="277" from="empty_15" to="store_ln105" fromId="28" toId="73">
 </dataflow>
 <dataflow id="278" from="sbox_load" to="store_ln105" fromId="67" toId="75">
 </dataflow>
-<dataflow id="279" from="empty_15" to="store_ln105" fromId="27" toId="75">
+<dataflow id="279" from="empty_14" to="store_ln105" fromId="27" toId="75">
 </dataflow>
 <dataflow id="280" from="sbox_load" to="store_ln105" fromId="67" toId="76">
 </dataflow>
@@ -1822,7 +1822,7 @@ branch0.backedge:0  br label %branch0
 </dataflow>
 <dataflow id="284" from="sbox_load" to="store_ln105" fromId="67" toId="79">
 </dataflow>
-<dataflow id="285" from="empty_18" to="store_ln105" fromId="30" toId="79">
+<dataflow id="285" from="empty_17" to="store_ln105" fromId="30" toId="79">
 </dataflow>
 <dataflow id="286" from="word_load" to="word_load_1" fromId="26" toId="82">
 </dataflow>

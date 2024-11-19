@@ -86,8 +86,8 @@ architecture behav of aes_encrypt is
     signal zext_ln62_reg_336 : STD_LOGIC_VECTOR (3 downto 0);
     signal ap_CS_fsm_state8 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
-    signal i_11_fu_235_p2 : STD_LOGIC_VECTOR (2 downto 0);
-    signal i_11_reg_344 : STD_LOGIC_VECTOR (2 downto 0);
+    signal i_10_fu_235_p2 : STD_LOGIC_VECTOR (2 downto 0);
+    signal i_10_reg_344 : STD_LOGIC_VECTOR (2 downto 0);
     signal shl_ln2_fu_245_p3 : STD_LOGIC_VECTOR (3 downto 0);
     signal shl_ln2_reg_349 : STD_LOGIC_VECTOR (3 downto 0);
     signal icmp_ln62_fu_229_p2 : STD_LOGIC_VECTOR (0 downto 0);
@@ -103,6 +103,9 @@ architecture behav of aes_encrypt is
     signal block_we0 : STD_LOGIC;
     signal block_d0 : STD_LOGIC_VECTOR (7 downto 0);
     signal block_q0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal block_ce1 : STD_LOGIC;
+    signal block_we1 : STD_LOGIC;
+    signal block_q1 : STD_LOGIC_VECTOR (7 downto 0);
     signal expandedKey_address0 : STD_LOGIC_VECTOR (7 downto 0);
     signal expandedKey_ce0 : STD_LOGIC;
     signal expandedKey_we0 : STD_LOGIC;
@@ -115,6 +118,10 @@ architecture behav of aes_encrypt is
     signal grp_aes_main_fu_131_state_ce0 : STD_LOGIC;
     signal grp_aes_main_fu_131_state_we0 : STD_LOGIC;
     signal grp_aes_main_fu_131_state_d0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_aes_main_fu_131_state_address1 : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aes_main_fu_131_state_ce1 : STD_LOGIC;
+    signal grp_aes_main_fu_131_state_we1 : STD_LOGIC;
+    signal grp_aes_main_fu_131_state_d1 : STD_LOGIC_VECTOR (7 downto 0);
     signal grp_aes_main_fu_131_expandedKey_address0 : STD_LOGIC_VECTOR (7 downto 0);
     signal grp_aes_main_fu_131_expandedKey_ce0 : STD_LOGIC;
     signal grp_expandKey_fu_139_ap_start : STD_LOGIC;
@@ -172,6 +179,11 @@ architecture behav of aes_encrypt is
         state_we0 : OUT STD_LOGIC;
         state_d0 : OUT STD_LOGIC_VECTOR (7 downto 0);
         state_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        state_address1 : OUT STD_LOGIC_VECTOR (3 downto 0);
+        state_ce1 : OUT STD_LOGIC;
+        state_we1 : OUT STD_LOGIC;
+        state_d1 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        state_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
         expandedKey_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
         expandedKey_ce0 : OUT STD_LOGIC;
         expandedKey_q0 : IN STD_LOGIC_VECTOR (7 downto 0) );
@@ -197,7 +209,7 @@ architecture behav of aes_encrypt is
     end component;
 
 
-    component aes_main_roundKey IS
+    component aes_encrypt_block IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -209,7 +221,12 @@ architecture behav of aes_encrypt is
         ce0 : IN STD_LOGIC;
         we0 : IN STD_LOGIC;
         d0 : IN STD_LOGIC_VECTOR (7 downto 0);
-        q0 : OUT STD_LOGIC_VECTOR (7 downto 0) );
+        q0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        address1 : IN STD_LOGIC_VECTOR (3 downto 0);
+        ce1 : IN STD_LOGIC;
+        we1 : IN STD_LOGIC;
+        d1 : IN STD_LOGIC_VECTOR (7 downto 0);
+        q1 : OUT STD_LOGIC_VECTOR (7 downto 0) );
     end component;
 
 
@@ -231,7 +248,7 @@ architecture behav of aes_encrypt is
 
 
 begin
-    block_U : component aes_main_roundKey
+    block_U : component aes_encrypt_block
     generic map (
         DataWidth => 8,
         AddressRange => 16,
@@ -243,7 +260,12 @@ begin
         ce0 => block_ce0,
         we0 => block_we0,
         d0 => block_d0,
-        q0 => block_q0);
+        q0 => block_q0,
+        address1 => grp_aes_main_fu_131_state_address1,
+        ce1 => block_ce1,
+        we1 => block_we1,
+        d1 => grp_aes_main_fu_131_state_d1,
+        q1 => block_q1);
 
     expandedKey_U : component aes_encrypt_expandEe
     generic map (
@@ -272,6 +294,11 @@ begin
         state_we0 => grp_aes_main_fu_131_state_we0,
         state_d0 => grp_aes_main_fu_131_state_d0,
         state_q0 => block_q0,
+        state_address1 => grp_aes_main_fu_131_state_address1,
+        state_ce1 => grp_aes_main_fu_131_state_ce1,
+        state_we1 => grp_aes_main_fu_131_state_we1,
+        state_d1 => grp_aes_main_fu_131_state_d1,
+        state_q1 => block_q1,
         expandedKey_address0 => grp_aes_main_fu_131_expandedKey_address0,
         expandedKey_ce0 => grp_aes_main_fu_131_expandedKey_ce0,
         expandedKey_q0 => expandedKey_q0);
@@ -356,7 +383,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_state9) and (icmp_ln65_fu_257_p2 = ap_const_lv1_1))) then 
-                i_1_reg_109 <= i_11_reg_344;
+                i_1_reg_109 <= i_10_reg_344;
             elsif (((ap_const_logic_1 = ap_CS_fsm_state7) and (grp_aes_main_fu_131_ap_done = ap_const_logic_1))) then 
                 i_1_reg_109 <= ap_const_lv3_0;
             end if; 
@@ -404,7 +431,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state8)) then
-                i_11_reg_344 <= i_11_fu_235_p2;
+                i_10_reg_344 <= i_10_fu_235_p2;
                     zext_ln62_reg_336(2 downto 0) <= zext_ln62_fu_225_p1(2 downto 0);
             end if;
         end if;
@@ -581,6 +608,16 @@ begin
     end process;
 
 
+    block_ce1_assign_proc : process(grp_aes_main_fu_131_state_ce1, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            block_ce1 <= grp_aes_main_fu_131_state_ce1;
+        else 
+            block_ce1 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
     block_d0_assign_proc : process(input_r_q0, grp_aes_main_fu_131_state_d0, ap_CS_fsm_state4, ap_CS_fsm_state7)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
@@ -601,6 +638,16 @@ begin
             block_we0 <= grp_aes_main_fu_131_state_we0;
         else 
             block_we0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
+
+    block_we1_assign_proc : process(grp_aes_main_fu_131_state_we1, ap_CS_fsm_state7)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
+            block_we1 <= grp_aes_main_fu_131_state_we1;
+        else 
+            block_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
@@ -640,7 +687,7 @@ begin
 
     grp_aes_main_fu_131_ap_start <= grp_aes_main_fu_131_ap_start_reg;
     grp_expandKey_fu_139_ap_start <= grp_expandKey_fu_139_ap_start_reg;
-    i_11_fu_235_p2 <= std_logic_vector(unsigned(i_1_reg_109) + unsigned(ap_const_lv3_1));
+    i_10_fu_235_p2 <= std_logic_vector(unsigned(i_1_reg_109) + unsigned(ap_const_lv3_1));
     i_fu_160_p2 <= std_logic_vector(unsigned(i_0_reg_87) + unsigned(ap_const_lv3_1));
     icmp_ln46_fu_154_p2 <= "1" when (i_0_reg_87 = ap_const_lv3_4) else "0";
     icmp_ln49_fu_182_p2 <= "1" when (j_0_reg_98 = ap_const_lv3_4) else "0";

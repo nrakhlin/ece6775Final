@@ -1717,7 +1717,7 @@
 					<Obj>
 						<type>0</type>
 						<id>52</id>
-						<name>i_11</name>
+						<name>i_10</name>
 						<fileName>encrypt.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/refactored</fileDirectory>
 						<lineNumber>62</lineNumber>
@@ -4262,8 +4262,8 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>-1</mMinLatency>
-			<mMaxLatency>-1</mMaxLatency>
+			<mMinLatency>3803</mMinLatency>
+			<mMaxLatency>4483</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -4398,8 +4398,8 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>-2</mMinLatency>
-			<mMaxLatency>-2</mMaxLatency>
+			<mMinLatency>3721</mMinLatency>
+			<mMaxLatency>4401</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
 		</item>
@@ -6099,7 +6099,7 @@
 			</second>
 		</item>
 		<item>
-			<first>i_11_fu_235</first>
+			<first>i_10_fu_235</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6603,7 +6603,7 @@
 			</second>
 		</item>
 		<item>
-			<first>i_11_reg_344</first>
+			<first>i_10_reg_344</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

@@ -91,10 +91,10 @@ struct core : public sc_module {
     sc_signal< sc_lv<8> > word_load_fu_54;
     sc_signal< sc_lv<8> > select_ln89_fu_247_p3;
     sc_signal< sc_logic > ap_CS_fsm_state6;
-    sc_signal< sc_lv<8> > empty_15_fu_58;
-    sc_signal< sc_lv<8> > empty_16_fu_62;
-    sc_signal< sc_lv<8> > empty_17_fu_66;
-    sc_signal< sc_lv<8> > empty_18_fu_70;
+    sc_signal< sc_lv<8> > empty_14_fu_58;
+    sc_signal< sc_lv<8> > empty_15_fu_62;
+    sc_signal< sc_lv<8> > empty_16_fu_66;
+    sc_signal< sc_lv<8> > empty_17_fu_70;
     sc_signal< sc_lv<8> > word_1_0_fu_74;
     sc_signal< sc_lv<8> > word_2_0_fu_78;
     sc_signal< sc_lv<8> > word_3_0_fu_82;

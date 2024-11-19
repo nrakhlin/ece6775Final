@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'expandKey'
 ================================================================
-* Date:           Sun Nov 17 11:18:48 2024
+* Date:           Mon Nov 18 20:33:12 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -301,7 +301,7 @@ ST_2 : Operation 25 [1/1] (1.95ns)   --->   "%t_2_1 = call i8 @_ssdm_op_Mux.ap_a
 ST_2 : Operation 26 [1/1] (1.95ns)   --->   "%t_3_1 = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %t_3_0_load, i8 %t_3_0_load, i8 %t_3_0_load, i8 0, i2 %phi_ln122)" [helper.cpp:122]   --->   Operation 26 'mux' 't_3_1' <Predicate = true> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 27 [1/1] (0.95ns)   --->   "%icmp_ln122 = icmp eq i2 %phi_ln122, -1" [helper.cpp:122]   --->   Operation 27 'icmp' 'icmp_ln122' <Predicate = true> <Delay = 0.95> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopName([9 x i8]* @memset_t_str) nounwind"   --->   Operation 28 'specloopname' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 29 'speclooptripcount' 'empty_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 29 'speclooptripcount' 'empty_8' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 30 [1/1] (0.00ns)   --->   "store i8 %t_3_1, i8* %t_3_0" [helper.cpp:122]   --->   Operation 30 'store' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 31 [1/1] (0.00ns)   --->   "store i8 %t_2_1, i8* %t_2_0" [helper.cpp:122]   --->   Operation 31 'store' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 32 [1/1] (0.00ns)   --->   "store i8 %t_1_1, i8* %t_1_0" [helper.cpp:122]   --->   Operation 32 'store' <Predicate = true> <Delay = 0.00>
@@ -312,7 +312,7 @@ ST_2 : Operation 35 [1/1] (1.76ns)   --->   "br label %.preheader" [helper.cpp:1
 State 3 <SV = 2> <Delay = 2.32>
 ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ %i, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 36 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 37 [1/1] (1.36ns)   --->   "%icmp_ln125 = icmp eq i5 %i_0, -16" [helper.cpp:125]   --->   Operation 37 'icmp' 'icmp_ln125' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 38 'speclooptripcount' 'empty_10' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 38 'speclooptripcount' 'empty_9' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 39 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [helper.cpp:125]   --->   Operation 39 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 40 [1/1] (0.00ns)   --->   "br i1 %icmp_ln125, label %.preheader3.preheader, label %1" [helper.cpp:125]   --->   Operation 40 'br' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%zext_ln126 = zext i5 %i_0 to i64" [helper.cpp:126]   --->   Operation 41 'zext' 'zext_ln126' <Predicate = (!icmp_ln125)> <Delay = 0.00>
@@ -335,7 +335,7 @@ ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%t_1_2 = phi i8 [ %t_1_1, %.prehead
 ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%t_0_26 = phi i8 [ %t_0_1, %.preheader3.preheader ], [ %t_0_5, %.preheader3.loopexit ]" [helper.cpp:122]   --->   Operation 54 'phi' 't_0_26' <Predicate = true> <Delay = 0.00>
 ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%currentSize_0 = phi i8 [ 16, %.preheader3.preheader ], [ %currentSize, %.preheader3.loopexit ]"   --->   Operation 55 'phi' 'currentSize_0' <Predicate = true> <Delay = 0.00>
 ST_5 : Operation 56 [1/1] (1.55ns)   --->   "%icmp_ln129 = icmp ult i8 %currentSize_0, -80" [helper.cpp:129]   --->   Operation 56 'icmp' 'icmp_ln129' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 40, i64 40, i64 40)"   --->   Operation 57 'speclooptripcount' 'empty_11' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 40, i64 40, i64 40)"   --->   Operation 57 'speclooptripcount' 'empty_10' <Predicate = true> <Delay = 0.00>
 ST_5 : Operation 58 [1/1] (0.00ns)   --->   "br i1 %icmp_ln129, label %.preheader2.preheader, label %7" [helper.cpp:129]   --->   Operation 58 'br' <Predicate = true> <Delay = 0.00>
 ST_5 : Operation 59 [1/1] (1.76ns)   --->   "br label %.preheader2" [helper.cpp:132]   --->   Operation 59 'br' <Predicate = (icmp_ln129)> <Delay = 1.76>
 ST_5 : Operation 60 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:161]   --->   Operation 60 'ret' <Predicate = (!icmp_ln129)> <Delay = 0.00>
@@ -347,7 +347,7 @@ ST_6 : Operation 63 [1/1] (0.00ns)   --->   "%t_1_3 = phi i8 [ %t_1_2, %.prehead
 ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%t_0_3 = phi i8 [ %t_0_26, %.preheader2.preheader ], [ %t_0_3_be, %.preheader2.backedge ]" [helper.cpp:122]   --->   Operation 64 'phi' 't_0_3' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%i_1 = phi i3 [ 0, %.preheader2.preheader ], [ %i_2, %.preheader2.backedge ]"   --->   Operation 65 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 66 [1/1] (1.13ns)   --->   "%icmp_ln132 = icmp eq i3 %i_1, -4" [helper.cpp:132]   --->   Operation 66 'icmp' 'icmp_ln132' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 67 'speclooptripcount' 'empty_12' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 67 'speclooptripcount' 'empty_11' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 68 [1/1] (1.65ns)   --->   "%i_2 = add i3 %i_1, 1" [helper.cpp:132]   --->   Operation 68 'add' 'i_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_6 : Operation 69 [1/1] (0.00ns)   --->   "br i1 %icmp_ln132, label %3, label %2" [helper.cpp:132]   --->   Operation 69 'br' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 70 [1/1] (0.00ns) (grouped into LUT with out node add_ln134)   --->   "%xor_ln134 = xor i3 %i_1, -4" [helper.cpp:134]   --->   Operation 70 'xor' 'xor_ln134' <Predicate = (!icmp_ln132)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
@@ -401,7 +401,7 @@ State 10 <SV = 6> <Delay = 5.16>
 ST_10 : Operation 106 [1/1] (0.00ns)   --->   "%currentSize_1 = phi i8 [ %currentSize_0, %.loopexit1 ], [ %add_ln158, %6 ]" [helper.cpp:158]   --->   Operation 106 'phi' 'currentSize_1' <Predicate = true> <Delay = 0.00>
 ST_10 : Operation 107 [1/1] (0.00ns)   --->   "%i_3 = phi i3 [ 0, %.loopexit1 ], [ %i_4, %6 ]"   --->   Operation 107 'phi' 'i_3' <Predicate = true> <Delay = 0.00>
 ST_10 : Operation 108 [1/1] (1.13ns)   --->   "%icmp_ln155 = icmp eq i3 %i_3, -4" [helper.cpp:155]   --->   Operation 108 'icmp' 'icmp_ln155' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 109 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 109 'speclooptripcount' 'empty_13' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 109 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 109 'speclooptripcount' 'empty_12' <Predicate = true> <Delay = 0.00>
 ST_10 : Operation 110 [1/1] (1.65ns)   --->   "%i_4 = add i3 %i_3, 1" [helper.cpp:155]   --->   Operation 110 'add' 'i_4' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_10 : Operation 111 [1/1] (0.00ns)   --->   "br i1 %icmp_ln155, label %.preheader3.loopexit, label %6" [helper.cpp:155]   --->   Operation 111 'br' <Predicate = true> <Delay = 0.00>
 ST_10 : Operation 112 [1/1] (1.91ns)   --->   "%add_ln157 = add i8 -16, %currentSize_1" [helper.cpp:157]   --->   Operation 112 'add' 'add_ln157' <Predicate = (!icmp_ln155)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
@@ -460,7 +460,7 @@ t_2_1                (mux              ) [ 000111111111]
 t_3_1                (mux              ) [ 000111111111]
 icmp_ln122           (icmp             ) [ 001000000000]
 empty                (specloopname     ) [ 000000000000]
-empty_9              (speclooptripcount) [ 000000000000]
+empty_8              (speclooptripcount) [ 000000000000]
 store_ln122          (store            ) [ 000000000000]
 store_ln122          (store            ) [ 000000000000]
 store_ln122          (store            ) [ 000000000000]
@@ -469,7 +469,7 @@ br_ln122             (br               ) [ 011000000000]
 br_ln125             (br               ) [ 001110000000]
 i_0                  (phi              ) [ 000100000000]
 icmp_ln125           (icmp             ) [ 000110000000]
-empty_10             (speclooptripcount) [ 000000000000]
+empty_9              (speclooptripcount) [ 000000000000]
 i                    (add              ) [ 001110000000]
 br_ln125             (br               ) [ 000000000000]
 zext_ln126           (zext             ) [ 000010000000]
@@ -487,7 +487,7 @@ t_1_2                (phi              ) [ 000001111000]
 t_0_26               (phi              ) [ 000001111000]
 currentSize_0        (phi              ) [ 000001111111]
 icmp_ln129           (icmp             ) [ 000001111111]
-empty_11             (speclooptripcount) [ 000000000000]
+empty_10             (speclooptripcount) [ 000000000000]
 br_ln129             (br               ) [ 000000000000]
 br_ln132             (br               ) [ 000001111111]
 ret_ln161            (ret              ) [ 000000000000]
@@ -497,7 +497,7 @@ t_1_3                (phi              ) [ 000000111100]
 t_0_3                (phi              ) [ 000000111100]
 i_1                  (phi              ) [ 000000100000]
 icmp_ln132           (icmp             ) [ 000001111111]
-empty_12             (speclooptripcount) [ 000000000000]
+empty_11             (speclooptripcount) [ 000000000000]
 i_2                  (add              ) [ 000001111111]
 br_ln132             (br               ) [ 000000000000]
 xor_ln134            (xor              ) [ 000000000000]
@@ -537,7 +537,7 @@ br_ln155             (br               ) [ 000001111111]
 currentSize_1        (phi              ) [ 000000000011]
 i_3                  (phi              ) [ 000000000010]
 icmp_ln155           (icmp             ) [ 000001111111]
-empty_13             (speclooptripcount) [ 000000000000]
+empty_12             (speclooptripcount) [ 000000000000]
 i_4                  (add              ) [ 000001111111]
 br_ln155             (br               ) [ 000000000000]
 add_ln157            (add              ) [ 000000000000]

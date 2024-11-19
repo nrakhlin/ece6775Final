@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_encrypt'" level="0">
-<item name = "Date">Sun Nov 17 11:18:48 2024
+<item name = "Date">Mon Nov 18 20:33:11 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, ?, ?, none</column>
+<column name="">3803, 4483, 38.030 us, 44.830 us, 3803, 4483, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aes_main_fu_131">aes_main, ?, ?, ?, ?, ?, ?, none</column>
+<column name="grp_aes_main_fu_131">aes_main, 2720, 2720, 27.200 us, 27.200 us, 2720, 2720, none</column>
 <column name="grp_expandKey_fu_139">expandKey, 998, 1678, 9.980 us, 16.780 us, 998, 1678, none</column>
 </table>
 </item>

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mixColumn'
 ================================================================
-* Date:           Sun Nov 17 11:18:47 2024
+* Date:           Mon Nov 18 20:33:11 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -102,81 +102,81 @@ ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%cpy_3 = alloca i8"   --->   Operati
 ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%cpy_3_1 = alloca i8"   --->   Operation 5 'alloca' 'cpy_3_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%cpy_3_2 = alloca i8"   --->   Operation 6 'alloca' 'cpy_3_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%cpy_3_3 = alloca i8"   --->   Operation 7 'alloca' 'cpy_3_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [helper.cpp:221]   --->   Operation 8 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [helper.cpp:221]   --->   Operation 9 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [helper.cpp:221]   --->   Operation 10 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [helper.cpp:221]   --->   Operation 11 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (1.76ns)   --->   "br label %branch0" [helper.cpp:225]   --->   Operation 12 'br' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [helper.cpp:242]   --->   Operation 8 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [helper.cpp:242]   --->   Operation 9 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [helper.cpp:242]   --->   Operation 10 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [helper.cpp:242]   --->   Operation 11 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (1.76ns)   --->   "br label %branch0" [helper.cpp:246]   --->   Operation 12 'br' <Predicate = true> <Delay = 1.76>
 
 State 2 <SV = 1> <Delay = 3.86>
 ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %branch0.backedge ]"   --->   Operation 13 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (1.13ns)   --->   "%icmp_ln225 = icmp eq i3 %i_0, -4" [helper.cpp:225]   --->   Operation 14 'icmp' 'icmp_ln225' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (1.13ns)   --->   "%icmp_ln246 = icmp eq i3 %i_0, -4" [helper.cpp:246]   --->   Operation 14 'icmp' 'icmp_ln246' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 15 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 16 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [helper.cpp:225]   --->   Operation 16 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br i1 %icmp_ln225, label %2, label %1" [helper.cpp:225]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%trunc_ln227 = trunc i3 %i_0 to i2" [helper.cpp:227]   --->   Operation 18 'trunc' 'trunc_ln227' <Predicate = (!icmp_ln225)> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (1.95ns)   --->   "%cpy_0 = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %column_0_read_1, i8 %column_1_read_1, i8 %column_2_read_1, i8 %column_3_read_1, i2 %trunc_ln227)" [helper.cpp:227]   --->   Operation 19 'mux' 'cpy_0' <Predicate = (!icmp_ln225)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (1.30ns)   --->   "switch i2 %trunc_ln227, label %branch3 [
+ST_2 : Operation 16 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [helper.cpp:246]   --->   Operation 16 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br i1 %icmp_ln246, label %2, label %1" [helper.cpp:246]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%trunc_ln248 = trunc i3 %i_0 to i2" [helper.cpp:248]   --->   Operation 18 'trunc' 'trunc_ln248' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.95ns)   --->   "%cpy_0 = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %column_0_read_1, i8 %column_1_read_1, i8 %column_2_read_1, i8 %column_3_read_1, i2 %trunc_ln248)" [helper.cpp:248]   --->   Operation 19 'mux' 'cpy_0' <Predicate = (!icmp_ln246)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (1.30ns)   --->   "switch i2 %trunc_ln248, label %branch3 [
     i2 0, label %.branch0.backedge_crit_edge
     i2 1, label %branch1
     i2 -2, label %branch2
-  ]" [helper.cpp:227]   --->   Operation 20 'switch' <Predicate = (!icmp_ln225)> <Delay = 1.30>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_2" [helper.cpp:227]   --->   Operation 21 'store' <Predicate = (!icmp_ln225 & trunc_ln227 == 2)> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:227]   --->   Operation 22 'br' <Predicate = (!icmp_ln225 & trunc_ln227 == 2)> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_1" [helper.cpp:227]   --->   Operation 23 'store' <Predicate = (!icmp_ln225 & trunc_ln227 == 1)> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:227]   --->   Operation 24 'br' <Predicate = (!icmp_ln225 & trunc_ln227 == 1)> <Delay = 0.00>
-ST_2 : Operation 25 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3" [helper.cpp:227]   --->   Operation 25 'store' <Predicate = (!icmp_ln225 & trunc_ln227 == 0)> <Delay = 0.00>
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:227]   --->   Operation 26 'br' <Predicate = (!icmp_ln225 & trunc_ln227 == 0)> <Delay = 0.00>
-ST_2 : Operation 27 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_3" [helper.cpp:227]   --->   Operation 27 'store' <Predicate = (!icmp_ln225 & trunc_ln227 == 3)> <Delay = 0.00>
-ST_2 : Operation 28 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:227]   --->   Operation 28 'br' <Predicate = (!icmp_ln225 & trunc_ln227 == 3)> <Delay = 0.00>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "br label %branch0"   --->   Operation 29 'br' <Predicate = (!icmp_ln225)> <Delay = 0.00>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%cpy_3_load = load i8* %cpy_3" [helper.cpp:229]   --->   Operation 30 'load' 'cpy_3_load' <Predicate = (icmp_ln225)> <Delay = 0.00>
-ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%cpy_3_1_load = load i8* %cpy_3_1" [helper.cpp:232]   --->   Operation 31 'load' 'cpy_3_1_load' <Predicate = (icmp_ln225)> <Delay = 0.00>
-ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%cpy_3_2_load = load i8* %cpy_3_2" [helper.cpp:231]   --->   Operation 32 'load' 'cpy_3_2_load' <Predicate = (icmp_ln225)> <Delay = 0.00>
-ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%cpy_3_3_load = load i8* %cpy_3_3" [helper.cpp:230]   --->   Operation 33 'load' 'cpy_3_3_load' <Predicate = (icmp_ln225)> <Delay = 0.00>
-ST_2 : Operation 34 [2/2] (3.86ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 2)" [helper.cpp:229]   --->   Operation 34 'call' 'tmp' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 35 [2/2] (3.86ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 1)" [helper.cpp:230]   --->   Operation 35 'call' 'tmp_1' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 36 [2/2] (3.86ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 1)" [helper.cpp:231]   --->   Operation 36 'call' 'tmp_2' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 37 [2/2] (3.86ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 3)" [helper.cpp:232]   --->   Operation 37 'call' 'tmp_3' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 38 [2/2] (3.86ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 2)" [helper.cpp:234]   --->   Operation 38 'call' 'tmp_4' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 39 [2/2] (3.86ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 1)" [helper.cpp:235]   --->   Operation 39 'call' 'tmp_5' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 40 [2/2] (3.86ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 3)" [helper.cpp:237]   --->   Operation 40 'call' 'tmp_7' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 41 [2/2] (3.86ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 2)" [helper.cpp:239]   --->   Operation 41 'call' 'tmp_8' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 42 [2/2] (3.86ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 1)" [helper.cpp:240]   --->   Operation 42 'call' 'tmp_9' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 43 [2/2] (3.86ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 3)" [helper.cpp:242]   --->   Operation 43 'call' 'tmp_s' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 44 [2/2] (3.86ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 2)" [helper.cpp:244]   --->   Operation 44 'call' 'tmp_6' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 45 [2/2] (3.86ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 3)" [helper.cpp:247]   --->   Operation 45 'call' 'tmp_10' <Predicate = (icmp_ln225)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+  ]" [helper.cpp:248]   --->   Operation 20 'switch' <Predicate = (!icmp_ln246)> <Delay = 1.30>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_2" [helper.cpp:248]   --->   Operation 21 'store' <Predicate = (!icmp_ln246 & trunc_ln248 == 2)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:248]   --->   Operation 22 'br' <Predicate = (!icmp_ln246 & trunc_ln248 == 2)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_1" [helper.cpp:248]   --->   Operation 23 'store' <Predicate = (!icmp_ln246 & trunc_ln248 == 1)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:248]   --->   Operation 24 'br' <Predicate = (!icmp_ln246 & trunc_ln248 == 1)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3" [helper.cpp:248]   --->   Operation 25 'store' <Predicate = (!icmp_ln246 & trunc_ln248 == 0)> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:248]   --->   Operation 26 'br' <Predicate = (!icmp_ln246 & trunc_ln248 == 0)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_3" [helper.cpp:248]   --->   Operation 27 'store' <Predicate = (!icmp_ln246 & trunc_ln248 == 3)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:248]   --->   Operation 28 'br' <Predicate = (!icmp_ln246 & trunc_ln248 == 3)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "br label %branch0"   --->   Operation 29 'br' <Predicate = (!icmp_ln246)> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%cpy_3_load = load i8* %cpy_3" [helper.cpp:250]   --->   Operation 30 'load' 'cpy_3_load' <Predicate = (icmp_ln246)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%cpy_3_1_load = load i8* %cpy_3_1" [helper.cpp:253]   --->   Operation 31 'load' 'cpy_3_1_load' <Predicate = (icmp_ln246)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%cpy_3_2_load = load i8* %cpy_3_2" [helper.cpp:252]   --->   Operation 32 'load' 'cpy_3_2_load' <Predicate = (icmp_ln246)> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%cpy_3_3_load = load i8* %cpy_3_3" [helper.cpp:251]   --->   Operation 33 'load' 'cpy_3_3_load' <Predicate = (icmp_ln246)> <Delay = 0.00>
+ST_2 : Operation 34 [2/2] (3.86ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 2)" [helper.cpp:250]   --->   Operation 34 'call' 'tmp' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 35 [2/2] (3.86ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 1)" [helper.cpp:251]   --->   Operation 35 'call' 'tmp_3' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 36 [2/2] (3.86ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 1)" [helper.cpp:252]   --->   Operation 36 'call' 'tmp_4' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 37 [2/2] (3.86ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 3)" [helper.cpp:253]   --->   Operation 37 'call' 'tmp_5' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 38 [2/2] (3.86ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 2)" [helper.cpp:255]   --->   Operation 38 'call' 'tmp_6' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 39 [2/2] (3.86ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 1)" [helper.cpp:256]   --->   Operation 39 'call' 'tmp_7' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 40 [2/2] (3.86ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 3)" [helper.cpp:258]   --->   Operation 40 'call' 'tmp_9' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 41 [2/2] (3.86ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 2)" [helper.cpp:260]   --->   Operation 41 'call' 'tmp_s' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 42 [2/2] (3.86ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 1)" [helper.cpp:261]   --->   Operation 42 'call' 'tmp_1' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 43 [2/2] (3.86ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 3)" [helper.cpp:263]   --->   Operation 43 'call' 'tmp_2' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 44 [2/2] (3.86ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 2)" [helper.cpp:265]   --->   Operation 44 'call' 'tmp_8' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 45 [2/2] (3.86ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 3)" [helper.cpp:268]   --->   Operation 45 'call' 'tmp_10' <Predicate = (icmp_ln246)> <Delay = 3.86> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 0.99>
-ST_3 : Operation 46 [1/2] (0.00ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 2)" [helper.cpp:229]   --->   Operation 46 'call' 'tmp' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 47 [1/2] (0.00ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 1)" [helper.cpp:230]   --->   Operation 47 'call' 'tmp_1' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 48 [1/2] (0.00ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 1)" [helper.cpp:231]   --->   Operation 48 'call' 'tmp_2' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 49 [1/2] (0.00ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 3)" [helper.cpp:232]   --->   Operation 49 'call' 'tmp_3' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node xor_ln232_2)   --->   "%xor_ln232 = xor i8 %tmp_1, %tmp" [helper.cpp:232]   --->   Operation 50 'xor' 'xor_ln232' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 51 [1/1] (0.00ns) (grouped into LUT with out node xor_ln232_2)   --->   "%xor_ln232_1 = xor i8 %tmp_2, %tmp_3" [helper.cpp:232]   --->   Operation 51 'xor' 'xor_ln232_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 52 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln232_2 = xor i8 %xor_ln232_1, %xor_ln232" [helper.cpp:232]   --->   Operation 52 'xor' 'xor_ln232_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 53 [1/2] (0.00ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 2)" [helper.cpp:234]   --->   Operation 53 'call' 'tmp_4' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 54 [1/2] (0.00ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 1)" [helper.cpp:235]   --->   Operation 54 'call' 'tmp_5' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 55 [1/2] (0.00ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 3)" [helper.cpp:237]   --->   Operation 55 'call' 'tmp_7' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 56 [1/1] (0.00ns) (grouped into LUT with out node xor_ln237_2)   --->   "%xor_ln237 = xor i8 %tmp_5, %tmp_4" [helper.cpp:237]   --->   Operation 56 'xor' 'xor_ln237' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 57 [1/1] (0.00ns) (grouped into LUT with out node xor_ln237_2)   --->   "%xor_ln237_1 = xor i8 %tmp_1, %tmp_7" [helper.cpp:237]   --->   Operation 57 'xor' 'xor_ln237_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 58 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln237_2 = xor i8 %xor_ln237_1, %xor_ln237" [helper.cpp:237]   --->   Operation 58 'xor' 'xor_ln237_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 59 [1/2] (0.00ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 2)" [helper.cpp:239]   --->   Operation 59 'call' 'tmp_8' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 60 [1/2] (0.00ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 1)" [helper.cpp:240]   --->   Operation 60 'call' 'tmp_9' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 61 [1/2] (0.00ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 3)" [helper.cpp:242]   --->   Operation 61 'call' 'tmp_s' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node xor_ln242_2)   --->   "%xor_ln242 = xor i8 %tmp_9, %tmp_8" [helper.cpp:242]   --->   Operation 62 'xor' 'xor_ln242' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 63 [1/1] (0.00ns) (grouped into LUT with out node xor_ln242_2)   --->   "%xor_ln242_1 = xor i8 %tmp_5, %tmp_s" [helper.cpp:242]   --->   Operation 63 'xor' 'xor_ln242_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 64 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln242_2 = xor i8 %xor_ln242_1, %xor_ln242" [helper.cpp:242]   --->   Operation 64 'xor' 'xor_ln242_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 65 [1/2] (0.00ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 2)" [helper.cpp:244]   --->   Operation 65 'call' 'tmp_6' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 66 [1/2] (0.00ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 3)" [helper.cpp:247]   --->   Operation 66 'call' 'tmp_10' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node xor_ln247_2)   --->   "%xor_ln247 = xor i8 %tmp_2, %tmp_6" [helper.cpp:247]   --->   Operation 67 'xor' 'xor_ln247' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node xor_ln247_2)   --->   "%xor_ln247_1 = xor i8 %tmp_9, %tmp_10" [helper.cpp:247]   --->   Operation 68 'xor' 'xor_ln247_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 69 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln247_2 = xor i8 %xor_ln247_1, %xor_ln247" [helper.cpp:247]   --->   Operation 69 'xor' 'xor_ln247_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln232_2, 0" [helper.cpp:248]   --->   Operation 70 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln237_2, 1" [helper.cpp:248]   --->   Operation 71 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln242_2, 2" [helper.cpp:248]   --->   Operation 72 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln247_2, 3" [helper.cpp:248]   --->   Operation 73 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 74 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [helper.cpp:248]   --->   Operation 74 'ret' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 46 [1/2] (0.00ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 2)" [helper.cpp:250]   --->   Operation 46 'call' 'tmp' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 47 [1/2] (0.00ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 1)" [helper.cpp:251]   --->   Operation 47 'call' 'tmp_3' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 48 [1/2] (0.00ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 1)" [helper.cpp:252]   --->   Operation 48 'call' 'tmp_4' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 49 [1/2] (0.00ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 3)" [helper.cpp:253]   --->   Operation 49 'call' 'tmp_5' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node xor_ln253_2)   --->   "%xor_ln253 = xor i8 %tmp_3, %tmp" [helper.cpp:253]   --->   Operation 50 'xor' 'xor_ln253' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 51 [1/1] (0.00ns) (grouped into LUT with out node xor_ln253_2)   --->   "%xor_ln253_1 = xor i8 %tmp_4, %tmp_5" [helper.cpp:253]   --->   Operation 51 'xor' 'xor_ln253_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 52 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln253_2 = xor i8 %xor_ln253_1, %xor_ln253" [helper.cpp:253]   --->   Operation 52 'xor' 'xor_ln253_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [1/2] (0.00ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 2)" [helper.cpp:255]   --->   Operation 53 'call' 'tmp_6' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 54 [1/2] (0.00ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 1)" [helper.cpp:256]   --->   Operation 54 'call' 'tmp_7' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 55 [1/2] (0.00ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 3)" [helper.cpp:258]   --->   Operation 55 'call' 'tmp_9' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 56 [1/1] (0.00ns) (grouped into LUT with out node xor_ln258_2)   --->   "%xor_ln258 = xor i8 %tmp_7, %tmp_6" [helper.cpp:258]   --->   Operation 56 'xor' 'xor_ln258' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 57 [1/1] (0.00ns) (grouped into LUT with out node xor_ln258_2)   --->   "%xor_ln258_1 = xor i8 %tmp_3, %tmp_9" [helper.cpp:258]   --->   Operation 57 'xor' 'xor_ln258_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 58 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln258_2 = xor i8 %xor_ln258_1, %xor_ln258" [helper.cpp:258]   --->   Operation 58 'xor' 'xor_ln258_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 59 [1/2] (0.00ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i3 zeroext 2)" [helper.cpp:260]   --->   Operation 59 'call' 'tmp_s' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 60 [1/2] (0.00ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i3 zeroext 1)" [helper.cpp:261]   --->   Operation 60 'call' 'tmp_1' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 61 [1/2] (0.00ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 3)" [helper.cpp:263]   --->   Operation 61 'call' 'tmp_2' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node xor_ln263_2)   --->   "%xor_ln263 = xor i8 %tmp_1, %tmp_s" [helper.cpp:263]   --->   Operation 62 'xor' 'xor_ln263' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 63 [1/1] (0.00ns) (grouped into LUT with out node xor_ln263_2)   --->   "%xor_ln263_1 = xor i8 %tmp_7, %tmp_2" [helper.cpp:263]   --->   Operation 63 'xor' 'xor_ln263_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 64 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln263_2 = xor i8 %xor_ln263_1, %xor_ln263" [helper.cpp:263]   --->   Operation 64 'xor' 'xor_ln263_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 65 [1/2] (0.00ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i3 zeroext 2)" [helper.cpp:265]   --->   Operation 65 'call' 'tmp_8' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 66 [1/2] (0.00ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i3 zeroext 3)" [helper.cpp:268]   --->   Operation 66 'call' 'tmp_10' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node xor_ln268_2)   --->   "%xor_ln268 = xor i8 %tmp_4, %tmp_8" [helper.cpp:268]   --->   Operation 67 'xor' 'xor_ln268' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node xor_ln268_2)   --->   "%xor_ln268_1 = xor i8 %tmp_1, %tmp_10" [helper.cpp:268]   --->   Operation 68 'xor' 'xor_ln268_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 69 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln268_2 = xor i8 %xor_ln268_1, %xor_ln268" [helper.cpp:268]   --->   Operation 69 'xor' 'xor_ln268_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln253_2, 0" [helper.cpp:269]   --->   Operation 70 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln258_2, 1" [helper.cpp:269]   --->   Operation 71 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln263_2, 2" [helper.cpp:269]   --->   Operation 72 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln268_2, 3" [helper.cpp:269]   --->   Operation 73 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [helper.cpp:269]   --->   Operation 74 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -208,57 +208,57 @@ column_3_read_1 (read             ) [ 0010]
 column_2_read_1 (read             ) [ 0010]
 column_1_read_1 (read             ) [ 0010]
 column_0_read_1 (read             ) [ 0010]
-br_ln225        (br               ) [ 0110]
+br_ln246        (br               ) [ 0110]
 i_0             (phi              ) [ 0010]
-icmp_ln225      (icmp             ) [ 0010]
+icmp_ln246      (icmp             ) [ 0010]
 empty           (speclooptripcount) [ 0000]
 i               (add              ) [ 0110]
-br_ln225        (br               ) [ 0000]
-trunc_ln227     (trunc            ) [ 0010]
+br_ln246        (br               ) [ 0000]
+trunc_ln248     (trunc            ) [ 0010]
 cpy_0           (mux              ) [ 0000]
-switch_ln227    (switch           ) [ 0000]
-store_ln227     (store            ) [ 0000]
-br_ln227        (br               ) [ 0000]
-store_ln227     (store            ) [ 0000]
-br_ln227        (br               ) [ 0000]
-store_ln227     (store            ) [ 0000]
-br_ln227        (br               ) [ 0000]
-store_ln227     (store            ) [ 0000]
-br_ln227        (br               ) [ 0000]
+switch_ln248    (switch           ) [ 0000]
+store_ln248     (store            ) [ 0000]
+br_ln248        (br               ) [ 0000]
+store_ln248     (store            ) [ 0000]
+br_ln248        (br               ) [ 0000]
+store_ln248     (store            ) [ 0000]
+br_ln248        (br               ) [ 0000]
+store_ln248     (store            ) [ 0000]
+br_ln248        (br               ) [ 0000]
 br_ln0          (br               ) [ 0110]
 cpy_3_load      (load             ) [ 0001]
 cpy_3_1_load    (load             ) [ 0001]
 cpy_3_2_load    (load             ) [ 0001]
 cpy_3_3_load    (load             ) [ 0001]
 tmp             (call             ) [ 0000]
-tmp_1           (call             ) [ 0000]
-tmp_2           (call             ) [ 0000]
 tmp_3           (call             ) [ 0000]
-xor_ln232       (xor              ) [ 0000]
-xor_ln232_1     (xor              ) [ 0000]
-xor_ln232_2     (xor              ) [ 0000]
 tmp_4           (call             ) [ 0000]
 tmp_5           (call             ) [ 0000]
-tmp_7           (call             ) [ 0000]
-xor_ln237       (xor              ) [ 0000]
-xor_ln237_1     (xor              ) [ 0000]
-xor_ln237_2     (xor              ) [ 0000]
-tmp_8           (call             ) [ 0000]
-tmp_9           (call             ) [ 0000]
-tmp_s           (call             ) [ 0000]
-xor_ln242       (xor              ) [ 0000]
-xor_ln242_1     (xor              ) [ 0000]
-xor_ln242_2     (xor              ) [ 0000]
+xor_ln253       (xor              ) [ 0000]
+xor_ln253_1     (xor              ) [ 0000]
+xor_ln253_2     (xor              ) [ 0000]
 tmp_6           (call             ) [ 0000]
+tmp_7           (call             ) [ 0000]
+tmp_9           (call             ) [ 0000]
+xor_ln258       (xor              ) [ 0000]
+xor_ln258_1     (xor              ) [ 0000]
+xor_ln258_2     (xor              ) [ 0000]
+tmp_s           (call             ) [ 0000]
+tmp_1           (call             ) [ 0000]
+tmp_2           (call             ) [ 0000]
+xor_ln263       (xor              ) [ 0000]
+xor_ln263_1     (xor              ) [ 0000]
+xor_ln263_2     (xor              ) [ 0000]
+tmp_8           (call             ) [ 0000]
 tmp_10          (call             ) [ 0000]
-xor_ln247       (xor              ) [ 0000]
-xor_ln247_1     (xor              ) [ 0000]
-xor_ln247_2     (xor              ) [ 0000]
+xor_ln268       (xor              ) [ 0000]
+xor_ln268_1     (xor              ) [ 0000]
+xor_ln268_2     (xor              ) [ 0000]
 mrv             (insertvalue      ) [ 0000]
 mrv_1           (insertvalue      ) [ 0000]
 mrv_2           (insertvalue      ) [ 0000]
 mrv_3           (insertvalue      ) [ 0000]
-ret_ln248       (ret              ) [ 0000]
+ret_ln269       (ret              ) [ 0000]
 </LifeTime>
 
 <model>
@@ -573,7 +573,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_1/2 "/>
+<opset="tmp_3/2 "/>
 </bind>
 </comp>
 
@@ -586,7 +586,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_2/2 "/>
+<opset="tmp_4/2 "/>
 </bind>
 </comp>
 
@@ -599,7 +599,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_3/2 "/>
+<opset="tmp_5/2 "/>
 </bind>
 </comp>
 
@@ -612,7 +612,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_4/2 "/>
+<opset="tmp_6/2 "/>
 </bind>
 </comp>
 
@@ -625,7 +625,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_5/2 "/>
+<opset="tmp_7/2 "/>
 </bind>
 </comp>
 
@@ -638,7 +638,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_7/2 "/>
+<opset="tmp_9/2 "/>
 </bind>
 </comp>
 
@@ -651,7 +651,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_8/2 "/>
+<opset="tmp_s/2 "/>
 </bind>
 </comp>
 
@@ -664,7 +664,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_9/2 "/>
+<opset="tmp_1/2 "/>
 </bind>
 </comp>
 
@@ -677,7 +677,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_s/2 "/>
+<opset="tmp_2/2 "/>
 </bind>
 </comp>
 
@@ -690,7 +690,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="tmp_6/2 "/>
+<opset="tmp_8/2 "/>
 </bind>
 </comp>
 
@@ -707,7 +707,7 @@ ret_ln248       (ret              ) [ 0000]
 </bind>
 </comp>
 
-<comp id="173" class="1004" name="icmp_ln225_fu_173">
+<comp id="173" class="1004" name="icmp_ln246_fu_173">
 <pin_list>
 <pin id="174" dir="0" index="0" bw="3" slack="0"/>
 <pin id="175" dir="0" index="1" bw="3" slack="0"/>
@@ -715,7 +715,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln225/2 "/>
+<opset="icmp_ln246/2 "/>
 </bind>
 </comp>
 
@@ -731,14 +731,14 @@ ret_ln248       (ret              ) [ 0000]
 </bind>
 </comp>
 
-<comp id="185" class="1004" name="trunc_ln227_fu_185">
+<comp id="185" class="1004" name="trunc_ln248_fu_185">
 <pin_list>
 <pin id="186" dir="0" index="0" bw="3" slack="0"/>
 <pin id="187" dir="1" index="1" bw="2" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln227/2 "/>
+<opset="trunc_ln248/2 "/>
 </bind>
 </comp>
 
@@ -758,7 +758,7 @@ ret_ln248       (ret              ) [ 0000]
 </bind>
 </comp>
 
-<comp id="199" class="1004" name="store_ln227_store_fu_199">
+<comp id="199" class="1004" name="store_ln248_store_fu_199">
 <pin_list>
 <pin id="200" dir="0" index="0" bw="8" slack="0"/>
 <pin id="201" dir="0" index="1" bw="8" slack="1"/>
@@ -766,11 +766,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln227/2 "/>
+<opset="store_ln248/2 "/>
 </bind>
 </comp>
 
-<comp id="204" class="1004" name="store_ln227_store_fu_204">
+<comp id="204" class="1004" name="store_ln248_store_fu_204">
 <pin_list>
 <pin id="205" dir="0" index="0" bw="8" slack="0"/>
 <pin id="206" dir="0" index="1" bw="8" slack="1"/>
@@ -778,11 +778,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln227/2 "/>
+<opset="store_ln248/2 "/>
 </bind>
 </comp>
 
-<comp id="209" class="1004" name="store_ln227_store_fu_209">
+<comp id="209" class="1004" name="store_ln248_store_fu_209">
 <pin_list>
 <pin id="210" dir="0" index="0" bw="8" slack="0"/>
 <pin id="211" dir="0" index="1" bw="8" slack="1"/>
@@ -790,11 +790,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln227/2 "/>
+<opset="store_ln248/2 "/>
 </bind>
 </comp>
 
-<comp id="214" class="1004" name="store_ln227_store_fu_214">
+<comp id="214" class="1004" name="store_ln248_store_fu_214">
 <pin_list>
 <pin id="215" dir="0" index="0" bw="8" slack="0"/>
 <pin id="216" dir="0" index="1" bw="8" slack="1"/>
@@ -802,7 +802,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln227/2 "/>
+<opset="store_ln248/2 "/>
 </bind>
 </comp>
 
@@ -850,7 +850,7 @@ ret_ln248       (ret              ) [ 0000]
 </bind>
 </comp>
 
-<comp id="243" class="1004" name="xor_ln232_fu_243">
+<comp id="243" class="1004" name="xor_ln253_fu_243">
 <pin_list>
 <pin id="244" dir="0" index="0" bw="8" slack="0"/>
 <pin id="245" dir="0" index="1" bw="8" slack="0"/>
@@ -858,11 +858,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln232/3 "/>
+<opset="xor_ln253/3 "/>
 </bind>
 </comp>
 
-<comp id="249" class="1004" name="xor_ln232_1_fu_249">
+<comp id="249" class="1004" name="xor_ln253_1_fu_249">
 <pin_list>
 <pin id="250" dir="0" index="0" bw="8" slack="0"/>
 <pin id="251" dir="0" index="1" bw="8" slack="0"/>
@@ -870,11 +870,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln232_1/3 "/>
+<opset="xor_ln253_1/3 "/>
 </bind>
 </comp>
 
-<comp id="255" class="1004" name="xor_ln232_2_fu_255">
+<comp id="255" class="1004" name="xor_ln253_2_fu_255">
 <pin_list>
 <pin id="256" dir="0" index="0" bw="8" slack="0"/>
 <pin id="257" dir="0" index="1" bw="8" slack="0"/>
@@ -882,11 +882,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln232_2/3 "/>
+<opset="xor_ln253_2/3 "/>
 </bind>
 </comp>
 
-<comp id="261" class="1004" name="xor_ln237_fu_261">
+<comp id="261" class="1004" name="xor_ln258_fu_261">
 <pin_list>
 <pin id="262" dir="0" index="0" bw="8" slack="0"/>
 <pin id="263" dir="0" index="1" bw="8" slack="0"/>
@@ -894,11 +894,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln237/3 "/>
+<opset="xor_ln258/3 "/>
 </bind>
 </comp>
 
-<comp id="267" class="1004" name="xor_ln237_1_fu_267">
+<comp id="267" class="1004" name="xor_ln258_1_fu_267">
 <pin_list>
 <pin id="268" dir="0" index="0" bw="8" slack="0"/>
 <pin id="269" dir="0" index="1" bw="8" slack="0"/>
@@ -906,11 +906,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln237_1/3 "/>
+<opset="xor_ln258_1/3 "/>
 </bind>
 </comp>
 
-<comp id="273" class="1004" name="xor_ln237_2_fu_273">
+<comp id="273" class="1004" name="xor_ln258_2_fu_273">
 <pin_list>
 <pin id="274" dir="0" index="0" bw="8" slack="0"/>
 <pin id="275" dir="0" index="1" bw="8" slack="0"/>
@@ -918,11 +918,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln237_2/3 "/>
+<opset="xor_ln258_2/3 "/>
 </bind>
 </comp>
 
-<comp id="279" class="1004" name="xor_ln242_fu_279">
+<comp id="279" class="1004" name="xor_ln263_fu_279">
 <pin_list>
 <pin id="280" dir="0" index="0" bw="8" slack="0"/>
 <pin id="281" dir="0" index="1" bw="8" slack="0"/>
@@ -930,11 +930,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln242/3 "/>
+<opset="xor_ln263/3 "/>
 </bind>
 </comp>
 
-<comp id="285" class="1004" name="xor_ln242_1_fu_285">
+<comp id="285" class="1004" name="xor_ln263_1_fu_285">
 <pin_list>
 <pin id="286" dir="0" index="0" bw="8" slack="0"/>
 <pin id="287" dir="0" index="1" bw="8" slack="0"/>
@@ -942,11 +942,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln242_1/3 "/>
+<opset="xor_ln263_1/3 "/>
 </bind>
 </comp>
 
-<comp id="291" class="1004" name="xor_ln242_2_fu_291">
+<comp id="291" class="1004" name="xor_ln263_2_fu_291">
 <pin_list>
 <pin id="292" dir="0" index="0" bw="8" slack="0"/>
 <pin id="293" dir="0" index="1" bw="8" slack="0"/>
@@ -954,11 +954,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln242_2/3 "/>
+<opset="xor_ln263_2/3 "/>
 </bind>
 </comp>
 
-<comp id="297" class="1004" name="xor_ln247_fu_297">
+<comp id="297" class="1004" name="xor_ln268_fu_297">
 <pin_list>
 <pin id="298" dir="0" index="0" bw="8" slack="0"/>
 <pin id="299" dir="0" index="1" bw="8" slack="0"/>
@@ -966,11 +966,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln247/3 "/>
+<opset="xor_ln268/3 "/>
 </bind>
 </comp>
 
-<comp id="303" class="1004" name="xor_ln247_1_fu_303">
+<comp id="303" class="1004" name="xor_ln268_1_fu_303">
 <pin_list>
 <pin id="304" dir="0" index="0" bw="8" slack="0"/>
 <pin id="305" dir="0" index="1" bw="8" slack="0"/>
@@ -978,11 +978,11 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln247_1/3 "/>
+<opset="xor_ln268_1/3 "/>
 </bind>
 </comp>
 
-<comp id="309" class="1004" name="xor_ln247_2_fu_309">
+<comp id="309" class="1004" name="xor_ln268_2_fu_309">
 <pin_list>
 <pin id="310" dir="0" index="0" bw="8" slack="0"/>
 <pin id="311" dir="0" index="1" bw="8" slack="0"/>
@@ -990,7 +990,7 @@ ret_ln248       (ret              ) [ 0000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln247_2/3 "/>
+<opset="xor_ln268_2/3 "/>
 </bind>
 </comp>
 
@@ -1452,46 +1452,46 @@ ret_ln248       (ret              ) [ 0000]
   - Chain level:
 	State 1
 	State 2
-		icmp_ln225 : 1
+		icmp_ln246 : 1
 		i : 1
-		br_ln225 : 2
-		trunc_ln227 : 1
+		br_ln246 : 2
+		trunc_ln248 : 1
 		cpy_0 : 2
-		switch_ln227 : 2
-		store_ln227 : 3
-		store_ln227 : 3
-		store_ln227 : 3
-		store_ln227 : 3
+		switch_ln248 : 2
+		store_ln248 : 3
+		store_ln248 : 3
+		store_ln248 : 3
+		store_ln248 : 3
 		tmp : 1
-		tmp_1 : 1
-		tmp_2 : 1
 		tmp_3 : 1
 		tmp_4 : 1
 		tmp_5 : 1
+		tmp_6 : 1
 		tmp_7 : 1
-		tmp_8 : 1
 		tmp_9 : 1
 		tmp_s : 1
-		tmp_6 : 1
+		tmp_1 : 1
+		tmp_2 : 1
+		tmp_8 : 1
 		tmp_10 : 1
 	State 3
-		xor_ln232 : 1
-		xor_ln232_1 : 1
-		xor_ln232_2 : 1
-		xor_ln237 : 1
-		xor_ln237_1 : 1
-		xor_ln237_2 : 1
-		xor_ln242 : 1
-		xor_ln242_1 : 1
-		xor_ln242_2 : 1
-		xor_ln247 : 1
-		xor_ln247_1 : 1
-		xor_ln247_2 : 1
+		xor_ln253 : 1
+		xor_ln253_1 : 1
+		xor_ln253_2 : 1
+		xor_ln258 : 1
+		xor_ln258_1 : 1
+		xor_ln258_2 : 1
+		xor_ln263 : 1
+		xor_ln263_1 : 1
+		xor_ln263_2 : 1
+		xor_ln268 : 1
+		xor_ln268_1 : 1
+		xor_ln268_2 : 1
 		mrv : 1
 		mrv_1 : 2
 		mrv_2 : 3
 		mrv_3 : 4
-		ret_ln248 : 5
+		ret_ln269 : 5
 
 
 ============================================================
@@ -1515,31 +1515,31 @@ ret_ln248       (ret              ) [ 0000]
 |          | grp_galois_multiplicatio_fu_159 |    57   |    54   |
 |          | grp_galois_multiplicatio_fu_166 |    57   |    54   |
 |----------|---------------------------------|---------|---------|
-|          |         xor_ln232_fu_243        |    0    |    8    |
-|          |        xor_ln232_1_fu_249       |    0    |    8    |
-|          |        xor_ln232_2_fu_255       |    0    |    8    |
-|          |         xor_ln237_fu_261        |    0    |    8    |
-|          |        xor_ln237_1_fu_267       |    0    |    8    |
-|    xor   |        xor_ln237_2_fu_273       |    0    |    8    |
-|          |         xor_ln242_fu_279        |    0    |    8    |
-|          |        xor_ln242_1_fu_285       |    0    |    8    |
-|          |        xor_ln242_2_fu_291       |    0    |    8    |
-|          |         xor_ln247_fu_297        |    0    |    8    |
-|          |        xor_ln247_1_fu_303       |    0    |    8    |
-|          |        xor_ln247_2_fu_309       |    0    |    8    |
+|          |         xor_ln253_fu_243        |    0    |    8    |
+|          |        xor_ln253_1_fu_249       |    0    |    8    |
+|          |        xor_ln253_2_fu_255       |    0    |    8    |
+|          |         xor_ln258_fu_261        |    0    |    8    |
+|          |        xor_ln258_1_fu_267       |    0    |    8    |
+|    xor   |        xor_ln258_2_fu_273       |    0    |    8    |
+|          |         xor_ln263_fu_279        |    0    |    8    |
+|          |        xor_ln263_1_fu_285       |    0    |    8    |
+|          |        xor_ln263_2_fu_291       |    0    |    8    |
+|          |         xor_ln268_fu_297        |    0    |    8    |
+|          |        xor_ln268_1_fu_303       |    0    |    8    |
+|          |        xor_ln268_2_fu_309       |    0    |    8    |
 |----------|---------------------------------|---------|---------|
 |    mux   |           cpy_0_fu_189          |    0    |    21   |
 |----------|---------------------------------|---------|---------|
 |    add   |             i_fu_179            |    0    |    12   |
 |----------|---------------------------------|---------|---------|
-|   icmp   |        icmp_ln225_fu_173        |    0    |    9    |
+|   icmp   |        icmp_ln246_fu_173        |    0    |    9    |
 |----------|---------------------------------|---------|---------|
 |          |    column_3_read_1_read_fu_54   |    0    |    0    |
 |   read   |    column_2_read_1_read_fu_60   |    0    |    0    |
 |          |    column_1_read_1_read_fu_66   |    0    |    0    |
 |          |    column_0_read_1_read_fu_72   |    0    |    0    |
 |----------|---------------------------------|---------|---------|
-|   trunc  |        trunc_ln227_fu_185       |    0    |    0    |
+|   trunc  |        trunc_ln248_fu_185       |    0    |    0    |
 |----------|---------------------------------|---------|---------|
 |          |            mrv_fu_315           |    0    |    0    |
 |insertvalue|           mrv_1_fu_321          |    0    |    0    |
