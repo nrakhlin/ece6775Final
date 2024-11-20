@@ -1,0 +1,235 @@
+
+
+================================================================
+== Vivado HLS Report for 'Encrypt_SetKey'
+================================================================
+* Date:           Tue Nov 19 22:53:56 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        Blowfish_Setkey_Encrypt_Opt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.358 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       35|       35| 0.350 us | 0.350 us |   35|   35|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- ENCRYPT_FEISTEL  |       33|       33|         4|          2|          1|    16|    yes   |
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 4, States = { 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 6 3 
+3 --> 4 
+4 --> 5 
+5 --> 2 
+6 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%P_17_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_17_read)" [blowfish.cpp:48]   --->   Operation 7 'read' 'P_17_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%P_16_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_16_read)" [blowfish.cpp:48]   --->   Operation 8 'read' 'P_16_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%P_15_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_15_read)" [blowfish.cpp:48]   --->   Operation 9 'read' 'P_15_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%P_14_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_14_read)" [blowfish.cpp:48]   --->   Operation 10 'read' 'P_14_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%P_13_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_13_read)" [blowfish.cpp:48]   --->   Operation 11 'read' 'P_13_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%P_12_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_12_read)" [blowfish.cpp:48]   --->   Operation 12 'read' 'P_12_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%P_11_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_11_read)" [blowfish.cpp:48]   --->   Operation 13 'read' 'P_11_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%P_10_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_10_read)" [blowfish.cpp:48]   --->   Operation 14 'read' 'P_10_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%P_9_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_9_read)" [blowfish.cpp:48]   --->   Operation 15 'read' 'P_9_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%P_8_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_8_read)" [blowfish.cpp:48]   --->   Operation 16 'read' 'P_8_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%P_7_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_7_read)" [blowfish.cpp:48]   --->   Operation 17 'read' 'P_7_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%P_6_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_6_read)" [blowfish.cpp:48]   --->   Operation 18 'read' 'P_6_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%P_5_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_5_read)" [blowfish.cpp:48]   --->   Operation 19 'read' 'P_5_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%P_4_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_4_read)" [blowfish.cpp:48]   --->   Operation 20 'read' 'P_4_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%P_3_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_3_read)" [blowfish.cpp:48]   --->   Operation 21 'read' 'P_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%P_2_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_2_read)" [blowfish.cpp:48]   --->   Operation 22 'read' 'P_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%P_1_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_1_read)" [blowfish.cpp:48]   --->   Operation 23 'read' 'P_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%P_0_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_0_read)" [blowfish.cpp:48]   --->   Operation 24 'read' 'P_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%right_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %right_read)" [blowfish.cpp:48]   --->   Operation 25 'read' 'right_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%left_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %left_read)" [blowfish.cpp:48]   --->   Operation 26 'read' 'left_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (1.76ns)   --->   "br label %1" [blowfish.cpp:54]   --->   Operation 27 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 4.24>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%p_tmp = phi i32 [ %left_read_1, %0 ], [ %localRight, %ENCRYPT_FEISTEL_end ]"   --->   Operation 28 'phi' 'p_tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%p_b_read_assign = phi i32 [ %right_read_1, %0 ], [ %localLeft, %ENCRYPT_FEISTEL_end ]"   --->   Operation 29 'phi' 'p_b_read_assign' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ 0, %0 ], [ %i, %ENCRYPT_FEISTEL_end ]"   --->   Operation 30 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (1.36ns)   --->   "%icmp_ln54 = icmp eq i5 %i_0, -16" [blowfish.cpp:54]   --->   Operation 31 'icmp' 'icmp_ln54' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 32 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [blowfish.cpp:54]   --->   Operation 33 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "br i1 %icmp_ln54, label %2, label %ENCRYPT_FEISTEL_begin" [blowfish.cpp:54]   --->   Operation 34 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (2.19ns)   --->   "switch i5 %i_0, label %branch15 [
+    i5 0, label %ENCRYPT_FEISTEL_end
+    i5 1, label %branch1
+    i5 2, label %branch2
+    i5 3, label %branch3
+    i5 4, label %branch4
+    i5 5, label %branch5
+    i5 6, label %branch6
+    i5 7, label %branch7
+    i5 8, label %branch8
+    i5 9, label %branch9
+    i5 10, label %branch10
+    i5 11, label %branch11
+    i5 12, label %branch12
+    i5 13, label %branch13
+    i5 14, label %branch14
+  ]" [blowfish.cpp:55]   --->   Operation 35 'switch' <Predicate = (!icmp_ln54)> <Delay = 2.19>
+ST_2 : Operation 36 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 36 'br' <Predicate = (!icmp_ln54 & i_0 == 14)> <Delay = 2.19>
+ST_2 : Operation 37 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 37 'br' <Predicate = (!icmp_ln54 & i_0 == 13)> <Delay = 2.19>
+ST_2 : Operation 38 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 38 'br' <Predicate = (!icmp_ln54 & i_0 == 12)> <Delay = 2.19>
+ST_2 : Operation 39 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 39 'br' <Predicate = (!icmp_ln54 & i_0 == 11)> <Delay = 2.19>
+ST_2 : Operation 40 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 40 'br' <Predicate = (!icmp_ln54 & i_0 == 10)> <Delay = 2.19>
+ST_2 : Operation 41 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 41 'br' <Predicate = (!icmp_ln54 & i_0 == 9)> <Delay = 2.19>
+ST_2 : Operation 42 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 42 'br' <Predicate = (!icmp_ln54 & i_0 == 8)> <Delay = 2.19>
+ST_2 : Operation 43 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 43 'br' <Predicate = (!icmp_ln54 & i_0 == 7)> <Delay = 2.19>
+ST_2 : Operation 44 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 44 'br' <Predicate = (!icmp_ln54 & i_0 == 6)> <Delay = 2.19>
+ST_2 : Operation 45 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 45 'br' <Predicate = (!icmp_ln54 & i_0 == 5)> <Delay = 2.19>
+ST_2 : Operation 46 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 46 'br' <Predicate = (!icmp_ln54 & i_0 == 4)> <Delay = 2.19>
+ST_2 : Operation 47 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 47 'br' <Predicate = (!icmp_ln54 & i_0 == 3)> <Delay = 2.19>
+ST_2 : Operation 48 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 48 'br' <Predicate = (!icmp_ln54 & i_0 == 2)> <Delay = 2.19>
+ST_2 : Operation 49 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 49 'br' <Predicate = (!icmp_ln54 & i_0 == 1)> <Delay = 2.19>
+ST_2 : Operation 50 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [blowfish.cpp:55]   --->   Operation 50 'br' <Predicate = (!icmp_ln54 & i_0 != 0 & i_0 != 1 & i_0 != 2 & i_0 != 3 & i_0 != 4 & i_0 != 5 & i_0 != 6 & i_0 != 7 & i_0 != 8 & i_0 != 9 & i_0 != 10 & i_0 != 11 & i_0 != 12 & i_0 != 13 & i_0 != 14)> <Delay = 2.19>
+
+State 3 <SV = 2> <Delay = 4.24>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%phi_ln55 = phi i32 [ %P_1_read_1, %branch1 ], [ %P_2_read_1, %branch2 ], [ %P_3_read_1, %branch3 ], [ %P_4_read_1, %branch4 ], [ %P_5_read_1, %branch5 ], [ %P_6_read_1, %branch6 ], [ %P_7_read_1, %branch7 ], [ %P_8_read_1, %branch8 ], [ %P_9_read_1, %branch9 ], [ %P_10_read_1, %branch10 ], [ %P_11_read_1, %branch11 ], [ %P_12_read_1, %branch12 ], [ %P_13_read_1, %branch13 ], [ %P_14_read_1, %branch14 ], [ %P_15_read_1, %branch15 ], [ %P_0_read_1, %ENCRYPT_FEISTEL_begin ]" [blowfish.cpp:55]   --->   Operation 51 'phi' 'phi_ln55' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.99ns)   --->   "%localLeft = xor i32 %phi_ln55, %p_tmp" [blowfish.cpp:55]   --->   Operation 52 'xor' 'localLeft' <Predicate = (!icmp_ln54)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 53 [2/2] (3.25ns)   --->   "%tmp_2 = call fastcc i32 @feistel(i32 %localLeft, [256 x i32]* %S_0, [256 x i32]* %S_1, [256 x i32]* %S_2, [256 x i32]* %S_3)" [blowfish.cpp:56]   --->   Operation 53 'call' 'tmp_2' <Predicate = (!icmp_ln54)> <Delay = 3.25> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 8.35>
+ST_4 : Operation 54 [1/2] (8.35ns)   --->   "%tmp_2 = call fastcc i32 @feistel(i32 %localLeft, [256 x i32]* %S_0, [256 x i32]* %S_1, [256 x i32]* %S_2, [256 x i32]* %S_3)" [blowfish.cpp:56]   --->   Operation 54 'call' 'tmp_2' <Predicate = (!icmp_ln54)> <Delay = 8.35> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 5.24>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([16 x i8]* @p_str) nounwind" [blowfish.cpp:54]   --->   Operation 55 'specloopname' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([16 x i8]* @p_str)" [blowfish.cpp:54]   --->   Operation 56 'specregionbegin' 'tmp' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_5 : Operation 57 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [blowfish.cpp:55]   --->   Operation 57 'specpipeline' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_5 : Operation 58 [1/1] (0.99ns)   --->   "%localRight = xor i32 %tmp_2, %p_b_read_assign" [blowfish.cpp:56]   --->   Operation 58 'xor' 'localRight' <Predicate = (!icmp_ln54)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 59 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecRegionEnd([16 x i8]* @p_str, i32 %tmp)" [blowfish.cpp:60]   --->   Operation 59 'specregionend' 'empty_26' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+ST_5 : Operation 60 [1/1] (0.00ns)   --->   "br label %1" [blowfish.cpp:54]   --->   Operation 60 'br' <Predicate = (!icmp_ln54)> <Delay = 0.00>
+
+State 6 <SV = 2> <Delay = 0.99>
+ST_6 : Operation 61 [1/1] (0.99ns)   --->   "%xor_ln62 = xor i32 %p_tmp, %P_16_read_1" [blowfish.cpp:62]   --->   Operation 61 'xor' 'xor_ln62' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 62 [1/1] (0.99ns)   --->   "%xor_ln63 = xor i32 %p_b_read_assign, %P_17_read_1" [blowfish.cpp:63]   --->   Operation 62 'xor' 'xor_ln63' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i32, i32 } undef, i32 %xor_ln63, 0" [blowfish.cpp:64]   --->   Operation 63 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i32, i32 } %mrv, i32 %xor_ln62, 1" [blowfish.cpp:64]   --->   Operation 64 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "ret { i32, i32 } %mrv_1" [blowfish.cpp:64]   --->   Operation 65 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('localRight') with incoming values : ('left', blowfish.cpp:48) ('localRight', blowfish.cpp:56) [47]  (1.77 ns)
+
+ <State 2>: 4.25ns
+The critical path consists of the following:
+	'phi' operation ('localRight') with incoming values : ('left', blowfish.cpp:48) ('localRight', blowfish.cpp:56) [47]  (0 ns)
+	'xor' operation ('localLeft', blowfish.cpp:55) [91]  (0.993 ns)
+	'call' operation ('tmp_2', blowfish.cpp:56) to 'feistel' [92]  (3.25 ns)
+
+ <State 3>: 4.25ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln55', blowfish.cpp:55) with incoming values : ('P[15]', blowfish.cpp:48) ('P[14]', blowfish.cpp:48) ('P[13]', blowfish.cpp:48) ('P[12]', blowfish.cpp:48) ('P[11]', blowfish.cpp:48) ('P[10]', blowfish.cpp:48) ('P[9]', blowfish.cpp:48) ('P[8]', blowfish.cpp:48) ('P[7]', blowfish.cpp:48) ('P[6]', blowfish.cpp:48) ('P[5]', blowfish.cpp:48) ('P[4]', blowfish.cpp:48) ('P[3]', blowfish.cpp:48) ('P[2]', blowfish.cpp:48) ('P[1]', blowfish.cpp:48) ('P[0]', blowfish.cpp:48) [90]  (0 ns)
+	'xor' operation ('localLeft', blowfish.cpp:55) [91]  (0.993 ns)
+	'call' operation ('tmp_2', blowfish.cpp:56) to 'feistel' [92]  (3.25 ns)
+
+ <State 4>: 8.36ns
+The critical path consists of the following:
+	'call' operation ('tmp_2', blowfish.cpp:56) to 'feistel' [92]  (8.36 ns)
+
+ <State 5>: 5.24ns
+The critical path consists of the following:
+	'xor' operation ('localRight', blowfish.cpp:56) [93]  (0.993 ns)
+	'phi' operation ('localRight') with incoming values : ('left', blowfish.cpp:48) ('localRight', blowfish.cpp:56) [47]  (0 ns)
+	'xor' operation ('localLeft', blowfish.cpp:55) [91]  (0.993 ns)
+	'call' operation ('tmp_2', blowfish.cpp:56) to 'feistel' [92]  (3.25 ns)
+
+ <State 6>: 0.993ns
+The critical path consists of the following:
+	'xor' operation ('xor_ln62', blowfish.cpp:62) [97]  (0.993 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

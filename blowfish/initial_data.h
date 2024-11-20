@@ -3,10 +3,11 @@
 
 #include <stdint.h>
 
+//https://mothereff.in/byte-counter
 #define PARRAY_SIZE 18          // Dimension of parray 
 #define SBOX_SIZE_1 4           // First dimension of sboxes
 #define SBOX_SIZE_2 256         // Second dimension of sboxes
-#define BLOCK_SIZE 8+1          // sizeof is one bit shorter (I think it excludes the null terminator...)
+#define BLOCK_SIZE 8          // sizeof is one bit shorter (I think it excludes the null terminator...)
 #define MAX_KEY_BYTE_LENGTH 56  // Max size of the key in bytes
 
 

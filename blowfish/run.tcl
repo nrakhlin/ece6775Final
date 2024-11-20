@@ -4,13 +4,21 @@
 # @brief: A Tcl script for synthesizing the baseline digit recongnition design.
 
 # Project name
-set hls_prj blowfish.prj
+set hls_prj Blowfish_feistel.prj
+# set hls_prj Blowfish_Encrypt.prj
+# set hls_prj Blowfish_Setkey.prj
+# set hls_prj Blowfish_Decrypt.prj
 
 # Open/reset the project
 open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
-set_top Blowfish_SetKey_Encrypt
+# set_top Blowfish_SetKey_Encrypt
+# set_top Blowfish_Encrypt
+# set_top Blowfish_SetKey
+set_top feistel
+
+
 
 # Add design and testbench files
 add_files blowfish.cpp
@@ -30,8 +38,6 @@ create_clock -period 10
 ############################################
 
 # Simulate the C++ design
-# csim_design -mflags "-O3"
-# csim_design -o -mflags "-O3"
 csim_design
 
 # Synthesize the design

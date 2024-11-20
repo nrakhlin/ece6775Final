@@ -11,15 +11,19 @@
 
 int main() {
     // Example key and plaintext
-    unsigned char key[MAX_KEY_BYTE_LENGTH] = "My Key!!!";
-    unsigned char plaintext[BLOCK_SIZE] = "Wereisms";  // Plaintext as unsigned char array
+    // unsigned char key[MAX_KEY_BYTE_LENGTH] = "My Key!!!";
+    // unsigned char plaintext[BLOCK_SIZE] = 'Wereisms';  // Plaintext as unsigned char array
+
+    unsigned char key[MAX_KEY_BYTE_LENGTH] = {'M', 'y', ' ','K','e','y','!','!','!'};
+    unsigned char plaintext[BLOCK_SIZE] = {'W','e', 'r', 'e', 'i', 's', 'm', 's'};
 
     unsigned char ciphertext[BLOCK_SIZE];    // Array to store the ciphertext
-    unsigned char decryptedText[BLOCK_SIZE]; // Array to store decrypted text
+    unsigned char decryptedtext[BLOCK_SIZE]; // Array to store decrypted text
+    
 
     // Initialize P and S arrays
-    unsigned int P[18];
-    unsigned int S[4][256];
+    unsigned int P[PARRAY_SIZE];
+    unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2];
 
     if(mode == 1){
         // Key expansion
@@ -31,24 +35,28 @@ int main() {
         Blowfish_SetKey_Encrypt(true, key, sizeof("My Key!!!")-1, plaintext, ciphertext, P, S);
     }
 
-
-
     // Print ciphertext in hexadecimal format
     std::cout << "Ciphertext: ";
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < BLOCK_SIZE; i++) {
         std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)ciphertext[i];
     }
     std::cout << std::endl;
 
     // Decrypt
-    Blowfish_Decrypt(ciphertext, decryptedText, P, S);
+    Blowfish_Decrypt(ciphertext, decryptedtext, P, S);
 
     // Print decrypted text
     std::cout << "Decrypted Text: ";
-    for (int i = 0; i < 8; i++) {
-        std::cout << decryptedText[i];  // Print as characters
+    for (int i = 0; i < BLOCK_SIZE; i++) {
+        std::cout << decryptedtext[i];  // Print as characters
     }
     std::cout << std::endl;
+
+    // Assert plaintext is the same as the cipher text
+    for (int i = 0; i < BLOCK_SIZE; i++){
+        if(decryptedtext[i] != plaintext[i]) return 1;
+    }
+
 
     return 0;
 }

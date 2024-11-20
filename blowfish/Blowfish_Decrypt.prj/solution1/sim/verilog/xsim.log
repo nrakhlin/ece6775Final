@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# xsim v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Nov 19 16:27:11 2024
+# Process ID: 48542
+# Current directory: /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Decrypt.prj/solution1/sim/verilog
+# Command line: xsim -mode tcl -source {xsim.dir/Blowfish_Decrypt/xsim_script.tcl}
+# Log file: /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Decrypt.prj/solution1/sim/verilog/xsim.log
+# Journal file: /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Decrypt.prj/solution1/sim/verilog/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/Blowfish_Decrypt/xsim_script.tcl
+# xsim {Blowfish_Decrypt} -autoloadwcfg -tclbatch {Blowfish_Decrypt.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source Blowfish_Decrypt.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [100.00%] @ "875000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 915 ns : File "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Decrypt.prj/solution1/sim/verilog/Blowfish_Decrypt.autotb.v" Line 395
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Nov 19 16:27:18 2024...

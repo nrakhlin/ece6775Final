@@ -1,0 +1,53 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "PARRAY_INIT_1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "XOR_PARRAY_2",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "SBOX_INIT_1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "SBOX_INIT_2",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "4"
+              }]
+          }
+        },
+        {
+          "functionName": "Blowfish_Encrypt",
+          "label": "ENCRYPT_FEISTEL",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Encrypt_SetKey",
+          "label": "ENCRYPT_FEISTEL",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "feistel",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        }
+      ]
+    }]}
