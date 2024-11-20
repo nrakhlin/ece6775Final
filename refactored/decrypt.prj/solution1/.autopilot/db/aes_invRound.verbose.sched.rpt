@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_invRound'
 ================================================================
-* Date:           Mon Nov 18 21:18:26 2024
+* Date:           Tue Nov 19 21:05:41 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -189,7 +189,7 @@ ST_13 : Operation 81 [1/1] (0.00ns)   --->   "br label %1" [helper.cpp:315->decr
 State 14 <SV = 11> <Delay = 2.32>
 ST_14 : Operation 82 [1/1] (0.00ns)   --->   "%i_0_i4 = phi i5 [ %i_6, %3 ], [ 0, %invSubBytes.exit.preheader ]"   --->   Operation 82 'phi' 'i_0_i4' <Predicate = true> <Delay = 0.00>
 ST_14 : Operation 83 [1/1] (1.36ns)   --->   "%icmp_ln221 = icmp eq i5 %i_0_i4, -16" [helper.cpp:221->decrypt.cpp:20]   --->   Operation 83 'icmp' 'icmp_ln221' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_14 : Operation 84 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 84 'speclooptripcount' 'empty_19' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 84 [1/1] (0.00ns)   --->   "%empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 84 'speclooptripcount' 'empty_18' <Predicate = true> <Delay = 0.00>
 ST_14 : Operation 85 [1/1] (1.78ns)   --->   "%i_6 = add i5 %i_0_i4, 1" [helper.cpp:221->decrypt.cpp:20]   --->   Operation 85 'add' 'i_6' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_14 : Operation 86 [1/1] (0.00ns)   --->   "br i1 %icmp_ln221, label %addRoundKey.exit, label %3" [helper.cpp:221->decrypt.cpp:20]   --->   Operation 86 'br' <Predicate = true> <Delay = 0.00>
 ST_14 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln222 = zext i5 %i_0_i4 to i64" [helper.cpp:222->decrypt.cpp:20]   --->   Operation 87 'zext' 'zext_ln222' <Predicate = (!icmp_ln221)> <Delay = 0.00>

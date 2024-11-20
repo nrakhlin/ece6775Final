@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'invMixColumns'" level="0">
-<item name = "Date">Mon Nov 18 21:18:28 2024
+<item name = "Date">Tue Nov 19 21:05:43 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">decrypt.prj</item>
@@ -83,14 +83,14 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln551_fu_298_p2">+, 0, 0, 13, 4, 4</column>
-<column name="add_ln560_fu_359_p2">+, 0, 0, 13, 4, 4</column>
+<column name="add_ln414_fu_298_p2">+, 0, 0, 13, 4, 4</column>
+<column name="add_ln423_fu_359_p2">+, 0, 0, 13, 4, 4</column>
 <column name="i_fu_268_p2">+, 0, 0, 12, 3, 1</column>
 <column name="j_2_fu_330_p2">+, 0, 0, 12, 3, 1</column>
 <column name="j_fu_280_p2">+, 0, 0, 12, 3, 1</column>
-<column name="icmp_ln546_fu_262_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln549_fu_274_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln558_fu_324_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln409_fu_262_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln412_fu_274_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln421_fu_324_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -135,8 +135,8 @@
 <column name="j_0_reg_152">3, 0, 3, 0</column>
 <column name="j_1_reg_235">3, 0, 3, 0</column>
 <column name="j_reg_386">3, 0, 3, 0</column>
-<column name="trunc_ln551_reg_391">2, 0, 2, 0</column>
-<column name="zext_ln546_reg_369">3, 0, 4, 1</column>
+<column name="trunc_ln414_reg_391">2, 0, 2, 0</column>
+<column name="zext_ln409_reg_369">3, 0, 4, 1</column>
 </table>
 </item>
 </section>

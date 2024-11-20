@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'invMixColumns'
 ================================================================
-* Date:           Mon Nov 18 21:18:26 2024
+* Date:           Tue Nov 19 21:05:41 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -88,7 +88,7 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 8 [1/1] (1.76ns)   --->   "br label %.loopexit" [helper.cpp:546]   --->   Operation 8 'br' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 8 [1/1] (1.76ns)   --->   "br label %.loopexit" [helper.cpp:409]   --->   Operation 8 'br' <Predicate = true> <Delay = 1.76>
 
 State 2 <SV = 1> <Delay = 1.76>
 ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%column_3_0 = phi i8 [ undef, %0 ], [ %column_3, %.loopexit.loopexit ]"   --->   Operation 9 'phi' 'column_3_0' <Predicate = true> <Delay = 0.00>
@@ -96,42 +96,42 @@ ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%column_2_0 = phi i8 [ undef, %0 ],
 ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%column_1_0 = phi i8 [ undef, %0 ], [ %column_1, %.loopexit.loopexit ]"   --->   Operation 11 'phi' 'column_1_0' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%column_0_0 = phi i8 [ undef, %0 ], [ %column_0, %.loopexit.loopexit ]"   --->   Operation 12 'phi' 'column_0_0' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 13 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln546 = zext i3 %i_0 to i4" [helper.cpp:546]   --->   Operation 14 'zext' 'zext_ln546' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 15 [1/1] (1.13ns)   --->   "%icmp_ln546 = icmp eq i3 %i_0, -4" [helper.cpp:546]   --->   Operation 15 'icmp' 'icmp_ln546' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln409 = zext i3 %i_0 to i4" [helper.cpp:409]   --->   Operation 14 'zext' 'zext_ln409' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (1.13ns)   --->   "%icmp_ln409 = icmp eq i3 %i_0, -4" [helper.cpp:409]   --->   Operation 15 'icmp' 'icmp_ln409' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 16 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 17 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [helper.cpp:546]   --->   Operation 17 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %icmp_ln546, label %5, label %.preheader.preheader" [helper.cpp:546]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (1.76ns)   --->   "br label %.preheader" [helper.cpp:549]   --->   Operation 19 'br' <Predicate = (!icmp_ln546)> <Delay = 1.76>
-ST_2 : Operation 20 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:563]   --->   Operation 20 'ret' <Predicate = (icmp_ln546)> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [helper.cpp:409]   --->   Operation 17 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %icmp_ln409, label %5, label %.preheader.preheader" [helper.cpp:409]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.76ns)   --->   "br label %.preheader" [helper.cpp:412]   --->   Operation 19 'br' <Predicate = (!icmp_ln409)> <Delay = 1.76>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:426]   --->   Operation 20 'ret' <Predicate = (icmp_ln409)> <Delay = 0.00>
 
 State 3 <SV = 2> <Delay = 4.05>
-ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%column_3_1 = phi i8 [ %column_3_0, %.preheader.preheader ], [ %column_3_1_be, %.preheader.backedge ]" [helper.cpp:555]   --->   Operation 21 'phi' 'column_3_1' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%column_2_1 = phi i8 [ %column_2_0, %.preheader.preheader ], [ %column_2_1_be, %.preheader.backedge ]" [helper.cpp:555]   --->   Operation 22 'phi' 'column_2_1' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%column_1_1 = phi i8 [ %column_1_0, %.preheader.preheader ], [ %column_1_1_be, %.preheader.backedge ]" [helper.cpp:555]   --->   Operation 23 'phi' 'column_1_1' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%column_0_1 = phi i8 [ %column_0_0, %.preheader.preheader ], [ %column_0_1_be, %.preheader.backedge ]" [helper.cpp:555]   --->   Operation 24 'phi' 'column_0_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%column_3_1 = phi i8 [ %column_3_0, %.preheader.preheader ], [ %column_3_1_be, %.preheader.backedge ]" [helper.cpp:418]   --->   Operation 21 'phi' 'column_3_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%column_2_1 = phi i8 [ %column_2_0, %.preheader.preheader ], [ %column_2_1_be, %.preheader.backedge ]" [helper.cpp:418]   --->   Operation 22 'phi' 'column_2_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%column_1_1 = phi i8 [ %column_1_0, %.preheader.preheader ], [ %column_1_1_be, %.preheader.backedge ]" [helper.cpp:418]   --->   Operation 23 'phi' 'column_1_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%column_0_1 = phi i8 [ %column_0_0, %.preheader.preheader ], [ %column_0_1_be, %.preheader.backedge ]" [helper.cpp:418]   --->   Operation 24 'phi' 'column_0_1' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ 0, %.preheader.preheader ], [ %j, %.preheader.backedge ]"   --->   Operation 25 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 26 [1/1] (1.13ns)   --->   "%icmp_ln549 = icmp eq i3 %j_0, -4" [helper.cpp:549]   --->   Operation 26 'icmp' 'icmp_ln549' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 26 [1/1] (1.13ns)   --->   "%icmp_ln412 = icmp eq i3 %j_0, -4" [helper.cpp:412]   --->   Operation 26 'icmp' 'icmp_ln412' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 27 'speclooptripcount' 'empty_5' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 28 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [helper.cpp:549]   --->   Operation 28 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 29 [1/1] (0.00ns)   --->   "br i1 %icmp_ln549, label %2, label %1" [helper.cpp:549]   --->   Operation 29 'br' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln551 = trunc i3 %j_0 to i2" [helper.cpp:551]   --->   Operation 30 'trunc' 'trunc_ln551' <Predicate = (!icmp_ln549)> <Delay = 0.00>
-ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%shl_ln = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln551, i2 0)" [helper.cpp:551]   --->   Operation 31 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln549)> <Delay = 0.00>
-ST_3 : Operation 32 [1/1] (1.73ns)   --->   "%add_ln551 = add i4 %shl_ln, %zext_ln546" [helper.cpp:551]   --->   Operation 32 'add' 'add_ln551' <Predicate = (!icmp_ln549)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%zext_ln551 = zext i4 %add_ln551 to i64" [helper.cpp:551]   --->   Operation 33 'zext' 'zext_ln551' <Predicate = (!icmp_ln549)> <Delay = 0.00>
-ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln551" [helper.cpp:551]   --->   Operation 34 'getelementptr' 'state_addr' <Predicate = (!icmp_ln549)> <Delay = 0.00>
-ST_3 : Operation 35 [2/2] (2.32ns)   --->   "%column_0_3 = load i8* %state_addr, align 1" [helper.cpp:551]   --->   Operation 35 'load' 'column_0_3' <Predicate = (!icmp_ln549)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_3 : Operation 36 [2/2] (0.00ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8 } @invMixColumn(i8 %column_0_1, i8 %column_1_1, i8 %column_2_1, i8 %column_3_1)" [helper.cpp:555]   --->   Operation 36 'call' 'call_ret' <Predicate = (icmp_ln549)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 28 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [helper.cpp:412]   --->   Operation 28 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "br i1 %icmp_ln412, label %2, label %1" [helper.cpp:412]   --->   Operation 29 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln414 = trunc i3 %j_0 to i2" [helper.cpp:414]   --->   Operation 30 'trunc' 'trunc_ln414' <Predicate = (!icmp_ln412)> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%shl_ln = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln414, i2 0)" [helper.cpp:414]   --->   Operation 31 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln412)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (1.73ns)   --->   "%add_ln414 = add i4 %shl_ln, %zext_ln409" [helper.cpp:414]   --->   Operation 32 'add' 'add_ln414' <Predicate = (!icmp_ln412)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%zext_ln414 = zext i4 %add_ln414 to i64" [helper.cpp:414]   --->   Operation 33 'zext' 'zext_ln414' <Predicate = (!icmp_ln412)> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln414" [helper.cpp:414]   --->   Operation 34 'getelementptr' 'state_addr' <Predicate = (!icmp_ln412)> <Delay = 0.00>
+ST_3 : Operation 35 [2/2] (2.32ns)   --->   "%column_0_3 = load i8* %state_addr, align 1" [helper.cpp:414]   --->   Operation 35 'load' 'column_0_3' <Predicate = (!icmp_ln412)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 36 [2/2] (0.00ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8 } @invMixColumn(i8 %column_0_1, i8 %column_1_1, i8 %column_2_1, i8 %column_3_1)" [helper.cpp:418]   --->   Operation 36 'call' 'call_ret' <Predicate = (icmp_ln412)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 4 <SV = 3> <Delay = 2.32>
-ST_4 : Operation 37 [1/2] (2.32ns)   --->   "%column_0_3 = load i8* %state_addr, align 1" [helper.cpp:551]   --->   Operation 37 'load' 'column_0_3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_4 : Operation 38 [1/1] (1.76ns)   --->   "switch i2 %trunc_ln551, label %branch3 [
+ST_4 : Operation 37 [1/2] (2.32ns)   --->   "%column_0_3 = load i8* %state_addr, align 1" [helper.cpp:414]   --->   Operation 37 'load' 'column_0_3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 38 [1/1] (1.76ns)   --->   "switch i2 %trunc_ln414, label %branch3 [
     i2 0, label %.preheader.backedge
     i2 1, label %branch1
     i2 -2, label %branch2
-  ]" [helper.cpp:551]   --->   Operation 38 'switch' <Predicate = true> <Delay = 1.76>
-ST_4 : Operation 39 [1/1] (1.76ns)   --->   "br label %.preheader.backedge" [helper.cpp:551]   --->   Operation 39 'br' <Predicate = (trunc_ln551 == 2)> <Delay = 1.76>
-ST_4 : Operation 40 [1/1] (1.76ns)   --->   "br label %.preheader.backedge" [helper.cpp:551]   --->   Operation 40 'br' <Predicate = (trunc_ln551 == 1)> <Delay = 1.76>
-ST_4 : Operation 41 [1/1] (1.76ns)   --->   "br label %.preheader.backedge" [helper.cpp:551]   --->   Operation 41 'br' <Predicate = (trunc_ln551 == 3)> <Delay = 1.76>
+  ]" [helper.cpp:414]   --->   Operation 38 'switch' <Predicate = true> <Delay = 1.76>
+ST_4 : Operation 39 [1/1] (1.76ns)   --->   "br label %.preheader.backedge" [helper.cpp:414]   --->   Operation 39 'br' <Predicate = (trunc_ln414 == 2)> <Delay = 1.76>
+ST_4 : Operation 40 [1/1] (1.76ns)   --->   "br label %.preheader.backedge" [helper.cpp:414]   --->   Operation 40 'br' <Predicate = (trunc_ln414 == 1)> <Delay = 1.76>
+ST_4 : Operation 41 [1/1] (1.76ns)   --->   "br label %.preheader.backedge" [helper.cpp:414]   --->   Operation 41 'br' <Predicate = (trunc_ln414 == 3)> <Delay = 1.76>
 
 State 5 <SV = 4> <Delay = 0.00>
 ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%column_3_1_be = phi i8 [ %column_0_3, %branch3 ], [ %column_3_1, %branch2 ], [ %column_3_1, %branch1 ], [ %column_3_1, %1 ]"   --->   Operation 42 'phi' 'column_3_1_be' <Predicate = true> <Delay = 0.00>
@@ -141,28 +141,28 @@ ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%column_0_1_be = phi i8 [ %column_0
 ST_5 : Operation 46 [1/1] (0.00ns)   --->   "br label %.preheader"   --->   Operation 46 'br' <Predicate = true> <Delay = 0.00>
 
 State 6 <SV = 3> <Delay = 1.76>
-ST_6 : Operation 47 [1/2] (0.99ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8 } @invMixColumn(i8 %column_0_1, i8 %column_1_1, i8 %column_2_1, i8 %column_3_1)" [helper.cpp:555]   --->   Operation 47 'call' 'call_ret' <Predicate = true> <Delay = 0.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%column_0 = extractvalue { i8, i8, i8, i8 } %call_ret, 0" [helper.cpp:555]   --->   Operation 48 'extractvalue' 'column_0' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%column_1 = extractvalue { i8, i8, i8, i8 } %call_ret, 1" [helper.cpp:555]   --->   Operation 49 'extractvalue' 'column_1' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 50 [1/1] (0.00ns)   --->   "%column_2 = extractvalue { i8, i8, i8, i8 } %call_ret, 2" [helper.cpp:555]   --->   Operation 50 'extractvalue' 'column_2' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 51 [1/1] (0.00ns)   --->   "%column_3 = extractvalue { i8, i8, i8, i8 } %call_ret, 3" [helper.cpp:555]   --->   Operation 51 'extractvalue' 'column_3' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 52 [1/1] (1.76ns)   --->   "br label %3" [helper.cpp:558]   --->   Operation 52 'br' <Predicate = true> <Delay = 1.76>
+ST_6 : Operation 47 [1/2] (0.99ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8 } @invMixColumn(i8 %column_0_1, i8 %column_1_1, i8 %column_2_1, i8 %column_3_1)" [helper.cpp:418]   --->   Operation 47 'call' 'call_ret' <Predicate = true> <Delay = 0.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%column_0 = extractvalue { i8, i8, i8, i8 } %call_ret, 0" [helper.cpp:418]   --->   Operation 48 'extractvalue' 'column_0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%column_1 = extractvalue { i8, i8, i8, i8 } %call_ret, 1" [helper.cpp:418]   --->   Operation 49 'extractvalue' 'column_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 50 [1/1] (0.00ns)   --->   "%column_2 = extractvalue { i8, i8, i8, i8 } %call_ret, 2" [helper.cpp:418]   --->   Operation 50 'extractvalue' 'column_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 51 [1/1] (0.00ns)   --->   "%column_3 = extractvalue { i8, i8, i8, i8 } %call_ret, 3" [helper.cpp:418]   --->   Operation 51 'extractvalue' 'column_3' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 52 [1/1] (1.76ns)   --->   "br label %3" [helper.cpp:421]   --->   Operation 52 'br' <Predicate = true> <Delay = 1.76>
 
 State 7 <SV = 4> <Delay = 4.28>
 ST_7 : Operation 53 [1/1] (0.00ns)   --->   "%j_1 = phi i3 [ 0, %2 ], [ %j_2, %4 ]"   --->   Operation 53 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 54 [1/1] (1.13ns)   --->   "%icmp_ln558 = icmp eq i3 %j_1, -4" [helper.cpp:558]   --->   Operation 54 'icmp' 'icmp_ln558' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 54 [1/1] (1.13ns)   --->   "%icmp_ln421 = icmp eq i3 %j_1, -4" [helper.cpp:421]   --->   Operation 54 'icmp' 'icmp_ln421' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 55 'speclooptripcount' 'empty_6' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 56 [1/1] (1.65ns)   --->   "%j_2 = add i3 %j_1, 1" [helper.cpp:558]   --->   Operation 56 'add' 'j_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %icmp_ln558, label %.loopexit.loopexit, label %4" [helper.cpp:558]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln560 = trunc i3 %j_1 to i2" [helper.cpp:560]   --->   Operation 58 'trunc' 'trunc_ln560' <Predicate = (!icmp_ln558)> <Delay = 0.00>
-ST_7 : Operation 59 [1/1] (1.95ns)   --->   "%tmp = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %column_0, i8 %column_1, i8 %column_2, i8 %column_3, i2 %trunc_ln560)" [helper.cpp:560]   --->   Operation 59 'mux' 'tmp' <Predicate = (!icmp_ln558)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%shl_ln1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln560, i2 0)" [helper.cpp:560]   --->   Operation 60 'bitconcatenate' 'shl_ln1' <Predicate = (!icmp_ln558)> <Delay = 0.00>
-ST_7 : Operation 61 [1/1] (1.73ns)   --->   "%add_ln560 = add i4 %shl_ln1, %zext_ln546" [helper.cpp:560]   --->   Operation 61 'add' 'add_ln560' <Predicate = (!icmp_ln558)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%zext_ln560 = zext i4 %add_ln560 to i64" [helper.cpp:560]   --->   Operation 62 'zext' 'zext_ln560' <Predicate = (!icmp_ln558)> <Delay = 0.00>
-ST_7 : Operation 63 [1/1] (0.00ns)   --->   "%state_addr_1 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln560" [helper.cpp:560]   --->   Operation 63 'getelementptr' 'state_addr_1' <Predicate = (!icmp_ln558)> <Delay = 0.00>
-ST_7 : Operation 64 [1/1] (2.32ns)   --->   "store i8 %tmp, i8* %state_addr_1, align 1" [helper.cpp:560]   --->   Operation 64 'store' <Predicate = (!icmp_ln558)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_7 : Operation 65 [1/1] (0.00ns)   --->   "br label %3" [helper.cpp:558]   --->   Operation 65 'br' <Predicate = (!icmp_ln558)> <Delay = 0.00>
-ST_7 : Operation 66 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 66 'br' <Predicate = (icmp_ln558)> <Delay = 0.00>
+ST_7 : Operation 56 [1/1] (1.65ns)   --->   "%j_2 = add i3 %j_1, 1" [helper.cpp:421]   --->   Operation 56 'add' 'j_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %icmp_ln421, label %.loopexit.loopexit, label %4" [helper.cpp:421]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln423 = trunc i3 %j_1 to i2" [helper.cpp:423]   --->   Operation 58 'trunc' 'trunc_ln423' <Predicate = (!icmp_ln421)> <Delay = 0.00>
+ST_7 : Operation 59 [1/1] (1.95ns)   --->   "%tmp = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %column_0, i8 %column_1, i8 %column_2, i8 %column_3, i2 %trunc_ln423)" [helper.cpp:423]   --->   Operation 59 'mux' 'tmp' <Predicate = (!icmp_ln421)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%shl_ln1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln423, i2 0)" [helper.cpp:423]   --->   Operation 60 'bitconcatenate' 'shl_ln1' <Predicate = (!icmp_ln421)> <Delay = 0.00>
+ST_7 : Operation 61 [1/1] (1.73ns)   --->   "%add_ln423 = add i4 %shl_ln1, %zext_ln409" [helper.cpp:423]   --->   Operation 61 'add' 'add_ln423' <Predicate = (!icmp_ln421)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%zext_ln423 = zext i4 %add_ln423 to i64" [helper.cpp:423]   --->   Operation 62 'zext' 'zext_ln423' <Predicate = (!icmp_ln421)> <Delay = 0.00>
+ST_7 : Operation 63 [1/1] (0.00ns)   --->   "%state_addr_1 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln423" [helper.cpp:423]   --->   Operation 63 'getelementptr' 'state_addr_1' <Predicate = (!icmp_ln421)> <Delay = 0.00>
+ST_7 : Operation 64 [1/1] (2.32ns)   --->   "store i8 %tmp, i8* %state_addr_1, align 1" [helper.cpp:423]   --->   Operation 64 'store' <Predicate = (!icmp_ln421)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_7 : Operation 65 [1/1] (0.00ns)   --->   "br label %3" [helper.cpp:421]   --->   Operation 65 'br' <Predicate = (!icmp_ln421)> <Delay = 0.00>
+ST_7 : Operation 66 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 66 'br' <Predicate = (icmp_ln421)> <Delay = 0.00>
 
 
 ============================================================
@@ -172,35 +172,35 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('column[3]') with incoming values : ('column[3]', helper.cpp:555) [4]  (1.77 ns)
+	multiplexor before 'phi' operation ('column[3]') with incoming values : ('column[3]', helper.cpp:418) [4]  (1.77 ns)
 
  <State 2>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('column_3_1', helper.cpp:555) with incoming values : ('column[0]', helper.cpp:551) ('column[3]', helper.cpp:555) [17]  (1.77 ns)
+	multiplexor before 'phi' operation ('column_3_1', helper.cpp:418) with incoming values : ('column[0]', helper.cpp:414) ('column[3]', helper.cpp:418) [17]  (1.77 ns)
 
  <State 3>: 4.06ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', helper.cpp:549) [21]  (0 ns)
-	'add' operation ('add_ln551', helper.cpp:551) [29]  (1.74 ns)
-	'getelementptr' operation ('state_addr', helper.cpp:551) [31]  (0 ns)
-	'load' operation ('column[0]', helper.cpp:551) on array 'state' [32]  (2.32 ns)
+	'phi' operation ('j') with incoming values : ('j', helper.cpp:412) [21]  (0 ns)
+	'add' operation ('add_ln414', helper.cpp:414) [29]  (1.74 ns)
+	'getelementptr' operation ('state_addr', helper.cpp:414) [31]  (0 ns)
+	'load' operation ('column[0]', helper.cpp:414) on array 'state' [32]  (2.32 ns)
 
  <State 4>: 2.32ns
 The critical path consists of the following:
-	'load' operation ('column[0]', helper.cpp:551) on array 'state' [32]  (2.32 ns)
+	'load' operation ('column[0]', helper.cpp:414) on array 'state' [32]  (2.32 ns)
 
  <State 5>: 0ns
 The critical path consists of the following:
 
  <State 6>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', helper.cpp:558) [54]  (1.77 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', helper.cpp:421) [54]  (1.77 ns)
 
  <State 7>: 4.28ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', helper.cpp:558) [54]  (0 ns)
-	'mux' operation ('tmp', helper.cpp:560) [61]  (1.96 ns)
-	'store' operation ('store_ln560', helper.cpp:560) of variable 'tmp', helper.cpp:560 on array 'state' [66]  (2.32 ns)
+	'phi' operation ('j') with incoming values : ('j', helper.cpp:421) [54]  (0 ns)
+	'mux' operation ('tmp', helper.cpp:423) [61]  (1.96 ns)
+	'store' operation ('store_ln423', helper.cpp:423) of variable 'tmp', helper.cpp:423 on array 'state' [66]  (2.32 ns)
 
 
 ============================================================

@@ -8,17 +8,11 @@
 #define BLOCK_SIZE 16 // AES block size is always 16 bytes
 
 // Test vectors from known AES examples (AES-128)
-unsigned char test_input[BLOCK_SIZE] = {
-    0x32, 0x88, 0x31, 0xe0, 0x43, 0x5a, 0x31, 0x37,
-    0xf6, 0x30, 0x98, 0x07, 0xa8, 0x8d, 0xa2, 0x34};
+unsigned char test_input[BLOCK_SIZE] = {'d', 'e', 'a', 'd', 'b', 'e', 'e', 'f', 'b', 'e', 'e', 'f', 'd', 'e', 'a', 'd'};
 
-unsigned char test_key[KEY_SIZE] = {
-    0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6,
-    0xab, 0xf7, 0x97, 0x75, 0x46, 0x20, 0x63, 0xed};
+unsigned char test_key[KEY_SIZE] = {0x54, 0x68, 0x61, 0x74, 0x73, 0x20, 0x6D, 0x79, 0x20, 0x4B, 0x75, 0x6E, 0x67, 0x20, 0x46, 0x75};
 
-unsigned char expected_output[BLOCK_SIZE] = {
-    0x39, 0x25, 0x84, 0x1d, 0x02, 0x87, 0x94, 0x23,
-    0x5d, 0x88, 0x6d, 0x97, 0x2d, 0x5a, 0x9a, 0x67};
+unsigned char expected_output[BLOCK_SIZE] = {0x72, 0xe5, 0xdb, 0x87, 0x94, 0x7e, 0x05, 0x97, 0x4b, 0x22, 0x17, 0xfd, 0xc6, 0xb1, 0x8a, 0x29};
 
 // Function to print bytes in a readable format
 void print_bytes(const char *label, unsigned char *data, size_t len)
@@ -43,9 +37,16 @@ int main()
   encrypt_dut(test_input, encrypted_output, test_key);
 
   // Step 3: Print the output of encryption
+  print_bytes("Expected Output", expected_output, BLOCK_SIZE);
   print_bytes("Encrypted Output", encrypted_output, BLOCK_SIZE);
 
   // Step 4: Compare the output with the expected ciphertext
+  for (int i = 0; i < BLOCK_SIZE; i++){
+    if (encrypted_output[i] != expected_output[i]){
+          printf("FAIL FAIL FAIL");
+          return 1;
+    }
+  }
   assert(memcmp(encrypted_output, expected_output, BLOCK_SIZE) == 0);
 
   // If the assertion passes, print success message

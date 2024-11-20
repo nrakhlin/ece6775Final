@@ -94,10 +94,10 @@ wire   [63:0] zext_ln92_fu_384_p1;
 reg   [7:0] word_load_fu_54;
 wire   [7:0] select_ln89_fu_247_p3;
 wire    ap_CS_fsm_state6;
-reg   [7:0] empty_14_fu_58;
-reg   [7:0] empty_15_fu_62;
-reg   [7:0] empty_16_fu_66;
-reg   [7:0] empty_17_fu_70;
+reg   [7:0] empty_13_fu_58;
+reg   [7:0] empty_14_fu_62;
+reg   [7:0] empty_15_fu_66;
+reg   [7:0] empty_16_fu_70;
 reg   [7:0] word_1_0_fu_74;
 reg   [7:0] word_2_0_fu_78;
 reg   [7:0] word_3_0_fu_82;
@@ -226,10 +226,10 @@ decrypt_dut_mux_4cud #(
     .din4_WIDTH( 2 ),
     .dout_WIDTH( 8 ))
 decrypt_dut_mux_4cud_U5(
-    .din0(empty_14_fu_58),
-    .din1(empty_15_fu_62),
-    .din2(empty_16_fu_66),
-    .din3(empty_17_fu_70),
+    .din0(empty_13_fu_58),
+    .din1(empty_14_fu_62),
+    .din2(empty_15_fu_66),
+    .din3(empty_16_fu_70),
     .din4(num_assign_1_fu_362_p5),
     .dout(num_assign_1_fu_362_p6)
 );
@@ -284,33 +284,33 @@ end
 
 always @ (posedge ap_clk) begin
     if (((trunc_ln105_reg_590 == 2'd0) & (1'b1 == ap_CS_fsm_state5))) begin
-        empty_14_fu_58 <= sbox_q0;
+        empty_13_fu_58 <= sbox_q0;
     end else if (((icmp_ln86_fu_221_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        empty_14_fu_58 <= select_ln89_fu_247_p3;
+        empty_13_fu_58 <= select_ln89_fu_247_p3;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((trunc_ln105_reg_590 == 2'd1) & (1'b1 == ap_CS_fsm_state5))) begin
-        empty_15_fu_62 <= sbox_q0;
+        empty_14_fu_62 <= sbox_q0;
     end else if (((icmp_ln86_fu_221_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        empty_15_fu_62 <= word12_0_i_reg_175;
+        empty_14_fu_62 <= word12_0_i_reg_175;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((trunc_ln105_reg_590 == 2'd2) & (1'b1 == ap_CS_fsm_state5))) begin
-        empty_16_fu_66 <= sbox_q0;
+        empty_15_fu_66 <= sbox_q0;
     end else if (((icmp_ln86_fu_221_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        empty_16_fu_66 <= word2_0_i_reg_165;
+        empty_15_fu_66 <= word2_0_i_reg_165;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((trunc_ln105_reg_590 == 2'd3) & (1'b1 == ap_CS_fsm_state5))) begin
-        empty_17_fu_70 <= sbox_q0;
+        empty_16_fu_70 <= sbox_q0;
     end else if (((icmp_ln86_fu_221_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        empty_17_fu_70 <= word_0_read;
+        empty_16_fu_70 <= word_0_read;
     end
 end
 

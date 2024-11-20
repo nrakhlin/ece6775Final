@@ -601,7 +601,8 @@ void invShiftRows(unsigned char state[16])
     state[ptr + 1] = state[ptr];
     state[ptr] = tmp;
 }
-# 513 "helper.cpp"
+
+
 void invMixColumn(unsigned char column[4])
 {_ssdm_SpecArrayDimSize(column, 4);
   unsigned char cpy[4];

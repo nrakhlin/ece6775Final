@@ -36,11 +36,11 @@
 <Latency>32</Latency>
 <IterationLatency>2</IterationLatency>
 </Loop1>
-<Loop2>
+<DECRYPT_LOOP>
 <TripCount>9</TripCount>
 <Latency>2502</Latency>
 <IterationLatency>278</IterationLatency>
-</Loop2>
+</DECRYPT_LOOP>
 <Loop3>
 <TripCount>16</TripCount>
 <Latency>48</Latency>

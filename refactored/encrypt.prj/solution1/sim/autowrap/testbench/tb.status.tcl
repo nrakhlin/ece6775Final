@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/./sim/autowrap/testbench/encrypt.cpp_pre.cpp.tb.cpp

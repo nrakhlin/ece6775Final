@@ -308,7 +308,7 @@
               "Instances": [
                 {
                   "ModuleName": "aes_invRound",
-                  "InstanceName": "grp_aes_invRound_fu_285",
+                  "InstanceName": "grp_aes_invRound_fu_289",
                   "Instances": [{
                       "ModuleName": "invMixColumns",
                       "InstanceName": "grp_invMixColumns_fu_230",
@@ -386,7 +386,7 @@
                 },
                 {
                   "ModuleName": "createRoundKey",
-                  "InstanceName": "grp_createRoundKey_fu_294"
+                  "InstanceName": "grp_createRoundKey_fu_298"
                 }
               ]
             },
@@ -779,7 +779,7 @@
             "PipelineDepth": "2"
           },
           {
-            "Name": "Loop 2",
+            "Name": "DECRYPT_LOOP",
             "TripCount": "9",
             "Latency": "2502",
             "PipelineII": "",
@@ -898,7 +898,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-11-18 21:18:30 EST",
+    "Time": "2024-11-19 21:05:45 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

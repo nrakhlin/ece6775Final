@@ -1,4 +1,0 @@
-Plaintext: 61 62 63 64 65 66 31 32 33 34 35 36 37 38 39 30 
-Ciphertext (Encrypted): 39 62 8b cc c1 cd 48 e4 5f dd b5 e8 9c bf 9d 02 
-Decrypted Text: 61 62 63 64 65 66 31 32 33 34 35 36 37 38 39 30 
-Success: Decrypted text matches the original plaintext.

@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/npr29/hls6775/ece6775Final/bnn.prj/solution1/./sim/autowrap/testbench/aes_new.cpp_pre.cpp.tb.cpp

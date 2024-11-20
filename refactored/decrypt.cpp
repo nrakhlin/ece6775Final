@@ -30,11 +30,12 @@ void aes_invMain(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_S
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds);
   addRoundKey(state, roundKey);
 
-  for (i = nbrRounds - 1; i > 0; i--)
-  {
-    createRoundKey(expandedKey, roundKey, 16 * i);
-    aes_invRound(state, roundKey);
-  }
+  DECRYPT_LOOP:
+    for (i = nbrRounds - 1; i > 0; i--)
+    {
+      createRoundKey(expandedKey, roundKey, 16 * i);
+      aes_invRound(state, roundKey);
+    }
 
   createRoundKey(expandedKey, roundKey, 0);
   invShiftRows(state);

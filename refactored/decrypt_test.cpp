@@ -41,6 +41,8 @@ int main()
 
   // Check if the decryption matches the expected plaintext
   unsigned char expected_plaintext[16] = {'d', 'e', 'a', 'd', 'b', 'e', 'e', 'f', 'b', 'e', 'e', 'f', 'd', 'e', 'a', 'd'};
+  std::cout << "Expected plaintext: ";
+  print_hex(expected_plaintext, 16);
 
   if (std::memcmp(decrypted, expected_plaintext, 16) == 0)
   {

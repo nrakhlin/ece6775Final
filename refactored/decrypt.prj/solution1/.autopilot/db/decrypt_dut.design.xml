@@ -17,10 +17,10 @@
 <ID>133</ID>
 <InstancesList>
 <Instance>
-<InstName>grp_aes_invRound_fu_285</InstName>
+<InstName>grp_aes_invRound_fu_289</InstName>
 <ModuleName>aes_invRound</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>285</ID>
+<ID>289</ID>
 <InstancesList>
 <Instance>
 <InstName>grp_invMixColumns_fu_230</InstName>
@@ -137,10 +137,10 @@
 </InstancesList>
 </Instance>
 <Instance>
-<InstName>grp_createRoundKey_fu_294</InstName>
+<InstName>grp_createRoundKey_fu_298</InstName>
 <ModuleName>createRoundKey</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>294</ID>
+<ID>298</ID>
 </Instance>
 </InstancesList>
 </Instance>
@@ -1595,13 +1595,13 @@
 <IterationLatency>2</IterationLatency>
 <PipelineDepth>2</PipelineDepth>
 </Loop1>
-<Loop2>
-<Name>Loop 2</Name>
+<DECRYPT_LOOP>
+<Name>DECRYPT_LOOP</Name>
 <TripCount>9</TripCount>
 <Latency>2502</Latency>
 <IterationLatency>278</IterationLatency>
 <PipelineDepth>278</PipelineDepth>
-</Loop2>
+</DECRYPT_LOOP>
 <Loop3>
 <Name>Loop 3</Name>
 <TripCount>16</TripCount>

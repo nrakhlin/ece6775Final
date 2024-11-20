@@ -2442,11 +2442,12 @@ void aes_invMain(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds);
   addRoundKey(state, roundKey);
 
-  for (i = nbrRounds - 1; i > 0; i--)
-  {
-    createRoundKey(expandedKey, roundKey, 16 * i);
-    aes_invRound(state, roundKey);
-  }
+  DECRYPT_LOOP:
+    for (i = nbrRounds - 1; i > 0; i--)
+    {
+      createRoundKey(expandedKey, roundKey, 16 * i);
+      aes_invRound(state, roundKey);
+    }
 
   createRoundKey(expandedKey, roundKey, 0);
   invShiftRows(state);
@@ -2470,7 +2471,7 @@ void aes_decrypt(unsigned char input[16],
   unsigned char block[16];
 
   int i, j;
-# 71 "decrypt.cpp"
+# 72 "decrypt.cpp"
   for (i = 0; i < 4; i++)
   {
 

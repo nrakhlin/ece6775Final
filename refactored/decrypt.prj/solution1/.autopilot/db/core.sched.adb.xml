@@ -380,10 +380,10 @@ rotate.exit:0  %word_load = alloca i8
 
 <Node id="41" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:1  %empty_14 = alloca i8
+rotate.exit:1  %empty_13 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_14"/></StgValue>
+<StgValue><ssdm name="empty_13"/></StgValue>
 </operation>
 
 <operation id="28" st_id="2" stage="1" lat="1">
@@ -396,10 +396,10 @@ rotate.exit:1  %empty_14 = alloca i8
 
 <Node id="42" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:2  %empty_15 = alloca i8
+rotate.exit:2  %empty_14 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_15"/></StgValue>
+<StgValue><ssdm name="empty_14"/></StgValue>
 </operation>
 
 <operation id="29" st_id="2" stage="1" lat="1">
@@ -412,10 +412,10 @@ rotate.exit:2  %empty_15 = alloca i8
 
 <Node id="43" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:3  %empty_16 = alloca i8
+rotate.exit:3  %empty_15 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_16"/></StgValue>
+<StgValue><ssdm name="empty_15"/></StgValue>
 </operation>
 
 <operation id="30" st_id="2" stage="1" lat="1">
@@ -428,10 +428,10 @@ rotate.exit:3  %empty_16 = alloca i8
 
 <Node id="44" bw="8" op_0_bw="32">
 <![CDATA[
-rotate.exit:4  %empty_17 = alloca i8
+rotate.exit:4  %empty_16 = alloca i8
 
 ]]></Node>
-<StgValue><ssdm name="empty_17"/></StgValue>
+<StgValue><ssdm name="empty_16"/></StgValue>
 </operation>
 
 <operation id="31" st_id="2" stage="1" lat="1">
@@ -556,7 +556,7 @@ rotate.exit:11  store i8 %word12_0_i, i8* %word_1_0
 
 <Node id="52" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:12  store i8 %word_0_read_1, i8* %empty_17
+rotate.exit:12  store i8 %word_0_read_1, i8* %empty_16
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -572,7 +572,7 @@ rotate.exit:12  store i8 %word_0_read_1, i8* %empty_17
 
 <Node id="53" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:13  store i8 %word2_0_i, i8* %empty_16
+rotate.exit:13  store i8 %word2_0_i, i8* %empty_15
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -588,7 +588,7 @@ rotate.exit:13  store i8 %word2_0_i, i8* %empty_16
 
 <Node id="54" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:14  store i8 %word12_0_i, i8* %empty_15
+rotate.exit:14  store i8 %word12_0_i, i8* %empty_14
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -604,7 +604,7 @@ rotate.exit:14  store i8 %word12_0_i, i8* %empty_15
 
 <Node id="55" bw="0" op_0_bw="8" op_1_bw="8">
 <![CDATA[
-rotate.exit:15  store i8 %select_ln89, i8* %empty_14
+rotate.exit:15  store i8 %select_ln89, i8* %empty_13
 
 ]]></Node>
 <StgValue><ssdm name="store_ln103"/></StgValue>
@@ -762,10 +762,10 @@ branch0:1  %icmp_ln103 = icmp eq i3 %i_0, -4
 
 <Node id="61" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-branch0:2  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+branch0:2  %empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
 ]]></Node>
-<StgValue><ssdm name="empty_18"/></StgValue>
+<StgValue><ssdm name="empty_17"/></StgValue>
 </operation>
 
 <operation id="52" st_id="4" stage="1" lat="1">
@@ -808,7 +808,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="65" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:0  %p_load11 = load i8* %empty_14
+:0  %p_load11 = load i8* %empty_13
 
 ]]></Node>
 <StgValue><ssdm name="p_load11"/></StgValue>
@@ -824,7 +824,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="66" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:1  %p_load10 = load i8* %empty_15
+:1  %p_load10 = load i8* %empty_14
 
 ]]></Node>
 <StgValue><ssdm name="p_load10"/></StgValue>
@@ -840,7 +840,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="67" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:2  %p_load9 = load i8* %empty_16
+:2  %p_load9 = load i8* %empty_15
 
 ]]></Node>
 <StgValue><ssdm name="p_load9"/></StgValue>
@@ -856,7 +856,7 @@ branch0:4  br i1 %icmp_ln103, label %3, label %2
 
 <Node id="68" bw="8" op_0_bw="8" op_1_bw="0">
 <![CDATA[
-:3  %p_load = load i8* %empty_17
+:3  %p_load = load i8* %empty_16
 
 ]]></Node>
 <StgValue><ssdm name="p_load"/></StgValue>
@@ -1069,7 +1069,7 @@ branch2:0  store i8 %sbox_load, i8* %word_2_0
 
 <Node id="77" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-branch2:1  store i8 %sbox_load, i8* %empty_16
+branch2:1  store i8 %sbox_load, i8* %empty_15
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1117,7 +1117,7 @@ branch1:0  store i8 %sbox_load, i8* %word_1_0
 
 <Node id="81" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-branch1:1  store i8 %sbox_load, i8* %empty_15
+branch1:1  store i8 %sbox_load, i8* %empty_14
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1149,7 +1149,7 @@ branch1:2  br label %branch0.backedge
 
 <Node id="84" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-.branch0.backedge_crit_edge:0  store i8 %sbox_load, i8* %empty_14
+.branch0.backedge_crit_edge:0  store i8 %sbox_load, i8* %empty_13
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
@@ -1213,7 +1213,7 @@ branch3:0  store i8 %sbox_load, i8* %word_3_0
 
 <Node id="89" bw="0" op_0_bw="8" op_1_bw="8" op_2_bw="0" op_3_bw="8">
 <![CDATA[
-branch3:1  store i8 %sbox_load, i8* %empty_17
+branch3:1  store i8 %sbox_load, i8* %empty_16
 
 ]]></Node>
 <StgValue><ssdm name="store_ln105"/></StgValue>
