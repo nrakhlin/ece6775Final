@@ -4,8 +4,9 @@
 # @brief: A Tcl script for synthesizing the baseline digit recongnition design.
 
 # Project name
-set hls_prj Blowfish_Setkey_Encrypt_Opt.prj
+# set hls_prj Blowfish_Setkey_Encrypt_Opt.prj
 # set hls_prj Blowfish_Setkey_Opt.prj
+set hls_prj del.prj
 
 
 
@@ -13,10 +14,12 @@ set hls_prj Blowfish_Setkey_Encrypt_Opt.prj
 open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
-set_top Blowfish_SetKey_Encrypt
+# set_top Blowfish_SetKey_Encrypt
 # set_top Blowfish_Encrypt
 # set_top Blowfish_SetKey
 # set_top Blowfish_Decrypt
+set_top Blowfish_SetKey_Encrypt_Decrypt
+
 
 
 
@@ -45,20 +48,45 @@ create_clock -period 10
 # Unroll loop initializing parray
 set_directive_unroll Blowfish_SetKey/PARRAY_INIT_1
 
+# Pair with array reshaping...
+set_directive_unroll Blowfish_SetKey/SBOX_INIT_1
+
+# idk why this works without any array optimizations
+set_directive_unroll Blowfish_SetKey/SBOX_INIT_2 -factor 4
+
+# set_directive_unroll Blowfish_SetKey/SBOX_INIT_2
+
 # Pipeline the XORing of the parray with the key 
-# set_directive_unroll Blowfish_SetKey/XOR_PARRAY_1 --> Utilization very high
-set_directive_pipeline Blowfish_SetKey/XOR_PARRAY_2
+# set_directive_unroll Blowfish_SetKey/XOR_PARRAY_1
+# set_directive_pipeline Blowfish_SetKey/XOR_PARRAY_2
+set_directive_unroll Blowfish_SetKey/XOR_PARRAY_2
+
 
 # Pipeline the generation of the parrray
 # Seems to do nothing...
 # set_directive_pipeline Blowfish_SetKey/GENERATE_PARRAY_1
+set_directive_unroll Blowfish_SetKey/GENERATE_PARRAY_1
+
 
 # Unroll loop initializing sbox
-set_directive_unroll Blowfish_SetKey/SBOX_INIT_1
+# set_directive_unroll Blowfish_SetKey/SBOX_INIT_1
 # Helpful... but, does not need array optimizations
-# I am confused about this
-set_directive_unroll Blowfish_SetKey/SBOX_INIT_2 -factor 4
 
+
+# 
+set_directive_unroll Blowfish_SetKey/GENERATE_SBOX_1
+
+
+# ===========================================
+# Encrypt_SetKey
+# ===========================================
+# Unrolling achieves faster latency that pipeline for more
+# utilization. 
+# set_directive_unroll Encrypt_SetKey/ENCRYPT_FEISTEL
+set_directive_pipeline Encrypt_SetKey/ENCRYPT_FEISTEL
+
+# Pipelining achieves suboptimal II
+# set_directive_pipeline Encrypt_SetKey
 
 
 # ===========================================
@@ -66,17 +94,12 @@ set_directive_unroll Blowfish_SetKey/SBOX_INIT_2 -factor 4
 # ===========================================
 set_directive_unroll Blowfish_Encrypt/ENCRYPT_FEISTEL
 
-
 # ===========================================
-# Encrypt_SetKey
+# Blowfish_Decrypt
 # ===========================================
-# Pipelining achieves suboptimal II
-# set_directive_pipeline Encrypt_SetKey
+set_directive_unroll Blowfish_Decrypt/DECRYPT_FEISTEL
 
-# Unrolling achieves faster latency that pipeline for more
-# utilization. 
-# set_directive_unroll Encrypt_SetKey/ENCRYPT_FEISTEL
-set_directive_pipeline Encrypt_SetKey/ENCRYPT_FEISTEL
+
 
 
 
