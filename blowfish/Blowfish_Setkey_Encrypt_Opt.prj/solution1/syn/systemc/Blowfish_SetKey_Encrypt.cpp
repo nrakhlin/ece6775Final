@@ -14,150 +14,138 @@ namespace ap_rtl {
 
 const sc_logic Blowfish_SetKey_Encrypt::ap_const_logic_1 = sc_dt::Log_1;
 const sc_logic Blowfish_SetKey_Encrypt::ap_const_logic_0 = sc_dt::Log_0;
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state1 = "1";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state2 = "10";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state3 = "100";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state4 = "1000";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state5 = "10000";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state6 = "100000";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state7 = "1000000";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state8 = "10000000";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state9 = "100000000";
-const sc_lv<10> Blowfish_SetKey_Encrypt::ap_ST_fsm_state10 = "1000000000";
+const sc_lv<4> Blowfish_SetKey_Encrypt::ap_ST_fsm_state1 = "1";
+const sc_lv<4> Blowfish_SetKey_Encrypt::ap_ST_fsm_state2 = "10";
+const sc_lv<4> Blowfish_SetKey_Encrypt::ap_ST_fsm_state3 = "100";
+const sc_lv<4> Blowfish_SetKey_Encrypt::ap_ST_fsm_state4 = "1000";
 const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_0 = "00000000000000000000000000000000";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_1 = "1";
-const sc_lv<1> Blowfish_SetKey_Encrypt::ap_const_lv1_1 = "1";
-const bool Blowfish_SetKey_Encrypt::ap_const_boolean_0 = false;
 const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_2 = "10";
+const sc_lv<1> Blowfish_SetKey_Encrypt::ap_const_lv1_1 = "1";
+const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_1 = "1";
 const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_3 = "11";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_4 = "100";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_5 = "101";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_6 = "110";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_0 = "0000000000000000000000000000000000000000000000000000000000000000";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_1 = "1";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_2 = "10";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_3 = "11";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_4 = "100";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_5 = "101";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_6 = "110";
-const sc_lv<64> Blowfish_SetKey_Encrypt::ap_const_lv64_7 = "111";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_7 = "111";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_8 = "1000";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_9 = "1001";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_18 = "11000";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_1F = "11111";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_10 = "10000";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_17 = "10111";
-const sc_lv<32> Blowfish_SetKey_Encrypt::ap_const_lv32_F = "1111";
+const sc_lv<1> Blowfish_SetKey_Encrypt::ap_const_lv1_0 = "0";
 const bool Blowfish_SetKey_Encrypt::ap_const_boolean_1 = true;
 
 Blowfish_SetKey_Encrypt::Blowfish_SetKey_Encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    grp_Blowfish_SetKey_fu_520 = new Blowfish_SetKey("grp_Blowfish_SetKey_fu_520");
-    grp_Blowfish_SetKey_fu_520->ap_clk(ap_clk);
-    grp_Blowfish_SetKey_fu_520->ap_rst(ap_rst);
-    grp_Blowfish_SetKey_fu_520->ap_start(grp_Blowfish_SetKey_fu_520_ap_start);
-    grp_Blowfish_SetKey_fu_520->ap_done(grp_Blowfish_SetKey_fu_520_ap_done);
-    grp_Blowfish_SetKey_fu_520->ap_idle(grp_Blowfish_SetKey_fu_520_ap_idle);
-    grp_Blowfish_SetKey_fu_520->ap_ready(grp_Blowfish_SetKey_fu_520_ap_ready);
-    grp_Blowfish_SetKey_fu_520->key_address0(grp_Blowfish_SetKey_fu_520_key_address0);
-    grp_Blowfish_SetKey_fu_520->key_ce0(grp_Blowfish_SetKey_fu_520_key_ce0);
-    grp_Blowfish_SetKey_fu_520->key_q0(key_q0);
-    grp_Blowfish_SetKey_fu_520->key_size(key_size);
-    grp_Blowfish_SetKey_fu_520->S_0_address0(grp_Blowfish_SetKey_fu_520_S_0_address0);
-    grp_Blowfish_SetKey_fu_520->S_0_ce0(grp_Blowfish_SetKey_fu_520_S_0_ce0);
-    grp_Blowfish_SetKey_fu_520->S_0_we0(grp_Blowfish_SetKey_fu_520_S_0_we0);
-    grp_Blowfish_SetKey_fu_520->S_0_d0(grp_Blowfish_SetKey_fu_520_S_0_d0);
-    grp_Blowfish_SetKey_fu_520->S_0_q0(S_0_q0);
-    grp_Blowfish_SetKey_fu_520->S_0_address1(grp_Blowfish_SetKey_fu_520_S_0_address1);
-    grp_Blowfish_SetKey_fu_520->S_0_ce1(grp_Blowfish_SetKey_fu_520_S_0_ce1);
-    grp_Blowfish_SetKey_fu_520->S_0_we1(grp_Blowfish_SetKey_fu_520_S_0_we1);
-    grp_Blowfish_SetKey_fu_520->S_0_d1(grp_Blowfish_SetKey_fu_520_S_0_d1);
-    grp_Blowfish_SetKey_fu_520->S_1_address0(grp_Blowfish_SetKey_fu_520_S_1_address0);
-    grp_Blowfish_SetKey_fu_520->S_1_ce0(grp_Blowfish_SetKey_fu_520_S_1_ce0);
-    grp_Blowfish_SetKey_fu_520->S_1_we0(grp_Blowfish_SetKey_fu_520_S_1_we0);
-    grp_Blowfish_SetKey_fu_520->S_1_d0(grp_Blowfish_SetKey_fu_520_S_1_d0);
-    grp_Blowfish_SetKey_fu_520->S_1_q0(S_1_q0);
-    grp_Blowfish_SetKey_fu_520->S_1_address1(grp_Blowfish_SetKey_fu_520_S_1_address1);
-    grp_Blowfish_SetKey_fu_520->S_1_ce1(grp_Blowfish_SetKey_fu_520_S_1_ce1);
-    grp_Blowfish_SetKey_fu_520->S_1_we1(grp_Blowfish_SetKey_fu_520_S_1_we1);
-    grp_Blowfish_SetKey_fu_520->S_1_d1(grp_Blowfish_SetKey_fu_520_S_1_d1);
-    grp_Blowfish_SetKey_fu_520->S_2_address0(grp_Blowfish_SetKey_fu_520_S_2_address0);
-    grp_Blowfish_SetKey_fu_520->S_2_ce0(grp_Blowfish_SetKey_fu_520_S_2_ce0);
-    grp_Blowfish_SetKey_fu_520->S_2_we0(grp_Blowfish_SetKey_fu_520_S_2_we0);
-    grp_Blowfish_SetKey_fu_520->S_2_d0(grp_Blowfish_SetKey_fu_520_S_2_d0);
-    grp_Blowfish_SetKey_fu_520->S_2_q0(S_2_q0);
-    grp_Blowfish_SetKey_fu_520->S_2_address1(grp_Blowfish_SetKey_fu_520_S_2_address1);
-    grp_Blowfish_SetKey_fu_520->S_2_ce1(grp_Blowfish_SetKey_fu_520_S_2_ce1);
-    grp_Blowfish_SetKey_fu_520->S_2_we1(grp_Blowfish_SetKey_fu_520_S_2_we1);
-    grp_Blowfish_SetKey_fu_520->S_2_d1(grp_Blowfish_SetKey_fu_520_S_2_d1);
-    grp_Blowfish_SetKey_fu_520->S_3_address0(grp_Blowfish_SetKey_fu_520_S_3_address0);
-    grp_Blowfish_SetKey_fu_520->S_3_ce0(grp_Blowfish_SetKey_fu_520_S_3_ce0);
-    grp_Blowfish_SetKey_fu_520->S_3_we0(grp_Blowfish_SetKey_fu_520_S_3_we0);
-    grp_Blowfish_SetKey_fu_520->S_3_d0(grp_Blowfish_SetKey_fu_520_S_3_d0);
-    grp_Blowfish_SetKey_fu_520->S_3_q0(S_3_q0);
-    grp_Blowfish_SetKey_fu_520->S_3_address1(grp_Blowfish_SetKey_fu_520_S_3_address1);
-    grp_Blowfish_SetKey_fu_520->S_3_ce1(grp_Blowfish_SetKey_fu_520_S_3_ce1);
-    grp_Blowfish_SetKey_fu_520->S_3_we1(grp_Blowfish_SetKey_fu_520_S_3_we1);
-    grp_Blowfish_SetKey_fu_520->S_3_d1(grp_Blowfish_SetKey_fu_520_S_3_d1);
-    grp_Blowfish_SetKey_fu_520->ap_return_0(grp_Blowfish_SetKey_fu_520_ap_return_0);
-    grp_Blowfish_SetKey_fu_520->ap_return_1(grp_Blowfish_SetKey_fu_520_ap_return_1);
-    grp_Blowfish_SetKey_fu_520->ap_return_2(grp_Blowfish_SetKey_fu_520_ap_return_2);
-    grp_Blowfish_SetKey_fu_520->ap_return_3(grp_Blowfish_SetKey_fu_520_ap_return_3);
-    grp_Blowfish_SetKey_fu_520->ap_return_4(grp_Blowfish_SetKey_fu_520_ap_return_4);
-    grp_Blowfish_SetKey_fu_520->ap_return_5(grp_Blowfish_SetKey_fu_520_ap_return_5);
-    grp_Blowfish_SetKey_fu_520->ap_return_6(grp_Blowfish_SetKey_fu_520_ap_return_6);
-    grp_Blowfish_SetKey_fu_520->ap_return_7(grp_Blowfish_SetKey_fu_520_ap_return_7);
-    grp_Blowfish_SetKey_fu_520->ap_return_8(grp_Blowfish_SetKey_fu_520_ap_return_8);
-    grp_Blowfish_SetKey_fu_520->ap_return_9(grp_Blowfish_SetKey_fu_520_ap_return_9);
-    grp_Blowfish_SetKey_fu_520->ap_return_10(grp_Blowfish_SetKey_fu_520_ap_return_10);
-    grp_Blowfish_SetKey_fu_520->ap_return_11(grp_Blowfish_SetKey_fu_520_ap_return_11);
-    grp_Blowfish_SetKey_fu_520->ap_return_12(grp_Blowfish_SetKey_fu_520_ap_return_12);
-    grp_Blowfish_SetKey_fu_520->ap_return_13(grp_Blowfish_SetKey_fu_520_ap_return_13);
-    grp_Blowfish_SetKey_fu_520->ap_return_14(grp_Blowfish_SetKey_fu_520_ap_return_14);
-    grp_Blowfish_SetKey_fu_520->ap_return_15(grp_Blowfish_SetKey_fu_520_ap_return_15);
-    grp_Blowfish_SetKey_fu_520->ap_return_16(grp_Blowfish_SetKey_fu_520_ap_return_16);
-    grp_Blowfish_SetKey_fu_520->ap_return_17(grp_Blowfish_SetKey_fu_520_ap_return_17);
-    grp_Encrypt_SetKey_fu_544 = new Encrypt_SetKey("grp_Encrypt_SetKey_fu_544");
-    grp_Encrypt_SetKey_fu_544->ap_clk(ap_clk);
-    grp_Encrypt_SetKey_fu_544->ap_rst(ap_rst);
-    grp_Encrypt_SetKey_fu_544->ap_start(grp_Encrypt_SetKey_fu_544_ap_start);
-    grp_Encrypt_SetKey_fu_544->ap_done(grp_Encrypt_SetKey_fu_544_ap_done);
-    grp_Encrypt_SetKey_fu_544->ap_idle(grp_Encrypt_SetKey_fu_544_ap_idle);
-    grp_Encrypt_SetKey_fu_544->ap_ready(grp_Encrypt_SetKey_fu_544_ap_ready);
-    grp_Encrypt_SetKey_fu_544->left_read(left_1_reg_861);
-    grp_Encrypt_SetKey_fu_544->right_read(right_1_reg_866);
-    grp_Encrypt_SetKey_fu_544->P_0_read(P_0_i);
-    grp_Encrypt_SetKey_fu_544->P_1_read(P_1_i);
-    grp_Encrypt_SetKey_fu_544->P_2_read(P_2_i);
-    grp_Encrypt_SetKey_fu_544->P_3_read(P_3_i);
-    grp_Encrypt_SetKey_fu_544->P_4_read(P_4_i);
-    grp_Encrypt_SetKey_fu_544->P_5_read(P_5_i);
-    grp_Encrypt_SetKey_fu_544->P_6_read(P_6_i);
-    grp_Encrypt_SetKey_fu_544->P_7_read(P_7_i);
-    grp_Encrypt_SetKey_fu_544->P_8_read(P_8_i);
-    grp_Encrypt_SetKey_fu_544->P_9_read(P_9_i);
-    grp_Encrypt_SetKey_fu_544->P_10_read(P_10_i);
-    grp_Encrypt_SetKey_fu_544->P_11_read(P_11_i);
-    grp_Encrypt_SetKey_fu_544->P_12_read(P_12_i);
-    grp_Encrypt_SetKey_fu_544->P_13_read(P_13_i);
-    grp_Encrypt_SetKey_fu_544->P_14_read(P_14_i);
-    grp_Encrypt_SetKey_fu_544->P_15_read(P_15_i);
-    grp_Encrypt_SetKey_fu_544->P_16_read(P_16_i);
-    grp_Encrypt_SetKey_fu_544->P_17_read(P_17_i);
-    grp_Encrypt_SetKey_fu_544->S_0_address0(grp_Encrypt_SetKey_fu_544_S_0_address0);
-    grp_Encrypt_SetKey_fu_544->S_0_ce0(grp_Encrypt_SetKey_fu_544_S_0_ce0);
-    grp_Encrypt_SetKey_fu_544->S_0_q0(S_0_q0);
-    grp_Encrypt_SetKey_fu_544->S_1_address0(grp_Encrypt_SetKey_fu_544_S_1_address0);
-    grp_Encrypt_SetKey_fu_544->S_1_ce0(grp_Encrypt_SetKey_fu_544_S_1_ce0);
-    grp_Encrypt_SetKey_fu_544->S_1_q0(S_1_q0);
-    grp_Encrypt_SetKey_fu_544->S_2_address0(grp_Encrypt_SetKey_fu_544_S_2_address0);
-    grp_Encrypt_SetKey_fu_544->S_2_ce0(grp_Encrypt_SetKey_fu_544_S_2_ce0);
-    grp_Encrypt_SetKey_fu_544->S_2_q0(S_2_q0);
-    grp_Encrypt_SetKey_fu_544->S_3_address0(grp_Encrypt_SetKey_fu_544_S_3_address0);
-    grp_Encrypt_SetKey_fu_544->S_3_ce0(grp_Encrypt_SetKey_fu_544_S_3_ce0);
-    grp_Encrypt_SetKey_fu_544->S_3_q0(S_3_q0);
-    grp_Encrypt_SetKey_fu_544->ap_return_0(grp_Encrypt_SetKey_fu_544_ap_return_0);
-    grp_Encrypt_SetKey_fu_544->ap_return_1(grp_Encrypt_SetKey_fu_544_ap_return_1);
+    grp_Blowfish_SetKey_fu_326 = new Blowfish_SetKey("grp_Blowfish_SetKey_fu_326");
+    grp_Blowfish_SetKey_fu_326->ap_clk(ap_clk);
+    grp_Blowfish_SetKey_fu_326->ap_rst(ap_rst);
+    grp_Blowfish_SetKey_fu_326->ap_start(grp_Blowfish_SetKey_fu_326_ap_start);
+    grp_Blowfish_SetKey_fu_326->ap_done(grp_Blowfish_SetKey_fu_326_ap_done);
+    grp_Blowfish_SetKey_fu_326->ap_idle(grp_Blowfish_SetKey_fu_326_ap_idle);
+    grp_Blowfish_SetKey_fu_326->ap_ready(grp_Blowfish_SetKey_fu_326_ap_ready);
+    grp_Blowfish_SetKey_fu_326->key_address0(grp_Blowfish_SetKey_fu_326_key_address0);
+    grp_Blowfish_SetKey_fu_326->key_ce0(grp_Blowfish_SetKey_fu_326_key_ce0);
+    grp_Blowfish_SetKey_fu_326->key_q0(key_q0);
+    grp_Blowfish_SetKey_fu_326->key_address1(grp_Blowfish_SetKey_fu_326_key_address1);
+    grp_Blowfish_SetKey_fu_326->key_ce1(grp_Blowfish_SetKey_fu_326_key_ce1);
+    grp_Blowfish_SetKey_fu_326->key_q1(key_q1);
+    grp_Blowfish_SetKey_fu_326->key_size(key_size);
+    grp_Blowfish_SetKey_fu_326->S_0_address0(grp_Blowfish_SetKey_fu_326_S_0_address0);
+    grp_Blowfish_SetKey_fu_326->S_0_ce0(grp_Blowfish_SetKey_fu_326_S_0_ce0);
+    grp_Blowfish_SetKey_fu_326->S_0_we0(grp_Blowfish_SetKey_fu_326_S_0_we0);
+    grp_Blowfish_SetKey_fu_326->S_0_d0(grp_Blowfish_SetKey_fu_326_S_0_d0);
+    grp_Blowfish_SetKey_fu_326->S_0_q0(S_0_q0);
+    grp_Blowfish_SetKey_fu_326->S_0_address1(grp_Blowfish_SetKey_fu_326_S_0_address1);
+    grp_Blowfish_SetKey_fu_326->S_0_ce1(grp_Blowfish_SetKey_fu_326_S_0_ce1);
+    grp_Blowfish_SetKey_fu_326->S_0_we1(grp_Blowfish_SetKey_fu_326_S_0_we1);
+    grp_Blowfish_SetKey_fu_326->S_0_d1(grp_Blowfish_SetKey_fu_326_S_0_d1);
+    grp_Blowfish_SetKey_fu_326->S_1_address0(grp_Blowfish_SetKey_fu_326_S_1_address0);
+    grp_Blowfish_SetKey_fu_326->S_1_ce0(grp_Blowfish_SetKey_fu_326_S_1_ce0);
+    grp_Blowfish_SetKey_fu_326->S_1_we0(grp_Blowfish_SetKey_fu_326_S_1_we0);
+    grp_Blowfish_SetKey_fu_326->S_1_d0(grp_Blowfish_SetKey_fu_326_S_1_d0);
+    grp_Blowfish_SetKey_fu_326->S_1_q0(S_1_q0);
+    grp_Blowfish_SetKey_fu_326->S_1_address1(grp_Blowfish_SetKey_fu_326_S_1_address1);
+    grp_Blowfish_SetKey_fu_326->S_1_ce1(grp_Blowfish_SetKey_fu_326_S_1_ce1);
+    grp_Blowfish_SetKey_fu_326->S_1_we1(grp_Blowfish_SetKey_fu_326_S_1_we1);
+    grp_Blowfish_SetKey_fu_326->S_1_d1(grp_Blowfish_SetKey_fu_326_S_1_d1);
+    grp_Blowfish_SetKey_fu_326->S_2_address0(grp_Blowfish_SetKey_fu_326_S_2_address0);
+    grp_Blowfish_SetKey_fu_326->S_2_ce0(grp_Blowfish_SetKey_fu_326_S_2_ce0);
+    grp_Blowfish_SetKey_fu_326->S_2_we0(grp_Blowfish_SetKey_fu_326_S_2_we0);
+    grp_Blowfish_SetKey_fu_326->S_2_d0(grp_Blowfish_SetKey_fu_326_S_2_d0);
+    grp_Blowfish_SetKey_fu_326->S_2_q0(S_2_q0);
+    grp_Blowfish_SetKey_fu_326->S_2_address1(grp_Blowfish_SetKey_fu_326_S_2_address1);
+    grp_Blowfish_SetKey_fu_326->S_2_ce1(grp_Blowfish_SetKey_fu_326_S_2_ce1);
+    grp_Blowfish_SetKey_fu_326->S_2_we1(grp_Blowfish_SetKey_fu_326_S_2_we1);
+    grp_Blowfish_SetKey_fu_326->S_2_d1(grp_Blowfish_SetKey_fu_326_S_2_d1);
+    grp_Blowfish_SetKey_fu_326->S_3_address0(grp_Blowfish_SetKey_fu_326_S_3_address0);
+    grp_Blowfish_SetKey_fu_326->S_3_ce0(grp_Blowfish_SetKey_fu_326_S_3_ce0);
+    grp_Blowfish_SetKey_fu_326->S_3_we0(grp_Blowfish_SetKey_fu_326_S_3_we0);
+    grp_Blowfish_SetKey_fu_326->S_3_d0(grp_Blowfish_SetKey_fu_326_S_3_d0);
+    grp_Blowfish_SetKey_fu_326->S_3_q0(S_3_q0);
+    grp_Blowfish_SetKey_fu_326->S_3_address1(grp_Blowfish_SetKey_fu_326_S_3_address1);
+    grp_Blowfish_SetKey_fu_326->S_3_ce1(grp_Blowfish_SetKey_fu_326_S_3_ce1);
+    grp_Blowfish_SetKey_fu_326->S_3_we1(grp_Blowfish_SetKey_fu_326_S_3_we1);
+    grp_Blowfish_SetKey_fu_326->S_3_d1(grp_Blowfish_SetKey_fu_326_S_3_d1);
+    grp_Blowfish_SetKey_fu_326->ap_return_0(grp_Blowfish_SetKey_fu_326_ap_return_0);
+    grp_Blowfish_SetKey_fu_326->ap_return_1(grp_Blowfish_SetKey_fu_326_ap_return_1);
+    grp_Blowfish_SetKey_fu_326->ap_return_2(grp_Blowfish_SetKey_fu_326_ap_return_2);
+    grp_Blowfish_SetKey_fu_326->ap_return_3(grp_Blowfish_SetKey_fu_326_ap_return_3);
+    grp_Blowfish_SetKey_fu_326->ap_return_4(grp_Blowfish_SetKey_fu_326_ap_return_4);
+    grp_Blowfish_SetKey_fu_326->ap_return_5(grp_Blowfish_SetKey_fu_326_ap_return_5);
+    grp_Blowfish_SetKey_fu_326->ap_return_6(grp_Blowfish_SetKey_fu_326_ap_return_6);
+    grp_Blowfish_SetKey_fu_326->ap_return_7(grp_Blowfish_SetKey_fu_326_ap_return_7);
+    grp_Blowfish_SetKey_fu_326->ap_return_8(grp_Blowfish_SetKey_fu_326_ap_return_8);
+    grp_Blowfish_SetKey_fu_326->ap_return_9(grp_Blowfish_SetKey_fu_326_ap_return_9);
+    grp_Blowfish_SetKey_fu_326->ap_return_10(grp_Blowfish_SetKey_fu_326_ap_return_10);
+    grp_Blowfish_SetKey_fu_326->ap_return_11(grp_Blowfish_SetKey_fu_326_ap_return_11);
+    grp_Blowfish_SetKey_fu_326->ap_return_12(grp_Blowfish_SetKey_fu_326_ap_return_12);
+    grp_Blowfish_SetKey_fu_326->ap_return_13(grp_Blowfish_SetKey_fu_326_ap_return_13);
+    grp_Blowfish_SetKey_fu_326->ap_return_14(grp_Blowfish_SetKey_fu_326_ap_return_14);
+    grp_Blowfish_SetKey_fu_326->ap_return_15(grp_Blowfish_SetKey_fu_326_ap_return_15);
+    grp_Blowfish_SetKey_fu_326->ap_return_16(grp_Blowfish_SetKey_fu_326_ap_return_16);
+    grp_Blowfish_SetKey_fu_326->ap_return_17(grp_Blowfish_SetKey_fu_326_ap_return_17);
+    grp_Blowfish_Encrypt_fu_350 = new Blowfish_Encrypt("grp_Blowfish_Encrypt_fu_350");
+    grp_Blowfish_Encrypt_fu_350->ap_clk(ap_clk);
+    grp_Blowfish_Encrypt_fu_350->ap_rst(ap_rst);
+    grp_Blowfish_Encrypt_fu_350->ap_start(grp_Blowfish_Encrypt_fu_350_ap_start);
+    grp_Blowfish_Encrypt_fu_350->ap_done(grp_Blowfish_Encrypt_fu_350_ap_done);
+    grp_Blowfish_Encrypt_fu_350->ap_idle(grp_Blowfish_Encrypt_fu_350_ap_idle);
+    grp_Blowfish_Encrypt_fu_350->ap_ready(grp_Blowfish_Encrypt_fu_350_ap_ready);
+    grp_Blowfish_Encrypt_fu_350->plaintext_address0(grp_Blowfish_Encrypt_fu_350_plaintext_address0);
+    grp_Blowfish_Encrypt_fu_350->plaintext_ce0(grp_Blowfish_Encrypt_fu_350_plaintext_ce0);
+    grp_Blowfish_Encrypt_fu_350->plaintext_q0(plaintext_q0);
+    grp_Blowfish_Encrypt_fu_350->plaintext_address1(grp_Blowfish_Encrypt_fu_350_plaintext_address1);
+    grp_Blowfish_Encrypt_fu_350->plaintext_ce1(grp_Blowfish_Encrypt_fu_350_plaintext_ce1);
+    grp_Blowfish_Encrypt_fu_350->plaintext_q1(plaintext_q1);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_address0(grp_Blowfish_Encrypt_fu_350_ciphertext_address0);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_ce0(grp_Blowfish_Encrypt_fu_350_ciphertext_ce0);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_we0(grp_Blowfish_Encrypt_fu_350_ciphertext_we0);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_d0(grp_Blowfish_Encrypt_fu_350_ciphertext_d0);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_address1(grp_Blowfish_Encrypt_fu_350_ciphertext_address1);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_ce1(grp_Blowfish_Encrypt_fu_350_ciphertext_ce1);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_we1(grp_Blowfish_Encrypt_fu_350_ciphertext_we1);
+    grp_Blowfish_Encrypt_fu_350->ciphertext_d1(grp_Blowfish_Encrypt_fu_350_ciphertext_d1);
+    grp_Blowfish_Encrypt_fu_350->P_0_read(P_0_i);
+    grp_Blowfish_Encrypt_fu_350->P_1_read(P_1_i);
+    grp_Blowfish_Encrypt_fu_350->P_2_read(P_2_i);
+    grp_Blowfish_Encrypt_fu_350->P_3_read(P_3_i);
+    grp_Blowfish_Encrypt_fu_350->P_4_read(P_4_i);
+    grp_Blowfish_Encrypt_fu_350->P_5_read(P_5_i);
+    grp_Blowfish_Encrypt_fu_350->P_6_read(P_6_i);
+    grp_Blowfish_Encrypt_fu_350->P_7_read(P_7_i);
+    grp_Blowfish_Encrypt_fu_350->P_8_read(P_8_i);
+    grp_Blowfish_Encrypt_fu_350->P_9_read(P_9_i);
+    grp_Blowfish_Encrypt_fu_350->P_10_read(P_10_i);
+    grp_Blowfish_Encrypt_fu_350->P_11_read(P_11_i);
+    grp_Blowfish_Encrypt_fu_350->P_12_read(P_12_i);
+    grp_Blowfish_Encrypt_fu_350->P_13_read(P_13_i);
+    grp_Blowfish_Encrypt_fu_350->P_14_read(P_14_i);
+    grp_Blowfish_Encrypt_fu_350->P_15_read(P_15_i);
+    grp_Blowfish_Encrypt_fu_350->P_16_read(P_16_i);
+    grp_Blowfish_Encrypt_fu_350->P_17_read(P_17_i);
+    grp_Blowfish_Encrypt_fu_350->S_0_address0(grp_Blowfish_Encrypt_fu_350_S_0_address0);
+    grp_Blowfish_Encrypt_fu_350->S_0_ce0(grp_Blowfish_Encrypt_fu_350_S_0_ce0);
+    grp_Blowfish_Encrypt_fu_350->S_0_q0(S_0_q0);
+    grp_Blowfish_Encrypt_fu_350->S_1_address0(grp_Blowfish_Encrypt_fu_350_S_1_address0);
+    grp_Blowfish_Encrypt_fu_350->S_1_ce0(grp_Blowfish_Encrypt_fu_350_S_1_ce0);
+    grp_Blowfish_Encrypt_fu_350->S_1_q0(S_1_q0);
+    grp_Blowfish_Encrypt_fu_350->S_2_address0(grp_Blowfish_Encrypt_fu_350_S_2_address0);
+    grp_Blowfish_Encrypt_fu_350->S_2_ce0(grp_Blowfish_Encrypt_fu_350_S_2_ce0);
+    grp_Blowfish_Encrypt_fu_350->S_2_q0(S_2_q0);
+    grp_Blowfish_Encrypt_fu_350->S_3_address0(grp_Blowfish_Encrypt_fu_350_S_3_address0);
+    grp_Blowfish_Encrypt_fu_350->S_3_ce0(grp_Blowfish_Encrypt_fu_350_S_3_ce0);
+    grp_Blowfish_Encrypt_fu_350->S_3_q0(S_3_q0);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -165,400 +153,329 @@ Blowfish_SetKey_Encrypt::Blowfish_SetKey_Encrypt(sc_module_name name) : sc_modul
 
     SC_METHOD(thread_P_0_o);
     sensitive << ( P_0_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_0 );
 
     SC_METHOD(thread_P_0_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_10_o);
     sensitive << ( P_10_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_10 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_10 );
 
     SC_METHOD(thread_P_10_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_11_o);
     sensitive << ( P_11_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_11 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_11 );
 
     SC_METHOD(thread_P_11_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_12_o);
     sensitive << ( P_12_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_12 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_12 );
 
     SC_METHOD(thread_P_12_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_13_o);
     sensitive << ( P_13_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_13 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_13 );
 
     SC_METHOD(thread_P_13_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_14_o);
     sensitive << ( P_14_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_14 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_14 );
 
     SC_METHOD(thread_P_14_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_15_o);
     sensitive << ( P_15_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_15 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_15 );
 
     SC_METHOD(thread_P_15_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_16_o);
     sensitive << ( P_16_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_16 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_16 );
 
     SC_METHOD(thread_P_16_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_17_o);
     sensitive << ( P_17_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_17 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_17 );
 
     SC_METHOD(thread_P_17_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_1_o);
     sensitive << ( P_1_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_1 );
 
     SC_METHOD(thread_P_1_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_2_o);
     sensitive << ( P_2_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_2 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_2 );
 
     SC_METHOD(thread_P_2_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_3_o);
     sensitive << ( P_3_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_3 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_3 );
 
     SC_METHOD(thread_P_3_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_4_o);
     sensitive << ( P_4_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_4 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_4 );
 
     SC_METHOD(thread_P_4_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_5_o);
     sensitive << ( P_5_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_5 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_5 );
 
     SC_METHOD(thread_P_5_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_6_o);
     sensitive << ( P_6_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_6 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_6 );
 
     SC_METHOD(thread_P_6_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_7_o);
     sensitive << ( P_7_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_7 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_7 );
 
     SC_METHOD(thread_P_7_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_8_o);
     sensitive << ( P_8_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_8 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_8 );
 
     SC_METHOD(thread_P_8_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_P_9_o);
     sensitive << ( P_9_i );
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_return_9 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_return_9 );
 
     SC_METHOD(thread_P_9_o_ap_vld);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
 
     SC_METHOD(thread_S_0_address0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_address0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_0_address0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_address0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_0_address0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_0_address1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_address1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_address1 );
 
     SC_METHOD(thread_S_0_ce0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_ce0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_0_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_ce0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_0_ce0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_0_ce1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_ce1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_ce1 );
 
     SC_METHOD(thread_S_0_d0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_d0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_d0 );
 
     SC_METHOD(thread_S_0_d1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_d1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_d1 );
 
     SC_METHOD(thread_S_0_we0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_we0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_we0 );
 
     SC_METHOD(thread_S_0_we1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_0_we1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_0_we1 );
 
     SC_METHOD(thread_S_1_address0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_address0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_1_address0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_address0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_1_address0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_1_address1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_address1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_address1 );
 
     SC_METHOD(thread_S_1_ce0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_ce0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_1_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_ce0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_1_ce0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_1_ce1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_ce1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_ce1 );
 
     SC_METHOD(thread_S_1_d0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_d0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_d0 );
 
     SC_METHOD(thread_S_1_d1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_d1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_d1 );
 
     SC_METHOD(thread_S_1_we0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_we0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_we0 );
 
     SC_METHOD(thread_S_1_we1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_1_we1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_1_we1 );
 
     SC_METHOD(thread_S_2_address0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_address0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_2_address0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_address0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_2_address0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_2_address1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_address1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_address1 );
 
     SC_METHOD(thread_S_2_ce0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_ce0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_2_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_ce0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_2_ce0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_2_ce1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_ce1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_ce1 );
 
     SC_METHOD(thread_S_2_d0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_d0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_d0 );
 
     SC_METHOD(thread_S_2_d1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_d1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_d1 );
 
     SC_METHOD(thread_S_2_we0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_we0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_we0 );
 
     SC_METHOD(thread_S_2_we1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_2_we1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_2_we1 );
 
     SC_METHOD(thread_S_3_address0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_address0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_3_address0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_address0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_3_address0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_3_address1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_address1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_address1 );
 
     SC_METHOD(thread_S_3_ce0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_ce0 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_S_3_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_ce0 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_S_3_ce0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_S_3_ce1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_ce1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_ce1 );
 
     SC_METHOD(thread_S_3_d0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_d0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_d0 );
 
     SC_METHOD(thread_S_3_d1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_d1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_d1 );
 
     SC_METHOD(thread_S_3_we0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_we0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_we0 );
 
     SC_METHOD(thread_S_3_we1);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_S_3_we1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_S_3_we1 );
 
     SC_METHOD(thread_ap_CS_fsm_state1);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_CS_fsm_state10);
     sensitive << ( ap_CS_fsm );
 
     SC_METHOD(thread_ap_CS_fsm_state2);
@@ -570,175 +487,109 @@ Blowfish_SetKey_Encrypt::Blowfish_SetKey_Encrypt(sc_module_name name) : sc_modul
     SC_METHOD(thread_ap_CS_fsm_state4);
     sensitive << ( ap_CS_fsm );
 
-    SC_METHOD(thread_ap_CS_fsm_state5);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_CS_fsm_state6);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_CS_fsm_state7);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_CS_fsm_state8);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_CS_fsm_state9);
-    sensitive << ( ap_CS_fsm );
-
-    SC_METHOD(thread_ap_block_state2_on_subcall_done);
-    sensitive << ( set_key_read_read_fu_118_p2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_done );
-
     SC_METHOD(thread_ap_done);
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ap_done );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ap_idle);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
 
     SC_METHOD(thread_ap_ready);
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ap_done );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_address0);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_address0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_address1);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_address1 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_ce0);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_done );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_ce0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_ce1);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_done );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_ce1 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_d0);
-    sensitive << ( trunc_ln2_reg_961 );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( trunc_ln4_reg_971 );
-    sensitive << ( trunc_ln6_reg_981 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_return_0 );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_d0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_d1);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( trunc_ln237_reg_966 );
-    sensitive << ( trunc_ln5_reg_976 );
-    sensitive << ( trunc_ln241_reg_986 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_return_0 );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_d1 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_we0);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_done );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_we0 );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_METHOD(thread_ciphertext_we1);
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_done );
-    sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( ap_CS_fsm_state10 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ciphertext_we1 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_grp_Blowfish_SetKey_fu_520_ap_start);
-    sensitive << ( grp_Blowfish_SetKey_fu_520_ap_start_reg );
+    SC_METHOD(thread_grp_Blowfish_Encrypt_fu_350_ap_start);
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ap_start_reg );
 
-    SC_METHOD(thread_grp_Encrypt_SetKey_fu_544_ap_start);
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_start_reg );
+    SC_METHOD(thread_grp_Blowfish_SetKey_fu_326_ap_start);
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_start_reg );
 
     SC_METHOD(thread_key_address0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_key_address0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_key_address0 );
+
+    SC_METHOD(thread_key_address1);
+    sensitive << ( grp_Blowfish_SetKey_fu_326_key_address1 );
+    sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_key_ce0);
-    sensitive << ( set_key_read_read_fu_118_p2 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_key_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( grp_Blowfish_SetKey_fu_520_key_ce0 );
 
-    SC_METHOD(thread_left_1_fu_684_p5);
-    sensitive << ( plaintext_load_reg_801 );
-    sensitive << ( plaintext_load_1_reg_806 );
-    sensitive << ( plaintext_load_2_reg_821 );
-    sensitive << ( plaintext_load_3_reg_826 );
+    SC_METHOD(thread_key_ce1);
+    sensitive << ( grp_Blowfish_SetKey_fu_326_key_ce1 );
+    sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_plaintext_address0);
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_plaintext_address0 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state5 );
 
     SC_METHOD(thread_plaintext_address1);
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_plaintext_address1 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state5 );
 
     SC_METHOD(thread_plaintext_ce0);
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_plaintext_ce0 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state5 );
 
     SC_METHOD(thread_plaintext_ce1);
-    sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( ap_CS_fsm_state3 );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_plaintext_ce1 );
     sensitive << ( ap_CS_fsm_state4 );
-    sensitive << ( ap_CS_fsm_state5 );
 
-    SC_METHOD(thread_right_1_fu_693_p5);
-    sensitive << ( plaintext_q0 );
-    sensitive << ( plaintext_q1 );
-    sensitive << ( plaintext_load_4_reg_841 );
-    sensitive << ( plaintext_load_5_reg_846 );
-
-    SC_METHOD(thread_set_key_read_read_fu_118_p2);
+    SC_METHOD(thread_set_key_read_read_fu_86_p2);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( set_key );
-
-    SC_METHOD(thread_trunc_ln237_fu_744_p1);
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_return_0 );
-
-    SC_METHOD(thread_trunc_ln241_fu_778_p1);
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_return_1 );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm );
     sensitive << ( ap_CS_fsm_state1 );
+    sensitive << ( grp_Blowfish_SetKey_fu_326_ap_done );
+    sensitive << ( grp_Blowfish_Encrypt_fu_350_ap_done );
+    sensitive << ( set_key_read_read_fu_86_p2 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( ap_block_state2_on_subcall_done );
-    sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( grp_Encrypt_SetKey_fu_544_ap_done );
+    sensitive << ( ap_CS_fsm_state4 );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
 
-    ap_CS_fsm = "0000000001";
-    grp_Blowfish_SetKey_fu_520_ap_start_reg = SC_LOGIC_0;
-    grp_Encrypt_SetKey_fu_544_ap_start_reg = SC_LOGIC_0;
+    ap_CS_fsm = "0001";
+    grp_Blowfish_SetKey_fu_326_ap_start_reg = SC_LOGIC_0;
+    grp_Blowfish_Encrypt_fu_350_ap_start_reg = SC_LOGIC_0;
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "Blowfish_SetKey_Encrypt_sc_trace_" << apTFileNum ++;
@@ -757,6 +608,9 @@ Blowfish_SetKey_Encrypt::Blowfish_SetKey_Encrypt(sc_module_name name) : sc_modul
     sc_trace(mVcdFile, key_address0, "(port)key_address0");
     sc_trace(mVcdFile, key_ce0, "(port)key_ce0");
     sc_trace(mVcdFile, key_q0, "(port)key_q0");
+    sc_trace(mVcdFile, key_address1, "(port)key_address1");
+    sc_trace(mVcdFile, key_ce1, "(port)key_ce1");
+    sc_trace(mVcdFile, key_q1, "(port)key_q1");
     sc_trace(mVcdFile, key_size, "(port)key_size");
     sc_trace(mVcdFile, plaintext_address0, "(port)plaintext_address0");
     sc_trace(mVcdFile, plaintext_ce0, "(port)plaintext_ce0");
@@ -866,107 +720,94 @@ Blowfish_SetKey_Encrypt::Blowfish_SetKey_Encrypt(sc_module_name name) : sc_modul
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
-    sc_trace(mVcdFile, set_key_read_read_fu_118_p2, "set_key_read_read_fu_118_p2");
-    sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_ready, "grp_Blowfish_SetKey_fu_520_ap_ready");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_done, "grp_Blowfish_SetKey_fu_520_ap_done");
-    sc_trace(mVcdFile, ap_block_state2_on_subcall_done, "ap_block_state2_on_subcall_done");
-    sc_trace(mVcdFile, plaintext_load_reg_801, "plaintext_load_reg_801");
     sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
-    sc_trace(mVcdFile, plaintext_load_1_reg_806, "plaintext_load_1_reg_806");
-    sc_trace(mVcdFile, plaintext_load_2_reg_821, "plaintext_load_2_reg_821");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_start, "grp_Blowfish_SetKey_fu_326_ap_start");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_done, "grp_Blowfish_SetKey_fu_326_ap_done");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_idle, "grp_Blowfish_SetKey_fu_326_ap_idle");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_ready, "grp_Blowfish_SetKey_fu_326_ap_ready");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_key_address0, "grp_Blowfish_SetKey_fu_326_key_address0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_key_ce0, "grp_Blowfish_SetKey_fu_326_key_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_key_address1, "grp_Blowfish_SetKey_fu_326_key_address1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_key_ce1, "grp_Blowfish_SetKey_fu_326_key_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_address0, "grp_Blowfish_SetKey_fu_326_S_0_address0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_ce0, "grp_Blowfish_SetKey_fu_326_S_0_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_we0, "grp_Blowfish_SetKey_fu_326_S_0_we0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_d0, "grp_Blowfish_SetKey_fu_326_S_0_d0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_address1, "grp_Blowfish_SetKey_fu_326_S_0_address1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_ce1, "grp_Blowfish_SetKey_fu_326_S_0_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_we1, "grp_Blowfish_SetKey_fu_326_S_0_we1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_0_d1, "grp_Blowfish_SetKey_fu_326_S_0_d1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_address0, "grp_Blowfish_SetKey_fu_326_S_1_address0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_ce0, "grp_Blowfish_SetKey_fu_326_S_1_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_we0, "grp_Blowfish_SetKey_fu_326_S_1_we0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_d0, "grp_Blowfish_SetKey_fu_326_S_1_d0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_address1, "grp_Blowfish_SetKey_fu_326_S_1_address1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_ce1, "grp_Blowfish_SetKey_fu_326_S_1_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_we1, "grp_Blowfish_SetKey_fu_326_S_1_we1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_1_d1, "grp_Blowfish_SetKey_fu_326_S_1_d1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_address0, "grp_Blowfish_SetKey_fu_326_S_2_address0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_ce0, "grp_Blowfish_SetKey_fu_326_S_2_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_we0, "grp_Blowfish_SetKey_fu_326_S_2_we0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_d0, "grp_Blowfish_SetKey_fu_326_S_2_d0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_address1, "grp_Blowfish_SetKey_fu_326_S_2_address1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_ce1, "grp_Blowfish_SetKey_fu_326_S_2_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_we1, "grp_Blowfish_SetKey_fu_326_S_2_we1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_2_d1, "grp_Blowfish_SetKey_fu_326_S_2_d1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_address0, "grp_Blowfish_SetKey_fu_326_S_3_address0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_ce0, "grp_Blowfish_SetKey_fu_326_S_3_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_we0, "grp_Blowfish_SetKey_fu_326_S_3_we0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_d0, "grp_Blowfish_SetKey_fu_326_S_3_d0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_address1, "grp_Blowfish_SetKey_fu_326_S_3_address1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_ce1, "grp_Blowfish_SetKey_fu_326_S_3_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_we1, "grp_Blowfish_SetKey_fu_326_S_3_we1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_S_3_d1, "grp_Blowfish_SetKey_fu_326_S_3_d1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_0, "grp_Blowfish_SetKey_fu_326_ap_return_0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_1, "grp_Blowfish_SetKey_fu_326_ap_return_1");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_2, "grp_Blowfish_SetKey_fu_326_ap_return_2");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_3, "grp_Blowfish_SetKey_fu_326_ap_return_3");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_4, "grp_Blowfish_SetKey_fu_326_ap_return_4");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_5, "grp_Blowfish_SetKey_fu_326_ap_return_5");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_6, "grp_Blowfish_SetKey_fu_326_ap_return_6");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_7, "grp_Blowfish_SetKey_fu_326_ap_return_7");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_8, "grp_Blowfish_SetKey_fu_326_ap_return_8");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_9, "grp_Blowfish_SetKey_fu_326_ap_return_9");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_10, "grp_Blowfish_SetKey_fu_326_ap_return_10");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_11, "grp_Blowfish_SetKey_fu_326_ap_return_11");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_12, "grp_Blowfish_SetKey_fu_326_ap_return_12");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_13, "grp_Blowfish_SetKey_fu_326_ap_return_13");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_14, "grp_Blowfish_SetKey_fu_326_ap_return_14");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_15, "grp_Blowfish_SetKey_fu_326_ap_return_15");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_16, "grp_Blowfish_SetKey_fu_326_ap_return_16");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_return_17, "grp_Blowfish_SetKey_fu_326_ap_return_17");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ap_start, "grp_Blowfish_Encrypt_fu_350_ap_start");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ap_done, "grp_Blowfish_Encrypt_fu_350_ap_done");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ap_idle, "grp_Blowfish_Encrypt_fu_350_ap_idle");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ap_ready, "grp_Blowfish_Encrypt_fu_350_ap_ready");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_plaintext_address0, "grp_Blowfish_Encrypt_fu_350_plaintext_address0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_plaintext_ce0, "grp_Blowfish_Encrypt_fu_350_plaintext_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_plaintext_address1, "grp_Blowfish_Encrypt_fu_350_plaintext_address1");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_plaintext_ce1, "grp_Blowfish_Encrypt_fu_350_plaintext_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_address0, "grp_Blowfish_Encrypt_fu_350_ciphertext_address0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_ce0, "grp_Blowfish_Encrypt_fu_350_ciphertext_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_we0, "grp_Blowfish_Encrypt_fu_350_ciphertext_we0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_d0, "grp_Blowfish_Encrypt_fu_350_ciphertext_d0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_address1, "grp_Blowfish_Encrypt_fu_350_ciphertext_address1");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_ce1, "grp_Blowfish_Encrypt_fu_350_ciphertext_ce1");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_we1, "grp_Blowfish_Encrypt_fu_350_ciphertext_we1");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ciphertext_d1, "grp_Blowfish_Encrypt_fu_350_ciphertext_d1");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_0_address0, "grp_Blowfish_Encrypt_fu_350_S_0_address0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_0_ce0, "grp_Blowfish_Encrypt_fu_350_S_0_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_1_address0, "grp_Blowfish_Encrypt_fu_350_S_1_address0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_1_ce0, "grp_Blowfish_Encrypt_fu_350_S_1_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_2_address0, "grp_Blowfish_Encrypt_fu_350_S_2_address0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_2_ce0, "grp_Blowfish_Encrypt_fu_350_S_2_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_3_address0, "grp_Blowfish_Encrypt_fu_350_S_3_address0");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_S_3_ce0, "grp_Blowfish_Encrypt_fu_350_S_3_ce0");
+    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_326_ap_start_reg, "grp_Blowfish_SetKey_fu_326_ap_start_reg");
+    sc_trace(mVcdFile, set_key_read_read_fu_86_p2, "set_key_read_read_fu_86_p2");
+    sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
+    sc_trace(mVcdFile, grp_Blowfish_Encrypt_fu_350_ap_start_reg, "grp_Blowfish_Encrypt_fu_350_ap_start_reg");
     sc_trace(mVcdFile, ap_CS_fsm_state4, "ap_CS_fsm_state4");
-    sc_trace(mVcdFile, plaintext_load_3_reg_826, "plaintext_load_3_reg_826");
-    sc_trace(mVcdFile, plaintext_load_4_reg_841, "plaintext_load_4_reg_841");
-    sc_trace(mVcdFile, ap_CS_fsm_state5, "ap_CS_fsm_state5");
-    sc_trace(mVcdFile, plaintext_load_5_reg_846, "plaintext_load_5_reg_846");
-    sc_trace(mVcdFile, left_1_fu_684_p5, "left_1_fu_684_p5");
-    sc_trace(mVcdFile, left_1_reg_861, "left_1_reg_861");
-    sc_trace(mVcdFile, ap_CS_fsm_state6, "ap_CS_fsm_state6");
-    sc_trace(mVcdFile, right_1_fu_693_p5, "right_1_fu_693_p5");
-    sc_trace(mVcdFile, right_1_reg_866, "right_1_reg_866");
-    sc_trace(mVcdFile, trunc_ln2_reg_961, "trunc_ln2_reg_961");
-    sc_trace(mVcdFile, ap_CS_fsm_state7, "ap_CS_fsm_state7");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_ready, "grp_Encrypt_SetKey_fu_544_ap_ready");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_done, "grp_Encrypt_SetKey_fu_544_ap_done");
-    sc_trace(mVcdFile, trunc_ln237_fu_744_p1, "trunc_ln237_fu_744_p1");
-    sc_trace(mVcdFile, trunc_ln237_reg_966, "trunc_ln237_reg_966");
-    sc_trace(mVcdFile, trunc_ln4_reg_971, "trunc_ln4_reg_971");
-    sc_trace(mVcdFile, trunc_ln5_reg_976, "trunc_ln5_reg_976");
-    sc_trace(mVcdFile, trunc_ln6_reg_981, "trunc_ln6_reg_981");
-    sc_trace(mVcdFile, trunc_ln241_fu_778_p1, "trunc_ln241_fu_778_p1");
-    sc_trace(mVcdFile, trunc_ln241_reg_986, "trunc_ln241_reg_986");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_start, "grp_Blowfish_SetKey_fu_520_ap_start");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_idle, "grp_Blowfish_SetKey_fu_520_ap_idle");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_key_address0, "grp_Blowfish_SetKey_fu_520_key_address0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_key_ce0, "grp_Blowfish_SetKey_fu_520_key_ce0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_address0, "grp_Blowfish_SetKey_fu_520_S_0_address0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_ce0, "grp_Blowfish_SetKey_fu_520_S_0_ce0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_we0, "grp_Blowfish_SetKey_fu_520_S_0_we0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_d0, "grp_Blowfish_SetKey_fu_520_S_0_d0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_address1, "grp_Blowfish_SetKey_fu_520_S_0_address1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_ce1, "grp_Blowfish_SetKey_fu_520_S_0_ce1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_we1, "grp_Blowfish_SetKey_fu_520_S_0_we1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_0_d1, "grp_Blowfish_SetKey_fu_520_S_0_d1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_address0, "grp_Blowfish_SetKey_fu_520_S_1_address0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_ce0, "grp_Blowfish_SetKey_fu_520_S_1_ce0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_we0, "grp_Blowfish_SetKey_fu_520_S_1_we0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_d0, "grp_Blowfish_SetKey_fu_520_S_1_d0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_address1, "grp_Blowfish_SetKey_fu_520_S_1_address1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_ce1, "grp_Blowfish_SetKey_fu_520_S_1_ce1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_we1, "grp_Blowfish_SetKey_fu_520_S_1_we1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_1_d1, "grp_Blowfish_SetKey_fu_520_S_1_d1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_address0, "grp_Blowfish_SetKey_fu_520_S_2_address0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_ce0, "grp_Blowfish_SetKey_fu_520_S_2_ce0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_we0, "grp_Blowfish_SetKey_fu_520_S_2_we0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_d0, "grp_Blowfish_SetKey_fu_520_S_2_d0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_address1, "grp_Blowfish_SetKey_fu_520_S_2_address1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_ce1, "grp_Blowfish_SetKey_fu_520_S_2_ce1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_we1, "grp_Blowfish_SetKey_fu_520_S_2_we1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_2_d1, "grp_Blowfish_SetKey_fu_520_S_2_d1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_address0, "grp_Blowfish_SetKey_fu_520_S_3_address0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_ce0, "grp_Blowfish_SetKey_fu_520_S_3_ce0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_we0, "grp_Blowfish_SetKey_fu_520_S_3_we0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_d0, "grp_Blowfish_SetKey_fu_520_S_3_d0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_address1, "grp_Blowfish_SetKey_fu_520_S_3_address1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_ce1, "grp_Blowfish_SetKey_fu_520_S_3_ce1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_we1, "grp_Blowfish_SetKey_fu_520_S_3_we1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_S_3_d1, "grp_Blowfish_SetKey_fu_520_S_3_d1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_0, "grp_Blowfish_SetKey_fu_520_ap_return_0");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_1, "grp_Blowfish_SetKey_fu_520_ap_return_1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_2, "grp_Blowfish_SetKey_fu_520_ap_return_2");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_3, "grp_Blowfish_SetKey_fu_520_ap_return_3");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_4, "grp_Blowfish_SetKey_fu_520_ap_return_4");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_5, "grp_Blowfish_SetKey_fu_520_ap_return_5");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_6, "grp_Blowfish_SetKey_fu_520_ap_return_6");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_7, "grp_Blowfish_SetKey_fu_520_ap_return_7");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_8, "grp_Blowfish_SetKey_fu_520_ap_return_8");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_9, "grp_Blowfish_SetKey_fu_520_ap_return_9");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_10, "grp_Blowfish_SetKey_fu_520_ap_return_10");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_11, "grp_Blowfish_SetKey_fu_520_ap_return_11");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_12, "grp_Blowfish_SetKey_fu_520_ap_return_12");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_13, "grp_Blowfish_SetKey_fu_520_ap_return_13");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_14, "grp_Blowfish_SetKey_fu_520_ap_return_14");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_15, "grp_Blowfish_SetKey_fu_520_ap_return_15");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_16, "grp_Blowfish_SetKey_fu_520_ap_return_16");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_return_17, "grp_Blowfish_SetKey_fu_520_ap_return_17");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_start, "grp_Encrypt_SetKey_fu_544_ap_start");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_idle, "grp_Encrypt_SetKey_fu_544_ap_idle");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_0_address0, "grp_Encrypt_SetKey_fu_544_S_0_address0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_0_ce0, "grp_Encrypt_SetKey_fu_544_S_0_ce0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_1_address0, "grp_Encrypt_SetKey_fu_544_S_1_address0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_1_ce0, "grp_Encrypt_SetKey_fu_544_S_1_ce0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_2_address0, "grp_Encrypt_SetKey_fu_544_S_2_address0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_2_ce0, "grp_Encrypt_SetKey_fu_544_S_2_ce0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_3_address0, "grp_Encrypt_SetKey_fu_544_S_3_address0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_S_3_ce0, "grp_Encrypt_SetKey_fu_544_S_3_ce0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_return_0, "grp_Encrypt_SetKey_fu_544_ap_return_0");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_return_1, "grp_Encrypt_SetKey_fu_544_ap_return_1");
-    sc_trace(mVcdFile, grp_Blowfish_SetKey_fu_520_ap_start_reg, "grp_Blowfish_SetKey_fu_520_ap_start_reg");
-    sc_trace(mVcdFile, grp_Encrypt_SetKey_fu_544_ap_start_reg, "grp_Encrypt_SetKey_fu_544_ap_start_reg");
-    sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
-    sc_trace(mVcdFile, ap_CS_fsm_state9, "ap_CS_fsm_state9");
-    sc_trace(mVcdFile, ap_CS_fsm_state10, "ap_CS_fsm_state10");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
 
@@ -983,8 +824,8 @@ Blowfish_SetKey_Encrypt::~Blowfish_SetKey_Encrypt() {
     mHdltvoutHandle << "] " << endl;
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
-    delete grp_Blowfish_SetKey_fu_520;
-    delete grp_Encrypt_SetKey_fu_544;
+    delete grp_Blowfish_SetKey_fu_326;
+    delete grp_Blowfish_Encrypt_fu_350;
 }
 
 void Blowfish_SetKey_Encrypt::thread_ap_clk_no_reset_() {
@@ -994,56 +835,31 @@ void Blowfish_SetKey_Encrypt::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ( ap_rst.read() == ap_const_logic_1) {
-        grp_Blowfish_SetKey_fu_520_ap_start_reg = ap_const_logic_0;
+        grp_Blowfish_Encrypt_fu_350_ap_start_reg = ap_const_logic_0;
     } else {
-        if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
-             esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
-             esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-            grp_Blowfish_SetKey_fu_520_ap_start_reg = ap_const_logic_1;
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_Blowfish_SetKey_fu_520_ap_ready.read())) {
-            grp_Blowfish_SetKey_fu_520_ap_start_reg = ap_const_logic_0;
+        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
+            grp_Blowfish_Encrypt_fu_350_ap_start_reg = ap_const_logic_1;
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_Blowfish_Encrypt_fu_350_ap_ready.read())) {
+            grp_Blowfish_Encrypt_fu_350_ap_start_reg = ap_const_logic_0;
         }
     }
     if ( ap_rst.read() == ap_const_logic_1) {
-        grp_Encrypt_SetKey_fu_544_ap_start_reg = ap_const_logic_0;
+        grp_Blowfish_SetKey_fu_326_ap_start_reg = ap_const_logic_0;
     } else {
-        if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-            grp_Encrypt_SetKey_fu_544_ap_start_reg = ap_const_logic_1;
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_Encrypt_SetKey_fu_544_ap_ready.read())) {
-            grp_Encrypt_SetKey_fu_544_ap_start_reg = ap_const_logic_0;
+        if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
+             esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && 
+             esl_seteq<1,1,1>(set_key_read_read_fu_86_p2.read(), ap_const_lv1_1))) {
+            grp_Blowfish_SetKey_fu_326_ap_start_reg = ap_const_logic_1;
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_Blowfish_SetKey_fu_326_ap_ready.read())) {
+            grp_Blowfish_SetKey_fu_326_ap_start_reg = ap_const_logic_0;
         }
-    }
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        left_1_reg_861 = left_1_fu_684_p5.read();
-        right_1_reg_866 = right_1_fu_693_p5.read();
-    }
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        plaintext_load_1_reg_806 = plaintext_q1.read();
-        plaintext_load_reg_801 = plaintext_q0.read();
-    }
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        plaintext_load_2_reg_821 = plaintext_q0.read();
-        plaintext_load_3_reg_826 = plaintext_q1.read();
-    }
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-        plaintext_load_4_reg_841 = plaintext_q0.read();
-        plaintext_load_5_reg_846 = plaintext_q1.read();
-    }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && esl_seteq<1,1,1>(grp_Encrypt_SetKey_fu_544_ap_done.read(), ap_const_logic_1))) {
-        trunc_ln237_reg_966 = trunc_ln237_fu_744_p1.read();
-        trunc_ln241_reg_986 = trunc_ln241_fu_778_p1.read();
-        trunc_ln2_reg_961 = grp_Encrypt_SetKey_fu_544_ap_return_0.read().range(15, 8);
-        trunc_ln4_reg_971 = grp_Encrypt_SetKey_fu_544_ap_return_1.read().range(31, 24);
-        trunc_ln5_reg_976 = grp_Encrypt_SetKey_fu_544_ap_return_1.read().range(23, 16);
-        trunc_ln6_reg_981 = grp_Encrypt_SetKey_fu_544_ap_return_1.read().range(15, 8);
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_P_0_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_0_o = grp_Blowfish_SetKey_fu_520_ap_return_0.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_0_o = grp_Blowfish_SetKey_fu_326_ap_return_0.read();
     } else {
         P_0_o = P_0_i.read();
     }
@@ -1051,8 +867,7 @@ void Blowfish_SetKey_Encrypt::thread_P_0_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_0_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_0_o_ap_vld = ap_const_logic_1;
     } else {
         P_0_o_ap_vld = ap_const_logic_0;
@@ -1061,9 +876,8 @@ void Blowfish_SetKey_Encrypt::thread_P_0_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_10_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_10_o = grp_Blowfish_SetKey_fu_520_ap_return_10.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_10_o = grp_Blowfish_SetKey_fu_326_ap_return_10.read();
     } else {
         P_10_o = P_10_i.read();
     }
@@ -1071,8 +885,7 @@ void Blowfish_SetKey_Encrypt::thread_P_10_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_10_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_10_o_ap_vld = ap_const_logic_1;
     } else {
         P_10_o_ap_vld = ap_const_logic_0;
@@ -1081,9 +894,8 @@ void Blowfish_SetKey_Encrypt::thread_P_10_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_11_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_11_o = grp_Blowfish_SetKey_fu_520_ap_return_11.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_11_o = grp_Blowfish_SetKey_fu_326_ap_return_11.read();
     } else {
         P_11_o = P_11_i.read();
     }
@@ -1091,8 +903,7 @@ void Blowfish_SetKey_Encrypt::thread_P_11_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_11_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_11_o_ap_vld = ap_const_logic_1;
     } else {
         P_11_o_ap_vld = ap_const_logic_0;
@@ -1101,9 +912,8 @@ void Blowfish_SetKey_Encrypt::thread_P_11_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_12_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_12_o = grp_Blowfish_SetKey_fu_520_ap_return_12.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_12_o = grp_Blowfish_SetKey_fu_326_ap_return_12.read();
     } else {
         P_12_o = P_12_i.read();
     }
@@ -1111,8 +921,7 @@ void Blowfish_SetKey_Encrypt::thread_P_12_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_12_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_12_o_ap_vld = ap_const_logic_1;
     } else {
         P_12_o_ap_vld = ap_const_logic_0;
@@ -1121,9 +930,8 @@ void Blowfish_SetKey_Encrypt::thread_P_12_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_13_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_13_o = grp_Blowfish_SetKey_fu_520_ap_return_13.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_13_o = grp_Blowfish_SetKey_fu_326_ap_return_13.read();
     } else {
         P_13_o = P_13_i.read();
     }
@@ -1131,8 +939,7 @@ void Blowfish_SetKey_Encrypt::thread_P_13_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_13_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_13_o_ap_vld = ap_const_logic_1;
     } else {
         P_13_o_ap_vld = ap_const_logic_0;
@@ -1141,9 +948,8 @@ void Blowfish_SetKey_Encrypt::thread_P_13_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_14_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_14_o = grp_Blowfish_SetKey_fu_520_ap_return_14.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_14_o = grp_Blowfish_SetKey_fu_326_ap_return_14.read();
     } else {
         P_14_o = P_14_i.read();
     }
@@ -1151,8 +957,7 @@ void Blowfish_SetKey_Encrypt::thread_P_14_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_14_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_14_o_ap_vld = ap_const_logic_1;
     } else {
         P_14_o_ap_vld = ap_const_logic_0;
@@ -1161,9 +966,8 @@ void Blowfish_SetKey_Encrypt::thread_P_14_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_15_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_15_o = grp_Blowfish_SetKey_fu_520_ap_return_15.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_15_o = grp_Blowfish_SetKey_fu_326_ap_return_15.read();
     } else {
         P_15_o = P_15_i.read();
     }
@@ -1171,8 +975,7 @@ void Blowfish_SetKey_Encrypt::thread_P_15_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_15_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_15_o_ap_vld = ap_const_logic_1;
     } else {
         P_15_o_ap_vld = ap_const_logic_0;
@@ -1181,9 +984,8 @@ void Blowfish_SetKey_Encrypt::thread_P_15_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_16_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_16_o = grp_Blowfish_SetKey_fu_520_ap_return_16.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_16_o = grp_Blowfish_SetKey_fu_326_ap_return_16.read();
     } else {
         P_16_o = P_16_i.read();
     }
@@ -1191,8 +993,7 @@ void Blowfish_SetKey_Encrypt::thread_P_16_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_16_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_16_o_ap_vld = ap_const_logic_1;
     } else {
         P_16_o_ap_vld = ap_const_logic_0;
@@ -1201,9 +1002,8 @@ void Blowfish_SetKey_Encrypt::thread_P_16_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_17_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_17_o = grp_Blowfish_SetKey_fu_520_ap_return_17.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_17_o = grp_Blowfish_SetKey_fu_326_ap_return_17.read();
     } else {
         P_17_o = P_17_i.read();
     }
@@ -1211,8 +1011,7 @@ void Blowfish_SetKey_Encrypt::thread_P_17_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_17_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_17_o_ap_vld = ap_const_logic_1;
     } else {
         P_17_o_ap_vld = ap_const_logic_0;
@@ -1221,9 +1020,8 @@ void Blowfish_SetKey_Encrypt::thread_P_17_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_1_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_1_o = grp_Blowfish_SetKey_fu_520_ap_return_1.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_1_o = grp_Blowfish_SetKey_fu_326_ap_return_1.read();
     } else {
         P_1_o = P_1_i.read();
     }
@@ -1231,8 +1029,7 @@ void Blowfish_SetKey_Encrypt::thread_P_1_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_1_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_1_o_ap_vld = ap_const_logic_1;
     } else {
         P_1_o_ap_vld = ap_const_logic_0;
@@ -1241,9 +1038,8 @@ void Blowfish_SetKey_Encrypt::thread_P_1_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_2_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_2_o = grp_Blowfish_SetKey_fu_520_ap_return_2.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_2_o = grp_Blowfish_SetKey_fu_326_ap_return_2.read();
     } else {
         P_2_o = P_2_i.read();
     }
@@ -1251,8 +1047,7 @@ void Blowfish_SetKey_Encrypt::thread_P_2_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_2_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_2_o_ap_vld = ap_const_logic_1;
     } else {
         P_2_o_ap_vld = ap_const_logic_0;
@@ -1261,9 +1056,8 @@ void Blowfish_SetKey_Encrypt::thread_P_2_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_3_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_3_o = grp_Blowfish_SetKey_fu_520_ap_return_3.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_3_o = grp_Blowfish_SetKey_fu_326_ap_return_3.read();
     } else {
         P_3_o = P_3_i.read();
     }
@@ -1271,8 +1065,7 @@ void Blowfish_SetKey_Encrypt::thread_P_3_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_3_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_3_o_ap_vld = ap_const_logic_1;
     } else {
         P_3_o_ap_vld = ap_const_logic_0;
@@ -1281,9 +1074,8 @@ void Blowfish_SetKey_Encrypt::thread_P_3_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_4_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_4_o = grp_Blowfish_SetKey_fu_520_ap_return_4.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_4_o = grp_Blowfish_SetKey_fu_326_ap_return_4.read();
     } else {
         P_4_o = P_4_i.read();
     }
@@ -1291,8 +1083,7 @@ void Blowfish_SetKey_Encrypt::thread_P_4_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_4_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_4_o_ap_vld = ap_const_logic_1;
     } else {
         P_4_o_ap_vld = ap_const_logic_0;
@@ -1301,9 +1092,8 @@ void Blowfish_SetKey_Encrypt::thread_P_4_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_5_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_5_o = grp_Blowfish_SetKey_fu_520_ap_return_5.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_5_o = grp_Blowfish_SetKey_fu_326_ap_return_5.read();
     } else {
         P_5_o = P_5_i.read();
     }
@@ -1311,8 +1101,7 @@ void Blowfish_SetKey_Encrypt::thread_P_5_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_5_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_5_o_ap_vld = ap_const_logic_1;
     } else {
         P_5_o_ap_vld = ap_const_logic_0;
@@ -1321,9 +1110,8 @@ void Blowfish_SetKey_Encrypt::thread_P_5_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_6_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_6_o = grp_Blowfish_SetKey_fu_520_ap_return_6.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_6_o = grp_Blowfish_SetKey_fu_326_ap_return_6.read();
     } else {
         P_6_o = P_6_i.read();
     }
@@ -1331,8 +1119,7 @@ void Blowfish_SetKey_Encrypt::thread_P_6_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_6_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_6_o_ap_vld = ap_const_logic_1;
     } else {
         P_6_o_ap_vld = ap_const_logic_0;
@@ -1341,9 +1128,8 @@ void Blowfish_SetKey_Encrypt::thread_P_6_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_7_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_7_o = grp_Blowfish_SetKey_fu_520_ap_return_7.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_7_o = grp_Blowfish_SetKey_fu_326_ap_return_7.read();
     } else {
         P_7_o = P_7_i.read();
     }
@@ -1351,8 +1137,7 @@ void Blowfish_SetKey_Encrypt::thread_P_7_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_7_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_7_o_ap_vld = ap_const_logic_1;
     } else {
         P_7_o_ap_vld = ap_const_logic_0;
@@ -1361,9 +1146,8 @@ void Blowfish_SetKey_Encrypt::thread_P_7_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_8_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_8_o = grp_Blowfish_SetKey_fu_520_ap_return_8.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_8_o = grp_Blowfish_SetKey_fu_326_ap_return_8.read();
     } else {
         P_8_o = P_8_i.read();
     }
@@ -1371,8 +1155,7 @@ void Blowfish_SetKey_Encrypt::thread_P_8_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_8_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_8_o_ap_vld = ap_const_logic_1;
     } else {
         P_8_o_ap_vld = ap_const_logic_0;
@@ -1381,9 +1164,8 @@ void Blowfish_SetKey_Encrypt::thread_P_8_o_ap_vld() {
 
 void Blowfish_SetKey_Encrypt::thread_P_9_o() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
-        P_9_o = grp_Blowfish_SetKey_fu_520_ap_return_9.read();
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
+        P_9_o = grp_Blowfish_SetKey_fu_326_ap_return_9.read();
     } else {
         P_9_o = P_9_i.read();
     }
@@ -1391,8 +1173,7 @@ void Blowfish_SetKey_Encrypt::thread_P_9_o() {
 
 void Blowfish_SetKey_Encrypt::thread_P_9_o_ap_vld() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1) && 
-         esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+         esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
         P_9_o_ap_vld = ap_const_logic_1;
     } else {
         P_9_o_ap_vld = ap_const_logic_0;
@@ -1400,244 +1181,224 @@ void Blowfish_SetKey_Encrypt::thread_P_9_o_ap_vld() {
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_0_address0 = grp_Encrypt_SetKey_fu_544_S_0_address0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_0_address0 = grp_Blowfish_SetKey_fu_520_S_0_address0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_0_address0 = grp_Blowfish_Encrypt_fu_350_S_0_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_0_address0 = grp_Blowfish_SetKey_fu_326_S_0_address0.read();
     } else {
         S_0_address0 = "XXXXXXXX";
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_address1() {
-    S_0_address1 = grp_Blowfish_SetKey_fu_520_S_0_address1.read();
+    S_0_address1 = grp_Blowfish_SetKey_fu_326_S_0_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_ce0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_0_ce0 = grp_Encrypt_SetKey_fu_544_S_0_ce0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_0_ce0 = grp_Blowfish_SetKey_fu_520_S_0_ce0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_0_ce0 = grp_Blowfish_Encrypt_fu_350_S_0_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_0_ce0 = grp_Blowfish_SetKey_fu_326_S_0_ce0.read();
     } else {
         S_0_ce0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_0_ce1 = grp_Blowfish_SetKey_fu_520_S_0_ce1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_0_ce1 = grp_Blowfish_SetKey_fu_326_S_0_ce1.read();
     } else {
         S_0_ce1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_d0() {
-    S_0_d0 = grp_Blowfish_SetKey_fu_520_S_0_d0.read();
+    S_0_d0 = grp_Blowfish_SetKey_fu_326_S_0_d0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_d1() {
-    S_0_d1 = grp_Blowfish_SetKey_fu_520_S_0_d1.read();
+    S_0_d1 = grp_Blowfish_SetKey_fu_326_S_0_d1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_0_we0 = grp_Blowfish_SetKey_fu_520_S_0_we0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_0_we0 = grp_Blowfish_SetKey_fu_326_S_0_we0.read();
     } else {
         S_0_we0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_0_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_0_we1 = grp_Blowfish_SetKey_fu_520_S_0_we1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_0_we1 = grp_Blowfish_SetKey_fu_326_S_0_we1.read();
     } else {
         S_0_we1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_1_address0 = grp_Encrypt_SetKey_fu_544_S_1_address0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_1_address0 = grp_Blowfish_SetKey_fu_520_S_1_address0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_1_address0 = grp_Blowfish_Encrypt_fu_350_S_1_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_1_address0 = grp_Blowfish_SetKey_fu_326_S_1_address0.read();
     } else {
         S_1_address0 = "XXXXXXXX";
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_address1() {
-    S_1_address1 = grp_Blowfish_SetKey_fu_520_S_1_address1.read();
+    S_1_address1 = grp_Blowfish_SetKey_fu_326_S_1_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_ce0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_1_ce0 = grp_Encrypt_SetKey_fu_544_S_1_ce0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_1_ce0 = grp_Blowfish_SetKey_fu_520_S_1_ce0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_1_ce0 = grp_Blowfish_Encrypt_fu_350_S_1_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_1_ce0 = grp_Blowfish_SetKey_fu_326_S_1_ce0.read();
     } else {
         S_1_ce0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_1_ce1 = grp_Blowfish_SetKey_fu_520_S_1_ce1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_1_ce1 = grp_Blowfish_SetKey_fu_326_S_1_ce1.read();
     } else {
         S_1_ce1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_d0() {
-    S_1_d0 = grp_Blowfish_SetKey_fu_520_S_1_d0.read();
+    S_1_d0 = grp_Blowfish_SetKey_fu_326_S_1_d0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_d1() {
-    S_1_d1 = grp_Blowfish_SetKey_fu_520_S_1_d1.read();
+    S_1_d1 = grp_Blowfish_SetKey_fu_326_S_1_d1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_1_we0 = grp_Blowfish_SetKey_fu_520_S_1_we0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_1_we0 = grp_Blowfish_SetKey_fu_326_S_1_we0.read();
     } else {
         S_1_we0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_1_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_1_we1 = grp_Blowfish_SetKey_fu_520_S_1_we1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_1_we1 = grp_Blowfish_SetKey_fu_326_S_1_we1.read();
     } else {
         S_1_we1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_2_address0 = grp_Encrypt_SetKey_fu_544_S_2_address0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_2_address0 = grp_Blowfish_SetKey_fu_520_S_2_address0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_2_address0 = grp_Blowfish_Encrypt_fu_350_S_2_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_2_address0 = grp_Blowfish_SetKey_fu_326_S_2_address0.read();
     } else {
         S_2_address0 = "XXXXXXXX";
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_address1() {
-    S_2_address1 = grp_Blowfish_SetKey_fu_520_S_2_address1.read();
+    S_2_address1 = grp_Blowfish_SetKey_fu_326_S_2_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_ce0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_2_ce0 = grp_Encrypt_SetKey_fu_544_S_2_ce0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_2_ce0 = grp_Blowfish_SetKey_fu_520_S_2_ce0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_2_ce0 = grp_Blowfish_Encrypt_fu_350_S_2_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_2_ce0 = grp_Blowfish_SetKey_fu_326_S_2_ce0.read();
     } else {
         S_2_ce0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_2_ce1 = grp_Blowfish_SetKey_fu_520_S_2_ce1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_2_ce1 = grp_Blowfish_SetKey_fu_326_S_2_ce1.read();
     } else {
         S_2_ce1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_d0() {
-    S_2_d0 = grp_Blowfish_SetKey_fu_520_S_2_d0.read();
+    S_2_d0 = grp_Blowfish_SetKey_fu_326_S_2_d0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_d1() {
-    S_2_d1 = grp_Blowfish_SetKey_fu_520_S_2_d1.read();
+    S_2_d1 = grp_Blowfish_SetKey_fu_326_S_2_d1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_2_we0 = grp_Blowfish_SetKey_fu_520_S_2_we0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_2_we0 = grp_Blowfish_SetKey_fu_326_S_2_we0.read();
     } else {
         S_2_we0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_2_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_2_we1 = grp_Blowfish_SetKey_fu_520_S_2_we1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_2_we1 = grp_Blowfish_SetKey_fu_326_S_2_we1.read();
     } else {
         S_2_we1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_3_address0 = grp_Encrypt_SetKey_fu_544_S_3_address0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_3_address0 = grp_Blowfish_SetKey_fu_520_S_3_address0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_3_address0 = grp_Blowfish_Encrypt_fu_350_S_3_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_3_address0 = grp_Blowfish_SetKey_fu_326_S_3_address0.read();
     } else {
         S_3_address0 = "XXXXXXXX";
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_address1() {
-    S_3_address1 = grp_Blowfish_SetKey_fu_520_S_3_address1.read();
+    S_3_address1 = grp_Blowfish_SetKey_fu_326_S_3_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_ce0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        S_3_ce0 = grp_Encrypt_SetKey_fu_544_S_3_ce0.read();
-    } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-                esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_3_ce0 = grp_Blowfish_SetKey_fu_520_S_3_ce0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        S_3_ce0 = grp_Blowfish_Encrypt_fu_350_S_3_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_3_ce0 = grp_Blowfish_SetKey_fu_326_S_3_ce0.read();
     } else {
         S_3_ce0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_ce1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_3_ce1 = grp_Blowfish_SetKey_fu_520_S_3_ce1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_3_ce1 = grp_Blowfish_SetKey_fu_326_S_3_ce1.read();
     } else {
         S_3_ce1 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_d0() {
-    S_3_d0 = grp_Blowfish_SetKey_fu_520_S_3_d0.read();
+    S_3_d0 = grp_Blowfish_SetKey_fu_326_S_3_d0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_d1() {
-    S_3_d1 = grp_Blowfish_SetKey_fu_520_S_3_d1.read();
+    S_3_d1 = grp_Blowfish_SetKey_fu_326_S_3_d1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_we0() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_3_we0 = grp_Blowfish_SetKey_fu_520_S_3_we0.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_3_we0 = grp_Blowfish_SetKey_fu_326_S_3_we0.read();
     } else {
         S_3_we0 = ap_const_logic_0;
     }
 }
 
 void Blowfish_SetKey_Encrypt::thread_S_3_we1() {
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1))) {
-        S_3_we1 = grp_Blowfish_SetKey_fu_520_S_3_we1.read();
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
+        S_3_we1 = grp_Blowfish_SetKey_fu_326_S_3_we1.read();
     } else {
         S_3_we1 = ap_const_logic_0;
     }
@@ -1645,10 +1406,6 @@ void Blowfish_SetKey_Encrypt::thread_S_3_we1() {
 
 void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state1() {
     ap_CS_fsm_state1 = ap_CS_fsm.read()[0];
-}
-
-void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state10() {
-    ap_CS_fsm_state10 = ap_CS_fsm.read()[9];
 }
 
 void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state2() {
@@ -1663,32 +1420,9 @@ void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state4() {
     ap_CS_fsm_state4 = ap_CS_fsm.read()[3];
 }
 
-void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state5() {
-    ap_CS_fsm_state5 = ap_CS_fsm.read()[4];
-}
-
-void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state6() {
-    ap_CS_fsm_state6 = ap_CS_fsm.read()[5];
-}
-
-void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state7() {
-    ap_CS_fsm_state7 = ap_CS_fsm.read()[6];
-}
-
-void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state8() {
-    ap_CS_fsm_state8 = ap_CS_fsm.read()[7];
-}
-
-void Blowfish_SetKey_Encrypt::thread_ap_CS_fsm_state9() {
-    ap_CS_fsm_state9 = ap_CS_fsm.read()[8];
-}
-
-void Blowfish_SetKey_Encrypt::thread_ap_block_state2_on_subcall_done() {
-    ap_block_state2_on_subcall_done = (esl_seteq<1,1,1>(ap_const_logic_0, grp_Blowfish_SetKey_fu_520_ap_done.read()) && esl_seteq<1,1,1>(set_key_read_read_fu_118_p2.read(), ap_const_lv1_1));
-}
-
 void Blowfish_SetKey_Encrypt::thread_ap_done() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+         esl_seteq<1,1,1>(grp_Blowfish_Encrypt_fu_350_ap_done.read(), ap_const_logic_1))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -1705,7 +1439,8 @@ void Blowfish_SetKey_Encrypt::thread_ap_idle() {
 }
 
 void Blowfish_SetKey_Encrypt::thread_ap_ready() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && 
+         esl_seteq<1,1,1>(grp_Blowfish_Encrypt_fu_350_ap_done.read(), ap_const_logic_1))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
@@ -1713,208 +1448,94 @@ void Blowfish_SetKey_Encrypt::thread_ap_ready() {
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        ciphertext_address0 =  (sc_lv<3>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        ciphertext_address0 =  (sc_lv<3>) (ap_const_lv64_4);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        ciphertext_address0 =  (sc_lv<3>) (ap_const_lv64_2);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        ciphertext_address0 =  (sc_lv<3>) (ap_const_lv64_0);
-    } else {
-        ciphertext_address0 =  (sc_lv<3>) ("XXX");
-    }
+    ciphertext_address0 = grp_Blowfish_Encrypt_fu_350_ciphertext_address0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_address1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        ciphertext_address1 =  (sc_lv<3>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        ciphertext_address1 =  (sc_lv<3>) (ap_const_lv64_5);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        ciphertext_address1 =  (sc_lv<3>) (ap_const_lv64_3);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        ciphertext_address1 =  (sc_lv<3>) (ap_const_lv64_1);
-    } else {
-        ciphertext_address1 =  (sc_lv<3>) ("XXX");
-    }
+    ciphertext_address1 = grp_Blowfish_Encrypt_fu_350_ciphertext_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_ce0() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(grp_Encrypt_SetKey_fu_544_ap_done.read(), ap_const_logic_1)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read()))) {
-        ciphertext_ce0 = ap_const_logic_1;
-    } else {
-        ciphertext_ce0 = ap_const_logic_0;
-    }
+    ciphertext_ce0 = grp_Blowfish_Encrypt_fu_350_ciphertext_ce0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_ce1() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(grp_Encrypt_SetKey_fu_544_ap_done.read(), ap_const_logic_1)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read()))) {
-        ciphertext_ce1 = ap_const_logic_1;
-    } else {
-        ciphertext_ce1 = ap_const_logic_0;
-    }
+    ciphertext_ce1 = grp_Blowfish_Encrypt_fu_350_ciphertext_ce1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_d0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        ciphertext_d0 = trunc_ln6_reg_981.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        ciphertext_d0 = trunc_ln4_reg_971.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        ciphertext_d0 = trunc_ln2_reg_961.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        ciphertext_d0 = grp_Encrypt_SetKey_fu_544_ap_return_0.read().range(31, 24);
-    } else {
-        ciphertext_d0 = "XXXXXXXX";
-    }
+    ciphertext_d0 = grp_Blowfish_Encrypt_fu_350_ciphertext_d0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_d1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read())) {
-        ciphertext_d1 = trunc_ln241_reg_986.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        ciphertext_d1 = trunc_ln5_reg_976.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        ciphertext_d1 = trunc_ln237_reg_966.read();
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        ciphertext_d1 = grp_Encrypt_SetKey_fu_544_ap_return_0.read().range(23, 16);
-    } else {
-        ciphertext_d1 = "XXXXXXXX";
-    }
+    ciphertext_d1 = grp_Blowfish_Encrypt_fu_350_ciphertext_d1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_we0() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(grp_Encrypt_SetKey_fu_544_ap_done.read(), ap_const_logic_1)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read()))) {
-        ciphertext_we0 = ap_const_logic_1;
-    } else {
-        ciphertext_we0 = ap_const_logic_0;
-    }
+    ciphertext_we0 = grp_Blowfish_Encrypt_fu_350_ciphertext_we0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_ciphertext_we1() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(grp_Encrypt_SetKey_fu_544_ap_done.read(), ap_const_logic_1)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state10.read()))) {
-        ciphertext_we1 = ap_const_logic_1;
-    } else {
-        ciphertext_we1 = ap_const_logic_0;
-    }
+    ciphertext_we1 = grp_Blowfish_Encrypt_fu_350_ciphertext_we1.read();
 }
 
-void Blowfish_SetKey_Encrypt::thread_grp_Blowfish_SetKey_fu_520_ap_start() {
-    grp_Blowfish_SetKey_fu_520_ap_start = grp_Blowfish_SetKey_fu_520_ap_start_reg.read();
+void Blowfish_SetKey_Encrypt::thread_grp_Blowfish_Encrypt_fu_350_ap_start() {
+    grp_Blowfish_Encrypt_fu_350_ap_start = grp_Blowfish_Encrypt_fu_350_ap_start_reg.read();
 }
 
-void Blowfish_SetKey_Encrypt::thread_grp_Encrypt_SetKey_fu_544_ap_start() {
-    grp_Encrypt_SetKey_fu_544_ap_start = grp_Encrypt_SetKey_fu_544_ap_start_reg.read();
+void Blowfish_SetKey_Encrypt::thread_grp_Blowfish_SetKey_fu_326_ap_start() {
+    grp_Blowfish_SetKey_fu_326_ap_start = grp_Blowfish_SetKey_fu_326_ap_start_reg.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_key_address0() {
-    key_address0 = grp_Blowfish_SetKey_fu_520_key_address0.read();
+    key_address0 = grp_Blowfish_SetKey_fu_326_key_address0.read();
+}
+
+void Blowfish_SetKey_Encrypt::thread_key_address1() {
+    key_address1 = grp_Blowfish_SetKey_fu_326_key_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_key_ce0() {
-    key_ce0 = grp_Blowfish_SetKey_fu_520_key_ce0.read();
+    key_ce0 = grp_Blowfish_SetKey_fu_326_key_ce0.read();
 }
 
-void Blowfish_SetKey_Encrypt::thread_left_1_fu_684_p5() {
-    left_1_fu_684_p5 = esl_concat<24,8>(esl_concat<16,8>(esl_concat<8,8>(plaintext_load_reg_801.read(), plaintext_load_1_reg_806.read()), plaintext_load_2_reg_821.read()), plaintext_load_3_reg_826.read());
+void Blowfish_SetKey_Encrypt::thread_key_ce1() {
+    key_ce1 = grp_Blowfish_SetKey_fu_326_key_ce1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_plaintext_address0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-        plaintext_address0 =  (sc_lv<3>) (ap_const_lv64_6);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        plaintext_address0 =  (sc_lv<3>) (ap_const_lv64_4);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        plaintext_address0 =  (sc_lv<3>) (ap_const_lv64_2);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        plaintext_address0 =  (sc_lv<3>) (ap_const_lv64_0);
-    } else {
-        plaintext_address0 =  (sc_lv<3>) ("XXX");
-    }
+    plaintext_address0 = grp_Blowfish_Encrypt_fu_350_plaintext_address0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_plaintext_address1() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-        plaintext_address1 =  (sc_lv<3>) (ap_const_lv64_7);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        plaintext_address1 =  (sc_lv<3>) (ap_const_lv64_5);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        plaintext_address1 =  (sc_lv<3>) (ap_const_lv64_3);
-    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        plaintext_address1 =  (sc_lv<3>) (ap_const_lv64_1);
-    } else {
-        plaintext_address1 =  (sc_lv<3>) ("XXX");
-    }
+    plaintext_address1 = grp_Blowfish_Encrypt_fu_350_plaintext_address1.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_plaintext_ce0() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-          esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()))) {
-        plaintext_ce0 = ap_const_logic_1;
-    } else {
-        plaintext_ce0 = ap_const_logic_0;
-    }
+    plaintext_ce0 = grp_Blowfish_Encrypt_fu_350_plaintext_ce0.read();
 }
 
 void Blowfish_SetKey_Encrypt::thread_plaintext_ce1() {
-    if (((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-          esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0)) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) || 
-         esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()))) {
-        plaintext_ce1 = ap_const_logic_1;
-    } else {
-        plaintext_ce1 = ap_const_logic_0;
-    }
+    plaintext_ce1 = grp_Blowfish_Encrypt_fu_350_plaintext_ce1.read();
 }
 
-void Blowfish_SetKey_Encrypt::thread_right_1_fu_693_p5() {
-    right_1_fu_693_p5 = esl_concat<24,8>(esl_concat<16,8>(esl_concat<8,8>(plaintext_load_4_reg_841.read(), plaintext_load_5_reg_846.read()), plaintext_q0.read()), plaintext_q1.read());
-}
-
-void Blowfish_SetKey_Encrypt::thread_set_key_read_read_fu_118_p2() {
-    set_key_read_read_fu_118_p2 =  (sc_lv<1>) (set_key.read());
-}
-
-void Blowfish_SetKey_Encrypt::thread_trunc_ln237_fu_744_p1() {
-    trunc_ln237_fu_744_p1 = grp_Encrypt_SetKey_fu_544_ap_return_0.read().range(8-1, 0);
-}
-
-void Blowfish_SetKey_Encrypt::thread_trunc_ln241_fu_778_p1() {
-    trunc_ln241_fu_778_p1 = grp_Encrypt_SetKey_fu_544_ap_return_1.read().range(8-1, 0);
+void Blowfish_SetKey_Encrypt::thread_set_key_read_read_fu_86_p2() {
+    set_key_read_read_fu_86_p2 =  (sc_lv<1>) (set_key.read());
 }
 
 void Blowfish_SetKey_Encrypt::thread_ap_NS_fsm() {
     switch (ap_CS_fsm.read().to_uint64()) {
         case 1 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(set_key_read_read_fu_86_p2.read(), ap_const_lv1_0))) {
+                ap_NS_fsm = ap_ST_fsm_state3;
+            } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1) && esl_seteq<1,1,1>(set_key_read_read_fu_86_p2.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state1;
             }
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(ap_block_state2_on_subcall_done.read(), ap_const_boolean_0))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(grp_Blowfish_SetKey_fu_326_ap_done.read(), ap_const_logic_1))) {
                 ap_NS_fsm = ap_ST_fsm_state3;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -1924,32 +1545,14 @@ void Blowfish_SetKey_Encrypt::thread_ap_NS_fsm() {
             ap_NS_fsm = ap_ST_fsm_state4;
             break;
         case 8 : 
-            ap_NS_fsm = ap_ST_fsm_state5;
-            break;
-        case 16 : 
-            ap_NS_fsm = ap_ST_fsm_state6;
-            break;
-        case 32 : 
-            ap_NS_fsm = ap_ST_fsm_state7;
-            break;
-        case 64 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && esl_seteq<1,1,1>(grp_Encrypt_SetKey_fu_544_ap_done.read(), ap_const_logic_1))) {
-                ap_NS_fsm = ap_ST_fsm_state8;
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && esl_seteq<1,1,1>(grp_Blowfish_Encrypt_fu_350_ap_done.read(), ap_const_logic_1))) {
+                ap_NS_fsm = ap_ST_fsm_state1;
             } else {
-                ap_NS_fsm = ap_ST_fsm_state7;
+                ap_NS_fsm = ap_ST_fsm_state4;
             }
             break;
-        case 128 : 
-            ap_NS_fsm = ap_ST_fsm_state9;
-            break;
-        case 256 : 
-            ap_NS_fsm = ap_ST_fsm_state10;
-            break;
-        case 512 : 
-            ap_NS_fsm = ap_ST_fsm_state1;
-            break;
         default : 
-            ap_NS_fsm =  (sc_lv<10>) ("XXXXXXXXXX");
+            ap_NS_fsm =  (sc_lv<4>) ("XXXX");
             break;
     }
 }
@@ -1975,6 +1578,9 @@ void Blowfish_SetKey_Encrypt::thread_hdltv_gen() {
         mHdltvoutHandle << " , " <<  " \"key_address0\" :  \"" << key_address0.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"key_ce0\" :  \"" << key_ce0.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"key_q0\" :  \"" << key_q0.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"key_address1\" :  \"" << key_address1.read() << "\" ";
+        mHdltvoutHandle << " , " <<  " \"key_ce1\" :  \"" << key_ce1.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"key_q1\" :  \"" << key_q1.read() << "\" ";
         mHdltvinHandle << " , " <<  " \"key_size\" :  \"" << key_size.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"plaintext_address0\" :  \"" << plaintext_address0.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"plaintext_ce0\" :  \"" << plaintext_ce0.read() << "\" ";

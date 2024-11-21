@@ -15,20 +15,26 @@
   "HlsSolution": {
     "DirectiveTcl": [
       "set_directive_unroll Blowfish_SetKey\/PARRAY_INIT_1 ",
-      "set_directive_pipeline Blowfish_SetKey\/XOR_PARRAY_2 ",
       "set_directive_unroll Blowfish_SetKey\/SBOX_INIT_1 ",
       "set_directive_unroll Blowfish_SetKey\/SBOX_INIT_2 -factor 4",
+      "set_directive_unroll Blowfish_SetKey\/XOR_PARRAY_2 ",
+      "set_directive_unroll Blowfish_SetKey\/GENERATE_PARRAY_1 ",
+      "set_directive_unroll Blowfish_SetKey\/GENERATE_SBOX_1 ",
+      "set_directive_unroll Encrypt_SetKey\/ENCRYPT_FEISTEL ",
       "set_directive_unroll Blowfish_Encrypt\/ENCRYPT_FEISTEL ",
-      "set_directive_pipeline Encrypt_SetKey\/ENCRYPT_FEISTEL ",
+      "set_directive_unroll Blowfish_Decrypt\/DECRYPT_FEISTEL ",
       "set_directive_pipeline feistel "
     ],
     "DirectiveInfo": [
       "unroll Blowfish_SetKey\/PARRAY_INIT_1 {} {}",
-      "pipeline Blowfish_SetKey\/XOR_PARRAY_2 {} {}",
       "unroll Blowfish_SetKey\/SBOX_INIT_1 {} {}",
       "unroll Blowfish_SetKey\/SBOX_INIT_2 {{factor 4}} {}",
+      "unroll Blowfish_SetKey\/XOR_PARRAY_2 {} {}",
+      "unroll Blowfish_SetKey\/GENERATE_PARRAY_1 {} {}",
+      "unroll Blowfish_SetKey\/GENERATE_SBOX_1 {} {}",
+      "unroll Encrypt_SetKey\/ENCRYPT_FEISTEL {} {}",
       "unroll Blowfish_Encrypt\/ENCRYPT_FEISTEL {} {}",
-      "pipeline Encrypt_SetKey\/ENCRYPT_FEISTEL {} {}",
+      "unroll Blowfish_Decrypt\/DECRYPT_FEISTEL {} {}",
       "pipeline feistel {} {}"
     ]
   },
@@ -42,7 +48,9 @@
         "arraySizes": ["56"],
         "multiInterfaceRef": [
           "key_address0",
-          "key_q0"
+          "key_address1",
+          "key_q0",
+          "key_q1"
         ]
       }
     },
@@ -60,7 +68,15 @@
         "kinds": ["array"],
         "dataType": "unsigned",
         "dataWidth": "32",
-        "arraySizes": ["18"]
+        "arraySizes": ["18"],
+        "multiInterfaceRef": [
+          "P_address0",
+          "P_address1",
+          "P_d0",
+          "P_d1",
+          "P_q0",
+          "P_q1"
+        ]
       }
     },
     "S": {
@@ -72,6 +88,14 @@
         "arraySizes": [
           "4",
           "256"
+        ],
+        "multiInterfaceRef": [
+          "S_address0",
+          "S_address1",
+          "S_d0",
+          "S_d1",
+          "S_q0",
+          "S_q1"
         ]
       }
     }
@@ -84,7 +108,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "20914",
+    "Latency": "28110",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -106,7 +130,6 @@
       "impl\/vhdl\/Blowfish_SetKey_icud.vhd",
       "impl\/vhdl\/Blowfish_SetKey_idEe.vhd",
       "impl\/vhdl\/Blowfish_SetKey_ieOg.vhd",
-      "impl\/vhdl\/Blowfish_SetKey_mg8j.vhd",
       "impl\/vhdl\/Blowfish_SetKey_ufYi.vhd",
       "impl\/vhdl\/Encrypt_SetKey.vhd",
       "impl\/vhdl\/feistel.vhd",
@@ -121,7 +144,6 @@
       "impl\/verilog\/Blowfish_SetKey_idEe_rom.dat",
       "impl\/verilog\/Blowfish_SetKey_ieOg.v",
       "impl\/verilog\/Blowfish_SetKey_ieOg_rom.dat",
-      "impl\/verilog\/Blowfish_SetKey_mg8j.v",
       "impl\/verilog\/Blowfish_SetKey_ufYi.v",
       "impl\/verilog\/Encrypt_SetKey.v",
       "impl\/verilog\/feistel.v",
@@ -173,6 +195,17 @@
       "bundle_name": "key",
       "bundle_role": "address0"
     },
+    "key_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "6",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "6"
+        }},
+      "bundle_name": "key",
+      "bundle_role": "address1"
+    },
     "key_q0": {
       "type": "data",
       "dir": "in",
@@ -183,6 +216,17 @@
         }},
       "bundle_name": "key",
       "bundle_role": "q0"
+    },
+    "key_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "key",
+      "bundle_role": "q1"
     },
     "key_size": {
       "type": "data",
@@ -195,227 +239,29 @@
       "bundle_name": "key_size",
       "bundle_role": "default"
     },
-    "P_0": {
+    "P_address0": {
       "type": "data",
       "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_0",
-      "bundle_role": "default"
-    },
-    "P_1": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_1",
-      "bundle_role": "default"
-    },
-    "P_2": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_2",
-      "bundle_role": "default"
-    },
-    "P_3": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_3",
-      "bundle_role": "default"
-    },
-    "P_4": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_4",
-      "bundle_role": "default"
-    },
-    "P_5": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_5",
-      "bundle_role": "default"
-    },
-    "P_6": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_6",
-      "bundle_role": "default"
-    },
-    "P_7": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_7",
-      "bundle_role": "default"
-    },
-    "P_8": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_8",
-      "bundle_role": "default"
-    },
-    "P_9": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_9",
-      "bundle_role": "default"
-    },
-    "P_10": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_10",
-      "bundle_role": "default"
-    },
-    "P_11": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_11",
-      "bundle_role": "default"
-    },
-    "P_12": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_12",
-      "bundle_role": "default"
-    },
-    "P_13": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_13",
-      "bundle_role": "default"
-    },
-    "P_14": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_14",
-      "bundle_role": "default"
-    },
-    "P_15": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_15",
-      "bundle_role": "default"
-    },
-    "P_16": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_16",
-      "bundle_role": "default"
-    },
-    "P_17": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "P_17",
-      "bundle_role": "default"
-    },
-    "S_0_address0": {
-      "type": "data",
-      "dir": "out",
-      "width": "8",
+      "width": "5",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "8"
+          "Width": "5"
         }},
-      "bundle_name": "S_0",
+      "bundle_name": "P",
       "bundle_role": "address0"
     },
-    "S_0_address1": {
+    "P_address1": {
       "type": "data",
       "dir": "out",
-      "width": "8",
+      "width": "5",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "8"
+          "Width": "5"
         }},
-      "bundle_name": "S_0",
+      "bundle_name": "P",
       "bundle_role": "address1"
     },
-    "S_0_d0": {
+    "P_d0": {
       "type": "data",
       "dir": "out",
       "width": "32",
@@ -423,10 +269,10 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_0",
+      "bundle_name": "P",
       "bundle_role": "d0"
     },
-    "S_0_d1": {
+    "P_d1": {
       "type": "data",
       "dir": "out",
       "width": "32",
@@ -434,10 +280,10 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_0",
+      "bundle_name": "P",
       "bundle_role": "d1"
     },
-    "S_0_q0": {
+    "P_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -445,54 +291,10 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_0",
+      "bundle_name": "P",
       "bundle_role": "q0"
     },
-    "S_1_address0": {
-      "type": "data",
-      "dir": "out",
-      "width": "8",
-      "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "8"
-        }},
-      "bundle_name": "S_1",
-      "bundle_role": "address0"
-    },
-    "S_1_address1": {
-      "type": "data",
-      "dir": "out",
-      "width": "8",
-      "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "8"
-        }},
-      "bundle_name": "S_1",
-      "bundle_role": "address1"
-    },
-    "S_1_d0": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "S_1",
-      "bundle_role": "d0"
-    },
-    "S_1_d1": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "S_1",
-      "bundle_role": "d1"
-    },
-    "S_1_q0": {
+    "P_q1": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -500,32 +302,32 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_1",
-      "bundle_role": "q0"
+      "bundle_name": "P",
+      "bundle_role": "q1"
     },
-    "S_2_address0": {
+    "S_address0": {
       "type": "data",
       "dir": "out",
-      "width": "8",
+      "width": "10",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "8"
+          "Width": "10"
         }},
-      "bundle_name": "S_2",
+      "bundle_name": "S",
       "bundle_role": "address0"
     },
-    "S_2_address1": {
+    "S_address1": {
       "type": "data",
       "dir": "out",
-      "width": "8",
+      "width": "10",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "8"
+          "Width": "10"
         }},
-      "bundle_name": "S_2",
+      "bundle_name": "S",
       "bundle_role": "address1"
     },
-    "S_2_d0": {
+    "S_d0": {
       "type": "data",
       "dir": "out",
       "width": "32",
@@ -533,10 +335,10 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_2",
+      "bundle_name": "S",
       "bundle_role": "d0"
     },
-    "S_2_d1": {
+    "S_d1": {
       "type": "data",
       "dir": "out",
       "width": "32",
@@ -544,10 +346,10 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_2",
+      "bundle_name": "S",
       "bundle_role": "d1"
     },
-    "S_2_q0": {
+    "S_q0": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -555,54 +357,10 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_2",
+      "bundle_name": "S",
       "bundle_role": "q0"
     },
-    "S_3_address0": {
-      "type": "data",
-      "dir": "out",
-      "width": "8",
-      "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "8"
-        }},
-      "bundle_name": "S_3",
-      "bundle_role": "address0"
-    },
-    "S_3_address1": {
-      "type": "data",
-      "dir": "out",
-      "width": "8",
-      "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "8"
-        }},
-      "bundle_name": "S_3",
-      "bundle_role": "address1"
-    },
-    "S_3_d0": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "S_3",
-      "bundle_role": "d0"
-    },
-    "S_3_d1": {
-      "type": "data",
-      "dir": "out",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "S_3",
-      "bundle_role": "d1"
-    },
-    "S_3_q0": {
+    "S_q1": {
       "type": "data",
       "dir": "in",
       "width": "32",
@@ -610,8 +368,8 @@
           "Type": "integer unsigned",
           "Width": "32"
         }},
-      "bundle_name": "S_3",
-      "bundle_role": "q0"
+      "bundle_name": "S",
+      "bundle_role": "q1"
     }
   },
   "RtlPorts": {
@@ -651,296 +409,100 @@
       "dir": "in",
       "width": "8"
     },
+    "key_address1": {
+      "dir": "out",
+      "width": "6"
+    },
+    "key_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "key_q1": {
+      "dir": "in",
+      "width": "8"
+    },
     "key_size": {
       "dir": "in",
       "width": "64"
     },
-    "P_0": {
+    "P_address0": {
+      "dir": "out",
+      "width": "5"
+    },
+    "P_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "P_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "P_d0": {
       "dir": "out",
       "width": "32"
     },
-    "P_0_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_1": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_1_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_2": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_2_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_3": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_3_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_4": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_4_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_5": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_5_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_6": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_6_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_7": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_7_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_8": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_8_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_9": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_9_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_10": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_10_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_11": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_11_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_12": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_12_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_13": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_13_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_14": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_14_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_15": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_15_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_16": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_16_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "P_17": {
-      "dir": "out",
-      "width": "32"
-    },
-    "P_17_ap_vld": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_0_address0": {
-      "dir": "out",
-      "width": "8"
-    },
-    "S_0_ce0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_0_we0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_0_d0": {
-      "dir": "out",
-      "width": "32"
-    },
-    "S_0_q0": {
+    "P_q0": {
       "dir": "in",
       "width": "32"
     },
-    "S_0_address1": {
+    "P_address1": {
       "dir": "out",
-      "width": "8"
+      "width": "5"
     },
-    "S_0_ce1": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_0_we1": {
+    "P_ce1": {
       "dir": "out",
       "width": "1"
     },
-    "S_0_d1": {
+    "P_we1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "P_d1": {
       "dir": "out",
       "width": "32"
     },
-    "S_1_address0": {
-      "dir": "out",
-      "width": "8"
-    },
-    "S_1_ce0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_1_we0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_1_d0": {
-      "dir": "out",
-      "width": "32"
-    },
-    "S_1_q0": {
+    "P_q1": {
       "dir": "in",
       "width": "32"
     },
-    "S_1_address1": {
+    "S_address0": {
       "dir": "out",
-      "width": "8"
+      "width": "10"
     },
-    "S_1_ce1": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_1_we1": {
+    "S_ce0": {
       "dir": "out",
       "width": "1"
     },
-    "S_1_d1": {
+    "S_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "S_d0": {
       "dir": "out",
       "width": "32"
     },
-    "S_2_address0": {
-      "dir": "out",
-      "width": "8"
-    },
-    "S_2_ce0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_2_we0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_2_d0": {
-      "dir": "out",
-      "width": "32"
-    },
-    "S_2_q0": {
+    "S_q0": {
       "dir": "in",
       "width": "32"
     },
-    "S_2_address1": {
+    "S_address1": {
       "dir": "out",
-      "width": "8"
+      "width": "10"
     },
-    "S_2_ce1": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_2_we1": {
+    "S_ce1": {
       "dir": "out",
       "width": "1"
     },
-    "S_2_d1": {
+    "S_we1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "S_d1": {
       "dir": "out",
       "width": "32"
     },
-    "S_3_address0": {
-      "dir": "out",
-      "width": "8"
-    },
-    "S_3_ce0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_3_we0": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_3_d0": {
-      "dir": "out",
-      "width": "32"
-    },
-    "S_3_q0": {
+    "S_q1": {
       "dir": "in",
-      "width": "32"
-    },
-    "S_3_address1": {
-      "dir": "out",
-      "width": "8"
-    },
-    "S_3_ce1": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_3_we1": {
-      "dir": "out",
-      "width": "1"
-    },
-    "S_3_d1": {
-      "dir": "out",
       "width": "32"
     }
   },
@@ -949,10 +511,10 @@
       "ModuleName": "Blowfish_SetKey",
       "Instances": [{
           "ModuleName": "Encrypt_SetKey",
-          "InstanceName": "grp_Encrypt_SetKey_fu_1137",
+          "InstanceName": "grp_Encrypt_SetKey_fu_986",
           "Instances": [{
               "ModuleName": "feistel",
-              "InstanceName": "grp_feistel_fu_297"
+              "InstanceName": "grp_feistel_fu_233"
             }]
         }]
     },
@@ -982,21 +544,21 @@
     "Metrics": {
       "feistel": {
         "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
+          "LatencyBest": "2",
+          "LatencyAvg": "2",
+          "LatencyWorst": "2",
+          "PipelineII": "2",
+          "PipelineDepth": "3",
           "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.358"
+          "Estimate": "5.806"
         },
         "Area": {
-          "FF": "2",
-          "LUT": "114",
+          "FF": "52",
+          "LUT": "179",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -1004,28 +566,21 @@
       },
       "Encrypt_SetKey": {
         "Latency": {
-          "LatencyBest": "35",
-          "LatencyAvg": "35",
-          "LatencyWorst": "35",
-          "PipelineII": "35",
+          "LatencyBest": "49",
+          "LatencyAvg": "49",
+          "LatencyWorst": "49",
+          "PipelineII": "49",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.358"
+          "Estimate": "8.005"
         },
-        "Loops": [{
-            "Name": "ENCRYPT_FEISTEL",
-            "TripCount": "16",
-            "Latency": "33",
-            "PipelineII": "2",
-            "PipelineDepth": "4"
-          }],
         "Area": {
-          "FF": "181",
-          "LUT": "420",
+          "FF": "711",
+          "LUT": "1698",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -1033,17 +588,17 @@
       },
       "Blowfish_SetKey": {
         "Latency": {
-          "LatencyBest": "20914",
-          "LatencyAvg": "20914",
-          "LatencyWorst": "20914",
-          "PipelineII": "20915",
+          "LatencyBest": "28110",
+          "LatencyAvg": "28110",
+          "LatencyWorst": "28110",
+          "PipelineII": "28111",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.358"
+          "Estimate": "9.715"
         },
         "Loops": [
           {
@@ -1077,43 +632,43 @@
           {
             "Name": "XOR_PARRAY_1",
             "TripCount": "18",
-            "Latency": "324",
+            "Latency": "234",
             "PipelineII": "",
-            "PipelineDepth": "18",
-            "Loops": [{
-                "Name": "XOR_PARRAY_2",
-                "TripCount": "4",
-                "Latency": "14",
-                "PipelineII": "1",
-                "PipelineDepth": "12"
-              }]
+            "PipelineDepth": "13"
           },
           {
-            "Name": "GENERATE_PARRAY_1",
-            "TripCount": "9",
-            "Latency": "351",
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "6656",
             "PipelineII": "",
-            "PipelineDepth": "39"
+            "PipelineDepth": "52"
           },
           {
-            "Name": "GENERATE_SBOX_1",
-            "TripCount": "4",
-            "Latency": "19464",
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "6656",
             "PipelineII": "",
-            "PipelineDepth": "4866",
-            "Loops": [{
-                "Name": "GENERATE_SBOX_2",
-                "TripCount": "128",
-                "Latency": "4864",
-                "PipelineII": "",
-                "PipelineDepth": "38"
-              }]
+            "PipelineDepth": "52"
+          },
+          {
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "6656",
+            "PipelineII": "",
+            "PipelineDepth": "52"
+          },
+          {
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "6656",
+            "PipelineII": "",
+            "PipelineDepth": "52"
           }
         ],
         "Area": {
           "BRAM_18K": "4",
-          "FF": "11783",
-          "LUT": "9180",
+          "FF": "4672",
+          "LUT": "5269",
           "DSP48E": "0",
           "URAM": "0"
         }
@@ -1130,7 +685,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-11-19 22:52:58 EST",
+    "Time": "2024-11-20 20:44:20 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

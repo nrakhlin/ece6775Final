@@ -7,14 +7,14 @@
 source /opt/xilinx/Vivado/2019.2/scripts/vivado_hls/hls.tcl -notrace
 INFO: Applying HLS Y2K22 patch v1.2 for IP revision
 INFO: [HLS 200-10] Running '/opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'jjm469' on host 'en-ec-rhel-ecelinux-20.coecis.cornell.edu' (Linux_x86_64 version 4.18.0-553.27.1.el8_10.x86_64) on Tue Nov 19 22:53:46 EST 2024
+INFO: [HLS 200-10] For user 'jjm469' on host 'en-ec-rhel-ecelinux-17.coecis.cornell.edu' (Linux_x86_64 version 4.18.0-553.27.1.el8_10.x86_64) on Wed Nov 20 20:44:09 EST 2024
 INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
 INFO: [HLS 200-10] In directory '/home/jjm469/ece6775/final_project/repo/blowfish'
-Sourcing Tcl script 'run_opt.tcl'
-INFO: [HLS 200-10] Opening and resetting project '/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj'.
+Sourcing Tcl script 'run_opt2.tcl'
+INFO: [HLS 200-10] Opening and resetting project '/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Opt.prj'.
 INFO: [HLS 200-10] Adding design file 'blowfish.cpp' to the project
 INFO: [HLS 200-10] Adding test bench file 'main.cpp' to the project
-INFO: [HLS 200-10] Opening and resetting solution '/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1'.
+INFO: [HLS 200-10] Opening and resetting solution '/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Opt.prj/solution1'.
 INFO: [HLS 200-10] Cleaning up the solution database.
 INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
@@ -29,156 +29,100 @@ INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
 INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20266 ; free virtual = 32694
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20266 ; free virtual = 32694
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23673 ; free virtual = 32869
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23673 ; free virtual = 32869
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20262 ; free virtual = 32691
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23671 ; free virtual = 32866
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:61) automatically.
-INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:218) automatically.
-INFO: [XFORM 203-602] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
-INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20259 ; free virtual = 32688
-INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:154) in function 'Blowfish_SetKey' completely with a factor of 18.
-INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:160) in function 'Blowfish_SetKey' completely with a factor of 4.
-INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:162) in function 'Blowfish_SetKey' partially with a factor of 4.
-INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:207) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:207) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
-INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:61) automatically.
-INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:218) automatically.
-INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220) automatically.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20238 ; free virtual = 32667
-WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:171:35) in function 'Blowfish_SetKey' : 
-
-the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20211 ; free virtual = 32640
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23657 ; free virtual = 32854
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:153) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:159) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:161) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'XOR_PARRAY_2' (blowfish.cpp:173) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_PARRAY_1' (blowfish.cpp:184) in function 'Blowfish_SetKey' completely with a factor of 9.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_SBOX_1' (blowfish.cpp:192) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:56) in function 'Encrypt_SetKey' completely with a factor of 16.
+INFO: [XFORM 203-102] Partitioning array 'initial_sbox' in dimension 1 automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23544 ; free virtual = 32742
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23527 ; free virtual = 32725
 INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'feistel' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'feistel'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('S_load_2', blowfish.cpp:134) on array 'S' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'S'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 3.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 9.25 seconds; current allocated memory: 162.473 MB.
+INFO: [HLS 200-111]  Elapsed time: 9.22 seconds; current allocated memory: 146.506 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 162.587 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 146.628 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
-WARNING: [SCHED 204-68] The II Violation in module 'Encrypt_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
-   between 'xor' operation ('localRight', blowfish.cpp:56) and 'xor' operation ('localLeft', blowfish.cpp:55).
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 4.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 162.859 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 146.991 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 163.303 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 147.429 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 164.499 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 148.441 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 169.022 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 169.383 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 169.949 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 149.803 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'feistel' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'feistel'.
-INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 170.251 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 150.178 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 171.218 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 151.832 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey/key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey/key_size' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey/P' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey/S' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'Blowfish_SetKey' to 'ap_ctrl_hs'.
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_0' to 'Blowfish_SetKey_ibkb' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_1' to 'Blowfish_SetKey_icud' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_2' to 'Blowfish_SetKey_idEe' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_3' to 'Blowfish_SetKey_ieOg' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_urem_7ns_64ns_32_11_1' to 'Blowfish_SetKey_EfYi' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_mux_185_32_1_1' to 'Blowfish_SetKey_Eg8j' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_mux_325_32_1_1' to 'Blowfish_SetKey_Ehbi' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_EfYi': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_Eg8j': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_Ehbi': 90 instance(s).
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_urem_7ns_64ns_32_11_seq_1' to 'Blowfish_SetKey_ufYi' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_ufYi': 4 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_SetKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 186.125 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey_Encrypt' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/set_key' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/key' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/key_size' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/plaintext' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/ciphertext' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_0' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_1' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_2' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_3' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_4' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_5' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_6' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_7' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_8' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_9' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_10' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_11' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_12' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_13' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_14' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_15' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_16' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/P_17' to 'ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/S_0' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/S_1' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/S_2' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/S_3' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on function 'Blowfish_SetKey_Encrypt' to 'ap_ctrl_hs'.
-INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_SetKey_Encrypt'.
-INFO: [HLS 200-111]  Elapsed time: 0.73 seconds; current allocated memory: 198.279 MB.
-INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
-INFO: [HLS 200-789] **** Estimated Fmax: 119.65 MHz
-INFO: [RTMG 210-282] Generating pipelined core: 'Blowfish_SetKey_EfYi_div'
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 155.503 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 102.94 MHz
+INFO: [RTMG 210-282] Generating pipelined core: 'Blowfish_SetKey_ufYi_div'
 INFO: [RTMG 210-279] Implementing memory 'Blowfish_SetKey_ibkb_rom' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'Blowfish_SetKey_icud_rom' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'Blowfish_SetKey_idEe_rom' using auto ROMs.
 INFO: [RTMG 210-279] Implementing memory 'Blowfish_SetKey_ieOg_rom' using auto ROMs.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1232.148 ; gain = 594.125 ; free physical = 20146 ; free virtual = 32592
-INFO: [VHDL 208-304] Generating VHDL RTL for Blowfish_SetKey_Encrypt.
-INFO: [VLOG 209-307] Generating Verilog RTL for Blowfish_SetKey_Encrypt.
-INFO: [HLS 200-112] Total elapsed time: 13.49 seconds; peak allocated memory: 198.279 MB.
-INFO: [Common 17-206] Exiting vivado_hls at Tue Nov 19 22:54:00 2024...
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 23599 ; free virtual = 32805
+INFO: [VHDL 208-304] Generating VHDL RTL for Blowfish_SetKey.
+INFO: [VLOG 209-307] Generating Verilog RTL for Blowfish_SetKey.
+INFO: [HLS 200-112] Total elapsed time: 11.9 seconds; peak allocated memory: 155.503 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Wed Nov 20 20:44:20 2024...

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'feistel'
 ================================================================
-* Date:           Tue Nov 19 22:53:56 2024
+* Date:           Wed Nov 20 20:43:02 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        Blowfish_Setkey_Encrypt_Opt.prj
@@ -80,34 +80,34 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 3.25>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%x_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %x)" [blowfish.cpp:124]   --->   Operation 3 'read' 'x_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 24, i32 31)" [blowfish.cpp:125]   --->   Operation 4 'partselect' 'a' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%b = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 16, i32 23)" [blowfish.cpp:126]   --->   Operation 5 'partselect' 'b' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%c = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 8, i32 15)" [blowfish.cpp:127]   --->   Operation 6 'partselect' 'c' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%d = trunc i32 %x_read to i8" [blowfish.cpp:128]   --->   Operation 7 'trunc' 'd' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%zext_ln133 = zext i8 %a to i64" [blowfish.cpp:133]   --->   Operation 8 'zext' 'zext_ln133' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%S_0_addr = getelementptr [256 x i32]* %S_0, i64 0, i64 %zext_ln133" [blowfish.cpp:133]   --->   Operation 9 'getelementptr' 'S_0_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [2/2] (3.25ns)   --->   "%S_0_load = load i32* %S_0_addr, align 4" [blowfish.cpp:133]   --->   Operation 10 'load' 'S_0_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%zext_ln133_1 = zext i8 %b to i64" [blowfish.cpp:133]   --->   Operation 11 'zext' 'zext_ln133_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%S_1_addr = getelementptr [256 x i32]* %S_1, i64 0, i64 %zext_ln133_1" [blowfish.cpp:133]   --->   Operation 12 'getelementptr' 'S_1_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [2/2] (3.25ns)   --->   "%S_1_load = load i32* %S_1_addr, align 4" [blowfish.cpp:133]   --->   Operation 13 'load' 'S_1_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln133_2 = zext i8 %c to i64" [blowfish.cpp:133]   --->   Operation 14 'zext' 'zext_ln133_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%S_2_addr = getelementptr [256 x i32]* %S_2, i64 0, i64 %zext_ln133_2" [blowfish.cpp:133]   --->   Operation 15 'getelementptr' 'S_2_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [2/2] (3.25ns)   --->   "%S_2_load = load i32* %S_2_addr, align 4" [blowfish.cpp:133]   --->   Operation 16 'load' 'S_2_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln133_3 = zext i8 %d to i64" [blowfish.cpp:133]   --->   Operation 17 'zext' 'zext_ln133_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%S_3_addr = getelementptr [256 x i32]* %S_3, i64 0, i64 %zext_ln133_3" [blowfish.cpp:133]   --->   Operation 18 'getelementptr' 'S_3_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [2/2] (3.25ns)   --->   "%S_3_load = load i32* %S_3_addr, align 4" [blowfish.cpp:133]   --->   Operation 19 'load' 'S_3_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%x_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %x)" [blowfish.cpp:125]   --->   Operation 3 'read' 'x_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 24, i32 31)" [blowfish.cpp:126]   --->   Operation 4 'partselect' 'a' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%b = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 16, i32 23)" [blowfish.cpp:127]   --->   Operation 5 'partselect' 'b' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%c = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 8, i32 15)" [blowfish.cpp:128]   --->   Operation 6 'partselect' 'c' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%d = trunc i32 %x_read to i8" [blowfish.cpp:129]   --->   Operation 7 'trunc' 'd' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%zext_ln134 = zext i8 %a to i64" [blowfish.cpp:134]   --->   Operation 8 'zext' 'zext_ln134' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%S_0_addr = getelementptr [256 x i32]* %S_0, i64 0, i64 %zext_ln134" [blowfish.cpp:134]   --->   Operation 9 'getelementptr' 'S_0_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [2/2] (3.25ns)   --->   "%S_0_load = load i32* %S_0_addr, align 4" [blowfish.cpp:134]   --->   Operation 10 'load' 'S_0_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%zext_ln134_1 = zext i8 %b to i64" [blowfish.cpp:134]   --->   Operation 11 'zext' 'zext_ln134_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%S_1_addr = getelementptr [256 x i32]* %S_1, i64 0, i64 %zext_ln134_1" [blowfish.cpp:134]   --->   Operation 12 'getelementptr' 'S_1_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [2/2] (3.25ns)   --->   "%S_1_load = load i32* %S_1_addr, align 4" [blowfish.cpp:134]   --->   Operation 13 'load' 'S_1_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln134_2 = zext i8 %c to i64" [blowfish.cpp:134]   --->   Operation 14 'zext' 'zext_ln134_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%S_2_addr = getelementptr [256 x i32]* %S_2, i64 0, i64 %zext_ln134_2" [blowfish.cpp:134]   --->   Operation 15 'getelementptr' 'S_2_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [2/2] (3.25ns)   --->   "%S_2_load = load i32* %S_2_addr, align 4" [blowfish.cpp:134]   --->   Operation 16 'load' 'S_2_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln134_3 = zext i8 %d to i64" [blowfish.cpp:134]   --->   Operation 17 'zext' 'zext_ln134_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%S_3_addr = getelementptr [256 x i32]* %S_3, i64 0, i64 %zext_ln134_3" [blowfish.cpp:134]   --->   Operation 18 'getelementptr' 'S_3_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [2/2] (3.25ns)   --->   "%S_3_load = load i32* %S_3_addr, align 4" [blowfish.cpp:134]   --->   Operation 19 'load' 'S_3_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
 
 State 2 <SV = 1> <Delay = 8.35>
-ST_2 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [blowfish.cpp:125]   --->   Operation 20 'specpipeline' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 21 [1/2] (3.25ns)   --->   "%S_0_load = load i32* %S_0_addr, align 4" [blowfish.cpp:133]   --->   Operation 21 'load' 'S_0_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_2 : Operation 22 [1/2] (3.25ns)   --->   "%S_1_load = load i32* %S_1_addr, align 4" [blowfish.cpp:133]   --->   Operation 22 'load' 'S_1_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_2 : Operation 23 [1/1] (2.55ns)   --->   "%add_ln133 = add i32 %S_1_load, %S_0_load" [blowfish.cpp:133]   --->   Operation 23 'add' 'add_ln133' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 24 [1/2] (3.25ns)   --->   "%S_2_load = load i32* %S_2_addr, align 4" [blowfish.cpp:133]   --->   Operation 24 'load' 'S_2_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_2 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node add_ln133_1)   --->   "%xor_ln133 = xor i32 %S_2_load, %add_ln133" [blowfish.cpp:133]   --->   Operation 25 'xor' 'xor_ln133' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 26 [1/2] (3.25ns)   --->   "%S_3_load = load i32* %S_3_addr, align 4" [blowfish.cpp:133]   --->   Operation 26 'load' 'S_3_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
-ST_2 : Operation 27 [1/1] (2.55ns) (out node of the LUT)   --->   "%add_ln133_1 = add i32 %S_3_load, %xor_ln133" [blowfish.cpp:133]   --->   Operation 27 'add' 'add_ln133_1' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 28 [1/1] (0.00ns)   --->   "ret i32 %add_ln133_1" [blowfish.cpp:133]   --->   Operation 28 'ret' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [blowfish.cpp:126]   --->   Operation 20 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/2] (3.25ns)   --->   "%S_0_load = load i32* %S_0_addr, align 4" [blowfish.cpp:134]   --->   Operation 21 'load' 'S_0_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 22 [1/2] (3.25ns)   --->   "%S_1_load = load i32* %S_1_addr, align 4" [blowfish.cpp:134]   --->   Operation 22 'load' 'S_1_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 23 [1/1] (2.55ns)   --->   "%add_ln134 = add i32 %S_1_load, %S_0_load" [blowfish.cpp:134]   --->   Operation 23 'add' 'add_ln134' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 24 [1/2] (3.25ns)   --->   "%S_2_load = load i32* %S_2_addr, align 4" [blowfish.cpp:134]   --->   Operation 24 'load' 'S_2_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node add_ln134_1)   --->   "%xor_ln134 = xor i32 %S_2_load, %add_ln134" [blowfish.cpp:134]   --->   Operation 25 'xor' 'xor_ln134' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 26 [1/2] (3.25ns)   --->   "%S_3_load = load i32* %S_3_addr, align 4" [blowfish.cpp:134]   --->   Operation 26 'load' 'S_3_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 256> <RAM>
+ST_2 : Operation 27 [1/1] (2.55ns) (out node of the LUT)   --->   "%add_ln134_1 = add i32 %S_3_load, %xor_ln134" [blowfish.cpp:134]   --->   Operation 27 'add' 'add_ln134_1' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "ret i32 %add_ln134_1" [blowfish.cpp:134]   --->   Operation 28 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -137,23 +137,23 @@ a                  (partselect   ) [ 000]
 b                  (partselect   ) [ 000]
 c                  (partselect   ) [ 000]
 d                  (trunc        ) [ 000]
-zext_ln133         (zext         ) [ 000]
+zext_ln134         (zext         ) [ 000]
 S_0_addr           (getelementptr) [ 011]
-zext_ln133_1       (zext         ) [ 000]
+zext_ln134_1       (zext         ) [ 000]
 S_1_addr           (getelementptr) [ 011]
-zext_ln133_2       (zext         ) [ 000]
+zext_ln134_2       (zext         ) [ 000]
 S_2_addr           (getelementptr) [ 011]
-zext_ln133_3       (zext         ) [ 000]
+zext_ln134_3       (zext         ) [ 000]
 S_3_addr           (getelementptr) [ 011]
-specpipeline_ln125 (specpipeline ) [ 000]
+specpipeline_ln126 (specpipeline ) [ 000]
 S_0_load           (load         ) [ 000]
 S_1_load           (load         ) [ 000]
-add_ln133          (add          ) [ 000]
+add_ln134          (add          ) [ 000]
 S_2_load           (load         ) [ 000]
-xor_ln133          (xor          ) [ 000]
+xor_ln134          (xor          ) [ 000]
 S_3_load           (load         ) [ 000]
-add_ln133_1        (add          ) [ 000]
-ret_ln133          (ret          ) [ 000]
+add_ln134_1        (add          ) [ 000]
+ret_ln134          (ret          ) [ 000]
 </LifeTime>
 
 <model>
@@ -503,51 +503,51 @@ ret_ln133          (ret          ) [ 000]
 </bind>
 </comp>
 
-<comp id="130" class="1004" name="zext_ln133_fu_130">
+<comp id="130" class="1004" name="zext_ln134_fu_130">
 <pin_list>
 <pin id="131" dir="0" index="0" bw="8" slack="0"/>
 <pin id="132" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln133/1 "/>
+<opset="zext_ln134/1 "/>
 </bind>
 </comp>
 
-<comp id="135" class="1004" name="zext_ln133_1_fu_135">
+<comp id="135" class="1004" name="zext_ln134_1_fu_135">
 <pin_list>
 <pin id="136" dir="0" index="0" bw="8" slack="0"/>
 <pin id="137" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln133_1/1 "/>
+<opset="zext_ln134_1/1 "/>
 </bind>
 </comp>
 
-<comp id="140" class="1004" name="zext_ln133_2_fu_140">
+<comp id="140" class="1004" name="zext_ln134_2_fu_140">
 <pin_list>
 <pin id="141" dir="0" index="0" bw="8" slack="0"/>
 <pin id="142" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln133_2/1 "/>
+<opset="zext_ln134_2/1 "/>
 </bind>
 </comp>
 
-<comp id="145" class="1004" name="zext_ln133_3_fu_145">
+<comp id="145" class="1004" name="zext_ln134_3_fu_145">
 <pin_list>
 <pin id="146" dir="0" index="0" bw="8" slack="0"/>
 <pin id="147" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln133_3/1 "/>
+<opset="zext_ln134_3/1 "/>
 </bind>
 </comp>
 
-<comp id="150" class="1004" name="add_ln133_fu_150">
+<comp id="150" class="1004" name="add_ln134_fu_150">
 <pin_list>
 <pin id="151" dir="0" index="0" bw="32" slack="0"/>
 <pin id="152" dir="0" index="1" bw="32" slack="0"/>
@@ -555,11 +555,11 @@ ret_ln133          (ret          ) [ 000]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln133/2 "/>
+<opset="add_ln134/2 "/>
 </bind>
 </comp>
 
-<comp id="156" class="1004" name="xor_ln133_fu_156">
+<comp id="156" class="1004" name="xor_ln134_fu_156">
 <pin_list>
 <pin id="157" dir="0" index="0" bw="32" slack="0"/>
 <pin id="158" dir="0" index="1" bw="32" slack="0"/>
@@ -567,11 +567,11 @@ ret_ln133          (ret          ) [ 000]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln133/2 "/>
+<opset="xor_ln134/2 "/>
 </bind>
 </comp>
 
-<comp id="162" class="1004" name="add_ln133_1_fu_162">
+<comp id="162" class="1004" name="add_ln134_1_fu_162">
 <pin_list>
 <pin id="163" dir="0" index="0" bw="32" slack="0"/>
 <pin id="164" dir="0" index="1" bw="32" slack="0"/>
@@ -579,7 +579,7 @@ ret_ln133          (ret          ) [ 000]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln133_1/2 "/>
+<opset="add_ln134_1/2 "/>
 </bind>
 </comp>
 
@@ -739,23 +739,23 @@ ret_ln133          (ret          ) [ 000]
 	Port: feistel : S_3 | {1 2 }
   - Chain level:
 	State 1
-		zext_ln133 : 1
+		zext_ln134 : 1
 		S_0_addr : 2
 		S_0_load : 3
-		zext_ln133_1 : 1
+		zext_ln134_1 : 1
 		S_1_addr : 2
 		S_1_load : 3
-		zext_ln133_2 : 1
+		zext_ln134_2 : 1
 		S_2_addr : 2
 		S_2_load : 3
-		zext_ln133_3 : 1
+		zext_ln134_3 : 1
 		S_3_addr : 2
 		S_3_load : 3
 	State 2
-		add_ln133 : 1
-		xor_ln133 : 2
-		add_ln133_1 : 2
-		ret_ln133 : 3
+		add_ln134 : 1
+		xor_ln134 : 2
+		add_ln134_1 : 2
+		ret_ln134 : 3
 
 
 ============================================================
@@ -766,10 +766,10 @@ ret_ln133          (ret          ) [ 000]
 |----------|---------------------|---------|---------|
 | Operation|   Functional Unit   |    FF   |   LUT   |
 |----------|---------------------|---------|---------|
-|    add   |   add_ln133_fu_150  |    0    |    39   |
-|          |  add_ln133_1_fu_162 |    0    |    39   |
+|    add   |   add_ln134_fu_150  |    0    |    39   |
+|          |  add_ln134_1_fu_162 |    0    |    39   |
 |----------|---------------------|---------|---------|
-|    xor   |   xor_ln133_fu_156  |    0    |    32   |
+|    xor   |   xor_ln134_fu_156  |    0    |    32   |
 |----------|---------------------|---------|---------|
 |   read   |  x_read_read_fu_38  |    0    |    0    |
 |----------|---------------------|---------|---------|
@@ -779,10 +779,10 @@ ret_ln133          (ret          ) [ 000]
 |----------|---------------------|---------|---------|
 |   trunc  |       d_fu_126      |    0    |    0    |
 |----------|---------------------|---------|---------|
-|          |  zext_ln133_fu_130  |    0    |    0    |
-|   zext   | zext_ln133_1_fu_135 |    0    |    0    |
-|          | zext_ln133_2_fu_140 |    0    |    0    |
-|          | zext_ln133_3_fu_145 |    0    |    0    |
+|          |  zext_ln134_fu_130  |    0    |    0    |
+|   zext   | zext_ln134_1_fu_135 |    0    |    0    |
+|          | zext_ln134_2_fu_140 |    0    |    0    |
+|          | zext_ln134_3_fu_145 |    0    |    0    |
 |----------|---------------------|---------|---------|
 |   Total  |                     |    0    |   110   |
 |----------|---------------------|---------|---------|

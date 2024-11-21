@@ -14,7 +14,7 @@ set isEnableWaveformDebug 1
 set C_modelName {Blowfish_SetKey}
 set C_modelType { int 576 }
 set C_modelArgList {
-	{ key int 8 regular {array 56 { 1 3 } 1 1 }  }
+	{ key int 8 regular {array 56 { 1 1 } 1 1 }  }
 	{ key_size int 64 regular  }
 	{ S_0 int 32 regular {array 256 { 2 0 } 1 1 }  }
 	{ S_1 int 32 regular {array 256 { 2 0 } 1 1 }  }
@@ -30,7 +30,7 @@ set C_modelArgMapList {[
  	{ "Name" : "S_3", "interface" : "memory", "bitwidth" : 32, "direction" : "READWRITE"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 576} ]}
 # RTL Port declarations: 
-set portNum 64
+set portNum 67
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -41,6 +41,9 @@ set portList {
 	{ key_address0 sc_out sc_lv 6 signal 0 } 
 	{ key_ce0 sc_out sc_logic 1 signal 0 } 
 	{ key_q0 sc_in sc_lv 8 signal 0 } 
+	{ key_address1 sc_out sc_lv 6 signal 0 } 
+	{ key_ce1 sc_out sc_logic 1 signal 0 } 
+	{ key_q1 sc_in sc_lv 8 signal 0 } 
 	{ key_size sc_in sc_lv 64 signal 1 } 
 	{ S_0_address0 sc_out sc_lv 8 signal 2 } 
 	{ S_0_ce0 sc_out sc_logic 1 signal 2 } 
@@ -107,6 +110,9 @@ set NewPortList {[
  	{ "name": "key_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "key", "role": "address0" }} , 
  	{ "name": "key_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "key", "role": "ce0" }} , 
  	{ "name": "key_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "key", "role": "q0" }} , 
+ 	{ "name": "key_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "key", "role": "address1" }} , 
+ 	{ "name": "key_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "key", "role": "ce1" }} , 
+ 	{ "name": "key_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "key", "role": "q1" }} , 
  	{ "name": "key_size", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "key_size", "role": "default" }} , 
  	{ "name": "S_0_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "S_0", "role": "address0" }} , 
  	{ "name": "S_0_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S_0", "role": "ce0" }} , 
@@ -164,13 +170,13 @@ set NewPortList {[
  	{ "name": "ap_return_17", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return_17", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47"],
 		"CDFG" : "Blowfish_SetKey",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "20878", "EstimateLatencyMax" : "20878",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "19236", "EstimateLatencyMax" : "19236",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -178,23 +184,34 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state29", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1753"},
-			{"State" : "ap_ST_fsm_state32", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1753"}],
+			{"State" : "ap_ST_fsm_state27", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state29", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state31", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state33", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state35", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state37", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state39", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state41", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state43", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state45", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state48", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state51", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"},
+			{"State" : "ap_ST_fsm_state54", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_Encrypt_SetKey_fu_1199"}],
 		"Port" : [
 			{"Name" : "key", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "key_size", "Type" : "None", "Direction" : "I"},
 			{"Name" : "S_0", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1753", "Port" : "S_0"}]},
+					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1199", "Port" : "S_0"}]},
 			{"Name" : "S_1", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1753", "Port" : "S_1"}]},
+					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1199", "Port" : "S_1"}]},
 			{"Name" : "S_2", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1753", "Port" : "S_2"}]},
+					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1199", "Port" : "S_2"}]},
 			{"Name" : "S_3", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1753", "Port" : "S_3"}]},
+					{"ID" : "5", "SubInstance" : "grp_Encrypt_SetKey_fu_1199", "Port" : "S_3"}]},
 			{"Name" : "initial_sbox_0", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "initial_sbox_1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "initial_sbox_2", "Type" : "Memory", "Direction" : "I"},
@@ -203,13 +220,13 @@ set RtlHierarchyInfo {[
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.initial_sbox_1_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.initial_sbox_2_U", "Parent" : "0"},
 	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.initial_sbox_3_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_Encrypt_SetKey_fu_1753", "Parent" : "0", "Child" : ["6"],
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_Encrypt_SetKey_fu_1199", "Parent" : "0", "Child" : ["6"],
 		"CDFG" : "Encrypt_SetKey",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "35", "EstimateLatencyMax" : "35",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "32", "EstimateLatencyMax" : "32",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -239,17 +256,17 @@ set RtlHierarchyInfo {[
 			{"Name" : "P_17_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "S_0", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_0"}]},
+					{"ID" : "6", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_0"}]},
 			{"Name" : "S_1", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_1"}]},
+					{"ID" : "6", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_1"}]},
 			{"Name" : "S_2", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_2"}]},
+					{"ID" : "6", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_2"}]},
 			{"Name" : "S_3", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_3"}]}]},
-	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_Encrypt_SetKey_fu_1753.grp_feistel_fu_297", "Parent" : "5",
+					{"ID" : "6", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_3"}]}]},
+	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_Encrypt_SetKey_fu_1199.grp_feistel_fu_174", "Parent" : "5",
 		"CDFG" : "feistel",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -258,7 +275,7 @@ set RtlHierarchyInfo {[
 		"VariableLatency" : "0", "ExactLatency" : "1", "EstimateLatencyMin" : "1", "EstimateLatencyMax" : "1",
 		"Combinational" : "0",
 		"Datapath" : "0",
-		"ClockEnable" : "0",
+		"ClockEnable" : "1",
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
@@ -269,10 +286,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "S_2", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "S_3", "Type" : "Memory", "Direction" : "I"}]},
 	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_EfYi_U30", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Eg8j_U31", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U32", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U33", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U34", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_EfYi_U31", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_EfYi_U32", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_EfYi_U33", "Parent" : "0"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Eg8j_U34", "Parent" : "0"},
 	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U35", "Parent" : "0"},
 	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U36", "Parent" : "0"},
 	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U37", "Parent" : "0"},
@@ -308,63 +325,12 @@ set RtlHierarchyInfo {[
 	{"ID" : "44", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U67", "Parent" : "0"},
 	{"ID" : "45", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U68", "Parent" : "0"},
 	{"ID" : "46", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U69", "Parent" : "0"},
-	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U70", "Parent" : "0"},
-	{"ID" : "48", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U71", "Parent" : "0"},
-	{"ID" : "49", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U72", "Parent" : "0"},
-	{"ID" : "50", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U73", "Parent" : "0"},
-	{"ID" : "51", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U74", "Parent" : "0"},
-	{"ID" : "52", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U75", "Parent" : "0"},
-	{"ID" : "53", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U76", "Parent" : "0"},
-	{"ID" : "54", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U77", "Parent" : "0"},
-	{"ID" : "55", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U78", "Parent" : "0"},
-	{"ID" : "56", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U79", "Parent" : "0"},
-	{"ID" : "57", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U80", "Parent" : "0"},
-	{"ID" : "58", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U81", "Parent" : "0"},
-	{"ID" : "59", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U82", "Parent" : "0"},
-	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U83", "Parent" : "0"},
-	{"ID" : "61", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U84", "Parent" : "0"},
-	{"ID" : "62", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U85", "Parent" : "0"},
-	{"ID" : "63", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U86", "Parent" : "0"},
-	{"ID" : "64", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U87", "Parent" : "0"},
-	{"ID" : "65", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U88", "Parent" : "0"},
-	{"ID" : "66", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U89", "Parent" : "0"},
-	{"ID" : "67", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U90", "Parent" : "0"},
-	{"ID" : "68", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U91", "Parent" : "0"},
-	{"ID" : "69", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U92", "Parent" : "0"},
-	{"ID" : "70", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U93", "Parent" : "0"},
-	{"ID" : "71", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U94", "Parent" : "0"},
-	{"ID" : "72", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U95", "Parent" : "0"},
-	{"ID" : "73", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U96", "Parent" : "0"},
-	{"ID" : "74", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U97", "Parent" : "0"},
-	{"ID" : "75", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U98", "Parent" : "0"},
-	{"ID" : "76", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U99", "Parent" : "0"},
-	{"ID" : "77", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U100", "Parent" : "0"},
-	{"ID" : "78", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U101", "Parent" : "0"},
-	{"ID" : "79", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U102", "Parent" : "0"},
-	{"ID" : "80", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U103", "Parent" : "0"},
-	{"ID" : "81", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U104", "Parent" : "0"},
-	{"ID" : "82", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U105", "Parent" : "0"},
-	{"ID" : "83", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U106", "Parent" : "0"},
-	{"ID" : "84", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U107", "Parent" : "0"},
-	{"ID" : "85", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U108", "Parent" : "0"},
-	{"ID" : "86", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U109", "Parent" : "0"},
-	{"ID" : "87", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U110", "Parent" : "0"},
-	{"ID" : "88", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U111", "Parent" : "0"},
-	{"ID" : "89", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U112", "Parent" : "0"},
-	{"ID" : "90", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U113", "Parent" : "0"},
-	{"ID" : "91", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U114", "Parent" : "0"},
-	{"ID" : "92", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U115", "Parent" : "0"},
-	{"ID" : "93", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U116", "Parent" : "0"},
-	{"ID" : "94", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U117", "Parent" : "0"},
-	{"ID" : "95", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U118", "Parent" : "0"},
-	{"ID" : "96", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U119", "Parent" : "0"},
-	{"ID" : "97", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U120", "Parent" : "0"},
-	{"ID" : "98", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U121", "Parent" : "0"}]}
+	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Blowfish_SetKey_Ehbi_U70", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	Blowfish_SetKey {
-		key {Type I LastRead 16 FirstWrite -1}
+		key {Type I LastRead 17 FirstWrite -1}
 		key_size {Type I LastRead 0 FirstWrite -1}
 		S_0 {Type IO LastRead 0 FirstWrite -1}
 		S_1 {Type IO LastRead 0 FirstWrite -1}
@@ -376,25 +342,25 @@ set ArgLastReadFirstWriteLatency {
 		initial_sbox_3 {Type I LastRead -1 FirstWrite -1}}
 	Encrypt_SetKey {
 		left_read {Type I LastRead 0 FirstWrite -1}
-		right_read {Type I LastRead 0 FirstWrite -1}
+		right_read {Type I LastRead 2 FirstWrite -1}
 		P_0_read {Type I LastRead 0 FirstWrite -1}
-		P_1_read {Type I LastRead 0 FirstWrite -1}
-		P_2_read {Type I LastRead 0 FirstWrite -1}
-		P_3_read {Type I LastRead 0 FirstWrite -1}
-		P_4_read {Type I LastRead 0 FirstWrite -1}
-		P_5_read {Type I LastRead 0 FirstWrite -1}
-		P_6_read {Type I LastRead 0 FirstWrite -1}
-		P_7_read {Type I LastRead 0 FirstWrite -1}
-		P_8_read {Type I LastRead 0 FirstWrite -1}
-		P_9_read {Type I LastRead 0 FirstWrite -1}
-		P_10_read {Type I LastRead 0 FirstWrite -1}
-		P_11_read {Type I LastRead 0 FirstWrite -1}
-		P_12_read {Type I LastRead 0 FirstWrite -1}
-		P_13_read {Type I LastRead 0 FirstWrite -1}
-		P_14_read {Type I LastRead 0 FirstWrite -1}
-		P_15_read {Type I LastRead 0 FirstWrite -1}
-		P_16_read {Type I LastRead 0 FirstWrite -1}
-		P_17_read {Type I LastRead 0 FirstWrite -1}
+		P_1_read {Type I LastRead 2 FirstWrite -1}
+		P_2_read {Type I LastRead 4 FirstWrite -1}
+		P_3_read {Type I LastRead 6 FirstWrite -1}
+		P_4_read {Type I LastRead 8 FirstWrite -1}
+		P_5_read {Type I LastRead 10 FirstWrite -1}
+		P_6_read {Type I LastRead 12 FirstWrite -1}
+		P_7_read {Type I LastRead 14 FirstWrite -1}
+		P_8_read {Type I LastRead 16 FirstWrite -1}
+		P_9_read {Type I LastRead 18 FirstWrite -1}
+		P_10_read {Type I LastRead 20 FirstWrite -1}
+		P_11_read {Type I LastRead 22 FirstWrite -1}
+		P_12_read {Type I LastRead 24 FirstWrite -1}
+		P_13_read {Type I LastRead 26 FirstWrite -1}
+		P_14_read {Type I LastRead 28 FirstWrite -1}
+		P_15_read {Type I LastRead 30 FirstWrite -1}
+		P_16_read {Type I LastRead 32 FirstWrite -1}
+		P_17_read {Type I LastRead 32 FirstWrite -1}
 		S_0 {Type I LastRead 0 FirstWrite -1}
 		S_1 {Type I LastRead 0 FirstWrite -1}
 		S_2 {Type I LastRead 0 FirstWrite -1}
@@ -409,16 +375,15 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "20878", "Max" : "20878"}
-	, {"Name" : "Interval", "Min" : "20878", "Max" : "20878"}
+	{"Name" : "Latency", "Min" : "19236", "Max" : "19236"}
+	, {"Name" : "Interval", "Min" : "19236", "Max" : "19236"}
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
-	key { ap_memory {  { key_address0 mem_address 1 6 }  { key_ce0 mem_ce 1 1 }  { key_q0 mem_dout 0 8 } } }
+	key { ap_memory {  { key_address0 mem_address 1 6 }  { key_ce0 mem_ce 1 1 }  { key_q0 mem_dout 0 8 }  { key_address1 MemPortADDR2 1 6 }  { key_ce1 MemPortCE2 1 1 }  { key_q1 MemPortDOUT2 0 8 } } }
 	key_size { ap_none {  { key_size in_data 0 64 } } }
 	S_0 { ap_memory {  { S_0_address0 mem_address 1 8 }  { S_0_ce0 mem_ce 1 1 }  { S_0_we0 mem_we 1 1 }  { S_0_d0 mem_din 1 32 }  { S_0_q0 mem_dout 0 32 }  { S_0_address1 MemPortADDR2 1 8 }  { S_0_ce1 MemPortCE2 1 1 }  { S_0_we1 MemPortWE2 1 1 }  { S_0_d1 MemPortDIN2 1 32 } } }
 	S_1 { ap_memory {  { S_1_address0 mem_address 1 8 }  { S_1_ce0 mem_ce 1 1 }  { S_1_we0 mem_we 1 1 }  { S_1_d0 mem_din 1 32 }  { S_1_q0 mem_dout 0 32 }  { S_1_address1 MemPortADDR2 1 8 }  { S_1_ce1 MemPortCE2 1 1 }  { S_1_we1 MemPortWE2 1 1 }  { S_1_d1 MemPortDIN2 1 32 } } }

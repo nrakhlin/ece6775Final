@@ -15,20 +15,26 @@
   "HlsSolution": {
     "DirectiveTcl": [
       "set_directive_unroll Blowfish_SetKey\/PARRAY_INIT_1 ",
-      "set_directive_pipeline Blowfish_SetKey\/XOR_PARRAY_2 ",
       "set_directive_unroll Blowfish_SetKey\/SBOX_INIT_1 ",
       "set_directive_unroll Blowfish_SetKey\/SBOX_INIT_2 -factor 4",
+      "set_directive_unroll Blowfish_SetKey\/XOR_PARRAY_2 ",
+      "set_directive_unroll Blowfish_SetKey\/GENERATE_PARRAY_1 ",
+      "set_directive_unroll Blowfish_SetKey\/GENERATE_SBOX_1 ",
+      "set_directive_unroll Encrypt_SetKey\/ENCRYPT_FEISTEL ",
       "set_directive_unroll Blowfish_Encrypt\/ENCRYPT_FEISTEL ",
-      "set_directive_pipeline Encrypt_SetKey\/ENCRYPT_FEISTEL ",
+      "set_directive_unroll Blowfish_Decrypt\/DECRYPT_FEISTEL ",
       "set_directive_pipeline feistel "
     ],
     "DirectiveInfo": [
       "unroll Blowfish_SetKey\/PARRAY_INIT_1 {} {}",
-      "pipeline Blowfish_SetKey\/XOR_PARRAY_2 {} {}",
       "unroll Blowfish_SetKey\/SBOX_INIT_1 {} {}",
       "unroll Blowfish_SetKey\/SBOX_INIT_2 {{factor 4}} {}",
+      "unroll Blowfish_SetKey\/XOR_PARRAY_2 {} {}",
+      "unroll Blowfish_SetKey\/GENERATE_PARRAY_1 {} {}",
+      "unroll Blowfish_SetKey\/GENERATE_SBOX_1 {} {}",
+      "unroll Encrypt_SetKey\/ENCRYPT_FEISTEL {} {}",
       "unroll Blowfish_Encrypt\/ENCRYPT_FEISTEL {} {}",
-      "pipeline Encrypt_SetKey\/ENCRYPT_FEISTEL {} {}",
+      "unroll Blowfish_Decrypt\/DECRYPT_FEISTEL {} {}",
       "pipeline feistel {} {}"
     ]
   },
@@ -50,7 +56,9 @@
         "arraySizes": ["56"],
         "multiInterfaceRef": [
           "key_address0",
-          "key_q0"
+          "key_address1",
+          "key_q0",
+          "key_q1"
         ]
       }
     },
@@ -122,7 +130,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "44",
+    "Latency": "38",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -140,6 +148,7 @@
   "Files": {
     "CSource": ["..\/..\/blowfish.cpp"],
     "Vhdl": [
+      "impl\/vhdl\/Blowfish_Encrypt.vhd",
       "impl\/vhdl\/Blowfish_SetKey.vhd",
       "impl\/vhdl\/Blowfish_SetKey_EfYi.vhd",
       "impl\/vhdl\/Blowfish_SetKey_Eg8j.vhd",
@@ -153,6 +162,7 @@
       "impl\/vhdl\/Blowfish_SetKey_Encrypt.vhd"
     ],
     "Verilog": [
+      "impl\/verilog\/Blowfish_Encrypt.v",
       "impl\/verilog\/Blowfish_SetKey.v",
       "impl\/verilog\/Blowfish_SetKey_EfYi.v",
       "impl\/verilog\/Blowfish_SetKey_Eg8j.v",
@@ -259,6 +269,17 @@
       "bundle_name": "key",
       "bundle_role": "address0"
     },
+    "key_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "6",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "6"
+        }},
+      "bundle_name": "key",
+      "bundle_role": "address1"
+    },
     "key_q0": {
       "type": "data",
       "dir": "in",
@@ -269,6 +290,17 @@
         }},
       "bundle_name": "key",
       "bundle_role": "q0"
+    },
+    "key_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "key",
+      "bundle_role": "q1"
     },
     "key_size": {
       "type": "data",
@@ -994,6 +1026,18 @@
       "dir": "in",
       "width": "8"
     },
+    "key_address1": {
+      "dir": "out",
+      "width": "6"
+    },
+    "key_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "key_q1": {
+      "dir": "in",
+      "width": "8"
+    },
     "key_size": {
       "dir": "in",
       "width": "64"
@@ -1421,22 +1465,22 @@
       "Instances": [
         {
           "ModuleName": "Blowfish_SetKey",
-          "InstanceName": "grp_Blowfish_SetKey_fu_520",
+          "InstanceName": "grp_Blowfish_SetKey_fu_326",
           "Instances": [{
               "ModuleName": "Encrypt_SetKey",
-              "InstanceName": "grp_Encrypt_SetKey_fu_1753",
+              "InstanceName": "grp_Encrypt_SetKey_fu_1199",
               "Instances": [{
                   "ModuleName": "feistel",
-                  "InstanceName": "grp_feistel_fu_297"
+                  "InstanceName": "grp_feistel_fu_174"
                 }]
             }]
         },
         {
-          "ModuleName": "Encrypt_SetKey",
-          "InstanceName": "grp_Encrypt_SetKey_fu_544",
+          "ModuleName": "Blowfish_Encrypt",
+          "InstanceName": "grp_Blowfish_Encrypt_fu_350",
           "Instances": [{
               "ModuleName": "feistel",
-              "InstanceName": "grp_feistel_fu_297"
+              "InstanceName": "grp_feistel_fu_362"
             }]
         }
       ]
@@ -1457,6 +1501,13 @@
         "isOneStateSeq": "0"
       },
       "Blowfish_SetKey": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Blowfish_Encrypt": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
         "isPipelined": "0",
@@ -1488,7 +1539,7 @@
         },
         "Area": {
           "FF": "2",
-          "LUT": "114",
+          "LUT": "116",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -1496,10 +1547,10 @@
       },
       "Encrypt_SetKey": {
         "Latency": {
-          "LatencyBest": "35",
-          "LatencyAvg": "35",
-          "LatencyWorst": "35",
-          "PipelineII": "35",
+          "LatencyBest": "32",
+          "LatencyAvg": "32",
+          "LatencyWorst": "32",
+          "PipelineII": "32",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1508,16 +1559,9 @@
           "Uncertainty": "1.25",
           "Estimate": "8.358"
         },
-        "Loops": [{
-            "Name": "ENCRYPT_FEISTEL",
-            "TripCount": "16",
-            "Latency": "33",
-            "PipelineII": "2",
-            "PipelineDepth": "4"
-          }],
         "Area": {
-          "FF": "181",
-          "LUT": "420",
+          "FF": "644",
+          "LUT": "1505",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -1525,17 +1569,17 @@
       },
       "Blowfish_SetKey": {
         "Latency": {
-          "LatencyBest": "20878",
-          "LatencyAvg": "20878",
-          "LatencyWorst": "20878",
-          "PipelineII": "20878",
+          "LatencyBest": "19236",
+          "LatencyAvg": "19236",
+          "LatencyWorst": "19236",
+          "PipelineII": "19236",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.358"
+          "Estimate": "9.715"
         },
         "Loops": [
           {
@@ -1569,55 +1613,53 @@
           {
             "Name": "XOR_PARRAY_1",
             "TripCount": "18",
-            "Latency": "306",
+            "Latency": "234",
             "PipelineII": "",
-            "PipelineDepth": "17",
-            "Loops": [{
-                "Name": "XOR_PARRAY_2",
-                "TripCount": "4",
-                "Latency": "14",
-                "PipelineII": "1",
-                "PipelineDepth": "12"
-              }]
+            "PipelineDepth": "13"
           },
           {
-            "Name": "GENERATE_PARRAY_1",
-            "TripCount": "9",
-            "Latency": "333",
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "4480",
             "PipelineII": "",
-            "PipelineDepth": "37"
+            "PipelineDepth": "35"
           },
           {
-            "Name": "GENERATE_SBOX_1",
-            "TripCount": "4",
-            "Latency": "19464",
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "4480",
             "PipelineII": "",
-            "PipelineDepth": "4866",
-            "Loops": [{
-                "Name": "GENERATE_SBOX_2",
-                "TripCount": "128",
-                "Latency": "4864",
-                "PipelineII": "",
-                "PipelineDepth": "38"
-              }]
+            "PipelineDepth": "35"
+          },
+          {
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "4480",
+            "PipelineII": "",
+            "PipelineDepth": "35"
+          },
+          {
+            "Name": "GENERATE_SBOX_2",
+            "TripCount": "128",
+            "Latency": "4480",
+            "PipelineII": "",
+            "PipelineDepth": "35"
           }
         ],
         "Area": {
           "BRAM_18K": "4",
-          "FF": "12356",
-          "LUT": "22220",
+          "FF": "6274",
+          "LUT": "10753",
           "DSP48E": "0",
           "URAM": "0"
         }
       },
-      "Blowfish_SetKey_Encrypt": {
+      "Blowfish_Encrypt": {
         "Latency": {
-          "LatencyBest": "44",
-          "LatencyAvg": "10483",
-          "LatencyWorst": "20922",
-          "PipelineIIMin": "45",
-          "PipelineIIMax": "20923",
-          "PipelineII": "45 ~ 20923",
+          "LatencyBest": "36",
+          "LatencyAvg": "36",
+          "LatencyWorst": "36",
+          "PipelineII": "36",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1627,9 +1669,33 @@
           "Estimate": "8.358"
         },
         "Area": {
+          "FF": "1088",
+          "LUT": "3288",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "Blowfish_SetKey_Encrypt": {
+        "Latency": {
+          "LatencyBest": "38",
+          "LatencyAvg": "9657",
+          "LatencyWorst": "19275",
+          "PipelineIIMin": "39",
+          "PipelineIIMax": "19276",
+          "PipelineII": "39 ~ 19276",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "9.715"
+        },
+        "Area": {
           "BRAM_18K": "4",
-          "FF": "12709",
-          "LUT": "23244",
+          "FF": "7368",
+          "LUT": "14458",
           "DSP48E": "0",
           "URAM": "0"
         }
@@ -1646,7 +1712,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-11-19 22:54:00 EST",
+    "Time": "2024-11-20 20:43:07 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

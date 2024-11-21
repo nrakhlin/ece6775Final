@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="Blowfish_SetKey_Encrypt,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.358000,HLS_SYN_LAT=10483,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=12709,HLS_SYN_LUT=23244,HLS_VERSION=2019_2}" *)
+(* CORE_GENERATION_INFO="Blowfish_SetKey_Encrypt,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=9.714650,HLS_SYN_LAT=9657,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=7368,HLS_SYN_LUT=14458,HLS_VERSION=2019_2}" *)
 
 module Blowfish_SetKey_Encrypt (
         ap_clk,
@@ -20,6 +20,9 @@ module Blowfish_SetKey_Encrypt (
         key_address0,
         key_ce0,
         key_q0,
+        key_address1,
+        key_ce1,
+        key_q1,
         key_size,
         plaintext_address0,
         plaintext_ce0,
@@ -127,16 +130,10 @@ module Blowfish_SetKey_Encrypt (
         S_3_d1
 );
 
-parameter    ap_ST_fsm_state1 = 10'd1;
-parameter    ap_ST_fsm_state2 = 10'd2;
-parameter    ap_ST_fsm_state3 = 10'd4;
-parameter    ap_ST_fsm_state4 = 10'd8;
-parameter    ap_ST_fsm_state5 = 10'd16;
-parameter    ap_ST_fsm_state6 = 10'd32;
-parameter    ap_ST_fsm_state7 = 10'd64;
-parameter    ap_ST_fsm_state8 = 10'd128;
-parameter    ap_ST_fsm_state9 = 10'd256;
-parameter    ap_ST_fsm_state10 = 10'd512;
+parameter    ap_ST_fsm_state1 = 4'd1;
+parameter    ap_ST_fsm_state2 = 4'd2;
+parameter    ap_ST_fsm_state3 = 4'd4;
+parameter    ap_ST_fsm_state4 = 4'd8;
 
 input   ap_clk;
 input   ap_rst;
@@ -148,6 +145,9 @@ input   set_key;
 output  [5:0] key_address0;
 output   key_ce0;
 input  [7:0] key_q0;
+output  [5:0] key_address1;
+output   key_ce1;
+input  [7:0] key_q1;
 input  [63:0] key_size;
 output  [2:0] plaintext_address0;
 output   plaintext_ce0;
@@ -257,18 +257,6 @@ output  [31:0] S_3_d1;
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
-reg[2:0] plaintext_address0;
-reg plaintext_ce0;
-reg[2:0] plaintext_address1;
-reg plaintext_ce1;
-reg[2:0] ciphertext_address0;
-reg ciphertext_ce0;
-reg ciphertext_we0;
-reg[7:0] ciphertext_d0;
-reg[2:0] ciphertext_address1;
-reg ciphertext_ce1;
-reg ciphertext_we1;
-reg[7:0] ciphertext_d1;
 reg[31:0] P_0_o;
 reg P_0_o_ap_vld;
 reg[31:0] P_1_o;
@@ -326,194 +314,196 @@ reg S_3_we0;
 reg S_3_ce1;
 reg S_3_we1;
 
-(* fsm_encoding = "none" *) reg   [9:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-wire   [0:0] set_key_read_read_fu_118_p2;
-wire    ap_CS_fsm_state2;
-wire    grp_Blowfish_SetKey_fu_520_ap_ready;
-wire    grp_Blowfish_SetKey_fu_520_ap_done;
-reg    ap_block_state2_on_subcall_done;
-reg   [7:0] plaintext_load_reg_801;
 wire    ap_CS_fsm_state3;
-reg   [7:0] plaintext_load_1_reg_806;
-reg   [7:0] plaintext_load_2_reg_821;
+wire    grp_Blowfish_SetKey_fu_326_ap_start;
+wire    grp_Blowfish_SetKey_fu_326_ap_done;
+wire    grp_Blowfish_SetKey_fu_326_ap_idle;
+wire    grp_Blowfish_SetKey_fu_326_ap_ready;
+wire   [5:0] grp_Blowfish_SetKey_fu_326_key_address0;
+wire    grp_Blowfish_SetKey_fu_326_key_ce0;
+wire   [5:0] grp_Blowfish_SetKey_fu_326_key_address1;
+wire    grp_Blowfish_SetKey_fu_326_key_ce1;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_0_address0;
+wire    grp_Blowfish_SetKey_fu_326_S_0_ce0;
+wire    grp_Blowfish_SetKey_fu_326_S_0_we0;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_0_d0;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_0_address1;
+wire    grp_Blowfish_SetKey_fu_326_S_0_ce1;
+wire    grp_Blowfish_SetKey_fu_326_S_0_we1;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_0_d1;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_1_address0;
+wire    grp_Blowfish_SetKey_fu_326_S_1_ce0;
+wire    grp_Blowfish_SetKey_fu_326_S_1_we0;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_1_d0;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_1_address1;
+wire    grp_Blowfish_SetKey_fu_326_S_1_ce1;
+wire    grp_Blowfish_SetKey_fu_326_S_1_we1;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_1_d1;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_2_address0;
+wire    grp_Blowfish_SetKey_fu_326_S_2_ce0;
+wire    grp_Blowfish_SetKey_fu_326_S_2_we0;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_2_d0;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_2_address1;
+wire    grp_Blowfish_SetKey_fu_326_S_2_ce1;
+wire    grp_Blowfish_SetKey_fu_326_S_2_we1;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_2_d1;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_3_address0;
+wire    grp_Blowfish_SetKey_fu_326_S_3_ce0;
+wire    grp_Blowfish_SetKey_fu_326_S_3_we0;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_3_d0;
+wire   [7:0] grp_Blowfish_SetKey_fu_326_S_3_address1;
+wire    grp_Blowfish_SetKey_fu_326_S_3_ce1;
+wire    grp_Blowfish_SetKey_fu_326_S_3_we1;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_S_3_d1;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_0;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_1;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_2;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_3;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_4;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_5;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_6;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_7;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_8;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_9;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_10;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_11;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_12;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_13;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_14;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_15;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_16;
+wire   [31:0] grp_Blowfish_SetKey_fu_326_ap_return_17;
+wire    grp_Blowfish_Encrypt_fu_350_ap_start;
+wire    grp_Blowfish_Encrypt_fu_350_ap_done;
+wire    grp_Blowfish_Encrypt_fu_350_ap_idle;
+wire    grp_Blowfish_Encrypt_fu_350_ap_ready;
+wire   [2:0] grp_Blowfish_Encrypt_fu_350_plaintext_address0;
+wire    grp_Blowfish_Encrypt_fu_350_plaintext_ce0;
+wire   [2:0] grp_Blowfish_Encrypt_fu_350_plaintext_address1;
+wire    grp_Blowfish_Encrypt_fu_350_plaintext_ce1;
+wire   [2:0] grp_Blowfish_Encrypt_fu_350_ciphertext_address0;
+wire    grp_Blowfish_Encrypt_fu_350_ciphertext_ce0;
+wire    grp_Blowfish_Encrypt_fu_350_ciphertext_we0;
+wire   [7:0] grp_Blowfish_Encrypt_fu_350_ciphertext_d0;
+wire   [2:0] grp_Blowfish_Encrypt_fu_350_ciphertext_address1;
+wire    grp_Blowfish_Encrypt_fu_350_ciphertext_ce1;
+wire    grp_Blowfish_Encrypt_fu_350_ciphertext_we1;
+wire   [7:0] grp_Blowfish_Encrypt_fu_350_ciphertext_d1;
+wire   [7:0] grp_Blowfish_Encrypt_fu_350_S_0_address0;
+wire    grp_Blowfish_Encrypt_fu_350_S_0_ce0;
+wire   [7:0] grp_Blowfish_Encrypt_fu_350_S_1_address0;
+wire    grp_Blowfish_Encrypt_fu_350_S_1_ce0;
+wire   [7:0] grp_Blowfish_Encrypt_fu_350_S_2_address0;
+wire    grp_Blowfish_Encrypt_fu_350_S_2_ce0;
+wire   [7:0] grp_Blowfish_Encrypt_fu_350_S_3_address0;
+wire    grp_Blowfish_Encrypt_fu_350_S_3_ce0;
+reg    grp_Blowfish_SetKey_fu_326_ap_start_reg;
+wire   [0:0] set_key_read_read_fu_86_p2;
+wire    ap_CS_fsm_state2;
+reg    grp_Blowfish_Encrypt_fu_350_ap_start_reg;
 wire    ap_CS_fsm_state4;
-reg   [7:0] plaintext_load_3_reg_826;
-reg   [7:0] plaintext_load_4_reg_841;
-wire    ap_CS_fsm_state5;
-reg   [7:0] plaintext_load_5_reg_846;
-wire   [31:0] left_1_fu_684_p5;
-reg   [31:0] left_1_reg_861;
-wire    ap_CS_fsm_state6;
-wire   [31:0] right_1_fu_693_p5;
-reg   [31:0] right_1_reg_866;
-reg   [7:0] trunc_ln2_reg_961;
-wire    ap_CS_fsm_state7;
-wire    grp_Encrypt_SetKey_fu_544_ap_ready;
-wire    grp_Encrypt_SetKey_fu_544_ap_done;
-wire   [7:0] trunc_ln237_fu_744_p1;
-reg   [7:0] trunc_ln237_reg_966;
-reg   [7:0] trunc_ln4_reg_971;
-reg   [7:0] trunc_ln5_reg_976;
-reg   [7:0] trunc_ln6_reg_981;
-wire   [7:0] trunc_ln241_fu_778_p1;
-reg   [7:0] trunc_ln241_reg_986;
-wire    grp_Blowfish_SetKey_fu_520_ap_start;
-wire    grp_Blowfish_SetKey_fu_520_ap_idle;
-wire   [5:0] grp_Blowfish_SetKey_fu_520_key_address0;
-wire    grp_Blowfish_SetKey_fu_520_key_ce0;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_0_address0;
-wire    grp_Blowfish_SetKey_fu_520_S_0_ce0;
-wire    grp_Blowfish_SetKey_fu_520_S_0_we0;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_0_d0;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_0_address1;
-wire    grp_Blowfish_SetKey_fu_520_S_0_ce1;
-wire    grp_Blowfish_SetKey_fu_520_S_0_we1;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_0_d1;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_1_address0;
-wire    grp_Blowfish_SetKey_fu_520_S_1_ce0;
-wire    grp_Blowfish_SetKey_fu_520_S_1_we0;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_1_d0;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_1_address1;
-wire    grp_Blowfish_SetKey_fu_520_S_1_ce1;
-wire    grp_Blowfish_SetKey_fu_520_S_1_we1;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_1_d1;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_2_address0;
-wire    grp_Blowfish_SetKey_fu_520_S_2_ce0;
-wire    grp_Blowfish_SetKey_fu_520_S_2_we0;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_2_d0;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_2_address1;
-wire    grp_Blowfish_SetKey_fu_520_S_2_ce1;
-wire    grp_Blowfish_SetKey_fu_520_S_2_we1;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_2_d1;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_3_address0;
-wire    grp_Blowfish_SetKey_fu_520_S_3_ce0;
-wire    grp_Blowfish_SetKey_fu_520_S_3_we0;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_3_d0;
-wire   [7:0] grp_Blowfish_SetKey_fu_520_S_3_address1;
-wire    grp_Blowfish_SetKey_fu_520_S_3_ce1;
-wire    grp_Blowfish_SetKey_fu_520_S_3_we1;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_S_3_d1;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_0;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_1;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_2;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_3;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_4;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_5;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_6;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_7;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_8;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_9;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_10;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_11;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_12;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_13;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_14;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_15;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_16;
-wire   [31:0] grp_Blowfish_SetKey_fu_520_ap_return_17;
-wire    grp_Encrypt_SetKey_fu_544_ap_start;
-wire    grp_Encrypt_SetKey_fu_544_ap_idle;
-wire   [7:0] grp_Encrypt_SetKey_fu_544_S_0_address0;
-wire    grp_Encrypt_SetKey_fu_544_S_0_ce0;
-wire   [7:0] grp_Encrypt_SetKey_fu_544_S_1_address0;
-wire    grp_Encrypt_SetKey_fu_544_S_1_ce0;
-wire   [7:0] grp_Encrypt_SetKey_fu_544_S_2_address0;
-wire    grp_Encrypt_SetKey_fu_544_S_2_ce0;
-wire   [7:0] grp_Encrypt_SetKey_fu_544_S_3_address0;
-wire    grp_Encrypt_SetKey_fu_544_S_3_ce0;
-wire   [31:0] grp_Encrypt_SetKey_fu_544_ap_return_0;
-wire   [31:0] grp_Encrypt_SetKey_fu_544_ap_return_1;
-reg    grp_Blowfish_SetKey_fu_520_ap_start_reg;
-reg    grp_Encrypt_SetKey_fu_544_ap_start_reg;
-wire    ap_CS_fsm_state8;
-wire    ap_CS_fsm_state9;
-wire    ap_CS_fsm_state10;
-reg   [9:0] ap_NS_fsm;
+reg   [3:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 10'd1;
-#0 grp_Blowfish_SetKey_fu_520_ap_start_reg = 1'b0;
-#0 grp_Encrypt_SetKey_fu_544_ap_start_reg = 1'b0;
+#0 ap_CS_fsm = 4'd1;
+#0 grp_Blowfish_SetKey_fu_326_ap_start_reg = 1'b0;
+#0 grp_Blowfish_Encrypt_fu_350_ap_start_reg = 1'b0;
 end
 
-Blowfish_SetKey grp_Blowfish_SetKey_fu_520(
+Blowfish_SetKey grp_Blowfish_SetKey_fu_326(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_Blowfish_SetKey_fu_520_ap_start),
-    .ap_done(grp_Blowfish_SetKey_fu_520_ap_done),
-    .ap_idle(grp_Blowfish_SetKey_fu_520_ap_idle),
-    .ap_ready(grp_Blowfish_SetKey_fu_520_ap_ready),
-    .key_address0(grp_Blowfish_SetKey_fu_520_key_address0),
-    .key_ce0(grp_Blowfish_SetKey_fu_520_key_ce0),
+    .ap_start(grp_Blowfish_SetKey_fu_326_ap_start),
+    .ap_done(grp_Blowfish_SetKey_fu_326_ap_done),
+    .ap_idle(grp_Blowfish_SetKey_fu_326_ap_idle),
+    .ap_ready(grp_Blowfish_SetKey_fu_326_ap_ready),
+    .key_address0(grp_Blowfish_SetKey_fu_326_key_address0),
+    .key_ce0(grp_Blowfish_SetKey_fu_326_key_ce0),
     .key_q0(key_q0),
+    .key_address1(grp_Blowfish_SetKey_fu_326_key_address1),
+    .key_ce1(grp_Blowfish_SetKey_fu_326_key_ce1),
+    .key_q1(key_q1),
     .key_size(key_size),
-    .S_0_address0(grp_Blowfish_SetKey_fu_520_S_0_address0),
-    .S_0_ce0(grp_Blowfish_SetKey_fu_520_S_0_ce0),
-    .S_0_we0(grp_Blowfish_SetKey_fu_520_S_0_we0),
-    .S_0_d0(grp_Blowfish_SetKey_fu_520_S_0_d0),
+    .S_0_address0(grp_Blowfish_SetKey_fu_326_S_0_address0),
+    .S_0_ce0(grp_Blowfish_SetKey_fu_326_S_0_ce0),
+    .S_0_we0(grp_Blowfish_SetKey_fu_326_S_0_we0),
+    .S_0_d0(grp_Blowfish_SetKey_fu_326_S_0_d0),
     .S_0_q0(S_0_q0),
-    .S_0_address1(grp_Blowfish_SetKey_fu_520_S_0_address1),
-    .S_0_ce1(grp_Blowfish_SetKey_fu_520_S_0_ce1),
-    .S_0_we1(grp_Blowfish_SetKey_fu_520_S_0_we1),
-    .S_0_d1(grp_Blowfish_SetKey_fu_520_S_0_d1),
-    .S_1_address0(grp_Blowfish_SetKey_fu_520_S_1_address0),
-    .S_1_ce0(grp_Blowfish_SetKey_fu_520_S_1_ce0),
-    .S_1_we0(grp_Blowfish_SetKey_fu_520_S_1_we0),
-    .S_1_d0(grp_Blowfish_SetKey_fu_520_S_1_d0),
+    .S_0_address1(grp_Blowfish_SetKey_fu_326_S_0_address1),
+    .S_0_ce1(grp_Blowfish_SetKey_fu_326_S_0_ce1),
+    .S_0_we1(grp_Blowfish_SetKey_fu_326_S_0_we1),
+    .S_0_d1(grp_Blowfish_SetKey_fu_326_S_0_d1),
+    .S_1_address0(grp_Blowfish_SetKey_fu_326_S_1_address0),
+    .S_1_ce0(grp_Blowfish_SetKey_fu_326_S_1_ce0),
+    .S_1_we0(grp_Blowfish_SetKey_fu_326_S_1_we0),
+    .S_1_d0(grp_Blowfish_SetKey_fu_326_S_1_d0),
     .S_1_q0(S_1_q0),
-    .S_1_address1(grp_Blowfish_SetKey_fu_520_S_1_address1),
-    .S_1_ce1(grp_Blowfish_SetKey_fu_520_S_1_ce1),
-    .S_1_we1(grp_Blowfish_SetKey_fu_520_S_1_we1),
-    .S_1_d1(grp_Blowfish_SetKey_fu_520_S_1_d1),
-    .S_2_address0(grp_Blowfish_SetKey_fu_520_S_2_address0),
-    .S_2_ce0(grp_Blowfish_SetKey_fu_520_S_2_ce0),
-    .S_2_we0(grp_Blowfish_SetKey_fu_520_S_2_we0),
-    .S_2_d0(grp_Blowfish_SetKey_fu_520_S_2_d0),
+    .S_1_address1(grp_Blowfish_SetKey_fu_326_S_1_address1),
+    .S_1_ce1(grp_Blowfish_SetKey_fu_326_S_1_ce1),
+    .S_1_we1(grp_Blowfish_SetKey_fu_326_S_1_we1),
+    .S_1_d1(grp_Blowfish_SetKey_fu_326_S_1_d1),
+    .S_2_address0(grp_Blowfish_SetKey_fu_326_S_2_address0),
+    .S_2_ce0(grp_Blowfish_SetKey_fu_326_S_2_ce0),
+    .S_2_we0(grp_Blowfish_SetKey_fu_326_S_2_we0),
+    .S_2_d0(grp_Blowfish_SetKey_fu_326_S_2_d0),
     .S_2_q0(S_2_q0),
-    .S_2_address1(grp_Blowfish_SetKey_fu_520_S_2_address1),
-    .S_2_ce1(grp_Blowfish_SetKey_fu_520_S_2_ce1),
-    .S_2_we1(grp_Blowfish_SetKey_fu_520_S_2_we1),
-    .S_2_d1(grp_Blowfish_SetKey_fu_520_S_2_d1),
-    .S_3_address0(grp_Blowfish_SetKey_fu_520_S_3_address0),
-    .S_3_ce0(grp_Blowfish_SetKey_fu_520_S_3_ce0),
-    .S_3_we0(grp_Blowfish_SetKey_fu_520_S_3_we0),
-    .S_3_d0(grp_Blowfish_SetKey_fu_520_S_3_d0),
+    .S_2_address1(grp_Blowfish_SetKey_fu_326_S_2_address1),
+    .S_2_ce1(grp_Blowfish_SetKey_fu_326_S_2_ce1),
+    .S_2_we1(grp_Blowfish_SetKey_fu_326_S_2_we1),
+    .S_2_d1(grp_Blowfish_SetKey_fu_326_S_2_d1),
+    .S_3_address0(grp_Blowfish_SetKey_fu_326_S_3_address0),
+    .S_3_ce0(grp_Blowfish_SetKey_fu_326_S_3_ce0),
+    .S_3_we0(grp_Blowfish_SetKey_fu_326_S_3_we0),
+    .S_3_d0(grp_Blowfish_SetKey_fu_326_S_3_d0),
     .S_3_q0(S_3_q0),
-    .S_3_address1(grp_Blowfish_SetKey_fu_520_S_3_address1),
-    .S_3_ce1(grp_Blowfish_SetKey_fu_520_S_3_ce1),
-    .S_3_we1(grp_Blowfish_SetKey_fu_520_S_3_we1),
-    .S_3_d1(grp_Blowfish_SetKey_fu_520_S_3_d1),
-    .ap_return_0(grp_Blowfish_SetKey_fu_520_ap_return_0),
-    .ap_return_1(grp_Blowfish_SetKey_fu_520_ap_return_1),
-    .ap_return_2(grp_Blowfish_SetKey_fu_520_ap_return_2),
-    .ap_return_3(grp_Blowfish_SetKey_fu_520_ap_return_3),
-    .ap_return_4(grp_Blowfish_SetKey_fu_520_ap_return_4),
-    .ap_return_5(grp_Blowfish_SetKey_fu_520_ap_return_5),
-    .ap_return_6(grp_Blowfish_SetKey_fu_520_ap_return_6),
-    .ap_return_7(grp_Blowfish_SetKey_fu_520_ap_return_7),
-    .ap_return_8(grp_Blowfish_SetKey_fu_520_ap_return_8),
-    .ap_return_9(grp_Blowfish_SetKey_fu_520_ap_return_9),
-    .ap_return_10(grp_Blowfish_SetKey_fu_520_ap_return_10),
-    .ap_return_11(grp_Blowfish_SetKey_fu_520_ap_return_11),
-    .ap_return_12(grp_Blowfish_SetKey_fu_520_ap_return_12),
-    .ap_return_13(grp_Blowfish_SetKey_fu_520_ap_return_13),
-    .ap_return_14(grp_Blowfish_SetKey_fu_520_ap_return_14),
-    .ap_return_15(grp_Blowfish_SetKey_fu_520_ap_return_15),
-    .ap_return_16(grp_Blowfish_SetKey_fu_520_ap_return_16),
-    .ap_return_17(grp_Blowfish_SetKey_fu_520_ap_return_17)
+    .S_3_address1(grp_Blowfish_SetKey_fu_326_S_3_address1),
+    .S_3_ce1(grp_Blowfish_SetKey_fu_326_S_3_ce1),
+    .S_3_we1(grp_Blowfish_SetKey_fu_326_S_3_we1),
+    .S_3_d1(grp_Blowfish_SetKey_fu_326_S_3_d1),
+    .ap_return_0(grp_Blowfish_SetKey_fu_326_ap_return_0),
+    .ap_return_1(grp_Blowfish_SetKey_fu_326_ap_return_1),
+    .ap_return_2(grp_Blowfish_SetKey_fu_326_ap_return_2),
+    .ap_return_3(grp_Blowfish_SetKey_fu_326_ap_return_3),
+    .ap_return_4(grp_Blowfish_SetKey_fu_326_ap_return_4),
+    .ap_return_5(grp_Blowfish_SetKey_fu_326_ap_return_5),
+    .ap_return_6(grp_Blowfish_SetKey_fu_326_ap_return_6),
+    .ap_return_7(grp_Blowfish_SetKey_fu_326_ap_return_7),
+    .ap_return_8(grp_Blowfish_SetKey_fu_326_ap_return_8),
+    .ap_return_9(grp_Blowfish_SetKey_fu_326_ap_return_9),
+    .ap_return_10(grp_Blowfish_SetKey_fu_326_ap_return_10),
+    .ap_return_11(grp_Blowfish_SetKey_fu_326_ap_return_11),
+    .ap_return_12(grp_Blowfish_SetKey_fu_326_ap_return_12),
+    .ap_return_13(grp_Blowfish_SetKey_fu_326_ap_return_13),
+    .ap_return_14(grp_Blowfish_SetKey_fu_326_ap_return_14),
+    .ap_return_15(grp_Blowfish_SetKey_fu_326_ap_return_15),
+    .ap_return_16(grp_Blowfish_SetKey_fu_326_ap_return_16),
+    .ap_return_17(grp_Blowfish_SetKey_fu_326_ap_return_17)
 );
 
-Encrypt_SetKey grp_Encrypt_SetKey_fu_544(
+Blowfish_Encrypt grp_Blowfish_Encrypt_fu_350(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_Encrypt_SetKey_fu_544_ap_start),
-    .ap_done(grp_Encrypt_SetKey_fu_544_ap_done),
-    .ap_idle(grp_Encrypt_SetKey_fu_544_ap_idle),
-    .ap_ready(grp_Encrypt_SetKey_fu_544_ap_ready),
-    .left_read(left_1_reg_861),
-    .right_read(right_1_reg_866),
+    .ap_start(grp_Blowfish_Encrypt_fu_350_ap_start),
+    .ap_done(grp_Blowfish_Encrypt_fu_350_ap_done),
+    .ap_idle(grp_Blowfish_Encrypt_fu_350_ap_idle),
+    .ap_ready(grp_Blowfish_Encrypt_fu_350_ap_ready),
+    .plaintext_address0(grp_Blowfish_Encrypt_fu_350_plaintext_address0),
+    .plaintext_ce0(grp_Blowfish_Encrypt_fu_350_plaintext_ce0),
+    .plaintext_q0(plaintext_q0),
+    .plaintext_address1(grp_Blowfish_Encrypt_fu_350_plaintext_address1),
+    .plaintext_ce1(grp_Blowfish_Encrypt_fu_350_plaintext_ce1),
+    .plaintext_q1(plaintext_q1),
+    .ciphertext_address0(grp_Blowfish_Encrypt_fu_350_ciphertext_address0),
+    .ciphertext_ce0(grp_Blowfish_Encrypt_fu_350_ciphertext_ce0),
+    .ciphertext_we0(grp_Blowfish_Encrypt_fu_350_ciphertext_we0),
+    .ciphertext_d0(grp_Blowfish_Encrypt_fu_350_ciphertext_d0),
+    .ciphertext_address1(grp_Blowfish_Encrypt_fu_350_ciphertext_address1),
+    .ciphertext_ce1(grp_Blowfish_Encrypt_fu_350_ciphertext_ce1),
+    .ciphertext_we1(grp_Blowfish_Encrypt_fu_350_ciphertext_we1),
+    .ciphertext_d1(grp_Blowfish_Encrypt_fu_350_ciphertext_d1),
     .P_0_read(P_0_i),
     .P_1_read(P_1_i),
     .P_2_read(P_2_i),
@@ -532,20 +522,18 @@ Encrypt_SetKey grp_Encrypt_SetKey_fu_544(
     .P_15_read(P_15_i),
     .P_16_read(P_16_i),
     .P_17_read(P_17_i),
-    .S_0_address0(grp_Encrypt_SetKey_fu_544_S_0_address0),
-    .S_0_ce0(grp_Encrypt_SetKey_fu_544_S_0_ce0),
+    .S_0_address0(grp_Blowfish_Encrypt_fu_350_S_0_address0),
+    .S_0_ce0(grp_Blowfish_Encrypt_fu_350_S_0_ce0),
     .S_0_q0(S_0_q0),
-    .S_1_address0(grp_Encrypt_SetKey_fu_544_S_1_address0),
-    .S_1_ce0(grp_Encrypt_SetKey_fu_544_S_1_ce0),
+    .S_1_address0(grp_Blowfish_Encrypt_fu_350_S_1_address0),
+    .S_1_ce0(grp_Blowfish_Encrypt_fu_350_S_1_ce0),
     .S_1_q0(S_1_q0),
-    .S_2_address0(grp_Encrypt_SetKey_fu_544_S_2_address0),
-    .S_2_ce0(grp_Encrypt_SetKey_fu_544_S_2_ce0),
+    .S_2_address0(grp_Blowfish_Encrypt_fu_350_S_2_address0),
+    .S_2_ce0(grp_Blowfish_Encrypt_fu_350_S_2_ce0),
     .S_2_q0(S_2_q0),
-    .S_3_address0(grp_Encrypt_SetKey_fu_544_S_3_address0),
-    .S_3_ce0(grp_Encrypt_SetKey_fu_544_S_3_ce0),
-    .S_3_q0(S_3_q0),
-    .ap_return_0(grp_Encrypt_SetKey_fu_544_ap_return_0),
-    .ap_return_1(grp_Encrypt_SetKey_fu_544_ap_return_1)
+    .S_3_address0(grp_Blowfish_Encrypt_fu_350_S_3_address0),
+    .S_3_ce0(grp_Blowfish_Encrypt_fu_350_S_3_ce0),
+    .S_3_q0(S_3_q0)
 );
 
 always @ (posedge ap_clk) begin
@@ -558,77 +546,38 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_Blowfish_SetKey_fu_520_ap_start_reg <= 1'b0;
+        grp_Blowfish_Encrypt_fu_350_ap_start_reg <= 1'b0;
     end else begin
-        if (((1'b1 == ap_CS_fsm_state1) & (set_key_read_read_fu_118_p2 == 1'd1) & (ap_start == 1'b1))) begin
-            grp_Blowfish_SetKey_fu_520_ap_start_reg <= 1'b1;
-        end else if ((grp_Blowfish_SetKey_fu_520_ap_ready == 1'b1)) begin
-            grp_Blowfish_SetKey_fu_520_ap_start_reg <= 1'b0;
+        if ((1'b1 == ap_CS_fsm_state3)) begin
+            grp_Blowfish_Encrypt_fu_350_ap_start_reg <= 1'b1;
+        end else if ((grp_Blowfish_Encrypt_fu_350_ap_ready == 1'b1)) begin
+            grp_Blowfish_Encrypt_fu_350_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_Encrypt_SetKey_fu_544_ap_start_reg <= 1'b0;
+        grp_Blowfish_SetKey_fu_326_ap_start_reg <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state6)) begin
-            grp_Encrypt_SetKey_fu_544_ap_start_reg <= 1'b1;
-        end else if ((grp_Encrypt_SetKey_fu_544_ap_ready == 1'b1)) begin
-            grp_Encrypt_SetKey_fu_544_ap_start_reg <= 1'b0;
+        if (((ap_start == 1'b1) & (set_key_read_read_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+            grp_Blowfish_SetKey_fu_326_ap_start_reg <= 1'b1;
+        end else if ((grp_Blowfish_SetKey_fu_326_ap_ready == 1'b1)) begin
+            grp_Blowfish_SetKey_fu_326_ap_start_reg <= 1'b0;
         end
     end
 end
 
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        left_1_reg_861 <= left_1_fu_684_p5;
-        right_1_reg_866 <= right_1_fu_693_p5;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        plaintext_load_1_reg_806 <= plaintext_q1;
-        plaintext_load_reg_801 <= plaintext_q0;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext_load_2_reg_821 <= plaintext_q0;
-        plaintext_load_3_reg_826 <= plaintext_q1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        plaintext_load_4_reg_841 <= plaintext_q0;
-        plaintext_load_5_reg_846 <= plaintext_q1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((grp_Encrypt_SetKey_fu_544_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-        trunc_ln237_reg_966 <= trunc_ln237_fu_744_p1;
-        trunc_ln241_reg_986 <= trunc_ln241_fu_778_p1;
-        trunc_ln2_reg_961 <= {{grp_Encrypt_SetKey_fu_544_ap_return_0[15:8]}};
-        trunc_ln4_reg_971 <= {{grp_Encrypt_SetKey_fu_544_ap_return_1[31:24]}};
-        trunc_ln5_reg_976 <= {{grp_Encrypt_SetKey_fu_544_ap_return_1[23:16]}};
-        trunc_ln6_reg_981 <= {{grp_Encrypt_SetKey_fu_544_ap_return_1[15:8]}};
-    end
-end
-
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_0_o = grp_Blowfish_SetKey_fu_520_ap_return_0;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_0_o = grp_Blowfish_SetKey_fu_326_ap_return_0;
     end else begin
         P_0_o = P_0_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_0_o_ap_vld = 1'b1;
     end else begin
         P_0_o_ap_vld = 1'b0;
@@ -636,15 +585,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_10_o = grp_Blowfish_SetKey_fu_520_ap_return_10;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_10_o = grp_Blowfish_SetKey_fu_326_ap_return_10;
     end else begin
         P_10_o = P_10_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_10_o_ap_vld = 1'b1;
     end else begin
         P_10_o_ap_vld = 1'b0;
@@ -652,15 +601,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_11_o = grp_Blowfish_SetKey_fu_520_ap_return_11;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_11_o = grp_Blowfish_SetKey_fu_326_ap_return_11;
     end else begin
         P_11_o = P_11_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_11_o_ap_vld = 1'b1;
     end else begin
         P_11_o_ap_vld = 1'b0;
@@ -668,15 +617,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_12_o = grp_Blowfish_SetKey_fu_520_ap_return_12;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_12_o = grp_Blowfish_SetKey_fu_326_ap_return_12;
     end else begin
         P_12_o = P_12_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_12_o_ap_vld = 1'b1;
     end else begin
         P_12_o_ap_vld = 1'b0;
@@ -684,15 +633,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_13_o = grp_Blowfish_SetKey_fu_520_ap_return_13;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_13_o = grp_Blowfish_SetKey_fu_326_ap_return_13;
     end else begin
         P_13_o = P_13_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_13_o_ap_vld = 1'b1;
     end else begin
         P_13_o_ap_vld = 1'b0;
@@ -700,15 +649,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_14_o = grp_Blowfish_SetKey_fu_520_ap_return_14;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_14_o = grp_Blowfish_SetKey_fu_326_ap_return_14;
     end else begin
         P_14_o = P_14_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_14_o_ap_vld = 1'b1;
     end else begin
         P_14_o_ap_vld = 1'b0;
@@ -716,15 +665,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_15_o = grp_Blowfish_SetKey_fu_520_ap_return_15;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_15_o = grp_Blowfish_SetKey_fu_326_ap_return_15;
     end else begin
         P_15_o = P_15_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_15_o_ap_vld = 1'b1;
     end else begin
         P_15_o_ap_vld = 1'b0;
@@ -732,15 +681,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_16_o = grp_Blowfish_SetKey_fu_520_ap_return_16;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_16_o = grp_Blowfish_SetKey_fu_326_ap_return_16;
     end else begin
         P_16_o = P_16_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_16_o_ap_vld = 1'b1;
     end else begin
         P_16_o_ap_vld = 1'b0;
@@ -748,15 +697,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_17_o = grp_Blowfish_SetKey_fu_520_ap_return_17;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_17_o = grp_Blowfish_SetKey_fu_326_ap_return_17;
     end else begin
         P_17_o = P_17_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_17_o_ap_vld = 1'b1;
     end else begin
         P_17_o_ap_vld = 1'b0;
@@ -764,15 +713,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_1_o = grp_Blowfish_SetKey_fu_520_ap_return_1;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_1_o = grp_Blowfish_SetKey_fu_326_ap_return_1;
     end else begin
         P_1_o = P_1_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_1_o_ap_vld = 1'b1;
     end else begin
         P_1_o_ap_vld = 1'b0;
@@ -780,15 +729,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_2_o = grp_Blowfish_SetKey_fu_520_ap_return_2;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_2_o = grp_Blowfish_SetKey_fu_326_ap_return_2;
     end else begin
         P_2_o = P_2_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_2_o_ap_vld = 1'b1;
     end else begin
         P_2_o_ap_vld = 1'b0;
@@ -796,15 +745,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_3_o = grp_Blowfish_SetKey_fu_520_ap_return_3;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_3_o = grp_Blowfish_SetKey_fu_326_ap_return_3;
     end else begin
         P_3_o = P_3_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_3_o_ap_vld = 1'b1;
     end else begin
         P_3_o_ap_vld = 1'b0;
@@ -812,15 +761,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_4_o = grp_Blowfish_SetKey_fu_520_ap_return_4;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_4_o = grp_Blowfish_SetKey_fu_326_ap_return_4;
     end else begin
         P_4_o = P_4_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_4_o_ap_vld = 1'b1;
     end else begin
         P_4_o_ap_vld = 1'b0;
@@ -828,15 +777,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_5_o = grp_Blowfish_SetKey_fu_520_ap_return_5;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_5_o = grp_Blowfish_SetKey_fu_326_ap_return_5;
     end else begin
         P_5_o = P_5_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_5_o_ap_vld = 1'b1;
     end else begin
         P_5_o_ap_vld = 1'b0;
@@ -844,15 +793,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_6_o = grp_Blowfish_SetKey_fu_520_ap_return_6;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_6_o = grp_Blowfish_SetKey_fu_326_ap_return_6;
     end else begin
         P_6_o = P_6_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_6_o_ap_vld = 1'b1;
     end else begin
         P_6_o_ap_vld = 1'b0;
@@ -860,15 +809,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_7_o = grp_Blowfish_SetKey_fu_520_ap_return_7;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_7_o = grp_Blowfish_SetKey_fu_326_ap_return_7;
     end else begin
         P_7_o = P_7_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_7_o_ap_vld = 1'b1;
     end else begin
         P_7_o_ap_vld = 1'b0;
@@ -876,15 +825,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_8_o = grp_Blowfish_SetKey_fu_520_ap_return_8;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_8_o = grp_Blowfish_SetKey_fu_326_ap_return_8;
     end else begin
         P_8_o = P_8_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_8_o_ap_vld = 1'b1;
     end else begin
         P_8_o_ap_vld = 1'b0;
@@ -892,15 +841,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        P_9_o = grp_Blowfish_SetKey_fu_520_ap_return_9;
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+        P_9_o = grp_Blowfish_SetKey_fu_326_ap_return_9;
     end else begin
         P_9_o = P_9_i;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
+    if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         P_9_o_ap_vld = 1'b1;
     end else begin
         P_9_o_ap_vld = 1'b0;
@@ -908,183 +857,183 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_0_address0 = grp_Encrypt_SetKey_fu_544_S_0_address0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_0_address0 = grp_Blowfish_SetKey_fu_520_S_0_address0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_0_address0 = grp_Blowfish_Encrypt_fu_350_S_0_address0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_0_address0 = grp_Blowfish_SetKey_fu_326_S_0_address0;
     end else begin
         S_0_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_0_ce0 = grp_Encrypt_SetKey_fu_544_S_0_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_0_ce0 = grp_Blowfish_SetKey_fu_520_S_0_ce0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_0_ce0 = grp_Blowfish_Encrypt_fu_350_S_0_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_0_ce0 = grp_Blowfish_SetKey_fu_326_S_0_ce0;
     end else begin
         S_0_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_0_ce1 = grp_Blowfish_SetKey_fu_520_S_0_ce1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_0_ce1 = grp_Blowfish_SetKey_fu_326_S_0_ce1;
     end else begin
         S_0_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_0_we0 = grp_Blowfish_SetKey_fu_520_S_0_we0;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_0_we0 = grp_Blowfish_SetKey_fu_326_S_0_we0;
     end else begin
         S_0_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_0_we1 = grp_Blowfish_SetKey_fu_520_S_0_we1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_0_we1 = grp_Blowfish_SetKey_fu_326_S_0_we1;
     end else begin
         S_0_we1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_1_address0 = grp_Encrypt_SetKey_fu_544_S_1_address0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_1_address0 = grp_Blowfish_SetKey_fu_520_S_1_address0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_1_address0 = grp_Blowfish_Encrypt_fu_350_S_1_address0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_1_address0 = grp_Blowfish_SetKey_fu_326_S_1_address0;
     end else begin
         S_1_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_1_ce0 = grp_Encrypt_SetKey_fu_544_S_1_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_1_ce0 = grp_Blowfish_SetKey_fu_520_S_1_ce0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_1_ce0 = grp_Blowfish_Encrypt_fu_350_S_1_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_1_ce0 = grp_Blowfish_SetKey_fu_326_S_1_ce0;
     end else begin
         S_1_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_1_ce1 = grp_Blowfish_SetKey_fu_520_S_1_ce1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_1_ce1 = grp_Blowfish_SetKey_fu_326_S_1_ce1;
     end else begin
         S_1_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_1_we0 = grp_Blowfish_SetKey_fu_520_S_1_we0;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_1_we0 = grp_Blowfish_SetKey_fu_326_S_1_we0;
     end else begin
         S_1_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_1_we1 = grp_Blowfish_SetKey_fu_520_S_1_we1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_1_we1 = grp_Blowfish_SetKey_fu_326_S_1_we1;
     end else begin
         S_1_we1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_2_address0 = grp_Encrypt_SetKey_fu_544_S_2_address0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_2_address0 = grp_Blowfish_SetKey_fu_520_S_2_address0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_2_address0 = grp_Blowfish_Encrypt_fu_350_S_2_address0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_2_address0 = grp_Blowfish_SetKey_fu_326_S_2_address0;
     end else begin
         S_2_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_2_ce0 = grp_Encrypt_SetKey_fu_544_S_2_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_2_ce0 = grp_Blowfish_SetKey_fu_520_S_2_ce0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_2_ce0 = grp_Blowfish_Encrypt_fu_350_S_2_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_2_ce0 = grp_Blowfish_SetKey_fu_326_S_2_ce0;
     end else begin
         S_2_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_2_ce1 = grp_Blowfish_SetKey_fu_520_S_2_ce1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_2_ce1 = grp_Blowfish_SetKey_fu_326_S_2_ce1;
     end else begin
         S_2_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_2_we0 = grp_Blowfish_SetKey_fu_520_S_2_we0;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_2_we0 = grp_Blowfish_SetKey_fu_326_S_2_we0;
     end else begin
         S_2_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_2_we1 = grp_Blowfish_SetKey_fu_520_S_2_we1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_2_we1 = grp_Blowfish_SetKey_fu_326_S_2_we1;
     end else begin
         S_2_we1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_3_address0 = grp_Encrypt_SetKey_fu_544_S_3_address0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_3_address0 = grp_Blowfish_SetKey_fu_520_S_3_address0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_3_address0 = grp_Blowfish_Encrypt_fu_350_S_3_address0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_3_address0 = grp_Blowfish_SetKey_fu_326_S_3_address0;
     end else begin
         S_3_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        S_3_ce0 = grp_Encrypt_SetKey_fu_544_S_3_ce0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_3_ce0 = grp_Blowfish_SetKey_fu_520_S_3_ce0;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        S_3_ce0 = grp_Blowfish_Encrypt_fu_350_S_3_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_3_ce0 = grp_Blowfish_SetKey_fu_326_S_3_ce0;
     end else begin
         S_3_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_3_ce1 = grp_Blowfish_SetKey_fu_520_S_3_ce1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_3_ce1 = grp_Blowfish_SetKey_fu_326_S_3_ce1;
     end else begin
         S_3_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_3_we0 = grp_Blowfish_SetKey_fu_520_S_3_we0;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_3_we0 = grp_Blowfish_SetKey_fu_326_S_3_we0;
     end else begin
         S_3_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (set_key_read_read_fu_118_p2 == 1'd1))) begin
-        S_3_we1 = grp_Blowfish_SetKey_fu_520_S_3_we1;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        S_3_we1 = grp_Blowfish_SetKey_fu_326_S_3_we1;
     end else begin
         S_3_we1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state10)) begin
+    if (((grp_Blowfish_Encrypt_fu_350_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -1100,7 +1049,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state10)) begin
+    if (((grp_Blowfish_Encrypt_fu_350_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -1108,148 +1057,18 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state10)) begin
-        ciphertext_address0 = 64'd6;
-    end else if ((1'b1 == ap_CS_fsm_state9)) begin
-        ciphertext_address0 = 64'd4;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        ciphertext_address0 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        ciphertext_address0 = 64'd0;
-    end else begin
-        ciphertext_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state10)) begin
-        ciphertext_address1 = 64'd7;
-    end else if ((1'b1 == ap_CS_fsm_state9)) begin
-        ciphertext_address1 = 64'd5;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        ciphertext_address1 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        ciphertext_address1 = 64'd1;
-    end else begin
-        ciphertext_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state8) | ((grp_Encrypt_SetKey_fu_544_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7)))) begin
-        ciphertext_ce0 = 1'b1;
-    end else begin
-        ciphertext_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state8) | ((grp_Encrypt_SetKey_fu_544_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7)))) begin
-        ciphertext_ce1 = 1'b1;
-    end else begin
-        ciphertext_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state10)) begin
-        ciphertext_d0 = trunc_ln6_reg_981;
-    end else if ((1'b1 == ap_CS_fsm_state9)) begin
-        ciphertext_d0 = trunc_ln4_reg_971;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        ciphertext_d0 = trunc_ln2_reg_961;
-    end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        ciphertext_d0 = {{grp_Encrypt_SetKey_fu_544_ap_return_0[31:24]}};
-    end else begin
-        ciphertext_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state10)) begin
-        ciphertext_d1 = trunc_ln241_reg_986;
-    end else if ((1'b1 == ap_CS_fsm_state9)) begin
-        ciphertext_d1 = trunc_ln5_reg_976;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        ciphertext_d1 = trunc_ln237_reg_966;
-    end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        ciphertext_d1 = {{grp_Encrypt_SetKey_fu_544_ap_return_0[23:16]}};
-    end else begin
-        ciphertext_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state8) | ((grp_Encrypt_SetKey_fu_544_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7)))) begin
-        ciphertext_we0 = 1'b1;
-    end else begin
-        ciphertext_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state10) | (1'b1 == ap_CS_fsm_state9) | (1'b1 == ap_CS_fsm_state8) | ((grp_Encrypt_SetKey_fu_544_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7)))) begin
-        ciphertext_we1 = 1'b1;
-    end else begin
-        ciphertext_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        plaintext_address0 = 64'd6;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext_address0 = 64'd4;
-    end else if ((1'b1 == ap_CS_fsm_state3)) begin
-        plaintext_address0 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        plaintext_address0 = 64'd0;
-    end else begin
-        plaintext_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        plaintext_address1 = 64'd7;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext_address1 = 64'd5;
-    end else if ((1'b1 == ap_CS_fsm_state3)) begin
-        plaintext_address1 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        plaintext_address1 = 64'd1;
-    end else begin
-        plaintext_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | ((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done)))) begin
-        plaintext_ce0 = 1'b1;
-    end else begin
-        plaintext_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state5) | (1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3) | ((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done)))) begin
-        plaintext_ce1 = 1'b1;
-    end else begin
-        plaintext_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+            if (((ap_start == 1'b1) & (set_key_read_read_fu_86_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+                ap_NS_fsm = ap_ST_fsm_state3;
+            end else if (((ap_start == 1'b1) & (set_key_read_read_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (1'b0 == ap_block_state2_on_subcall_done))) begin
+            if (((grp_Blowfish_SetKey_fu_326_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -1259,29 +1078,11 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            ap_NS_fsm = ap_ST_fsm_state5;
-        end
-        ap_ST_fsm_state5 : begin
-            ap_NS_fsm = ap_ST_fsm_state6;
-        end
-        ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        ap_ST_fsm_state7 : begin
-            if (((grp_Encrypt_SetKey_fu_544_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state7))) begin
-                ap_NS_fsm = ap_ST_fsm_state8;
+            if (((grp_Blowfish_Encrypt_fu_350_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+                ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state7;
+                ap_NS_fsm = ap_ST_fsm_state4;
             end
-        end
-        ap_ST_fsm_state8 : begin
-            ap_NS_fsm = ap_ST_fsm_state9;
-        end
-        ap_ST_fsm_state9 : begin
-            ap_NS_fsm = ap_ST_fsm_state10;
-        end
-        ap_ST_fsm_state10 : begin
-            ap_NS_fsm = ap_ST_fsm_state1;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -1289,33 +1090,31 @@ always @ (*) begin
     endcase
 end
 
-assign S_0_address1 = grp_Blowfish_SetKey_fu_520_S_0_address1;
+assign S_0_address1 = grp_Blowfish_SetKey_fu_326_S_0_address1;
 
-assign S_0_d0 = grp_Blowfish_SetKey_fu_520_S_0_d0;
+assign S_0_d0 = grp_Blowfish_SetKey_fu_326_S_0_d0;
 
-assign S_0_d1 = grp_Blowfish_SetKey_fu_520_S_0_d1;
+assign S_0_d1 = grp_Blowfish_SetKey_fu_326_S_0_d1;
 
-assign S_1_address1 = grp_Blowfish_SetKey_fu_520_S_1_address1;
+assign S_1_address1 = grp_Blowfish_SetKey_fu_326_S_1_address1;
 
-assign S_1_d0 = grp_Blowfish_SetKey_fu_520_S_1_d0;
+assign S_1_d0 = grp_Blowfish_SetKey_fu_326_S_1_d0;
 
-assign S_1_d1 = grp_Blowfish_SetKey_fu_520_S_1_d1;
+assign S_1_d1 = grp_Blowfish_SetKey_fu_326_S_1_d1;
 
-assign S_2_address1 = grp_Blowfish_SetKey_fu_520_S_2_address1;
+assign S_2_address1 = grp_Blowfish_SetKey_fu_326_S_2_address1;
 
-assign S_2_d0 = grp_Blowfish_SetKey_fu_520_S_2_d0;
+assign S_2_d0 = grp_Blowfish_SetKey_fu_326_S_2_d0;
 
-assign S_2_d1 = grp_Blowfish_SetKey_fu_520_S_2_d1;
+assign S_2_d1 = grp_Blowfish_SetKey_fu_326_S_2_d1;
 
-assign S_3_address1 = grp_Blowfish_SetKey_fu_520_S_3_address1;
+assign S_3_address1 = grp_Blowfish_SetKey_fu_326_S_3_address1;
 
-assign S_3_d0 = grp_Blowfish_SetKey_fu_520_S_3_d0;
+assign S_3_d0 = grp_Blowfish_SetKey_fu_326_S_3_d0;
 
-assign S_3_d1 = grp_Blowfish_SetKey_fu_520_S_3_d1;
+assign S_3_d1 = grp_Blowfish_SetKey_fu_326_S_3_d1;
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
-
-assign ap_CS_fsm_state10 = ap_CS_fsm[32'd9];
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
@@ -1323,36 +1122,42 @@ assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
 assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
-assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+assign ciphertext_address0 = grp_Blowfish_Encrypt_fu_350_ciphertext_address0;
 
-assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
+assign ciphertext_address1 = grp_Blowfish_Encrypt_fu_350_ciphertext_address1;
 
-assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
+assign ciphertext_ce0 = grp_Blowfish_Encrypt_fu_350_ciphertext_ce0;
 
-assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
+assign ciphertext_ce1 = grp_Blowfish_Encrypt_fu_350_ciphertext_ce1;
 
-assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
+assign ciphertext_d0 = grp_Blowfish_Encrypt_fu_350_ciphertext_d0;
 
-always @ (*) begin
-    ap_block_state2_on_subcall_done = ((grp_Blowfish_SetKey_fu_520_ap_done == 1'b0) & (set_key_read_read_fu_118_p2 == 1'd1));
-end
+assign ciphertext_d1 = grp_Blowfish_Encrypt_fu_350_ciphertext_d1;
 
-assign grp_Blowfish_SetKey_fu_520_ap_start = grp_Blowfish_SetKey_fu_520_ap_start_reg;
+assign ciphertext_we0 = grp_Blowfish_Encrypt_fu_350_ciphertext_we0;
 
-assign grp_Encrypt_SetKey_fu_544_ap_start = grp_Encrypt_SetKey_fu_544_ap_start_reg;
+assign ciphertext_we1 = grp_Blowfish_Encrypt_fu_350_ciphertext_we1;
 
-assign key_address0 = grp_Blowfish_SetKey_fu_520_key_address0;
+assign grp_Blowfish_Encrypt_fu_350_ap_start = grp_Blowfish_Encrypt_fu_350_ap_start_reg;
 
-assign key_ce0 = grp_Blowfish_SetKey_fu_520_key_ce0;
+assign grp_Blowfish_SetKey_fu_326_ap_start = grp_Blowfish_SetKey_fu_326_ap_start_reg;
 
-assign left_1_fu_684_p5 = {{{{plaintext_load_reg_801}, {plaintext_load_1_reg_806}}, {plaintext_load_2_reg_821}}, {plaintext_load_3_reg_826}};
+assign key_address0 = grp_Blowfish_SetKey_fu_326_key_address0;
 
-assign right_1_fu_693_p5 = {{{{plaintext_load_4_reg_841}, {plaintext_load_5_reg_846}}, {plaintext_q0}}, {plaintext_q1}};
+assign key_address1 = grp_Blowfish_SetKey_fu_326_key_address1;
 
-assign set_key_read_read_fu_118_p2 = set_key;
+assign key_ce0 = grp_Blowfish_SetKey_fu_326_key_ce0;
 
-assign trunc_ln237_fu_744_p1 = grp_Encrypt_SetKey_fu_544_ap_return_0[7:0];
+assign key_ce1 = grp_Blowfish_SetKey_fu_326_key_ce1;
 
-assign trunc_ln241_fu_778_p1 = grp_Encrypt_SetKey_fu_544_ap_return_1[7:0];
+assign plaintext_address0 = grp_Blowfish_Encrypt_fu_350_plaintext_address0;
+
+assign plaintext_address1 = grp_Blowfish_Encrypt_fu_350_plaintext_address1;
+
+assign plaintext_ce0 = grp_Blowfish_Encrypt_fu_350_plaintext_ce0;
+
+assign plaintext_ce1 = grp_Blowfish_Encrypt_fu_350_plaintext_ce1;
+
+assign set_key_read_read_fu_86_p2 = set_key;
 
 endmodule //Blowfish_SetKey_Encrypt

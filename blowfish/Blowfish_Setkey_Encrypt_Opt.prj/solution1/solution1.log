@@ -2080,4 +2080,771 @@ INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
 INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 171.218 MB.
-INFO: [HLS 200-10] 
+INFO: [HLS 200-10] ==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19485 ; free virtual = 30239
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19485 ; free virtual = 30239
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:198).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:188).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19475 ; free virtual = 30235
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:221) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19472 ; free virtual = 30233
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:155) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:161) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:163) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:221) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19450 ; free virtual = 30212
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:172:35) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_PARRAY_1' (blowfish.cpp:187:38) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_SBOX_2' (blowfish.cpp:197:43) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'GENERATE_SBOX_1' (blowfish.cpp:195:34) in function 'Blowfish_SetKey'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19429 ; free virtual = 30192
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 12.15 seconds; current allocated memory: 154.452 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 154.568 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 155.986 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 161.219 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19454 ; free virtual = 30225
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19454 ; free virtual = 30225
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:198).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:188).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19451 ; free virtual = 30222
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:221) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19448 ; free virtual = 30221
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:155) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:161) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:163) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [XFORM 203-102] Partitioning array 'initial_sbox' in dimension 1 automatically.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:221) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19426 ; free virtual = 30199
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:172:35) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_PARRAY_1' (blowfish.cpp:187:38) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_SBOX_2' (blowfish.cpp:197:43) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'GENERATE_SBOX_1' (blowfish.cpp:195:34) in function 'Blowfish_SetKey'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19406 ; free virtual = 30180
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.81 seconds; current allocated memory: 154.421 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 154.539 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 155.970 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 161.201 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19447 ; free virtual = 30219
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19447 ; free virtual = 30219
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:198).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:188).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19444 ; free virtual = 30216
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:221) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19442 ; free virtual = 30215
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:155) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:161) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:221) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19420 ; free virtual = 30193
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:172:35) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_PARRAY_1' (blowfish.cpp:187:38) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_SBOX_2' (blowfish.cpp:197:43) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'GENERATE_SBOX_1' (blowfish.cpp:195:34) in function 'Blowfish_SetKey'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19403 ; free virtual = 30177
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.72 seconds; current allocated memory: 153.528 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 153.658 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 154.939 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 159.920 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
+INFO: [HLS 200-10]==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19562 ; free virtual = 30340
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19562 ; free virtual = 30340
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:224).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:198).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:188).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19560 ; free virtual = 30339
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:223) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:224) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:225) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19558 ; free virtual = 30336
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:155) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:161) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:163) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:223) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:62->blowfish.cpp:224) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:225) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19535 ; free virtual = 30314
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:172:35) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_PARRAY_1' (blowfish.cpp:187:38) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_SBOX_2' (blowfish.cpp:197:43) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'GENERATE_SBOX_1' (blowfish.cpp:195:34) in function 'Blowfish_SetKey'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19513 ; free virtual = 30292
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.91 seconds; current allocated memory: 154.456 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 154.572 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 155.989 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 161.220 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19545 ; free virtual = 30323
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19545 ; free virtual = 30323
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19542 ; free virtual = 30321
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:62) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:223) automatically.
+INFO: [XFORM 203-602] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:224) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:225) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19539 ; free virtual = 30318
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:155) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:161) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:163) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:62) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:223) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:225) automatically.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19519 ; free virtual = 30299
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:172:35) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19492 ; free virtual = 30272
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.52 seconds; current allocated memory: 162.472 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 162.586 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Encrypt_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'xor' operation ('localRight', blowfish.cpp:57) and 'xor' operation ('localLeft', blowfish.cpp:56).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 162.860 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 163.302 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 164.499 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 169.027 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 169.387 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 169.950 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'feistel'.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 170.253 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 171.220 MB.
+INFO: [HLS 200-10] ==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19551 ; free virtual = 30329
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19551 ; free virtual = 30329
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:198).
+INFO: [XFORM 203-603] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey' (blowfish.cpp:188).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19549 ; free virtual = 30328
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19546 ; free virtual = 30325
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:93) in function 'Blowfish_Encrypt' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:155) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:161) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:163) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:208) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_SetKey' (blowfish.cpp:62->blowfish.cpp:188) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'Blowfish_Encrypt' (blowfish.cpp:87)...34 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19523 ; free virtual = 30303
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:172:35) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_PARRAY_1' (blowfish.cpp:187:38) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'GENERATE_SBOX_2' (blowfish.cpp:197:43) in function 'Blowfish_SetKey' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'GENERATE_SBOX_1' (blowfish.cpp:195:34) in function 'Blowfish_SetKey'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 19493 ; free virtual = 30273
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.75 seconds; current allocated memory: 165.277 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 165.391 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:188) and 'call' operation ('tmp_10', blowfish.cpp:57->blowfish.cpp:188) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+WARNING: [SCHED 204-68] The II Violation in module 'Blowfish_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'xor' operation ('localRight', blowfish.cpp:57->blowfish.cpp:198) and 'call' operation ('tmp_13', blowfish.cpp:57->blowfish.cpp:198) to 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 3, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 166.810 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 172.044 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 18658 ; free virtual = 29867
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 18658 ; free virtual = 29867
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'Blowfish_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:216).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 18656 ; free virtual = 29866
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:62) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 18654 ; free virtual = 29864
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:156) in function 'Blowfish_SetKey_Encrypt' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:162) in function 'Blowfish_SetKey_Encrypt' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:164) in function 'Blowfish_SetKey_Encrypt' partially with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:93) in function 'Blowfish_Encrypt' completely with a factor of 16.
+INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:209) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:209) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:62) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'Blowfish_Encrypt' (blowfish.cpp:87)...34 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 18632 ; free virtual = 29843
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:173:35) in function 'Blowfish_SetKey_Encrypt' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 18605 ; free virtual = 29816
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.5 seconds; current allocated memory: 161.316 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 161.431 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
+WARNING: [SCHED 204-68] The II Violation in module 'Encrypt_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between 'xor' operation ('localRight', blowfish.cpp:57) and 'xor' operation ('localLeft', blowfish.cpp:56).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 161.699 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 162.139 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 163.040 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 164.174 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.25 seconds; current allocated memory: 165.879 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.27 seconds; current allocated memory: 169.066 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'feistel'.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24136 ; free virtual = 33309
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24136 ; free virtual = 33309
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24133 ; free virtual = 33306
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24132 ; free virtual = 33305
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:93) in function 'Blowfish_Encrypt' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:153) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:159) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:161) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'XOR_PARRAY_2' (blowfish.cpp:173) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_PARRAY_1' (blowfish.cpp:184) in function 'Blowfish_SetKey' completely with a factor of 9.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_SBOX_1' (blowfish.cpp:192) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:56) in function 'Encrypt_SetKey' completely with a factor of 16.
+INFO: [XFORM 203-131] Reshaping array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:205) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:205) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'Blowfish_Encrypt' (blowfish.cpp:87)...34 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24106 ; free virtual = 33280
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24073 ; free virtual = 33247
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 9.54 seconds; current allocated memory: 171.149 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 171.264 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 171.574 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 171.915 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 173.030 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 175.882 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 176.838 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 177.953 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 178.293 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]

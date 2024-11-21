@@ -4,7 +4,7 @@
 // ==============================================================
 #ifndef __Blowfish_SetKey_EfYi__HH__
 #define __Blowfish_SetKey_EfYi__HH__
-#include "ACMP_urem.h"
+#include "ACMP_urem_seq.h"
 #include <systemc>
 
 template<
@@ -17,21 +17,25 @@ SC_MODULE(Blowfish_SetKey_EfYi) {
     sc_core::sc_in_clk clk;
     sc_core::sc_in<sc_dt::sc_logic> reset;
     sc_core::sc_in<sc_dt::sc_logic> ce;
+    sc_core::sc_in< sc_dt::sc_logic >   start;
+    sc_core::sc_out< sc_dt::sc_logic >   done;
     sc_core::sc_in< sc_dt::sc_lv<din0_WIDTH> >   din0;
     sc_core::sc_in< sc_dt::sc_lv<din1_WIDTH> >   din1;
     sc_core::sc_out< sc_dt::sc_lv<dout_WIDTH> >   dout;
 
 
 
-    ACMP_urem<ID, 11, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_urem_U;
+    ACMP_urem_seq<ID, 11, din0_WIDTH, din1_WIDTH, dout_WIDTH> ACMP_urem_seq_U;
 
-    SC_CTOR(Blowfish_SetKey_EfYi):  ACMP_urem_U ("ACMP_urem_U") {
-        ACMP_urem_U.clk(clk);
-        ACMP_urem_U.reset(reset);
-        ACMP_urem_U.ce(ce);
-        ACMP_urem_U.din0(din0);
-        ACMP_urem_U.din1(din1);
-        ACMP_urem_U.dout(dout);
+    SC_CTOR(Blowfish_SetKey_EfYi):  ACMP_urem_seq_U ("ACMP_urem_seq_U") {
+        ACMP_urem_seq_U.clk(clk);
+        ACMP_urem_seq_U.reset(reset);
+        ACMP_urem_seq_U.ce(ce);
+        ACMP_urem_seq_U.din0(din0);
+        ACMP_urem_seq_U.din1(din1);
+        ACMP_urem_seq_U.dout(dout);
+        ACMP_urem_seq_U.start(start);
+        ACMP_urem_seq_U.done(done);
 
     }
 

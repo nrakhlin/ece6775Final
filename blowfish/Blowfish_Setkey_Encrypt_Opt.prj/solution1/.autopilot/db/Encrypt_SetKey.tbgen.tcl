@@ -158,7 +158,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "35", "EstimateLatencyMax" : "35",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "32", "EstimateLatencyMax" : "32",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -188,17 +188,17 @@ set RtlHierarchyInfo {[
 			{"Name" : "P_17_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "S_0", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_0"}]},
+					{"ID" : "1", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_0"}]},
 			{"Name" : "S_1", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_1"}]},
+					{"ID" : "1", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_1"}]},
 			{"Name" : "S_2", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_2"}]},
+					{"ID" : "1", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_2"}]},
 			{"Name" : "S_3", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_feistel_fu_297", "Port" : "S_3"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_feistel_fu_297", "Parent" : "0",
+					{"ID" : "1", "SubInstance" : "grp_feistel_fu_174", "Port" : "S_3"}]}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_feistel_fu_174", "Parent" : "0",
 		"CDFG" : "feistel",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -207,7 +207,7 @@ set RtlHierarchyInfo {[
 		"VariableLatency" : "0", "ExactLatency" : "1", "EstimateLatencyMin" : "1", "EstimateLatencyMax" : "1",
 		"Combinational" : "0",
 		"Datapath" : "0",
-		"ClockEnable" : "0",
+		"ClockEnable" : "1",
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
@@ -222,25 +222,25 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	Encrypt_SetKey {
 		left_read {Type I LastRead 0 FirstWrite -1}
-		right_read {Type I LastRead 0 FirstWrite -1}
+		right_read {Type I LastRead 2 FirstWrite -1}
 		P_0_read {Type I LastRead 0 FirstWrite -1}
-		P_1_read {Type I LastRead 0 FirstWrite -1}
-		P_2_read {Type I LastRead 0 FirstWrite -1}
-		P_3_read {Type I LastRead 0 FirstWrite -1}
-		P_4_read {Type I LastRead 0 FirstWrite -1}
-		P_5_read {Type I LastRead 0 FirstWrite -1}
-		P_6_read {Type I LastRead 0 FirstWrite -1}
-		P_7_read {Type I LastRead 0 FirstWrite -1}
-		P_8_read {Type I LastRead 0 FirstWrite -1}
-		P_9_read {Type I LastRead 0 FirstWrite -1}
-		P_10_read {Type I LastRead 0 FirstWrite -1}
-		P_11_read {Type I LastRead 0 FirstWrite -1}
-		P_12_read {Type I LastRead 0 FirstWrite -1}
-		P_13_read {Type I LastRead 0 FirstWrite -1}
-		P_14_read {Type I LastRead 0 FirstWrite -1}
-		P_15_read {Type I LastRead 0 FirstWrite -1}
-		P_16_read {Type I LastRead 0 FirstWrite -1}
-		P_17_read {Type I LastRead 0 FirstWrite -1}
+		P_1_read {Type I LastRead 2 FirstWrite -1}
+		P_2_read {Type I LastRead 4 FirstWrite -1}
+		P_3_read {Type I LastRead 6 FirstWrite -1}
+		P_4_read {Type I LastRead 8 FirstWrite -1}
+		P_5_read {Type I LastRead 10 FirstWrite -1}
+		P_6_read {Type I LastRead 12 FirstWrite -1}
+		P_7_read {Type I LastRead 14 FirstWrite -1}
+		P_8_read {Type I LastRead 16 FirstWrite -1}
+		P_9_read {Type I LastRead 18 FirstWrite -1}
+		P_10_read {Type I LastRead 20 FirstWrite -1}
+		P_11_read {Type I LastRead 22 FirstWrite -1}
+		P_12_read {Type I LastRead 24 FirstWrite -1}
+		P_13_read {Type I LastRead 26 FirstWrite -1}
+		P_14_read {Type I LastRead 28 FirstWrite -1}
+		P_15_read {Type I LastRead 30 FirstWrite -1}
+		P_16_read {Type I LastRead 32 FirstWrite -1}
+		P_17_read {Type I LastRead 32 FirstWrite -1}
 		S_0 {Type I LastRead 0 FirstWrite -1}
 		S_1 {Type I LastRead 0 FirstWrite -1}
 		S_2 {Type I LastRead 0 FirstWrite -1}
@@ -255,12 +255,11 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "35", "Max" : "35"}
-	, {"Name" : "Interval", "Min" : "35", "Max" : "35"}
+	{"Name" : "Latency", "Min" : "32", "Max" : "32"}
+	, {"Name" : "Interval", "Min" : "32", "Max" : "32"}
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 

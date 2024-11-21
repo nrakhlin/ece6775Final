@@ -1,8 +1,0 @@
-sv work "glbl.v"
-sv xil_defaultlib "Blowfish_Decrypt.autotb.v"
-sv xil_defaultlib "AESL_automem_ciphertext.v"
-sv xil_defaultlib "AESL_automem_decryptedtext.v"
-sv xil_defaultlib "AESL_automem_P.v"
-sv xil_defaultlib "AESL_automem_S.v"
-sv xil_defaultlib "Blowfish_Decrypt.v"
-

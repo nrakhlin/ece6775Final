@@ -17,26 +17,26 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>8.358</EstimatedClockPeriod>
+<EstimatedClockPeriod>9.715</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>44</Best-caseLatency>
-<Average-caseLatency>10483</Average-caseLatency>
-<Worst-caseLatency>20922</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.440 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.105 ms</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.209 ms</Worst-caseRealTimeLatency>
-<Interval-min>45</Interval-min>
-<Interval-max>20923</Interval-max>
+<Best-caseLatency>38</Best-caseLatency>
+<Average-caseLatency>9657</Average-caseLatency>
+<Worst-caseLatency>19275</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.380 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>96.570 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.193 ms</Worst-caseRealTimeLatency>
+<Interval-min>39</Interval-min>
+<Interval-max>19276</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>4</BRAM_18K>
-<FF>12709</FF>
-<LUT>23244</LUT>
+<FF>7368</FF>
+<LUT>14458</LUT>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
 </Resources>
@@ -154,6 +154,42 @@
 </RtlPorts>
 <RtlPorts>
 <name>key_q0</name>
+<Object>key</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>key_address1</name>
+<Object>key</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>6</Bits>
+<Attribute>address</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>key_ce1</name>
+<Object>key</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>key_q1</name>
 <Object>key</Object>
 <Type>array</Type>
 <Scope></Scope>

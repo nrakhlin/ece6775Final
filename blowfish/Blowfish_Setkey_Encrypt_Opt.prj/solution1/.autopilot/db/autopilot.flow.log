@@ -1,8 +1,7 @@
-INFO-FLOW: Workspace /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1 opened at Tue Nov 19 22:53:47 EST 2024
-Command     open_solution done; 0.11 sec.
+INFO-FLOW: Workspace /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1 opened at Wed Nov 20 20:42:53 EST 2024
 Execute     set_part xc7z020clg484-1 
 Execute       ap_part_info -name xc7z020clg484-1 -data single -quiet 
-Command       ap_part_info done; 1.15 sec.
+Command       ap_part_info done; 1.35 sec.
 Execute       ap_part_info -name xc7z020clg484-1 -data info 
 Execute       add_library xilinx/zynq/zynq:xc7z020:-clg484:-1 
 Execute         get_default_platform 
@@ -72,44 +71,74 @@ Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/comm
 INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
 Execute       ap_part_info -name xc7z020-clg484-1 -data info 
 Execute       get_default_platform 
-Command     set_part done; 1.35 sec.
+Command     set_part done; 1.55 sec.
 Execute     create_clock -period 10 
 Execute       config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 Execute     set_directive_unroll Blowfish_SetKey/PARRAY_INIT_1 
 INFO-FLOW: Setting directive 'UNROLL' 
-Execute     set_directive_pipeline Blowfish_SetKey/XOR_PARRAY_2 
-INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 Execute     set_directive_unroll Blowfish_SetKey/SBOX_INIT_1 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'UNROLL' 
 Execute     set_directive_unroll Blowfish_SetKey/SBOX_INIT_2 -factor 4 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' factor=4 
+Execute     set_directive_unroll Blowfish_SetKey/XOR_PARRAY_2 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' factor=4 
+INFO-FLOW: Setting directive 'UNROLL' 
+Execute     set_directive_unroll Blowfish_SetKey/GENERATE_PARRAY_1 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' factor=4 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+Execute     set_directive_unroll Blowfish_SetKey/GENERATE_SBOX_1 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' factor=4 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+Execute     set_directive_unroll Encrypt_SetKey/ENCRYPT_FEISTEL 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' factor=4 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
 Execute     set_directive_unroll Blowfish_Encrypt/ENCRYPT_FEISTEL 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' factor=4 
 INFO-FLOW: Setting directive 'UNROLL' 
-Execute     set_directive_pipeline Encrypt_SetKey/ENCRYPT_FEISTEL 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+Execute     set_directive_unroll Blowfish_Decrypt/DECRYPT_FEISTEL 
+INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' factor=4 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
 Execute     set_directive_pipeline feistel 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' factor=4 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'PIPELINE' 
 Execute     csim_design 
 INFO: [SIM 211-2] *************** CSIM start ***************
@@ -122,7 +151,7 @@ Execute       ap_part_info -name xc7z020-clg484-1 -data info
 Execute       source run_sim.tcl 
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-Command     csim_design done; 0.62 sec.
+Command     csim_design done; 0.65 sec.
 Execute     csynth_design 
 Execute       get_config_compile -dump_cfg 
 Execute       get_config_compile -effort 
@@ -149,31 +178,36 @@ INFO-FLOW: Running: GCC PP
 INFO-FLOW: Source preprocessing
 Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "blowfish.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp" 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E blowfish.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp
-Command         clang done; 1.09 sec.
+Command         clang done; 1.1 sec.
 Execute         tidy_31 xilinx-xfmat-array-geometry /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp std=gnu++98 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Command         tidy_31 done; 0.11 sec.
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute         clang -syntaxcheck -src /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp"  -o "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/useless.bc
-Command         clang done; 1.11 sec.
+Command         clang done; 1.14 sec.
 INFO-FLOW: Done: GCC PP time: 2.3 seconds per iteration
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' factor=4 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'PIPELINE' 
 Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
 Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
 Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/try/try.tcl 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
 INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'UNROLL' factor=4 
 INFO-FLOW: Setting directive 'UNROLL' 
-INFO-FLOW: Setting directive 'PIPELINE' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
+INFO-FLOW: Setting directive 'UNROLL' 
 INFO-FLOW: Setting directive 'PIPELINE' 
 Execute         list_core -type functional_unit 
 Execute         tidy_31 xilinx-systemc-detector /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp std=gnu++98 -directive=/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/.systemc_flag 
@@ -181,7 +215,7 @@ INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-
 INFO-FLOW: Running: tidy-3.1 CDT preprocess
 Execute         tidy_31 xilinx-directive2pragma /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp std=gnu++98 -directive=/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/all.directive.json 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Command         tidy_31 done; 0.18 sec.
+Command         tidy_31 done; 0.2 sec.
 Execute         get_config_dataflow -strict_mode 
 Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.blowfish.pp.0.cpp.diag.yml /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.blowfish.pp.0.cpp.out.log 2> /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.blowfish.pp.0.cpp.err.log 
 Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pp.0.cpp std=gnu++98 
@@ -200,12 +234,12 @@ Execute         ap_part_info -name xc7z020-clg484-1 -data info
 INFO-FLOW: Processing labels
 Execute         clang -src /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.bc" 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.bc
-Command         clang done; 1.13 sec.
+Command         clang done; 1.14 sec.
 INFO-FLOW: Linking Debug ...
 Execute         llvm-ld /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/blowfish.g.bc -hls-opt -except-internalize Blowfish_SetKey_Encrypt -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lhlsm -lhlsmc++ -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g 
-Command         llvm-ld done; 0.54 sec.
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20266 ; free virtual = 32694
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20266 ; free virtual = 32694
+Command         llvm-ld done; 0.56 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24136 ; free virtual = 33309
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24136 ; free virtual = 33309
 Execute         get_config_sdx -target 
 Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 Execute           cleanup_all_models 
@@ -215,46 +249,50 @@ Execute           llvm-ld /home/jjm469/ece6775/final_project/repo/blowfish/Blowf
 Command           llvm-ld done; 0.55 sec.
 INFO-FLOW: Running Standard Transforms...
 Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top Blowfish_SetKey_Encrypt -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.0.bc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20262 ; free virtual = 32691
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24133 ; free virtual = 33306
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
 Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.1.bc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.2.prechk.bc -f 
-INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:61) automatically.
-INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:218) automatically.
-INFO: [XFORM 203-602] Inlining function 'Encrypt_SetKey' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:219) automatically.
-INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
 INFO-FLOW: Checking Synthesizability 2/2..
 Execute           transform -syn-check /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20259 ; free virtual = 32688
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24132 ; free virtual = 33305
 INFO-FLOW: Compiler optimizing ...
 INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.g.1.bc to /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
 Execute           transform -hls -tmp /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.1.bc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.1.tmp.bc -f 
-INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:154) in function 'Blowfish_SetKey' completely with a factor of 18.
-INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:160) in function 'Blowfish_SetKey' completely with a factor of 4.
-INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:162) in function 'Blowfish_SetKey' partially with a factor of 4.
-INFO: [XFORM 203-101] Partitioning array 'initial_parray'  in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:207) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:207) in dimension 1 completely.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:93) in function 'Blowfish_Encrypt' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:153) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:159) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:161) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'XOR_PARRAY_2' (blowfish.cpp:173) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_PARRAY_1' (blowfish.cpp:184) in function 'Blowfish_SetKey' completely with a factor of 9.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_SBOX_1' (blowfish.cpp:192) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:56) in function 'Encrypt_SetKey' completely with a factor of 16.
+INFO: [XFORM 203-131] Reshaping array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:205) in dimension 1 completely.
 INFO: [XFORM 203-101] Partitioning array 'initial_sbox'  in dimension 1 completely.
-INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:61) automatically.
-INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:218) automatically.
-INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_SetKey_Encrypt' (blowfish.cpp:220) automatically.
-Command           transform done; 0.22 sec.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:205) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:89) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:96) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:101) automatically.
+Command           transform done; 0.28 sec.
 INFO-FLOW: Presyn 2...
 Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-11] Balancing expressions in function 'Blowfish_Encrypt' (blowfish.cpp:87)...34 expression(s) balanced.
 Command           transform done; 0.16 sec.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20238 ; free virtual = 32667
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24106 ; free virtual = 33280
 INFO-FLOW: Building ssdm...
 Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.2.bc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XOR_PARRAY_1' (blowfish.cpp:171:35) in function 'Blowfish_SetKey' : 
-
-the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
-Command           transform done; 0.7 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 20211 ; free virtual = 32640
+Command           transform done; 0.65 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24073 ; free virtual = 33247
 INFO-FLOW: Finish building internal data model.
-Command         opt_and_import_c done; 1.75 sec.
-Command       elaborate done; 6.86 sec.
+Command         opt_and_import_c done; 1.77 sec.
+Command       elaborate done; 6.94 sec.
 Execute       autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO-FLOW: Synthesizing C/C++ design ...
@@ -262,11 +300,12 @@ INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt' ...
 Execute         ap_set_top_model Blowfish_SetKey_Encrypt 
 Execute         get_model_list Blowfish_SetKey_Encrypt -filter all-wo-channel -topdown 
 Execute         preproc_iomode -model Blowfish_SetKey_Encrypt 
+Execute         preproc_iomode -model Blowfish_Encrypt 
 Execute         preproc_iomode -model Blowfish_SetKey 
 Execute         preproc_iomode -model Encrypt_SetKey 
 Execute         preproc_iomode -model feistel 
 Execute         get_model_list Blowfish_SetKey_Encrypt -filter all-wo-channel 
-INFO-FLOW: Model list for configure: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt
+INFO-FLOW: Model list for configure: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt
 INFO-FLOW: Configuring Module : feistel ...
 Execute         set_default_model feistel 
 Execute         apply_spec_resource_limit feistel 
@@ -276,10 +315,13 @@ Execute         apply_spec_resource_limit Encrypt_SetKey
 INFO-FLOW: Configuring Module : Blowfish_SetKey ...
 Execute         set_default_model Blowfish_SetKey 
 Execute         apply_spec_resource_limit Blowfish_SetKey 
+INFO-FLOW: Configuring Module : Blowfish_Encrypt ...
+Execute         set_default_model Blowfish_Encrypt 
+Execute         apply_spec_resource_limit Blowfish_Encrypt 
 INFO-FLOW: Configuring Module : Blowfish_SetKey_Encrypt ...
 Execute         set_default_model Blowfish_SetKey_Encrypt 
 Execute         apply_spec_resource_limit Blowfish_SetKey_Encrypt 
-INFO-FLOW: Model list for preprocess: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt
+INFO-FLOW: Model list for preprocess: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt
 INFO-FLOW: Preprocessing Module: feistel ...
 Execute         set_default_model feistel 
 Execute         cdfg_preprocess -model feistel 
@@ -292,11 +334,15 @@ INFO-FLOW: Preprocessing Module: Blowfish_SetKey ...
 Execute         set_default_model Blowfish_SetKey 
 Execute         cdfg_preprocess -model Blowfish_SetKey 
 Execute         rtl_gen_preprocess Blowfish_SetKey 
+INFO-FLOW: Preprocessing Module: Blowfish_Encrypt ...
+Execute         set_default_model Blowfish_Encrypt 
+Execute         cdfg_preprocess -model Blowfish_Encrypt 
+Execute         rtl_gen_preprocess Blowfish_Encrypt 
 INFO-FLOW: Preprocessing Module: Blowfish_SetKey_Encrypt ...
 Execute         set_default_model Blowfish_SetKey_Encrypt 
 Execute         cdfg_preprocess -model Blowfish_SetKey_Encrypt 
 Execute         rtl_gen_preprocess Blowfish_SetKey_Encrypt 
-INFO-FLOW: Model list for synthesis: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt
+INFO-FLOW: Model list for synthesis: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'feistel' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -306,7 +352,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'feistel'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 9.25 seconds; current allocated memory: 162.473 MB.
+INFO: [HLS 200-111]  Elapsed time: 9.54 seconds; current allocated memory: 171.149 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.verbose.sched.rpt 
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.sched.adb -f 
 INFO-FLOW: Finish scheduling feistel.
@@ -318,7 +364,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 162.587 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 171.264 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.verbose.bind.rpt 
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.bind.adb -f 
 INFO-FLOW: Finish binding feistel.
@@ -328,12 +374,8 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute         set_default_model Encrypt_SetKey 
 Execute         schedule -model Encrypt_SetKey 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'ENCRYPT_FEISTEL'.
-WARNING: [SCHED 204-68] The II Violation in module 'Encrypt_SetKey' (Loop: ENCRYPT_FEISTEL): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
-   between 'xor' operation ('localRight', blowfish.cpp:56) and 'xor' operation ('localLeft', blowfish.cpp:55).
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 4.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 162.859 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 171.574 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.verbose.sched.rpt 
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.sched.adb -f 
 INFO-FLOW: Finish scheduling Encrypt_SetKey.
@@ -345,7 +387,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 163.303 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 171.915 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.verbose.bind.rpt 
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.bind.adb -f 
 INFO-FLOW: Finish binding Encrypt_SetKey.
@@ -355,11 +397,9 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute         set_default_model Blowfish_SetKey 
 Execute         schedule -model Blowfish_SetKey 
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'XOR_PARRAY_2'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
 INFO: [SCHED 204-11] Finished scheduling.
 Command         schedule done; 0.13 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 164.499 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 173.030 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.verbose.sched.rpt 
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.sched.adb -f 
 INFO-FLOW: Finish scheduling Blowfish_SetKey.
@@ -371,11 +411,34 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 169.022 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 175.882 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.verbose.bind.rpt 
-Command         syn_report done; 0.18 sec.
+Command         syn_report done; 0.14 sec.
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.bind.adb -f 
 INFO-FLOW: Finish binding Blowfish_SetKey.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model Blowfish_Encrypt 
+Execute         schedule -model Blowfish_Encrypt 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 176.838 MB.
+Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.verbose.sched.rpt 
+Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.sched.adb -f 
+INFO-FLOW: Finish scheduling Blowfish_Encrypt.
+Execute         set_default_model Blowfish_Encrypt 
+Execute         bind -model Blowfish_Encrypt 
+BIND OPTION: model=Blowfish_Encrypt
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 177.953 MB.
+Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.verbose.bind.rpt 
+Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.bind.adb -f 
+INFO-FLOW: Finish binding Blowfish_Encrypt.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -383,7 +446,7 @@ Execute         set_default_model Blowfish_SetKey_Encrypt
 Execute         schedule -model Blowfish_SetKey_Encrypt 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 169.383 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 178.293 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.verbose.sched.rpt 
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.sched.adb -f 
 INFO-FLOW: Finish scheduling Blowfish_SetKey_Encrypt.
@@ -395,10 +458,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command         bind done; 0.11 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 169.949 MB.
+Command         bind done; 0.13 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 178.736 MB.
 Execute         syn_report -verbosereport -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.verbose.bind.rpt 
-Command         syn_report done; 0.17 sec.
+Command         syn_report done; 0.16 sec.
 Execute         db_write -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.bind.adb -f 
 INFO-FLOW: Finish binding Blowfish_SetKey_Encrypt.
 Execute         get_model_list Blowfish_SetKey_Encrypt -filter all-wo-channel 
@@ -406,8 +469,9 @@ INFO-FLOW: Preprocessing for RTLGen ...
 Execute         rtl_gen_preprocess feistel 
 Execute         rtl_gen_preprocess Encrypt_SetKey 
 Execute         rtl_gen_preprocess Blowfish_SetKey 
+Execute         rtl_gen_preprocess Blowfish_Encrypt 
 Execute         rtl_gen_preprocess Blowfish_SetKey_Encrypt 
-INFO-FLOW: Model list for RTL generation: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt
+INFO-FLOW: Model list for RTL generation: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'feistel' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -415,9 +479,9 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model feistel -vendor xilinx -mg_file /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'feistel'.
-INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 170.251 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 179.158 MB.
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.rtl_wrap.cfg.tcl 
-Execute         gen_rtl feistel -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/feistel -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt 
+Execute         gen_rtl feistel -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/feistel -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt 
 Execute         gen_rtl feistel -style xilinx -f -lang vhdl -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/vhdl/feistel 
 Execute         gen_rtl feistel -style xilinx -f -lang vlog -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/verilog/feistel 
 Execute         syn_report -csynth -model feistel -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/feistel_csynth.rpt 
@@ -432,9 +496,9 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model Encrypt_SetKey -vendor xilinx -mg_file /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 171.218 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 180.459 MB.
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.rtl_wrap.cfg.tcl 
-Execute         gen_rtl Encrypt_SetKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Encrypt_SetKey -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt 
+Execute         gen_rtl Encrypt_SetKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Encrypt_SetKey -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt 
 Execute         gen_rtl Encrypt_SetKey -style xilinx -f -lang vhdl -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/vhdl/Encrypt_SetKey 
 Execute         gen_rtl Encrypt_SetKey -style xilinx -f -lang vlog -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/verilog/Encrypt_SetKey 
 Execute         syn_report -csynth -model Encrypt_SetKey -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Encrypt_SetKey_csynth.rpt 
@@ -452,26 +516,45 @@ INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_0' to 'Blo
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_1' to 'Blowfish_SetKey_icud' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_2' to 'Blowfish_SetKey_idEe' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox_3' to 'Blowfish_SetKey_ieOg' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_urem_7ns_64ns_32_11_1' to 'Blowfish_SetKey_EfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_urem_7ns_64ns_32_11_seq_1' to 'Blowfish_SetKey_EfYi' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_mux_185_32_1_1' to 'Blowfish_SetKey_Eg8j' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_mux_325_32_1_1' to 'Blowfish_SetKey_Ehbi' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_EfYi': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_EfYi': 4 instance(s).
 INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_Eg8j': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_Ehbi': 90 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_Ehbi': 36 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_SetKey'.
-Command         create_rtl_model done; 0.16 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 186.125 MB.
+Command         create_rtl_model done; 0.12 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 189.185 MB.
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.rtl_wrap.cfg.tcl 
-Execute         gen_rtl Blowfish_SetKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Blowfish_SetKey -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt 
+Execute         gen_rtl Blowfish_SetKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Blowfish_SetKey -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt 
 Execute         gen_rtl Blowfish_SetKey -style xilinx -f -lang vhdl -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/vhdl/Blowfish_SetKey 
 Execute         gen_rtl Blowfish_SetKey -style xilinx -f -lang vlog -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/verilog/Blowfish_SetKey 
 Execute         syn_report -csynth -model Blowfish_SetKey -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Blowfish_SetKey_csynth.rpt 
 Execute         syn_report -rtlxml -model Blowfish_SetKey -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Blowfish_SetKey_csynth.xml 
 Execute         syn_report -verbosereport -model Blowfish_SetKey -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.verbose.rpt 
-Command         syn_report done; 0.22 sec.
+Command         syn_report done; 0.16 sec.
 Execute         db_write -model Blowfish_SetKey -f -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.adb 
-Command         db_write done; 0.19 sec.
+Command         db_write done; 0.12 sec.
 Execute         gen_tb_info Blowfish_SetKey -p /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model Blowfish_Encrypt -vendor xilinx -mg_file /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_Encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.49 seconds; current allocated memory: 198.967 MB.
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.rtl_wrap.cfg.tcl 
+Execute         gen_rtl Blowfish_Encrypt -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Blowfish_Encrypt -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt 
+Execute         gen_rtl Blowfish_Encrypt -style xilinx -f -lang vhdl -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/vhdl/Blowfish_Encrypt 
+Execute         gen_rtl Blowfish_Encrypt -style xilinx -f -lang vlog -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/verilog/Blowfish_Encrypt 
+Execute         syn_report -csynth -model Blowfish_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Blowfish_Encrypt_csynth.rpt 
+Execute         syn_report -rtlxml -model Blowfish_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Blowfish_Encrypt_csynth.xml 
+Execute         syn_report -verbosereport -model Blowfish_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.verbose.rpt 
+Command         syn_report done; 0.11 sec.
+Execute         db_write -model Blowfish_Encrypt -f -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.adb 
+Command         db_write done; 0.11 sec.
+Execute         gen_tb_info Blowfish_Encrypt -p /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey_Encrypt' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -507,20 +590,20 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/S_
 INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt/S_3' to 'ap_memory'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'Blowfish_SetKey_Encrypt' to 'ap_ctrl_hs'.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_SetKey_Encrypt'.
-INFO: [HLS 200-111]  Elapsed time: 0.73 seconds; current allocated memory: 198.279 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.44 seconds; current allocated memory: 205.261 MB.
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.rtl_wrap.cfg.tcl 
-Execute         gen_rtl Blowfish_SetKey_Encrypt -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Blowfish_SetKey_Encrypt -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt 
+Execute         gen_rtl Blowfish_SetKey_Encrypt -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/systemc/Blowfish_SetKey_Encrypt -synmodules feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt 
 Execute         gen_rtl Blowfish_SetKey_Encrypt -istop -style xilinx -f -lang vhdl -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/vhdl/Blowfish_SetKey_Encrypt 
 Execute         gen_rtl Blowfish_SetKey_Encrypt -istop -style xilinx -f -lang vlog -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/verilog/Blowfish_SetKey_Encrypt 
 Execute         syn_report -csynth -model Blowfish_SetKey_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Blowfish_SetKey_Encrypt_csynth.rpt 
 Execute         syn_report -rtlxml -model Blowfish_SetKey_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/syn/report/Blowfish_SetKey_Encrypt_csynth.xml 
 Execute         syn_report -verbosereport -model Blowfish_SetKey_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.verbose.rpt 
-Command         syn_report done; 0.16 sec.
+Command         syn_report done; 0.17 sec.
 Execute         db_write -model Blowfish_SetKey_Encrypt -f -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.adb 
 Execute         gen_tb_info Blowfish_SetKey_Encrypt -p /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt 
 Execute         export_constraint_db -f -tool general -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.constraint.tcl 
 Execute         syn_report -designview -model Blowfish_SetKey_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.design.xml 
-Command         syn_report done; 0.11 sec.
+Command         syn_report done; 0.12 sec.
 Execute         get_config_rtl -disable_wave_debug 
 Execute         syn_report -wcfg -model Blowfish_SetKey_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt_dataflow_ana.wcfg 
 Execute         syn_report -protoinst -model Blowfish_SetKey_Encrypt -o /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.protoinst 
@@ -528,7 +611,7 @@ Execute         get_config_debug -directory
 Execute         sc_get_clocks Blowfish_SetKey_Encrypt 
 Execute         get_config_export -vivado_clock 
 Execute         sc_get_portdomain Blowfish_SetKey_Encrypt 
-INFO-FLOW: Model list for RTL component generation: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt
+INFO-FLOW: Model list for RTL component generation: feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt
 INFO-FLOW: Handling components in module [feistel] ... 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.compgen.tcl 
 INFO-FLOW: Handling components in module [Encrypt_SetKey] ... 
@@ -549,14 +632,17 @@ INFO-FLOW: Found component Blowfish_SetKey_idEe.
 INFO-FLOW: Append model Blowfish_SetKey_idEe
 INFO-FLOW: Found component Blowfish_SetKey_ieOg.
 INFO-FLOW: Append model Blowfish_SetKey_ieOg
+INFO-FLOW: Handling components in module [Blowfish_Encrypt] ... 
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.compgen.tcl 
 INFO-FLOW: Handling components in module [Blowfish_SetKey_Encrypt] ... 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.compgen.tcl 
 INFO-FLOW: Append model feistel
 INFO-FLOW: Append model Encrypt_SetKey
 INFO-FLOW: Append model Blowfish_SetKey
+INFO-FLOW: Append model Blowfish_Encrypt
 INFO-FLOW: Append model Blowfish_SetKey_Encrypt
 INFO-FLOW: Generating RTL model list ...
-INFO-FLOW: All models in this session: Blowfish_SetKey_EfYi Blowfish_SetKey_Eg8j Blowfish_SetKey_Ehbi Blowfish_SetKey_ibkb Blowfish_SetKey_icud Blowfish_SetKey_idEe Blowfish_SetKey_ieOg feistel Encrypt_SetKey Blowfish_SetKey Blowfish_SetKey_Encrypt
+INFO-FLOW: All models in this session: Blowfish_SetKey_EfYi Blowfish_SetKey_Eg8j Blowfish_SetKey_Ehbi Blowfish_SetKey_ibkb Blowfish_SetKey_icud Blowfish_SetKey_idEe Blowfish_SetKey_ieOg feistel Encrypt_SetKey Blowfish_SetKey Blowfish_Encrypt Blowfish_SetKey_Encrypt
 INFO-FLOW: To file: write model Blowfish_SetKey_EfYi
 INFO-FLOW: To file: write model Blowfish_SetKey_Eg8j
 INFO-FLOW: To file: write model Blowfish_SetKey_Ehbi
@@ -567,6 +653,7 @@ INFO-FLOW: To file: write model Blowfish_SetKey_ieOg
 INFO-FLOW: To file: write model feistel
 INFO-FLOW: To file: write model Encrypt_SetKey
 INFO-FLOW: To file: write model Blowfish_SetKey
+INFO-FLOW: To file: write model Blowfish_Encrypt
 INFO-FLOW: To file: write model Blowfish_SetKey_Encrypt
 INFO-FLOW: Finished generating RTL model list.
 
@@ -575,8 +662,8 @@ INFO-FLOW: RTL Generation done.
 INFO-FLOW: CAS Generation done.
 INFO-FLOW: CBC Generation done.
 Execute         syn_report -model Blowfish_SetKey_Encrypt -printsummary 
-INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
-INFO: [HLS 200-789] **** Estimated Fmax: 119.65 MHz
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 102.94 MHz
 INFO-FLOW: DBG:CMD: auto_generate_csynth_design
 INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/global.setting.tcl 
@@ -657,7 +744,8 @@ Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
-Command         ap_source done; 0.28 sec.
+Command         ap_source done; 0.3 sec.
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.compgen.tcl 
 INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/global.setting.tcl 
@@ -697,12 +785,14 @@ Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.compgen.tcl 
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.compgen.tcl 
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/global.setting.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.compgen.tcl 
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.compgen.tcl 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
@@ -765,7 +855,7 @@ Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
-Command         ap_source done; 0.29 sec.
+Command         ap_source done; 0.3 sec.
 Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
@@ -773,6 +863,7 @@ Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.compgen.tcl 
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.compgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.compgen.tcl 
 Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
@@ -785,7 +876,7 @@ Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.tbgen.tcl 
 INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=56
 INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=27
-INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=11 #gSsdmPorts=56
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=12 #gSsdmPorts=56
 Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/global.setting.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/global.setting.tcl 
@@ -836,6 +927,7 @@ Execute         get_config_debug -directory
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/feistel.tbgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Encrypt_SetKey.tbgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey.tbgen.tcl 
+Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_Encrypt.tbgen.tcl 
 Execute         source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/Blowfish_SetKey_Encrypt.tbgen.tcl 
 Execute         get_config_sdx -target 
 Execute         get_config_sdx -profile 
@@ -844,9 +936,9 @@ Execute         get_config_rtl -stall_sig_gen
 Execute         get_config_rtl -profile 
 INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey_Encrypt_Opt.prj/solution1/.autopilot/db/kernel.internal.xml
 INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1232.148 ; gain = 594.125 ; free physical = 20146 ; free virtual = 32592
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 24008 ; free virtual = 33199
 INFO: [VHDL 208-304] Generating VHDL RTL for Blowfish_SetKey_Encrypt.
 INFO: [VLOG 209-307] Generating Verilog RTL for Blowfish_SetKey_Encrypt.
-Command       autosyn done; 4.25 sec.
-Command     csynth_design done; 11.11 sec.
+Command       autosyn done; 5.01 sec.
+Command     csynth_design done; 11.96 sec.
 Execute     cleanup_all 

@@ -46,15 +46,17 @@
 
 // // Encrypts a block of 64-bit data (Only used in SetKey function)
 void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
+    // #pragma HLS INLINE
     unsigned int localLeft;
     unsigned int localRight;
+    unsigned int feistel_result;
    
     // 16 feistel rounds
     ENCRYPT_FEISTEL:
     for (int i = 0; i < 16; i++) {
         localLeft = left ^ P[i];                 // XOR with P[i]
-        localRight = right ^ feistel(localLeft, S);    // XOR with feistel(left)
-        // std::swap(left, right);       // Swap left and right
+        feistel_result = feistel(localLeft, S);
+        localRight = right ^ feistel_result;    // XOR with feistel(left)
         right = localLeft;
         left = localRight;
     }
@@ -78,7 +80,6 @@ void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[PARR
 //     right ^= P[16];
 //     left ^= P[17];
 // }
-
 
 
 
@@ -136,17 +137,15 @@ unsigned int feistel(unsigned int x, unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
 
 // Used to initialize the parrays and sboxes with the provided key
 void Blowfish_SetKey(unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
-    #pragma HLS array_partition variable=initial_parray complete dim=0
-    #pragma HLS array_partition variable=P complete dim=0
-    #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
-    #pragma HLS array_partition variable=S cyclic factor=4 dim=1
-    
-    // Just not helpful...
-    // #pragma HLS array_partition variable=S cyclic factor=4 dim=2
-    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=2
-    // #pragma HLS array_partition variable=S block factor=4 dim=2
-    // #pragma HLS array_partition variable=initial_sbox block factor=4 dim=2
-
+    // #pragma HLS array_reshape variable=initial_parray complete dim=0
+    // #pragma HLS array_partition variable=P complete dim=0
+    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
+    // #pragma HLS array_reshape variable=initial_sbox complete dim=0
+    // #pragma HLS array_partition variable=S cyclic factor=4 dim=1
+    // #pragma HLS array_partition variable=initial_sbox block factor=4 dim=1
+    // #pragma HLS array_partition variable=S block factor=4 dim=1
+    // #pragma HLS array_partition variable=S complete dim=1
+    // #pragma HLS INLINE
 
 
     // Manually copy data from initial_parray into P
@@ -178,7 +177,6 @@ void Blowfish_SetKey(unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, un
         P[i] ^= data;
     }
 
-
     unsigned int left = 0, right = 0;
 
     // Generate the P-array
@@ -205,19 +203,42 @@ void Blowfish_SetKey(unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, un
 
 // Sets the key and encrypts the block
 void Blowfish_SetKey_Encrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, const unsigned char plaintext[BLOCK_SIZE], unsigned char ciphertext[BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]){
-    #pragma HLS array_partition variable=initial_parray complete dim=0
+    // #pragma HLS array_partition variable=initial_parray complete dim=0
+    #pragma HLS array_reshape variable=initial_parray complete dim=0
     #pragma HLS array_partition variable=P complete dim=0
-    #pragma HLS array_partition variable=S cyclic factor=4 dim=1
-    
+    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
+    #pragma HLS array_partition variable=initial_sbox complete dim=1
+    // #pragma HLS array_partition variable=S cyclic factor=4 dim=1
+    // #pragma HLS array_partition variable=initial_sbox block factor=4 dim=1
+    // #pragma HLS array_partition variable=S block factor=4 dim=1
+    #pragma HLS array_partition variable=S complete dim=1
+
+    // #pragma HLS INLINE
+    // #pragma HLS inline off
+
+
     if(set_key){
         Blowfish_SetKey(key, key_size, P, S);
     }
     
-    // Blowfish_Encrypt(plaintext, ciphertext, P, S);
-    unsigned int left, right;
-    blockToWords(plaintext, left, right);   // Convert plaintext to words
-    Encrypt_SetKey(left, right, P, S);
-    wordsToBlock(left, right, ciphertext);  // Convert back to ciphertext block
+    Blowfish_Encrypt(plaintext, ciphertext, P, S);
+    // unsigned int left, right;
+    // blockToWords(plaintext, left, right);   // Convert plaintext to words
+    // Encrypt_SetKey(left, right, P, S);
+    // wordsToBlock(left, right, ciphertext);  // Convert back to ciphertext block
+
+}
+
+// Sets the key, encrypts, and decrypts the block (Mainly for testing purposes)
+void Blowfish_SetKey_Encrypt_Decrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, const unsigned char plaintext[BLOCK_SIZE], unsigned char decryptedtext[BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]){
+    // #pragma HLS array_partition variable=initial_parray complete dim=0
+    // #pragma HLS array_partition variable=P complete dim=0
+    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
+    // #pragma HLS array_partition variable=S cyclic factor=4 dim=1
+
+    unsigned char ciphertext[BLOCK_SIZE];
+    Blowfish_SetKey_Encrypt(set_key, key, key_size, plaintext, ciphertext, P, S);
+    Blowfish_Decrypt(ciphertext, decryptedtext, P, S);
 
 }
 

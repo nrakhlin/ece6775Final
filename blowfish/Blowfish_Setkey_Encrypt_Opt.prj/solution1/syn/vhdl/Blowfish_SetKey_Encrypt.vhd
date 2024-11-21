@@ -21,6 +21,9 @@ port (
     key_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
     key_ce0 : OUT STD_LOGIC;
     key_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+    key_address1 : OUT STD_LOGIC_VECTOR (5 downto 0);
+    key_ce1 : OUT STD_LOGIC;
+    key_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
     key_size : IN STD_LOGIC_VECTOR (63 downto 0);
     plaintext_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
     plaintext_ce0 : OUT STD_LOGIC;
@@ -132,162 +135,118 @@ end;
 architecture behav of Blowfish_SetKey_Encrypt is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "Blowfish_SetKey_Encrypt,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.358000,HLS_SYN_LAT=10483,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=12709,HLS_SYN_LUT=23244,HLS_VERSION=2019_2}";
+    "Blowfish_SetKey_Encrypt,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=9.714650,HLS_SYN_LAT=9657,HLS_SYN_TPT=none,HLS_SYN_MEM=4,HLS_SYN_DSP=0,HLS_SYN_FF=7368,HLS_SYN_LUT=14458,HLS_VERSION=2019_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
-    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (9 downto 0) := "0000000001";
-    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (9 downto 0) := "0000000010";
-    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (9 downto 0) := "0000000100";
-    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (9 downto 0) := "0000001000";
-    constant ap_ST_fsm_state5 : STD_LOGIC_VECTOR (9 downto 0) := "0000010000";
-    constant ap_ST_fsm_state6 : STD_LOGIC_VECTOR (9 downto 0) := "0000100000";
-    constant ap_ST_fsm_state7 : STD_LOGIC_VECTOR (9 downto 0) := "0001000000";
-    constant ap_ST_fsm_state8 : STD_LOGIC_VECTOR (9 downto 0) := "0010000000";
-    constant ap_ST_fsm_state9 : STD_LOGIC_VECTOR (9 downto 0) := "0100000000";
-    constant ap_ST_fsm_state10 : STD_LOGIC_VECTOR (9 downto 0) := "1000000000";
+    constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (3 downto 0) := "0001";
+    constant ap_ST_fsm_state2 : STD_LOGIC_VECTOR (3 downto 0) := "0010";
+    constant ap_ST_fsm_state3 : STD_LOGIC_VECTOR (3 downto 0) := "0100";
+    constant ap_ST_fsm_state4 : STD_LOGIC_VECTOR (3 downto 0) := "1000";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
-    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
-    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
-    constant ap_const_boolean_0 : BOOLEAN := false;
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
+    constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
+    constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
-    constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
-    constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
-    constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
-    constant ap_const_lv64_0 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000";
-    constant ap_const_lv64_1 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000001";
-    constant ap_const_lv64_2 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000010";
-    constant ap_const_lv64_3 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000011";
-    constant ap_const_lv64_4 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000100";
-    constant ap_const_lv64_5 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000101";
-    constant ap_const_lv64_6 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000110";
-    constant ap_const_lv64_7 : STD_LOGIC_VECTOR (63 downto 0) := "0000000000000000000000000000000000000000000000000000000000000111";
-    constant ap_const_lv32_7 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000111";
-    constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
-    constant ap_const_lv32_9 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001001";
-    constant ap_const_lv32_18 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011000";
-    constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
-    constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
-    constant ap_const_lv32_17 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010111";
-    constant ap_const_lv32_F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001111";
+    constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_boolean_1 : BOOLEAN := true;
 
-    signal ap_CS_fsm : STD_LOGIC_VECTOR (9 downto 0) := "0000000001";
+    signal ap_CS_fsm : STD_LOGIC_VECTOR (3 downto 0) := "0001";
     attribute fsm_encoding : string;
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal set_key_read_read_fu_118_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ap_CS_fsm_state2 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal grp_Blowfish_SetKey_fu_520_ap_ready : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_ap_done : STD_LOGIC;
-    signal ap_block_state2_on_subcall_done : BOOLEAN;
-    signal plaintext_load_reg_801 : STD_LOGIC_VECTOR (7 downto 0);
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
-    signal plaintext_load_1_reg_806 : STD_LOGIC_VECTOR (7 downto 0);
-    signal plaintext_load_2_reg_821 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_start : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_ap_done : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_ap_idle : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_ap_ready : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_key_address0 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_key_ce0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_key_address1 : STD_LOGIC_VECTOR (5 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_key_ce1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_0_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_0_ce0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_0_we0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_0_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_0_address1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_0_ce1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_0_we1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_0_d1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_1_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_1_ce0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_1_we0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_1_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_1_address1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_1_ce1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_1_we1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_1_d1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_2_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_2_ce0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_2_we0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_2_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_2_address1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_2_ce1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_2_we1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_2_d1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_3_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_3_ce0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_3_we0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_3_d0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_3_address1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_S_3_ce1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_3_we1 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_S_3_d1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_0 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_4 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_5 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_6 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_7 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_8 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_9 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_10 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_11 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_12 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_13 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_14 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_15 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_16 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_SetKey_fu_326_ap_return_17 : STD_LOGIC_VECTOR (31 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_ap_start : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ap_done : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ap_idle : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ap_ready : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_plaintext_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_plaintext_ce0 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_plaintext_address1 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_plaintext_ce1 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_address0 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_ce0 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_we0 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_d0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_address1 : STD_LOGIC_VECTOR (2 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_ce1 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_we1 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_ciphertext_d1 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_S_0_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_S_0_ce0 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_S_1_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_S_1_ce0 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_S_2_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_S_2_ce0 : STD_LOGIC;
+    signal grp_Blowfish_Encrypt_fu_350_S_3_address0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_Blowfish_Encrypt_fu_350_S_3_ce0 : STD_LOGIC;
+    signal grp_Blowfish_SetKey_fu_326_ap_start_reg : STD_LOGIC := '0';
+    signal set_key_read_read_fu_86_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal ap_CS_fsm_state2 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
+    signal grp_Blowfish_Encrypt_fu_350_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state4 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state4 : signal is "none";
-    signal plaintext_load_3_reg_826 : STD_LOGIC_VECTOR (7 downto 0);
-    signal plaintext_load_4_reg_841 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state5 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
-    signal plaintext_load_5_reg_846 : STD_LOGIC_VECTOR (7 downto 0);
-    signal left_1_fu_684_p5 : STD_LOGIC_VECTOR (31 downto 0);
-    signal left_1_reg_861 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ap_CS_fsm_state6 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal right_1_fu_693_p5 : STD_LOGIC_VECTOR (31 downto 0);
-    signal right_1_reg_866 : STD_LOGIC_VECTOR (31 downto 0);
-    signal trunc_ln2_reg_961 : STD_LOGIC_VECTOR (7 downto 0);
-    signal ap_CS_fsm_state7 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
-    signal grp_Encrypt_SetKey_fu_544_ap_ready : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_ap_done : STD_LOGIC;
-    signal trunc_ln237_fu_744_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln237_reg_966 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln4_reg_971 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln5_reg_976 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln6_reg_981 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln241_fu_778_p1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal trunc_ln241_reg_986 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_start : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_ap_idle : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_key_address0 : STD_LOGIC_VECTOR (5 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_key_ce0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_0_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_0_ce0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_0_we0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_0_d0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_0_address1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_0_ce1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_0_we1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_0_d1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_1_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_1_ce0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_1_we0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_1_d0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_1_address1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_1_ce1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_1_we1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_1_d1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_2_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_2_ce0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_2_we0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_2_d0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_2_address1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_2_ce1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_2_we1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_2_d1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_3_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_3_ce0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_3_we0 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_3_d0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_3_address1 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_S_3_ce1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_3_we1 : STD_LOGIC;
-    signal grp_Blowfish_SetKey_fu_520_S_3_d1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_3 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_4 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_5 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_6 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_7 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_8 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_9 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_10 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_11 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_12 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_13 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_14 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_15 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_16 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_return_17 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Encrypt_SetKey_fu_544_ap_start : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_ap_idle : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_S_0_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Encrypt_SetKey_fu_544_S_0_ce0 : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_S_1_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Encrypt_SetKey_fu_544_S_1_ce0 : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_S_2_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Encrypt_SetKey_fu_544_S_2_ce0 : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_S_3_address0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_Encrypt_SetKey_fu_544_S_3_ce0 : STD_LOGIC;
-    signal grp_Encrypt_SetKey_fu_544_ap_return_0 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Encrypt_SetKey_fu_544_ap_return_1 : STD_LOGIC_VECTOR (31 downto 0);
-    signal grp_Blowfish_SetKey_fu_520_ap_start_reg : STD_LOGIC := '0';
-    signal grp_Encrypt_SetKey_fu_544_ap_start_reg : STD_LOGIC := '0';
-    signal ap_CS_fsm_state8 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
-    signal ap_CS_fsm_state9 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
-    signal ap_CS_fsm_state10 : STD_LOGIC;
-    attribute fsm_encoding of ap_CS_fsm_state10 : signal is "none";
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (9 downto 0);
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (3 downto 0);
 
     component Blowfish_SetKey IS
     port (
@@ -300,6 +259,9 @@ architecture behav of Blowfish_SetKey_Encrypt is
         key_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
         key_ce0 : OUT STD_LOGIC;
         key_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        key_address1 : OUT STD_LOGIC_VECTOR (5 downto 0);
+        key_ce1 : OUT STD_LOGIC;
+        key_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
         key_size : IN STD_LOGIC_VECTOR (63 downto 0);
         S_0_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
         S_0_ce0 : OUT STD_LOGIC;
@@ -358,7 +320,7 @@ architecture behav of Blowfish_SetKey_Encrypt is
     end component;
 
 
-    component Encrypt_SetKey IS
+    component Blowfish_Encrypt IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -366,8 +328,20 @@ architecture behav of Blowfish_SetKey_Encrypt is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        left_read : IN STD_LOGIC_VECTOR (31 downto 0);
-        right_read : IN STD_LOGIC_VECTOR (31 downto 0);
+        plaintext_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        plaintext_ce0 : OUT STD_LOGIC;
+        plaintext_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        plaintext_address1 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        plaintext_ce1 : OUT STD_LOGIC;
+        plaintext_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
+        ciphertext_address0 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        ciphertext_ce0 : OUT STD_LOGIC;
+        ciphertext_we0 : OUT STD_LOGIC;
+        ciphertext_d0 : OUT STD_LOGIC_VECTOR (7 downto 0);
+        ciphertext_address1 : OUT STD_LOGIC_VECTOR (2 downto 0);
+        ciphertext_ce1 : OUT STD_LOGIC;
+        ciphertext_we1 : OUT STD_LOGIC;
+        ciphertext_d1 : OUT STD_LOGIC_VECTOR (7 downto 0);
         P_0_read : IN STD_LOGIC_VECTOR (31 downto 0);
         P_1_read : IN STD_LOGIC_VECTOR (31 downto 0);
         P_2_read : IN STD_LOGIC_VECTOR (31 downto 0);
@@ -397,91 +371,104 @@ architecture behav of Blowfish_SetKey_Encrypt is
         S_2_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
         S_3_address0 : OUT STD_LOGIC_VECTOR (7 downto 0);
         S_3_ce0 : OUT STD_LOGIC;
-        S_3_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
-        ap_return_0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-        ap_return_1 : OUT STD_LOGIC_VECTOR (31 downto 0) );
+        S_3_q0 : IN STD_LOGIC_VECTOR (31 downto 0) );
     end component;
 
 
 
 begin
-    grp_Blowfish_SetKey_fu_520 : component Blowfish_SetKey
+    grp_Blowfish_SetKey_fu_326 : component Blowfish_SetKey
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_Blowfish_SetKey_fu_520_ap_start,
-        ap_done => grp_Blowfish_SetKey_fu_520_ap_done,
-        ap_idle => grp_Blowfish_SetKey_fu_520_ap_idle,
-        ap_ready => grp_Blowfish_SetKey_fu_520_ap_ready,
-        key_address0 => grp_Blowfish_SetKey_fu_520_key_address0,
-        key_ce0 => grp_Blowfish_SetKey_fu_520_key_ce0,
+        ap_start => grp_Blowfish_SetKey_fu_326_ap_start,
+        ap_done => grp_Blowfish_SetKey_fu_326_ap_done,
+        ap_idle => grp_Blowfish_SetKey_fu_326_ap_idle,
+        ap_ready => grp_Blowfish_SetKey_fu_326_ap_ready,
+        key_address0 => grp_Blowfish_SetKey_fu_326_key_address0,
+        key_ce0 => grp_Blowfish_SetKey_fu_326_key_ce0,
         key_q0 => key_q0,
+        key_address1 => grp_Blowfish_SetKey_fu_326_key_address1,
+        key_ce1 => grp_Blowfish_SetKey_fu_326_key_ce1,
+        key_q1 => key_q1,
         key_size => key_size,
-        S_0_address0 => grp_Blowfish_SetKey_fu_520_S_0_address0,
-        S_0_ce0 => grp_Blowfish_SetKey_fu_520_S_0_ce0,
-        S_0_we0 => grp_Blowfish_SetKey_fu_520_S_0_we0,
-        S_0_d0 => grp_Blowfish_SetKey_fu_520_S_0_d0,
+        S_0_address0 => grp_Blowfish_SetKey_fu_326_S_0_address0,
+        S_0_ce0 => grp_Blowfish_SetKey_fu_326_S_0_ce0,
+        S_0_we0 => grp_Blowfish_SetKey_fu_326_S_0_we0,
+        S_0_d0 => grp_Blowfish_SetKey_fu_326_S_0_d0,
         S_0_q0 => S_0_q0,
-        S_0_address1 => grp_Blowfish_SetKey_fu_520_S_0_address1,
-        S_0_ce1 => grp_Blowfish_SetKey_fu_520_S_0_ce1,
-        S_0_we1 => grp_Blowfish_SetKey_fu_520_S_0_we1,
-        S_0_d1 => grp_Blowfish_SetKey_fu_520_S_0_d1,
-        S_1_address0 => grp_Blowfish_SetKey_fu_520_S_1_address0,
-        S_1_ce0 => grp_Blowfish_SetKey_fu_520_S_1_ce0,
-        S_1_we0 => grp_Blowfish_SetKey_fu_520_S_1_we0,
-        S_1_d0 => grp_Blowfish_SetKey_fu_520_S_1_d0,
+        S_0_address1 => grp_Blowfish_SetKey_fu_326_S_0_address1,
+        S_0_ce1 => grp_Blowfish_SetKey_fu_326_S_0_ce1,
+        S_0_we1 => grp_Blowfish_SetKey_fu_326_S_0_we1,
+        S_0_d1 => grp_Blowfish_SetKey_fu_326_S_0_d1,
+        S_1_address0 => grp_Blowfish_SetKey_fu_326_S_1_address0,
+        S_1_ce0 => grp_Blowfish_SetKey_fu_326_S_1_ce0,
+        S_1_we0 => grp_Blowfish_SetKey_fu_326_S_1_we0,
+        S_1_d0 => grp_Blowfish_SetKey_fu_326_S_1_d0,
         S_1_q0 => S_1_q0,
-        S_1_address1 => grp_Blowfish_SetKey_fu_520_S_1_address1,
-        S_1_ce1 => grp_Blowfish_SetKey_fu_520_S_1_ce1,
-        S_1_we1 => grp_Blowfish_SetKey_fu_520_S_1_we1,
-        S_1_d1 => grp_Blowfish_SetKey_fu_520_S_1_d1,
-        S_2_address0 => grp_Blowfish_SetKey_fu_520_S_2_address0,
-        S_2_ce0 => grp_Blowfish_SetKey_fu_520_S_2_ce0,
-        S_2_we0 => grp_Blowfish_SetKey_fu_520_S_2_we0,
-        S_2_d0 => grp_Blowfish_SetKey_fu_520_S_2_d0,
+        S_1_address1 => grp_Blowfish_SetKey_fu_326_S_1_address1,
+        S_1_ce1 => grp_Blowfish_SetKey_fu_326_S_1_ce1,
+        S_1_we1 => grp_Blowfish_SetKey_fu_326_S_1_we1,
+        S_1_d1 => grp_Blowfish_SetKey_fu_326_S_1_d1,
+        S_2_address0 => grp_Blowfish_SetKey_fu_326_S_2_address0,
+        S_2_ce0 => grp_Blowfish_SetKey_fu_326_S_2_ce0,
+        S_2_we0 => grp_Blowfish_SetKey_fu_326_S_2_we0,
+        S_2_d0 => grp_Blowfish_SetKey_fu_326_S_2_d0,
         S_2_q0 => S_2_q0,
-        S_2_address1 => grp_Blowfish_SetKey_fu_520_S_2_address1,
-        S_2_ce1 => grp_Blowfish_SetKey_fu_520_S_2_ce1,
-        S_2_we1 => grp_Blowfish_SetKey_fu_520_S_2_we1,
-        S_2_d1 => grp_Blowfish_SetKey_fu_520_S_2_d1,
-        S_3_address0 => grp_Blowfish_SetKey_fu_520_S_3_address0,
-        S_3_ce0 => grp_Blowfish_SetKey_fu_520_S_3_ce0,
-        S_3_we0 => grp_Blowfish_SetKey_fu_520_S_3_we0,
-        S_3_d0 => grp_Blowfish_SetKey_fu_520_S_3_d0,
+        S_2_address1 => grp_Blowfish_SetKey_fu_326_S_2_address1,
+        S_2_ce1 => grp_Blowfish_SetKey_fu_326_S_2_ce1,
+        S_2_we1 => grp_Blowfish_SetKey_fu_326_S_2_we1,
+        S_2_d1 => grp_Blowfish_SetKey_fu_326_S_2_d1,
+        S_3_address0 => grp_Blowfish_SetKey_fu_326_S_3_address0,
+        S_3_ce0 => grp_Blowfish_SetKey_fu_326_S_3_ce0,
+        S_3_we0 => grp_Blowfish_SetKey_fu_326_S_3_we0,
+        S_3_d0 => grp_Blowfish_SetKey_fu_326_S_3_d0,
         S_3_q0 => S_3_q0,
-        S_3_address1 => grp_Blowfish_SetKey_fu_520_S_3_address1,
-        S_3_ce1 => grp_Blowfish_SetKey_fu_520_S_3_ce1,
-        S_3_we1 => grp_Blowfish_SetKey_fu_520_S_3_we1,
-        S_3_d1 => grp_Blowfish_SetKey_fu_520_S_3_d1,
-        ap_return_0 => grp_Blowfish_SetKey_fu_520_ap_return_0,
-        ap_return_1 => grp_Blowfish_SetKey_fu_520_ap_return_1,
-        ap_return_2 => grp_Blowfish_SetKey_fu_520_ap_return_2,
-        ap_return_3 => grp_Blowfish_SetKey_fu_520_ap_return_3,
-        ap_return_4 => grp_Blowfish_SetKey_fu_520_ap_return_4,
-        ap_return_5 => grp_Blowfish_SetKey_fu_520_ap_return_5,
-        ap_return_6 => grp_Blowfish_SetKey_fu_520_ap_return_6,
-        ap_return_7 => grp_Blowfish_SetKey_fu_520_ap_return_7,
-        ap_return_8 => grp_Blowfish_SetKey_fu_520_ap_return_8,
-        ap_return_9 => grp_Blowfish_SetKey_fu_520_ap_return_9,
-        ap_return_10 => grp_Blowfish_SetKey_fu_520_ap_return_10,
-        ap_return_11 => grp_Blowfish_SetKey_fu_520_ap_return_11,
-        ap_return_12 => grp_Blowfish_SetKey_fu_520_ap_return_12,
-        ap_return_13 => grp_Blowfish_SetKey_fu_520_ap_return_13,
-        ap_return_14 => grp_Blowfish_SetKey_fu_520_ap_return_14,
-        ap_return_15 => grp_Blowfish_SetKey_fu_520_ap_return_15,
-        ap_return_16 => grp_Blowfish_SetKey_fu_520_ap_return_16,
-        ap_return_17 => grp_Blowfish_SetKey_fu_520_ap_return_17);
+        S_3_address1 => grp_Blowfish_SetKey_fu_326_S_3_address1,
+        S_3_ce1 => grp_Blowfish_SetKey_fu_326_S_3_ce1,
+        S_3_we1 => grp_Blowfish_SetKey_fu_326_S_3_we1,
+        S_3_d1 => grp_Blowfish_SetKey_fu_326_S_3_d1,
+        ap_return_0 => grp_Blowfish_SetKey_fu_326_ap_return_0,
+        ap_return_1 => grp_Blowfish_SetKey_fu_326_ap_return_1,
+        ap_return_2 => grp_Blowfish_SetKey_fu_326_ap_return_2,
+        ap_return_3 => grp_Blowfish_SetKey_fu_326_ap_return_3,
+        ap_return_4 => grp_Blowfish_SetKey_fu_326_ap_return_4,
+        ap_return_5 => grp_Blowfish_SetKey_fu_326_ap_return_5,
+        ap_return_6 => grp_Blowfish_SetKey_fu_326_ap_return_6,
+        ap_return_7 => grp_Blowfish_SetKey_fu_326_ap_return_7,
+        ap_return_8 => grp_Blowfish_SetKey_fu_326_ap_return_8,
+        ap_return_9 => grp_Blowfish_SetKey_fu_326_ap_return_9,
+        ap_return_10 => grp_Blowfish_SetKey_fu_326_ap_return_10,
+        ap_return_11 => grp_Blowfish_SetKey_fu_326_ap_return_11,
+        ap_return_12 => grp_Blowfish_SetKey_fu_326_ap_return_12,
+        ap_return_13 => grp_Blowfish_SetKey_fu_326_ap_return_13,
+        ap_return_14 => grp_Blowfish_SetKey_fu_326_ap_return_14,
+        ap_return_15 => grp_Blowfish_SetKey_fu_326_ap_return_15,
+        ap_return_16 => grp_Blowfish_SetKey_fu_326_ap_return_16,
+        ap_return_17 => grp_Blowfish_SetKey_fu_326_ap_return_17);
 
-    grp_Encrypt_SetKey_fu_544 : component Encrypt_SetKey
+    grp_Blowfish_Encrypt_fu_350 : component Blowfish_Encrypt
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_Encrypt_SetKey_fu_544_ap_start,
-        ap_done => grp_Encrypt_SetKey_fu_544_ap_done,
-        ap_idle => grp_Encrypt_SetKey_fu_544_ap_idle,
-        ap_ready => grp_Encrypt_SetKey_fu_544_ap_ready,
-        left_read => left_1_reg_861,
-        right_read => right_1_reg_866,
+        ap_start => grp_Blowfish_Encrypt_fu_350_ap_start,
+        ap_done => grp_Blowfish_Encrypt_fu_350_ap_done,
+        ap_idle => grp_Blowfish_Encrypt_fu_350_ap_idle,
+        ap_ready => grp_Blowfish_Encrypt_fu_350_ap_ready,
+        plaintext_address0 => grp_Blowfish_Encrypt_fu_350_plaintext_address0,
+        plaintext_ce0 => grp_Blowfish_Encrypt_fu_350_plaintext_ce0,
+        plaintext_q0 => plaintext_q0,
+        plaintext_address1 => grp_Blowfish_Encrypt_fu_350_plaintext_address1,
+        plaintext_ce1 => grp_Blowfish_Encrypt_fu_350_plaintext_ce1,
+        plaintext_q1 => plaintext_q1,
+        ciphertext_address0 => grp_Blowfish_Encrypt_fu_350_ciphertext_address0,
+        ciphertext_ce0 => grp_Blowfish_Encrypt_fu_350_ciphertext_ce0,
+        ciphertext_we0 => grp_Blowfish_Encrypt_fu_350_ciphertext_we0,
+        ciphertext_d0 => grp_Blowfish_Encrypt_fu_350_ciphertext_d0,
+        ciphertext_address1 => grp_Blowfish_Encrypt_fu_350_ciphertext_address1,
+        ciphertext_ce1 => grp_Blowfish_Encrypt_fu_350_ciphertext_ce1,
+        ciphertext_we1 => grp_Blowfish_Encrypt_fu_350_ciphertext_we1,
+        ciphertext_d1 => grp_Blowfish_Encrypt_fu_350_ciphertext_d1,
         P_0_read => P_0_i,
         P_1_read => P_1_i,
         P_2_read => P_2_i,
@@ -500,20 +487,18 @@ begin
         P_15_read => P_15_i,
         P_16_read => P_16_i,
         P_17_read => P_17_i,
-        S_0_address0 => grp_Encrypt_SetKey_fu_544_S_0_address0,
-        S_0_ce0 => grp_Encrypt_SetKey_fu_544_S_0_ce0,
+        S_0_address0 => grp_Blowfish_Encrypt_fu_350_S_0_address0,
+        S_0_ce0 => grp_Blowfish_Encrypt_fu_350_S_0_ce0,
         S_0_q0 => S_0_q0,
-        S_1_address0 => grp_Encrypt_SetKey_fu_544_S_1_address0,
-        S_1_ce0 => grp_Encrypt_SetKey_fu_544_S_1_ce0,
+        S_1_address0 => grp_Blowfish_Encrypt_fu_350_S_1_address0,
+        S_1_ce0 => grp_Blowfish_Encrypt_fu_350_S_1_ce0,
         S_1_q0 => S_1_q0,
-        S_2_address0 => grp_Encrypt_SetKey_fu_544_S_2_address0,
-        S_2_ce0 => grp_Encrypt_SetKey_fu_544_S_2_ce0,
+        S_2_address0 => grp_Blowfish_Encrypt_fu_350_S_2_address0,
+        S_2_ce0 => grp_Blowfish_Encrypt_fu_350_S_2_ce0,
         S_2_q0 => S_2_q0,
-        S_3_address0 => grp_Encrypt_SetKey_fu_544_S_3_address0,
-        S_3_ce0 => grp_Encrypt_SetKey_fu_544_S_3_ce0,
-        S_3_q0 => S_3_q0,
-        ap_return_0 => grp_Encrypt_SetKey_fu_544_ap_return_0,
-        ap_return_1 => grp_Encrypt_SetKey_fu_544_ap_return_1);
+        S_3_address0 => grp_Blowfish_Encrypt_fu_350_S_3_address0,
+        S_3_ce0 => grp_Blowfish_Encrypt_fu_350_S_3_ce0,
+        S_3_q0 => S_3_q0);
 
 
 
@@ -531,98 +516,51 @@ begin
     end process;
 
 
-    grp_Blowfish_SetKey_fu_520_ap_start_reg_assign_proc : process(ap_clk)
+    grp_Blowfish_Encrypt_fu_350_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_Blowfish_SetKey_fu_520_ap_start_reg <= ap_const_logic_0;
+                grp_Blowfish_Encrypt_fu_350_ap_start_reg <= ap_const_logic_0;
             else
-                if (((ap_const_logic_1 = ap_CS_fsm_state1) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1) and (ap_start = ap_const_logic_1))) then 
-                    grp_Blowfish_SetKey_fu_520_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_Blowfish_SetKey_fu_520_ap_ready = ap_const_logic_1)) then 
-                    grp_Blowfish_SetKey_fu_520_ap_start_reg <= ap_const_logic_0;
+                if ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
+                    grp_Blowfish_Encrypt_fu_350_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_Blowfish_Encrypt_fu_350_ap_ready = ap_const_logic_1)) then 
+                    grp_Blowfish_Encrypt_fu_350_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_Encrypt_SetKey_fu_544_ap_start_reg_assign_proc : process(ap_clk)
+    grp_Blowfish_SetKey_fu_326_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_Encrypt_SetKey_fu_544_ap_start_reg <= ap_const_logic_0;
+                grp_Blowfish_SetKey_fu_326_ap_start_reg <= ap_const_logic_0;
             else
-                if ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-                    grp_Encrypt_SetKey_fu_544_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_Encrypt_SetKey_fu_544_ap_ready = ap_const_logic_1)) then 
-                    grp_Encrypt_SetKey_fu_544_ap_start_reg <= ap_const_logic_0;
+                if (((ap_start = ap_const_logic_1) and (set_key_read_read_fu_86_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+                    grp_Blowfish_SetKey_fu_326_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_Blowfish_SetKey_fu_326_ap_ready = ap_const_logic_1)) then 
+                    grp_Blowfish_SetKey_fu_326_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state6)) then
-                left_1_reg_861 <= left_1_fu_684_p5;
-                right_1_reg_866 <= right_1_fu_693_p5;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state3)) then
-                plaintext_load_1_reg_806 <= plaintext_q1;
-                plaintext_load_reg_801 <= plaintext_q0;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state4)) then
-                plaintext_load_2_reg_821 <= plaintext_q0;
-                plaintext_load_3_reg_826 <= plaintext_q1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if ((ap_const_logic_1 = ap_CS_fsm_state5)) then
-                plaintext_load_4_reg_841 <= plaintext_q0;
-                plaintext_load_5_reg_846 <= plaintext_q1;
-            end if;
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((grp_Encrypt_SetKey_fu_544_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
-                trunc_ln237_reg_966 <= trunc_ln237_fu_744_p1;
-                trunc_ln241_reg_986 <= trunc_ln241_fu_778_p1;
-                trunc_ln2_reg_961 <= grp_Encrypt_SetKey_fu_544_ap_return_0(15 downto 8);
-                trunc_ln4_reg_971 <= grp_Encrypt_SetKey_fu_544_ap_return_1(31 downto 24);
-                trunc_ln5_reg_976 <= grp_Encrypt_SetKey_fu_544_ap_return_1(23 downto 16);
-                trunc_ln6_reg_981 <= grp_Encrypt_SetKey_fu_544_ap_return_1(15 downto 8);
-            end if;
-        end if;
-    end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, ap_CS_fsm_state7, grp_Encrypt_SetKey_fu_544_ap_done)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_Encrypt_fu_350_ap_done, set_key_read_read_fu_86_p2, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state1) and (ap_start = ap_const_logic_1))) then
+                if (((ap_start = ap_const_logic_1) and (set_key_read_read_fu_86_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
+                    ap_NS_fsm <= ap_ST_fsm_state3;
+                elsif (((ap_start = ap_const_logic_1) and (set_key_read_read_fu_86_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
                     ap_NS_fsm <= ap_ST_fsm_state2;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done))) then
+                if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
                     ap_NS_fsm <= ap_ST_fsm_state3;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state2;
@@ -630,41 +568,29 @@ begin
             when ap_ST_fsm_state3 => 
                 ap_NS_fsm <= ap_ST_fsm_state4;
             when ap_ST_fsm_state4 => 
-                ap_NS_fsm <= ap_ST_fsm_state5;
-            when ap_ST_fsm_state5 => 
-                ap_NS_fsm <= ap_ST_fsm_state6;
-            when ap_ST_fsm_state6 => 
-                ap_NS_fsm <= ap_ST_fsm_state7;
-            when ap_ST_fsm_state7 => 
-                if (((grp_Encrypt_SetKey_fu_544_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then
-                    ap_NS_fsm <= ap_ST_fsm_state8;
+                if (((grp_Blowfish_Encrypt_fu_350_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then
+                    ap_NS_fsm <= ap_ST_fsm_state1;
                 else
-                    ap_NS_fsm <= ap_ST_fsm_state7;
+                    ap_NS_fsm <= ap_ST_fsm_state4;
                 end if;
-            when ap_ST_fsm_state8 => 
-                ap_NS_fsm <= ap_ST_fsm_state9;
-            when ap_ST_fsm_state9 => 
-                ap_NS_fsm <= ap_ST_fsm_state10;
-            when ap_ST_fsm_state10 => 
-                ap_NS_fsm <= ap_ST_fsm_state1;
             when others =>  
-                ap_NS_fsm <= "XXXXXXXXXX";
+                ap_NS_fsm <= "XXXX";
         end case;
     end process;
 
-    P_0_o_assign_proc : process(P_0_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_0)
+    P_0_o_assign_proc : process(P_0_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_0, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_0_o <= grp_Blowfish_SetKey_fu_520_ap_return_0;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_0_o <= grp_Blowfish_SetKey_fu_326_ap_return_0;
         else 
             P_0_o <= P_0_i;
         end if; 
     end process;
 
 
-    P_0_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_0_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_0_o_ap_vld <= ap_const_logic_1;
         else 
             P_0_o_ap_vld <= ap_const_logic_0;
@@ -672,19 +598,19 @@ begin
     end process;
 
 
-    P_10_o_assign_proc : process(P_10_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_10)
+    P_10_o_assign_proc : process(P_10_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_10, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_10_o <= grp_Blowfish_SetKey_fu_520_ap_return_10;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_10_o <= grp_Blowfish_SetKey_fu_326_ap_return_10;
         else 
             P_10_o <= P_10_i;
         end if; 
     end process;
 
 
-    P_10_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_10_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_10_o_ap_vld <= ap_const_logic_1;
         else 
             P_10_o_ap_vld <= ap_const_logic_0;
@@ -692,19 +618,19 @@ begin
     end process;
 
 
-    P_11_o_assign_proc : process(P_11_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_11)
+    P_11_o_assign_proc : process(P_11_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_11, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_11_o <= grp_Blowfish_SetKey_fu_520_ap_return_11;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_11_o <= grp_Blowfish_SetKey_fu_326_ap_return_11;
         else 
             P_11_o <= P_11_i;
         end if; 
     end process;
 
 
-    P_11_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_11_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_11_o_ap_vld <= ap_const_logic_1;
         else 
             P_11_o_ap_vld <= ap_const_logic_0;
@@ -712,19 +638,19 @@ begin
     end process;
 
 
-    P_12_o_assign_proc : process(P_12_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_12)
+    P_12_o_assign_proc : process(P_12_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_12, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_12_o <= grp_Blowfish_SetKey_fu_520_ap_return_12;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_12_o <= grp_Blowfish_SetKey_fu_326_ap_return_12;
         else 
             P_12_o <= P_12_i;
         end if; 
     end process;
 
 
-    P_12_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_12_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_12_o_ap_vld <= ap_const_logic_1;
         else 
             P_12_o_ap_vld <= ap_const_logic_0;
@@ -732,19 +658,19 @@ begin
     end process;
 
 
-    P_13_o_assign_proc : process(P_13_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_13)
+    P_13_o_assign_proc : process(P_13_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_13, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_13_o <= grp_Blowfish_SetKey_fu_520_ap_return_13;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_13_o <= grp_Blowfish_SetKey_fu_326_ap_return_13;
         else 
             P_13_o <= P_13_i;
         end if; 
     end process;
 
 
-    P_13_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_13_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_13_o_ap_vld <= ap_const_logic_1;
         else 
             P_13_o_ap_vld <= ap_const_logic_0;
@@ -752,19 +678,19 @@ begin
     end process;
 
 
-    P_14_o_assign_proc : process(P_14_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_14)
+    P_14_o_assign_proc : process(P_14_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_14, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_14_o <= grp_Blowfish_SetKey_fu_520_ap_return_14;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_14_o <= grp_Blowfish_SetKey_fu_326_ap_return_14;
         else 
             P_14_o <= P_14_i;
         end if; 
     end process;
 
 
-    P_14_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_14_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_14_o_ap_vld <= ap_const_logic_1;
         else 
             P_14_o_ap_vld <= ap_const_logic_0;
@@ -772,19 +698,19 @@ begin
     end process;
 
 
-    P_15_o_assign_proc : process(P_15_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_15)
+    P_15_o_assign_proc : process(P_15_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_15, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_15_o <= grp_Blowfish_SetKey_fu_520_ap_return_15;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_15_o <= grp_Blowfish_SetKey_fu_326_ap_return_15;
         else 
             P_15_o <= P_15_i;
         end if; 
     end process;
 
 
-    P_15_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_15_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_15_o_ap_vld <= ap_const_logic_1;
         else 
             P_15_o_ap_vld <= ap_const_logic_0;
@@ -792,19 +718,19 @@ begin
     end process;
 
 
-    P_16_o_assign_proc : process(P_16_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_16)
+    P_16_o_assign_proc : process(P_16_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_16, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_16_o <= grp_Blowfish_SetKey_fu_520_ap_return_16;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_16_o <= grp_Blowfish_SetKey_fu_326_ap_return_16;
         else 
             P_16_o <= P_16_i;
         end if; 
     end process;
 
 
-    P_16_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_16_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_16_o_ap_vld <= ap_const_logic_1;
         else 
             P_16_o_ap_vld <= ap_const_logic_0;
@@ -812,19 +738,19 @@ begin
     end process;
 
 
-    P_17_o_assign_proc : process(P_17_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_17)
+    P_17_o_assign_proc : process(P_17_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_17, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_17_o <= grp_Blowfish_SetKey_fu_520_ap_return_17;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_17_o <= grp_Blowfish_SetKey_fu_326_ap_return_17;
         else 
             P_17_o <= P_17_i;
         end if; 
     end process;
 
 
-    P_17_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_17_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_17_o_ap_vld <= ap_const_logic_1;
         else 
             P_17_o_ap_vld <= ap_const_logic_0;
@@ -832,19 +758,19 @@ begin
     end process;
 
 
-    P_1_o_assign_proc : process(P_1_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_1)
+    P_1_o_assign_proc : process(P_1_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_1_o <= grp_Blowfish_SetKey_fu_520_ap_return_1;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_1_o <= grp_Blowfish_SetKey_fu_326_ap_return_1;
         else 
             P_1_o <= P_1_i;
         end if; 
     end process;
 
 
-    P_1_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_1_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_1_o_ap_vld <= ap_const_logic_1;
         else 
             P_1_o_ap_vld <= ap_const_logic_0;
@@ -852,19 +778,19 @@ begin
     end process;
 
 
-    P_2_o_assign_proc : process(P_2_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_2)
+    P_2_o_assign_proc : process(P_2_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_2, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_2_o <= grp_Blowfish_SetKey_fu_520_ap_return_2;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_2_o <= grp_Blowfish_SetKey_fu_326_ap_return_2;
         else 
             P_2_o <= P_2_i;
         end if; 
     end process;
 
 
-    P_2_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_2_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_2_o_ap_vld <= ap_const_logic_1;
         else 
             P_2_o_ap_vld <= ap_const_logic_0;
@@ -872,19 +798,19 @@ begin
     end process;
 
 
-    P_3_o_assign_proc : process(P_3_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_3)
+    P_3_o_assign_proc : process(P_3_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_3, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_3_o <= grp_Blowfish_SetKey_fu_520_ap_return_3;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_3_o <= grp_Blowfish_SetKey_fu_326_ap_return_3;
         else 
             P_3_o <= P_3_i;
         end if; 
     end process;
 
 
-    P_3_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_3_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_3_o_ap_vld <= ap_const_logic_1;
         else 
             P_3_o_ap_vld <= ap_const_logic_0;
@@ -892,19 +818,19 @@ begin
     end process;
 
 
-    P_4_o_assign_proc : process(P_4_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_4)
+    P_4_o_assign_proc : process(P_4_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_4, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_4_o <= grp_Blowfish_SetKey_fu_520_ap_return_4;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_4_o <= grp_Blowfish_SetKey_fu_326_ap_return_4;
         else 
             P_4_o <= P_4_i;
         end if; 
     end process;
 
 
-    P_4_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_4_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_4_o_ap_vld <= ap_const_logic_1;
         else 
             P_4_o_ap_vld <= ap_const_logic_0;
@@ -912,19 +838,19 @@ begin
     end process;
 
 
-    P_5_o_assign_proc : process(P_5_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_5)
+    P_5_o_assign_proc : process(P_5_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_5, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_5_o <= grp_Blowfish_SetKey_fu_520_ap_return_5;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_5_o <= grp_Blowfish_SetKey_fu_326_ap_return_5;
         else 
             P_5_o <= P_5_i;
         end if; 
     end process;
 
 
-    P_5_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_5_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_5_o_ap_vld <= ap_const_logic_1;
         else 
             P_5_o_ap_vld <= ap_const_logic_0;
@@ -932,19 +858,19 @@ begin
     end process;
 
 
-    P_6_o_assign_proc : process(P_6_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_6)
+    P_6_o_assign_proc : process(P_6_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_6, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_6_o <= grp_Blowfish_SetKey_fu_520_ap_return_6;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_6_o <= grp_Blowfish_SetKey_fu_326_ap_return_6;
         else 
             P_6_o <= P_6_i;
         end if; 
     end process;
 
 
-    P_6_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_6_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_6_o_ap_vld <= ap_const_logic_1;
         else 
             P_6_o_ap_vld <= ap_const_logic_0;
@@ -952,19 +878,19 @@ begin
     end process;
 
 
-    P_7_o_assign_proc : process(P_7_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_7)
+    P_7_o_assign_proc : process(P_7_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_7, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_7_o <= grp_Blowfish_SetKey_fu_520_ap_return_7;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_7_o <= grp_Blowfish_SetKey_fu_326_ap_return_7;
         else 
             P_7_o <= P_7_i;
         end if; 
     end process;
 
 
-    P_7_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_7_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_7_o_ap_vld <= ap_const_logic_1;
         else 
             P_7_o_ap_vld <= ap_const_logic_0;
@@ -972,19 +898,19 @@ begin
     end process;
 
 
-    P_8_o_assign_proc : process(P_8_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_8)
+    P_8_o_assign_proc : process(P_8_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_8, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_8_o <= grp_Blowfish_SetKey_fu_520_ap_return_8;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_8_o <= grp_Blowfish_SetKey_fu_326_ap_return_8;
         else 
             P_8_o <= P_8_i;
         end if; 
     end process;
 
 
-    P_8_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_8_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_8_o_ap_vld <= ap_const_logic_1;
         else 
             P_8_o_ap_vld <= ap_const_logic_0;
@@ -992,19 +918,19 @@ begin
     end process;
 
 
-    P_9_o_assign_proc : process(P_9_i, set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done, grp_Blowfish_SetKey_fu_520_ap_return_9)
+    P_9_o_assign_proc : process(P_9_i, grp_Blowfish_SetKey_fu_326_ap_done, grp_Blowfish_SetKey_fu_326_ap_return_9, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            P_9_o <= grp_Blowfish_SetKey_fu_520_ap_return_9;
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+            P_9_o <= grp_Blowfish_SetKey_fu_326_ap_return_9;
         else 
             P_9_o <= P_9_i;
         end if; 
     end process;
 
 
-    P_9_o_ap_vld_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    P_9_o_ap_vld_assign_proc : process(grp_Blowfish_SetKey_fu_326_ap_done, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
+        if (((grp_Blowfish_SetKey_fu_326_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             P_9_o_ap_vld <= ap_const_logic_1;
         else 
             P_9_o_ap_vld <= ap_const_logic_0;
@@ -1012,253 +938,241 @@ begin
     end process;
 
 
-    S_0_address0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_0_address0, grp_Encrypt_SetKey_fu_544_S_0_address0)
+    S_0_address0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_0_address0, grp_Blowfish_Encrypt_fu_350_S_0_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_0_address0 <= grp_Encrypt_SetKey_fu_544_S_0_address0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_0_address0 <= grp_Blowfish_SetKey_fu_520_S_0_address0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_0_address0 <= grp_Blowfish_Encrypt_fu_350_S_0_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_0_address0 <= grp_Blowfish_SetKey_fu_326_S_0_address0;
         else 
             S_0_address0 <= "XXXXXXXX";
         end if; 
     end process;
 
-    S_0_address1 <= grp_Blowfish_SetKey_fu_520_S_0_address1;
+    S_0_address1 <= grp_Blowfish_SetKey_fu_326_S_0_address1;
 
-    S_0_ce0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_0_ce0, grp_Encrypt_SetKey_fu_544_S_0_ce0)
+    S_0_ce0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_0_ce0, grp_Blowfish_Encrypt_fu_350_S_0_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_0_ce0 <= grp_Encrypt_SetKey_fu_544_S_0_ce0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_0_ce0 <= grp_Blowfish_SetKey_fu_520_S_0_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_0_ce0 <= grp_Blowfish_Encrypt_fu_350_S_0_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_0_ce0 <= grp_Blowfish_SetKey_fu_326_S_0_ce0;
         else 
             S_0_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_0_ce1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_0_ce1)
+    S_0_ce1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_0_ce1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_0_ce1 <= grp_Blowfish_SetKey_fu_520_S_0_ce1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_0_ce1 <= grp_Blowfish_SetKey_fu_326_S_0_ce1;
         else 
             S_0_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
-    S_0_d0 <= grp_Blowfish_SetKey_fu_520_S_0_d0;
-    S_0_d1 <= grp_Blowfish_SetKey_fu_520_S_0_d1;
+    S_0_d0 <= grp_Blowfish_SetKey_fu_326_S_0_d0;
+    S_0_d1 <= grp_Blowfish_SetKey_fu_326_S_0_d1;
 
-    S_0_we0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_0_we0)
+    S_0_we0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_0_we0, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_0_we0 <= grp_Blowfish_SetKey_fu_520_S_0_we0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_0_we0 <= grp_Blowfish_SetKey_fu_326_S_0_we0;
         else 
             S_0_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_0_we1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_0_we1)
+    S_0_we1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_0_we1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_0_we1 <= grp_Blowfish_SetKey_fu_520_S_0_we1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_0_we1 <= grp_Blowfish_SetKey_fu_326_S_0_we1;
         else 
             S_0_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_1_address0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_1_address0, grp_Encrypt_SetKey_fu_544_S_1_address0)
+    S_1_address0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_1_address0, grp_Blowfish_Encrypt_fu_350_S_1_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_1_address0 <= grp_Encrypt_SetKey_fu_544_S_1_address0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_1_address0 <= grp_Blowfish_SetKey_fu_520_S_1_address0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_1_address0 <= grp_Blowfish_Encrypt_fu_350_S_1_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_1_address0 <= grp_Blowfish_SetKey_fu_326_S_1_address0;
         else 
             S_1_address0 <= "XXXXXXXX";
         end if; 
     end process;
 
-    S_1_address1 <= grp_Blowfish_SetKey_fu_520_S_1_address1;
+    S_1_address1 <= grp_Blowfish_SetKey_fu_326_S_1_address1;
 
-    S_1_ce0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_1_ce0, grp_Encrypt_SetKey_fu_544_S_1_ce0)
+    S_1_ce0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_1_ce0, grp_Blowfish_Encrypt_fu_350_S_1_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_1_ce0 <= grp_Encrypt_SetKey_fu_544_S_1_ce0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_1_ce0 <= grp_Blowfish_SetKey_fu_520_S_1_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_1_ce0 <= grp_Blowfish_Encrypt_fu_350_S_1_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_1_ce0 <= grp_Blowfish_SetKey_fu_326_S_1_ce0;
         else 
             S_1_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_1_ce1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_1_ce1)
+    S_1_ce1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_1_ce1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_1_ce1 <= grp_Blowfish_SetKey_fu_520_S_1_ce1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_1_ce1 <= grp_Blowfish_SetKey_fu_326_S_1_ce1;
         else 
             S_1_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
-    S_1_d0 <= grp_Blowfish_SetKey_fu_520_S_1_d0;
-    S_1_d1 <= grp_Blowfish_SetKey_fu_520_S_1_d1;
+    S_1_d0 <= grp_Blowfish_SetKey_fu_326_S_1_d0;
+    S_1_d1 <= grp_Blowfish_SetKey_fu_326_S_1_d1;
 
-    S_1_we0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_1_we0)
+    S_1_we0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_1_we0, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_1_we0 <= grp_Blowfish_SetKey_fu_520_S_1_we0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_1_we0 <= grp_Blowfish_SetKey_fu_326_S_1_we0;
         else 
             S_1_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_1_we1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_1_we1)
+    S_1_we1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_1_we1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_1_we1 <= grp_Blowfish_SetKey_fu_520_S_1_we1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_1_we1 <= grp_Blowfish_SetKey_fu_326_S_1_we1;
         else 
             S_1_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_2_address0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_2_address0, grp_Encrypt_SetKey_fu_544_S_2_address0)
+    S_2_address0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_2_address0, grp_Blowfish_Encrypt_fu_350_S_2_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_2_address0 <= grp_Encrypt_SetKey_fu_544_S_2_address0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_2_address0 <= grp_Blowfish_SetKey_fu_520_S_2_address0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_2_address0 <= grp_Blowfish_Encrypt_fu_350_S_2_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_2_address0 <= grp_Blowfish_SetKey_fu_326_S_2_address0;
         else 
             S_2_address0 <= "XXXXXXXX";
         end if; 
     end process;
 
-    S_2_address1 <= grp_Blowfish_SetKey_fu_520_S_2_address1;
+    S_2_address1 <= grp_Blowfish_SetKey_fu_326_S_2_address1;
 
-    S_2_ce0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_2_ce0, grp_Encrypt_SetKey_fu_544_S_2_ce0)
+    S_2_ce0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_2_ce0, grp_Blowfish_Encrypt_fu_350_S_2_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_2_ce0 <= grp_Encrypt_SetKey_fu_544_S_2_ce0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_2_ce0 <= grp_Blowfish_SetKey_fu_520_S_2_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_2_ce0 <= grp_Blowfish_Encrypt_fu_350_S_2_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_2_ce0 <= grp_Blowfish_SetKey_fu_326_S_2_ce0;
         else 
             S_2_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_2_ce1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_2_ce1)
+    S_2_ce1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_2_ce1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_2_ce1 <= grp_Blowfish_SetKey_fu_520_S_2_ce1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_2_ce1 <= grp_Blowfish_SetKey_fu_326_S_2_ce1;
         else 
             S_2_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
-    S_2_d0 <= grp_Blowfish_SetKey_fu_520_S_2_d0;
-    S_2_d1 <= grp_Blowfish_SetKey_fu_520_S_2_d1;
+    S_2_d0 <= grp_Blowfish_SetKey_fu_326_S_2_d0;
+    S_2_d1 <= grp_Blowfish_SetKey_fu_326_S_2_d1;
 
-    S_2_we0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_2_we0)
+    S_2_we0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_2_we0, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_2_we0 <= grp_Blowfish_SetKey_fu_520_S_2_we0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_2_we0 <= grp_Blowfish_SetKey_fu_326_S_2_we0;
         else 
             S_2_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_2_we1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_2_we1)
+    S_2_we1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_2_we1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_2_we1 <= grp_Blowfish_SetKey_fu_520_S_2_we1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_2_we1 <= grp_Blowfish_SetKey_fu_326_S_2_we1;
         else 
             S_2_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_3_address0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_3_address0, grp_Encrypt_SetKey_fu_544_S_3_address0)
+    S_3_address0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_3_address0, grp_Blowfish_Encrypt_fu_350_S_3_address0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_3_address0 <= grp_Encrypt_SetKey_fu_544_S_3_address0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_3_address0 <= grp_Blowfish_SetKey_fu_520_S_3_address0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_3_address0 <= grp_Blowfish_Encrypt_fu_350_S_3_address0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_3_address0 <= grp_Blowfish_SetKey_fu_326_S_3_address0;
         else 
             S_3_address0 <= "XXXXXXXX";
         end if; 
     end process;
 
-    S_3_address1 <= grp_Blowfish_SetKey_fu_520_S_3_address1;
+    S_3_address1 <= grp_Blowfish_SetKey_fu_326_S_3_address1;
 
-    S_3_ce0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, ap_CS_fsm_state7, grp_Blowfish_SetKey_fu_520_S_3_ce0, grp_Encrypt_SetKey_fu_544_S_3_ce0)
+    S_3_ce0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_3_ce0, grp_Blowfish_Encrypt_fu_350_S_3_ce0, ap_CS_fsm_state2, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            S_3_ce0 <= grp_Encrypt_SetKey_fu_544_S_3_ce0;
-        elsif (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_3_ce0 <= grp_Blowfish_SetKey_fu_520_S_3_ce0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            S_3_ce0 <= grp_Blowfish_Encrypt_fu_350_S_3_ce0;
+        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_3_ce0 <= grp_Blowfish_SetKey_fu_326_S_3_ce0;
         else 
             S_3_ce0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_3_ce1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_3_ce1)
+    S_3_ce1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_3_ce1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_3_ce1 <= grp_Blowfish_SetKey_fu_520_S_3_ce1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_3_ce1 <= grp_Blowfish_SetKey_fu_326_S_3_ce1;
         else 
             S_3_ce1 <= ap_const_logic_0;
         end if; 
     end process;
 
-    S_3_d0 <= grp_Blowfish_SetKey_fu_520_S_3_d0;
-    S_3_d1 <= grp_Blowfish_SetKey_fu_520_S_3_d1;
+    S_3_d0 <= grp_Blowfish_SetKey_fu_326_S_3_d0;
+    S_3_d1 <= grp_Blowfish_SetKey_fu_326_S_3_d1;
 
-    S_3_we0_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_3_we0)
+    S_3_we0_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_3_we0, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_3_we0 <= grp_Blowfish_SetKey_fu_520_S_3_we0;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_3_we0 <= grp_Blowfish_SetKey_fu_326_S_3_we0;
         else 
             S_3_we0 <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    S_3_we1_assign_proc : process(set_key_read_read_fu_118_p2, ap_CS_fsm_state2, grp_Blowfish_SetKey_fu_520_S_3_we1)
+    S_3_we1_assign_proc : process(grp_Blowfish_SetKey_fu_326_S_3_we1, ap_CS_fsm_state2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1))) then 
-            S_3_we1 <= grp_Blowfish_SetKey_fu_520_S_3_we1;
+        if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
+            S_3_we1 <= grp_Blowfish_SetKey_fu_326_S_3_we1;
         else 
             S_3_we1 <= ap_const_logic_0;
         end if; 
     end process;
 
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
-    ap_CS_fsm_state10 <= ap_CS_fsm(9);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
     ap_CS_fsm_state3 <= ap_CS_fsm(2);
     ap_CS_fsm_state4 <= ap_CS_fsm(3);
-    ap_CS_fsm_state5 <= ap_CS_fsm(4);
-    ap_CS_fsm_state6 <= ap_CS_fsm(5);
-    ap_CS_fsm_state7 <= ap_CS_fsm(6);
-    ap_CS_fsm_state8 <= ap_CS_fsm(7);
-    ap_CS_fsm_state9 <= ap_CS_fsm(8);
 
-    ap_block_state2_on_subcall_done_assign_proc : process(set_key_read_read_fu_118_p2, grp_Blowfish_SetKey_fu_520_ap_done)
+    ap_done_assign_proc : process(grp_Blowfish_Encrypt_fu_350_ap_done, ap_CS_fsm_state4)
     begin
-                ap_block_state2_on_subcall_done <= ((grp_Blowfish_SetKey_fu_520_ap_done = ap_const_logic_0) and (set_key_read_read_fu_118_p2 = ap_const_lv1_1));
-    end process;
-
-
-    ap_done_assign_proc : process(ap_CS_fsm_state10)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
+        if (((grp_Blowfish_Encrypt_fu_350_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -1276,178 +1190,32 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(ap_CS_fsm_state10)
+    ap_ready_assign_proc : process(grp_Blowfish_Encrypt_fu_350_ap_done, ap_CS_fsm_state4)
     begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
+        if (((grp_Blowfish_Encrypt_fu_350_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state4))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
         end if; 
     end process;
 
-
-    ciphertext_address0_assign_proc : process(ap_CS_fsm_state7, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            ciphertext_address0 <= ap_const_lv64_6(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            ciphertext_address0 <= ap_const_lv64_4(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            ciphertext_address0 <= ap_const_lv64_2(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            ciphertext_address0 <= ap_const_lv64_0(3 - 1 downto 0);
-        else 
-            ciphertext_address0 <= "XXX";
-        end if; 
-    end process;
-
-
-    ciphertext_address1_assign_proc : process(ap_CS_fsm_state7, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            ciphertext_address1 <= ap_const_lv64_7(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            ciphertext_address1 <= ap_const_lv64_5(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            ciphertext_address1 <= ap_const_lv64_3(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            ciphertext_address1 <= ap_const_lv64_1(3 - 1 downto 0);
-        else 
-            ciphertext_address1 <= "XXX";
-        end if; 
-    end process;
-
-
-    ciphertext_ce0_assign_proc : process(ap_CS_fsm_state7, grp_Encrypt_SetKey_fu_544_ap_done, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state10) or (ap_const_logic_1 = ap_CS_fsm_state9) or (ap_const_logic_1 = ap_CS_fsm_state8) or ((grp_Encrypt_SetKey_fu_544_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
-            ciphertext_ce0 <= ap_const_logic_1;
-        else 
-            ciphertext_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ciphertext_ce1_assign_proc : process(ap_CS_fsm_state7, grp_Encrypt_SetKey_fu_544_ap_done, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state10) or (ap_const_logic_1 = ap_CS_fsm_state9) or (ap_const_logic_1 = ap_CS_fsm_state8) or ((grp_Encrypt_SetKey_fu_544_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
-            ciphertext_ce1 <= ap_const_logic_1;
-        else 
-            ciphertext_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ciphertext_d0_assign_proc : process(trunc_ln2_reg_961, ap_CS_fsm_state7, trunc_ln4_reg_971, trunc_ln6_reg_981, grp_Encrypt_SetKey_fu_544_ap_return_0, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            ciphertext_d0 <= trunc_ln6_reg_981;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            ciphertext_d0 <= trunc_ln4_reg_971;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            ciphertext_d0 <= trunc_ln2_reg_961;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            ciphertext_d0 <= grp_Encrypt_SetKey_fu_544_ap_return_0(31 downto 24);
-        else 
-            ciphertext_d0 <= "XXXXXXXX";
-        end if; 
-    end process;
-
-
-    ciphertext_d1_assign_proc : process(ap_CS_fsm_state7, trunc_ln237_reg_966, trunc_ln5_reg_976, trunc_ln241_reg_986, grp_Encrypt_SetKey_fu_544_ap_return_0, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            ciphertext_d1 <= trunc_ln241_reg_986;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            ciphertext_d1 <= trunc_ln5_reg_976;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state8)) then 
-            ciphertext_d1 <= trunc_ln237_reg_966;
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state7)) then 
-            ciphertext_d1 <= grp_Encrypt_SetKey_fu_544_ap_return_0(23 downto 16);
-        else 
-            ciphertext_d1 <= "XXXXXXXX";
-        end if; 
-    end process;
-
-
-    ciphertext_we0_assign_proc : process(ap_CS_fsm_state7, grp_Encrypt_SetKey_fu_544_ap_done, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state10) or (ap_const_logic_1 = ap_CS_fsm_state9) or (ap_const_logic_1 = ap_CS_fsm_state8) or ((grp_Encrypt_SetKey_fu_544_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
-            ciphertext_we0 <= ap_const_logic_1;
-        else 
-            ciphertext_we0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    ciphertext_we1_assign_proc : process(ap_CS_fsm_state7, grp_Encrypt_SetKey_fu_544_ap_done, ap_CS_fsm_state8, ap_CS_fsm_state9, ap_CS_fsm_state10)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state10) or (ap_const_logic_1 = ap_CS_fsm_state9) or (ap_const_logic_1 = ap_CS_fsm_state8) or ((grp_Encrypt_SetKey_fu_544_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state7)))) then 
-            ciphertext_we1 <= ap_const_logic_1;
-        else 
-            ciphertext_we1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    grp_Blowfish_SetKey_fu_520_ap_start <= grp_Blowfish_SetKey_fu_520_ap_start_reg;
-    grp_Encrypt_SetKey_fu_544_ap_start <= grp_Encrypt_SetKey_fu_544_ap_start_reg;
-    key_address0 <= grp_Blowfish_SetKey_fu_520_key_address0;
-    key_ce0 <= grp_Blowfish_SetKey_fu_520_key_ce0;
-    left_1_fu_684_p5 <= (((plaintext_load_reg_801 & plaintext_load_1_reg_806) & plaintext_load_2_reg_821) & plaintext_load_3_reg_826);
-
-    plaintext_address0_assign_proc : process(ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            plaintext_address0 <= ap_const_lv64_6(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            plaintext_address0 <= ap_const_lv64_4(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            plaintext_address0 <= ap_const_lv64_2(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            plaintext_address0 <= ap_const_lv64_0(3 - 1 downto 0);
-        else 
-            plaintext_address0 <= "XXX";
-        end if; 
-    end process;
-
-
-    plaintext_address1_assign_proc : process(ap_CS_fsm_state2, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state5)) then 
-            plaintext_address1 <= ap_const_lv64_7(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            plaintext_address1 <= ap_const_lv64_5(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state3)) then 
-            plaintext_address1 <= ap_const_lv64_3(3 - 1 downto 0);
-        elsif ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            plaintext_address1 <= ap_const_lv64_1(3 - 1 downto 0);
-        else 
-            plaintext_address1 <= "XXX";
-        end if; 
-    end process;
-
-
-    plaintext_ce0_assign_proc : process(ap_CS_fsm_state2, ap_block_state2_on_subcall_done, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3) or ((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done)))) then 
-            plaintext_ce0 <= ap_const_logic_1;
-        else 
-            plaintext_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-
-    plaintext_ce1_assign_proc : process(ap_CS_fsm_state2, ap_block_state2_on_subcall_done, ap_CS_fsm_state3, ap_CS_fsm_state4, ap_CS_fsm_state5)
-    begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state5) or (ap_const_logic_1 = ap_CS_fsm_state4) or (ap_const_logic_1 = ap_CS_fsm_state3) or ((ap_const_logic_1 = ap_CS_fsm_state2) and (ap_const_boolean_0 = ap_block_state2_on_subcall_done)))) then 
-            plaintext_ce1 <= ap_const_logic_1;
-        else 
-            plaintext_ce1 <= ap_const_logic_0;
-        end if; 
-    end process;
-
-    right_1_fu_693_p5 <= (((plaintext_load_4_reg_841 & plaintext_load_5_reg_846) & plaintext_q0) & plaintext_q1);
-    set_key_read_read_fu_118_p2 <= (0=>set_key, others=>'-');
-    trunc_ln237_fu_744_p1 <= grp_Encrypt_SetKey_fu_544_ap_return_0(8 - 1 downto 0);
-    trunc_ln241_fu_778_p1 <= grp_Encrypt_SetKey_fu_544_ap_return_1(8 - 1 downto 0);
+    ciphertext_address0 <= grp_Blowfish_Encrypt_fu_350_ciphertext_address0;
+    ciphertext_address1 <= grp_Blowfish_Encrypt_fu_350_ciphertext_address1;
+    ciphertext_ce0 <= grp_Blowfish_Encrypt_fu_350_ciphertext_ce0;
+    ciphertext_ce1 <= grp_Blowfish_Encrypt_fu_350_ciphertext_ce1;
+    ciphertext_d0 <= grp_Blowfish_Encrypt_fu_350_ciphertext_d0;
+    ciphertext_d1 <= grp_Blowfish_Encrypt_fu_350_ciphertext_d1;
+    ciphertext_we0 <= grp_Blowfish_Encrypt_fu_350_ciphertext_we0;
+    ciphertext_we1 <= grp_Blowfish_Encrypt_fu_350_ciphertext_we1;
+    grp_Blowfish_Encrypt_fu_350_ap_start <= grp_Blowfish_Encrypt_fu_350_ap_start_reg;
+    grp_Blowfish_SetKey_fu_326_ap_start <= grp_Blowfish_SetKey_fu_326_ap_start_reg;
+    key_address0 <= grp_Blowfish_SetKey_fu_326_key_address0;
+    key_address1 <= grp_Blowfish_SetKey_fu_326_key_address1;
+    key_ce0 <= grp_Blowfish_SetKey_fu_326_key_ce0;
+    key_ce1 <= grp_Blowfish_SetKey_fu_326_key_ce1;
+    plaintext_address0 <= grp_Blowfish_Encrypt_fu_350_plaintext_address0;
+    plaintext_address1 <= grp_Blowfish_Encrypt_fu_350_plaintext_address1;
+    plaintext_ce0 <= grp_Blowfish_Encrypt_fu_350_plaintext_ce0;
+    plaintext_ce1 <= grp_Blowfish_Encrypt_fu_350_plaintext_ce1;
+    set_key_read_read_fu_86_p2 <= (0=>set_key, others=>'-');
 end behav;

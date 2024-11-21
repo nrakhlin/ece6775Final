@@ -1,7 +1,0 @@
-Running: xsim.dir/Blowfish_Decrypt/xsimk -simmode gui -wdb Blowfish_Decrypt.wdb -simrunnum 0 -socket 57767
-Design successfully loaded
-Design Loading Memory Usage: 37136 KB (Peak: 37144 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 119324 KB (Peak: 176404 KB)
-Simulation CPU Usage: 0 ms

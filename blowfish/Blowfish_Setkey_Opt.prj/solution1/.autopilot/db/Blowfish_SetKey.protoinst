@@ -13,7 +13,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_Encrypt_SetKey_fu_1137/grp_Encrypt_SetKey_fu_1137_activity": {
+				"grp_Encrypt_SetKey_fu_986/grp_Encrypt_SetKey_fu_986_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -23,7 +23,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_Encrypt_SetKey_fu_1137/grp_feistel_fu_297/grp_feistel_fu_297_activity": {
+				"grp_Encrypt_SetKey_fu_986/grp_feistel_fu_233/grp_feistel_fu_233_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

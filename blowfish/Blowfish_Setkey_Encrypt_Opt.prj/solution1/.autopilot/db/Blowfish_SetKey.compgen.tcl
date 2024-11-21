@@ -2,7 +2,7 @@
 
 set id 30
 set name Blowfish_SetKey_EfYi
-set corename simcore_urem
+set corename simcore_urem_seq
 set op urem
 set stage_num 11
 set max_latency -1
@@ -11,6 +11,9 @@ set clk_width 1
 set clk_signed 0
 set reset_width 1
 set reset_signed 0
+set start_width 1
+set start_signed 0
+set done_width 1
 set in0_width 7
 set in0_signed 0
 set in1_width 64
@@ -34,6 +37,9 @@ eval "ap_gen_simcore_urem { \
     clk_signed ${clk_signed} \
     reset_width ${reset_width} \
     reset_signed ${reset_signed} \
+    start_width ${start_width} \
+    start_signed ${start_signed} \
+    done_width ${done_width} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
@@ -54,7 +60,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 set op urem
-set corename DivnS
+set corename DivnS_SEQ
 if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
 if {[info proc ::AESL_LIB_VIRTEX::xil_gen_div] == "::AESL_LIB_VIRTEX::xil_gen_div"} {
 eval "::AESL_LIB_VIRTEX::xil_gen_div { \
@@ -71,6 +77,9 @@ eval "::AESL_LIB_VIRTEX::xil_gen_div { \
     clk_signed ${clk_signed} \
     reset_width ${reset_width} \
     reset_signed ${reset_signed} \
+    start_width ${start_width} \
+    start_signed ${start_signed} \
+    done_width ${done_width} \
     in0_width ${in0_width} \
     in0_signed ${in0_signed} \
     in1_width ${in1_width} \
@@ -85,7 +94,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_div, check your pla
 }
 
 
-set id 31
+set id 34
 set name Blowfish_SetKey_Eg8j
 set corename simcore_mux
 set op mux
@@ -254,7 +263,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipemux, check your
 }
 
 
-set id 32
+set id 35
 set name Blowfish_SetKey_Ehbi
 set corename simcore_mux
 set op mux
@@ -508,7 +517,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipemux, check your
 
 
 # Memory (RAM/ROM)  definition:
-set ID 125
+set ID 74
 set hasByteEnable 0
 set MemName Blowfish_SetKey_ibkb
 set CoreName ap_simcore_mem
@@ -591,7 +600,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 126
+set ID 75
 set hasByteEnable 0
 set MemName Blowfish_SetKey_icud
 set CoreName ap_simcore_mem
@@ -674,7 +683,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 127
+set ID 76
 set hasByteEnable 0
 set MemName Blowfish_SetKey_idEe
 set CoreName ap_simcore_mem
@@ -757,7 +766,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_ROM] == "::AESL_LIB_VIRTEX::xil_gen_RO
 
 
 # Memory (RAM/ROM)  definition:
-set ID 128
+set ID 77
 set hasByteEnable 0
 set MemName Blowfish_SetKey_ieOg
 set CoreName ap_simcore_mem
@@ -850,14 +859,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 129 \
+    id 78 \
     name key \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename key \
     op interface \
-    ports { key_address0 { O 6 vector } key_ce0 { O 1 bit } key_q0 { I 8 vector } } \
+    ports { key_address0 { O 6 vector } key_ce0 { O 1 bit } key_q0 { I 8 vector } key_address1 { O 6 vector } key_ce1 { O 1 bit } key_q1 { I 8 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'key'"
@@ -869,7 +878,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 131 \
+    id 80 \
     name S_0 \
     reset_level 1 \
     sync_rst true \
@@ -888,7 +897,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 132 \
+    id 81 \
     name S_1 \
     reset_level 1 \
     sync_rst true \
@@ -907,7 +916,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 133 \
+    id 82 \
     name S_2 \
     reset_level 1 \
     sync_rst true \
@@ -926,7 +935,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 134 \
+    id 83 \
     name S_3 \
     reset_level 1 \
     sync_rst true \
@@ -944,7 +953,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 130 \
+    id 79 \
     name key_size \
     type other \
     dir I \

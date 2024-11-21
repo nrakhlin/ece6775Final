@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'Blowfish_SetKey'" level="0">
-<item name = "Date">Tue Nov 19 22:52:56 2024
+<item name = "Date">Wed Nov 20 20:44:18 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">Blowfish_Setkey_Opt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 8.358 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 9.715 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">20914, 20914, 0.209 ms, 0.209 ms, 20914, 20914, none</column>
+<column name="">28110, 28110, 0.281 ms, 0.281 ms, 28110, 28110, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_Encrypt_SetKey_fu_1137">Encrypt_SetKey, 35, 35, 0.350 us, 0.350 us, 35, 35, none</column>
+<column name="grp_Encrypt_SetKey_fu_986">Encrypt_SetKey, 49, 49, 0.490 us, 0.490 us, 49, 49, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -40,11 +40,11 @@
 <column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
 <column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
 <column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
-<column name="- XOR_PARRAY_1">324, 324, 18, -, -, 18, no</column>
-<column name=" + XOR_PARRAY_2">14, 14, 12, 1, 1, 4, yes</column>
-<column name="- GENERATE_PARRAY_1">351, 351, 39, -, -, 9, no</column>
-<column name="- GENERATE_SBOX_1">19464, 19464, 4866, -, -, 4, no</column>
-<column name=" + GENERATE_SBOX_2">4864, 4864, 38, -, -, 128, no</column>
+<column name="- XOR_PARRAY_1">234, 234, 13, -, -, 18, no</column>
+<column name="- GENERATE_SBOX_2">6656, 6656, 52, -, -, 128, no</column>
+<column name="- GENERATE_SBOX_2">6656, 6656, 52, -, -, 128, no</column>
+<column name="- GENERATE_SBOX_2">6656, 6656, 52, -, -, 128, no</column>
+<column name="- GENERATE_SBOX_2">6656, 6656, 52, -, -, 128, no</column>
 </table>
 </item>
 </section>

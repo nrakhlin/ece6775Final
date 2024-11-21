@@ -11663,6 +11663,7 @@ void Blowfish_Encrypt(const unsigned char plaintext[8], unsigned char ciphertext
 void Blowfish_Decrypt(unsigned char ciphertext[8], unsigned char decryptedtext[8], unsigned int P[18], unsigned int S[4][256]);
 void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18], unsigned int S[4][256]);
 void Blowfish_SetKey_Encrypt(bool set_key, unsigned char key[56], size_t key_size, const unsigned char plaintext[8], unsigned char ciphertext[8], unsigned int P[18], unsigned int S[4][256]);
+void Blowfish_SetKey_Encrypt_Decrypt(bool set_key, unsigned char key[56], size_t key_size, const unsigned char plaintext[8], unsigned char decryptedtext[8], unsigned int P[18], unsigned int S[4][256]);
 # 3 "blowfish.cpp" 2
 # 1 "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/iostream" 1 3
 # 37 "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/iostream" 3
@@ -25662,18 +25663,20 @@ namespace std __attribute__ ((__visibility__ ("default")))
 # 7 "blowfish.cpp" 2
 # 48 "blowfish.cpp"
 void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[18], unsigned int S[4][256]) {_ssdm_SpecArrayDimSize(P, 18);_ssdm_SpecArrayDimSize(S, 4);
+
     unsigned int localLeft;
     unsigned int localRight;
+    unsigned int feistel_result;
 
 
     ENCRYPT_FEISTEL:
     for (int i = 0; i < 16; i++) {
-#pragma HLS PIPELINE
-# 54 "blowfish.cpp"
+#pragma HLS UNROLL
+# 56 "blowfish.cpp"
 
         localLeft = left ^ P[i];
-        localRight = right ^ feistel(localLeft, S);
-
+        feistel_result = feistel(localLeft, S);
+        localRight = right ^ feistel_result;
         right = localLeft;
         left = localRight;
     }
@@ -25681,7 +25684,7 @@ void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[18],
     right ^= P[16];
     left ^= P[17];
 }
-# 86 "blowfish.cpp"
+# 87 "blowfish.cpp"
 void Blowfish_Encrypt(const unsigned char plaintext[8], unsigned char ciphertext[8], unsigned int P[18], unsigned int S[4][256]) {_ssdm_SpecArrayDimSize(plaintext, 8);_ssdm_SpecArrayDimSize(ciphertext, 8);_ssdm_SpecArrayDimSize(P, 18);_ssdm_SpecArrayDimSize(S, 4);
     unsigned int left, right;
     blockToWords(plaintext, left, right);
@@ -25690,7 +25693,7 @@ void Blowfish_Encrypt(const unsigned char plaintext[8], unsigned char ciphertext
     ENCRYPT_FEISTEL:
     for (int i = 0; i < 16; i++) {
 #pragma HLS UNROLL
-# 92 "blowfish.cpp"
+# 93 "blowfish.cpp"
 
         left ^= P[i];
         right ^= feistel(left, S);
@@ -25711,6 +25714,9 @@ void Blowfish_Decrypt(unsigned char ciphertext[8], unsigned char decryptedtext[8
 
     DECRYPT_FEISTEL:
     for (int i = 17; i > 1; i--) {
+#pragma HLS UNROLL
+# 112 "blowfish.cpp"
+
         left ^= P[i];
         right ^= feistel(left, S);
         std::swap(left, right);
@@ -25725,7 +25731,7 @@ void Blowfish_Decrypt(unsigned char ciphertext[8], unsigned char decryptedtext[8
 
 unsigned int feistel(unsigned int x, unsigned int S[4][256]) {_ssdm_SpecArrayDimSize(S, 4);
 #pragma HLS PIPELINE
-# 124 "blowfish.cpp"
+# 125 "blowfish.cpp"
 
     unsigned char a = (x >> 24) & 0xFF;
     unsigned char b = (x >> 16) & 0xFF;
@@ -25741,15 +25747,11 @@ unsigned int feistel(unsigned int x, unsigned int S[4][256]) {_ssdm_SpecArrayDim
 
 
 void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18], unsigned int S[4][256]) {_ssdm_SpecArrayDimSize(key, 56);_ssdm_SpecArrayDimSize(P, 18);_ssdm_SpecArrayDimSize(S, 4);
-#pragma HLS array_partition variable=&initial_parray complete dim=0
-#pragma HLS array_partition variable=&P complete dim=0
-#pragma HLS array_partition variable=&initial_sbox cyclic factor=4 dim=1
-#pragma HLS array_partition variable=&S cyclic factor=4 dim=1
-# 153 "blowfish.cpp"
- PARRAY_INIT_1:
+# 152 "blowfish.cpp"
+    PARRAY_INIT_1:
     for (int i = 0; i < 18; i++) {
 #pragma HLS UNROLL
-# 154 "blowfish.cpp"
+# 153 "blowfish.cpp"
 
         P[i] = initial_parray[i];
     }
@@ -25758,12 +25760,12 @@ void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18],
     SBOX_INIT_1:
     for (int i = 0; i < 4; ++i) {
 #pragma HLS UNROLL
-# 160 "blowfish.cpp"
+# 159 "blowfish.cpp"
 
         SBOX_INIT_2:
         for (int j = 0; j < 256; ++j) {
 #pragma HLS UNROLL factor=4
-# 162 "blowfish.cpp"
+# 161 "blowfish.cpp"
 
             S[i][j] = initial_sbox[i][j];
         }
@@ -25777,8 +25779,8 @@ void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18],
         unsigned int data = 0;
         XOR_PARRAY_2:
         for (int j = 0; j < 4; j++) {
-#pragma HLS PIPELINE
-# 174 "blowfish.cpp"
+#pragma HLS UNROLL
+# 173 "blowfish.cpp"
 
             int currentIndex = (i * 4 + j) % key_size;
             data = (data << 8) | (key[currentIndex] & 0xFF);
@@ -25786,12 +25788,14 @@ void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18],
         P[i] ^= data;
     }
 
-
     unsigned int left = 0, right = 0;
 
 
     GENERATE_PARRAY_1:
     for (int i = 0; i < 18; i += 2) {
+#pragma HLS UNROLL
+# 184 "blowfish.cpp"
+
         Encrypt_SetKey(left, right, P, S);
         P[i] = left;
         P[i + 1] = right;
@@ -25800,6 +25804,9 @@ void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18],
 
     GENERATE_SBOX_1:
     for (int i = 0; i < 4; i++) {
+#pragma HLS UNROLL
+# 192 "blowfish.cpp"
+
         GENERATE_SBOX_2:
         for (int j = 0; j < 256; j += 2) {
             Encrypt_SetKey(left, right, P, S);
@@ -25813,19 +25820,42 @@ void Blowfish_SetKey(unsigned char key[56], size_t key_size, unsigned int P[18],
 
 
 void Blowfish_SetKey_Encrypt(bool set_key, unsigned char key[56], size_t key_size, const unsigned char plaintext[8], unsigned char ciphertext[8], unsigned int P[18], unsigned int S[4][256]){_ssdm_SpecArrayDimSize(key, 56);_ssdm_SpecArrayDimSize(plaintext, 8);_ssdm_SpecArrayDimSize(ciphertext, 8);_ssdm_SpecArrayDimSize(P, 18);_ssdm_SpecArrayDimSize(S, 4);
-#pragma HLS array_partition variable=&initial_parray complete dim=0
+
+#pragma HLS array_reshape variable=&initial_parray complete dim=0
 #pragma HLS array_partition variable=&P complete dim=0
-#pragma HLS array_partition variable=&S cyclic factor=4 dim=1
+
+#pragma HLS array_partition variable=&initial_sbox complete dim=1
+
+
+
+#pragma HLS array_partition variable=&S complete dim=1
+
+
+
+
 
  if(set_key){
         Blowfish_SetKey(key, key_size, P, S);
     }
 
+    Blowfish_Encrypt(plaintext, ciphertext, P, S);
 
-    unsigned int left, right;
-    blockToWords(plaintext, left, right);
-    Encrypt_SetKey(left, right, P, S);
-    wordsToBlock(left, right, ciphertext);
+
+
+
+
+}
+
+
+void Blowfish_SetKey_Encrypt_Decrypt(bool set_key, unsigned char key[56], size_t key_size, const unsigned char plaintext[8], unsigned char decryptedtext[8], unsigned int P[18], unsigned int S[4][256]){_ssdm_SpecArrayDimSize(key, 56);_ssdm_SpecArrayDimSize(plaintext, 8);_ssdm_SpecArrayDimSize(decryptedtext, 8);_ssdm_SpecArrayDimSize(P, 18);_ssdm_SpecArrayDimSize(S, 4);
+
+
+
+
+
+    unsigned char ciphertext[8];
+    Blowfish_SetKey_Encrypt(set_key, key, key_size, plaintext, ciphertext, P, S);
+    Blowfish_Decrypt(ciphertext, decryptedtext, P, S);
 
 }
 

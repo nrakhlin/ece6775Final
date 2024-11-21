@@ -1,7 +1,0 @@
-Running: xsim.dir/Blowfish_SetKey_Encrypt/xsimk -simmode gui -wdb Blowfish_SetKey_Encrypt.wdb -simrunnum 0 -socket 57983
-Design successfully loaded
-Design Loading Memory Usage: 37464 KB (Peak: 37472 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 119652 KB (Peak: 176732 KB)
-Simulation CPU Usage: 350 ms

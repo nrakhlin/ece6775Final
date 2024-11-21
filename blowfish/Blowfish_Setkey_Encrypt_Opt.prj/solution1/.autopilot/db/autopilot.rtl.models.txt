@@ -8,4 +8,5 @@ Blowfish_SetKey_ieOg
 feistel
 Encrypt_SetKey
 Blowfish_SetKey
+Blowfish_Encrypt
 Blowfish_SetKey_Encrypt

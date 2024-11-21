@@ -15,13 +15,14 @@
 namespace ap_rtl {
 
 struct feistel : public sc_module {
-    // Port declarations 20
+    // Port declarations 21
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
     sc_in< sc_logic > ap_start;
     sc_out< sc_logic > ap_done;
     sc_out< sc_logic > ap_idle;
     sc_out< sc_logic > ap_ready;
+    sc_in< sc_logic > ap_ce;
     sc_in< sc_lv<32> > x;
     sc_out< sc_lv<8> > S_0_address0;
     sc_out< sc_logic > S_0_ce0;
@@ -56,16 +57,16 @@ struct feistel : public sc_module {
     sc_signal< bool > ap_block_state2_pp0_stage0_iter1;
     sc_signal< bool > ap_block_pp0_stage0_11001;
     sc_signal< bool > ap_block_pp0_stage0_subdone;
-    sc_signal< sc_lv<64> > zext_ln133_fu_130_p1;
-    sc_signal< sc_lv<64> > zext_ln133_1_fu_135_p1;
-    sc_signal< sc_lv<64> > zext_ln133_2_fu_140_p1;
-    sc_signal< sc_lv<64> > zext_ln133_3_fu_145_p1;
+    sc_signal< sc_lv<64> > zext_ln134_fu_130_p1;
+    sc_signal< sc_lv<64> > zext_ln134_1_fu_135_p1;
+    sc_signal< sc_lv<64> > zext_ln134_2_fu_140_p1;
+    sc_signal< sc_lv<64> > zext_ln134_3_fu_145_p1;
     sc_signal< sc_lv<8> > a_fu_96_p4;
     sc_signal< sc_lv<8> > b_fu_106_p4;
     sc_signal< sc_lv<8> > c_fu_116_p4;
     sc_signal< sc_lv<8> > d_fu_126_p1;
-    sc_signal< sc_lv<32> > add_ln133_fu_150_p2;
-    sc_signal< sc_lv<32> > xor_ln133_fu_156_p2;
+    sc_signal< sc_lv<32> > add_ln134_fu_150_p2;
+    sc_signal< sc_lv<32> > xor_ln134_fu_156_p2;
     sc_signal< sc_lv<1> > ap_NS_fsm;
     sc_signal< sc_logic > ap_idle_pp0_0to0;
     sc_signal< sc_logic > ap_reset_idle_pp0;
@@ -93,7 +94,7 @@ struct feistel : public sc_module {
     void thread_S_3_address0();
     void thread_S_3_ce0();
     void thread_a_fu_96_p4();
-    void thread_add_ln133_fu_150_p2();
+    void thread_add_ln134_fu_150_p2();
     void thread_ap_CS_fsm_pp0_stage0();
     void thread_ap_block_pp0_stage0();
     void thread_ap_block_pp0_stage0_11001();
@@ -112,11 +113,11 @@ struct feistel : public sc_module {
     void thread_b_fu_106_p4();
     void thread_c_fu_116_p4();
     void thread_d_fu_126_p1();
-    void thread_xor_ln133_fu_156_p2();
-    void thread_zext_ln133_1_fu_135_p1();
-    void thread_zext_ln133_2_fu_140_p1();
-    void thread_zext_ln133_3_fu_145_p1();
-    void thread_zext_ln133_fu_130_p1();
+    void thread_xor_ln134_fu_156_p2();
+    void thread_zext_ln134_1_fu_135_p1();
+    void thread_zext_ln134_2_fu_140_p1();
+    void thread_zext_ln134_3_fu_145_p1();
+    void thread_zext_ln134_fu_130_p1();
     void thread_ap_NS_fsm();
 };
 

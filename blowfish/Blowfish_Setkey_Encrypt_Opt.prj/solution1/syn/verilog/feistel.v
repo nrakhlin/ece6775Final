@@ -14,6 +14,7 @@ module feistel (
         ap_done,
         ap_idle,
         ap_ready,
+        ap_ce,
         x,
         S_0_address0,
         S_0_ce0,
@@ -38,6 +39,7 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
+input   ap_ce;
 input  [31:0] x;
 output  [7:0] S_0_address0;
 output   S_0_ce0;
@@ -71,16 +73,16 @@ reg    ap_block_state1_pp0_stage0_iter0;
 wire    ap_block_state2_pp0_stage0_iter1;
 reg    ap_block_pp0_stage0_11001;
 reg    ap_block_pp0_stage0_subdone;
-wire   [63:0] zext_ln133_fu_130_p1;
-wire   [63:0] zext_ln133_1_fu_135_p1;
-wire   [63:0] zext_ln133_2_fu_140_p1;
-wire   [63:0] zext_ln133_3_fu_145_p1;
+wire   [63:0] zext_ln134_fu_130_p1;
+wire   [63:0] zext_ln134_1_fu_135_p1;
+wire   [63:0] zext_ln134_2_fu_140_p1;
+wire   [63:0] zext_ln134_3_fu_145_p1;
 wire   [7:0] a_fu_96_p4;
 wire   [7:0] b_fu_106_p4;
 wire   [7:0] c_fu_116_p4;
 wire   [7:0] d_fu_126_p1;
-wire   [31:0] add_ln133_fu_150_p2;
-wire   [31:0] xor_ln133_fu_156_p2;
+wire   [31:0] add_ln134_fu_150_p2;
+wire   [31:0] xor_ln134_fu_156_p2;
 reg   [0:0] ap_NS_fsm;
 reg    ap_idle_pp0_0to0;
 reg    ap_reset_idle_pp0;
@@ -111,7 +113,7 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         S_0_ce0 = 1'b1;
     end else begin
         S_0_ce0 = 1'b0;
@@ -119,7 +121,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         S_1_ce0 = 1'b1;
     end else begin
         S_1_ce0 = 1'b0;
@@ -127,7 +129,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         S_2_ce0 = 1'b1;
     end else begin
         S_2_ce0 = 1'b0;
@@ -135,7 +137,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         S_3_ce0 = 1'b1;
     end else begin
         S_3_ce0 = 1'b0;
@@ -143,7 +145,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((ap_start == 1'b0) & (1'b0 == ap_block_pp0_stage0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0)) | ((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0)))) begin
+    if ((((ap_start == 1'b0) & (1'b0 == ap_block_pp0_stage0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0)) | ((1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -175,7 +177,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((1'b1 == ap_ce) & (1'b0 == ap_block_pp0_stage0_11001) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -201,17 +203,17 @@ always @ (*) begin
     endcase
 end
 
-assign S_0_address0 = zext_ln133_fu_130_p1;
+assign S_0_address0 = zext_ln134_fu_130_p1;
 
-assign S_1_address0 = zext_ln133_1_fu_135_p1;
+assign S_1_address0 = zext_ln134_1_fu_135_p1;
 
-assign S_2_address0 = zext_ln133_2_fu_140_p1;
+assign S_2_address0 = zext_ln134_2_fu_140_p1;
 
-assign S_3_address0 = zext_ln133_3_fu_145_p1;
+assign S_3_address0 = zext_ln134_3_fu_145_p1;
 
 assign a_fu_96_p4 = {{x[31:24]}};
 
-assign add_ln133_fu_150_p2 = (S_1_q0 + S_0_q0);
+assign add_ln134_fu_150_p2 = (S_1_q0 + S_0_q0);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
@@ -222,7 +224,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    ap_block_pp0_stage0_subdone = ((ap_start == 1'b0) & (ap_start == 1'b1));
+    ap_block_pp0_stage0_subdone = ((1'b0 == ap_ce) | ((ap_start == 1'b0) & (ap_start == 1'b1)));
 end
 
 always @ (*) begin
@@ -235,7 +237,7 @@ assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
 
 assign ap_enable_reg_pp0_iter0 = ap_start;
 
-assign ap_return = (S_3_q0 + xor_ln133_fu_156_p2);
+assign ap_return = (S_3_q0 + xor_ln134_fu_156_p2);
 
 assign b_fu_106_p4 = {{x[23:16]}};
 
@@ -243,14 +245,14 @@ assign c_fu_116_p4 = {{x[15:8]}};
 
 assign d_fu_126_p1 = x[7:0];
 
-assign xor_ln133_fu_156_p2 = (add_ln133_fu_150_p2 ^ S_2_q0);
+assign xor_ln134_fu_156_p2 = (add_ln134_fu_150_p2 ^ S_2_q0);
 
-assign zext_ln133_1_fu_135_p1 = b_fu_106_p4;
+assign zext_ln134_1_fu_135_p1 = b_fu_106_p4;
 
-assign zext_ln133_2_fu_140_p1 = c_fu_116_p4;
+assign zext_ln134_2_fu_140_p1 = c_fu_116_p4;
 
-assign zext_ln133_3_fu_145_p1 = d_fu_126_p1;
+assign zext_ln134_3_fu_145_p1 = d_fu_126_p1;
 
-assign zext_ln133_fu_130_p1 = a_fu_96_p4;
+assign zext_ln134_fu_130_p1 = a_fu_96_p4;
 
 endmodule //feistel

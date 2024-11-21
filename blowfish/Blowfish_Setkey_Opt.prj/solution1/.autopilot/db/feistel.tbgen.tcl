@@ -15,20 +15,14 @@ set C_modelName {feistel}
 set C_modelType { int 32 }
 set C_modelArgList {
 	{ x int 32 regular  }
-	{ S_0 int 32 regular {array 256 { 1 3 } 1 1 }  }
-	{ S_1 int 32 regular {array 256 { 1 3 } 1 1 }  }
-	{ S_2 int 32 regular {array 256 { 1 3 } 1 1 }  }
-	{ S_3 int 32 regular {array 256 { 1 3 } 1 1 }  }
+	{ S int 32 regular {array 1024 { 1 1 } 1 1 }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "x", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "S_0", "interface" : "memory", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "S_1", "interface" : "memory", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "S_2", "interface" : "memory", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "S_3", "interface" : "memory", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "S", "interface" : "memory", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 32} ]}
 # RTL Port declarations: 
-set portNum 20
+set portNum 15
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -36,19 +30,14 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_ce sc_in sc_logic 1 ce -1 } 
 	{ x sc_in sc_lv 32 signal 0 } 
-	{ S_0_address0 sc_out sc_lv 8 signal 1 } 
-	{ S_0_ce0 sc_out sc_logic 1 signal 1 } 
-	{ S_0_q0 sc_in sc_lv 32 signal 1 } 
-	{ S_1_address0 sc_out sc_lv 8 signal 2 } 
-	{ S_1_ce0 sc_out sc_logic 1 signal 2 } 
-	{ S_1_q0 sc_in sc_lv 32 signal 2 } 
-	{ S_2_address0 sc_out sc_lv 8 signal 3 } 
-	{ S_2_ce0 sc_out sc_logic 1 signal 3 } 
-	{ S_2_q0 sc_in sc_lv 32 signal 3 } 
-	{ S_3_address0 sc_out sc_lv 8 signal 4 } 
-	{ S_3_ce0 sc_out sc_logic 1 signal 4 } 
-	{ S_3_q0 sc_in sc_lv 32 signal 4 } 
+	{ S_address0 sc_out sc_lv 10 signal 1 } 
+	{ S_ce0 sc_out sc_logic 1 signal 1 } 
+	{ S_q0 sc_in sc_lv 32 signal 1 } 
+	{ S_address1 sc_out sc_lv 10 signal 1 } 
+	{ S_ce1 sc_out sc_logic 1 signal 1 } 
+	{ S_q1 sc_in sc_lv 32 signal 1 } 
 	{ ap_return sc_out sc_lv 32 signal -1 } 
 }
 set NewPortList {[ 
@@ -58,19 +47,14 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_ce", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "ce", "bundle":{"name": "ap_ce", "role": "default" }} , 
  	{ "name": "x", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "x", "role": "default" }} , 
- 	{ "name": "S_0_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "S_0", "role": "address0" }} , 
- 	{ "name": "S_0_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S_0", "role": "ce0" }} , 
- 	{ "name": "S_0_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "S_0", "role": "q0" }} , 
- 	{ "name": "S_1_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "S_1", "role": "address0" }} , 
- 	{ "name": "S_1_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S_1", "role": "ce0" }} , 
- 	{ "name": "S_1_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "S_1", "role": "q0" }} , 
- 	{ "name": "S_2_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "S_2", "role": "address0" }} , 
- 	{ "name": "S_2_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S_2", "role": "ce0" }} , 
- 	{ "name": "S_2_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "S_2", "role": "q0" }} , 
- 	{ "name": "S_3_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "S_3", "role": "address0" }} , 
- 	{ "name": "S_3_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S_3", "role": "ce0" }} , 
- 	{ "name": "S_3_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "S_3", "role": "q0" }} , 
+ 	{ "name": "S_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "S", "role": "address0" }} , 
+ 	{ "name": "S_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S", "role": "ce0" }} , 
+ 	{ "name": "S_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "S", "role": "q0" }} , 
+ 	{ "name": "S_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "S", "role": "address1" }} , 
+ 	{ "name": "S_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "S", "role": "ce1" }} , 
+ 	{ "name": "S_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "S", "role": "q1" }} , 
  	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
@@ -79,35 +63,29 @@ set RtlHierarchyInfo {[
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "1", "EstimateLatencyMin" : "1", "EstimateLatencyMax" : "1",
+		"II" : "2",
+		"VariableLatency" : "0", "ExactLatency" : "2", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "2",
 		"Combinational" : "0",
 		"Datapath" : "0",
-		"ClockEnable" : "0",
+		"ClockEnable" : "1",
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "x", "Type" : "None", "Direction" : "I"},
-			{"Name" : "S_0", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "S_1", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "S_2", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "S_3", "Type" : "Memory", "Direction" : "I"}]}]}
+			{"Name" : "S", "Type" : "Memory", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	feistel {
 		x {Type I LastRead 0 FirstWrite -1}
-		S_0 {Type I LastRead 0 FirstWrite -1}
-		S_1 {Type I LastRead 0 FirstWrite -1}
-		S_2 {Type I LastRead 0 FirstWrite -1}
-		S_3 {Type I LastRead 0 FirstWrite -1}}}
+		S {Type I LastRead 2 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "1", "Max" : "1"}
-	, {"Name" : "Interval", "Min" : "1", "Max" : "1"}
+	{"Name" : "Latency", "Min" : "2", "Max" : "2"}
+	, {"Name" : "Interval", "Min" : "2", "Max" : "2"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -116,8 +94,5 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	x { ap_none {  { x in_data 0 32 } } }
-	S_0 { ap_memory {  { S_0_address0 mem_address 1 8 }  { S_0_ce0 mem_ce 1 1 }  { S_0_q0 mem_dout 0 32 } } }
-	S_1 { ap_memory {  { S_1_address0 mem_address 1 8 }  { S_1_ce0 mem_ce 1 1 }  { S_1_q0 mem_dout 0 32 } } }
-	S_2 { ap_memory {  { S_2_address0 mem_address 1 8 }  { S_2_ce0 mem_ce 1 1 }  { S_2_q0 mem_dout 0 32 } } }
-	S_3 { ap_memory {  { S_3_address0 mem_address 1 8 }  { S_3_ce0 mem_ce 1 1 }  { S_3_q0 mem_dout 0 32 } } }
+	S { ap_memory {  { S_address0 mem_address 1 10 }  { S_ce0 mem_ce 1 1 }  { S_q0 mem_dout 0 32 }  { S_address1 MemPortADDR2 1 10 }  { S_ce1 MemPortCE2 1 1 }  { S_q1 MemPortDOUT2 0 32 } } }
 }
