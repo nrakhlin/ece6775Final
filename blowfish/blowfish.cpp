@@ -65,23 +65,6 @@ void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[PARR
     left ^= P[17];
 }
 
-// void Encrypt_SetKey(unsigned int& left, unsigned int& right, unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
-//     unsigned int localLeft;
-//     unsigned int localRight;
-   
-//     // 16 feistel rounds
-//     ENCRYPT_FEISTEL:
-//     for (int i = 0; i < 16; i++) {
-//         left = left ^ P[i];                 // XOR with P[i]
-//         right = right ^ feistel(left, S);    // XOR with feistel(left)
-//         std::swap(left, right);       // Swap left and right
-//     }
-//     std::swap(left, right);           // Undo the last swap
-//     right ^= P[16];
-//     left ^= P[17];
-// }
-
-
 
 // Encrypts a block of 64-bit data
 void Blowfish_Encrypt(const unsigned char plaintext[BLOCK_SIZE], unsigned char ciphertext[BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
@@ -206,13 +189,14 @@ void Blowfish_SetKey_Encrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH
     // #pragma HLS array_partition variable=initial_parray complete dim=0
     #pragma HLS array_reshape variable=initial_parray complete dim=0
     #pragma HLS array_partition variable=P complete dim=0
-    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
-    #pragma HLS array_partition variable=initial_sbox complete dim=1
+    #pragma HLS array_reshape variable=initial_sbox complete dim=1
+    #pragma HLS array_partition variable=S complete dim=1
+
     // #pragma HLS array_partition variable=S cyclic factor=4 dim=1
     // #pragma HLS array_partition variable=initial_sbox block factor=4 dim=1
     // #pragma HLS array_partition variable=S block factor=4 dim=1
-    #pragma HLS array_partition variable=S complete dim=1
-
+    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
+    // #pragma HLS array_partition variable=initial_sbox complete dim=1
     // #pragma HLS INLINE
     // #pragma HLS inline off
 
