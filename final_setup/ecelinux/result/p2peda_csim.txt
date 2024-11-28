@@ -1,0 +1,18 @@
+send_to_accelerator
+Input word = 1147363937
+after write to FIFO
+Input word = 1127953195
+after write to FIFO
+Input word = 1610612762
+after write to FIFO
+receive_from_accelerator
+read #0
+92853660
+read #1
+WARNING: Hls::stream 'hls::stream<ap_uint<32> >.2' is read while empty, which may result in RTL simulation hanging.
+92853660
+read #2
+WARNING: Hls::stream 'hls::stream<ap_uint<32> >.2' is read while empty, which may result in RTL simulation hanging.
+92853660
+read #3
+WARNING: Hls::stream 'hls::stream<ap_uint<32> >.2' is read while empty, which may result in RTL simulation hanging.
