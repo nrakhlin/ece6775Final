@@ -168,10 +168,10 @@ std::string test_decrypt(int* fdw, int* fdr, std::string input_string, bool key)
 }
 
 void test_loopback(int* fdw, int* fdr, std::string pt_input){
-  std::cout << "\n==========================================" << std::endl;
   std::string ciphertext = test_encrypt(fdw, fdr, pt_input, 0);
   std::string pt_output = test_decrypt(fdw, fdr, ciphertext, 0);
   assert (pt_input == pt_output.substr(0,pt_input.length()));
+  std::cout << "\n==========================================" << std::endl;
 }
 
 //------------------------------------------------------------------------
@@ -193,8 +193,10 @@ int main(int argc, char **argv) {
   test_loopback(&fdw, &fdr, "efg");
   test_loopback(&fdw, &fdr, "efghijkl");
   test_loopback(&fdw, &fdr, "efghijklmnopqrst");
-  test_loopback(&fdw, &fdr, "hello world");
-  test_loopback(&fdw, &fdr, "zhiru zhang");
+  std::string cta = test_encrypt(&fdw, &fdr, "hello world", 0);
+  std::string ctb = test_encrypt(&fdw, &fdr, "zhiru zhang", 0);
+  test_decrypt(&fdw, &fdr, cta, 0);
+  test_decrypt(&fdw, &fdr, ctb, 0);
 
   return 0;
 }

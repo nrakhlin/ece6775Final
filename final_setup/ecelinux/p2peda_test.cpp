@@ -155,10 +155,10 @@ std::string test_decrypt(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* 
 }
 
 void test_loopback(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* p2peda_out, std::string pt_input){
-  std::cout << "\n==========================================" << std::endl;
   std::string ciphertext = test_encrypt(p2peda_in, p2peda_out, pt_input, 0);
   std::string pt_output = test_decrypt(p2peda_in, p2peda_out, ciphertext, 0);
   assert (pt_input == pt_output.substr(0,pt_input.length()));
+  std::cout << "\n==========================================" << std::endl;
 }
 
 //------------------------------------------------------------------------
@@ -172,8 +172,9 @@ int main() {
   test_loopback(&p2peda_in, &p2peda_out, "efg");
   test_loopback(&p2peda_in, &p2peda_out, "efghijkl");
   test_loopback(&p2peda_in, &p2peda_out, "efghijklmnopqrst");
-  test_loopback(&p2peda_in, &p2peda_out, "hello world");
-  test_loopback(&p2peda_in, &p2peda_out, "zhiru zhang");
-
+  std::string cta = test_encrypt(&p2peda_in, &p2peda_out, "hello world", 0);
+  std::string ctb = test_encrypt(&p2peda_in, &p2peda_out, "zhiru zhang", 0);
+  test_decrypt(&p2peda_in, &p2peda_out, cta, 0);
+  test_decrypt(&p2peda_in, &p2peda_out, ctb, 0);
   return 0;
 }
