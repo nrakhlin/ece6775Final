@@ -1,0 +1,155 @@
+
+
+================================================================
+== Vivado HLS Report for 'feistel'
+================================================================
+* Date:           Wed Nov 20 20:44:18 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        Blowfish_Setkey_Opt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 5.806 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        2|        2| 20.000 ns | 20.000 ns |    2|    2| function |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.25>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%x_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %x)" [blowfish.cpp:125]   --->   Operation 4 'read' 'x_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%a = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 24, i32 31)" [blowfish.cpp:126]   --->   Operation 5 'partselect' 'a' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%b = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 16, i32 23)" [blowfish.cpp:127]   --->   Operation 6 'partselect' 'b' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%c = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %x_read, i32 8, i32 15)" [blowfish.cpp:128]   --->   Operation 7 'partselect' 'c' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%d = trunc i32 %x_read to i8" [blowfish.cpp:129]   --->   Operation 8 'trunc' 'd' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln134 = zext i8 %a to i64" [blowfish.cpp:134]   --->   Operation 9 'zext' 'zext_ln134' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%S_addr = getelementptr [1024 x i32]* %S, i64 0, i64 %zext_ln134" [blowfish.cpp:134]   --->   Operation 10 'getelementptr' 'S_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [2/2] (3.25ns)   --->   "%S_load = load i32* %S_addr, align 4" [blowfish.cpp:134]   --->   Operation 11 'load' 'S_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tmp = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 1, i8 %b)" [blowfish.cpp:134]   --->   Operation 12 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%S_addr_1 = getelementptr [1024 x i32]* %S, i64 0, i64 %tmp" [blowfish.cpp:134]   --->   Operation 13 'getelementptr' 'S_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [2/2] (3.25ns)   --->   "%S_load_1 = load i32* %S_addr_1, align 4" [blowfish.cpp:134]   --->   Operation 14 'load' 'S_load_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+
+State 2 <SV = 1> <Delay = 5.80>
+ST_2 : Operation 15 [1/2] (3.25ns)   --->   "%S_load = load i32* %S_addr, align 4" [blowfish.cpp:134]   --->   Operation 15 'load' 'S_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_2 : Operation 16 [1/2] (3.25ns)   --->   "%S_load_1 = load i32* %S_addr_1, align 4" [blowfish.cpp:134]   --->   Operation 16 'load' 'S_load_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_2 : Operation 17 [1/1] (2.55ns)   --->   "%add_ln134 = add i32 %S_load_1, %S_load" [blowfish.cpp:134]   --->   Operation 17 'add' 'add_ln134' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_1 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 2, i8 %c)" [blowfish.cpp:134]   --->   Operation 18 'bitconcatenate' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%S_addr_2 = getelementptr [1024 x i32]* %S, i64 0, i64 %tmp_1" [blowfish.cpp:134]   --->   Operation 19 'getelementptr' 'S_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [2/2] (3.25ns)   --->   "%S_load_2 = load i32* %S_addr_2, align 4" [blowfish.cpp:134]   --->   Operation 20 'load' 'S_load_2' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%tmp_2 = call i64 @_ssdm_op_BitConcatenate.i64.i56.i8(i56 3, i8 %d)" [blowfish.cpp:134]   --->   Operation 21 'bitconcatenate' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%S_addr_3 = getelementptr [1024 x i32]* %S, i64 0, i64 %tmp_2" [blowfish.cpp:134]   --->   Operation 22 'getelementptr' 'S_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (3.25ns)   --->   "%S_load_3 = load i32* %S_addr_3, align 4" [blowfish.cpp:134]   --->   Operation 23 'load' 'S_load_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+
+State 3 <SV = 2> <Delay = 5.80>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [blowfish.cpp:126]   --->   Operation 24 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/2] (3.25ns)   --->   "%S_load_2 = load i32* %S_addr_2, align 4" [blowfish.cpp:134]   --->   Operation 25 'load' 'S_load_2' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_3 : Operation 26 [1/1] (0.00ns) (grouped into LUT with out node add_ln134_1)   --->   "%xor_ln134 = xor i32 %S_load_2, %add_ln134" [blowfish.cpp:134]   --->   Operation 26 'xor' 'xor_ln134' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/2] (3.25ns)   --->   "%S_load_3 = load i32* %S_addr_3, align 4" [blowfish.cpp:134]   --->   Operation 27 'load' 'S_load_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 1024> <RAM>
+ST_3 : Operation 28 [1/1] (2.55ns) (out node of the LUT)   --->   "%add_ln134_1 = add i32 %S_load_3, %xor_ln134" [blowfish.cpp:134]   --->   Operation 28 'add' 'add_ln134_1' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "ret i32 %add_ln134_1" [blowfish.cpp:134]   --->   Operation 29 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.25ns
+The critical path consists of the following:
+	wire read on port 'x' (blowfish.cpp:125) [3]  (0 ns)
+	'getelementptr' operation ('S_addr', blowfish.cpp:134) [10]  (0 ns)
+	'load' operation ('S_load', blowfish.cpp:134) on array 'S' [11]  (3.25 ns)
+
+ <State 2>: 5.81ns
+The critical path consists of the following:
+	'load' operation ('S_load', blowfish.cpp:134) on array 'S' [11]  (3.25 ns)
+	'add' operation ('add_ln134', blowfish.cpp:134) [15]  (2.55 ns)
+
+ <State 3>: 5.81ns
+The critical path consists of the following:
+	'load' operation ('S_load_2', blowfish.cpp:134) on array 'S' [18]  (3.25 ns)
+	'xor' operation ('xor_ln134', blowfish.cpp:134) [19]  (0 ns)
+	'add' operation ('add_ln134_1', blowfish.cpp:134) [23]  (2.55 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

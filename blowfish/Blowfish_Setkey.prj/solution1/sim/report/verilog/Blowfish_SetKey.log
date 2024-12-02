@@ -1,0 +1,102 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_Blowfish_SetKey.cpp
+   Compiling blowfish.cpp_pre.cpp.tb.cpp
+   Compiling main.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+Ciphertext: 8212bc42fd81000a
+Decrypted Text: Wereisms
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /opt/xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_Blowfish_SetKey_top glbl -prj Blowfish_SetKey.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /opt/xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s Blowfish_SetKey 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Blowfish_SetKey.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_Blowfish_SetKey_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/AESL_automem_key.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_key
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/AESL_automem_P.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_P
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/AESL_automem_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Encrypt_SetKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Encrypt_SetKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Blowfish_SetKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Blowfish_SetKey_udEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_udEe_div_u
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_udEe_div
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_udEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Blowfish_SetKey_ibkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_ibkb_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_ibkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Blowfish_SetKey_icud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_icud_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_SetKey_icud
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Blowfish_SetKey_ibkb_rom
+Compiling module xil_defaultlib.Blowfish_SetKey_ibkb(DataWidth=3...
+Compiling module xil_defaultlib.Blowfish_SetKey_icud_rom
+Compiling module xil_defaultlib.Blowfish_SetKey_icud(DataWidth=3...
+Compiling module xil_defaultlib.Encrypt_SetKey
+Compiling module xil_defaultlib.Blowfish_SetKey_udEe_div_u(in0_W...
+Compiling module xil_defaultlib.Blowfish_SetKey_udEe_div(in0_WID...
+Compiling module xil_defaultlib.Blowfish_SetKey_udEe(ID=1,NUM_ST...
+Compiling module xil_defaultlib.Blowfish_SetKey
+Compiling module xil_defaultlib.AESL_automem_key
+Compiling module xil_defaultlib.AESL_automem_P
+Compiling module xil_defaultlib.AESL_automem_S
+Compiling module xil_defaultlib.apatb_Blowfish_SetKey_top
+Compiling module work.glbl
+Built simulation snapshot Blowfish_SetKey
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/xsim.dir/Blowfish_SetKey/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Nov 19 16:26:40 2024...
+
+****** xsim v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/Blowfish_SetKey/xsim_script.tcl
+# xsim {Blowfish_SetKey} -autoloadwcfg -tclbatch {Blowfish_SetKey.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source Blowfish_SetKey.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [100.00%] @ "430185000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 430225 ns : File "/home/jjm469/ece6775/final_project/repo/blowfish/Blowfish_Setkey.prj/solution1/sim/verilog/Blowfish_SetKey.autotb.v" Line 411
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Nov 19 16:26:47 2024...
+Ciphertext: 8212bc42fd81000a
+Decrypted Text: Wereisms
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

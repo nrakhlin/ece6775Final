@@ -1,0 +1,467 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'Blowfish_SetKey'" level="0">
+<item name = "Date">Wed Nov 20 20:43:04 2024
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">Blowfish_Setkey_Encrypt_Opt.prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 9.715 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">19236, 19236, 0.192 ms, 0.192 ms, 19236, 19236, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_Encrypt_SetKey_fu_1199">Encrypt_SetKey, 32, 32, 0.320 us, 0.320 us, 32, 32, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
+<column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
+<column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
+<column name="- SBOX_INIT_2">192, 192, 3, -, -, 64, no</column>
+<column name="- XOR_PARRAY_1">234, 234, 13, -, -, 18, no</column>
+<column name="- GENERATE_SBOX_2">4480, 4480, 35, -, -, 128, no</column>
+<column name="- GENERATE_SBOX_2">4480, 4480, 35, -, -, 128, no</column>
+<column name="- GENERATE_SBOX_2">4480, 4480, 35, -, -, 128, no</column>
+<column name="- GENERATE_SBOX_2">4480, 4480, 35, -, -, 128, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 379, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, 3760, 8746, -</column>
+<column name="Memory">4, -, 0, 0, -</column>
+<column name="Multiplexer">-, -, -, 1628, -</column>
+<column name="Register">-, -, 2514, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">1, 0, 5, 20, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="Blowfish_SetKey_EfYi_U30">Blowfish_SetKey_EfYi, 0, 0, 779, 469, 0</column>
+<column name="Blowfish_SetKey_EfYi_U31">Blowfish_SetKey_EfYi, 0, 0, 779, 469, 0</column>
+<column name="Blowfish_SetKey_EfYi_U32">Blowfish_SetKey_EfYi, 0, 0, 779, 469, 0</column>
+<column name="Blowfish_SetKey_EfYi_U33">Blowfish_SetKey_EfYi, 0, 0, 779, 469, 0</column>
+<column name="Blowfish_SetKey_Eg8j_U34">Blowfish_SetKey_Eg8j, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U35">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U36">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U37">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U38">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U39">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U40">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U41">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U42">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U43">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U44">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U45">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U46">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U47">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U48">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U49">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U50">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U51">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U52">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U53">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U54">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U55">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U56">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U57">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U58">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U59">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U60">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U61">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U62">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U63">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U64">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U65">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U66">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U67">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U68">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U69">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="Blowfish_SetKey_Ehbi_U70">Blowfish_SetKey_Ehbi, 0, 0, 0, 145, 0</column>
+<column name="grp_Encrypt_SetKey_fu_1199">Encrypt_SetKey, 0, 0, 644, 1505, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="initial_sbox_0_U">Blowfish_SetKey_ibkb, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="initial_sbox_1_U">Blowfish_SetKey_icud, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="initial_sbox_2_U">Blowfish_SetKey_idEe, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+<column name="initial_sbox_3_U">Blowfish_SetKey_ieOg, 1, 0, 0, 0, 256, 32, 1, 8192</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln161_1_fu_1393_p2">+, 0, 0, 15, 3, 9</column>
+<column name="add_ln161_2_fu_1445_p2">+, 0, 0, 15, 3, 9</column>
+<column name="add_ln161_3_fu_1497_p2">+, 0, 0, 15, 3, 9</column>
+<column name="add_ln161_fu_1341_p2">+, 0, 0, 15, 3, 9</column>
+<column name="add_ln194_1_fu_4271_p2">+, 0, 0, 15, 2, 9</column>
+<column name="add_ln194_2_fu_4305_p2">+, 0, 0, 15, 2, 9</column>
+<column name="add_ln194_3_fu_4429_p2">+, 0, 0, 15, 2, 9</column>
+<column name="add_ln194_fu_4237_p2">+, 0, 0, 15, 2, 9</column>
+<column name="i_fu_1529_p2">+, 0, 0, 15, 5, 1</column>
+<column name="icmp_ln161_1_fu_1367_p2">icmp, 0, 0, 13, 9, 10</column>
+<column name="icmp_ln161_2_fu_1419_p2">icmp, 0, 0, 13, 9, 10</column>
+<column name="icmp_ln161_3_fu_1471_p2">icmp, 0, 0, 13, 9, 10</column>
+<column name="icmp_ln161_fu_1315_p2">icmp, 0, 0, 13, 9, 10</column>
+<column name="icmp_ln170_fu_1523_p2">icmp, 0, 0, 11, 5, 5</column>
+<column name="or_ln161_10_fu_1503_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_11_fu_1513_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_1_fu_1347_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_2_fu_1357_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_3_fu_1382_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln161_4_fu_1399_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_5_fu_1409_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_6_fu_1434_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln161_7_fu_1451_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_8_fu_1461_p2">or, 0, 0, 8, 8, 2</column>
+<column name="or_ln161_9_fu_1486_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln161_fu_1330_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln174_1_fu_1567_p2">or, 0, 0, 7, 7, 2</column>
+<column name="or_ln174_2_fu_1582_p2">or, 0, 0, 7, 7, 2</column>
+<column name="or_ln174_fu_1552_p2">or, 0, 0, 7, 7, 1</column>
+<column name="or_ln197_1_fu_4260_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln197_2_fu_4294_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln197_3_fu_4418_p2">or, 0, 0, 8, 8, 1</column>
+<column name="or_ln197_fu_4226_p2">or, 0, 0, 8, 8, 1</column>
+<column name="xor_ln177_fu_1683_p2">xor, 0, 0, 32, 32, 32</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="P10745_reg_921">9, 2, 32, 64</column>
+<column name="P11746_reg_909">9, 2, 32, 64</column>
+<column name="P12766_reg_897">9, 2, 32, 64</column>
+<column name="P13767_reg_885">9, 2, 32, 64</column>
+<column name="P14787_reg_873">9, 2, 32, 64</column>
+<column name="P15788_reg_861">9, 2, 32, 64</column>
+<column name="P1642_reg_1029">9, 2, 32, 64</column>
+<column name="P16808_reg_849">9, 2, 32, 64</column>
+<column name="P17809_reg_837">9, 2, 32, 64</column>
+<column name="P2661_reg_1017">9, 2, 32, 64</column>
+<column name="P3662_reg_1005">9, 2, 32, 64</column>
+<column name="P4682_reg_993">9, 2, 32, 64</column>
+<column name="P5683_reg_981">9, 2, 32, 64</column>
+<column name="P641_reg_1041">9, 2, 32, 64</column>
+<column name="P6703_reg_969">9, 2, 32, 64</column>
+<column name="P7704_reg_957">9, 2, 32, 64</column>
+<column name="P8724_reg_945">9, 2, 32, 64</column>
+<column name="P9725_reg_933">9, 2, 32, 64</column>
+<column name="S_0_address0">27, 5, 8, 40</column>
+<column name="S_0_address1">21, 4, 8, 32</column>
+<column name="S_0_ce0">15, 3, 1, 3</column>
+<column name="S_0_d0">15, 3, 32, 96</column>
+<column name="S_0_d1">15, 3, 32, 96</column>
+<column name="S_1_address0">27, 5, 8, 40</column>
+<column name="S_1_address1">21, 4, 8, 32</column>
+<column name="S_1_ce0">15, 3, 1, 3</column>
+<column name="S_1_d0">15, 3, 32, 96</column>
+<column name="S_1_d1">15, 3, 32, 96</column>
+<column name="S_2_address0">27, 5, 8, 40</column>
+<column name="S_2_address1">21, 4, 8, 32</column>
+<column name="S_2_ce0">15, 3, 1, 3</column>
+<column name="S_2_d0">15, 3, 32, 96</column>
+<column name="S_2_d1">15, 3, 32, 96</column>
+<column name="S_3_address0">27, 5, 8, 40</column>
+<column name="S_3_address1">21, 4, 8, 32</column>
+<column name="S_3_ce0">15, 3, 1, 3</column>
+<column name="S_3_d0">15, 3, 32, 96</column>
+<column name="S_3_d1">15, 3, 32, 96</column>
+<column name="ap_NS_fsm">241, 56, 1, 56</column>
+<column name="empty_49_reg_621">9, 2, 32, 64</column>
+<column name="empty_50_reg_633">9, 2, 32, 64</column>
+<column name="empty_51_reg_645">9, 2, 32, 64</column>
+<column name="empty_52_reg_657">9, 2, 32, 64</column>
+<column name="empty_53_reg_669">9, 2, 32, 64</column>
+<column name="empty_54_reg_681">9, 2, 32, 64</column>
+<column name="empty_55_reg_693">9, 2, 32, 64</column>
+<column name="empty_56_reg_705">9, 2, 32, 64</column>
+<column name="empty_57_reg_717">9, 2, 32, 64</column>
+<column name="empty_58_reg_729">9, 2, 32, 64</column>
+<column name="empty_59_reg_741">9, 2, 32, 64</column>
+<column name="empty_60_reg_753">9, 2, 32, 64</column>
+<column name="empty_61_reg_765">9, 2, 32, 64</column>
+<column name="empty_62_reg_777">9, 2, 32, 64</column>
+<column name="empty_63_reg_789">9, 2, 32, 64</column>
+<column name="empty_64_reg_801">9, 2, 32, 64</column>
+<column name="empty_65_reg_813">9, 2, 32, 64</column>
+<column name="empty_66_reg_825">9, 2, 32, 64</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_0_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_10_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_11_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_12_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_13_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_14_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_15_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_16_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_17_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_1_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_2_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_3_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_4_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_5_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_6_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_7_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_8_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_P_9_read">15, 3, 32, 96</column>
+<column name="grp_Encrypt_SetKey_fu_1199_left_read">59, 14, 32, 448</column>
+<column name="grp_Encrypt_SetKey_fu_1199_right_read">59, 14, 32, 448</column>
+<column name="i2_0_reg_1053">9, 2, 5, 10</column>
+<column name="initial_sbox_0_address0">15, 3, 8, 24</column>
+<column name="initial_sbox_0_address1">15, 3, 8, 24</column>
+<column name="initial_sbox_1_address0">15, 3, 8, 24</column>
+<column name="initial_sbox_1_address1">15, 3, 8, 24</column>
+<column name="initial_sbox_2_address0">15, 3, 8, 24</column>
+<column name="initial_sbox_2_address1">15, 3, 8, 24</column>
+<column name="initial_sbox_3_address0">15, 3, 8, 24</column>
+<column name="initial_sbox_3_address1">15, 3, 8, 24</column>
+<column name="j6_0_0_reg_1085">9, 2, 9, 18</column>
+<column name="j6_0_1_reg_1119">9, 2, 9, 18</column>
+<column name="j6_0_2_reg_1153">9, 2, 9, 18</column>
+<column name="j6_0_3_reg_1187">9, 2, 9, 18</column>
+<column name="j_0_0_0_reg_577">9, 2, 9, 18</column>
+<column name="j_0_1_0_reg_588">9, 2, 9, 18</column>
+<column name="j_0_2_0_reg_599">9, 2, 9, 18</column>
+<column name="j_0_3_0_reg_610">9, 2, 9, 18</column>
+<column name="key_address0">15, 3, 6, 18</column>
+<column name="key_address1">15, 3, 6, 18</column>
+<column name="left_2_0_reg_1075">9, 2, 32, 64</column>
+<column name="left_2_1_reg_1108">9, 2, 32, 64</column>
+<column name="left_2_2_reg_1142">9, 2, 32, 64</column>
+<column name="left_2_3_reg_1176">9, 2, 32, 64</column>
+<column name="right_2_0_reg_1065">9, 2, 32, 64</column>
+<column name="right_2_1_reg_1097">9, 2, 32, 64</column>
+<column name="right_2_2_reg_1131">9, 2, 32, 64</column>
+<column name="right_2_3_reg_1165">9, 2, 32, 64</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="P10745_reg_921">32, 0, 32, 0</column>
+<column name="P11746_reg_909">32, 0, 32, 0</column>
+<column name="P12766_reg_897">32, 0, 32, 0</column>
+<column name="P13767_reg_885">32, 0, 32, 0</column>
+<column name="P14787_reg_873">32, 0, 32, 0</column>
+<column name="P15788_reg_861">32, 0, 32, 0</column>
+<column name="P1642_reg_1029">32, 0, 32, 0</column>
+<column name="P16808_reg_849">32, 0, 32, 0</column>
+<column name="P17809_reg_837">32, 0, 32, 0</column>
+<column name="P2661_reg_1017">32, 0, 32, 0</column>
+<column name="P3662_reg_1005">32, 0, 32, 0</column>
+<column name="P4682_reg_993">32, 0, 32, 0</column>
+<column name="P5683_reg_981">32, 0, 32, 0</column>
+<column name="P641_reg_1041">32, 0, 32, 0</column>
+<column name="P6703_reg_969">32, 0, 32, 0</column>
+<column name="P7704_reg_957">32, 0, 32, 0</column>
+<column name="P8724_reg_945">32, 0, 32, 0</column>
+<column name="P9725_reg_933">32, 0, 32, 0</column>
+<column name="P_0_write_assign_reg_4907">32, 0, 32, 0</column>
+<column name="P_10_write_assign_reg_4977">32, 0, 32, 0</column>
+<column name="P_11_write_assign_reg_4984">32, 0, 32, 0</column>
+<column name="P_12_write_assign_reg_4991">32, 0, 32, 0</column>
+<column name="P_13_write_assign_reg_4998">32, 0, 32, 0</column>
+<column name="P_14_write_assign_reg_5005">32, 0, 32, 0</column>
+<column name="P_15_write_assign_reg_5012">32, 0, 32, 0</column>
+<column name="P_16_write_assign_reg_5019">32, 0, 32, 0</column>
+<column name="P_17_write_assign_reg_5026">32, 0, 32, 0</column>
+<column name="P_1_write_assign_reg_4914">32, 0, 32, 0</column>
+<column name="P_2_write_assign_reg_4921">32, 0, 32, 0</column>
+<column name="P_3_write_assign_reg_4928">32, 0, 32, 0</column>
+<column name="P_4_write_assign_reg_4935">32, 0, 32, 0</column>
+<column name="P_5_write_assign_reg_4942">32, 0, 32, 0</column>
+<column name="P_6_write_assign_reg_4949">32, 0, 32, 0</column>
+<column name="P_7_write_assign_reg_4956">32, 0, 32, 0</column>
+<column name="P_8_write_assign_reg_4963">32, 0, 32, 0</column>
+<column name="P_9_write_assign_reg_4970">32, 0, 32, 0</column>
+<column name="add_ln161_1_reg_4526">9, 0, 9, 0</column>
+<column name="add_ln161_2_reg_4580">9, 0, 9, 0</column>
+<column name="add_ln161_3_reg_4634">9, 0, 9, 0</column>
+<column name="add_ln161_reg_4472">9, 0, 9, 0</column>
+<column name="ap_CS_fsm">55, 0, 55, 0</column>
+<column name="empty_38_reg_4456">8, 0, 8, 0</column>
+<column name="empty_41_reg_4510">8, 0, 8, 0</column>
+<column name="empty_44_reg_4564">8, 0, 8, 0</column>
+<column name="empty_47_reg_4618">8, 0, 8, 0</column>
+<column name="empty_49_reg_621">32, 0, 32, 0</column>
+<column name="empty_50_reg_633">32, 0, 32, 0</column>
+<column name="empty_51_reg_645">32, 0, 32, 0</column>
+<column name="empty_52_reg_657">32, 0, 32, 0</column>
+<column name="empty_53_reg_669">32, 0, 32, 0</column>
+<column name="empty_54_reg_681">32, 0, 32, 0</column>
+<column name="empty_55_reg_693">32, 0, 32, 0</column>
+<column name="empty_56_reg_705">32, 0, 32, 0</column>
+<column name="empty_57_reg_717">32, 0, 32, 0</column>
+<column name="empty_58_reg_729">32, 0, 32, 0</column>
+<column name="empty_59_reg_741">32, 0, 32, 0</column>
+<column name="empty_60_reg_753">32, 0, 32, 0</column>
+<column name="empty_61_reg_765">32, 0, 32, 0</column>
+<column name="empty_62_reg_777">32, 0, 32, 0</column>
+<column name="empty_63_reg_789">32, 0, 32, 0</column>
+<column name="empty_64_reg_801">32, 0, 32, 0</column>
+<column name="empty_65_reg_813">32, 0, 32, 0</column>
+<column name="empty_66_reg_825">32, 0, 32, 0</column>
+<column name="grp_Encrypt_SetKey_fu_1199_ap_start_reg">1, 0, 1, 0</column>
+<column name="i2_0_reg_1053">5, 0, 5, 0</column>
+<column name="i_reg_4662">5, 0, 5, 0</column>
+<column name="j6_0_0_reg_1085">9, 0, 9, 0</column>
+<column name="j6_0_1_reg_1119">9, 0, 9, 0</column>
+<column name="j6_0_2_reg_1153">9, 0, 9, 0</column>
+<column name="j6_0_3_reg_1187">9, 0, 9, 0</column>
+<column name="j_0_0_0_reg_577">9, 0, 9, 0</column>
+<column name="j_0_1_0_reg_588">9, 0, 9, 0</column>
+<column name="j_0_2_0_reg_599">9, 0, 9, 0</column>
+<column name="j_0_3_0_reg_610">9, 0, 9, 0</column>
+<column name="key_load_1_reg_4712">8, 0, 8, 0</column>
+<column name="key_load_reg_4707">8, 0, 8, 0</column>
+<column name="left_2_0_reg_1075">32, 0, 32, 0</column>
+<column name="left_2_1_reg_1108">32, 0, 32, 0</column>
+<column name="left_2_2_reg_1142">32, 0, 32, 0</column>
+<column name="left_2_3_reg_1176">32, 0, 32, 0</column>
+<column name="reg_1283">32, 0, 32, 0</column>
+<column name="reg_1291">32, 0, 32, 0</column>
+<column name="reg_1299">32, 0, 32, 0</column>
+<column name="reg_1307">32, 0, 32, 0</column>
+<column name="right_2_0_reg_1065">32, 0, 32, 0</column>
+<column name="right_2_1_reg_1097">32, 0, 32, 0</column>
+<column name="right_2_2_reg_1131">32, 0, 32, 0</column>
+<column name="right_2_3_reg_1165">32, 0, 32, 0</column>
+<column name="urem_ln174_2_reg_4697">32, 0, 32, 0</column>
+<column name="urem_ln174_3_reg_4702">32, 0, 32, 0</column>
+<column name="zext_ln162_10_reg_4585">7, 0, 64, 57</column>
+<column name="zext_ln162_11_reg_4595">6, 0, 64, 58</column>
+<column name="zext_ln162_12_reg_4608">9, 0, 64, 55</column>
+<column name="zext_ln162_13_reg_4624">7, 0, 64, 57</column>
+<column name="zext_ln162_14_reg_4639">7, 0, 64, 57</column>
+<column name="zext_ln162_15_reg_4649">6, 0, 64, 58</column>
+<column name="zext_ln162_1_reg_4462">7, 0, 64, 57</column>
+<column name="zext_ln162_2_reg_4477">7, 0, 64, 57</column>
+<column name="zext_ln162_3_reg_4487">6, 0, 64, 58</column>
+<column name="zext_ln162_4_reg_4500">9, 0, 64, 55</column>
+<column name="zext_ln162_5_reg_4516">7, 0, 64, 57</column>
+<column name="zext_ln162_6_reg_4531">7, 0, 64, 57</column>
+<column name="zext_ln162_7_reg_4541">6, 0, 64, 58</column>
+<column name="zext_ln162_8_reg_4554">9, 0, 64, 55</column>
+<column name="zext_ln162_9_reg_4570">7, 0, 64, 57</column>
+<column name="zext_ln162_reg_4446">9, 0, 64, 55</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_0">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_1">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_2">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_3">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_4">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_5">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_6">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_7">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_8">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_9">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_10">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_11">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_12">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_13">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_14">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_15">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_16">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="ap_return_17">out, 32, ap_ctrl_hs, Blowfish_SetKey, return value</column>
+<column name="key_address0">out, 6, ap_memory, key, array</column>
+<column name="key_ce0">out, 1, ap_memory, key, array</column>
+<column name="key_q0">in, 8, ap_memory, key, array</column>
+<column name="key_address1">out, 6, ap_memory, key, array</column>
+<column name="key_ce1">out, 1, ap_memory, key, array</column>
+<column name="key_q1">in, 8, ap_memory, key, array</column>
+<column name="key_size">in, 64, ap_none, key_size, scalar</column>
+<column name="S_0_address0">out, 8, ap_memory, S_0, array</column>
+<column name="S_0_ce0">out, 1, ap_memory, S_0, array</column>
+<column name="S_0_we0">out, 1, ap_memory, S_0, array</column>
+<column name="S_0_d0">out, 32, ap_memory, S_0, array</column>
+<column name="S_0_q0">in, 32, ap_memory, S_0, array</column>
+<column name="S_0_address1">out, 8, ap_memory, S_0, array</column>
+<column name="S_0_ce1">out, 1, ap_memory, S_0, array</column>
+<column name="S_0_we1">out, 1, ap_memory, S_0, array</column>
+<column name="S_0_d1">out, 32, ap_memory, S_0, array</column>
+<column name="S_1_address0">out, 8, ap_memory, S_1, array</column>
+<column name="S_1_ce0">out, 1, ap_memory, S_1, array</column>
+<column name="S_1_we0">out, 1, ap_memory, S_1, array</column>
+<column name="S_1_d0">out, 32, ap_memory, S_1, array</column>
+<column name="S_1_q0">in, 32, ap_memory, S_1, array</column>
+<column name="S_1_address1">out, 8, ap_memory, S_1, array</column>
+<column name="S_1_ce1">out, 1, ap_memory, S_1, array</column>
+<column name="S_1_we1">out, 1, ap_memory, S_1, array</column>
+<column name="S_1_d1">out, 32, ap_memory, S_1, array</column>
+<column name="S_2_address0">out, 8, ap_memory, S_2, array</column>
+<column name="S_2_ce0">out, 1, ap_memory, S_2, array</column>
+<column name="S_2_we0">out, 1, ap_memory, S_2, array</column>
+<column name="S_2_d0">out, 32, ap_memory, S_2, array</column>
+<column name="S_2_q0">in, 32, ap_memory, S_2, array</column>
+<column name="S_2_address1">out, 8, ap_memory, S_2, array</column>
+<column name="S_2_ce1">out, 1, ap_memory, S_2, array</column>
+<column name="S_2_we1">out, 1, ap_memory, S_2, array</column>
+<column name="S_2_d1">out, 32, ap_memory, S_2, array</column>
+<column name="S_3_address0">out, 8, ap_memory, S_3, array</column>
+<column name="S_3_ce0">out, 1, ap_memory, S_3, array</column>
+<column name="S_3_we0">out, 1, ap_memory, S_3, array</column>
+<column name="S_3_d0">out, 32, ap_memory, S_3, array</column>
+<column name="S_3_q0">in, 32, ap_memory, S_3, array</column>
+<column name="S_3_address1">out, 8, ap_memory, S_3, array</column>
+<column name="S_3_ce1">out, 1, ap_memory, S_3, array</column>
+<column name="S_3_we1">out, 1, ap_memory, S_3, array</column>
+<column name="S_3_d1">out, 32, ap_memory, S_3, array</column>
+</table>
+</item>
+</section>
+</profile>

@@ -1,0 +1,11 @@
+<annotationInfo>
+<item  id="6" filename="lfsr.cpp" linenumber="11" name="tmp" contextFuncName="lfsr" moduleName="lfsr" rtlName="tmp_fu_30_p3" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="7" filename="lfsr.cpp" linenumber="11" name="tmp_1" contextFuncName="lfsr" moduleName="lfsr" rtlName="tmp_1_fu_38_p3" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="8" filename="lfsr.cpp" linenumber="11" name="tmp_2" contextFuncName="lfsr" moduleName="lfsr" rtlName="tmp_2_fu_46_p3" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="9" filename="lfsr.cpp" linenumber="11" name="tmp_3" contextFuncName="lfsr" moduleName="lfsr" rtlName="tmp_3_fu_54_p3" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="10" filename="lfsr.cpp" linenumber="11" name="xor_ln301" contextFuncName="lfsr" moduleName="lfsr" rtlName="xor_ln301_fu_62_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="2" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="11" filename="lfsr.cpp" linenumber="11" name="xor_ln301_1" contextFuncName="lfsr" moduleName="lfsr" rtlName="xor_ln301_1_fu_68_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="2" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="12" filename="lfsr.cpp" linenumber="11" name="feedback_V" contextFuncName="lfsr" moduleName="lfsr" rtlName="feedback_V_fu_74_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="2" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="13" filename="lfsr.cpp" linenumber="14" name="trunc_ln1356" contextFuncName="lfsr" moduleName="lfsr" rtlName="trunc_ln1356_fu_80_p1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+<item  id="14" filename="lfsr.cpp" linenumber="14" name="ret_V" contextFuncName="lfsr" moduleName="lfsr" rtlName="ap_return" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/jjm469/ece6775/final_project/repo/lfsr"><\/item>
+</annotationInfo>

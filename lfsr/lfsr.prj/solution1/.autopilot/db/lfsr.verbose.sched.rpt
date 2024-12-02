@@ -1,0 +1,120 @@
+
+
+================================================================
+== Vivado HLS Report for 'lfsr'
+================================================================
+* Date:           Sun Nov 17 20:21:01 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        lfsr.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 0.978 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.97>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24 0), !map !38"   --->   Operation 2 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i24 %seed_V), !map !44"   --->   Operation 3 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([5 x i8]* @lfsr_str) nounwind"   --->   Operation 4 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%seed_V_read = call i24 @_ssdm_op_Read.ap_auto.i24(i24 %seed_V)" [lfsr.cpp:11]   --->   Operation 5 'read' 'seed_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns) (grouped into LUT with out node feedback_V)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i24.i32(i24 %seed_V_read, i32 16)" [lfsr.cpp:11]   --->   Operation 6 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node feedback_V)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i24.i32(i24 %seed_V_read, i32 21)" [lfsr.cpp:11]   --->   Operation 7 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node feedback_V)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i24.i32(i24 %seed_V_read, i32 23)" [lfsr.cpp:11]   --->   Operation 8 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns) (grouped into LUT with out node feedback_V)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i24.i32(i24 %seed_V_read, i32 22)" [lfsr.cpp:11]   --->   Operation 9 'bitselect' 'tmp_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node feedback_V)   --->   "%xor_ln301 = xor i1 %tmp_1, %tmp" [lfsr.cpp:11]   --->   Operation 10 'xor' 'xor_ln301' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node feedback_V)   --->   "%xor_ln301_1 = xor i1 %tmp_2, %tmp_3" [lfsr.cpp:11]   --->   Operation 11 'xor' 'xor_ln301_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.97ns) (out node of the LUT)   --->   "%feedback_V = xor i1 %xor_ln301_1, %xor_ln301" [lfsr.cpp:11]   --->   Operation 12 'xor' 'feedback_V' <Predicate = true> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%trunc_ln1356 = trunc i24 %seed_V_read to i23" [lfsr.cpp:14]   --->   Operation 13 'trunc' 'trunc_ln1356' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%ret_V = call i24 @_ssdm_op_BitConcatenate.i24.i23.i1(i23 %trunc_ln1356, i1 %feedback_V)" [lfsr.cpp:14]   --->   Operation 14 'bitconcatenate' 'ret_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "ret i24 %ret_V" [lfsr.cpp:16]   --->   Operation 15 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.978ns
+The critical path consists of the following:
+	wire read on port 'seed_V' (lfsr.cpp:11) [5]  (0 ns)
+	'xor' operation ('xor_ln301_1', lfsr.cpp:11) [11]  (0 ns)
+	'xor' operation ('feedback.V', lfsr.cpp:11) [12]  (0.978 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

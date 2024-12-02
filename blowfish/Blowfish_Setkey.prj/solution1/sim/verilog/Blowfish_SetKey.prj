@@ -1,0 +1,11 @@
+sv work "glbl.v"
+sv xil_defaultlib "Blowfish_SetKey.autotb.v"
+sv xil_defaultlib "AESL_automem_key.v"
+sv xil_defaultlib "AESL_automem_P.v"
+sv xil_defaultlib "AESL_automem_S.v"
+sv xil_defaultlib "Encrypt_SetKey.v"
+sv xil_defaultlib "Blowfish_SetKey.v"
+sv xil_defaultlib "Blowfish_SetKey_udEe.v"
+sv xil_defaultlib "Blowfish_SetKey_ibkb.v"
+sv xil_defaultlib "Blowfish_SetKey_icud.v"
+

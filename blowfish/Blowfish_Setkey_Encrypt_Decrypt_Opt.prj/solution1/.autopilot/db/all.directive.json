@@ -1,0 +1,71 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "PARRAY_INIT_1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "SBOX_INIT_1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "SBOX_INIT_2",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "4"
+              }]
+          }
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "XOR_PARRAY_2",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "GENERATE_PARRAY_1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_SetKey",
+          "label": "GENERATE_SBOX_1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Encrypt_SetKey",
+          "label": "ENCRYPT_FEISTEL",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_Encrypt",
+          "label": "ENCRYPT_FEISTEL",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "Blowfish_Decrypt",
+          "label": "DECRYPT_FEISTEL",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "feistel",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        }
+      ]
+    }]}

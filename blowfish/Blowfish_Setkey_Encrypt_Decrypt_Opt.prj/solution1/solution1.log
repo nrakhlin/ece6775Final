@@ -1,0 +1,193 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'blowfish.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 378 ; free virtual = 14922
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 378 ; free virtual = 14922
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 375 ; free virtual = 14920
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:72) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:79) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:84) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Decrypt' (blowfish.cpp:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Decrypt' (blowfish.cpp:98) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Decrypt' (blowfish.cpp:103) automatically.
+INFO: [XFORM 203-602] Inlining function 'Blowfish_SetKey_Encrypt' into 'Blowfish_SetKey_Encrypt_Decrypt' (blowfish.cpp:224) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 372 ; free virtual = 14917
+INFO: [HLS 200-489] Unrolling loop 'DECRYPT_FEISTEL' (blowfish.cpp:95) in function 'Blowfish_Decrypt' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:76) in function 'Blowfish_Encrypt' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'PARRAY_INIT_1' (blowfish.cpp:136) in function 'Blowfish_SetKey' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'SBOX_INIT_1' (blowfish.cpp:142) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [XFORM 203-501] Unrolling loop 'SBOX_INIT_2' (blowfish.cpp:144) in function 'Blowfish_SetKey' partially with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'XOR_PARRAY_2' (blowfish.cpp:156) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_PARRAY_1' (blowfish.cpp:167) in function 'Blowfish_SetKey' completely with a factor of 9.
+INFO: [HLS 200-489] Unrolling loop 'GENERATE_SBOX_1' (blowfish.cpp:175) in function 'Blowfish_SetKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'ENCRYPT_FEISTEL' (blowfish.cpp:56) in function 'Encrypt_SetKey' completely with a factor of 16.
+INFO: [XFORM 203-131] Reshaping array 'initial_parray'  in dimension 1 completely.
+INFO: [XFORM 203-131] Reshaping array 'initial_sbox'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'P' (blowfish.cpp:217) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'S' (blowfish.cpp:217) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Encrypt_SetKey' (blowfish.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (blowfish.cpp:72) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (blowfish.cpp:79) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (blowfish.cpp:84) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Decrypt' (blowfish.cpp:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Decrypt' (blowfish.cpp:98) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Decrypt' (blowfish.cpp:103) automatically.
+INFO: [XFORM 203-602] Inlining function 'Blowfish_SetKey_Encrypt' into 'Blowfish_SetKey_Encrypt_Decrypt' (blowfish.cpp:224) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'Blowfish_Encrypt' (blowfish.cpp:70)...34 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'Blowfish_Decrypt' (blowfish.cpp:89)...34 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 343 ; free virtual = 14889
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:239:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:240:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:241:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:242:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:243:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:244:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:245:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (blowfish.cpp:246:5)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 297 ; free virtual = 14844
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Blowfish_SetKey_Encrypt_Decrypt' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'feistel'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 10.5 seconds; current allocated memory: 183.807 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 183.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 184.230 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 184.570 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 185.703 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 188.598 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 189.555 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 190.670 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 191.644 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 192.776 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_SetKey_Encrypt_Decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 193.234 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 193.894 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'feistel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'feistel'.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 194.438 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Encrypt_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Encrypt_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 195.724 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_initial_sbox' to 'Blowfish_SetKey_ibkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_Decrypt_urem_7ns_64ns_32_11_seq_1' to 'Blowfish_SetKey_Ecud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_Decrypt_mux_185_32_1_1' to 'Blowfish_SetKey_EdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_SetKey_Encrypt_Decrypt_mux_325_32_1_1' to 'Blowfish_SetKey_EeOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_Ecud': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_EdEe': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'Blowfish_SetKey_EeOg': 36 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_SetKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.25 seconds; current allocated memory: 204.431 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_Encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.58 seconds; current allocated memory: 214.389 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_Decrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.49 seconds; current allocated memory: 221.502 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_SetKey_Encrypt_Decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/set_key' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/key_size' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/plaintext' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/decryptedtext' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_0' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_1' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_2' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_3' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_4' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_5' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_6' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_7' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_8' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_9' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_10' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_11' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_12' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_13' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_14' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_15' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_16' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Blowfish_SetKey_Encrypt_Decrypt/P_17' to 'ap_ovld'.
