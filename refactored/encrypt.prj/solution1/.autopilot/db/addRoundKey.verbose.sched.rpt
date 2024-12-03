@@ -1,0 +1,338 @@
+
+
+================================================================
+== Vivado HLS Report for 'addRoundKey'
+================================================================
+* Date:           Tue Nov 19 22:02:55 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        encrypt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 3.312 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       15|       15| 0.150 us | 0.150 us |   15|   15|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 16
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.32>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [16 x i8]* %state, i64 0, i64 0" [helper.cpp:226]   --->   Operation 17 'getelementptr' 'state_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [2/2] (2.32ns)   --->   "%state_load = load i8* %state_addr, align 1" [helper.cpp:226]   --->   Operation 18 'load' 'state_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%state_addr_31 = getelementptr [16 x i8]* %state, i64 0, i64 1" [helper.cpp:226]   --->   Operation 19 'getelementptr' 'state_addr_31' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [2/2] (2.32ns)   --->   "%state_load_1 = load i8* %state_addr_31, align 1" [helper.cpp:226]   --->   Operation 20 'load' 'state_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 21 [1/2] (2.32ns)   --->   "%state_load = load i8* %state_addr, align 1" [helper.cpp:226]   --->   Operation 21 'load' 'state_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_2 : Operation 22 [1/2] (2.32ns)   --->   "%state_load_1 = load i8* %state_addr_31, align 1" [helper.cpp:226]   --->   Operation 22 'load' 'state_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%state_addr_32 = getelementptr [16 x i8]* %state, i64 0, i64 2" [helper.cpp:226]   --->   Operation 23 'getelementptr' 'state_addr_32' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [2/2] (2.32ns)   --->   "%state_load_2 = load i8* %state_addr_32, align 1" [helper.cpp:226]   --->   Operation 24 'load' 'state_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%state_addr_33 = getelementptr [16 x i8]* %state, i64 0, i64 3" [helper.cpp:226]   --->   Operation 25 'getelementptr' 'state_addr_33' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [2/2] (2.32ns)   --->   "%state_load_3 = load i8* %state_addr_33, align 1" [helper.cpp:226]   --->   Operation 26 'load' 'state_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 3 <SV = 2> <Delay = 2.32>
+ST_3 : Operation 27 [1/2] (2.32ns)   --->   "%state_load_2 = load i8* %state_addr_32, align 1" [helper.cpp:226]   --->   Operation 27 'load' 'state_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 28 [1/2] (2.32ns)   --->   "%state_load_3 = load i8* %state_addr_33, align 1" [helper.cpp:226]   --->   Operation 28 'load' 'state_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%state_addr_34 = getelementptr [16 x i8]* %state, i64 0, i64 4" [helper.cpp:226]   --->   Operation 29 'getelementptr' 'state_addr_34' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [2/2] (2.32ns)   --->   "%state_load_4 = load i8* %state_addr_34, align 1" [helper.cpp:226]   --->   Operation 30 'load' 'state_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%state_addr_35 = getelementptr [16 x i8]* %state, i64 0, i64 5" [helper.cpp:226]   --->   Operation 31 'getelementptr' 'state_addr_35' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [2/2] (2.32ns)   --->   "%state_load_5 = load i8* %state_addr_35, align 1" [helper.cpp:226]   --->   Operation 32 'load' 'state_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 4 <SV = 3> <Delay = 2.32>
+ST_4 : Operation 33 [1/2] (2.32ns)   --->   "%state_load_4 = load i8* %state_addr_34, align 1" [helper.cpp:226]   --->   Operation 33 'load' 'state_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 34 [1/2] (2.32ns)   --->   "%state_load_5 = load i8* %state_addr_35, align 1" [helper.cpp:226]   --->   Operation 34 'load' 'state_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%state_addr_36 = getelementptr [16 x i8]* %state, i64 0, i64 6" [helper.cpp:226]   --->   Operation 35 'getelementptr' 'state_addr_36' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [2/2] (2.32ns)   --->   "%state_load_6 = load i8* %state_addr_36, align 1" [helper.cpp:226]   --->   Operation 36 'load' 'state_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%state_addr_37 = getelementptr [16 x i8]* %state, i64 0, i64 7" [helper.cpp:226]   --->   Operation 37 'getelementptr' 'state_addr_37' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [2/2] (2.32ns)   --->   "%state_load_7 = load i8* %state_addr_37, align 1" [helper.cpp:226]   --->   Operation 38 'load' 'state_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 5 <SV = 4> <Delay = 2.32>
+ST_5 : Operation 39 [1/2] (2.32ns)   --->   "%state_load_6 = load i8* %state_addr_36, align 1" [helper.cpp:226]   --->   Operation 39 'load' 'state_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_5 : Operation 40 [1/2] (2.32ns)   --->   "%state_load_7 = load i8* %state_addr_37, align 1" [helper.cpp:226]   --->   Operation 40 'load' 'state_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "%state_addr_38 = getelementptr [16 x i8]* %state, i64 0, i64 8" [helper.cpp:226]   --->   Operation 41 'getelementptr' 'state_addr_38' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 42 [2/2] (2.32ns)   --->   "%state_load_8 = load i8* %state_addr_38, align 1" [helper.cpp:226]   --->   Operation 42 'load' 'state_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%state_addr_39 = getelementptr [16 x i8]* %state, i64 0, i64 9" [helper.cpp:226]   --->   Operation 43 'getelementptr' 'state_addr_39' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [2/2] (2.32ns)   --->   "%state_load_9 = load i8* %state_addr_39, align 1" [helper.cpp:226]   --->   Operation 44 'load' 'state_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 6 <SV = 5> <Delay = 2.32>
+ST_6 : Operation 45 [1/2] (2.32ns)   --->   "%state_load_8 = load i8* %state_addr_38, align 1" [helper.cpp:226]   --->   Operation 45 'load' 'state_load_8' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_6 : Operation 46 [1/2] (2.32ns)   --->   "%state_load_9 = load i8* %state_addr_39, align 1" [helper.cpp:226]   --->   Operation 46 'load' 'state_load_9' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%state_addr_40 = getelementptr [16 x i8]* %state, i64 0, i64 10" [helper.cpp:226]   --->   Operation 47 'getelementptr' 'state_addr_40' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 48 [2/2] (2.32ns)   --->   "%state_load_10 = load i8* %state_addr_40, align 1" [helper.cpp:226]   --->   Operation 48 'load' 'state_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%state_addr_41 = getelementptr [16 x i8]* %state, i64 0, i64 11" [helper.cpp:226]   --->   Operation 49 'getelementptr' 'state_addr_41' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 50 [2/2] (2.32ns)   --->   "%state_load_11 = load i8* %state_addr_41, align 1" [helper.cpp:226]   --->   Operation 50 'load' 'state_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 7 <SV = 6> <Delay = 2.32>
+ST_7 : Operation 51 [1/2] (2.32ns)   --->   "%state_load_10 = load i8* %state_addr_40, align 1" [helper.cpp:226]   --->   Operation 51 'load' 'state_load_10' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_7 : Operation 52 [1/2] (2.32ns)   --->   "%state_load_11 = load i8* %state_addr_41, align 1" [helper.cpp:226]   --->   Operation 52 'load' 'state_load_11' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_7 : Operation 53 [1/1] (0.00ns)   --->   "%state_addr_42 = getelementptr [16 x i8]* %state, i64 0, i64 12" [helper.cpp:226]   --->   Operation 53 'getelementptr' 'state_addr_42' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 54 [2/2] (2.32ns)   --->   "%state_load_12 = load i8* %state_addr_42, align 1" [helper.cpp:226]   --->   Operation 54 'load' 'state_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%state_addr_43 = getelementptr [16 x i8]* %state, i64 0, i64 13" [helper.cpp:226]   --->   Operation 55 'getelementptr' 'state_addr_43' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 56 [2/2] (2.32ns)   --->   "%state_load_13 = load i8* %state_addr_43, align 1" [helper.cpp:226]   --->   Operation 56 'load' 'state_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 8 <SV = 7> <Delay = 2.32>
+ST_8 : Operation 57 [1/2] (2.32ns)   --->   "%state_load_12 = load i8* %state_addr_42, align 1" [helper.cpp:226]   --->   Operation 57 'load' 'state_load_12' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_8 : Operation 58 [1/2] (2.32ns)   --->   "%state_load_13 = load i8* %state_addr_43, align 1" [helper.cpp:226]   --->   Operation 58 'load' 'state_load_13' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_8 : Operation 59 [1/1] (0.00ns)   --->   "%state_addr_44 = getelementptr [16 x i8]* %state, i64 0, i64 14" [helper.cpp:226]   --->   Operation 59 'getelementptr' 'state_addr_44' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 60 [2/2] (2.32ns)   --->   "%state_load_14 = load i8* %state_addr_44, align 1" [helper.cpp:226]   --->   Operation 60 'load' 'state_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_8 : Operation 61 [1/1] (0.00ns)   --->   "%state_addr_45 = getelementptr [16 x i8]* %state, i64 0, i64 15" [helper.cpp:226]   --->   Operation 61 'getelementptr' 'state_addr_45' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 62 [2/2] (2.32ns)   --->   "%state_load_15 = load i8* %state_addr_45, align 1" [helper.cpp:226]   --->   Operation 62 'load' 'state_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 9 <SV = 8> <Delay = 3.31>
+ST_9 : Operation 63 [1/1] (0.00ns)   --->   "%p_read117 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read1)" [helper.cpp:222]   --->   Operation 63 'read' 'p_read117' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 64 [1/1] (0.00ns)   --->   "%p_read16 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read)" [helper.cpp:222]   --->   Operation 64 'read' 'p_read16' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 65 [1/1] (0.99ns)   --->   "%xor_ln226 = xor i8 %state_load, %p_read16" [helper.cpp:226]   --->   Operation 65 'xor' 'xor_ln226' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 66 [1/1] (2.32ns)   --->   "store i8 %xor_ln226, i8* %state_addr, align 1" [helper.cpp:226]   --->   Operation 66 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_9 : Operation 67 [1/1] (0.99ns)   --->   "%xor_ln226_1 = xor i8 %state_load_1, %p_read117" [helper.cpp:226]   --->   Operation 67 'xor' 'xor_ln226_1' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 68 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_1, i8* %state_addr_31, align 1" [helper.cpp:226]   --->   Operation 68 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_9 : Operation 69 [1/2] (2.32ns)   --->   "%state_load_14 = load i8* %state_addr_44, align 1" [helper.cpp:226]   --->   Operation 69 'load' 'state_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_9 : Operation 70 [1/2] (2.32ns)   --->   "%state_load_15 = load i8* %state_addr_45, align 1" [helper.cpp:226]   --->   Operation 70 'load' 'state_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 10 <SV = 9> <Delay = 3.31>
+ST_10 : Operation 71 [1/1] (0.00ns)   --->   "%p_read319 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read3)" [helper.cpp:222]   --->   Operation 71 'read' 'p_read319' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 72 [1/1] (0.00ns)   --->   "%p_read218 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read2)" [helper.cpp:222]   --->   Operation 72 'read' 'p_read218' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 73 [1/1] (0.99ns)   --->   "%xor_ln226_2 = xor i8 %state_load_2, %p_read218" [helper.cpp:226]   --->   Operation 73 'xor' 'xor_ln226_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 74 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_2, i8* %state_addr_32, align 1" [helper.cpp:226]   --->   Operation 74 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_10 : Operation 75 [1/1] (0.99ns)   --->   "%xor_ln226_3 = xor i8 %state_load_3, %p_read319" [helper.cpp:226]   --->   Operation 75 'xor' 'xor_ln226_3' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 76 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_3, i8* %state_addr_33, align 1" [helper.cpp:226]   --->   Operation 76 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 11 <SV = 10> <Delay = 3.31>
+ST_11 : Operation 77 [1/1] (0.00ns)   --->   "%p_read521 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read5)" [helper.cpp:222]   --->   Operation 77 'read' 'p_read521' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 78 [1/1] (0.00ns)   --->   "%p_read420 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read4)" [helper.cpp:222]   --->   Operation 78 'read' 'p_read420' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 79 [1/1] (0.99ns)   --->   "%xor_ln226_4 = xor i8 %state_load_4, %p_read420" [helper.cpp:226]   --->   Operation 79 'xor' 'xor_ln226_4' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 80 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_4, i8* %state_addr_34, align 1" [helper.cpp:226]   --->   Operation 80 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_11 : Operation 81 [1/1] (0.99ns)   --->   "%xor_ln226_5 = xor i8 %state_load_5, %p_read521" [helper.cpp:226]   --->   Operation 81 'xor' 'xor_ln226_5' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 82 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_5, i8* %state_addr_35, align 1" [helper.cpp:226]   --->   Operation 82 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 12 <SV = 11> <Delay = 3.31>
+ST_12 : Operation 83 [1/1] (0.00ns)   --->   "%p_read723 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read7)" [helper.cpp:222]   --->   Operation 83 'read' 'p_read723' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 84 [1/1] (0.00ns)   --->   "%p_read622 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read6)" [helper.cpp:222]   --->   Operation 84 'read' 'p_read622' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 85 [1/1] (0.99ns)   --->   "%xor_ln226_6 = xor i8 %state_load_6, %p_read622" [helper.cpp:226]   --->   Operation 85 'xor' 'xor_ln226_6' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 86 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_6, i8* %state_addr_36, align 1" [helper.cpp:226]   --->   Operation 86 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_12 : Operation 87 [1/1] (0.99ns)   --->   "%xor_ln226_7 = xor i8 %state_load_7, %p_read723" [helper.cpp:226]   --->   Operation 87 'xor' 'xor_ln226_7' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 88 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_7, i8* %state_addr_37, align 1" [helper.cpp:226]   --->   Operation 88 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 13 <SV = 12> <Delay = 3.31>
+ST_13 : Operation 89 [1/1] (0.00ns)   --->   "%p_read_22 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read9)" [helper.cpp:222]   --->   Operation 89 'read' 'p_read_22' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 90 [1/1] (0.00ns)   --->   "%p_read_23 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read8)" [helper.cpp:222]   --->   Operation 90 'read' 'p_read_23' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 91 [1/1] (0.99ns)   --->   "%xor_ln226_8 = xor i8 %state_load_8, %p_read_23" [helper.cpp:226]   --->   Operation 91 'xor' 'xor_ln226_8' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 92 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_8, i8* %state_addr_38, align 1" [helper.cpp:226]   --->   Operation 92 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 93 [1/1] (0.99ns)   --->   "%xor_ln226_9 = xor i8 %state_load_9, %p_read_22" [helper.cpp:226]   --->   Operation 93 'xor' 'xor_ln226_9' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 94 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_9, i8* %state_addr_39, align 1" [helper.cpp:226]   --->   Operation 94 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 14 <SV = 13> <Delay = 3.31>
+ST_14 : Operation 95 [1/1] (0.00ns)   --->   "%p_read_20 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read11)" [helper.cpp:222]   --->   Operation 95 'read' 'p_read_20' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 96 [1/1] (0.00ns)   --->   "%p_read_21 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read10)" [helper.cpp:222]   --->   Operation 96 'read' 'p_read_21' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 97 [1/1] (0.99ns)   --->   "%xor_ln226_10 = xor i8 %state_load_10, %p_read_21" [helper.cpp:226]   --->   Operation 97 'xor' 'xor_ln226_10' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 98 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_10, i8* %state_addr_40, align 1" [helper.cpp:226]   --->   Operation 98 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_14 : Operation 99 [1/1] (0.99ns)   --->   "%xor_ln226_11 = xor i8 %state_load_11, %p_read_20" [helper.cpp:226]   --->   Operation 99 'xor' 'xor_ln226_11' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 100 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_11, i8* %state_addr_41, align 1" [helper.cpp:226]   --->   Operation 100 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 15 <SV = 14> <Delay = 3.31>
+ST_15 : Operation 101 [1/1] (0.00ns)   --->   "%p_read_18 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read13)" [helper.cpp:222]   --->   Operation 101 'read' 'p_read_18' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 102 [1/1] (0.00ns)   --->   "%p_read_19 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read12)" [helper.cpp:222]   --->   Operation 102 'read' 'p_read_19' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 103 [1/1] (0.99ns)   --->   "%xor_ln226_12 = xor i8 %state_load_12, %p_read_19" [helper.cpp:226]   --->   Operation 103 'xor' 'xor_ln226_12' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 104 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_12, i8* %state_addr_42, align 1" [helper.cpp:226]   --->   Operation 104 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 105 [1/1] (0.99ns)   --->   "%xor_ln226_13 = xor i8 %state_load_13, %p_read_18" [helper.cpp:226]   --->   Operation 105 'xor' 'xor_ln226_13' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 106 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_13, i8* %state_addr_43, align 1" [helper.cpp:226]   --->   Operation 106 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 16 <SV = 15> <Delay = 3.31>
+ST_16 : Operation 107 [1/1] (0.00ns)   --->   "%p_read_16 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read15)" [helper.cpp:222]   --->   Operation 107 'read' 'p_read_16' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 108 [1/1] (0.00ns)   --->   "%p_read_17 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %p_read14)" [helper.cpp:222]   --->   Operation 108 'read' 'p_read_17' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 109 [1/1] (0.99ns)   --->   "%xor_ln226_14 = xor i8 %state_load_14, %p_read_17" [helper.cpp:226]   --->   Operation 109 'xor' 'xor_ln226_14' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 110 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_14, i8* %state_addr_44, align 1" [helper.cpp:226]   --->   Operation 110 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_16 : Operation 111 [1/1] (0.99ns)   --->   "%xor_ln226_15 = xor i8 %state_load_15, %p_read_16" [helper.cpp:226]   --->   Operation 111 'xor' 'xor_ln226_15' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 112 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_15, i8* %state_addr_45, align 1" [helper.cpp:226]   --->   Operation 112 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_16 : Operation 113 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:227]   --->   Operation 113 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('state_addr', helper.cpp:226) [34]  (0 ns)
+	'load' operation ('state_load', helper.cpp:226) on array 'state' [35]  (2.32 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load', helper.cpp:226) on array 'state' [35]  (2.32 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_2', helper.cpp:226) on array 'state' [43]  (2.32 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_4', helper.cpp:226) on array 'state' [51]  (2.32 ns)
+
+ <State 5>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_6', helper.cpp:226) on array 'state' [59]  (2.32 ns)
+
+ <State 6>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_8', helper.cpp:226) on array 'state' [67]  (2.32 ns)
+
+ <State 7>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_10', helper.cpp:226) on array 'state' [75]  (2.32 ns)
+
+ <State 8>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_12', helper.cpp:226) on array 'state' [83]  (2.32 ns)
+
+ <State 9>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read1' (helper.cpp:222) [32]  (0 ns)
+	'xor' operation ('xor_ln226_1', helper.cpp:226) [40]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_1', helper.cpp:226 on array 'state' [41]  (2.32 ns)
+
+ <State 10>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read3' (helper.cpp:222) [30]  (0 ns)
+	'xor' operation ('xor_ln226_3', helper.cpp:226) [48]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_3', helper.cpp:226 on array 'state' [49]  (2.32 ns)
+
+ <State 11>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read5' (helper.cpp:222) [28]  (0 ns)
+	'xor' operation ('xor_ln226_5', helper.cpp:226) [56]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_5', helper.cpp:226 on array 'state' [57]  (2.32 ns)
+
+ <State 12>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read7' (helper.cpp:222) [26]  (0 ns)
+	'xor' operation ('xor_ln226_7', helper.cpp:226) [64]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_7', helper.cpp:226 on array 'state' [65]  (2.32 ns)
+
+ <State 13>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read9' (helper.cpp:222) [24]  (0 ns)
+	'xor' operation ('xor_ln226_9', helper.cpp:226) [72]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_9', helper.cpp:226 on array 'state' [73]  (2.32 ns)
+
+ <State 14>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read11' (helper.cpp:222) [22]  (0 ns)
+	'xor' operation ('xor_ln226_11', helper.cpp:226) [80]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_11', helper.cpp:226 on array 'state' [81]  (2.32 ns)
+
+ <State 15>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read13' (helper.cpp:222) [20]  (0 ns)
+	'xor' operation ('xor_ln226_13', helper.cpp:226) [88]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_13', helper.cpp:226 on array 'state' [89]  (2.32 ns)
+
+ <State 16>: 3.31ns
+The critical path consists of the following:
+	wire read on port 'p_read15' (helper.cpp:222) [18]  (0 ns)
+	'xor' operation ('xor_ln226_15', helper.cpp:226) [96]  (0.99 ns)
+	'store' operation ('store_ln226', helper.cpp:226) of variable 'xor_ln226_15', helper.cpp:226 on array 'state' [97]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

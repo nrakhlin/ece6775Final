@@ -1,0 +1,184 @@
+
+
+================================================================
+== Vivado HLS Report for 'createRoundKey'
+================================================================
+* Date:           Tue Nov 19 22:02:57 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        encrypt.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 5.169 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        8|        8| 80.000 ns | 80.000 ns |    8|    8| function |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    231|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|    150|    -|
+|Register         |        -|      -|     130|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     130|    381|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------+----------+-------+---+----+------------+------------+
+    |        Variable Name        | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------+----------+-------+---+----+------------+------------+
+    |add_ln308_10_fu_293_p2       |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_11_fu_303_p2       |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_12_fu_313_p2       |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_13_fu_323_p2       |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_14_fu_333_p2       |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_1_fu_203_p2        |     +    |      0|  0|  15|           2|           8|
+    |add_ln308_2_fu_213_p2        |     +    |      0|  0|  15|           2|           8|
+    |add_ln308_3_fu_223_p2        |     +    |      0|  0|  15|           3|           8|
+    |add_ln308_4_fu_233_p2        |     +    |      0|  0|  15|           3|           8|
+    |add_ln308_5_fu_243_p2        |     +    |      0|  0|  15|           3|           8|
+    |add_ln308_6_fu_253_p2        |     +    |      0|  0|  15|           3|           8|
+    |add_ln308_7_fu_263_p2        |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_8_fu_273_p2        |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_9_fu_283_p2        |     +    |      0|  0|  15|           4|           8|
+    |add_ln308_fu_192_p2          |     +    |      0|  0|  15|           1|           8|
+    |ap_block_pp0_stage0_11001    |    and   |      0|  0|   2|           1|           1|
+    |ap_block_pp0_stage0_subdone  |    or    |      0|  0|   2|           1|           1|
+    |ap_enable_pp0                |    xor   |      0|  0|   2|           1|           2|
+    +-----------------------------+----------+-------+---+----+------------+------------+
+    |Total                        |          |      0|  0| 231|          52|         124|
+    +-----------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                |  44|          9|    1|          9|
+    |ap_enable_reg_pp0_iter0  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |expandedKey_address0     |  44|          9|    8|         72|
+    |expandedKey_address1     |  44|          9|    8|         72|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    | 150|         31|   19|        157|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+---+----+-----+-----------+
+    |             Name            | FF| LUT| Bits| Const Bits|
+    +-----------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                    |  8|   0|    8|          0|
+    |ap_enable_reg_pp0_iter0_reg  |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1      |  1|   0|    1|          0|
+    |expandedKey_load_10_reg_518  |  8|   0|    8|          0|
+    |expandedKey_load_11_reg_533  |  8|   0|    8|          0|
+    |expandedKey_load_12_reg_538  |  8|   0|    8|          0|
+    |expandedKey_load_13_reg_553  |  8|   0|    8|          0|
+    |expandedKey_load_14_reg_558  |  8|   0|    8|          0|
+    |expandedKey_load_15_reg_573  |  8|   0|    8|          0|
+    |expandedKey_load_16_reg_578  |  8|   0|    8|          0|
+    |expandedKey_load_4_reg_458   |  8|   0|    8|          0|
+    |expandedKey_load_5_reg_473   |  8|   0|    8|          0|
+    |expandedKey_load_6_reg_478   |  8|   0|    8|          0|
+    |expandedKey_load_7_reg_493   |  8|   0|    8|          0|
+    |expandedKey_load_8_reg_498   |  8|   0|    8|          0|
+    |expandedKey_load_9_reg_513   |  8|   0|    8|          0|
+    |expandedKey_load_reg_453     |  8|   0|    8|          0|
+    |trunc_ln308_reg_430          |  8|   0|    8|          0|
+    +-----------------------------+---+----+-----+-----------+
+    |Total                        |130|   0|  130|          0|
+    +-----------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+----------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |  Source Object |    C Type    |
++----------------------+-----+-----+------------+----------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_rst                |  in |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_start              |  in |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_done               | out |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_idle               | out |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_ready              | out |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_ce                 |  in |    1| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_0           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_1           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_2           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_3           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_4           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_5           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_6           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_7           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_8           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_9           | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_10          | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_11          | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_12          | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_13          | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_14          | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|ap_return_15          | out |    8| ap_ctrl_hs | createRoundKey | return value |
+|expandedKey_address0  | out |    8|  ap_memory |   expandedKey  |     array    |
+|expandedKey_ce0       | out |    1|  ap_memory |   expandedKey  |     array    |
+|expandedKey_q0        |  in |    8|  ap_memory |   expandedKey  |     array    |
+|expandedKey_address1  | out |    8|  ap_memory |   expandedKey  |     array    |
+|expandedKey_ce1       | out |    1|  ap_memory |   expandedKey  |     array    |
+|expandedKey_q1        |  in |    8|  ap_memory |   expandedKey  |     array    |
+|ptr                   |  in |   10|   ap_none  |       ptr      |    scalar    |
++----------------------+-----+-----+------------+----------------+--------------+
+
