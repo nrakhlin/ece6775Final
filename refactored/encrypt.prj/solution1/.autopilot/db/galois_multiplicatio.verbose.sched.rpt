@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'galois_multiplicatio'
 ================================================================
-* Date:           Tue Nov 19 21:04:37 2024
+* Date:           Tue Nov 19 22:02:55 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -20,29 +20,24 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 1.769 ns |   1.25 ns  |
+    |ap_clk  | 10.00 ns | 1.248 ns |   1.25 ns  |
     +--------+----------+----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+-----------+-----------+-----+-----+---------+
-    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
-    |   min   |   max   |    min    |    max    | min | max |   Type  |
-    +---------+---------+-----------+-----------+-----+-----+---------+
-    |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
-    +---------+---------+-----------+-----------+-----+-----+---------+
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        0|        0|   0 ns   |   0 ns   |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
-        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
-        |- Loop 1  |        8|        8|         1|          -|          -|     8|    no    |
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        N/A
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -57,54 +52,45 @@ ResetActiveHigh: 1
 IsCombinational: 0
 IsDatapathOnly: 0
 HasWiredReturn: 1
-HasMFsm: 0
-HasVarLatency: 1
-IsPipeline: 0
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
 IsRtlPipelined: 0
 IsInstanceOverlapped: 0
 IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 2
-* Pipeline : 0
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
-1 --> 2 
-2 --> 2 
+1 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [helper.cpp:224]   --->   Operation 3 'read' 'b_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:224]   --->   Operation 4 'read' 'a_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (1.76ns)   --->   "br label %1" [helper.cpp:229]   --->   Operation 5 'br' <Predicate = true> <Delay = 1.76>
-
-State 2 <SV = 1> <Delay = 1.73>
-ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%counter_0 = phi i4 [ 0, %0 ], [ %counter, %2 ]"   --->   Operation 6 'phi' 'counter_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%p_0 = phi i8 [ 0, %0 ], [ %xor_ln231, %2 ]" [helper.cpp:231]   --->   Operation 7 'phi' 'p_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%b_assign_1 = phi i3 [ %b_read, %0 ], [ %zext_ln237, %2 ]" [helper.cpp:224]   --->   Operation 8 'phi' 'b_assign_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%p_0_7 = phi i8 [ %a_read, %0 ], [ %select_ln235, %2 ]" [helper.cpp:224]   --->   Operation 9 'phi' 'p_0_7' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 10 [1/1] (1.30ns)   --->   "%icmp_ln229 = icmp eq i4 %counter_0, -8" [helper.cpp:229]   --->   Operation 10 'icmp' 'icmp_ln229' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 12 [1/1] (1.73ns)   --->   "%counter = add i4 %counter_0, 1" [helper.cpp:229]   --->   Operation 12 'add' 'counter' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln229, label %3, label %2" [helper.cpp:229]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node xor_ln231)   --->   "%trunc_ln229 = trunc i3 %b_assign_1 to i1" [helper.cpp:229]   --->   Operation 14 'trunc' 'trunc_ln229' <Predicate = (!icmp_ln229)> <Delay = 0.00>
-ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node xor_ln231)   --->   "%select_ln231 = select i1 %trunc_ln229, i8 %p_0_7, i8 0" [helper.cpp:231]   --->   Operation 15 'select' 'select_ln231' <Predicate = (!icmp_ln229)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 16 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln231 = xor i8 %select_ln231, %p_0" [helper.cpp:231]   --->   Operation 16 'xor' 'xor_ln231' <Predicate = (!icmp_ln229)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%shl_ln234 = shl i8 %p_0_7, 1" [helper.cpp:234]   --->   Operation 17 'shl' 'shl_ln234' <Predicate = (!icmp_ln229)> <Delay = 0.00>
-ST_2 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node select_ln235)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %p_0_7, i32 7)" [helper.cpp:235]   --->   Operation 18 'bitselect' 'tmp' <Predicate = (!icmp_ln229)> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node select_ln235)   --->   "%xor_ln236 = xor i8 %shl_ln234, 27" [helper.cpp:236]   --->   Operation 19 'xor' 'xor_ln236' <Predicate = (!icmp_ln229)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln235 = select i1 %tmp, i8 %xor_ln236, i8 %shl_ln234" [helper.cpp:235]   --->   Operation 20 'select' 'select_ln235' <Predicate = (!icmp_ln229)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%b_assign = call i2 @_ssdm_op_PartSelect.i2.i3.i32.i32(i3 %b_assign_1, i32 1, i32 2)" [helper.cpp:237]   --->   Operation 21 'partselect' 'b_assign' <Predicate = (!icmp_ln229)> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln237 = zext i2 %b_assign to i3" [helper.cpp:237]   --->   Operation 22 'zext' 'zext_ln237' <Predicate = (!icmp_ln229)> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "br label %1" [helper.cpp:229]   --->   Operation 23 'br' <Predicate = (!icmp_ln229)> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "ret i8 %p_0" [helper.cpp:239]   --->   Operation 24 'ret' <Predicate = (icmp_ln229)> <Delay = 0.00>
+State 1 <SV = 0> <Delay = 1.24>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [helper.cpp:228]   --->   Operation 2 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:228]   --->   Operation 3 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%trunc_ln235 = trunc i3 %b_read to i1" [helper.cpp:235]   --->   Operation 4 'trunc' 'trunc_ln235' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln235 = select i1 %trunc_ln235, i8 %a_read, i8 0" [helper.cpp:235]   --->   Operation 5 'select' 'select_ln235' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln238 = shl i8 %a_read, 1" [helper.cpp:238]   --->   Operation 6 'shl' 'shl_ln238' <Predicate = (tmp_1)> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %a_read, i32 7)" [helper.cpp:239]   --->   Operation 7 'bitselect' 'tmp' <Predicate = (tmp_1)> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%xor_ln240 = xor i8 %shl_ln238, 27" [helper.cpp:240]   --->   Operation 8 'xor' 'xor_ln240' <Predicate = (tmp & tmp_1)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln239 = select i1 %tmp, i8 %xor_ln240, i8 %shl_ln238" [helper.cpp:239]   --->   Operation 9 'select' 'select_ln239' <Predicate = (tmp_1)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i3.i32(i3 %b_read, i32 1)" [helper.cpp:235]   --->   Operation 10 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln235_1 = select i1 %tmp_1, i8 %select_ln239, i8 0" [helper.cpp:235]   --->   Operation 11 'select' 'select_ln235_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln235 = xor i8 %select_ln235, %select_ln235_1" [helper.cpp:235]   --->   Operation 12 'xor' 'xor_ln235' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "ret i8 %xor_ln235" [helper.cpp:243]   --->   Operation 13 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -112,14 +98,11 @@ ST_2 : Operation 24 [1/1] (0.00ns)   --->   "ret i8 %p_0" [helper.cpp:239]   ---
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.77ns
+ <State 1>: 1.25ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('counter') with incoming values : ('counter', helper.cpp:229) [7]  (1.77 ns)
-
- <State 2>: 1.74ns
-The critical path consists of the following:
-	'phi' operation ('counter') with incoming values : ('counter', helper.cpp:229) [7]  (0 ns)
-	'add' operation ('counter', helper.cpp:229) [13]  (1.74 ns)
+	wire read on port 'b' (helper.cpp:228) [3]  (0 ns)
+	'select' operation ('select_ln235_1', helper.cpp:235) [12]  (0 ns)
+	'xor' operation ('xor_ln235', helper.cpp:235) [13]  (1.25 ns)
 
 
 ============================================================
@@ -131,7 +114,6 @@ N/A
  - Input state : 
   - Chain level:
 	State 1
-	State 2
 
 
 ============================================================

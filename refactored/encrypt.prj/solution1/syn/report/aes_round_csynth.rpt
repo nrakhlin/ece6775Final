@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_round'
 ================================================================
-* Date:           Tue Nov 19 21:04:39 2024
+* Date:           Tue Nov 19 22:02:57 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -20,35 +20,29 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 5.634 ns |   1.25 ns  |
+    |ap_clk  | 10.00 ns | 8.804 ns |   1.25 ns  |
     +--------+----------+----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+---------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-    |   min   |   max   |    min   |    max   | min | max |   Type  |
-    +---------+---------+----------+----------+-----+-----+---------+
-    |      234|      234| 2.340 us | 2.340 us |  234|  234|   none  |
-    +---------+---------+----------+----------+-----+-----+---------+
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |       18|       18| 0.180 us | 0.180 us |   19|   19| function |
+    +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
         * Instance: 
-        +-----------------------+------------+---------+---------+----------+----------+-----+-----+---------+
-        |                       |            |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-        |        Instance       |   Module   |   min   |   max   |    min   |    max   | min | max |   Type  |
-        +-----------------------+------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_mixColumns_fu_230  |mixColumns  |      141|      141| 1.410 us | 1.410 us |  141|  141|   none  |
-        +-----------------------+------------+---------+---------+----------+----------+-----+-----+---------+
+        +----------------------+-----------+---------+---------+----------+----------+-----+-----+----------+
+        |                      |           |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+        |       Instance       |   Module  |   min   |   max   |    min   |    max   | min | max |   Type   |
+        +----------------------+-----------+---------+---------+----------+----------+-----+-----+----------+
+        |grp_mixColumn_fu_454  |mixColumn  |        0|        0|   0 ns   |   0 ns   |    1|    1| function |
+        +----------------------+-----------+---------+---------+----------+----------+-----+-----+----------+
 
         * Loop: 
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
-        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
-        |- Loop 1  |       48|       48|         3|          -|          -|    16|    no    |
-        |- Loop 2  |       32|       32|         2|          -|          -|    16|    no    |
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        N/A
 
 
 
@@ -60,98 +54,132 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
 +-----------------+---------+-------+--------+-------+-----+
 |DSP              |        -|      -|       -|      -|    -|
-|Expression       |        -|      -|       0|     60|    -|
+|Expression       |        -|      -|       0|    128|    -|
 |FIFO             |        -|      -|       -|      -|    -|
-|Instance         |        -|      -|     666|   1863|    -|
+|Instance         |        -|      -|       0|    576|    -|
 |Memory           |        1|      -|       0|      0|    -|
-|Multiplexer      |        -|      -|       -|    352|    -|
-|Register         |        -|      -|      94|      -|    -|
+|Multiplexer      |        -|      -|       -|    472|    -|
+|Register         |        -|      -|     299|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        1|      0|     760|   2275|    0|
+|Total            |        1|      0|     299|   1176|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
-|Utilization (%)  |    ~0   |      0|   ~0   |      4|    0|
+|Utilization (%)  |    ~0   |      0|   ~0   |      2|    0|
 +-----------------+---------+-------+--------+-------+-----+
 
 + Detail: 
     * Instance: 
-    +-----------------------+------------+---------+-------+-----+------+-----+
-    |        Instance       |   Module   | BRAM_18K| DSP48E|  FF |  LUT | URAM|
-    +-----------------------+------------+---------+-------+-----+------+-----+
-    |grp_mixColumns_fu_230  |mixColumns  |        0|      0|  666|  1863|    0|
-    +-----------------------+------------+---------+-------+-----+------+-----+
-    |Total                  |            |        0|      0|  666|  1863|    0|
-    +-----------------------+------------+---------+-------+-----+------+-----+
+    +----------------------+-----------+---------+-------+---+-----+-----+
+    |       Instance       |   Module  | BRAM_18K| DSP48E| FF| LUT | URAM|
+    +----------------------+-----------+---------+-------+---+-----+-----+
+    |grp_mixColumn_fu_454  |mixColumn  |        0|      0|  0|  576|    0|
+    +----------------------+-----------+---------+-------+---+-----+-----+
+    |Total                 |           |        0|      0|  0|  576|    0|
+    +----------------------+-----------+---------+-------+---+-----+-----+
 
     * DSP48E: 
     N/A
 
     * Memory: 
-    +--------+-----------+---------+---+----+-----+------+-----+------+-------------+
-    | Memory |   Module  | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
-    +--------+-----------+---------+---+----+-----+------+-----+------+-------------+
-    |sbox_U  |core_sbox  |        1|  0|   0|    0|   256|    8|     1|         2048|
-    +--------+-----------+---------+---+----+-----+------+-----+------+-------------+
-    |Total   |           |        1|  0|   0|    0|   256|    8|     1|         2048|
-    +--------+-----------+---------+---+----+-----+------+-----+------+-------------+
+    +--------+----------------+---------+---+----+-----+------+-----+------+-------------+
+    | Memory |     Module     | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +--------+----------------+---------+---+----+-----+------+-----+------+-------------+
+    |sbox_U  |expandKey_sbox  |        1|  0|   0|    0|   256|    8|     1|         2048|
+    +--------+----------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total   |                |        1|  0|   0|    0|   256|    8|     1|         2048|
+    +--------+----------------+---------+---+----+-----+------+-----+------+-------------+
 
     * FIFO: 
     N/A
 
     * Expression: 
-    +----------------------+----------+-------+---+----+------------+------------+
-    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +----------------------+----------+-------+---+----+------------+------------+
-    |i_6_fu_277_p2         |     +    |      0|  0|  15|           5|           1|
-    |i_fu_255_p2           |     +    |      0|  0|  15|           5|           1|
-    |icmp_ln170_fu_249_p2  |   icmp   |      0|  0|  11|           5|           6|
-    |icmp_ln221_fu_271_p2  |   icmp   |      0|  0|  11|           5|           6|
-    |xor_ln222_fu_289_p2   |    xor   |      0|  0|   8|           8|           8|
-    +----------------------+----------+-------+---+----+------------+------------+
-    |Total                 |          |      0|  0|  60|          28|          22|
-    +----------------------+----------+-------+---+----+------------+------------+
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |xor_ln226_10_fu_676_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_11_fu_615_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_12_fu_560_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_13_fu_738_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_14_fu_683_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_15_fu_622_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_1_fu_718_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_2_fu_663_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_3_fu_602_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_4_fu_547_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_5_fu_725_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_6_fu_670_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_7_fu_609_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_8_fu_553_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_9_fu_732_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln226_fu_541_p2     |    xor   |      0|  0|   8|           8|           8|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 128|         128|         128|
+    +------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +----------------+----+-----------+-----+-----------+
-    |      Name      | LUT| Input Size| Bits| Total Bits|
-    +----------------+----+-----------+-----+-----------+
-    |ap_NS_fsm       |  89|         18|    1|         18|
-    |i_0_i4_reg_219  |   9|          2|    5|         10|
-    |i_0_i_reg_208   |   9|          2|    5|         10|
-    |reg_236         |   9|          2|    8|         16|
-    |reg_243         |   9|          2|    8|         16|
-    |state_address0  |  59|         14|    4|         56|
-    |state_address1  |  56|         13|    4|         52|
-    |state_ce0       |  15|          3|    1|          3|
-    |state_d0        |  41|          8|    8|         64|
-    |state_d1        |  41|          8|    8|         64|
-    |state_we0       |  15|          3|    1|          3|
-    +----------------+----+-----------+-----+-----------+
-    |Total           | 352|         75|   53|        312|
-    +----------------+----+-----------+-----+-----------+
+    +------------------------------------+----+-----------+-----+-----------+
+    |                Name                | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                           |  97|         20|    1|         20|
+    |grp_mixColumn_fu_454_column_0_read  |  15|          3|    8|         24|
+    |grp_mixColumn_fu_454_column_1_read  |  15|          3|    8|         24|
+    |grp_mixColumn_fu_454_column_3_read  |  15|          3|    8|         24|
+    |reg_468                             |   9|          2|    8|         16|
+    |reg_485                             |   9|          2|    8|         16|
+    |reg_490                             |   9|          2|    8|         16|
+    |sbox_address0                       |  85|         17|    8|        136|
+    |state_address0                      |  65|         16|    4|         64|
+    |state_address1                      |  65|         16|    4|         64|
+    |state_d0                            |  44|          9|    8|         72|
+    |state_d1                            |  44|          9|    8|         72|
+    +------------------------------------+----+-----------+-----+-----------+
+    |Total                               | 472|        102|   81|        548|
+    +------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +------------------------------------+----+----+-----+-----------+
-    |                Name                | FF | LUT| Bits| Const Bits|
-    +------------------------------------+----+----+-----+-----------+
-    |ap_CS_fsm                           |  17|   0|   17|          0|
-    |grp_mixColumns_fu_230_ap_start_reg  |   1|   0|    1|          0|
-    |i_0_i4_reg_219                      |   5|   0|    5|          0|
-    |i_0_i_reg_208                       |   5|   0|    5|          0|
-    |i_6_reg_402                         |   5|   0|    5|          0|
-    |i_reg_299                           |   5|   0|    5|          0|
-    |reg_236                             |   8|   0|    8|          0|
-    |reg_243                             |   8|   0|    8|          0|
-    |state_addr_13_reg_304               |   4|   0|    4|          0|
-    |state_addr_14_reg_407               |   4|   0|    4|          0|
-    |state_load_2_reg_335                |   8|   0|    8|          0|
-    |state_load_5_reg_362                |   8|   0|    8|          0|
-    |state_load_6_reg_367                |   8|   0|    8|          0|
-    |tmp_2_reg_384                       |   8|   0|    8|          0|
-    +------------------------------------+----+----+-----+-----------+
-    |Total                               |  94|   0|   94|          0|
-    +------------------------------------+----+----+-----+-----------+
+    +-----------------------+----+----+-----+-----------+
+    |          Name         | FF | LUT| Bits| Const Bits|
+    +-----------------------+----+----+-----+-----------+
+    |ap_CS_fsm              |  19|   0|   19|          0|
+    |ap_port_reg_p_read     |   8|   0|    8|          0|
+    |ap_port_reg_p_read1    |   8|   0|    8|          0|
+    |ap_port_reg_p_read10   |   8|   0|    8|          0|
+    |ap_port_reg_p_read11   |   8|   0|    8|          0|
+    |ap_port_reg_p_read12   |   8|   0|    8|          0|
+    |ap_port_reg_p_read13   |   8|   0|    8|          0|
+    |ap_port_reg_p_read14   |   8|   0|    8|          0|
+    |ap_port_reg_p_read15   |   8|   0|    8|          0|
+    |ap_port_reg_p_read2    |   8|   0|    8|          0|
+    |ap_port_reg_p_read3    |   8|   0|    8|          0|
+    |ap_port_reg_p_read4    |   8|   0|    8|          0|
+    |ap_port_reg_p_read5    |   8|   0|    8|          0|
+    |ap_port_reg_p_read6    |   8|   0|    8|          0|
+    |ap_port_reg_p_read7    |   8|   0|    8|          0|
+    |ap_port_reg_p_read8    |   8|   0|    8|          0|
+    |ap_port_reg_p_read9    |   8|   0|    8|          0|
+    |reg_464                |   8|   0|    8|          0|
+    |reg_468                |   8|   0|    8|          0|
+    |reg_473                |   8|   0|    8|          0|
+    |reg_479                |   8|   0|    8|          0|
+    |reg_485                |   8|   0|    8|          0|
+    |reg_490                |   8|   0|    8|          0|
+    |reg_495                |   8|   0|    8|          0|
+    |state_load_11_reg_893  |   8|   0|    8|          0|
+    |state_load_12_reg_863  |   8|   0|    8|          0|
+    |state_load_13_reg_827  |   8|   0|    8|          0|
+    |state_load_7_reg_873   |   8|   0|    8|          0|
+    |xor_ln226_13_reg_963   |   8|   0|    8|          0|
+    |xor_ln226_14_reg_938   |   8|   0|    8|          0|
+    |xor_ln226_15_reg_908   |   8|   0|    8|          0|
+    |xor_ln226_4_reg_842    |   8|   0|    8|          0|
+    |xor_ln226_6_reg_933    |   8|   0|    8|          0|
+    |xor_ln226_7_reg_903    |   8|   0|    8|          0|
+    |xor_ln226_9_reg_958    |   8|   0|    8|          0|
+    |xor_ln226_reg_837      |   8|   0|    8|          0|
+    +-----------------------+----+----+-----+-----------+
+    |Total                  | 299|   0|  299|          0|
+    +-----------------------+----+----+-----+-----------+
 
 
 
@@ -159,27 +187,40 @@
 == Interface
 ================================================================
 * Summary: 
-+-------------------+-----+-----+------------+--------------+--------------+
-|     RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+-------------------+-----+-----+------------+--------------+--------------+
-|ap_clk             |  in |    1| ap_ctrl_hs |   aes_round  | return value |
-|ap_rst             |  in |    1| ap_ctrl_hs |   aes_round  | return value |
-|ap_start           |  in |    1| ap_ctrl_hs |   aes_round  | return value |
-|ap_done            | out |    1| ap_ctrl_hs |   aes_round  | return value |
-|ap_idle            | out |    1| ap_ctrl_hs |   aes_round  | return value |
-|ap_ready           | out |    1| ap_ctrl_hs |   aes_round  | return value |
-|state_address0     | out |    4|  ap_memory |     state    |     array    |
-|state_ce0          | out |    1|  ap_memory |     state    |     array    |
-|state_we0          | out |    1|  ap_memory |     state    |     array    |
-|state_d0           | out |    8|  ap_memory |     state    |     array    |
-|state_q0           |  in |    8|  ap_memory |     state    |     array    |
-|state_address1     | out |    4|  ap_memory |     state    |     array    |
-|state_ce1          | out |    1|  ap_memory |     state    |     array    |
-|state_we1          | out |    1|  ap_memory |     state    |     array    |
-|state_d1           | out |    8|  ap_memory |     state    |     array    |
-|state_q1           |  in |    8|  ap_memory |     state    |     array    |
-|roundKey_address0  | out |    4|  ap_memory |   roundKey   |     array    |
-|roundKey_ce0       | out |    1|  ap_memory |   roundKey   |     array    |
-|roundKey_q0        |  in |    8|  ap_memory |   roundKey   |     array    |
-+-------------------+-----+-----+------------+--------------+--------------+
++----------------+-----+-----+------------+--------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
++----------------+-----+-----+------------+--------------+--------------+
+|ap_clk          |  in |    1| ap_ctrl_hs |   aes_round  | return value |
+|ap_rst          |  in |    1| ap_ctrl_hs |   aes_round  | return value |
+|ap_start        |  in |    1| ap_ctrl_hs |   aes_round  | return value |
+|ap_done         | out |    1| ap_ctrl_hs |   aes_round  | return value |
+|ap_idle         | out |    1| ap_ctrl_hs |   aes_round  | return value |
+|ap_ready        | out |    1| ap_ctrl_hs |   aes_round  | return value |
+|state_address0  | out |    4|  ap_memory |     state    |     array    |
+|state_ce0       | out |    1|  ap_memory |     state    |     array    |
+|state_we0       | out |    1|  ap_memory |     state    |     array    |
+|state_d0        | out |    8|  ap_memory |     state    |     array    |
+|state_q0        |  in |    8|  ap_memory |     state    |     array    |
+|state_address1  | out |    4|  ap_memory |     state    |     array    |
+|state_ce1       | out |    1|  ap_memory |     state    |     array    |
+|state_we1       | out |    1|  ap_memory |     state    |     array    |
+|state_d1        | out |    8|  ap_memory |     state    |     array    |
+|state_q1        |  in |    8|  ap_memory |     state    |     array    |
+|p_read          |  in |    8|   ap_none  |    p_read    |    scalar    |
+|p_read1         |  in |    8|   ap_none  |    p_read1   |    scalar    |
+|p_read2         |  in |    8|   ap_none  |    p_read2   |    scalar    |
+|p_read3         |  in |    8|   ap_none  |    p_read3   |    scalar    |
+|p_read4         |  in |    8|   ap_none  |    p_read4   |    scalar    |
+|p_read5         |  in |    8|   ap_none  |    p_read5   |    scalar    |
+|p_read6         |  in |    8|   ap_none  |    p_read6   |    scalar    |
+|p_read7         |  in |    8|   ap_none  |    p_read7   |    scalar    |
+|p_read8         |  in |    8|   ap_none  |    p_read8   |    scalar    |
+|p_read9         |  in |    8|   ap_none  |    p_read9   |    scalar    |
+|p_read10        |  in |    8|   ap_none  |   p_read10   |    scalar    |
+|p_read11        |  in |    8|   ap_none  |   p_read11   |    scalar    |
+|p_read12        |  in |    8|   ap_none  |   p_read12   |    scalar    |
+|p_read13        |  in |    8|   ap_none  |   p_read13   |    scalar    |
+|p_read14        |  in |    8|   ap_none  |   p_read14   |    scalar    |
+|p_read15        |  in |    8|   ap_none  |   p_read15   |    scalar    |
++----------------+-----+-----+------------+--------------+--------------+
 

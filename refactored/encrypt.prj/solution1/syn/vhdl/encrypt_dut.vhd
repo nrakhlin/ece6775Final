@@ -17,9 +17,22 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
-    input_r_address0 : OUT STD_LOGIC_VECTOR (3 downto 0);
-    input_r_ce0 : OUT STD_LOGIC;
-    input_r_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_0 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_1 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_2 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_3 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_4 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_5 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_6 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_7 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_8 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_9 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_10 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_11 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_12 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_13 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_14 : IN STD_LOGIC_VECTOR (7 downto 0);
+    input_15 : IN STD_LOGIC_VECTOR (7 downto 0);
     output_r_address0 : OUT STD_LOGIC_VECTOR (3 downto 0);
     output_r_ce0 : OUT STD_LOGIC;
     output_r_we0 : OUT STD_LOGIC;
@@ -33,7 +46,7 @@ end;
 architecture behav of encrypt_dut is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "encrypt_dut,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.498000,HLS_SYN_LAT=4164,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=1473,HLS_SYN_LUT=4390,HLS_VERSION=2019_2}";
+    "encrypt_dut,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.804000,HLS_SYN_LAT=582,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=1082,HLS_SYN_LUT=3786,HLS_VERSION=2019_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (1 downto 0) := "01";
@@ -47,19 +60,17 @@ architecture behav of encrypt_dut is
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal grp_aes_encrypt_fu_18_ap_start : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_ap_done : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_ap_idle : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_ap_ready : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_input_r_address0 : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aes_encrypt_fu_18_input_r_ce0 : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_output_r_address0 : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aes_encrypt_fu_18_output_r_ce0 : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_output_r_we0 : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_output_r_d0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal grp_aes_encrypt_fu_18_key_address0 : STD_LOGIC_VECTOR (3 downto 0);
-    signal grp_aes_encrypt_fu_18_key_ce0 : STD_LOGIC;
-    signal grp_aes_encrypt_fu_18_ap_start_reg : STD_LOGIC := '0';
+    signal grp_aes_encrypt_fu_146_ap_start : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_ap_done : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_ap_idle : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_ap_ready : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_output_r_address0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aes_encrypt_fu_146_output_r_ce0 : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_output_r_we0 : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_output_r_d0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal grp_aes_encrypt_fu_146_key_address0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal grp_aes_encrypt_fu_146_key_ce0 : STD_LOGIC;
+    signal grp_aes_encrypt_fu_146_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal ap_NS_fsm : STD_LOGIC_VECTOR (1 downto 0);
@@ -72,9 +83,22 @@ architecture behav of encrypt_dut is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        input_r_address0 : OUT STD_LOGIC_VECTOR (3 downto 0);
-        input_r_ce0 : OUT STD_LOGIC;
-        input_r_q0 : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_0_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_1_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_2_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_3_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_4_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_5_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_6_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_7_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_8_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_9_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_10_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_11_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_12_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_13_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_14_read : IN STD_LOGIC_VECTOR (7 downto 0);
+        input_15_read : IN STD_LOGIC_VECTOR (7 downto 0);
         output_r_address0 : OUT STD_LOGIC_VECTOR (3 downto 0);
         output_r_ce0 : OUT STD_LOGIC;
         output_r_we0 : OUT STD_LOGIC;
@@ -87,23 +111,36 @@ architecture behav of encrypt_dut is
 
 
 begin
-    grp_aes_encrypt_fu_18 : component aes_encrypt
+    grp_aes_encrypt_fu_146 : component aes_encrypt
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_aes_encrypt_fu_18_ap_start,
-        ap_done => grp_aes_encrypt_fu_18_ap_done,
-        ap_idle => grp_aes_encrypt_fu_18_ap_idle,
-        ap_ready => grp_aes_encrypt_fu_18_ap_ready,
-        input_r_address0 => grp_aes_encrypt_fu_18_input_r_address0,
-        input_r_ce0 => grp_aes_encrypt_fu_18_input_r_ce0,
-        input_r_q0 => input_r_q0,
-        output_r_address0 => grp_aes_encrypt_fu_18_output_r_address0,
-        output_r_ce0 => grp_aes_encrypt_fu_18_output_r_ce0,
-        output_r_we0 => grp_aes_encrypt_fu_18_output_r_we0,
-        output_r_d0 => grp_aes_encrypt_fu_18_output_r_d0,
-        key_address0 => grp_aes_encrypt_fu_18_key_address0,
-        key_ce0 => grp_aes_encrypt_fu_18_key_ce0,
+        ap_start => grp_aes_encrypt_fu_146_ap_start,
+        ap_done => grp_aes_encrypt_fu_146_ap_done,
+        ap_idle => grp_aes_encrypt_fu_146_ap_idle,
+        ap_ready => grp_aes_encrypt_fu_146_ap_ready,
+        input_0_read => input_0,
+        input_1_read => input_1,
+        input_2_read => input_2,
+        input_3_read => input_3,
+        input_4_read => input_4,
+        input_5_read => input_5,
+        input_6_read => input_6,
+        input_7_read => input_7,
+        input_8_read => input_8,
+        input_9_read => input_9,
+        input_10_read => input_10,
+        input_11_read => input_11,
+        input_12_read => input_12,
+        input_13_read => input_13,
+        input_14_read => input_14,
+        input_15_read => input_15,
+        output_r_address0 => grp_aes_encrypt_fu_146_output_r_address0,
+        output_r_ce0 => grp_aes_encrypt_fu_146_output_r_ce0,
+        output_r_we0 => grp_aes_encrypt_fu_146_output_r_we0,
+        output_r_d0 => grp_aes_encrypt_fu_146_output_r_d0,
+        key_address0 => grp_aes_encrypt_fu_146_key_address0,
+        key_ce0 => grp_aes_encrypt_fu_146_key_ce0,
         key_q0 => key_q0);
 
 
@@ -122,23 +159,23 @@ begin
     end process;
 
 
-    grp_aes_encrypt_fu_18_ap_start_reg_assign_proc : process(ap_clk)
+    grp_aes_encrypt_fu_146_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_aes_encrypt_fu_18_ap_start_reg <= ap_const_logic_0;
+                grp_aes_encrypt_fu_146_ap_start_reg <= ap_const_logic_0;
             else
                 if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                    grp_aes_encrypt_fu_18_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_aes_encrypt_fu_18_ap_ready = ap_const_logic_1)) then 
-                    grp_aes_encrypt_fu_18_ap_start_reg <= ap_const_logic_0;
+                    grp_aes_encrypt_fu_146_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_aes_encrypt_fu_146_ap_ready = ap_const_logic_1)) then 
+                    grp_aes_encrypt_fu_146_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_aes_encrypt_fu_18_ap_done, ap_CS_fsm_state2)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, grp_aes_encrypt_fu_146_ap_done, ap_CS_fsm_state2)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -148,7 +185,7 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((grp_aes_encrypt_fu_18_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
+                if (((grp_aes_encrypt_fu_146_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state2;
@@ -160,9 +197,9 @@ begin
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
 
-    ap_done_assign_proc : process(grp_aes_encrypt_fu_18_ap_done, ap_CS_fsm_state2)
+    ap_done_assign_proc : process(grp_aes_encrypt_fu_146_ap_done, ap_CS_fsm_state2)
     begin
-        if (((grp_aes_encrypt_fu_18_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+        if (((grp_aes_encrypt_fu_146_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -180,22 +217,20 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(grp_aes_encrypt_fu_18_ap_done, ap_CS_fsm_state2)
+    ap_ready_assign_proc : process(grp_aes_encrypt_fu_146_ap_done, ap_CS_fsm_state2)
     begin
-        if (((grp_aes_encrypt_fu_18_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+        if (((grp_aes_encrypt_fu_146_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
         end if; 
     end process;
 
-    grp_aes_encrypt_fu_18_ap_start <= grp_aes_encrypt_fu_18_ap_start_reg;
-    input_r_address0 <= grp_aes_encrypt_fu_18_input_r_address0;
-    input_r_ce0 <= grp_aes_encrypt_fu_18_input_r_ce0;
-    key_address0 <= grp_aes_encrypt_fu_18_key_address0;
-    key_ce0 <= grp_aes_encrypt_fu_18_key_ce0;
-    output_r_address0 <= grp_aes_encrypt_fu_18_output_r_address0;
-    output_r_ce0 <= grp_aes_encrypt_fu_18_output_r_ce0;
-    output_r_d0 <= grp_aes_encrypt_fu_18_output_r_d0;
-    output_r_we0 <= grp_aes_encrypt_fu_18_output_r_we0;
+    grp_aes_encrypt_fu_146_ap_start <= grp_aes_encrypt_fu_146_ap_start_reg;
+    key_address0 <= grp_aes_encrypt_fu_146_key_address0;
+    key_ce0 <= grp_aes_encrypt_fu_146_key_ce0;
+    output_r_address0 <= grp_aes_encrypt_fu_146_output_r_address0;
+    output_r_ce0 <= grp_aes_encrypt_fu_146_output_r_ce0;
+    output_r_d0 <= grp_aes_encrypt_fu_146_output_r_d0;
+    output_r_we0 <= grp_aes_encrypt_fu_146_output_r_we0;
 end behav;

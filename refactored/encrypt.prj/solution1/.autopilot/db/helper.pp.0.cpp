@@ -352,42 +352,49 @@ void expandKey(unsigned char expandedKey[(16 * (10 + 1))],
   unsigned char t[4] = {0};
 
 
-  for (i = 0; i < 16; i++)
-    expandedKey[i] = key[i];
+  EX_K_LOOP1:
+    for (i = 0; i < 16; i++){
+      expandedKey[i] = key[i];}
   currentSize += size;
-
-  while (currentSize < expandedKeySize)
-  {
-
-    for (i = 0; i < 4; i++)
+  EX_WHILE:
+    while (currentSize < expandedKeySize)
     {
-      t[i] = expandedKey[(currentSize - 4) + i];
-    }
+#pragma HLS PIPELINE II=1
+# 131 "helper.cpp"
 
 
-
-
-    if (currentSize % size == 0)
-    {
-      core(t, rconIteration++);
-    }
-
-
-    if (size == SIZE_32 && ((currentSize % size) == 16))
-    {
+      EX_INNER1:
       for (i = 0; i < 4; i++)
-        t[i] = getSBoxValue(t[i]);
+      {
+        t[i] = expandedKey[(currentSize - 4) + i];
+      }
+
+
+
+
+      if (currentSize % size == 0)
+      {
+        core(t, rconIteration++);
+      }
+
+
+      if (size == SIZE_32 && ((currentSize % size) == 16))
+      {
+        EX_INNER2:
+        for (i = 0; i < 4; i++)
+          t[i] = getSBoxValue(t[i]);
+      }
+
+
+
+
+     EX_INNER3:
+      for (i = 0; i < 4; i++)
+      {
+        expandedKey[currentSize] = expandedKey[currentSize - size] ^ t[i];
+        currentSize++;
+      }
     }
-
-
-
-
-    for (i = 0; i < 4; i++)
-    {
-      expandedKey[currentSize] = expandedKey[currentSize - size] ^ t[i];
-      currentSize++;
-    }
-  }
 }
 
 

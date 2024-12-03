@@ -15,12 +15,7 @@
 namespace ap_rtl {
 
 struct galois_multiplicatio : public sc_module {
-    // Port declarations 9
-    sc_in_clk ap_clk;
-    sc_in< sc_logic > ap_rst;
-    sc_in< sc_logic > ap_start;
-    sc_out< sc_logic > ap_done;
-    sc_out< sc_logic > ap_idle;
+    // Port declarations 4
     sc_out< sc_logic > ap_ready;
     sc_in< sc_lv<8> > a;
     sc_in< sc_lv<5> > b;
@@ -35,63 +30,63 @@ struct galois_multiplicatio : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    sc_signal< sc_lv<2> > ap_CS_fsm;
-    sc_signal< sc_logic > ap_CS_fsm_state1;
-    sc_signal< sc_lv<4> > counter_fu_92_p2;
-    sc_signal< sc_logic > ap_CS_fsm_state2;
-    sc_signal< sc_lv<8> > xor_ln231_fu_110_p2;
-    sc_signal< sc_lv<1> > icmp_ln229_fu_86_p2;
-    sc_signal< sc_lv<8> > select_ln235_fu_136_p3;
-    sc_signal< sc_lv<5> > zext_ln237_fu_154_p1;
-    sc_signal< sc_lv<4> > counter_0_reg_46;
-    sc_signal< sc_lv<8> > p_0_reg_57;
-    sc_signal< sc_lv<5> > b_assign_1_reg_68;
-    sc_signal< sc_lv<8> > p_0_7_reg_77;
-    sc_signal< sc_lv<1> > trunc_ln229_fu_98_p1;
-    sc_signal< sc_lv<8> > select_ln231_fu_102_p3;
-    sc_signal< sc_lv<8> > shl_ln234_fu_116_p2;
-    sc_signal< sc_lv<1> > tmp_fu_122_p3;
-    sc_signal< sc_lv<8> > xor_ln236_fu_130_p2;
-    sc_signal< sc_lv<4> > b_assign_fu_144_p4;
-    sc_signal< sc_lv<8> > ap_return_preg;
-    sc_signal< sc_lv<2> > ap_NS_fsm;
+    sc_signal< sc_lv<1> > trunc_ln235_fu_38_p1;
+    sc_signal< sc_lv<8> > shl_ln238_fu_50_p2;
+    sc_signal< sc_lv<1> > tmp_fu_56_p3;
+    sc_signal< sc_lv<8> > xor_ln240_fu_64_p2;
+    sc_signal< sc_lv<1> > tmp_1_fu_78_p3;
+    sc_signal< sc_lv<8> > select_ln239_fu_70_p3;
+    sc_signal< sc_lv<8> > shl_ln238_1_fu_94_p2;
+    sc_signal< sc_lv<1> > tmp_2_fu_100_p3;
+    sc_signal< sc_lv<8> > xor_ln240_1_fu_108_p2;
+    sc_signal< sc_lv<1> > tmp_3_fu_122_p3;
+    sc_signal< sc_lv<8> > select_ln239_1_fu_114_p3;
+    sc_signal< sc_lv<8> > shl_ln238_2_fu_138_p2;
+    sc_signal< sc_lv<1> > tmp_4_fu_144_p3;
+    sc_signal< sc_lv<8> > xor_ln240_2_fu_152_p2;
+    sc_signal< sc_lv<1> > tmp_5_fu_166_p3;
+    sc_signal< sc_lv<8> > select_ln239_2_fu_158_p3;
+    sc_signal< sc_lv<8> > select_ln235_fu_42_p3;
+    sc_signal< sc_lv<8> > select_ln235_2_fu_130_p3;
+    sc_signal< sc_lv<8> > xor_ln235_fu_182_p2;
+    sc_signal< sc_lv<8> > select_ln235_1_fu_86_p3;
+    sc_signal< sc_lv<8> > select_ln235_3_fu_174_p3;
+    sc_signal< sc_lv<8> > xor_ln235_1_fu_188_p2;
     static const sc_logic ap_const_logic_1;
-    static const sc_logic ap_const_logic_0;
-    static const sc_lv<2> ap_ST_fsm_state1;
-    static const sc_lv<2> ap_ST_fsm_state2;
-    static const sc_lv<32> ap_const_lv32_0;
-    static const sc_lv<32> ap_const_lv32_1;
-    static const sc_lv<1> ap_const_lv1_0;
-    static const sc_lv<4> ap_const_lv4_0;
+    static const bool ap_const_boolean_1;
     static const sc_lv<8> ap_const_lv8_0;
-    static const sc_lv<4> ap_const_lv4_8;
-    static const sc_lv<4> ap_const_lv4_1;
     static const sc_lv<8> ap_const_lv8_1;
     static const sc_lv<32> ap_const_lv32_7;
     static const sc_lv<8> ap_const_lv8_1B;
-    static const sc_lv<32> ap_const_lv32_4;
-    static const sc_lv<1> ap_const_lv1_1;
-    static const bool ap_const_boolean_1;
+    static const sc_lv<32> ap_const_lv32_1;
+    static const sc_lv<32> ap_const_lv32_2;
+    static const sc_lv<32> ap_const_lv32_3;
+    static const sc_logic ap_const_logic_0;
     // Thread declarations
-    void thread_ap_clk_no_reset_();
-    void thread_ap_CS_fsm_state1();
-    void thread_ap_CS_fsm_state2();
-    void thread_ap_done();
-    void thread_ap_idle();
     void thread_ap_ready();
     void thread_ap_return();
-    void thread_b_assign_fu_144_p4();
-    void thread_counter_fu_92_p2();
-    void thread_icmp_ln229_fu_86_p2();
-    void thread_select_ln231_fu_102_p3();
-    void thread_select_ln235_fu_136_p3();
-    void thread_shl_ln234_fu_116_p2();
-    void thread_tmp_fu_122_p3();
-    void thread_trunc_ln229_fu_98_p1();
-    void thread_xor_ln231_fu_110_p2();
-    void thread_xor_ln236_fu_130_p2();
-    void thread_zext_ln237_fu_154_p1();
-    void thread_ap_NS_fsm();
+    void thread_select_ln235_1_fu_86_p3();
+    void thread_select_ln235_2_fu_130_p3();
+    void thread_select_ln235_3_fu_174_p3();
+    void thread_select_ln235_fu_42_p3();
+    void thread_select_ln239_1_fu_114_p3();
+    void thread_select_ln239_2_fu_158_p3();
+    void thread_select_ln239_fu_70_p3();
+    void thread_shl_ln238_1_fu_94_p2();
+    void thread_shl_ln238_2_fu_138_p2();
+    void thread_shl_ln238_fu_50_p2();
+    void thread_tmp_1_fu_78_p3();
+    void thread_tmp_2_fu_100_p3();
+    void thread_tmp_3_fu_122_p3();
+    void thread_tmp_4_fu_144_p3();
+    void thread_tmp_5_fu_166_p3();
+    void thread_tmp_fu_56_p3();
+    void thread_trunc_ln235_fu_38_p1();
+    void thread_xor_ln235_1_fu_188_p2();
+    void thread_xor_ln235_fu_182_p2();
+    void thread_xor_ln240_1_fu_108_p2();
+    void thread_xor_ln240_2_fu_152_p2();
+    void thread_xor_ln240_fu_64_p2();
 };
 
 }

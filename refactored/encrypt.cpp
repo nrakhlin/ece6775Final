@@ -21,11 +21,12 @@ void aes_main(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_SIZE
   createRoundKey(expandedKey, roundKey, 0);
   addRoundKey(state, roundKey);
 
-  for (i = 1; i < nbrRounds; i++)
-  {
-    createRoundKey(expandedKey, roundKey, 16 * i); // uses pointer stuff. Must change
-    aes_round(state, roundKey);
-  }
+  AES_MAIN_LOOP:
+    for (i = 1; i < nbrRounds; i++)
+    {
+      createRoundKey(expandedKey, roundKey, 16 * i); // uses pointer stuff. Must change
+      aes_round(state, roundKey);
+    }
 
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds); // uses pointer stuff. Must change
   subBytes(state);

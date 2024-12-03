@@ -15,13 +15,13 @@ set C_modelName {aes_main}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ state int 8 regular {array 16 { 2 2 } 1 1 }  }
-	{ expandedKey int 8 regular {array 176 { 1 3 } 1 1 }  }
+	{ expandedKey int 8 regular {array 176 { 1 1 } 1 1 }  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "state", "interface" : "memory", "bitwidth" : 8, "direction" : "READWRITE"} , 
  	{ "Name" : "expandedKey", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 19
+set portNum 22
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -42,6 +42,9 @@ set portList {
 	{ expandedKey_address0 sc_out sc_lv 8 signal 1 } 
 	{ expandedKey_ce0 sc_out sc_logic 1 signal 1 } 
 	{ expandedKey_q0 sc_in sc_lv 8 signal 1 } 
+	{ expandedKey_address1 sc_out sc_lv 8 signal 1 } 
+	{ expandedKey_ce1 sc_out sc_logic 1 signal 1 } 
+	{ expandedKey_q1 sc_in sc_lv 8 signal 1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -62,16 +65,19 @@ set NewPortList {[
  	{ "name": "state_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "state", "role": "q1" }} , 
  	{ "name": "expandedKey_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expandedKey", "role": "address0" }} , 
  	{ "name": "expandedKey_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expandedKey", "role": "ce0" }} , 
- 	{ "name": "expandedKey_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expandedKey", "role": "q0" }}  ]}
+ 	{ "name": "expandedKey_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expandedKey", "role": "q0" }} , 
+ 	{ "name": "expandedKey_address1", "direction": "out", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expandedKey", "role": "address1" }} , 
+ 	{ "name": "expandedKey_ce1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "expandedKey", "role": "ce1" }} , 
+ 	{ "name": "expandedKey_q1", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "expandedKey", "role": "q1" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "21"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "17", "18"],
 		"CDFG" : "aes_main",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2720", "EstimateLatencyMax" : "2720",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "237", "EstimateLatencyMax" : "237",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -79,63 +85,281 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_round_fu_285"},
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_294"},
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_294"},
-			{"State" : "ap_ST_fsm_state9", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_createRoundKey_fu_294"}],
+			{"State" : "ap_ST_fsm_state10", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_addRoundKey_fu_413"},
+			{"State" : "ap_ST_fsm_state56", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_addRoundKey_fu_413"}],
 		"Port" : [
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_aes_round_fu_285", "Port" : "state"}]},
+					{"ID" : "2", "SubInstance" : "grp_aes_round_fu_380", "Port" : "state"},
+					{"ID" : "18", "SubInstance" : "grp_addRoundKey_fu_413", "Port" : "state"}]},
 			{"Name" : "expandedKey", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "21", "SubInstance" : "grp_createRoundKey_fu_294", "Port" : "expandedKey"}]},
+					{"ID" : "17", "SubInstance" : "grp_createRoundKey_fu_404", "Port" : "expandedKey"}]},
 			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_aes_round_fu_285", "Port" : "sbox"}]}]},
+					{"ID" : "2", "SubInstance" : "grp_aes_round_fu_380", "Port" : "sbox"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.sbox_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.roundKey_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285", "Parent" : "0", "Child" : ["4", "5"],
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380", "Parent" : "0", "Child" : ["3", "4"],
 		"CDFG" : "aes_round",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "234", "EstimateLatencyMax" : "234",
+		"II" : "19",
+		"VariableLatency" : "0", "ExactLatency" : "18", "EstimateLatencyMin" : "18", "EstimateLatencyMax" : "18",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
-		"WaitState" : [
-			{"State" : "ap_ST_fsm_state15", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mixColumns_fu_230"}],
 		"Port" : [
-			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_mixColumns_fu_230", "Port" : "state"}]},
-			{"Name" : "roundKey", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "state", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read5", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read6", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read7", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read8", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read9", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read10", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read11", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read12", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read13", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read14", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read15", "Type" : "None", "Direction" : "I"},
 			{"Name" : "sbox", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.sbox_U", "Parent" : "3"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230", "Parent" : "3", "Child" : ["6", "20"],
-		"CDFG" : "mixColumns",
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.sbox_U", "Parent" : "2"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454", "Parent" : "2", "Child" : ["5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"],
+		"CDFG" : "mixColumn",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "column_0_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "column_1_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "column_2_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "column_3_read", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "5", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_galois_multiplicatio_fu_44", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_3_galois_multiplicatio_fu_52", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_4_galois_multiplicatio_fu_60", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_5_galois_multiplicatio_fu_68", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "9", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_6_galois_multiplicatio_fu_76", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "10", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_7_galois_multiplicatio_fu_84", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "11", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_9_galois_multiplicatio_fu_92", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "12", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_s_galois_multiplicatio_fu_100", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "13", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_1_galois_multiplicatio_fu_108", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "14", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_2_galois_multiplicatio_fu_116", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_8_galois_multiplicatio_fu_124", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "16", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_380.grp_mixColumn_fu_454.tmp_10_galois_multiplicatio_fu_132", "Parent" : "4",
+		"CDFG" : "galois_multiplicatio",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "1",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"Port" : [
+			{"Name" : "a", "Type" : "None", "Direction" : "I"},
+			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_createRoundKey_fu_404", "Parent" : "0",
+		"CDFG" : "createRoundKey",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "141", "EstimateLatencyMax" : "141",
+		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "8",
+		"VariableLatency" : "0", "ExactLatency" : "8", "EstimateLatencyMin" : "8", "EstimateLatencyMax" : "8",
 		"Combinational" : "0",
 		"Datapath" : "0",
-		"ClockEnable" : "0",
+		"ClockEnable" : "1",
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
-		"WaitState" : [
-			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_mixColumn_fu_246"}],
 		"Port" : [
-			{"Name" : "state", "Type" : "Memory", "Direction" : "IO"}]},
-	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246", "Parent" : "5", "Child" : ["7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"],
-		"CDFG" : "mixColumn",
+			{"Name" : "expandedKey", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "ptr", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_addRoundKey_fu_413", "Parent" : "0",
+		"CDFG" : "addRoundKey",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -147,248 +371,50 @@ set RtlHierarchyInfo {[
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
-		"WaitState" : [
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_89"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_96"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_103"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_110"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_117"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_124"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_131"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_138"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_145"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_152"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_159"},
-			{"State" : "ap_ST_fsm_state3", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_galois_multiplicatio_fu_166"}],
 		"Port" : [
-			{"Name" : "column_0_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "column_1_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "column_2_read", "Type" : "None", "Direction" : "I"},
-			{"Name" : "column_3_read", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "7", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_89", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "8", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_96", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "9", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_103", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "10", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_110", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "11", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_117", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "12", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_124", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "13", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_131", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "14", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_138", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "15", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_145", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "16", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_152", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "17", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_159", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "18", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.grp_galois_multiplicatio_fu_166", "Parent" : "6",
-		"CDFG" : "galois_multiplicatio",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "9", "EstimateLatencyMax" : "9",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "a", "Type" : "None", "Direction" : "I"},
-			{"Name" : "b", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "19", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.grp_mixColumn_fu_246.encrypt_dut_mux_4cud_U27", "Parent" : "6"},
-	{"ID" : "20", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_round_fu_285.grp_mixColumns_fu_230.encrypt_dut_mux_4cud_U32", "Parent" : "5"},
-	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_createRoundKey_fu_294", "Parent" : "0",
-		"CDFG" : "createRoundKey",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "41", "EstimateLatencyMax" : "41",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"Port" : [
-			{"Name" : "expandedKey", "Type" : "Memory", "Direction" : "I"},
-			{"Name" : "roundKey", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "ptr", "Type" : "None", "Direction" : "I"}]}]}
+			{"Name" : "state", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "p_read", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read5", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read6", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read7", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read8", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read9", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read10", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read11", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read12", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read13", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read14", "Type" : "None", "Direction" : "I"},
+			{"Name" : "p_read15", "Type" : "None", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	aes_main {
-		state {Type IO LastRead 15 FirstWrite 2}
-		expandedKey {Type I LastRead 2 FirstWrite -1}
+		state {Type IO LastRead 19 FirstWrite 5}
+		expandedKey {Type I LastRead 8 FirstWrite -1}
 		sbox {Type I LastRead -1 FirstWrite -1}}
 	aes_round {
-		state {Type IO LastRead 13 FirstWrite 2}
-		roundKey {Type I LastRead 13 FirstWrite -1}
+		state {Type IO LastRead 8 FirstWrite 5}
+		p_read {Type I LastRead 5 FirstWrite -1}
+		p_read1 {Type I LastRead 17 FirstWrite -1}
+		p_read2 {Type I LastRead 13 FirstWrite -1}
+		p_read3 {Type I LastRead 9 FirstWrite -1}
+		p_read4 {Type I LastRead 5 FirstWrite -1}
+		p_read5 {Type I LastRead 17 FirstWrite -1}
+		p_read6 {Type I LastRead 13 FirstWrite -1}
+		p_read7 {Type I LastRead 9 FirstWrite -1}
+		p_read8 {Type I LastRead 5 FirstWrite -1}
+		p_read9 {Type I LastRead 17 FirstWrite -1}
+		p_read10 {Type I LastRead 13 FirstWrite -1}
+		p_read11 {Type I LastRead 9 FirstWrite -1}
+		p_read12 {Type I LastRead 5 FirstWrite -1}
+		p_read13 {Type I LastRead 17 FirstWrite -1}
+		p_read14 {Type I LastRead 13 FirstWrite -1}
+		p_read15 {Type I LastRead 9 FirstWrite -1}
 		sbox {Type I LastRead -1 FirstWrite -1}}
-	mixColumns {
-		state {Type IO LastRead 2 FirstWrite 4}}
 	mixColumn {
 		column_0_read {Type I LastRead 0 FirstWrite -1}
 		column_1_read {Type I LastRead 0 FirstWrite -1}
@@ -431,21 +457,39 @@ set ArgLastReadFirstWriteLatency {
 		a {Type I LastRead 0 FirstWrite -1}
 		b {Type I LastRead 0 FirstWrite -1}}
 	createRoundKey {
-		expandedKey {Type I LastRead 2 FirstWrite -1}
-		roundKey {Type O LastRead -1 FirstWrite 3}
-		ptr {Type I LastRead 0 FirstWrite -1}}}
+		expandedKey {Type I LastRead 8 FirstWrite -1}
+		ptr {Type I LastRead 0 FirstWrite -1}}
+	addRoundKey {
+		state {Type IO LastRead 8 FirstWrite 8}
+		p_read {Type I LastRead 8 FirstWrite -1}
+		p_read1 {Type I LastRead 8 FirstWrite -1}
+		p_read2 {Type I LastRead 9 FirstWrite -1}
+		p_read3 {Type I LastRead 9 FirstWrite -1}
+		p_read4 {Type I LastRead 10 FirstWrite -1}
+		p_read5 {Type I LastRead 10 FirstWrite -1}
+		p_read6 {Type I LastRead 11 FirstWrite -1}
+		p_read7 {Type I LastRead 11 FirstWrite -1}
+		p_read8 {Type I LastRead 12 FirstWrite -1}
+		p_read9 {Type I LastRead 12 FirstWrite -1}
+		p_read10 {Type I LastRead 13 FirstWrite -1}
+		p_read11 {Type I LastRead 13 FirstWrite -1}
+		p_read12 {Type I LastRead 14 FirstWrite -1}
+		p_read13 {Type I LastRead 14 FirstWrite -1}
+		p_read14 {Type I LastRead 15 FirstWrite -1}
+		p_read15 {Type I LastRead 15 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "2720", "Max" : "2720"}
-	, {"Name" : "Interval", "Min" : "2720", "Max" : "2720"}
+	{"Name" : "Latency", "Min" : "237", "Max" : "237"}
+	, {"Name" : "Interval", "Min" : "237", "Max" : "237"}
 ]}
 
 set PipelineEnableSignalInfo {[
+	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
 	state { ap_memory {  { state_address0 mem_address 1 4 }  { state_ce0 mem_ce 1 1 }  { state_we0 mem_we 1 1 }  { state_d0 mem_din 1 8 }  { state_q0 mem_dout 0 8 }  { state_address1 MemPortADDR2 1 4 }  { state_ce1 MemPortCE2 1 1 }  { state_we1 MemPortWE2 1 1 }  { state_d1 MemPortDIN2 1 8 }  { state_q1 MemPortDOUT2 0 8 } } }
-	expandedKey { ap_memory {  { expandedKey_address0 mem_address 1 8 }  { expandedKey_ce0 mem_ce 1 1 }  { expandedKey_q0 mem_dout 0 8 } } }
+	expandedKey { ap_memory {  { expandedKey_address0 mem_address 1 8 }  { expandedKey_ce0 mem_ce 1 1 }  { expandedKey_q0 mem_dout 0 8 }  { expandedKey_address1 MemPortADDR2 1 8 }  { expandedKey_ce1 MemPortCE2 1 1 }  { expandedKey_q1 MemPortDOUT2 0 8 } } }
 }

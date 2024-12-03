@@ -21,23 +21,36 @@ const sc_lv<32> encrypt_dut::ap_const_lv32_1 = "1";
 const bool encrypt_dut::ap_const_boolean_1 = true;
 
 encrypt_dut::encrypt_dut(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    grp_aes_encrypt_fu_18 = new aes_encrypt("grp_aes_encrypt_fu_18");
-    grp_aes_encrypt_fu_18->ap_clk(ap_clk);
-    grp_aes_encrypt_fu_18->ap_rst(ap_rst);
-    grp_aes_encrypt_fu_18->ap_start(grp_aes_encrypt_fu_18_ap_start);
-    grp_aes_encrypt_fu_18->ap_done(grp_aes_encrypt_fu_18_ap_done);
-    grp_aes_encrypt_fu_18->ap_idle(grp_aes_encrypt_fu_18_ap_idle);
-    grp_aes_encrypt_fu_18->ap_ready(grp_aes_encrypt_fu_18_ap_ready);
-    grp_aes_encrypt_fu_18->input_r_address0(grp_aes_encrypt_fu_18_input_r_address0);
-    grp_aes_encrypt_fu_18->input_r_ce0(grp_aes_encrypt_fu_18_input_r_ce0);
-    grp_aes_encrypt_fu_18->input_r_q0(input_r_q0);
-    grp_aes_encrypt_fu_18->output_r_address0(grp_aes_encrypt_fu_18_output_r_address0);
-    grp_aes_encrypt_fu_18->output_r_ce0(grp_aes_encrypt_fu_18_output_r_ce0);
-    grp_aes_encrypt_fu_18->output_r_we0(grp_aes_encrypt_fu_18_output_r_we0);
-    grp_aes_encrypt_fu_18->output_r_d0(grp_aes_encrypt_fu_18_output_r_d0);
-    grp_aes_encrypt_fu_18->key_address0(grp_aes_encrypt_fu_18_key_address0);
-    grp_aes_encrypt_fu_18->key_ce0(grp_aes_encrypt_fu_18_key_ce0);
-    grp_aes_encrypt_fu_18->key_q0(key_q0);
+    grp_aes_encrypt_fu_146 = new aes_encrypt("grp_aes_encrypt_fu_146");
+    grp_aes_encrypt_fu_146->ap_clk(ap_clk);
+    grp_aes_encrypt_fu_146->ap_rst(ap_rst);
+    grp_aes_encrypt_fu_146->ap_start(grp_aes_encrypt_fu_146_ap_start);
+    grp_aes_encrypt_fu_146->ap_done(grp_aes_encrypt_fu_146_ap_done);
+    grp_aes_encrypt_fu_146->ap_idle(grp_aes_encrypt_fu_146_ap_idle);
+    grp_aes_encrypt_fu_146->ap_ready(grp_aes_encrypt_fu_146_ap_ready);
+    grp_aes_encrypt_fu_146->input_0_read(input_0);
+    grp_aes_encrypt_fu_146->input_1_read(input_1);
+    grp_aes_encrypt_fu_146->input_2_read(input_2);
+    grp_aes_encrypt_fu_146->input_3_read(input_3);
+    grp_aes_encrypt_fu_146->input_4_read(input_4);
+    grp_aes_encrypt_fu_146->input_5_read(input_5);
+    grp_aes_encrypt_fu_146->input_6_read(input_6);
+    grp_aes_encrypt_fu_146->input_7_read(input_7);
+    grp_aes_encrypt_fu_146->input_8_read(input_8);
+    grp_aes_encrypt_fu_146->input_9_read(input_9);
+    grp_aes_encrypt_fu_146->input_10_read(input_10);
+    grp_aes_encrypt_fu_146->input_11_read(input_11);
+    grp_aes_encrypt_fu_146->input_12_read(input_12);
+    grp_aes_encrypt_fu_146->input_13_read(input_13);
+    grp_aes_encrypt_fu_146->input_14_read(input_14);
+    grp_aes_encrypt_fu_146->input_15_read(input_15);
+    grp_aes_encrypt_fu_146->output_r_address0(grp_aes_encrypt_fu_146_output_r_address0);
+    grp_aes_encrypt_fu_146->output_r_ce0(grp_aes_encrypt_fu_146_output_r_ce0);
+    grp_aes_encrypt_fu_146->output_r_we0(grp_aes_encrypt_fu_146_output_r_we0);
+    grp_aes_encrypt_fu_146->output_r_d0(grp_aes_encrypt_fu_146_output_r_d0);
+    grp_aes_encrypt_fu_146->key_address0(grp_aes_encrypt_fu_146_key_address0);
+    grp_aes_encrypt_fu_146->key_ce0(grp_aes_encrypt_fu_146_key_ce0);
+    grp_aes_encrypt_fu_146->key_q0(key_q0);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -50,7 +63,7 @@ encrypt_dut::encrypt_dut(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm );
 
     SC_METHOD(thread_ap_done);
-    sensitive << ( grp_aes_encrypt_fu_18_ap_done );
+    sensitive << ( grp_aes_encrypt_fu_146_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_ap_idle);
@@ -58,56 +71,48 @@ encrypt_dut::encrypt_dut(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_CS_fsm_state1 );
 
     SC_METHOD(thread_ap_ready);
-    sensitive << ( grp_aes_encrypt_fu_18_ap_done );
+    sensitive << ( grp_aes_encrypt_fu_146_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
 
-    SC_METHOD(thread_grp_aes_encrypt_fu_18_ap_start);
-    sensitive << ( grp_aes_encrypt_fu_18_ap_start_reg );
-
-    SC_METHOD(thread_input_r_address0);
-    sensitive << ( grp_aes_encrypt_fu_18_input_r_address0 );
-    sensitive << ( ap_CS_fsm_state2 );
-
-    SC_METHOD(thread_input_r_ce0);
-    sensitive << ( grp_aes_encrypt_fu_18_input_r_ce0 );
-    sensitive << ( ap_CS_fsm_state2 );
+    SC_METHOD(thread_grp_aes_encrypt_fu_146_ap_start);
+    sensitive << ( grp_aes_encrypt_fu_146_ap_start_reg );
 
     SC_METHOD(thread_key_address0);
-    sensitive << ( grp_aes_encrypt_fu_18_key_address0 );
+    sensitive << ( grp_aes_encrypt_fu_146_key_address0 );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_key_ce0);
-    sensitive << ( grp_aes_encrypt_fu_18_key_ce0 );
+    sensitive << ( grp_aes_encrypt_fu_146_key_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_output_r_address0);
-    sensitive << ( grp_aes_encrypt_fu_18_output_r_address0 );
+    sensitive << ( grp_aes_encrypt_fu_146_output_r_address0 );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_output_r_ce0);
-    sensitive << ( grp_aes_encrypt_fu_18_output_r_ce0 );
+    sensitive << ( grp_aes_encrypt_fu_146_output_r_ce0 );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_output_r_d0);
-    sensitive << ( grp_aes_encrypt_fu_18_output_r_d0 );
+    sensitive << ( grp_aes_encrypt_fu_146_output_r_d0 );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_output_r_we0);
-    sensitive << ( grp_aes_encrypt_fu_18_output_r_we0 );
+    sensitive << ( grp_aes_encrypt_fu_146_output_r_we0 );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm );
     sensitive << ( ap_CS_fsm_state1 );
-    sensitive << ( grp_aes_encrypt_fu_18_ap_done );
+    sensitive << ( grp_aes_encrypt_fu_146_ap_done );
     sensitive << ( ap_CS_fsm_state2 );
 
     SC_THREAD(thread_hdltv_gen);
     sensitive << ( ap_clk.pos() );
 
     ap_CS_fsm = "01";
-    grp_aes_encrypt_fu_18_ap_start_reg = SC_LOGIC_0;
+    grp_aes_encrypt_fu_146_ap_start_reg = SC_LOGIC_0;
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "encrypt_dut_sc_trace_" << apTFileNum ++;
@@ -122,9 +127,22 @@ encrypt_dut::encrypt_dut(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, ap_done, "(port)ap_done");
     sc_trace(mVcdFile, ap_idle, "(port)ap_idle");
     sc_trace(mVcdFile, ap_ready, "(port)ap_ready");
-    sc_trace(mVcdFile, input_r_address0, "(port)input_r_address0");
-    sc_trace(mVcdFile, input_r_ce0, "(port)input_r_ce0");
-    sc_trace(mVcdFile, input_r_q0, "(port)input_r_q0");
+    sc_trace(mVcdFile, input_0, "(port)input_0");
+    sc_trace(mVcdFile, input_1, "(port)input_1");
+    sc_trace(mVcdFile, input_2, "(port)input_2");
+    sc_trace(mVcdFile, input_3, "(port)input_3");
+    sc_trace(mVcdFile, input_4, "(port)input_4");
+    sc_trace(mVcdFile, input_5, "(port)input_5");
+    sc_trace(mVcdFile, input_6, "(port)input_6");
+    sc_trace(mVcdFile, input_7, "(port)input_7");
+    sc_trace(mVcdFile, input_8, "(port)input_8");
+    sc_trace(mVcdFile, input_9, "(port)input_9");
+    sc_trace(mVcdFile, input_10, "(port)input_10");
+    sc_trace(mVcdFile, input_11, "(port)input_11");
+    sc_trace(mVcdFile, input_12, "(port)input_12");
+    sc_trace(mVcdFile, input_13, "(port)input_13");
+    sc_trace(mVcdFile, input_14, "(port)input_14");
+    sc_trace(mVcdFile, input_15, "(port)input_15");
     sc_trace(mVcdFile, output_r_address0, "(port)output_r_address0");
     sc_trace(mVcdFile, output_r_ce0, "(port)output_r_ce0");
     sc_trace(mVcdFile, output_r_we0, "(port)output_r_we0");
@@ -136,19 +154,17 @@ encrypt_dut::encrypt_dut(sc_module_name name) : sc_module(name), mVcdFile(0) {
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_ap_start, "grp_aes_encrypt_fu_18_ap_start");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_ap_done, "grp_aes_encrypt_fu_18_ap_done");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_ap_idle, "grp_aes_encrypt_fu_18_ap_idle");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_ap_ready, "grp_aes_encrypt_fu_18_ap_ready");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_input_r_address0, "grp_aes_encrypt_fu_18_input_r_address0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_input_r_ce0, "grp_aes_encrypt_fu_18_input_r_ce0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_output_r_address0, "grp_aes_encrypt_fu_18_output_r_address0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_output_r_ce0, "grp_aes_encrypt_fu_18_output_r_ce0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_output_r_we0, "grp_aes_encrypt_fu_18_output_r_we0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_output_r_d0, "grp_aes_encrypt_fu_18_output_r_d0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_key_address0, "grp_aes_encrypt_fu_18_key_address0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_key_ce0, "grp_aes_encrypt_fu_18_key_ce0");
-    sc_trace(mVcdFile, grp_aes_encrypt_fu_18_ap_start_reg, "grp_aes_encrypt_fu_18_ap_start_reg");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_ap_start, "grp_aes_encrypt_fu_146_ap_start");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_ap_done, "grp_aes_encrypt_fu_146_ap_done");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_ap_idle, "grp_aes_encrypt_fu_146_ap_idle");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_ap_ready, "grp_aes_encrypt_fu_146_ap_ready");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_output_r_address0, "grp_aes_encrypt_fu_146_output_r_address0");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_output_r_ce0, "grp_aes_encrypt_fu_146_output_r_ce0");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_output_r_we0, "grp_aes_encrypt_fu_146_output_r_we0");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_output_r_d0, "grp_aes_encrypt_fu_146_output_r_d0");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_key_address0, "grp_aes_encrypt_fu_146_key_address0");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_key_ce0, "grp_aes_encrypt_fu_146_key_ce0");
+    sc_trace(mVcdFile, grp_aes_encrypt_fu_146_ap_start_reg, "grp_aes_encrypt_fu_146_ap_start_reg");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
@@ -166,7 +182,7 @@ encrypt_dut::~encrypt_dut() {
     mHdltvoutHandle << "] " << endl;
     mHdltvinHandle.close();
     mHdltvoutHandle.close();
-    delete grp_aes_encrypt_fu_18;
+    delete grp_aes_encrypt_fu_146;
 }
 
 void encrypt_dut::thread_ap_clk_no_reset_() {
@@ -176,13 +192,13 @@ void encrypt_dut::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ( ap_rst.read() == ap_const_logic_1) {
-        grp_aes_encrypt_fu_18_ap_start_reg = ap_const_logic_0;
+        grp_aes_encrypt_fu_146_ap_start_reg = ap_const_logic_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
              esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1))) {
-            grp_aes_encrypt_fu_18_ap_start_reg = ap_const_logic_1;
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_aes_encrypt_fu_18_ap_ready.read())) {
-            grp_aes_encrypt_fu_18_ap_start_reg = ap_const_logic_0;
+            grp_aes_encrypt_fu_146_ap_start_reg = ap_const_logic_1;
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_aes_encrypt_fu_146_ap_ready.read())) {
+            grp_aes_encrypt_fu_146_ap_start_reg = ap_const_logic_0;
         }
     }
 }
@@ -197,7 +213,7 @@ void encrypt_dut::thread_ap_CS_fsm_state2() {
 
 void encrypt_dut::thread_ap_done() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(grp_aes_encrypt_fu_18_ap_done.read(), ap_const_logic_1))) {
+         esl_seteq<1,1,1>(grp_aes_encrypt_fu_146_ap_done.read(), ap_const_logic_1))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -215,47 +231,39 @@ void encrypt_dut::thread_ap_idle() {
 
 void encrypt_dut::thread_ap_ready() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(grp_aes_encrypt_fu_18_ap_done.read(), ap_const_logic_1))) {
+         esl_seteq<1,1,1>(grp_aes_encrypt_fu_146_ap_done.read(), ap_const_logic_1))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
     }
 }
 
-void encrypt_dut::thread_grp_aes_encrypt_fu_18_ap_start() {
-    grp_aes_encrypt_fu_18_ap_start = grp_aes_encrypt_fu_18_ap_start_reg.read();
-}
-
-void encrypt_dut::thread_input_r_address0() {
-    input_r_address0 = grp_aes_encrypt_fu_18_input_r_address0.read();
-}
-
-void encrypt_dut::thread_input_r_ce0() {
-    input_r_ce0 = grp_aes_encrypt_fu_18_input_r_ce0.read();
+void encrypt_dut::thread_grp_aes_encrypt_fu_146_ap_start() {
+    grp_aes_encrypt_fu_146_ap_start = grp_aes_encrypt_fu_146_ap_start_reg.read();
 }
 
 void encrypt_dut::thread_key_address0() {
-    key_address0 = grp_aes_encrypt_fu_18_key_address0.read();
+    key_address0 = grp_aes_encrypt_fu_146_key_address0.read();
 }
 
 void encrypt_dut::thread_key_ce0() {
-    key_ce0 = grp_aes_encrypt_fu_18_key_ce0.read();
+    key_ce0 = grp_aes_encrypt_fu_146_key_ce0.read();
 }
 
 void encrypt_dut::thread_output_r_address0() {
-    output_r_address0 = grp_aes_encrypt_fu_18_output_r_address0.read();
+    output_r_address0 = grp_aes_encrypt_fu_146_output_r_address0.read();
 }
 
 void encrypt_dut::thread_output_r_ce0() {
-    output_r_ce0 = grp_aes_encrypt_fu_18_output_r_ce0.read();
+    output_r_ce0 = grp_aes_encrypt_fu_146_output_r_ce0.read();
 }
 
 void encrypt_dut::thread_output_r_d0() {
-    output_r_d0 = grp_aes_encrypt_fu_18_output_r_d0.read();
+    output_r_d0 = grp_aes_encrypt_fu_146_output_r_d0.read();
 }
 
 void encrypt_dut::thread_output_r_we0() {
-    output_r_we0 = grp_aes_encrypt_fu_18_output_r_we0.read();
+    output_r_we0 = grp_aes_encrypt_fu_146_output_r_we0.read();
 }
 
 void encrypt_dut::thread_ap_NS_fsm() {
@@ -268,7 +276,7 @@ void encrypt_dut::thread_ap_NS_fsm() {
             }
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(grp_aes_encrypt_fu_18_ap_done.read(), ap_const_logic_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(grp_aes_encrypt_fu_146_ap_done.read(), ap_const_logic_1))) {
                 ap_NS_fsm = ap_ST_fsm_state1;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -297,9 +305,22 @@ void encrypt_dut::thread_hdltv_gen() {
         mHdltvoutHandle << mComma << "{"  <<  " \"ap_done\" :  \"" << ap_done.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"ap_idle\" :  \"" << ap_idle.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"ap_ready\" :  \"" << ap_ready.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"input_r_address0\" :  \"" << input_r_address0.read() << "\" ";
-        mHdltvoutHandle << " , " <<  " \"input_r_ce0\" :  \"" << input_r_ce0.read() << "\" ";
-        mHdltvinHandle << " , " <<  " \"input_r_q0\" :  \"" << input_r_q0.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_0\" :  \"" << input_0.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_1\" :  \"" << input_1.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_2\" :  \"" << input_2.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_3\" :  \"" << input_3.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_4\" :  \"" << input_4.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_5\" :  \"" << input_5.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_6\" :  \"" << input_6.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_7\" :  \"" << input_7.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_8\" :  \"" << input_8.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_9\" :  \"" << input_9.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_10\" :  \"" << input_10.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_11\" :  \"" << input_11.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_12\" :  \"" << input_12.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_13\" :  \"" << input_13.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_14\" :  \"" << input_14.read() << "\" ";
+        mHdltvinHandle << " , " <<  " \"input_15\" :  \"" << input_15.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"output_r_address0\" :  \"" << output_r_address0.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"output_r_ce0\" :  \"" << output_r_ce0.read() << "\" ";
         mHdltvoutHandle << " , " <<  " \"output_r_we0\" :  \"" << output_r_we0.read() << "\" ";

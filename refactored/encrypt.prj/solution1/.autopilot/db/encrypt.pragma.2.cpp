@@ -2434,11 +2434,15 @@ void aes_main(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 1))
   createRoundKey(expandedKey, roundKey, 0);
   addRoundKey(state, roundKey);
 
-  for (i = 1; i < nbrRounds; i++)
-  {
-    createRoundKey(expandedKey, roundKey, 16 * i);
-    aes_round(state, roundKey);
-  }
+  AES_MAIN_LOOP:
+    for (i = 1; i < nbrRounds; i++)
+    {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+# 26 "encrypt.cpp"
+
+      createRoundKey(expandedKey, roundKey, 16 * i);
+      aes_round(state, roundKey);
+    }
 
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds);
   subBytes(state);
@@ -2487,6 +2491,9 @@ void encrypt_dut(unsigned char input[16],
                  unsigned char output[16],
                  unsigned char key[16])
 {_ssdm_SpecArrayDimSize(input, 16);_ssdm_SpecArrayDimSize(output, 16);_ssdm_SpecArrayDimSize(key, 16);
+_ssdm_SpecArrayPartition( input, 0, "COMPLETE", 0, "");
+# 77 "encrypt.cpp"
+
 
   aes_encrypt(input, output, key, 16);
 }

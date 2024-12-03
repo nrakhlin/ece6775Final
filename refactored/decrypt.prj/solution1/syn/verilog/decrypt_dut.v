@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="decrypt_dut,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.498000,HLS_SYN_LAT=4154,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=1639,HLS_SYN_LUT=4838,HLS_VERSION=2019_2}" *)
+(* CORE_GENERATION_INFO="decrypt_dut,hls_ip_2019_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020-clg484-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=12.548000,HLS_SYN_LAT=583,HLS_SYN_TPT=none,HLS_SYN_MEM=6,HLS_SYN_DSP=0,HLS_SYN_FF=1130,HLS_SYN_LUT=4987,HLS_VERSION=2019_2}" *)
 
 module decrypt_dut (
         ap_clk,
@@ -16,9 +16,22 @@ module decrypt_dut (
         ap_done,
         ap_idle,
         ap_ready,
-        input_r_address0,
-        input_r_ce0,
-        input_r_q0,
+        input_0,
+        input_1,
+        input_2,
+        input_3,
+        input_4,
+        input_5,
+        input_6,
+        input_7,
+        input_8,
+        input_9,
+        input_10,
+        input_11,
+        input_12,
+        input_13,
+        input_14,
+        input_15,
         output_r_address0,
         output_r_ce0,
         output_r_we0,
@@ -37,9 +50,22 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
-output  [3:0] input_r_address0;
-output   input_r_ce0;
-input  [7:0] input_r_q0;
+input  [7:0] input_0;
+input  [7:0] input_1;
+input  [7:0] input_2;
+input  [7:0] input_3;
+input  [7:0] input_4;
+input  [7:0] input_5;
+input  [7:0] input_6;
+input  [7:0] input_7;
+input  [7:0] input_8;
+input  [7:0] input_9;
+input  [7:0] input_10;
+input  [7:0] input_11;
+input  [7:0] input_12;
+input  [7:0] input_13;
+input  [7:0] input_14;
+input  [7:0] input_15;
 output  [3:0] output_r_address0;
 output   output_r_ce0;
 output   output_r_we0;
@@ -54,44 +80,55 @@ reg ap_ready;
 
 (* fsm_encoding = "none" *) reg   [1:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-wire    grp_aes_decrypt_fu_20_ap_start;
-wire    grp_aes_decrypt_fu_20_ap_done;
-wire    grp_aes_decrypt_fu_20_ap_idle;
-wire    grp_aes_decrypt_fu_20_ap_ready;
-wire   [3:0] grp_aes_decrypt_fu_20_input_r_address0;
-wire    grp_aes_decrypt_fu_20_input_r_ce0;
-wire   [3:0] grp_aes_decrypt_fu_20_output_r_address0;
-wire    grp_aes_decrypt_fu_20_output_r_ce0;
-wire    grp_aes_decrypt_fu_20_output_r_we0;
-wire   [7:0] grp_aes_decrypt_fu_20_output_r_d0;
-wire   [3:0] grp_aes_decrypt_fu_20_key_address0;
-wire    grp_aes_decrypt_fu_20_key_ce0;
-reg    grp_aes_decrypt_fu_20_ap_start_reg;
+wire    grp_aes_decrypt_fu_148_ap_start;
+wire    grp_aes_decrypt_fu_148_ap_done;
+wire    grp_aes_decrypt_fu_148_ap_idle;
+wire    grp_aes_decrypt_fu_148_ap_ready;
+wire   [3:0] grp_aes_decrypt_fu_148_output_r_address0;
+wire    grp_aes_decrypt_fu_148_output_r_ce0;
+wire    grp_aes_decrypt_fu_148_output_r_we0;
+wire   [7:0] grp_aes_decrypt_fu_148_output_r_d0;
+wire   [3:0] grp_aes_decrypt_fu_148_key_address0;
+wire    grp_aes_decrypt_fu_148_key_ce0;
+reg    grp_aes_decrypt_fu_148_ap_start_reg;
 wire    ap_CS_fsm_state2;
 reg   [1:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 2'd1;
-#0 grp_aes_decrypt_fu_20_ap_start_reg = 1'b0;
+#0 grp_aes_decrypt_fu_148_ap_start_reg = 1'b0;
 end
 
-aes_decrypt grp_aes_decrypt_fu_20(
+aes_decrypt grp_aes_decrypt_fu_148(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_aes_decrypt_fu_20_ap_start),
-    .ap_done(grp_aes_decrypt_fu_20_ap_done),
-    .ap_idle(grp_aes_decrypt_fu_20_ap_idle),
-    .ap_ready(grp_aes_decrypt_fu_20_ap_ready),
-    .input_r_address0(grp_aes_decrypt_fu_20_input_r_address0),
-    .input_r_ce0(grp_aes_decrypt_fu_20_input_r_ce0),
-    .input_r_q0(input_r_q0),
-    .output_r_address0(grp_aes_decrypt_fu_20_output_r_address0),
-    .output_r_ce0(grp_aes_decrypt_fu_20_output_r_ce0),
-    .output_r_we0(grp_aes_decrypt_fu_20_output_r_we0),
-    .output_r_d0(grp_aes_decrypt_fu_20_output_r_d0),
-    .key_address0(grp_aes_decrypt_fu_20_key_address0),
-    .key_ce0(grp_aes_decrypt_fu_20_key_ce0),
+    .ap_start(grp_aes_decrypt_fu_148_ap_start),
+    .ap_done(grp_aes_decrypt_fu_148_ap_done),
+    .ap_idle(grp_aes_decrypt_fu_148_ap_idle),
+    .ap_ready(grp_aes_decrypt_fu_148_ap_ready),
+    .input_0_read(input_0),
+    .input_1_read(input_1),
+    .input_2_read(input_2),
+    .input_3_read(input_3),
+    .input_4_read(input_4),
+    .input_5_read(input_5),
+    .input_6_read(input_6),
+    .input_7_read(input_7),
+    .input_8_read(input_8),
+    .input_9_read(input_9),
+    .input_10_read(input_10),
+    .input_11_read(input_11),
+    .input_12_read(input_12),
+    .input_13_read(input_13),
+    .input_14_read(input_14),
+    .input_15_read(input_15),
+    .output_r_address0(grp_aes_decrypt_fu_148_output_r_address0),
+    .output_r_ce0(grp_aes_decrypt_fu_148_output_r_ce0),
+    .output_r_we0(grp_aes_decrypt_fu_148_output_r_we0),
+    .output_r_d0(grp_aes_decrypt_fu_148_output_r_d0),
+    .key_address0(grp_aes_decrypt_fu_148_key_address0),
+    .key_ce0(grp_aes_decrypt_fu_148_key_ce0),
     .key_q0(key_q0)
 );
 
@@ -105,18 +142,18 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_aes_decrypt_fu_20_ap_start_reg <= 1'b0;
+        grp_aes_decrypt_fu_148_ap_start_reg <= 1'b0;
     end else begin
         if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-            grp_aes_decrypt_fu_20_ap_start_reg <= 1'b1;
-        end else if ((grp_aes_decrypt_fu_20_ap_ready == 1'b1)) begin
-            grp_aes_decrypt_fu_20_ap_start_reg <= 1'b0;
+            grp_aes_decrypt_fu_148_ap_start_reg <= 1'b1;
+        end else if ((grp_aes_decrypt_fu_148_ap_ready == 1'b1)) begin
+            grp_aes_decrypt_fu_148_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (*) begin
-    if (((grp_aes_decrypt_fu_20_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((grp_aes_decrypt_fu_148_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -132,7 +169,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((grp_aes_decrypt_fu_20_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((grp_aes_decrypt_fu_148_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -149,7 +186,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((grp_aes_decrypt_fu_20_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((grp_aes_decrypt_fu_148_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -165,22 +202,18 @@ assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
-assign grp_aes_decrypt_fu_20_ap_start = grp_aes_decrypt_fu_20_ap_start_reg;
+assign grp_aes_decrypt_fu_148_ap_start = grp_aes_decrypt_fu_148_ap_start_reg;
 
-assign input_r_address0 = grp_aes_decrypt_fu_20_input_r_address0;
+assign key_address0 = grp_aes_decrypt_fu_148_key_address0;
 
-assign input_r_ce0 = grp_aes_decrypt_fu_20_input_r_ce0;
+assign key_ce0 = grp_aes_decrypt_fu_148_key_ce0;
 
-assign key_address0 = grp_aes_decrypt_fu_20_key_address0;
+assign output_r_address0 = grp_aes_decrypt_fu_148_output_r_address0;
 
-assign key_ce0 = grp_aes_decrypt_fu_20_key_ce0;
+assign output_r_ce0 = grp_aes_decrypt_fu_148_output_r_ce0;
 
-assign output_r_address0 = grp_aes_decrypt_fu_20_output_r_address0;
+assign output_r_d0 = grp_aes_decrypt_fu_148_output_r_d0;
 
-assign output_r_ce0 = grp_aes_decrypt_fu_20_output_r_ce0;
-
-assign output_r_d0 = grp_aes_decrypt_fu_20_output_r_d0;
-
-assign output_r_we0 = grp_aes_decrypt_fu_20_output_r_we0;
+assign output_r_we0 = grp_aes_decrypt_fu_148_output_r_we0;
 
 endmodule //decrypt_dut

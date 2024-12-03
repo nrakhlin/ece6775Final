@@ -2517,7 +2517,7 @@ void aes_invMain(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds);
   addRoundKey(state, roundKey);
 
-  DECRYPT_LOOP:
+  DECRYPT_MAIN_LOOP:
     for (i = nbrRounds - 1; i > 0; i--)
     {
       createRoundKey(expandedKey, roundKey, 16 * i);

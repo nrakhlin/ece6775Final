@@ -2421,6 +2421,9 @@ void decrypt_dut(unsigned char input[16],
                  unsigned char output[16],
                  unsigned char key[16])
 {_ssdm_SpecArrayDimSize(input, 16);_ssdm_SpecArrayDimSize(output, 16);_ssdm_SpecArrayDimSize(key, 16);
+_ssdm_SpecArrayPartition( input, 0, "COMPLETE", 0, "");
+# 11 "decrypt.cpp"
+
 
   aes_decrypt(input, output, key, 16);
 }
@@ -2442,9 +2445,12 @@ void aes_invMain(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds);
   addRoundKey(state, roundKey);
 
-  DECRYPT_LOOP:
+  DECRYPT_MAIN_LOOP:
     for (i = nbrRounds - 1; i > 0; i--)
     {
+_ssdm_op_SpecPipeline(1, 1, 1, 0, "");
+# 35 "decrypt.cpp"
+
       createRoundKey(expandedKey, roundKey, 16 * i);
       aes_invRound(state, roundKey);
     }

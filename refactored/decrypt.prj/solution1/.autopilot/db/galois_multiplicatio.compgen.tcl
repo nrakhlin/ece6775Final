@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 25 \
+    id 24 \
     name a \
     type other \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 26 \
+    id 25 \
     name b \
     type other \
     dir I \
@@ -47,7 +47,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_ctrl \
     op interface \
-    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } } \
+    ports { ap_ready { O 1 bit } } \
 } "
 }
 
@@ -63,46 +63,6 @@ eval "cg_default_interface_gen_dc { \
     op interface \
     ports { ap_return { O 8 vector } } \
 } "
-}
-
-
-# Adapter definition:
-set PortName ap_clk
-set DataWd 1 
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc cg_default_interface_gen_clock] == "cg_default_interface_gen_clock"} {
-eval "cg_default_interface_gen_clock { \
-    id -3 \
-    name ${PortName} \
-    reset_level 1 \
-    sync_rst true \
-    corename apif_ap_clk \
-    data_wd ${DataWd} \
-    op interface \
-}"
-} else {
-puts "@W \[IMPL-113\] Cannot find bus interface model in the library. Ignored generation of bus interface for '${PortName}'"
-}
-}
-
-
-# Adapter definition:
-set PortName ap_rst
-set DataWd 1 
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc cg_default_interface_gen_reset] == "cg_default_interface_gen_reset"} {
-eval "cg_default_interface_gen_reset { \
-    id -4 \
-    name ${PortName} \
-    reset_level 1 \
-    sync_rst true \
-    corename apif_ap_rst \
-    data_wd ${DataWd} \
-    op interface \
-}"
-} else {
-puts "@W \[IMPL-114\] Cannot find bus interface model in the library. Ignored generation of bus interface for '${PortName}'"
-}
 }
 
 

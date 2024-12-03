@@ -80,7 +80,22 @@ proc check_tvin_file {} {
 		puts stdout "[debug_prompt arg check_sim.tcl] start...";
 	}
     set rtlfilelist {
-         "c.decrypt_dut.autotvin_input_r.dat"
+         "c.decrypt_dut.autotvin_input_0.dat"
+         "c.decrypt_dut.autotvin_input_1.dat"
+         "c.decrypt_dut.autotvin_input_2.dat"
+         "c.decrypt_dut.autotvin_input_3.dat"
+         "c.decrypt_dut.autotvin_input_4.dat"
+         "c.decrypt_dut.autotvin_input_5.dat"
+         "c.decrypt_dut.autotvin_input_6.dat"
+         "c.decrypt_dut.autotvin_input_7.dat"
+         "c.decrypt_dut.autotvin_input_8.dat"
+         "c.decrypt_dut.autotvin_input_9.dat"
+         "c.decrypt_dut.autotvin_input_10.dat"
+         "c.decrypt_dut.autotvin_input_11.dat"
+         "c.decrypt_dut.autotvin_input_12.dat"
+         "c.decrypt_dut.autotvin_input_13.dat"
+         "c.decrypt_dut.autotvin_input_14.dat"
+         "c.decrypt_dut.autotvin_input_15.dat"
          "c.decrypt_dut.autotvin_output_r.dat"
          "c.decrypt_dut.autotvin_key.dat"
          "c.decrypt_dut.autotvout_output_r.dat"

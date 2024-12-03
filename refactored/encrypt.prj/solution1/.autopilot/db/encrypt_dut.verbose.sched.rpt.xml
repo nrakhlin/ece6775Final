@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'encrypt_dut'" level="0">
-<item name = "Date">Tue Nov 19 21:04:38 2024
+<item name = "Date">Tue Nov 19 22:02:56 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.498 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.804 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3804, 4484, 38.040 us, 44.840 us, 3804, 4484, none</column>
+<column name="">582, 582, 5.820 us, 5.820 us, 582, 582, none</column>
 </table>
 </item>
 <item name = "Detail">

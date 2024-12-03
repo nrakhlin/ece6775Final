@@ -11,43 +11,34 @@
 <TopModelName>createRoundKey</TopModelName>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
+<TargetInitiationInterval>1</TargetInitiationInterval>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>none</PipelineType>
+<PipelineType>function</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>6.923</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.169</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>41</Best-caseLatency>
-<Average-caseLatency>41</Average-caseLatency>
-<Worst-caseLatency>41</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.410 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.410 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.410 us</Worst-caseRealTimeLatency>
-<Interval-min>41</Interval-min>
-<Interval-max>41</Interval-max>
+<Best-caseLatency>8</Best-caseLatency>
+<Average-caseLatency>8</Average-caseLatency>
+<Worst-caseLatency>8</Worst-caseLatency>
+<Best-caseRealTimeLatency>80.000 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>80.000 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>80.000 ns</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>8</PipelineInitiationInterval>
+<PipelineDepth>9</PipelineDepth>
+<Interval-min>8</Interval-min>
+<Interval-max>8</Interval-max>
 </SummaryOfOverallLatency>
-<SummaryOfLoopLatency>
-<Loop1>
-<TripCount>4</TripCount>
-<Latency>40</Latency>
-<IterationLatency>10</IterationLatency>
-<Loop1.1>
-<TripCount>4</TripCount>
-<Latency>8</Latency>
-<IterationLatency>2</IterationLatency>
-</Loop1.1>
-</Loop1>
-</SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>33</FF>
-<LUT>116</LUT>
+<FF>130</FF>
+<LUT>381</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -129,6 +120,193 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
+<name>ap_ce</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_0</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_1</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_2</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_3</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_4</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_5</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_6</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_7</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_8</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_9</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_10</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_11</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_12</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_13</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_14</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return_15</name>
+<Object>createRoundKey</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
 <name>expandedKey_address0</name>
 <Object>expandedKey</Object>
 <Type>array</Type>
@@ -162,19 +340,19 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>roundKey_address0</name>
-<Object>roundKey</Object>
+<name>expandedKey_address1</name>
+<Object>expandedKey</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>4</Bits>
+<Bits>8</Bits>
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>roundKey_ce0</name>
-<Object>roundKey</Object>
+<name>expandedKey_ce1</name>
+<Object>expandedKey</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>
@@ -184,24 +362,13 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>roundKey_we0</name>
-<Object>roundKey</Object>
+<name>expandedKey_q1</name>
+<Object>expandedKey</Object>
 <Type>array</Type>
 <Scope></Scope>
 <IOProtocol>ap_memory</IOProtocol>
 <IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>roundKey_d0</name>
-<Object>roundKey</Object>
-<Type>array</Type>
-<Scope></Scope>
-<IOProtocol>ap_memory</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
+<Dir>in</Dir>
 <Bits>8</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_round'" level="0">
-<item name = "Date">Tue Nov 19 21:04:39 2024
+<item name = "Date">Tue Nov 19 22:02:57 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 5.634 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.804 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,20 +24,18 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">234, 234, 2.340 us, 2.340 us, 234, 234, none</column>
+<column name="">18, 18, 0.180 us, 0.180 us, 19, 19, function</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_mixColumns_fu_230">mixColumns, 141, 141, 1.410 us, 1.410 us, 141, 141, none</column>
+<column name="grp_mixColumn_fu_454">mixColumn, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">48, 48, 3, -, -, 16, no</column>
-<column name="- Loop 2">32, 32, 2, -, -, 16, no</column>
 </table>
 </item>
 </section>
@@ -50,21 +48,21 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 60, -</column>
+<column name="Expression">-, -, 0, 128, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, 666, 1863, -</column>
+<column name="Instance">-, -, 0, 576, -</column>
 <column name="Memory">1, -, 0, 0, -</column>
-<column name="Multiplexer">-, -, -, 352, -</column>
-<column name="Register">-, -, 94, -, -</column>
+<column name="Multiplexer">-, -, -, 472, -</column>
+<column name="Register">-, -, 299, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">~0, 0, ~0, 4, 0</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, ~0, 2, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_mixColumns_fu_230">mixColumns, 0, 0, 666, 1863, 0</column>
+<column name="grp_mixColumn_fu_454">mixColumn, 0, 0, 0, 576, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -73,7 +71,7 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="sbox_U">core_sbox, 1, 0, 0, 0, 256, 8, 1, 2048</column>
+<column name="sbox_U">expandKey_sbox, 1, 0, 0, 0, 256, 8, 1, 2048</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -82,44 +80,78 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_6_fu_277_p2">+, 0, 0, 15, 5, 1</column>
-<column name="i_fu_255_p2">+, 0, 0, 15, 5, 1</column>
-<column name="icmp_ln170_fu_249_p2">icmp, 0, 0, 11, 5, 6</column>
-<column name="icmp_ln221_fu_271_p2">icmp, 0, 0, 11, 5, 6</column>
-<column name="xor_ln222_fu_289_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_10_fu_676_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_11_fu_615_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_12_fu_560_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_13_fu_738_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_14_fu_683_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_15_fu_622_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_1_fu_718_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_2_fu_663_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_3_fu_602_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_4_fu_547_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_5_fu_725_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_6_fu_670_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_7_fu_609_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_8_fu_553_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_9_fu_732_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln226_fu_541_p2">xor, 0, 0, 8, 8, 8</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">89, 18, 1, 18</column>
-<column name="i_0_i4_reg_219">9, 2, 5, 10</column>
-<column name="i_0_i_reg_208">9, 2, 5, 10</column>
-<column name="reg_236">9, 2, 8, 16</column>
-<column name="reg_243">9, 2, 8, 16</column>
-<column name="state_address0">59, 14, 4, 56</column>
-<column name="state_address1">56, 13, 4, 52</column>
-<column name="state_ce0">15, 3, 1, 3</column>
-<column name="state_d0">41, 8, 8, 64</column>
-<column name="state_d1">41, 8, 8, 64</column>
-<column name="state_we0">15, 3, 1, 3</column>
+<column name="ap_NS_fsm">97, 20, 1, 20</column>
+<column name="grp_mixColumn_fu_454_column_0_read">15, 3, 8, 24</column>
+<column name="grp_mixColumn_fu_454_column_1_read">15, 3, 8, 24</column>
+<column name="grp_mixColumn_fu_454_column_3_read">15, 3, 8, 24</column>
+<column name="reg_468">9, 2, 8, 16</column>
+<column name="reg_485">9, 2, 8, 16</column>
+<column name="reg_490">9, 2, 8, 16</column>
+<column name="sbox_address0">85, 17, 8, 136</column>
+<column name="state_address0">65, 16, 4, 64</column>
+<column name="state_address1">65, 16, 4, 64</column>
+<column name="state_d0">44, 9, 8, 72</column>
+<column name="state_d1">44, 9, 8, 72</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">17, 0, 17, 0</column>
-<column name="grp_mixColumns_fu_230_ap_start_reg">1, 0, 1, 0</column>
-<column name="i_0_i4_reg_219">5, 0, 5, 0</column>
-<column name="i_0_i_reg_208">5, 0, 5, 0</column>
-<column name="i_6_reg_402">5, 0, 5, 0</column>
-<column name="i_reg_299">5, 0, 5, 0</column>
-<column name="reg_236">8, 0, 8, 0</column>
-<column name="reg_243">8, 0, 8, 0</column>
-<column name="state_addr_13_reg_304">4, 0, 4, 0</column>
-<column name="state_addr_14_reg_407">4, 0, 4, 0</column>
-<column name="state_load_2_reg_335">8, 0, 8, 0</column>
-<column name="state_load_5_reg_362">8, 0, 8, 0</column>
-<column name="state_load_6_reg_367">8, 0, 8, 0</column>
-<column name="tmp_2_reg_384">8, 0, 8, 0</column>
+<column name="ap_CS_fsm">19, 0, 19, 0</column>
+<column name="ap_port_reg_p_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read1">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read10">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read11">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read12">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read13">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read14">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read15">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read2">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read3">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read4">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read5">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read6">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read7">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read8">8, 0, 8, 0</column>
+<column name="ap_port_reg_p_read9">8, 0, 8, 0</column>
+<column name="reg_464">8, 0, 8, 0</column>
+<column name="reg_468">8, 0, 8, 0</column>
+<column name="reg_473">8, 0, 8, 0</column>
+<column name="reg_479">8, 0, 8, 0</column>
+<column name="reg_485">8, 0, 8, 0</column>
+<column name="reg_490">8, 0, 8, 0</column>
+<column name="reg_495">8, 0, 8, 0</column>
+<column name="state_load_11_reg_893">8, 0, 8, 0</column>
+<column name="state_load_12_reg_863">8, 0, 8, 0</column>
+<column name="state_load_13_reg_827">8, 0, 8, 0</column>
+<column name="state_load_7_reg_873">8, 0, 8, 0</column>
+<column name="xor_ln226_13_reg_963">8, 0, 8, 0</column>
+<column name="xor_ln226_14_reg_938">8, 0, 8, 0</column>
+<column name="xor_ln226_15_reg_908">8, 0, 8, 0</column>
+<column name="xor_ln226_4_reg_842">8, 0, 8, 0</column>
+<column name="xor_ln226_6_reg_933">8, 0, 8, 0</column>
+<column name="xor_ln226_7_reg_903">8, 0, 8, 0</column>
+<column name="xor_ln226_9_reg_958">8, 0, 8, 0</column>
+<column name="xor_ln226_reg_837">8, 0, 8, 0</column>
 </table>
 </item>
 </section>
@@ -145,9 +177,22 @@
 <column name="state_we1">out, 1, ap_memory, state, array</column>
 <column name="state_d1">out, 8, ap_memory, state, array</column>
 <column name="state_q1">in, 8, ap_memory, state, array</column>
-<column name="roundKey_address0">out, 4, ap_memory, roundKey, array</column>
-<column name="roundKey_ce0">out, 1, ap_memory, roundKey, array</column>
-<column name="roundKey_q0">in, 8, ap_memory, roundKey, array</column>
+<column name="p_read">in, 8, ap_none, p_read, scalar</column>
+<column name="p_read1">in, 8, ap_none, p_read1, scalar</column>
+<column name="p_read2">in, 8, ap_none, p_read2, scalar</column>
+<column name="p_read3">in, 8, ap_none, p_read3, scalar</column>
+<column name="p_read4">in, 8, ap_none, p_read4, scalar</column>
+<column name="p_read5">in, 8, ap_none, p_read5, scalar</column>
+<column name="p_read6">in, 8, ap_none, p_read6, scalar</column>
+<column name="p_read7">in, 8, ap_none, p_read7, scalar</column>
+<column name="p_read8">in, 8, ap_none, p_read8, scalar</column>
+<column name="p_read9">in, 8, ap_none, p_read9, scalar</column>
+<column name="p_read10">in, 8, ap_none, p_read10, scalar</column>
+<column name="p_read11">in, 8, ap_none, p_read11, scalar</column>
+<column name="p_read12">in, 8, ap_none, p_read12, scalar</column>
+<column name="p_read13">in, 8, ap_none, p_read13, scalar</column>
+<column name="p_read14">in, 8, ap_none, p_read14, scalar</column>
+<column name="p_read15">in, 8, ap_none, p_read15, scalar</column>
 </table>
 </item>
 </section>

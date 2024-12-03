@@ -27,7 +27,10 @@ set_part {xc7z020clg484-1}
 create_clock -period 10
 
 ### You can insert your own directives here ###
+set_directive_pipeline -II 1 aes_invMain/DECRYPT_MAIN_LOOP
 
+set_directive_array_partition -type complete -dim 0 decrypt_dut input
+set_directive_pipeline -II 1 expandKey/EX_WHILE;
 ############################################
 
 # Simulate the C++ design

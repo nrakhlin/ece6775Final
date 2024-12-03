@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'invMixColumn'
 ================================================================
-* Date:           Tue Nov 19 21:05:41 2024
+* Date:           Thu Nov 21 20:05:35 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -20,29 +20,24 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 3.968 ns |   1.25 ns  |
+    |ap_clk  | 10.00 ns | 5.982 ns |   1.25 ns  |
     +--------+----------+----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+---------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-    |   min   |   max   |    min   |    max   | min | max |   Type  |
-    +---------+---------+----------+----------+-----+-----+---------+
-    |       15|       15| 0.150 us | 0.150 us |   15|   15|   none  |
-    +---------+---------+----------+----------+-----+-----+---------+
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        0|        0|   0 ns   |   0 ns   |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
-        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
-        |- Loop 1  |        4|        4|         1|          -|          -|     4|    no    |
-        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        N/A
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -57,118 +52,70 @@ ResetActiveHigh: 1
 IsCombinational: 0
 IsDatapathOnly: 0
 HasWiredReturn: 1
-HasMFsm: 0
-HasVarLatency: 1
-IsPipeline: 0
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
 IsRtlPipelined: 0
 IsInstanceOverlapped: 0
 IsDontTouch: 0
 HasImplIP: 0
 IsGatedGlobalClock: 0
 
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 3
-* Pipeline : 0
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
-1 --> 2 
-2 --> 3 2 
-3 --> 
+1 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%cpy_3 = alloca i8"   --->   Operation 4 'alloca' 'cpy_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%cpy_3_1 = alloca i8"   --->   Operation 5 'alloca' 'cpy_3_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%cpy_3_2 = alloca i8"   --->   Operation 6 'alloca' 'cpy_3_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%cpy_3_3 = alloca i8"   --->   Operation 7 'alloca' 'cpy_3_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [helper.cpp:376]   --->   Operation 8 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [helper.cpp:376]   --->   Operation 9 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [helper.cpp:376]   --->   Operation 10 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [helper.cpp:376]   --->   Operation 11 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (1.76ns)   --->   "br label %branch0" [helper.cpp:380]   --->   Operation 12 'br' <Predicate = true> <Delay = 1.76>
-
-State 2 <SV = 1> <Delay = 3.96>
-ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %branch0.backedge ]"   --->   Operation 13 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (1.13ns)   --->   "%icmp_ln380 = icmp eq i3 %i_0, -4" [helper.cpp:380]   --->   Operation 14 'icmp' 'icmp_ln380' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 15 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 16 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [helper.cpp:380]   --->   Operation 16 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br i1 %icmp_ln380, label %2, label %1" [helper.cpp:380]   --->   Operation 17 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%trunc_ln382 = trunc i3 %i_0 to i2" [helper.cpp:382]   --->   Operation 18 'trunc' 'trunc_ln382' <Predicate = (!icmp_ln380)> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (1.95ns)   --->   "%cpy_0 = call i8 @_ssdm_op_Mux.ap_auto.4i8.i2(i8 %column_0_read_1, i8 %column_1_read_1, i8 %column_2_read_1, i8 %column_3_read_1, i2 %trunc_ln382)" [helper.cpp:382]   --->   Operation 19 'mux' 'cpy_0' <Predicate = (!icmp_ln380)> <Delay = 1.95> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.95> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 20 [1/1] (1.30ns)   --->   "switch i2 %trunc_ln382, label %branch3 [
-    i2 0, label %.branch0.backedge_crit_edge
-    i2 1, label %branch1
-    i2 -2, label %branch2
-  ]" [helper.cpp:382]   --->   Operation 20 'switch' <Predicate = (!icmp_ln380)> <Delay = 1.30>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_2" [helper.cpp:382]   --->   Operation 21 'store' <Predicate = (!icmp_ln380 & trunc_ln382 == 2)> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:382]   --->   Operation 22 'br' <Predicate = (!icmp_ln380 & trunc_ln382 == 2)> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_1" [helper.cpp:382]   --->   Operation 23 'store' <Predicate = (!icmp_ln380 & trunc_ln382 == 1)> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:382]   --->   Operation 24 'br' <Predicate = (!icmp_ln380 & trunc_ln382 == 1)> <Delay = 0.00>
-ST_2 : Operation 25 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3" [helper.cpp:382]   --->   Operation 25 'store' <Predicate = (!icmp_ln380 & trunc_ln382 == 0)> <Delay = 0.00>
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:382]   --->   Operation 26 'br' <Predicate = (!icmp_ln380 & trunc_ln382 == 0)> <Delay = 0.00>
-ST_2 : Operation 27 [1/1] (0.00ns)   --->   "store i8 %cpy_0, i8* %cpy_3_3" [helper.cpp:382]   --->   Operation 27 'store' <Predicate = (!icmp_ln380 & trunc_ln382 == 3)> <Delay = 0.00>
-ST_2 : Operation 28 [1/1] (0.00ns)   --->   "br label %branch0.backedge" [helper.cpp:382]   --->   Operation 28 'br' <Predicate = (!icmp_ln380 & trunc_ln382 == 3)> <Delay = 0.00>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "br label %branch0"   --->   Operation 29 'br' <Predicate = (!icmp_ln380)> <Delay = 0.00>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%cpy_3_load = load i8* %cpy_3" [helper.cpp:384]   --->   Operation 30 'load' 'cpy_3_load' <Predicate = (icmp_ln380)> <Delay = 0.00>
-ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%cpy_3_1_load = load i8* %cpy_3_1" [helper.cpp:387]   --->   Operation 31 'load' 'cpy_3_1_load' <Predicate = (icmp_ln380)> <Delay = 0.00>
-ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%cpy_3_2_load = load i8* %cpy_3_2" [helper.cpp:386]   --->   Operation 32 'load' 'cpy_3_2_load' <Predicate = (icmp_ln380)> <Delay = 0.00>
-ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%cpy_3_3_load = load i8* %cpy_3_3" [helper.cpp:385]   --->   Operation 33 'load' 'cpy_3_3_load' <Predicate = (icmp_ln380)> <Delay = 0.00>
-ST_2 : Operation 34 [2/2] (3.96ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 14)" [helper.cpp:384]   --->   Operation 34 'call' 'tmp' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 35 [2/2] (3.96ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 9)" [helper.cpp:385]   --->   Operation 35 'call' 'tmp_6' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 36 [2/2] (3.96ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 13)" [helper.cpp:386]   --->   Operation 36 'call' 'tmp_7' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 37 [2/2] (3.96ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 11)" [helper.cpp:387]   --->   Operation 37 'call' 'tmp_8' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 38 [2/2] (3.96ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 14)" [helper.cpp:388]   --->   Operation 38 'call' 'tmp_9' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 39 [2/2] (3.96ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 9)" [helper.cpp:389]   --->   Operation 39 'call' 'tmp_s' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 40 [2/2] (3.96ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 13)" [helper.cpp:390]   --->   Operation 40 'call' 'tmp_1' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 41 [2/2] (3.96ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 11)" [helper.cpp:391]   --->   Operation 41 'call' 'tmp_2' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 42 [2/2] (3.96ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 14)" [helper.cpp:392]   --->   Operation 42 'call' 'tmp_3' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 43 [2/2] (3.96ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 9)" [helper.cpp:393]   --->   Operation 43 'call' 'tmp_4' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 44 [2/2] (3.96ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 13)" [helper.cpp:394]   --->   Operation 44 'call' 'tmp_5' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 45 [2/2] (3.96ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 11)" [helper.cpp:395]   --->   Operation 45 'call' 'tmp_10' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 46 [2/2] (3.96ns)   --->   "%tmp_11 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 14)" [helper.cpp:396]   --->   Operation 46 'call' 'tmp_11' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 47 [2/2] (3.96ns)   --->   "%tmp_12 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 9)" [helper.cpp:397]   --->   Operation 47 'call' 'tmp_12' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 48 [2/2] (3.96ns)   --->   "%tmp_13 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 13)" [helper.cpp:398]   --->   Operation 48 'call' 'tmp_13' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_2 : Operation 49 [2/2] (3.96ns)   --->   "%tmp_14 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 11)" [helper.cpp:399]   --->   Operation 49 'call' 'tmp_14' <Predicate = (icmp_ln380)> <Delay = 3.96> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-
-State 3 <SV = 2> <Delay = 0.99>
-ST_3 : Operation 50 [1/2] (0.00ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 14)" [helper.cpp:384]   --->   Operation 50 'call' 'tmp' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 51 [1/2] (0.00ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 9)" [helper.cpp:385]   --->   Operation 51 'call' 'tmp_6' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 52 [1/2] (0.00ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 13)" [helper.cpp:386]   --->   Operation 52 'call' 'tmp_7' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 53 [1/2] (0.00ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 11)" [helper.cpp:387]   --->   Operation 53 'call' 'tmp_8' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 54 [1/1] (0.00ns) (grouped into LUT with out node xor_ln387_2)   --->   "%xor_ln387 = xor i8 %tmp_6, %tmp" [helper.cpp:387]   --->   Operation 54 'xor' 'xor_ln387' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 55 [1/1] (0.00ns) (grouped into LUT with out node xor_ln387_2)   --->   "%xor_ln387_1 = xor i8 %tmp_7, %tmp_8" [helper.cpp:387]   --->   Operation 55 'xor' 'xor_ln387_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 56 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln387_2 = xor i8 %xor_ln387_1, %xor_ln387" [helper.cpp:387]   --->   Operation 56 'xor' 'xor_ln387_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 57 [1/2] (0.00ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 14)" [helper.cpp:388]   --->   Operation 57 'call' 'tmp_9' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 58 [1/2] (0.00ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 9)" [helper.cpp:389]   --->   Operation 58 'call' 'tmp_s' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 59 [1/2] (0.00ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 13)" [helper.cpp:390]   --->   Operation 59 'call' 'tmp_1' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 60 [1/2] (0.00ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 11)" [helper.cpp:391]   --->   Operation 60 'call' 'tmp_2' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 61 [1/1] (0.00ns) (grouped into LUT with out node xor_ln391_2)   --->   "%xor_ln391 = xor i8 %tmp_s, %tmp_9" [helper.cpp:391]   --->   Operation 61 'xor' 'xor_ln391' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node xor_ln391_2)   --->   "%xor_ln391_1 = xor i8 %tmp_1, %tmp_2" [helper.cpp:391]   --->   Operation 62 'xor' 'xor_ln391_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 63 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln391_2 = xor i8 %xor_ln391_1, %xor_ln391" [helper.cpp:391]   --->   Operation 63 'xor' 'xor_ln391_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 64 [1/2] (0.00ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 14)" [helper.cpp:392]   --->   Operation 64 'call' 'tmp_3' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 65 [1/2] (0.00ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 9)" [helper.cpp:393]   --->   Operation 65 'call' 'tmp_4' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 66 [1/2] (0.00ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 13)" [helper.cpp:394]   --->   Operation 66 'call' 'tmp_5' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 67 [1/2] (0.00ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 11)" [helper.cpp:395]   --->   Operation 67 'call' 'tmp_10' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node xor_ln395_2)   --->   "%xor_ln395 = xor i8 %tmp_4, %tmp_3" [helper.cpp:395]   --->   Operation 68 'xor' 'xor_ln395' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 69 [1/1] (0.00ns) (grouped into LUT with out node xor_ln395_2)   --->   "%xor_ln395_1 = xor i8 %tmp_5, %tmp_10" [helper.cpp:395]   --->   Operation 69 'xor' 'xor_ln395_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 70 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln395_2 = xor i8 %xor_ln395_1, %xor_ln395" [helper.cpp:395]   --->   Operation 70 'xor' 'xor_ln395_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 71 [1/2] (0.00ns)   --->   "%tmp_11 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_3_load, i5 zeroext 14)" [helper.cpp:396]   --->   Operation 71 'call' 'tmp_11' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 72 [1/2] (0.00ns)   --->   "%tmp_12 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_2_load, i5 zeroext 9)" [helper.cpp:397]   --->   Operation 72 'call' 'tmp_12' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 73 [1/2] (0.00ns)   --->   "%tmp_13 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_1_load, i5 zeroext 13)" [helper.cpp:398]   --->   Operation 73 'call' 'tmp_13' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 74 [1/2] (0.00ns)   --->   "%tmp_14 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %cpy_3_load, i5 zeroext 11)" [helper.cpp:399]   --->   Operation 74 'call' 'tmp_14' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 75 [1/1] (0.00ns) (grouped into LUT with out node xor_ln399_2)   --->   "%xor_ln399 = xor i8 %tmp_12, %tmp_11" [helper.cpp:399]   --->   Operation 75 'xor' 'xor_ln399' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 76 [1/1] (0.00ns) (grouped into LUT with out node xor_ln399_2)   --->   "%xor_ln399_1 = xor i8 %tmp_13, %tmp_14" [helper.cpp:399]   --->   Operation 76 'xor' 'xor_ln399_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 77 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln399_2 = xor i8 %xor_ln399_1, %xor_ln399" [helper.cpp:399]   --->   Operation 77 'xor' 'xor_ln399_2' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln387_2, 0" [helper.cpp:400]   --->   Operation 78 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln391_2, 1" [helper.cpp:400]   --->   Operation 79 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln395_2, 2" [helper.cpp:400]   --->   Operation 80 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln399_2, 3" [helper.cpp:400]   --->   Operation 81 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 82 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [helper.cpp:400]   --->   Operation 82 'ret' <Predicate = true> <Delay = 0.00>
+State 1 <SV = 0> <Delay = 5.98>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [helper.cpp:388]   --->   Operation 2 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [helper.cpp:388]   --->   Operation 3 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [helper.cpp:388]   --->   Operation 4 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [helper.cpp:388]   --->   Operation 5 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (4.99ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i5 zeroext 14)" [helper.cpp:388]   --->   Operation 6 'call' 'tmp' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 7 [1/1] (4.99ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i5 zeroext 9)" [helper.cpp:389]   --->   Operation 7 'call' 'tmp_6' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 8 [1/1] (4.99ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i5 zeroext 13)" [helper.cpp:390]   --->   Operation 8 'call' 'tmp_7' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 9 [1/1] (4.99ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i5 zeroext 11)" [helper.cpp:391]   --->   Operation 9 'call' 'tmp_8' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln391)   --->   "%xor_ln391_1 = xor i8 %tmp_6, %tmp" [helper.cpp:391]   --->   Operation 10 'xor' 'xor_ln391_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln391)   --->   "%xor_ln391_2 = xor i8 %tmp_7, %tmp_8" [helper.cpp:391]   --->   Operation 11 'xor' 'xor_ln391_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln391 = xor i8 %xor_ln391_2, %xor_ln391_1" [helper.cpp:391]   --->   Operation 12 'xor' 'xor_ln391' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (4.99ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i5 zeroext 14)" [helper.cpp:392]   --->   Operation 13 'call' 'tmp_9' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 14 [1/1] (4.99ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i5 zeroext 9)" [helper.cpp:393]   --->   Operation 14 'call' 'tmp_s' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 15 [1/1] (4.99ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i5 zeroext 13)" [helper.cpp:394]   --->   Operation 15 'call' 'tmp_1' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 16 [1/1] (4.99ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i5 zeroext 11)" [helper.cpp:395]   --->   Operation 16 'call' 'tmp_2' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln395)   --->   "%xor_ln395_1 = xor i8 %tmp_s, %tmp_9" [helper.cpp:395]   --->   Operation 17 'xor' 'xor_ln395_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node xor_ln395)   --->   "%xor_ln395_2 = xor i8 %tmp_1, %tmp_2" [helper.cpp:395]   --->   Operation 18 'xor' 'xor_ln395_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln395 = xor i8 %xor_ln395_2, %xor_ln395_1" [helper.cpp:395]   --->   Operation 19 'xor' 'xor_ln395' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (4.99ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i5 zeroext 14)" [helper.cpp:396]   --->   Operation 20 'call' 'tmp_3' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 21 [1/1] (4.99ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i5 zeroext 9)" [helper.cpp:397]   --->   Operation 21 'call' 'tmp_4' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 22 [1/1] (4.99ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i5 zeroext 13)" [helper.cpp:398]   --->   Operation 22 'call' 'tmp_5' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 23 [1/1] (4.99ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i5 zeroext 11)" [helper.cpp:399]   --->   Operation 23 'call' 'tmp_10' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node xor_ln399)   --->   "%xor_ln399_1 = xor i8 %tmp_4, %tmp_3" [helper.cpp:399]   --->   Operation 24 'xor' 'xor_ln399_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node xor_ln399)   --->   "%xor_ln399_2 = xor i8 %tmp_5, %tmp_10" [helper.cpp:399]   --->   Operation 25 'xor' 'xor_ln399_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln399 = xor i8 %xor_ln399_2, %xor_ln399_1" [helper.cpp:399]   --->   Operation 26 'xor' 'xor_ln399' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (4.99ns)   --->   "%tmp_11 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i5 zeroext 14)" [helper.cpp:400]   --->   Operation 27 'call' 'tmp_11' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 28 [1/1] (4.99ns)   --->   "%tmp_12 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i5 zeroext 9)" [helper.cpp:401]   --->   Operation 28 'call' 'tmp_12' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 29 [1/1] (4.99ns)   --->   "%tmp_13 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i5 zeroext 13)" [helper.cpp:402]   --->   Operation 29 'call' 'tmp_13' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 30 [1/1] (4.99ns)   --->   "%tmp_14 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i5 zeroext 11)" [helper.cpp:403]   --->   Operation 30 'call' 'tmp_14' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 31 [1/1] (0.00ns) (grouped into LUT with out node xor_ln403)   --->   "%xor_ln403_1 = xor i8 %tmp_12, %tmp_11" [helper.cpp:403]   --->   Operation 31 'xor' 'xor_ln403_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node xor_ln403)   --->   "%xor_ln403_2 = xor i8 %tmp_13, %tmp_14" [helper.cpp:403]   --->   Operation 32 'xor' 'xor_ln403_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln403 = xor i8 %xor_ln403_2, %xor_ln403_1" [helper.cpp:403]   --->   Operation 33 'xor' 'xor_ln403' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln391, 0" [helper.cpp:404]   --->   Operation 34 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln395, 1" [helper.cpp:404]   --->   Operation 35 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln399, 2" [helper.cpp:404]   --->   Operation 36 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln403, 3" [helper.cpp:404]   --->   Operation 37 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [helper.cpp:404]   --->   Operation 38 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -176,20 +123,12 @@ ST_3 : Operation 82 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [hel
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.77ns
+ <State 1>: 5.98ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', helper.cpp:380) [15]  (1.77 ns)
-
- <State 2>: 3.97ns
-The critical path consists of the following:
-	'load' operation ('cpy_3_load', helper.cpp:384) on local variable 'cpy[3]' [39]  (0 ns)
-	'call' operation ('tmp', helper.cpp:384) to 'galois_multiplicatio' [43]  (3.97 ns)
-
- <State 3>: 0.99ns
-The critical path consists of the following:
-	'call' operation ('tmp', helper.cpp:384) to 'galois_multiplicatio' [43]  (0 ns)
-	'xor' operation ('xor_ln387', helper.cpp:387) [47]  (0 ns)
-	'xor' operation ('column[0]', helper.cpp:387) [49]  (0.99 ns)
+	wire read on port 'column_3_read' (helper.cpp:388) [5]  (0 ns)
+	'call' operation ('tmp_6', helper.cpp:389) to 'galois_multiplicatio' [10]  (4.99 ns)
+	'xor' operation ('xor_ln391_1', helper.cpp:391) [13]  (0 ns)
+	'xor' operation ('xor_ln391', helper.cpp:391) [15]  (0.99 ns)
 
 
 ============================================================
@@ -201,8 +140,6 @@ N/A
  - Input state : 
   - Chain level:
 	State 1
-	State 2
-	State 3
 
 
 ============================================================

@@ -41,14 +41,14 @@ set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7z020:-clg484:-1
 set SourceFiles {sc {} c {../../helper.cpp ../../encrypt.cpp}}
-set SourceFlags {sc {} c {{ -std=c++11} {} { -std=c++11} {}}}
+set SourceFlags {sc {} c {-std=c++11 -std=c++11}}
 set DirectiveFile /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/solution1.directive
-set TBFiles {verilog ../../encrypt_test.cpp bc ../../encrypt_test.cpp sc ../../encrypt_test.cpp vhdl ../../encrypt_test.cpp c {} cas ../../encrypt_test.cpp}
+set TBFiles {verilog ../../encrypt_test.cpp bc ../../encrypt_test.cpp vhdl ../../encrypt_test.cpp sc ../../encrypt_test.cpp cas ../../encrypt_test.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
-set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set TBTVFileNotFound {}

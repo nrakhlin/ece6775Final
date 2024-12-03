@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_encrypt'" level="0">
-<item name = "Date">Tue Nov 19 21:04:38 2024
+<item name = "Date">Tue Nov 19 22:02:56 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.498 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.804 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,21 +24,21 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3803, 4483, 38.030 us, 44.830 us, 3803, 4483, none</column>
+<column name="">581, 581, 5.810 us, 5.810 us, 581, 581, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aes_main_fu_131">aes_main, 2720, 2720, 27.200 us, 27.200 us, 2720, 2720, none</column>
-<column name="grp_expandKey_fu_139">expandKey, 998, 1678, 9.980 us, 16.780 us, 998, 1678, none</column>
+<column name="grp_aes_main_fu_247">aes_main, 237, 237, 2.370 us, 2.370 us, 237, 237, none</column>
+<column name="grp_expandKey_fu_255">expandKey, 275, 275, 2.750 us, 2.750 us, 275, 275, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">40, 40, 10, -, -, 4, no</column>
-<column name=" + Loop 1.1">8, 8, 2, -, -, 4, no</column>
+<column name="- Loop 1">24, 24, 6, -, -, 4, no</column>
+<column name=" + Loop 1.1">4, 4, 1, -, -, 4, no</column>
 <column name="- Loop 2">40, 40, 10, -, -, 4, no</column>
 <column name=" + Loop 2.1">8, 8, 2, -, -, 4, no</column>
 </table>

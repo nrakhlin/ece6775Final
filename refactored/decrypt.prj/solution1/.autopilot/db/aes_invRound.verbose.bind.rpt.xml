@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_invRound'" level="0">
-<item name = "Date">Tue Nov 19 21:05:41 2024
+<item name = "Date">Thu Nov 21 20:05:36 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">decrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 5.634 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 12.548 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,20 +24,18 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">233, 233, 2.330 us, 2.330 us, 233, 233, none</column>
+<column name="">18, 18, 0.226 us, 0.226 us, 19, 19, function</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_invMixColumns_fu_230">invMixColumns, 141, 141, 1.410 us, 1.410 us, 141, 141, none</column>
+<column name="grp_invMixColumn_fu_454">invMixColumn, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">48, 48, 3, -, -, 16, no</column>
-<column name="- Loop 2">32, 32, 2, -, -, 16, no</column>
 </table>
 </item>
 </section>

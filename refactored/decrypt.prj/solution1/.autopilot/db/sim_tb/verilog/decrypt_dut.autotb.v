@@ -14,16 +14,60 @@
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
 `define AUTOTB_CLOCK_PERIOD_DIV2 5.00
 
-`define AESL_MEM_input_r AESL_automem_input_r
-`define AESL_MEM_INST_input_r mem_inst_input_r
+`define AESL_DEPTH_input_0 1
+`define AESL_DEPTH_input_1 1
+`define AESL_DEPTH_input_2 1
+`define AESL_DEPTH_input_3 1
+`define AESL_DEPTH_input_4 1
+`define AESL_DEPTH_input_5 1
+`define AESL_DEPTH_input_6 1
+`define AESL_DEPTH_input_7 1
+`define AESL_DEPTH_input_8 1
+`define AESL_DEPTH_input_9 1
+`define AESL_DEPTH_input_10 1
+`define AESL_DEPTH_input_11 1
+`define AESL_DEPTH_input_12 1
+`define AESL_DEPTH_input_13 1
+`define AESL_DEPTH_input_14 1
+`define AESL_DEPTH_input_15 1
 `define AESL_MEM_output_r AESL_automem_output_r
 `define AESL_MEM_INST_output_r mem_inst_output_r
 `define AESL_MEM_key AESL_automem_key
 `define AESL_MEM_INST_key mem_inst_key
-`define AUTOTB_TVIN_input_r  "./c.decrypt_dut.autotvin_input_r.dat"
+`define AUTOTB_TVIN_input_0  "./c.decrypt_dut.autotvin_input_0.dat"
+`define AUTOTB_TVIN_input_1  "./c.decrypt_dut.autotvin_input_1.dat"
+`define AUTOTB_TVIN_input_2  "./c.decrypt_dut.autotvin_input_2.dat"
+`define AUTOTB_TVIN_input_3  "./c.decrypt_dut.autotvin_input_3.dat"
+`define AUTOTB_TVIN_input_4  "./c.decrypt_dut.autotvin_input_4.dat"
+`define AUTOTB_TVIN_input_5  "./c.decrypt_dut.autotvin_input_5.dat"
+`define AUTOTB_TVIN_input_6  "./c.decrypt_dut.autotvin_input_6.dat"
+`define AUTOTB_TVIN_input_7  "./c.decrypt_dut.autotvin_input_7.dat"
+`define AUTOTB_TVIN_input_8  "./c.decrypt_dut.autotvin_input_8.dat"
+`define AUTOTB_TVIN_input_9  "./c.decrypt_dut.autotvin_input_9.dat"
+`define AUTOTB_TVIN_input_10  "./c.decrypt_dut.autotvin_input_10.dat"
+`define AUTOTB_TVIN_input_11  "./c.decrypt_dut.autotvin_input_11.dat"
+`define AUTOTB_TVIN_input_12  "./c.decrypt_dut.autotvin_input_12.dat"
+`define AUTOTB_TVIN_input_13  "./c.decrypt_dut.autotvin_input_13.dat"
+`define AUTOTB_TVIN_input_14  "./c.decrypt_dut.autotvin_input_14.dat"
+`define AUTOTB_TVIN_input_15  "./c.decrypt_dut.autotvin_input_15.dat"
 `define AUTOTB_TVIN_output_r  "./c.decrypt_dut.autotvin_output_r.dat"
 `define AUTOTB_TVIN_key  "./c.decrypt_dut.autotvin_key.dat"
-`define AUTOTB_TVIN_input_r_out_wrapc  "./rtl.decrypt_dut.autotvin_input_r.dat"
+`define AUTOTB_TVIN_input_0_out_wrapc  "./rtl.decrypt_dut.autotvin_input_0.dat"
+`define AUTOTB_TVIN_input_1_out_wrapc  "./rtl.decrypt_dut.autotvin_input_1.dat"
+`define AUTOTB_TVIN_input_2_out_wrapc  "./rtl.decrypt_dut.autotvin_input_2.dat"
+`define AUTOTB_TVIN_input_3_out_wrapc  "./rtl.decrypt_dut.autotvin_input_3.dat"
+`define AUTOTB_TVIN_input_4_out_wrapc  "./rtl.decrypt_dut.autotvin_input_4.dat"
+`define AUTOTB_TVIN_input_5_out_wrapc  "./rtl.decrypt_dut.autotvin_input_5.dat"
+`define AUTOTB_TVIN_input_6_out_wrapc  "./rtl.decrypt_dut.autotvin_input_6.dat"
+`define AUTOTB_TVIN_input_7_out_wrapc  "./rtl.decrypt_dut.autotvin_input_7.dat"
+`define AUTOTB_TVIN_input_8_out_wrapc  "./rtl.decrypt_dut.autotvin_input_8.dat"
+`define AUTOTB_TVIN_input_9_out_wrapc  "./rtl.decrypt_dut.autotvin_input_9.dat"
+`define AUTOTB_TVIN_input_10_out_wrapc  "./rtl.decrypt_dut.autotvin_input_10.dat"
+`define AUTOTB_TVIN_input_11_out_wrapc  "./rtl.decrypt_dut.autotvin_input_11.dat"
+`define AUTOTB_TVIN_input_12_out_wrapc  "./rtl.decrypt_dut.autotvin_input_12.dat"
+`define AUTOTB_TVIN_input_13_out_wrapc  "./rtl.decrypt_dut.autotvin_input_13.dat"
+`define AUTOTB_TVIN_input_14_out_wrapc  "./rtl.decrypt_dut.autotvin_input_14.dat"
+`define AUTOTB_TVIN_input_15_out_wrapc  "./rtl.decrypt_dut.autotvin_input_15.dat"
 `define AUTOTB_TVIN_output_r_out_wrapc  "./rtl.decrypt_dut.autotvin_output_r.dat"
 `define AUTOTB_TVIN_key_out_wrapc  "./rtl.decrypt_dut.autotvin_key.dat"
 `define AUTOTB_TVOUT_output_r  "./c.decrypt_dut.autotvout_output_r.dat"
@@ -32,8 +76,23 @@ module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 1;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 4474;
-parameter LENGTH_input_r = 16;
+parameter LATENCY_ESTIMATION = 583;
+parameter LENGTH_input_0 = 1;
+parameter LENGTH_input_1 = 1;
+parameter LENGTH_input_2 = 1;
+parameter LENGTH_input_3 = 1;
+parameter LENGTH_input_4 = 1;
+parameter LENGTH_input_5 = 1;
+parameter LENGTH_input_6 = 1;
+parameter LENGTH_input_7 = 1;
+parameter LENGTH_input_8 = 1;
+parameter LENGTH_input_9 = 1;
+parameter LENGTH_input_10 = 1;
+parameter LENGTH_input_11 = 1;
+parameter LENGTH_input_12 = 1;
+parameter LENGTH_input_13 = 1;
+parameter LENGTH_input_14 = 1;
+parameter LENGTH_input_15 = 1;
 parameter LENGTH_output_r = 16;
 parameter LENGTH_key = 16;
 
@@ -122,9 +181,22 @@ wire ap_start;
 wire ap_done;
 wire ap_idle;
 wire ap_ready;
-wire [3 : 0] input_r_address0;
-wire  input_r_ce0;
-wire [7 : 0] input_r_q0;
+wire [7 : 0] input_0;
+wire [7 : 0] input_1;
+wire [7 : 0] input_2;
+wire [7 : 0] input_3;
+wire [7 : 0] input_4;
+wire [7 : 0] input_5;
+wire [7 : 0] input_6;
+wire [7 : 0] input_7;
+wire [7 : 0] input_8;
+wire [7 : 0] input_9;
+wire [7 : 0] input_10;
+wire [7 : 0] input_11;
+wire [7 : 0] input_12;
+wire [7 : 0] input_13;
+wire [7 : 0] input_14;
+wire [7 : 0] input_15;
 wire [3 : 0] output_r_address0;
 wire  output_r_ce0;
 wire  output_r_we0;
@@ -153,9 +225,22 @@ wire ap_rst_n;
     .ap_done(ap_done),
     .ap_idle(ap_idle),
     .ap_ready(ap_ready),
-    .input_r_address0(input_r_address0),
-    .input_r_ce0(input_r_ce0),
-    .input_r_q0(input_r_q0),
+    .input_0(input_0),
+    .input_1(input_1),
+    .input_2(input_2),
+    .input_3(input_3),
+    .input_4(input_4),
+    .input_5(input_5),
+    .input_6(input_6),
+    .input_7(input_7),
+    .input_8(input_8),
+    .input_9(input_9),
+    .input_10(input_10),
+    .input_11(input_11),
+    .input_12(input_12),
+    .input_13(input_13),
+    .input_14(input_14),
+    .input_15(input_15),
     .output_r_address0(output_r_address0),
     .output_r_ce0(output_r_ce0),
     .output_r_we0(output_r_we0),
@@ -194,44 +279,868 @@ assign AESL_continue = tb_continue;
             end
         end
     end
-//------------------------arrayinput_r Instantiation--------------
+// The signal of port input_0
+reg [7: 0] AESL_REG_input_0 = 0;
+assign input_0 = AESL_REG_input_0;
+initial begin : read_file_process_input_0
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_0,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_0);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_0);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
 
-// The input and output of arrayinput_r
-wire    arrayinput_r_ce0, arrayinput_r_ce1;
-wire    arrayinput_r_we0, arrayinput_r_we1;
-wire    [3 : 0]    arrayinput_r_address0, arrayinput_r_address1;
-wire    [7 : 0]    arrayinput_r_din0, arrayinput_r_din1;
-wire    [7 : 0]    arrayinput_r_dout0, arrayinput_r_dout1;
-wire    arrayinput_r_ready;
-wire    arrayinput_r_done;
 
-`AESL_MEM_input_r `AESL_MEM_INST_input_r(
-    .clk        (AESL_clock),
-    .rst        (AESL_reset),
-    .ce0        (arrayinput_r_ce0),
-    .we0        (arrayinput_r_we0),
-    .address0   (arrayinput_r_address0),
-    .din0       (arrayinput_r_din0),
-    .dout0      (arrayinput_r_dout0),
-    .ce1        (arrayinput_r_ce1),
-    .we1        (arrayinput_r_we1),
-    .address1   (arrayinput_r_address1),
-    .din1       (arrayinput_r_din1),
-    .dout1      (arrayinput_r_dout1),
-    .ready      (arrayinput_r_ready),
-    .done    (arrayinput_r_done)
-);
+// The signal of port input_1
+reg [7: 0] AESL_REG_input_1 = 0;
+assign input_1 = AESL_REG_input_1;
+initial begin : read_file_process_input_1
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_1,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_1);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_1);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
 
-// Assignment between dut and arrayinput_r
-assign arrayinput_r_address0 = input_r_address0;
-assign arrayinput_r_ce0 = input_r_ce0;
-assign input_r_q0 = arrayinput_r_dout0;
-assign arrayinput_r_we0 = 0;
-assign arrayinput_r_din0 = 0;
-assign arrayinput_r_we1 = 0;
-assign arrayinput_r_din1 = 0;
-assign arrayinput_r_ready=    ready;
-assign arrayinput_r_done = 0;
+
+// The signal of port input_2
+reg [7: 0] AESL_REG_input_2 = 0;
+assign input_2 = AESL_REG_input_2;
+initial begin : read_file_process_input_2
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_2,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_2);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_2);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_3
+reg [7: 0] AESL_REG_input_3 = 0;
+assign input_3 = AESL_REG_input_3;
+initial begin : read_file_process_input_3
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_3,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_3);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_3);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_4
+reg [7: 0] AESL_REG_input_4 = 0;
+assign input_4 = AESL_REG_input_4;
+initial begin : read_file_process_input_4
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_4,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_4);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_4);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_5
+reg [7: 0] AESL_REG_input_5 = 0;
+assign input_5 = AESL_REG_input_5;
+initial begin : read_file_process_input_5
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_5,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_5);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_5);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_6
+reg [7: 0] AESL_REG_input_6 = 0;
+assign input_6 = AESL_REG_input_6;
+initial begin : read_file_process_input_6
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_6,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_6);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_6);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_7
+reg [7: 0] AESL_REG_input_7 = 0;
+assign input_7 = AESL_REG_input_7;
+initial begin : read_file_process_input_7
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_7,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_7);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_7);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_8
+reg [7: 0] AESL_REG_input_8 = 0;
+assign input_8 = AESL_REG_input_8;
+initial begin : read_file_process_input_8
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_8,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_8);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_8);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_9
+reg [7: 0] AESL_REG_input_9 = 0;
+assign input_9 = AESL_REG_input_9;
+initial begin : read_file_process_input_9
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_9,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_9);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_9);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_10
+reg [7: 0] AESL_REG_input_10 = 0;
+assign input_10 = AESL_REG_input_10;
+initial begin : read_file_process_input_10
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_10,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_10);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_10);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_11
+reg [7: 0] AESL_REG_input_11 = 0;
+assign input_11 = AESL_REG_input_11;
+initial begin : read_file_process_input_11
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_11,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_11);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_11);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_12
+reg [7: 0] AESL_REG_input_12 = 0;
+assign input_12 = AESL_REG_input_12;
+initial begin : read_file_process_input_12
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_12,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_12);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_12);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_13
+reg [7: 0] AESL_REG_input_13 = 0;
+assign input_13 = AESL_REG_input_13;
+initial begin : read_file_process_input_13
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_13,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_13);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_13);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_14
+reg [7: 0] AESL_REG_input_14 = 0;
+assign input_14 = AESL_REG_input_14;
+initial begin : read_file_process_input_14
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_14,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_14);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_14);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
+
+
+// The signal of port input_15
+reg [7: 0] AESL_REG_input_15 = 0;
+assign input_15 = AESL_REG_input_15;
+initial begin : read_file_process_input_15
+    integer fp;
+    integer err;
+    integer ret;
+    integer proc_rand;
+    reg [159  : 0] token;
+    integer i;
+    reg transaction_finish;
+    integer transaction_idx;
+    transaction_idx = 0;
+    wait(AESL_reset === 0);
+    fp = $fopen(`AUTOTB_TVIN_input_15,"r");
+    if(fp == 0) begin       // Failed to open file
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_input_15);
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    if (token != "[[[runtime]]]") begin
+        $display("ERROR: Simulation using HLS TB failed.");
+        $finish;
+    end
+    read_token(fp, token);
+    while (token != "[[[/runtime]]]") begin
+        if (token != "[[transaction]]") begin
+            $display("ERROR: Simulation using HLS TB failed.");
+              $finish;
+        end
+        read_token(fp, token);  // skip transaction number
+          read_token(fp, token);
+            # 0.2;
+            while(ready_wire !== 1) begin
+                @(posedge AESL_clock);
+                # 0.2;
+            end
+        if(token != "[[/transaction]]") begin
+            ret = $sscanf(token, "0x%x", AESL_REG_input_15);
+              if (ret != 1) begin
+                  $display("Failed to parse token!");
+                $display("ERROR: Simulation using HLS TB failed.");
+                  $finish;
+              end
+            @(posedge AESL_clock);
+              read_token(fp, token);
+        end
+          read_token(fp, token);
+    end
+    $fclose(fp);
+end
 
 
 //------------------------arrayoutput_r Instantiation--------------
@@ -390,9 +1299,54 @@ initial begin
 end
 
 
-reg end_input_r;
-reg [31:0] size_input_r;
-reg [31:0] size_input_r_backup;
+reg end_input_0;
+reg [31:0] size_input_0;
+reg [31:0] size_input_0_backup;
+reg end_input_1;
+reg [31:0] size_input_1;
+reg [31:0] size_input_1_backup;
+reg end_input_2;
+reg [31:0] size_input_2;
+reg [31:0] size_input_2_backup;
+reg end_input_3;
+reg [31:0] size_input_3;
+reg [31:0] size_input_3_backup;
+reg end_input_4;
+reg [31:0] size_input_4;
+reg [31:0] size_input_4_backup;
+reg end_input_5;
+reg [31:0] size_input_5;
+reg [31:0] size_input_5_backup;
+reg end_input_6;
+reg [31:0] size_input_6;
+reg [31:0] size_input_6_backup;
+reg end_input_7;
+reg [31:0] size_input_7;
+reg [31:0] size_input_7_backup;
+reg end_input_8;
+reg [31:0] size_input_8;
+reg [31:0] size_input_8_backup;
+reg end_input_9;
+reg [31:0] size_input_9;
+reg [31:0] size_input_9_backup;
+reg end_input_10;
+reg [31:0] size_input_10;
+reg [31:0] size_input_10_backup;
+reg end_input_11;
+reg [31:0] size_input_11;
+reg [31:0] size_input_11_backup;
+reg end_input_12;
+reg [31:0] size_input_12;
+reg [31:0] size_input_12_backup;
+reg end_input_13;
+reg [31:0] size_input_13;
+reg [31:0] size_input_13_backup;
+reg end_input_14;
+reg [31:0] size_input_14;
+reg [31:0] size_input_14_backup;
+reg end_input_15;
+reg [31:0] size_input_15;
+reg [31:0] size_input_15_backup;
 reg end_output_r;
 reg [31:0] size_output_r;
 reg [31:0] size_output_r_backup;

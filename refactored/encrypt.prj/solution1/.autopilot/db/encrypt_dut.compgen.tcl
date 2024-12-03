@@ -12,26 +12,7 @@ set axilite_register_dict [dict create]
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 44 \
-    name input_r \
-    reset_level 1 \
-    sync_rst true \
-    dir I \
-    corename input_r \
-    op interface \
-    ports { input_r_address0 { O 4 vector } input_r_ce0 { O 1 bit } input_r_q0 { I 8 vector } } \
-} "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'input_r'"
-}
-}
-
-
-# XIL_BRAM:
-if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 45 \
+    id 88 \
     name output_r \
     reset_level 1 \
     sync_rst true \
@@ -50,7 +31,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 46 \
+    id 89 \
     name key \
     reset_level 1 \
     sync_rst true \
@@ -64,6 +45,246 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 }
 
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 72 \
+    name input_0 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_0 \
+    op interface \
+    ports { input_0 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 73 \
+    name input_1 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_1 \
+    op interface \
+    ports { input_1 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 74 \
+    name input_2 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_2 \
+    op interface \
+    ports { input_2 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 75 \
+    name input_3 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_3 \
+    op interface \
+    ports { input_3 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 76 \
+    name input_4 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_4 \
+    op interface \
+    ports { input_4 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 77 \
+    name input_5 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_5 \
+    op interface \
+    ports { input_5 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 78 \
+    name input_6 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_6 \
+    op interface \
+    ports { input_6 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 79 \
+    name input_7 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_7 \
+    op interface \
+    ports { input_7 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 80 \
+    name input_8 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_8 \
+    op interface \
+    ports { input_8 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 81 \
+    name input_9 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_9 \
+    op interface \
+    ports { input_9 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 82 \
+    name input_10 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_10 \
+    op interface \
+    ports { input_10 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 83 \
+    name input_11 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_11 \
+    op interface \
+    ports { input_11 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 84 \
+    name input_12 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_12 \
+    op interface \
+    ports { input_12 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 85 \
+    name input_13 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_13 \
+    op interface \
+    ports { input_13 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 86 \
+    name input_14 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_14 \
+    op interface \
+    ports { input_14 { I 8 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 87 \
+    name input_15 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_input_15 \
+    op interface \
+    ports { input_15 { I 8 vector } } \
+} "
+}
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {

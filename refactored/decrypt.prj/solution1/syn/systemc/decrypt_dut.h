@@ -16,16 +16,29 @@
 namespace ap_rtl {
 
 struct decrypt_dut : public sc_module {
-    // Port declarations 16
+    // Port declarations 29
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
     sc_in< sc_logic > ap_start;
     sc_out< sc_logic > ap_done;
     sc_out< sc_logic > ap_idle;
     sc_out< sc_logic > ap_ready;
-    sc_out< sc_lv<4> > input_r_address0;
-    sc_out< sc_logic > input_r_ce0;
-    sc_in< sc_lv<8> > input_r_q0;
+    sc_in< sc_lv<8> > input_0;
+    sc_in< sc_lv<8> > input_1;
+    sc_in< sc_lv<8> > input_2;
+    sc_in< sc_lv<8> > input_3;
+    sc_in< sc_lv<8> > input_4;
+    sc_in< sc_lv<8> > input_5;
+    sc_in< sc_lv<8> > input_6;
+    sc_in< sc_lv<8> > input_7;
+    sc_in< sc_lv<8> > input_8;
+    sc_in< sc_lv<8> > input_9;
+    sc_in< sc_lv<8> > input_10;
+    sc_in< sc_lv<8> > input_11;
+    sc_in< sc_lv<8> > input_12;
+    sc_in< sc_lv<8> > input_13;
+    sc_in< sc_lv<8> > input_14;
+    sc_in< sc_lv<8> > input_15;
     sc_out< sc_lv<4> > output_r_address0;
     sc_out< sc_logic > output_r_ce0;
     sc_out< sc_logic > output_r_we0;
@@ -45,22 +58,20 @@ struct decrypt_dut : public sc_module {
 
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
-    aes_decrypt* grp_aes_decrypt_fu_20;
+    aes_decrypt* grp_aes_decrypt_fu_148;
     sc_signal< sc_lv<2> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_ap_start;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_ap_done;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_ap_idle;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_ap_ready;
-    sc_signal< sc_lv<4> > grp_aes_decrypt_fu_20_input_r_address0;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_input_r_ce0;
-    sc_signal< sc_lv<4> > grp_aes_decrypt_fu_20_output_r_address0;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_output_r_ce0;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_output_r_we0;
-    sc_signal< sc_lv<8> > grp_aes_decrypt_fu_20_output_r_d0;
-    sc_signal< sc_lv<4> > grp_aes_decrypt_fu_20_key_address0;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_key_ce0;
-    sc_signal< sc_logic > grp_aes_decrypt_fu_20_ap_start_reg;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_ap_start;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_ap_done;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_ap_idle;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_ap_ready;
+    sc_signal< sc_lv<4> > grp_aes_decrypt_fu_148_output_r_address0;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_output_r_ce0;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_output_r_we0;
+    sc_signal< sc_lv<8> > grp_aes_decrypt_fu_148_output_r_d0;
+    sc_signal< sc_lv<4> > grp_aes_decrypt_fu_148_key_address0;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_key_ce0;
+    sc_signal< sc_logic > grp_aes_decrypt_fu_148_ap_start_reg;
     sc_signal< sc_logic > ap_CS_fsm_state2;
     sc_signal< sc_lv<2> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
@@ -77,9 +88,7 @@ struct decrypt_dut : public sc_module {
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
-    void thread_grp_aes_decrypt_fu_20_ap_start();
-    void thread_input_r_address0();
-    void thread_input_r_ce0();
+    void thread_grp_aes_decrypt_fu_148_ap_start();
     void thread_key_address0();
     void thread_key_ce0();
     void thread_output_r_address0();

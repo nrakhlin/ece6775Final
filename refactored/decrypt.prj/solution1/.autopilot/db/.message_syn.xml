@@ -3,273 +3,291 @@
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;helper.cpp&apos; ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;decrypt.cpp&apos; ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 9960 ; free virtual = 21562"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 9960 ; free virtual = 21562"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21309 ; free virtual = 31973"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21309 ; free virtual = 31973"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 9959 ; free virtual = 21561"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21302 ; free virtual = 31971"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;rotate&apos; into &apos;core&apos; (helper.cpp:100) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getSBoxValue&apos; into &apos;core&apos; (helper.cpp:105) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getRconValue&apos; into &apos;core&apos; (helper.cpp:109) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;core&apos; into &apos;expandKey&apos; (helper.cpp:142) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getSBoxInvert&apos; into &apos;invSubBytes&apos; (helper.cpp:317) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;core&apos; into &apos;expandKey&apos; (helper.cpp:144) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getSBoxInvert&apos; into &apos;invSubBytes&apos; (helper.cpp:321) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invShiftRows&apos; into &apos;aes_invRound&apos; (decrypt.cpp:18) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invSubBytes&apos; into &apos;aes_invRound&apos; (decrypt.cpp:19) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;addRoundKey&apos; into &apos;aes_invRound&apos; (decrypt.cpp:20) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;addRoundKey&apos; into &apos;aes_invMain&apos; (decrypt.cpp:31) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invShiftRows&apos; into &apos;aes_invMain&apos; (decrypt.cpp:41) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invSubBytes&apos; into &apos;aes_invMain&apos; (decrypt.cpp:42) automatically."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 9958 ; free virtual = 21561"/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;column&apos; (helper.cpp:406) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;cpy&apos; (helper.cpp:378) completely based on array size."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21301 ; free virtual = 31971"/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;galois_multiplication&apos; (helper.cpp:228)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;invMixColumns&apos; (helper.cpp:407)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;invMixColumn&apos; (helper.cpp:380)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;invSubBytes&apos; (helper.cpp:313)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;addRoundKey&apos; (helper.cpp:222)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;createRoundKey&apos; (helper.cpp:300)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;EX_WHILE&apos; (helper.cpp:131) in function &apos;expandKey&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;core&apos; (helper.cpp:95)."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_250" tag="" content="Unrolling all loops for pipelining in function &apos;rotate&apos; (helper.cpp:80)."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:233) in function &apos;galois_multiplication&apos; completely with a factor of 8."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:413) in function &apos;invMixColumns&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.1&apos; (helper.cpp:416) in function &apos;invMixColumns&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.2&apos; (helper.cpp:425) in function &apos;invMixColumns&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:384) in function &apos;invMixColumn&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:319) in function &apos;invSubBytes&apos; completely with a factor of 16."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:225) in function &apos;addRoundKey&apos; completely with a factor of 16."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:304) in function &apos;createRoundKey&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.1&apos; (helper.cpp:307) in function &apos;createRoundKey&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;EX_INNER1&apos; (helper.cpp:135) in function &apos;expandKey&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;EX_INNER3&apos; (helper.cpp:160) in function &apos;expandKey&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:103) in function &apos;core&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1&apos; (helper.cpp:86) in function &apos;rotate&apos; completely with a factor of 3."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;cpy&apos; (helper.cpp:382) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;column&apos; (helper.cpp:410) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_120" tag="" content="Partitioning array &apos;roundKey&apos; (decrypt.cpp:28) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;t&apos; (helper.cpp:122) completely based on array size."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;column&apos; (helper.cpp:406) in dimension 1 completely."/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;cpy&apos; (helper.cpp:378) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;input&apos; (decrypt.cpp:8) in dimension 1 completely."/>
 	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;t&apos; (helper.cpp:122) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;rotate&apos; into &apos;core&apos; (helper.cpp:100) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getSBoxValue&apos; into &apos;core&apos; (helper.cpp:105) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getRconValue&apos; into &apos;core&apos; (helper.cpp:109) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getSBoxInvert&apos; into &apos;invSubBytes&apos; (helper.cpp:317) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;core&apos; into &apos;expandKey&apos; (helper.cpp:144) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;getSBoxInvert&apos; into &apos;invSubBytes&apos; (helper.cpp:321) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invShiftRows&apos; into &apos;aes_invRound&apos; (decrypt.cpp:18) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invSubBytes&apos; into &apos;aes_invRound&apos; (decrypt.cpp:19) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;addRoundKey&apos; into &apos;aes_invRound&apos; (decrypt.cpp:20) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;addRoundKey&apos; into &apos;aes_invMain&apos; (decrypt.cpp:31) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invMixColumns&apos; into &apos;aes_invRound&apos; (decrypt.cpp:21) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invShiftRows&apos; into &apos;aes_invMain&apos; (decrypt.cpp:41) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (helper.cpp:131:6) to (helper.cpp:164:5) in function &apos;expandKey&apos;... converting 3 basic blocks."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invSubBytes&apos; into &apos;aes_invRound&apos; (decrypt.cpp:19) automatically."/>
 	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;invSubBytes&apos; into &apos;aes_invMain&apos; (decrypt.cpp:42) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;rotate&apos; into &apos;core&apos; (helper.cpp:100) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;invMixColumn&apos; (helper.cpp:376)...12 expression(s) balanced."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 9944 ; free virtual = 21546"/>
-	<Message severity="WARNING" prefix="[XFORM 203-631]" key="XFORM_FRN_STATUS_336" tag="" content="Renaming function &apos;galois_multiplication&apos; to &apos;galois_multiplicatio&apos; (helper.cpp:229:34)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:423:7)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;expandedKey&apos; (helper.cpp:126:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;expandedKey&apos; (helper.cpp:157:7)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;roundKey&apos; (helper.cpp:304:7)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:333:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:334:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:335:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:336:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:348:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:349:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:350:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:351:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:369:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:370:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:371:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:372:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:317:16)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:222:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:222:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:333:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:334:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:335:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:336:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:348:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:349:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:350:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:351:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:369:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:370:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:371:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:372:5)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:317:16)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:222:5)"/>
+	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;invMixColumn&apos; (helper.cpp:388:1)...12 expression(s) balanced."/>
+	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;galois_multiplication&apos; (helper.cpp:228)...6 expression(s) balanced."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21283 ; free virtual = 31954"/>
+	<Message severity="WARNING" prefix="[XFORM 203-631]" key="XFORM_FRN_STATUS_336" tag="" content="Renaming function &apos;galois_multiplication&apos; to &apos;galois_multiplicatio&apos; (helper.cpp:235:3)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;expandedKey&apos; (helper.cpp:127:7)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;expandedKey&apos; (helper.cpp:161:9)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:427:7)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:321:16)"/>
 	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;block&apos; (decrypt.cpp:77:7)"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1244.180 ; gain = 606.156 ; free physical = 9866 ; free virtual = 21468"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;state&apos; (helper.cpp:226:5)"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21220 ; free virtual = 31891"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;decrypt_dut&apos; ..."/>
-	<Message severity="WARNING" prefix="[SYN 201-107]" key="SYN_PORT_NAME_ILLEGAL_593" tag="" content="Renaming port name &apos;decrypt_dut/input&apos; to &apos;decrypt_dut/input_r&apos; to avoid the conflict with HDL keywords or other object names."/>
 	<Message severity="WARNING" prefix="[SYN 201-107]" key="SYN_PORT_NAME_ILLEGAL_593" tag="" content="Renaming port name &apos;decrypt_dut/output&apos; to &apos;decrypt_dut/output_r&apos; to avoid the conflict with HDL keywords or other object names."/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;core&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 10.95 seconds; current allocated memory: 205.107 MB."/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.03 seconds; current allocated memory: 205.467 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;expandKey&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;EX_WHILE&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;expandKey&apos; (Loop: EX_WHILE): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between &apos;store&apos; operation (&apos;expandedKey_addr_6_write_ln161&apos;, helper.cpp:161) of variable &apos;xor_ln161&apos;, helper.cpp:161 on array &apos;expandedKey&apos; and &apos;load&apos; operation (&apos;t[0]&apos;, helper.cpp:136) on array &apos;expandedKey&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;expandKey&apos; (Loop: EX_WHILE): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between &apos;store&apos; operation (&apos;expandedKey_addr_12_write_ln161&apos;, helper.cpp:161) of variable &apos;xor_ln161_3&apos;, helper.cpp:161 on array &apos;expandedKey&apos; and &apos;load&apos; operation (&apos;t[3]&apos;, helper.cpp:136) on array &apos;expandedKey&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX_KERNEL,SCHEDULE" content="Unable to schedule &apos;load&apos; operation (&apos;t[1]&apos;, helper.cpp:136) on array &apos;expandedKey&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;expandedKey&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX_KERNEL,SCHEDULE" content="Unable to schedule &apos;load&apos; operation (&apos;sbox_load&apos;, helper.cpp:43-&gt;helper.cpp:105-&gt;helper.cpp:144) on array &apos;sbox&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;sbox&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 6, Depth = 6."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.06 seconds; current allocated memory: 205.758 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 13.15 seconds; current allocated memory: 197.175 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.05 seconds; current allocated memory: 206.281 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 197.625 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;createRoundKey&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;createRoundKey&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX_KERNEL,SCHEDULE" content="Unable to schedule &apos;load&apos; operation (&apos;expandedKey_load_5&apos;, helper.cpp:308) on array &apos;expandedKey&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;expandedKey&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 8, Depth = 9."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 206.384 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.1 seconds; current allocated memory: 197.879 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.02 seconds; current allocated memory: 206.513 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.05 seconds; current allocated memory: 198.188 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;addRoundKey&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 198.484 MB."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.06 seconds; current allocated memory: 198.800 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;galois_multiplicatio&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;galois_multiplicatio&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 1."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 206.597 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 198.900 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.02 seconds; current allocated memory: 206.708 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.02 seconds; current allocated memory: 199.027 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;invMixColumn&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;invMixColumn&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 1."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.03 seconds; current allocated memory: 206.885 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 199.156 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 207.204 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;invMixColumns&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.09 seconds; current allocated memory: 207.487 MB."/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.04 seconds; current allocated memory: 207.800 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.05 seconds; current allocated memory: 199.377 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;aes_invRound&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_46" tag="" content="Pipelining function &apos;aes_invRound&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;aes_invRound&apos; (Function: aes_invRound): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between &apos;store&apos; operation (&apos;state_addr_3_write_ln427&apos;, helper.cpp:427-&gt;decrypt.cpp:21) of variable &apos;column[1]&apos;, helper.cpp:422-&gt;decrypt.cpp:21 on array &apos;state&apos; and &apos;load&apos; operation (&apos;num&apos;, helper.cpp:339-&gt;decrypt.cpp:18) on array &apos;state&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;aes_invRound&apos; (Function: aes_invRound): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between &apos;store&apos; operation (&apos;state_addr_3_write_ln427&apos;, helper.cpp:427-&gt;decrypt.cpp:21) of variable &apos;column[1]&apos;, helper.cpp:422-&gt;decrypt.cpp:21 on array &apos;state&apos; and &apos;load&apos; operation (&apos;num&apos;, helper.cpp:339-&gt;decrypt.cpp:18) on array &apos;state&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-69]" key="SCHED_RESOURCE_CONSTRAINT_NOT_MET_38" tag="SDX_KERNEL,SCHEDULE" content="Unable to schedule &apos;load&apos; operation (&apos;tmp&apos;, helper.cpp:336-&gt;decrypt.cpp:18) on array &apos;state&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;state&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 19, Depth = 19."/>
+	<Message severity="WARNING" prefix="[SCHED 204-21]" key="SCHED_DELAY_EXCEEDED_76" tag="SDX_KERNEL,SCHEDULE" content="Estimated clock period (12.548ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)."/>
+	<Message severity="WARNING" prefix="[SCHED 204-21]" key="SCHED_DELAY_EXCEEDED_74" tag="SDX_KERNEL,SCHEDULE" content="The critical path in module &apos;aes_invRound&apos; consists of the following:
+	&apos;load&apos; operation (&apos;rsbox_load_9&apos;, helper.cpp:48-&gt;helper.cpp:321-&gt;decrypt.cpp:19) on array &apos;rsbox&apos; [97]  (3.25 ns)
+	&apos;xor&apos; operation (&apos;column[2]&apos;, helper.cpp:226-&gt;decrypt.cpp:20) [125]  (0.99 ns)
+	&apos;call&apos; operation (&apos;call_ret2_i&apos;, helper.cpp:422-&gt;decrypt.cpp:21) to &apos;invMixColumn&apos; [141]  (5.98 ns)
+	&apos;store&apos; operation (&apos;state_addr_2_write_ln427&apos;, helper.cpp:427-&gt;decrypt.cpp:21) of variable &apos;column[1]&apos;, helper.cpp:422-&gt;decrypt.cpp:21 on array &apos;state&apos; [147]  (2.32 ns)"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.11 seconds; current allocated memory: 208.152 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.49 seconds; current allocated memory: 200.104 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 208.404 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.12 seconds; current allocated memory: 200.730 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;aes_invMain&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;DECRYPT_MAIN_LOOP&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 19, Depth = 29."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.13 seconds; current allocated memory: 208.846 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.23 seconds; current allocated memory: 201.504 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.11 seconds; current allocated memory: 209.255 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.26 seconds; current allocated memory: 202.683 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;aes_decrypt&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.15 seconds; current allocated memory: 209.614 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.23 seconds; current allocated memory: 203.214 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.11 seconds; current allocated memory: 209.908 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.14 seconds; current allocated memory: 203.706 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;decrypt_dut&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.15 seconds; current allocated memory: 210.119 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.2 seconds; current allocated memory: 204.134 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 210.221 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;core&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;decrypt_dut_mux_42_1_1_1&apos; to &apos;decrypt_dut_mux_4bkb&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;decrypt_dut_mux_42_8_1_1&apos; to &apos;decrypt_dut_mux_4cud&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;decrypt_dut_mux_4bkb&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;decrypt_dut_mux_4cud&apos;: 4 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;core&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.17 seconds; current allocated memory: 210.956 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.09 seconds; current allocated memory: 204.392 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;expandKey&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;decrypt_dut_mux_4cud&apos;: 5 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;expandKey&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.1 seconds; current allocated memory: 213.206 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.21 seconds; current allocated memory: 205.363 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;createRoundKey&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;createRoundKey&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.13 seconds; current allocated memory: 215.342 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.16 seconds; current allocated memory: 208.416 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;addRoundKey&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;addRoundKey&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.13 seconds; current allocated memory: 210.059 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;galois_multiplicatio&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;galois_multiplicatio&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.06 seconds; current allocated memory: 216.069 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.13 seconds; current allocated memory: 211.582 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;invMixColumn&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;decrypt_dut_mux_4cud&apos;: 1 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;invMixColumn&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.07 seconds; current allocated memory: 217.126 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;invMixColumns&apos;"/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;decrypt_dut_mux_4cud&apos;: 1 instance(s)."/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;invMixColumns&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.16 seconds; current allocated memory: 218.795 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.09 seconds; current allocated memory: 212.329 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;aes_invRound&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;aes_invRound&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.17 seconds; current allocated memory: 220.392 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.18 seconds; current allocated memory: 214.091 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;aes_invMain&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;aes_invMain_roundKey&apos; to &apos;aes_invMain_rounddEe&apos; due to the length limit 20"/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;aes_invMain&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.19 seconds; current allocated memory: 222.255 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.32 seconds; current allocated memory: 218.601 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;aes_decrypt&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;aes_decrypt_expandedKey&apos; to &apos;aes_decrypt_expaneOg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;aes_decrypt_expandedKey&apos; to &apos;aes_decrypt_expanbkb&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;decrypt_dut_mux_164_8_1_1&apos; to &apos;decrypt_dut_mux_1cud&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;decrypt_dut_mux_1cud&apos;: 1 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;aes_decrypt&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.24 seconds; current allocated memory: 224.473 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.33 seconds; current allocated memory: 222.010 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;decrypt_dut&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_r&apos; to &apos;ap_memory&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_0&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_1&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_2&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_3&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_4&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_5&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_6&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_7&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_8&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_9&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_10&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_11&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_12&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_13&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_14&apos; to &apos;ap_none&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/input_15&apos; to &apos;ap_none&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/output_r&apos; to &apos;ap_memory&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;decrypt_dut/key&apos; to &apos;ap_memory&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;decrypt_dut&apos; to &apos;ap_ctrl_hs&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;decrypt_dut&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.26 seconds; current allocated memory: 225.874 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,SDX_LOOP" content="**** Loop Constraint Status: All loop constraints were satisfied."/>
-	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 133.37 MHz"/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;core_sbox_rom&apos; using auto ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;core_Rcon_rom&apos; using auto ROMs."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.35 seconds; current allocated memory: 223.895 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,SDX_LOOP" content="**** Loop Constraint Status: All loop constraints were NOT satisfied."/>
+	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 79.69 MHz"/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;expandKey_sbox_rom&apos; using auto ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;expandKey_Rcon_rom&apos; using auto ROMs."/>
 	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;aes_invRound_rsbox_rom&apos; using auto ROMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;aes_invMain_rounddEe_ram (RAM)&apos; using distributed RAMs."/>
-	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;aes_decrypt_expaneOg_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;aes_invMain_rsbox_rom&apos; using auto ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;aes_decrypt_expanbkb_ram (RAM)&apos; using block RAMs."/>
 	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;aes_decrypt_block_ram (RAM)&apos; using block RAMs."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 1245.180 ; gain = 607.156 ; free physical = 9825 ; free virtual = 21439"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 21196 ; free virtual = 31886"/>
 	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for decrypt_dut."/>
 	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for decrypt_dut."/>
 </Messages>

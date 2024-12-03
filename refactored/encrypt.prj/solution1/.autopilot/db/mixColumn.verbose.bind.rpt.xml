@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mixColumn'" level="0">
-<item name = "Date">Tue Nov 19 21:04:37 2024
+<item name = "Date">Tue Nov 19 22:02:55 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 3.869 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 2.238 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,30 +24,29 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">15, 15, 0.150 us, 0.150 us, 15, 15, none</column>
+<column name="">0, 0, 0 ns, 0 ns, 1, 1, function</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_galois_multiplicatio_fu_89">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_96">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_103">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_110">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_117">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_124">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_131">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_138">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_145">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_152">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_159">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
-<column name="grp_galois_multiplicatio_fu_166">galois_multiplicatio, 9, 9, 90.000 ns, 90.000 ns, 9, 9, none</column>
+<column name="tmp_galois_multiplicatio_fu_44">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_3_galois_multiplicatio_fu_52">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_4_galois_multiplicatio_fu_60">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_5_galois_multiplicatio_fu_68">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_6_galois_multiplicatio_fu_76">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_7_galois_multiplicatio_fu_84">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_9_galois_multiplicatio_fu_92">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_s_galois_multiplicatio_fu_100">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_1_galois_multiplicatio_fu_108">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_2_galois_multiplicatio_fu_116">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_8_galois_multiplicatio_fu_124">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
+<column name="tmp_10_galois_multiplicatio_fu_132">galois_multiplicatio, 0, 0, 0 ns, 0 ns, 1, 1, function</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">4, 4, 1, -, -, 4, no</column>
 </table>
 </item>
 </section>

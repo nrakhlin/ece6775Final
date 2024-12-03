@@ -8,190 +8,87 @@
 `timescale 1 ns / 1 ps 
 
 module galois_multiplicatio (
-        ap_clk,
-        ap_rst,
-        ap_start,
-        ap_done,
-        ap_idle,
         ap_ready,
         a,
         b,
         ap_return
 );
 
-parameter    ap_ST_fsm_state1 = 2'd1;
-parameter    ap_ST_fsm_state2 = 2'd2;
 
-input   ap_clk;
-input   ap_rst;
-input   ap_start;
-output   ap_done;
-output   ap_idle;
 output   ap_ready;
 input  [7:0] a;
 input  [4:0] b;
 output  [7:0] ap_return;
 
-reg ap_done;
-reg ap_idle;
-reg ap_ready;
-reg[7:0] ap_return;
+wire   [0:0] trunc_ln235_fu_38_p1;
+wire   [7:0] shl_ln238_fu_50_p2;
+wire   [0:0] tmp_fu_56_p3;
+wire   [7:0] xor_ln240_fu_64_p2;
+wire   [0:0] tmp_1_fu_78_p3;
+wire   [7:0] select_ln239_fu_70_p3;
+wire   [7:0] shl_ln238_1_fu_94_p2;
+wire   [0:0] tmp_2_fu_100_p3;
+wire   [7:0] xor_ln240_1_fu_108_p2;
+wire   [0:0] tmp_3_fu_122_p3;
+wire   [7:0] select_ln239_1_fu_114_p3;
+wire   [7:0] shl_ln238_2_fu_138_p2;
+wire   [0:0] tmp_4_fu_144_p3;
+wire   [7:0] xor_ln240_2_fu_152_p2;
+wire   [0:0] tmp_5_fu_166_p3;
+wire   [7:0] select_ln239_2_fu_158_p3;
+wire   [7:0] select_ln235_fu_42_p3;
+wire   [7:0] select_ln235_2_fu_130_p3;
+wire   [7:0] xor_ln235_fu_182_p2;
+wire   [7:0] select_ln235_1_fu_86_p3;
+wire   [7:0] select_ln235_3_fu_174_p3;
+wire   [7:0] xor_ln235_1_fu_188_p2;
 
-(* fsm_encoding = "none" *) reg   [1:0] ap_CS_fsm;
-wire    ap_CS_fsm_state1;
-wire   [3:0] counter_fu_92_p2;
-wire    ap_CS_fsm_state2;
-wire   [7:0] xor_ln231_fu_110_p2;
-wire   [0:0] icmp_ln229_fu_86_p2;
-wire   [7:0] select_ln235_fu_136_p3;
-wire   [4:0] zext_ln237_fu_154_p1;
-reg   [3:0] counter_0_reg_46;
-reg   [7:0] p_0_reg_57;
-reg   [4:0] b_assign_1_reg_68;
-reg   [7:0] p_0_7_reg_77;
-wire   [0:0] trunc_ln229_fu_98_p1;
-wire   [7:0] select_ln231_fu_102_p3;
-wire   [7:0] shl_ln234_fu_116_p2;
-wire   [0:0] tmp_fu_122_p3;
-wire   [7:0] xor_ln236_fu_130_p2;
-wire   [3:0] b_assign_fu_144_p4;
-reg   [7:0] ap_return_preg;
-reg   [1:0] ap_NS_fsm;
+assign ap_ready = 1'b1;
 
-// power-on initialization
-initial begin
-#0 ap_CS_fsm = 2'd1;
-#0 ap_return_preg = 8'd0;
-end
+assign ap_return = (xor_ln235_1_fu_188_p2 ^ select_ln235_3_fu_174_p3);
 
-always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        ap_CS_fsm <= ap_ST_fsm_state1;
-    end else begin
-        ap_CS_fsm <= ap_NS_fsm;
-    end
-end
+assign select_ln235_1_fu_86_p3 = ((tmp_1_fu_78_p3[0:0] === 1'b1) ? select_ln239_fu_70_p3 : 8'd0);
 
-always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        ap_return_preg <= 8'd0;
-    end else begin
-        if (((icmp_ln229_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-            ap_return_preg <= p_0_reg_57;
-        end
-    end
-end
+assign select_ln235_2_fu_130_p3 = ((tmp_3_fu_122_p3[0:0] === 1'b1) ? select_ln239_1_fu_114_p3 : 8'd0);
 
-always @ (posedge ap_clk) begin
-    if (((icmp_ln229_fu_86_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        b_assign_1_reg_68 <= zext_ln237_fu_154_p1;
-    end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        b_assign_1_reg_68 <= b;
-    end
-end
+assign select_ln235_3_fu_174_p3 = ((tmp_5_fu_166_p3[0:0] === 1'b1) ? select_ln239_2_fu_158_p3 : 8'd0);
 
-always @ (posedge ap_clk) begin
-    if (((icmp_ln229_fu_86_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        counter_0_reg_46 <= counter_fu_92_p2;
-    end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        counter_0_reg_46 <= 4'd0;
-    end
-end
+assign select_ln235_fu_42_p3 = ((trunc_ln235_fu_38_p1[0:0] === 1'b1) ? a : 8'd0);
 
-always @ (posedge ap_clk) begin
-    if (((icmp_ln229_fu_86_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        p_0_7_reg_77 <= select_ln235_fu_136_p3;
-    end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        p_0_7_reg_77 <= a;
-    end
-end
+assign select_ln239_1_fu_114_p3 = ((tmp_2_fu_100_p3[0:0] === 1'b1) ? xor_ln240_1_fu_108_p2 : shl_ln238_1_fu_94_p2);
 
-always @ (posedge ap_clk) begin
-    if (((icmp_ln229_fu_86_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        p_0_reg_57 <= xor_ln231_fu_110_p2;
-    end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        p_0_reg_57 <= 8'd0;
-    end
-end
+assign select_ln239_2_fu_158_p3 = ((tmp_4_fu_144_p3[0:0] === 1'b1) ? xor_ln240_2_fu_152_p2 : shl_ln238_2_fu_138_p2);
 
-always @ (*) begin
-    if ((((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)) | ((icmp_ln229_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
-        ap_done = 1'b1;
-    end else begin
-        ap_done = 1'b0;
-    end
-end
+assign select_ln239_fu_70_p3 = ((tmp_fu_56_p3[0:0] === 1'b1) ? xor_ln240_fu_64_p2 : shl_ln238_fu_50_p2);
 
-always @ (*) begin
-    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_idle = 1'b1;
-    end else begin
-        ap_idle = 1'b0;
-    end
-end
+assign shl_ln238_1_fu_94_p2 = select_ln239_fu_70_p3 << 8'd1;
 
-always @ (*) begin
-    if (((icmp_ln229_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        ap_ready = 1'b1;
-    end else begin
-        ap_ready = 1'b0;
-    end
-end
+assign shl_ln238_2_fu_138_p2 = select_ln239_1_fu_114_p3 << 8'd1;
 
-always @ (*) begin
-    if (((icmp_ln229_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        ap_return = p_0_reg_57;
-    end else begin
-        ap_return = ap_return_preg;
-    end
-end
+assign shl_ln238_fu_50_p2 = a << 8'd1;
 
-always @ (*) begin
-    case (ap_CS_fsm)
-        ap_ST_fsm_state1 : begin
-            if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end
-        end
-        ap_ST_fsm_state2 : begin
-            if (((icmp_ln229_fu_86_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end
-        end
-        default : begin
-            ap_NS_fsm = 'bx;
-        end
-    endcase
-end
+assign tmp_1_fu_78_p3 = b[32'd1];
 
-assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+assign tmp_2_fu_100_p3 = select_ln239_fu_70_p3[32'd7];
 
-assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
+assign tmp_3_fu_122_p3 = b[32'd2];
 
-assign b_assign_fu_144_p4 = {{b_assign_1_reg_68[4:1]}};
+assign tmp_4_fu_144_p3 = select_ln239_1_fu_114_p3[32'd7];
 
-assign counter_fu_92_p2 = (counter_0_reg_46 + 4'd1);
+assign tmp_5_fu_166_p3 = b[32'd3];
 
-assign icmp_ln229_fu_86_p2 = ((counter_0_reg_46 == 4'd8) ? 1'b1 : 1'b0);
+assign tmp_fu_56_p3 = a[32'd7];
 
-assign select_ln231_fu_102_p3 = ((trunc_ln229_fu_98_p1[0:0] === 1'b1) ? p_0_7_reg_77 : 8'd0);
+assign trunc_ln235_fu_38_p1 = b[0:0];
 
-assign select_ln235_fu_136_p3 = ((tmp_fu_122_p3[0:0] === 1'b1) ? xor_ln236_fu_130_p2 : shl_ln234_fu_116_p2);
+assign xor_ln235_1_fu_188_p2 = (xor_ln235_fu_182_p2 ^ select_ln235_1_fu_86_p3);
 
-assign shl_ln234_fu_116_p2 = p_0_7_reg_77 << 8'd1;
+assign xor_ln235_fu_182_p2 = (select_ln235_fu_42_p3 ^ select_ln235_2_fu_130_p3);
 
-assign tmp_fu_122_p3 = p_0_7_reg_77[32'd7];
+assign xor_ln240_1_fu_108_p2 = (shl_ln238_1_fu_94_p2 ^ 8'd27);
 
-assign trunc_ln229_fu_98_p1 = b_assign_1_reg_68[0:0];
+assign xor_ln240_2_fu_152_p2 = (shl_ln238_2_fu_138_p2 ^ 8'd27);
 
-assign xor_ln231_fu_110_p2 = (select_ln231_fu_102_p3 ^ p_0_reg_57);
-
-assign xor_ln236_fu_130_p2 = (shl_ln234_fu_116_p2 ^ 8'd27);
-
-assign zext_ln237_fu_154_p1 = b_assign_fu_144_p4;
+assign xor_ln240_fu_64_p2 = (shl_ln238_fu_50_p2 ^ 8'd27);
 
 endmodule //galois_multiplicatio

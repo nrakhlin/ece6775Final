@@ -17,50 +17,36 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>6.923</EstimatedClockPeriod>
+<EstimatedClockPeriod>12.548</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>2710</Best-caseLatency>
-<Average-caseLatency>2710</Average-caseLatency>
-<Worst-caseLatency>2710</Worst-caseLatency>
-<Best-caseRealTimeLatency>27.100 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>27.100 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>27.100 us</Worst-caseRealTimeLatency>
-<Interval-min>2710</Interval-min>
-<Interval-max>2710</Interval-max>
+<Best-caseLatency>238</Best-caseLatency>
+<Average-caseLatency>238</Average-caseLatency>
+<Worst-caseLatency>238</Worst-caseLatency>
+<Best-caseRealTimeLatency>2.986 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>2.986 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>2.986 us</Worst-caseRealTimeLatency>
+<Interval-min>238</Interval-min>
+<Interval-max>238</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<Loop1>
-<TripCount>16</TripCount>
-<Latency>32</Latency>
-<IterationLatency>2</IterationLatency>
-</Loop1>
-<DECRYPT_LOOP>
+<DECRYPT_MAIN_LOOP>
 <TripCount>9</TripCount>
-<Latency>2502</Latency>
-<IterationLatency>278</IterationLatency>
-</DECRYPT_LOOP>
-<Loop3>
-<TripCount>16</TripCount>
-<Latency>48</Latency>
-<IterationLatency>3</IterationLatency>
-</Loop3>
-<Loop4>
-<TripCount>16</TripCount>
-<Latency>32</Latency>
-<IterationLatency>2</IterationLatency>
-</Loop4>
+<Latency>180</Latency>
+<PipelineII>19</PipelineII>
+<PipelineDepth>29</PipelineDepth>
+</DECRYPT_MAIN_LOOP>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
 <BRAM_18K>2</BRAM_18K>
-<FF>1102</FF>
-<LUT>3486</LUT>
-<URAM>0</URAM>
+<FF>891</FF>
+<LUT>3952</LUT>
 <DSP48E>0</DSP48E>
+<URAM>0</URAM>
 </Resources>
 <AvailableResources>
 <BRAM_18K>280</BRAM_18K>
@@ -272,6 +258,39 @@
 </RtlPorts>
 <RtlPorts>
 <name>expandedKey_q0</name>
+<Object>expandedKey</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>8</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>expandedKey_address1</name>
+<Object>expandedKey</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>8</Bits>
+<Attribute>address</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>expandedKey_ce1</name>
+<Object>expandedKey</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>expandedKey_q1</name>
 <Object>expandedKey</Object>
 <Type>array</Type>
 <Scope></Scope>

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'decrypt_dut'" level="0">
-<item name = "Date">Tue Nov 19 21:05:42 2024
+<item name = "Date">Thu Nov 21 20:05:37 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">decrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.498 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 12.548 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">3794, 4474, 37.940 us, 44.740 us, 3794, 4474, none</column>
+<column name="">583, 583, 7.315 us, 7.315 us, 583, 583, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aes_decrypt_fu_20">aes_decrypt, 3793, 4473, 37.930 us, 44.730 us, 3793, 4473, none</column>
+<column name="grp_aes_decrypt_fu_148">aes_decrypt, 582, 582, 7.303 us, 7.303 us, 582, 582, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_round'" level="0">
-<item name = "Date">Tue Nov 19 21:04:37 2024
+<item name = "Date">Tue Nov 19 22:02:56 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 5.634 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.804 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">234, 234, 2.340 us, 2.340 us, 234, 234, none</column>
+<column name="">18, 18, 0.180 us, 0.180 us, 19, 19, function</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,8 +35,6 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">48, 48, 3, -, -, 16, no</column>
-<column name="- Loop 2">32, 32, 2, -, -, 16, no</column>
 </table>
 </item>
 </section>

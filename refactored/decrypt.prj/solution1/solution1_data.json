@@ -13,7 +13,16 @@
     "Speed": "-1"
   },
   "HlsSolution": {
-    
+    "DirectiveTcl": [
+      "set_directive_pipeline aes_invMain\/DECRYPT_MAIN_LOOP -II 1",
+      "set_directive_array_partition decrypt_dut ",
+      "set_directive_pipeline expandKey\/EX_WHILE -II 1"
+    ],
+    "DirectiveInfo": [
+      "pipeline aes_invMain\/DECRYPT_MAIN_LOOP {{II 1}} {}",
+      "array_partition decrypt_dut {{partition positionBooleanCmd} {variable positionBooleanTextRequiredinput} {complete positionBoolean0type} {dim 0}} {}",
+      "pipeline expandKey\/EX_WHILE {{II 1}} {}"
+    ]
   },
   "Args": {
     "input": {
@@ -22,11 +31,7 @@
         "kinds": ["array"],
         "dataType": "unsigned",
         "dataWidth": "8",
-        "arraySizes": ["16"],
-        "multiInterfaceRef": [
-          "input_r_address0",
-          "input_r_q0"
-        ]
+        "arraySizes": ["16"]
       }
     },
     "output": {
@@ -64,7 +69,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "3794",
+    "Latency": "583",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -85,46 +90,43 @@
       "..\/..\/decrypt.cpp"
     ],
     "Vhdl": [
+      "impl\/vhdl\/addRoundKey.vhd",
       "impl\/vhdl\/aes_decrypt.vhd",
       "impl\/vhdl\/aes_decrypt_block.vhd",
-      "impl\/vhdl\/aes_decrypt_expaneOg.vhd",
+      "impl\/vhdl\/aes_decrypt_expanbkb.vhd",
       "impl\/vhdl\/aes_invMain.vhd",
-      "impl\/vhdl\/aes_invMain_rounddEe.vhd",
+      "impl\/vhdl\/aes_invMain_rsbox.vhd",
       "impl\/vhdl\/aes_invRound.vhd",
       "impl\/vhdl\/aes_invRound_rsbox.vhd",
-      "impl\/vhdl\/core.vhd",
-      "impl\/vhdl\/core_Rcon.vhd",
-      "impl\/vhdl\/core_sbox.vhd",
       "impl\/vhdl\/createRoundKey.vhd",
-      "impl\/vhdl\/decrypt_dut_mux_4bkb.vhd",
-      "impl\/vhdl\/decrypt_dut_mux_4cud.vhd",
+      "impl\/vhdl\/decrypt_dut_mux_1cud.vhd",
       "impl\/vhdl\/expandKey.vhd",
+      "impl\/vhdl\/expandKey_Rcon.vhd",
+      "impl\/vhdl\/expandKey_sbox.vhd",
       "impl\/vhdl\/galois_multiplicatio.vhd",
       "impl\/vhdl\/invMixColumn.vhd",
-      "impl\/vhdl\/invMixColumns.vhd",
       "impl\/vhdl\/decrypt_dut.vhd"
     ],
     "Verilog": [
+      "impl\/verilog\/addRoundKey.v",
       "impl\/verilog\/aes_decrypt.v",
       "impl\/verilog\/aes_decrypt_block.v",
-      "impl\/verilog\/aes_decrypt_expaneOg.v",
+      "impl\/verilog\/aes_decrypt_expanbkb.v",
       "impl\/verilog\/aes_invMain.v",
-      "impl\/verilog\/aes_invMain_rounddEe.v",
+      "impl\/verilog\/aes_invMain_rsbox.v",
+      "impl\/verilog\/aes_invMain_rsbox_rom.dat",
       "impl\/verilog\/aes_invRound.v",
       "impl\/verilog\/aes_invRound_rsbox.v",
       "impl\/verilog\/aes_invRound_rsbox_rom.dat",
-      "impl\/verilog\/core.v",
-      "impl\/verilog\/core_Rcon.v",
-      "impl\/verilog\/core_Rcon_rom.dat",
-      "impl\/verilog\/core_sbox.v",
-      "impl\/verilog\/core_sbox_rom.dat",
       "impl\/verilog\/createRoundKey.v",
-      "impl\/verilog\/decrypt_dut_mux_4bkb.v",
-      "impl\/verilog\/decrypt_dut_mux_4cud.v",
+      "impl\/verilog\/decrypt_dut_mux_1cud.v",
       "impl\/verilog\/expandKey.v",
+      "impl\/verilog\/expandKey_Rcon.v",
+      "impl\/verilog\/expandKey_Rcon_rom.dat",
+      "impl\/verilog\/expandKey_sbox.v",
+      "impl\/verilog\/expandKey_sbox_rom.dat",
       "impl\/verilog\/galois_multiplicatio.v",
       "impl\/verilog\/invMixColumn.v",
-      "impl\/verilog\/invMixColumns.v",
       "impl\/verilog\/decrypt_dut.v"
     ],
     "Misc": ["impl\/misc\/logo.png"],
@@ -162,18 +164,7 @@
       "bundle_name": "ap_rst",
       "bundle_role": "default"
     },
-    "input_r_address0": {
-      "type": "data",
-      "dir": "out",
-      "width": "4",
-      "ctype": {"DATA": {
-          "Type": "null",
-          "Width": "4"
-        }},
-      "bundle_name": "input_r",
-      "bundle_role": "address0"
-    },
-    "input_r_q0": {
+    "input_0": {
       "type": "data",
       "dir": "in",
       "width": "8",
@@ -181,8 +172,173 @@
           "Type": "integer unsigned",
           "Width": "8"
         }},
-      "bundle_name": "input_r",
-      "bundle_role": "q0"
+      "bundle_name": "input_0",
+      "bundle_role": "default"
+    },
+    "input_1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_1",
+      "bundle_role": "default"
+    },
+    "input_2": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_2",
+      "bundle_role": "default"
+    },
+    "input_3": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_3",
+      "bundle_role": "default"
+    },
+    "input_4": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_4",
+      "bundle_role": "default"
+    },
+    "input_5": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_5",
+      "bundle_role": "default"
+    },
+    "input_6": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_6",
+      "bundle_role": "default"
+    },
+    "input_7": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_7",
+      "bundle_role": "default"
+    },
+    "input_8": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_8",
+      "bundle_role": "default"
+    },
+    "input_9": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_9",
+      "bundle_role": "default"
+    },
+    "input_10": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_10",
+      "bundle_role": "default"
+    },
+    "input_11": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_11",
+      "bundle_role": "default"
+    },
+    "input_12": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_12",
+      "bundle_role": "default"
+    },
+    "input_13": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_13",
+      "bundle_role": "default"
+    },
+    "input_14": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_14",
+      "bundle_role": "default"
+    },
+    "input_15": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "input_15",
+      "bundle_role": "default"
     },
     "key_address0": {
       "type": "data",
@@ -254,15 +410,67 @@
       "dir": "out",
       "width": "1"
     },
-    "input_r_address0": {
-      "dir": "out",
-      "width": "4"
+    "input_0": {
+      "dir": "in",
+      "width": "8"
     },
-    "input_r_ce0": {
-      "dir": "out",
-      "width": "1"
+    "input_1": {
+      "dir": "in",
+      "width": "8"
     },
-    "input_r_q0": {
+    "input_2": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_3": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_4": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_5": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_6": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_7": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_8": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_9": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_10": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_11": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_12": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_13": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_14": {
+      "dir": "in",
+      "width": "8"
+    },
+    "input_15": {
       "dir": "in",
       "width": "8"
     },
@@ -300,115 +508,104 @@
       "ModuleName": "decrypt_dut",
       "Instances": [{
           "ModuleName": "aes_decrypt",
-          "InstanceName": "grp_aes_decrypt_fu_20",
+          "InstanceName": "grp_aes_decrypt_fu_148",
           "Instances": [
             {
               "ModuleName": "aes_invMain",
-              "InstanceName": "grp_aes_invMain_fu_133",
+              "InstanceName": "grp_aes_invMain_fu_249",
               "Instances": [
                 {
                   "ModuleName": "aes_invRound",
-                  "InstanceName": "grp_aes_invRound_fu_289",
+                  "InstanceName": "grp_aes_invRound_fu_378",
                   "Instances": [{
-                      "ModuleName": "invMixColumns",
-                      "InstanceName": "grp_invMixColumns_fu_230",
-                      "Instances": [{
-                          "ModuleName": "invMixColumn",
-                          "InstanceName": "grp_invMixColumn_fu_246",
-                          "Instances": [
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_93"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_100"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_107"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_114"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_121"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_128"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_135"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_142"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_149"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_156"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_163"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_170"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_177"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_184"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_191"
-                            },
-                            {
-                              "ModuleName": "galois_multiplicatio",
-                              "InstanceName": "grp_galois_multiplicatio_fu_198"
-                            }
-                          ]
-                        }]
+                      "ModuleName": "invMixColumn",
+                      "InstanceName": "grp_invMixColumn_fu_454",
+                      "Instances": [
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_galois_multiplicatio_fu_46"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_6_galois_multiplicatio_fu_54"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_7_galois_multiplicatio_fu_62"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_8_galois_multiplicatio_fu_70"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_9_galois_multiplicatio_fu_78"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_s_galois_multiplicatio_fu_86"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_1_galois_multiplicatio_fu_94"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_2_galois_multiplicatio_fu_102"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_3_galois_multiplicatio_fu_110"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_4_galois_multiplicatio_fu_118"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_5_galois_multiplicatio_fu_126"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_10_galois_multiplicatio_fu_134"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_11_galois_multiplicatio_fu_142"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_12_galois_multiplicatio_fu_150"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_13_galois_multiplicatio_fu_158"
+                        },
+                        {
+                          "ModuleName": "galois_multiplicatio",
+                          "InstanceName": "tmp_14_galois_multiplicatio_fu_166"
+                        }
+                      ]
                     }]
                 },
                 {
                   "ModuleName": "createRoundKey",
-                  "InstanceName": "grp_createRoundKey_fu_298"
+                  "InstanceName": "grp_createRoundKey_fu_402"
+                },
+                {
+                  "ModuleName": "addRoundKey",
+                  "InstanceName": "grp_addRoundKey_fu_411"
                 }
               ]
             },
             {
               "ModuleName": "expandKey",
-              "InstanceName": "grp_expandKey_fu_141",
-              "Instances": [{
-                  "ModuleName": "core",
-                  "InstanceName": "grp_core_fu_404"
-                }]
+              "InstanceName": "grp_expandKey_fu_257"
             }
           ]
         }]
     },
     "Info": {
-      "core": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "0",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
       "expandKey": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
@@ -419,6 +616,13 @@
       "createRoundKey": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "addRoundKey": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
         "isPipelined": "0",
         "isCombinational": "0",
         "isOneStateSeq": "0"
@@ -427,21 +631,14 @@
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
         "isPipelined": "0",
-        "isCombinational": "0",
+        "isCombinational": "1",
         "isOneStateSeq": "0"
       },
       "invMixColumn": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
         "isPipelined": "0",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "invMixColumns": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "0",
-        "isCombinational": "0",
+        "isCombinational": "1",
         "isOneStateSeq": "0"
       },
       "aes_invRound": {
@@ -474,177 +671,67 @@
       }
     },
     "Metrics": {
-      "core": {
-        "Latency": {
-          "LatencyBest": "17",
-          "LatencyAvg": "17",
-          "LatencyWorst": "17",
-          "PipelineII": "17",
-          "PipelineDepth": "",
-          "PipelineType": "none"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "5.212"
-        },
-        "Loops": [
-          {
-            "Name": "Loop 1",
-            "TripCount": "3",
-            "Latency": "6",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 2",
-            "TripCount": "4",
-            "Latency": "8",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          }
-        ],
-        "Area": {
-          "BRAM_18K": "2",
-          "FF": "148",
-          "LUT": "366",
-          "DSP48E": "0",
-          "URAM": "0"
-        }
-      },
       "expandKey": {
         "Latency": {
-          "LatencyBest": "998",
-          "LatencyAvg": "1358",
-          "LatencyWorst": "1678",
-          "PipelineIIMin": "998",
-          "PipelineIIMax": "1678",
-          "PipelineII": "998 ~ 1678",
+          "LatencyBest": "275",
+          "LatencyAvg": "275",
+          "LatencyWorst": "275",
+          "PipelineII": "275",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.498"
+          "Estimate": "7.756"
         },
         "Loops": [
           {
-            "Name": "memset_t",
-            "TripCount": "4",
-            "Latency": "3",
-            "PipelineII": "",
-            "PipelineDepth": "1"
-          },
-          {
-            "Name": "Loop 2",
+            "Name": "EX_K_LOOP1",
             "TripCount": "16",
             "Latency": "32",
             "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "Loop 3",
+            "Name": "EX_WHILE",
             "TripCount": "40",
-            "LatencyMin": "960",
-            "LatencyMax": "1640",
-            "Latency": "960 ~ 1640",
-            "PipelineII": "",
-            "PipelineDepthMin": "24",
-            "PipelineDepthMax": "41",
-            "PipelineDepth": "24 ~ 41",
-            "Loops": [
-              {
-                "Name": "Loop 3.1",
-                "TripCount": "4",
-                "Latency": "12",
-                "PipelineII": "",
-                "PipelineDepth": "3"
-              },
-              {
-                "Name": "Loop 3.2",
-                "TripCount": "4",
-                "Latency": "8",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }
-            ]
+            "Latency": "240",
+            "PipelineII": "6",
+            "PipelineDepth": "6"
           }
         ],
         "Area": {
           "BRAM_18K": "2",
-          "FF": "480",
-          "LUT": "992",
+          "FF": "190",
+          "LUT": "574",
           "DSP48E": "0",
           "URAM": "0"
         }
       },
       "createRoundKey": {
         "Latency": {
-          "LatencyBest": "41",
-          "LatencyAvg": "41",
-          "LatencyWorst": "41",
-          "PipelineII": "41",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyBest": "8",
+          "LatencyAvg": "8",
+          "LatencyWorst": "8",
+          "PipelineII": "8",
+          "PipelineDepth": "9",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "6.923"
+          "Estimate": "5.169"
         },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "4",
-            "Latency": "40",
-            "PipelineII": "",
-            "PipelineDepth": "10",
-            "Loops": [{
-                "Name": "Loop 1.1",
-                "TripCount": "4",
-                "Latency": "8",
-                "PipelineII": "",
-                "PipelineDepth": "2"
-              }]
-          }],
         "Area": {
-          "FF": "33",
-          "LUT": "116",
+          "FF": "130",
+          "LUT": "381",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
         }
       },
-      "galois_multiplicatio": {
-        "Latency": {
-          "LatencyBest": "9",
-          "LatencyAvg": "9",
-          "LatencyWorst": "9",
-          "PipelineII": "9",
-          "PipelineDepth": "",
-          "PipelineType": "none"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "1.769"
-        },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "8",
-            "Latency": "8",
-            "PipelineII": "",
-            "PipelineDepth": "1"
-          }],
-        "Area": {
-          "FF": "35",
-          "LUT": "116",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
-        }
-      },
-      "invMixColumn": {
+      "addRoundKey": {
         "Latency": {
           "LatencyBest": "15",
           "LatencyAvg": "15",
@@ -656,63 +743,55 @@
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "3.968"
+          "Estimate": "3.312"
         },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "4",
-            "Latency": "4",
-            "PipelineII": "",
-            "PipelineDepth": "1"
-          }],
         "Area": {
-          "FF": "678",
-          "LUT": "2062",
+          "FF": "128",
+          "LUT": "471",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
         }
       },
-      "invMixColumns": {
+      "galois_multiplicatio": {
         "Latency": {
-          "LatencyBest": "141",
-          "LatencyAvg": "141",
-          "LatencyWorst": "141",
-          "PipelineII": "141",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "4.280"
+          "Estimate": "4.992"
         },
-        "Loops": [{
-            "Name": "Loop 1",
-            "TripCount": "4",
-            "Latency": "140",
-            "PipelineII": "",
-            "PipelineDepth": "35",
-            "Loops": [
-              {
-                "Name": "Loop 1.1",
-                "TripCount": "4",
-                "Latency": "12",
-                "PipelineII": "",
-                "PipelineDepth": "3"
-              },
-              {
-                "Name": "Loop 1.2",
-                "TripCount": "4",
-                "Latency": "4",
-                "PipelineII": "",
-                "PipelineDepth": "1"
-              }
-            ]
-          }],
         "Area": {
-          "FF": "834",
-          "LUT": "2327",
+          "FF": "0",
+          "LUT": "104",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "invMixColumn": {
+        "Latency": {
+          "LatencyBest": "0",
+          "LatencyAvg": "0",
+          "LatencyWorst": "0",
+          "PipelineII": "1",
+          "PipelineDepth": "1",
+          "PipelineType": "function"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "5.982"
+        },
+        "Area": {
+          "FF": "0",
+          "LUT": "1760",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
@@ -720,123 +799,82 @@
       },
       "aes_invRound": {
         "Latency": {
-          "LatencyBest": "233",
-          "LatencyAvg": "233",
-          "LatencyWorst": "233",
-          "PipelineII": "233",
-          "PipelineDepth": "",
-          "PipelineType": "none"
+          "LatencyBest": "18",
+          "LatencyAvg": "18",
+          "LatencyWorst": "18",
+          "PipelineII": "19",
+          "PipelineDepth": "19",
+          "PipelineType": "function"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "5.634"
+          "Estimate": "12.548"
         },
-        "Loops": [
-          {
-            "Name": "Loop 1",
-            "TripCount": "16",
-            "Latency": "48",
-            "PipelineII": "",
-            "PipelineDepth": "3"
-          },
-          {
-            "Name": "Loop 2",
-            "TripCount": "16",
-            "Latency": "32",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          }
-        ],
         "Area": {
           "BRAM_18K": "1",
-          "FF": "927",
-          "LUT": "2735",
+          "FF": "347",
+          "LUT": "2389",
           "DSP48E": "0",
           "URAM": "0"
         }
       },
       "aes_invMain": {
         "Latency": {
-          "LatencyBest": "2710",
-          "LatencyAvg": "2710",
-          "LatencyWorst": "2710",
-          "PipelineII": "2710",
+          "LatencyBest": "238",
+          "LatencyAvg": "238",
+          "LatencyWorst": "238",
+          "PipelineII": "238",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "6.923"
+          "Estimate": "12.548"
         },
-        "Loops": [
-          {
-            "Name": "Loop 1",
-            "TripCount": "16",
-            "Latency": "32",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "DECRYPT_LOOP",
+        "Loops": [{
+            "Name": "DECRYPT_MAIN_LOOP",
             "TripCount": "9",
-            "Latency": "2502",
-            "PipelineII": "",
-            "PipelineDepth": "278"
-          },
-          {
-            "Name": "Loop 3",
-            "TripCount": "16",
-            "Latency": "48",
-            "PipelineII": "",
-            "PipelineDepth": "3"
-          },
-          {
-            "Name": "Loop 4",
-            "TripCount": "16",
-            "Latency": "32",
-            "PipelineII": "",
-            "PipelineDepth": "2"
-          }
-        ],
+            "Latency": "180",
+            "PipelineII": "19",
+            "PipelineDepth": "29"
+          }],
         "Area": {
           "BRAM_18K": "2",
-          "FF": "1102",
-          "LUT": "3486",
-          "URAM": "0",
-          "DSP48E": "0"
+          "FF": "891",
+          "LUT": "3952",
+          "DSP48E": "0",
+          "URAM": "0"
         }
       },
       "aes_decrypt": {
         "Latency": {
-          "LatencyBest": "3793",
-          "LatencyAvg": "4153",
-          "LatencyWorst": "4473",
-          "PipelineIIMin": "3793",
-          "PipelineIIMax": "4473",
-          "PipelineII": "3793 ~ 4473",
+          "LatencyBest": "582",
+          "LatencyAvg": "582",
+          "LatencyWorst": "582",
+          "PipelineII": "582",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.498"
+          "Estimate": "12.548"
         },
         "Loops": [
           {
             "Name": "Loop 1",
             "TripCount": "4",
-            "Latency": "40",
+            "Latency": "24",
             "PipelineII": "",
-            "PipelineDepth": "10",
+            "PipelineDepth": "6",
             "Loops": [{
                 "Name": "Loop 1.1",
                 "TripCount": "4",
-                "Latency": "8",
+                "Latency": "4",
                 "PipelineII": "",
-                "PipelineDepth": "2"
+                "PipelineDepth": "1"
               }]
           },
           {
@@ -856,32 +894,30 @@
         ],
         "Area": {
           "BRAM_18K": "6",
-          "FF": "1636",
-          "LUT": "4823",
+          "FF": "1127",
+          "LUT": "4972",
           "URAM": "0",
           "DSP48E": "0"
         }
       },
       "decrypt_dut": {
         "Latency": {
-          "LatencyBest": "3794",
-          "LatencyAvg": "4154",
-          "LatencyWorst": "4474",
-          "PipelineIIMin": "3795",
-          "PipelineIIMax": "4475",
-          "PipelineII": "3795 ~ 4475",
+          "LatencyBest": "583",
+          "LatencyAvg": "583",
+          "LatencyWorst": "583",
+          "PipelineII": "584",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.498"
+          "Estimate": "12.548"
         },
         "Area": {
           "BRAM_18K": "6",
-          "FF": "1639",
-          "LUT": "4838",
+          "FF": "1130",
+          "LUT": "4987",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -898,7 +934,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-11-19 21:05:45 EST",
+    "Time": "2024-11-21 20:05:40 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_invMain'" level="0">
-<item name = "Date">Tue Nov 19 21:05:42 2024
+<item name = "Date">Thu Nov 21 20:05:36 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">decrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 6.923 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 12.548 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2710, 2710, 27.100 us, 27.100 us, 2710, 2710, none</column>
+<column name="">238, 238, 2.986 us, 2.986 us, 238, 238, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,10 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">32, 32, 2, -, -, 16, no</column>
-<column name="- DECRYPT_LOOP">2502, 2502, 278, -, -, 9, no</column>
-<column name="- Loop 3">48, 48, 3, -, -, 16, no</column>
-<column name="- Loop 4">32, 32, 2, -, -, 16, no</column>
+<column name="- DECRYPT_MAIN_LOOP">180, 180, 29, 19, 1, 9, yes</column>
 </table>
 </item>
 </section>
