@@ -10,6 +10,9 @@
 #include "../../refactored/encrypt.h"
 #include "../../refactored/decrypt.h"
 
+#include "../../blowfish/blowfish.h"
+#include "../../blowfish/blowfish.cpp"
+
 // true = aes, false = blowfish
 bool lfsr_encrypt = 0;
 bool lfsr_decrypt = 0;
@@ -55,11 +58,61 @@ bit128_t decrypt_aes(bit128_t ciphertext){
   return plaintext;
 }
 bit128_t encrypt_bf(bit128_t plaintext){
-  bit128_t ciphertext = plaintext + 0x1010101010101010;
+  bit128_t ciphertext;
+  bit128_t plaintext_;
+  std::cout << "enc_plaintext 128-bit value: " << std::hex << plaintext << std::endl;
+  unsigned char plaintext1[BLOCK_SIZE];
+  unsigned char plaintext2[BLOCK_SIZE];
+
+  unsigned char ciphertext1[BLOCK_SIZE];
+  unsigned char ciphertext2[BLOCK_SIZE];
+
+  unsigned char decryptedtext1[BLOCK_SIZE];
+  unsigned char decryptedtext2[BLOCK_SIZE];
+
+  unsigned int P[PARRAY_SIZE];
+  unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2];
+
+  unsigned char key[MAX_KEY_BYTE_LENGTH] = {'M', 'y', ' ','K','e','y','!','!','!'};
+  Blowfish_SetKey(key, sizeof("My Key!!!")-1,P, S);
+
+  split_bit128(plaintext, plaintext1, plaintext2);
+  
+  Blowfish_Encrypt(plaintext1, ciphertext1, P, S);
+  Blowfish_Encrypt(plaintext2, ciphertext2, P, S);
+
+  ciphertext = combine_to_bit128(ciphertext1, ciphertext2);
+  std::cout << "enc_ciphertext 128-bit value: " << std::hex << ciphertext << std::endl;
   return ciphertext;
 }
+
+
+
 bit128_t decrypt_bf(bit128_t ciphertext){
-  bit128_t plaintext = ciphertext - 0x1010101010101010;
+  bit128_t plaintext;
+  std::cout << "dec_ciphertext 128-bit value: " << std::hex << ciphertext << std::endl;
+
+  unsigned char ciphertext1[BLOCK_SIZE];
+  unsigned char ciphertext2[BLOCK_SIZE];
+
+  unsigned char decryptedtext1[BLOCK_SIZE];
+  unsigned char decryptedtext2[BLOCK_SIZE];
+
+  unsigned int P[PARRAY_SIZE];
+  unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2];
+
+  unsigned char key[MAX_KEY_BYTE_LENGTH] = {'M', 'y', ' ','K','e','y','!','!','!'};
+  Blowfish_SetKey(key, sizeof("My Key!!!")-1,P, S);
+
+  split_bit128(ciphertext, ciphertext1, ciphertext2);
+
+  // Decrypt
+  Blowfish_Decrypt(ciphertext1, decryptedtext1, P, S);
+  Blowfish_Decrypt(ciphertext2, decryptedtext2, P, S);
+
+  plaintext = combine_to_bit128(decryptedtext1, decryptedtext2);
+  std::cout << "dec_plaintext_ 128-bit value: " << std::hex << plaintext << std::endl;
+
   return plaintext;
 }
 
@@ -86,8 +139,6 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
   unsigned char test_key[16] = {0x54, 0x68, 0x61, 0x74, 0x73, 0x20, 0x6D, 0x79, 0x20, 0x4B, 0x75, 0x6E, 0x67, 0x20, 0x46, 0x75};
   unsigned char output[16] = {0};
   unsigned char aes_input[16] = {0};
-
-
 
   bool reading = 1;
   bool en;

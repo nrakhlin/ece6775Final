@@ -328,10 +328,10 @@
 
 <Node id="24" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-.preheader1:3  %empty_38 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+.preheader1:3  %empty_48 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
 ]]></Node>
-<StgValue><ssdm name="empty_38"/></StgValue>
+<StgValue><ssdm name="empty_48"/></StgValue>
 </operation>
 
 <operation id="25" st_id="3" stage="1" lat="1">
@@ -615,7 +615,7 @@
 
 <Node id="45" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0">
 <![CDATA[
-.loopexit:0  %i_1 = phi i3 [ 0, %2 ], [ %i_14, %.loopexit.loopexit ]
+.loopexit:0  %i_1 = phi i3 [ 0, %2 ], [ %i_16, %.loopexit.loopexit ]
 
 ]]></Node>
 <StgValue><ssdm name="i_1"/></StgValue>
@@ -660,10 +660,10 @@
 
 <Node id="48" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-.loopexit:3  %empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+.loopexit:3  %empty_49 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
 ]]></Node>
-<StgValue><ssdm name="empty_39"/></StgValue>
+<StgValue><ssdm name="empty_49"/></StgValue>
 </operation>
 
 <operation id="46" st_id="6" stage="1" lat="1">
@@ -675,10 +675,10 @@
 
 <Node id="49" bw="3" op_0_bw="3" op_1_bw="3">
 <![CDATA[
-.loopexit:4  %i_14 = add i3 %i_1, 1
+.loopexit:4  %i_16 = add i3 %i_1, 1
 
 ]]></Node>
-<StgValue><ssdm name="i_14"/></StgValue>
+<StgValue><ssdm name="i_16"/></StgValue>
 </operation>
 
 <operation id="47" st_id="6" stage="1" lat="1">
@@ -817,10 +817,10 @@
 
 <Node id="59" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-.preheader:3  %empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+.preheader:3  %empty_50 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
 
 ]]></Node>
-<StgValue><ssdm name="empty_40"/></StgValue>
+<StgValue><ssdm name="empty_50"/></StgValue>
 </operation>
 
 <operation id="56" st_id="7" stage="1" lat="1">
@@ -1071,8 +1071,8 @@
 <core>RAM</core><StgValue><ssdm name="output_r"/><MemPortTyVec>0 3 </MemPortTyVec>
 </StgValue>
 </port>
-<port id="87" name="expandedKey23" dir="0" iftype="1">
-<core>RAM</core><StgValue><ssdm name="expandedKey23"/><MemPortTyVec>1 3 </MemPortTyVec>
+<port id="87" name="expandedKey29" dir="0" iftype="1">
+<core>RAM</core><StgValue><ssdm name="expandedKey29"/><MemPortTyVec>1 3 </MemPortTyVec>
 </StgValue>
 </port>
 <port id="88" name="rsbox" dir="0" iftype="1">
@@ -1134,7 +1134,7 @@
 </dataflow>
 <dataflow id="118" from="block" to="call_ln85" fromId="9" toId="20">
 </dataflow>
-<dataflow id="119" from="expandedKey23" to="call_ln85" fromId="87" toId="20">
+<dataflow id="119" from="expandedKey29" to="call_ln85" fromId="87" toId="20">
 </dataflow>
 <dataflow id="120" from="rsbox" to="call_ln85" fromId="88" toId="20">
 </dataflow>
@@ -1161,13 +1161,13 @@
 </dataflow>
 <dataflow id="127" from="StgValue_98" to="icmp_ln75" fromId="98" toId="23">
 </dataflow>
-<dataflow id="128" from="_ssdm_op_SpecLoopTripCount" to="empty_38" fromId="100" toId="24">
+<dataflow id="128" from="_ssdm_op_SpecLoopTripCount" to="empty_48" fromId="100" toId="24">
 </dataflow>
-<dataflow id="129" from="StgValue_102" to="empty_38" fromId="102" toId="24">
+<dataflow id="129" from="StgValue_102" to="empty_48" fromId="102" toId="24">
 </dataflow>
-<dataflow id="130" from="StgValue_102" to="empty_38" fromId="102" toId="24">
+<dataflow id="130" from="StgValue_102" to="empty_48" fromId="102" toId="24">
 </dataflow>
-<dataflow id="131" from="StgValue_102" to="empty_38" fromId="102" toId="24">
+<dataflow id="131" from="StgValue_102" to="empty_48" fromId="102" toId="24">
 </dataflow>
 <dataflow id="132" from="j_0" to="j" fromId="21" toId="25">
 </dataflow>
@@ -1219,7 +1219,7 @@
 </dataflow>
 <dataflow id="157" from="block" to="call_ln85" fromId="9" toId="40">
 </dataflow>
-<dataflow id="158" from="expandedKey23" to="call_ln85" fromId="87" toId="40">
+<dataflow id="158" from="expandedKey29" to="call_ln85" fromId="87" toId="40">
 </dataflow>
 <dataflow id="159" from="rsbox" to="call_ln85" fromId="88" toId="40">
 </dataflow>
@@ -1230,7 +1230,7 @@
 </dataflow>
 <dataflow id="161" from="br_ln88" to="i_1" fromId="41" toId="42">
 </dataflow>
-<dataflow id="162" from="i_14" to="i_1" fromId="46" toId="42">
+<dataflow id="162" from="i_16" to="i_1" fromId="46" toId="42">
 <BackEdge/>
 <condition id="-1">
 <or_exp><and_exp><literal name="icmp_ln91" val="1"/>
@@ -1246,17 +1246,17 @@
 </dataflow>
 <dataflow id="166" from="StgValue_98" to="icmp_ln88" fromId="98" toId="44">
 </dataflow>
-<dataflow id="167" from="_ssdm_op_SpecLoopTripCount" to="empty_39" fromId="100" toId="45">
+<dataflow id="167" from="_ssdm_op_SpecLoopTripCount" to="empty_49" fromId="100" toId="45">
 </dataflow>
-<dataflow id="168" from="StgValue_102" to="empty_39" fromId="102" toId="45">
+<dataflow id="168" from="StgValue_102" to="empty_49" fromId="102" toId="45">
 </dataflow>
-<dataflow id="169" from="StgValue_102" to="empty_39" fromId="102" toId="45">
+<dataflow id="169" from="StgValue_102" to="empty_49" fromId="102" toId="45">
 </dataflow>
-<dataflow id="170" from="StgValue_102" to="empty_39" fromId="102" toId="45">
+<dataflow id="170" from="StgValue_102" to="empty_49" fromId="102" toId="45">
 </dataflow>
-<dataflow id="171" from="i_1" to="i_14" fromId="42" toId="46">
+<dataflow id="171" from="i_1" to="i_16" fromId="42" toId="46">
 </dataflow>
-<dataflow id="172" from="StgValue_107" to="i_14" fromId="107" toId="46">
+<dataflow id="172" from="StgValue_107" to="i_16" fromId="107" toId="46">
 </dataflow>
 <dataflow id="173" from="icmp_ln88" to="br_ln88" fromId="44" toId="47">
 </dataflow>
@@ -1291,13 +1291,13 @@
 </dataflow>
 <dataflow id="184" from="StgValue_98" to="icmp_ln91" fromId="98" toId="54">
 </dataflow>
-<dataflow id="185" from="_ssdm_op_SpecLoopTripCount" to="empty_40" fromId="100" toId="55">
+<dataflow id="185" from="_ssdm_op_SpecLoopTripCount" to="empty_50" fromId="100" toId="55">
 </dataflow>
-<dataflow id="186" from="StgValue_102" to="empty_40" fromId="102" toId="55">
+<dataflow id="186" from="StgValue_102" to="empty_50" fromId="102" toId="55">
 </dataflow>
-<dataflow id="187" from="StgValue_102" to="empty_40" fromId="102" toId="55">
+<dataflow id="187" from="StgValue_102" to="empty_50" fromId="102" toId="55">
 </dataflow>
-<dataflow id="188" from="StgValue_102" to="empty_40" fromId="102" toId="55">
+<dataflow id="188" from="StgValue_102" to="empty_50" fromId="102" toId="55">
 </dataflow>
 <dataflow id="189" from="j_1" to="j_5" fromId="52" toId="56">
 </dataflow>

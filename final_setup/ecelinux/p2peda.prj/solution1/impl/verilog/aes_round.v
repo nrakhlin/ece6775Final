@@ -104,11 +104,11 @@ wire    ap_CS_fsm_state7;
 reg   [7:0] state_load_5_reg_362;
 wire    ap_CS_fsm_state8;
 reg   [7:0] state_load_6_reg_367;
-reg   [7:0] tmp_6_reg_384;
+reg   [7:0] tmp_8_reg_384;
 wire    ap_CS_fsm_state9;
 wire   [3:0] state_addr_13_reg_394;
-wire   [4:0] i_5_fu_277_p2;
-reg   [4:0] i_5_reg_402;
+wire   [4:0] i_7_fu_277_p2;
+reg   [4:0] i_7_reg_402;
 wire    ap_CS_fsm_state16;
 reg   [3:0] state_addr_15_reg_407;
 wire   [0:0] icmp_ln225_fu_271_p2;
@@ -190,7 +190,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state17)) begin
-        i_0_i4_reg_219 <= i_5_reg_402;
+        i_0_i4_reg_219 <= i_7_reg_402;
     end else if (((1'b1 == ap_CS_fsm_state15) & (grp_mixColumns_fu_230_ap_done == 1'b1))) begin
         i_0_i4_reg_219 <= 5'd0;
     end
@@ -222,7 +222,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state16)) begin
-        i_5_reg_402 <= i_5_fu_277_p2;
+        i_7_reg_402 <= i_7_fu_277_p2;
     end
 end
 
@@ -259,7 +259,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state9)) begin
-        tmp_6_reg_384 <= state_q0;
+        tmp_8_reg_384 <= state_q0;
     end
 end
 
@@ -385,7 +385,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state13)) begin
-        state_d0 = tmp_6_reg_384;
+        state_d0 = tmp_8_reg_384;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
         state_d0 = state_load_6_reg_367;
     end else if ((1'b1 == ap_CS_fsm_state11)) begin
@@ -552,7 +552,7 @@ assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
 assign grp_mixColumns_fu_230_ap_start = grp_mixColumns_fu_230_ap_start_reg;
 
-assign i_5_fu_277_p2 = (i_0_i4_reg_219 + 5'd1);
+assign i_7_fu_277_p2 = (i_0_i4_reg_219 + 5'd1);
 
 assign i_fu_255_p2 = (i_0_i_reg_208 + 5'd1);
 

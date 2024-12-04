@@ -5,6 +5,13 @@ aes_main_roundKey
 aes_encrypt_block
 aes_invRound_rsbox
 aes_invMain_expandEe
+Blowfish_Decrypt_P
+Blowfish_Decrypt_g8j
+Blowfish_Decrypt_hbi
+Blowfish_Decrypt_ibs
+Blowfish_Decrypt_jbC
+dut_ciphertext1
+dut_decryptedtext1
 createRoundKey
 galois_multiplicatio
 mixColumn
@@ -19,4 +26,5 @@ aes_invRound
 aes_invMain
 aes_decrypt
 decrypt_aes
+Blowfish_Decrypt
 dut

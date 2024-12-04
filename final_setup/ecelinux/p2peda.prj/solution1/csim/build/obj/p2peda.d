@@ -21,4 +21,8 @@ obj/p2peda.o: ../../../../p2peda.cpp \
  /opt/xilinx/Vivado/2019.2/include/ap_fixed_special.h \
  ../../../../../../refactored/encrypt.h \
  ../../../../../../refactored/constants.h \
- ../../../../../../refactored/decrypt.h
+ ../../../../../../refactored/decrypt.h \
+ ../../../../../../blowfish/blowfish.h \
+ ../../../../../../blowfish/initial_data.h \
+ ../../../../../../blowfish/blowfish.cpp \
+ ../../../../../../blowfish/blowfish.h

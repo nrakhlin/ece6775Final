@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_decrypt'
 ================================================================
-* Date:           Tue Dec  3 11:39:39 2024
+* Date:           Wed Dec  4 15:55:06 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        p2peda.prj
@@ -109,7 +109,7 @@
     |add_ln77_fu_176_p2    |     +    |      0|  0|  13|           4|           4|
     |add_ln93_1_fu_273_p2  |     +    |      0|  0|  13|           4|           4|
     |add_ln93_fu_263_p2    |     +    |      0|  0|  13|           4|           4|
-    |i_14_fu_217_p2        |     +    |      0|  0|  12|           3|           1|
+    |i_16_fu_217_p2        |     +    |      0|  0|  12|           3|           1|
     |i_fu_142_p2           |     +    |      0|  0|  12|           3|           1|
     |j_5_fu_245_p2         |     +    |      0|  0|  12|           3|           1|
     |j_fu_170_p2           |     +    |      0|  0|  12|           3|           1|
@@ -149,7 +149,7 @@
     |ap_CS_fsm                            |  8|   0|    8|          0|
     |grp_aes_invMain_fu_123_ap_start_reg  |  1|   0|    1|          0|
     |i_0_reg_79                           |  3|   0|    3|          0|
-    |i_14_reg_326                         |  3|   0|    3|          0|
+    |i_16_reg_326                         |  3|   0|    3|          0|
     |i_1_reg_101                          |  3|   0|    3|          0|
     |i_reg_290                            |  3|   0|    3|          0|
     |j_0_reg_90                           |  3|   0|    3|          0|
@@ -250,7 +250,7 @@ State 3 <SV = 2> <Delay = 4.05>
 ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ %j, %1 ], [ 0, %.preheader1.preheader ]"   --->   Operation 21 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%zext_ln75 = zext i3 %j_0 to i4" [../../refactored/decrypt.cpp:75]   --->   Operation 22 'zext' 'zext_ln75' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 23 [1/1] (1.13ns)   --->   "%icmp_ln75 = icmp eq i3 %j_0, -4" [../../refactored/decrypt.cpp:75]   --->   Operation 23 'icmp' 'icmp_ln75' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%empty_38 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 24 'speclooptripcount' 'empty_38' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%empty_48 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 24 'speclooptripcount' 'empty_48' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 25 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [../../refactored/decrypt.cpp:75]   --->   Operation 25 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 26 [1/1] (0.00ns)   --->   "br i1 %icmp_ln75, label %.loopexit1.loopexit, label %1" [../../refactored/decrypt.cpp:75]   --->   Operation 26 'br' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 27 [1/1] (1.73ns)   --->   "%add_ln77 = add i4 %zext_ln75, %shl_ln" [../../refactored/decrypt.cpp:77]   --->   Operation 27 'add' 'add_ln77' <Predicate = (!icmp_ln75)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
@@ -274,11 +274,11 @@ ST_5 : Operation 40 [1/2] (0.00ns)   --->   "call fastcc void @aes_invMain([16 x
 ST_5 : Operation 41 [1/1] (1.76ns)   --->   "br label %.loopexit" [../../refactored/decrypt.cpp:88]   --->   Operation 41 'br' <Predicate = true> <Delay = 1.76>
 
 State 6 <SV = 3> <Delay = 1.76>
-ST_6 : Operation 42 [1/1] (0.00ns)   --->   "%i_1 = phi i3 [ 0, %2 ], [ %i_14, %.loopexit.loopexit ]"   --->   Operation 42 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 42 [1/1] (0.00ns)   --->   "%i_1 = phi i3 [ 0, %2 ], [ %i_16, %.loopexit.loopexit ]"   --->   Operation 42 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln88 = zext i3 %i_1 to i4" [../../refactored/decrypt.cpp:88]   --->   Operation 43 'zext' 'zext_ln88' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 44 [1/1] (1.13ns)   --->   "%icmp_ln88 = icmp eq i3 %i_1, -4" [../../refactored/decrypt.cpp:88]   --->   Operation 44 'icmp' 'icmp_ln88' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 45 'speclooptripcount' 'empty_39' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 46 [1/1] (1.65ns)   --->   "%i_14 = add i3 %i_1, 1" [../../refactored/decrypt.cpp:88]   --->   Operation 46 'add' 'i_14' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%empty_49 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 45 'speclooptripcount' 'empty_49' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 46 [1/1] (1.65ns)   --->   "%i_16 = add i3 %i_1, 1" [../../refactored/decrypt.cpp:88]   --->   Operation 46 'add' 'i_16' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_6 : Operation 47 [1/1] (0.00ns)   --->   "br i1 %icmp_ln88, label %4, label %.preheader.preheader" [../../refactored/decrypt.cpp:88]   --->   Operation 47 'br' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 48 [1/1] (0.00ns)   --->   "%trunc_ln93 = trunc i3 %i_1 to i2" [../../refactored/decrypt.cpp:93]   --->   Operation 48 'trunc' 'trunc_ln93' <Predicate = (!icmp_ln88)> <Delay = 0.00>
 ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%shl_ln4 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln93, i2 0)" [../../refactored/decrypt.cpp:93]   --->   Operation 49 'bitconcatenate' 'shl_ln4' <Predicate = (!icmp_ln88)> <Delay = 0.00>
@@ -289,7 +289,7 @@ State 7 <SV = 4> <Delay = 4.05>
 ST_7 : Operation 52 [1/1] (0.00ns)   --->   "%j_1 = phi i3 [ %j_5, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 52 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 53 [1/1] (0.00ns)   --->   "%zext_ln91 = zext i3 %j_1 to i4" [../../refactored/decrypt.cpp:91]   --->   Operation 53 'zext' 'zext_ln91' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 54 [1/1] (1.13ns)   --->   "%icmp_ln91 = icmp eq i3 %j_1, -4" [../../refactored/decrypt.cpp:91]   --->   Operation 54 'icmp' 'icmp_ln91' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 55 'speclooptripcount' 'empty_40' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%empty_50 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 55 'speclooptripcount' 'empty_50' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 56 [1/1] (1.65ns)   --->   "%j_5 = add i3 %j_1, 1" [../../refactored/decrypt.cpp:91]   --->   Operation 56 'add' 'j_5' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_7 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %icmp_ln91, label %.loopexit.loopexit, label %3" [../../refactored/decrypt.cpp:91]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln93_1 = trunc i3 %j_1 to i2" [../../refactored/decrypt.cpp:93]   --->   Operation 58 'trunc' 'trunc_ln93_1' <Predicate = (!icmp_ln91)> <Delay = 0.00>
@@ -322,7 +322,7 @@ STG Binding:
 Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
 Port [ input_r]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
 Port [ output_r]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
-Port [ expandedKey23]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ expandedKey29]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[13]; IO mode=ap_memory:ce=0
 Port [ rsbox]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
 ---------------- STG Properties END ------------------
 
@@ -344,7 +344,7 @@ br_ln75      (br               ) [ 001110000]
 j_0          (phi              ) [ 000100000]
 zext_ln75    (zext             ) [ 000000000]
 icmp_ln75    (icmp             ) [ 001110000]
-empty_38     (speclooptripcount) [ 000000000]
+empty_48     (speclooptripcount) [ 000000000]
 j            (add              ) [ 001110000]
 br_ln75      (br               ) [ 000000000]
 add_ln77     (add              ) [ 000000000]
@@ -364,8 +364,8 @@ br_ln88      (br               ) [ 000001111]
 i_1          (phi              ) [ 000000100]
 zext_ln88    (zext             ) [ 000000011]
 icmp_ln88    (icmp             ) [ 000000111]
-empty_39     (speclooptripcount) [ 000000000]
-i_14         (add              ) [ 000001111]
+empty_49     (speclooptripcount) [ 000000000]
+i_16         (add              ) [ 000001111]
 br_ln88      (br               ) [ 000000000]
 trunc_ln93   (trunc            ) [ 000000000]
 shl_ln4      (bitconcatenate   ) [ 000000011]
@@ -374,7 +374,7 @@ ret_ln96     (ret              ) [ 000000000]
 j_1          (phi              ) [ 000000010]
 zext_ln91    (zext             ) [ 000000000]
 icmp_ln91    (icmp             ) [ 000000111]
-empty_40     (speclooptripcount) [ 000000000]
+empty_50     (speclooptripcount) [ 000000000]
 j_5          (add              ) [ 000000111]
 br_ln91      (br               ) [ 000000000]
 trunc_ln93_1 (trunc            ) [ 000000000]
@@ -414,12 +414,12 @@ br_ln91      (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="4" class="1000" name="expandedKey23">
+<comp id="4" class="1000" name="expandedKey29">
 <pin_list>
 <pin id="5" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="expandedKey23"/><MemPortTyVec>1 3 </MemPortTyVec>
+<StgValue><ssdm name="expandedKey29"/><MemPortTyVec>1 3 </MemPortTyVec>
 </StgValue>
 </bind>
 </comp>
@@ -923,7 +923,7 @@ br_ln91      (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="217" class="1004" name="i_14_fu_217">
+<comp id="217" class="1004" name="i_16_fu_217">
 <pin_list>
 <pin id="218" dir="0" index="0" bw="3" slack="0"/>
 <pin id="219" dir="0" index="1" bw="1" slack="0"/>
@@ -931,7 +931,7 @@ br_ln91      (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="i_14/6 "/>
+<opset="i_16/6 "/>
 </bind>
 </comp>
 
@@ -1134,13 +1134,13 @@ br_ln91      (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="326" class="1005" name="i_14_reg_326">
+<comp id="326" class="1005" name="i_16_reg_326">
 <pin_list>
 <pin id="327" dir="0" index="0" bw="3" slack="0"/>
 <pin id="328" dir="1" index="1" bw="3" slack="0"/>
 </pin_list>
 <bind>
-<opset="i_14 "/>
+<opset="i_16 "/>
 </bind>
 </comp>
 
@@ -1383,11 +1383,11 @@ br_ln91      (br               ) [ 000000111]
 * FSMD analyzer results:
   - Output states:
 	Port: output_r | {8 }
-	Port: expandedKey23 | {}
+	Port: expandedKey29 | {}
 	Port: rsbox | {}
  - Input state : 
 	Port: aes_decrypt : input_r | {3 4 }
-	Port: aes_decrypt : expandedKey23 | {2 5 }
+	Port: aes_decrypt : expandedKey29 | {2 5 }
 	Port: aes_decrypt : rsbox | {2 5 }
   - Chain level:
 	State 1
@@ -1417,7 +1417,7 @@ br_ln91      (br               ) [ 000000111]
 	State 6
 		zext_ln88 : 1
 		icmp_ln88 : 1
-		i_14 : 1
+		i_16 : 1
 		br_ln88 : 2
 		trunc_ln93 : 1
 		shl_ln4 : 2
@@ -1452,7 +1452,7 @@ br_ln91      (br               ) [ 000000111]
 |          |        j_fu_170        |    0    |    0    |    0    |    12   |    0    |
 |          |     add_ln77_fu_176    |    0    |    0    |    0    |    13   |    0    |
 |    add   |    add_ln77_1_fu_198   |    0    |    0    |    0    |    13   |    0    |
-|          |       i_14_fu_217      |    0    |    0    |    0    |    12   |    0    |
+|          |       i_16_fu_217      |    0    |    0    |    0    |    12   |    0    |
 |          |       j_5_fu_245       |    0    |    0    |    0    |    12   |    0    |
 |          |     add_ln93_fu_263    |    0    |    0    |    0    |    13   |    0    |
 |          |    add_ln93_1_fu_273   |    0    |    0    |    0    |    13   |    0    |
@@ -1501,7 +1501,7 @@ Memories:
 | add_ln93_1_reg_349 |    4   |
 |block_addr_2_reg_344|    4   |
 |     i_0_reg_79     |    3   |
-|    i_14_reg_326    |    3   |
+|    i_16_reg_326    |    3   |
 |     i_1_reg_101    |    3   |
 |      i_reg_290     |    3   |
 | input_addr_reg_308 |    4   |

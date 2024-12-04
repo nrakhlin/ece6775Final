@@ -67,7 +67,7 @@ struct aes_invRound : public sc_module {
     sc_signal< sc_lv<8> > state_load_31_reg_343;
     sc_signal< sc_logic > ap_CS_fsm_state5;
     sc_signal< sc_lv<8> > state_load_32_reg_348;
-    sc_signal< sc_lv<8> > tmp_11_reg_365;
+    sc_signal< sc_lv<8> > tmp_13_reg_365;
     sc_signal< sc_logic > ap_CS_fsm_state6;
     sc_signal< sc_lv<4> > state_addr_40_reg_375;
     sc_signal< sc_lv<5> > i_fu_255_p2;
@@ -76,8 +76,8 @@ struct aes_invRound : public sc_module {
     sc_signal< sc_lv<4> > state_addr_41_reg_388;
     sc_signal< sc_lv<1> > icmp_ln319_fu_249_p2;
     sc_signal< sc_logic > ap_CS_fsm_state12;
-    sc_signal< sc_lv<5> > i_9_fu_277_p2;
-    sc_signal< sc_lv<5> > i_9_reg_402;
+    sc_signal< sc_lv<5> > i_11_fu_277_p2;
+    sc_signal< sc_lv<5> > i_11_reg_402;
     sc_signal< sc_logic > ap_CS_fsm_state14;
     sc_signal< sc_lv<4> > state_addr_42_reg_407;
     sc_signal< sc_lv<1> > icmp_ln225_fu_271_p2;
@@ -177,7 +177,7 @@ struct aes_invRound : public sc_module {
     void thread_ap_idle();
     void thread_ap_ready();
     void thread_grp_invMixColumns_fu_230_ap_start();
-    void thread_i_9_fu_277_p2();
+    void thread_i_11_fu_277_p2();
     void thread_i_fu_255_p2();
     void thread_icmp_ln225_fu_271_p2();
     void thread_icmp_ln319_fu_249_p2();

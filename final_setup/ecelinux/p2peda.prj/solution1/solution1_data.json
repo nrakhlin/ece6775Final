@@ -33,7 +33,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "2915",
+    "Latency": "2926",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -68,8 +68,16 @@
       "impl\/vhdl\/aes_main_roundKey.vhd",
       "impl\/vhdl\/aes_round.vhd",
       "impl\/vhdl\/aes_round_sbox.vhd",
+      "impl\/vhdl\/Blowfish_Decrypt.vhd",
+      "impl\/vhdl\/Blowfish_Decrypt_g8j.vhd",
+      "impl\/vhdl\/Blowfish_Decrypt_hbi.vhd",
+      "impl\/vhdl\/Blowfish_Decrypt_ibs.vhd",
+      "impl\/vhdl\/Blowfish_Decrypt_jbC.vhd",
+      "impl\/vhdl\/Blowfish_Decrypt_P.vhd",
       "impl\/vhdl\/createRoundKey.vhd",
       "impl\/vhdl\/decrypt_aes.vhd",
+      "impl\/vhdl\/dut_ciphertext1.vhd",
+      "impl\/vhdl\/dut_decryptedtext1.vhd",
       "impl\/vhdl\/dut_mux_42_8_1_1.vhd",
       "impl\/vhdl\/encrypt_aes.vhd",
       "impl\/vhdl\/galois_multiplicatio.vhd",
@@ -96,8 +104,21 @@
       "impl\/verilog\/aes_round.v",
       "impl\/verilog\/aes_round_sbox.v",
       "impl\/verilog\/aes_round_sbox_rom.dat",
+      "impl\/verilog\/Blowfish_Decrypt.v",
+      "impl\/verilog\/Blowfish_Decrypt_g8j.v",
+      "impl\/verilog\/Blowfish_Decrypt_g8j_rom.dat",
+      "impl\/verilog\/Blowfish_Decrypt_hbi.v",
+      "impl\/verilog\/Blowfish_Decrypt_hbi_rom.dat",
+      "impl\/verilog\/Blowfish_Decrypt_ibs.v",
+      "impl\/verilog\/Blowfish_Decrypt_ibs_rom.dat",
+      "impl\/verilog\/Blowfish_Decrypt_jbC.v",
+      "impl\/verilog\/Blowfish_Decrypt_jbC_rom.dat",
+      "impl\/verilog\/Blowfish_Decrypt_P.v",
+      "impl\/verilog\/Blowfish_Decrypt_P_rom.dat",
       "impl\/verilog\/createRoundKey.v",
       "impl\/verilog\/decrypt_aes.v",
+      "impl\/verilog\/dut_ciphertext1.v",
+      "impl\/verilog\/dut_decryptedtext1.v",
       "impl\/verilog\/dut_mux_42_8_1_1.v",
       "impl\/verilog\/encrypt_aes.v",
       "impl\/verilog\/galois_multiplicatio.v",
@@ -225,7 +246,7 @@
       "Instances": [
         {
           "ModuleName": "decrypt_aes",
-          "InstanceName": "grp_decrypt_aes_fu_182",
+          "InstanceName": "grp_decrypt_aes_fu_284",
           "Instances": [{
               "ModuleName": "aes_decrypt",
               "InstanceName": "grp_aes_decrypt_fu_167",
@@ -321,7 +342,7 @@
         },
         {
           "ModuleName": "encrypt_aes",
-          "InstanceName": "grp_encrypt_aes_fu_191",
+          "InstanceName": "grp_encrypt_aes_fu_293",
           "Instances": [{
               "ModuleName": "aes_encrypt",
               "InstanceName": "grp_aes_encrypt_fu_167",
@@ -398,6 +419,14 @@
                   ]
                 }]
             }]
+        },
+        {
+          "ModuleName": "Blowfish_Decrypt",
+          "InstanceName": "grp_Blowfish_Decrypt_fu_302"
+        },
+        {
+          "ModuleName": "Blowfish_Decrypt",
+          "InstanceName": "grp_Blowfish_Decrypt_fu_318"
         }
       ]
     },
@@ -494,6 +523,13 @@
         "isOneStateSeq": "0"
       },
       "decrypt_aes": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Blowfish_Decrypt": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "1",
         "isPipelined": "0",
@@ -1110,21 +1146,50 @@
           "DSP48E": "0"
         }
       },
-      "dut": {
+      "Blowfish_Decrypt": {
         "Latency": {
-          "LatencyBest": "2915",
-          "LatencyAvg": "2920",
-          "LatencyWorst": "2925",
-          "PipelineIIMin": "2916",
-          "PipelineIIMax": "2926",
-          "PipelineII": "2916 ~ 2926",
+          "LatencyBest": "72",
+          "LatencyAvg": "72",
+          "LatencyWorst": "72",
+          "PipelineII": "72",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.077"
+          "Estimate": "8.358"
+        },
+        "Loops": [{
+            "Name": "DECRYPT_FEISTEL",
+            "TripCount": "16",
+            "Latency": "64",
+            "PipelineII": "",
+            "PipelineDepth": "4"
+          }],
+        "Area": {
+          "BRAM_18K": "4",
+          "FF": "246",
+          "LUT": "564",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "dut": {
+        "Latency": {
+          "LatencyBest": "2926",
+          "LatencyAvg": "2974",
+          "LatencyWorst": "3022",
+          "PipelineIIMin": "2927",
+          "PipelineIIMax": "3023",
+          "PipelineII": "2927 ~ 3023",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.358"
         },
         "Loops": [
           {
@@ -1143,6 +1208,20 @@
           },
           {
             "Name": "Loop 3",
+            "TripCount": "8",
+            "Latency": "16",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "8",
+            "Latency": "16",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 5",
             "TripCount": "5",
             "Latency": "10",
             "PipelineII": "",
@@ -1150,9 +1229,9 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "8",
-          "FF": "3833",
-          "LUT": "17645",
+          "BRAM_18K": "16",
+          "FF": "4681",
+          "LUT": "20091",
           "URAM": "0",
           "DSP48E": "0"
         }
@@ -1169,7 +1248,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2024-12-03 11:39:41 EST",
+    "Time": "2024-12-04 15:55:10 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2019.2"
   }

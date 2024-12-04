@@ -91,8 +91,8 @@ wire    ap_CS_fsm_state13;
 wire    ap_CS_fsm_state18;
 reg   [7:0] reg_315;
 wire    ap_CS_fsm_state14;
-wire   [4:0] i_6_fu_327_p2;
-reg   [4:0] i_6_reg_421;
+wire   [4:0] i_8_fu_327_p2;
+reg   [4:0] i_8_reg_421;
 wire    ap_CS_fsm_state3;
 reg   [3:0] state_addr_reg_426;
 wire   [0:0] icmp_ln225_fu_321_p2;
@@ -102,8 +102,8 @@ wire    ap_CS_fsm_state5;
 wire   [0:0] icmp_ln25_fu_346_p2;
 wire   [3:0] i_fu_365_p2;
 reg   [3:0] i_reg_444;
-wire   [4:0] i_7_fu_377_p2;
-reg   [4:0] i_7_reg_452;
+wire   [4:0] i_9_fu_377_p2;
+reg   [4:0] i_9_reg_452;
 wire    ap_CS_fsm_state10;
 reg   [3:0] state_addr_28_reg_457;
 wire   [0:0] icmp_ln174_fu_371_p2;
@@ -114,11 +114,11 @@ wire    ap_CS_fsm_state15;
 reg   [7:0] state_load_19_reg_517;
 wire    ap_CS_fsm_state16;
 reg   [7:0] state_load_20_reg_522;
-reg   [7:0] tmp_8_reg_539;
+reg   [7:0] tmp_10_reg_539;
 wire    ap_CS_fsm_state17;
 wire   [3:0] state_addr_27_reg_549;
-wire   [4:0] i_8_fu_399_p2;
-reg   [4:0] i_8_reg_557;
+wire   [4:0] i_10_fu_399_p2;
+reg   [4:0] i_10_reg_557;
 wire    ap_CS_fsm_state22;
 reg   [3:0] state_addr_29_reg_562;
 wire   [0:0] icmp_ln225_1_fu_393_p2;
@@ -295,7 +295,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state12)) begin
-        i_0_i1_reg_267 <= i_7_reg_452;
+        i_0_i1_reg_267 <= i_9_reg_452;
     end else if (((grp_createRoundKey_fu_298_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state9))) begin
         i_0_i1_reg_267 <= 5'd0;
     end
@@ -303,7 +303,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state23)) begin
-        i_0_i7_reg_278 <= i_8_reg_557;
+        i_0_i7_reg_278 <= i_10_reg_557;
     end else if ((1'b1 == ap_CS_fsm_state21)) begin
         i_0_i7_reg_278 <= 5'd0;
     end
@@ -311,7 +311,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        i_0_i_reg_245 <= i_6_reg_421;
+        i_0_i_reg_245 <= i_8_reg_421;
     end else if (((grp_createRoundKey_fu_298_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
         i_0_i_reg_245 <= 5'd0;
     end
@@ -334,20 +334,20 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state22)) begin
+        i_10_reg_557 <= i_10_fu_399_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        i_6_reg_421 <= i_6_fu_327_p2;
+        i_8_reg_421 <= i_8_fu_327_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state10)) begin
-        i_7_reg_452 <= i_7_fu_377_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state22)) begin
-        i_8_reg_557 <= i_8_fu_399_p2;
+        i_9_reg_452 <= i_9_fu_377_p2;
     end
 end
 
@@ -397,7 +397,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state17)) begin
-        tmp_8_reg_539 <= state_q1;
+        tmp_10_reg_539 <= state_q1;
     end
 end
 
@@ -609,7 +609,7 @@ always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state23)) begin
         state_d1 = xor_ln226_1_fu_411_p2;
     end else if ((1'b1 == ap_CS_fsm_state21)) begin
-        state_d1 = tmp_8_reg_539;
+        state_d1 = tmp_10_reg_539;
     end else if ((1'b1 == ap_CS_fsm_state20)) begin
         state_d1 = state_load_20_reg_522;
     end else if ((1'b1 == ap_CS_fsm_state19)) begin
@@ -812,11 +812,11 @@ assign grp_aes_round_fu_289_ap_start = grp_aes_round_fu_289_ap_start_reg;
 
 assign grp_createRoundKey_fu_298_ap_start = grp_createRoundKey_fu_298_ap_start_reg;
 
-assign i_6_fu_327_p2 = (i_0_i_reg_245 + 5'd1);
+assign i_10_fu_399_p2 = (i_0_i7_reg_278 + 5'd1);
 
-assign i_7_fu_377_p2 = (i_0_i1_reg_267 + 5'd1);
+assign i_8_fu_327_p2 = (i_0_i_reg_245 + 5'd1);
 
-assign i_8_fu_399_p2 = (i_0_i7_reg_278 + 5'd1);
+assign i_9_fu_377_p2 = (i_0_i1_reg_267 + 5'd1);
 
 assign i_fu_365_p2 = (i_0_reg_256 + 4'd1);
 

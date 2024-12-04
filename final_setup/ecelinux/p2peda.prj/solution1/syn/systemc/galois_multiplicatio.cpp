@@ -73,7 +73,7 @@ galois_multiplicatio::galois_multiplicatio(sc_module_name name) : sc_module(name
     sensitive << ( counter_0_reg_46 );
 
     SC_METHOD(thread_select_ln235_fu_102_p3);
-    sensitive << ( p_0_15_reg_77 );
+    sensitive << ( p_0_23_reg_77 );
     sensitive << ( trunc_ln233_fu_98_p1 );
 
     SC_METHOD(thread_select_ln239_fu_136_p3);
@@ -82,10 +82,10 @@ galois_multiplicatio::galois_multiplicatio(sc_module_name name) : sc_module(name
     sensitive << ( xor_ln240_fu_130_p2 );
 
     SC_METHOD(thread_shl_ln238_fu_116_p2);
-    sensitive << ( p_0_15_reg_77 );
+    sensitive << ( p_0_23_reg_77 );
 
     SC_METHOD(thread_tmp_fu_122_p3);
-    sensitive << ( p_0_15_reg_77 );
+    sensitive << ( p_0_23_reg_77 );
 
     SC_METHOD(thread_trunc_ln233_fu_98_p1);
     sensitive << ( b_assign_1_reg_68 );
@@ -139,7 +139,7 @@ galois_multiplicatio::galois_multiplicatio(sc_module_name name) : sc_module(name
     sc_trace(mVcdFile, counter_0_reg_46, "counter_0_reg_46");
     sc_trace(mVcdFile, p_0_reg_57, "p_0_reg_57");
     sc_trace(mVcdFile, b_assign_1_reg_68, "b_assign_1_reg_68");
-    sc_trace(mVcdFile, p_0_15_reg_77, "p_0_15_reg_77");
+    sc_trace(mVcdFile, p_0_23_reg_77, "p_0_23_reg_77");
     sc_trace(mVcdFile, trunc_ln233_fu_98_p1, "trunc_ln233_fu_98_p1");
     sc_trace(mVcdFile, select_ln235_fu_102_p3, "select_ln235_fu_102_p3");
     sc_trace(mVcdFile, shl_ln238_fu_116_p2, "shl_ln238_fu_116_p2");
@@ -189,10 +189,10 @@ void galois_multiplicatio::thread_ap_clk_no_reset_() {
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
          esl_seteq<1,1,1>(icmp_ln233_fu_86_p2.read(), ap_const_lv1_0))) {
-        p_0_15_reg_77 = select_ln239_fu_136_p3.read();
+        p_0_23_reg_77 = select_ln239_fu_136_p3.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                 esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1))) {
-        p_0_15_reg_77 = a.read();
+        p_0_23_reg_77 = a.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
          esl_seteq<1,1,1>(icmp_ln233_fu_86_p2.read(), ap_const_lv1_0))) {
@@ -262,7 +262,7 @@ void galois_multiplicatio::thread_icmp_ln233_fu_86_p2() {
 }
 
 void galois_multiplicatio::thread_select_ln235_fu_102_p3() {
-    select_ln235_fu_102_p3 = (!trunc_ln233_fu_98_p1.read()[0].is_01())? sc_lv<8>(): ((trunc_ln233_fu_98_p1.read()[0].to_bool())? p_0_15_reg_77.read(): ap_const_lv8_0);
+    select_ln235_fu_102_p3 = (!trunc_ln233_fu_98_p1.read()[0].is_01())? sc_lv<8>(): ((trunc_ln233_fu_98_p1.read()[0].to_bool())? p_0_23_reg_77.read(): ap_const_lv8_0);
 }
 
 void galois_multiplicatio::thread_select_ln239_fu_136_p3() {
@@ -270,11 +270,11 @@ void galois_multiplicatio::thread_select_ln239_fu_136_p3() {
 }
 
 void galois_multiplicatio::thread_shl_ln238_fu_116_p2() {
-    shl_ln238_fu_116_p2 = (!ap_const_lv8_1.is_01())? sc_lv<8>(): p_0_15_reg_77.read() << (unsigned short)ap_const_lv8_1.to_uint();
+    shl_ln238_fu_116_p2 = (!ap_const_lv8_1.is_01())? sc_lv<8>(): p_0_23_reg_77.read() << (unsigned short)ap_const_lv8_1.to_uint();
 }
 
 void galois_multiplicatio::thread_tmp_fu_122_p3() {
-    tmp_fu_122_p3 = p_0_15_reg_77.read().range(7, 7);
+    tmp_fu_122_p3 = p_0_23_reg_77.read().range(7, 7);
 }
 
 void galois_multiplicatio::thread_trunc_ln233_fu_98_p1() {

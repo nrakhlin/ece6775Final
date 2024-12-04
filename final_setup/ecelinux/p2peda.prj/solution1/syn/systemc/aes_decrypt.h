@@ -62,8 +62,8 @@ struct aes_decrypt : public sc_module {
     sc_signal< sc_lv<4> > zext_ln88_fu_207_p1;
     sc_signal< sc_lv<4> > zext_ln88_reg_318;
     sc_signal< sc_logic > ap_CS_fsm_state6;
-    sc_signal< sc_lv<3> > i_14_fu_217_p2;
-    sc_signal< sc_lv<3> > i_14_reg_326;
+    sc_signal< sc_lv<3> > i_16_fu_217_p2;
+    sc_signal< sc_lv<3> > i_16_reg_326;
     sc_signal< sc_lv<4> > shl_ln4_fu_227_p3;
     sc_signal< sc_lv<4> > shl_ln4_reg_331;
     sc_signal< sc_lv<1> > icmp_ln88_fu_211_p2;
@@ -165,7 +165,7 @@ struct aes_decrypt : public sc_module {
     void thread_block_we0();
     void thread_block_we1();
     void thread_grp_aes_invMain_fu_123_ap_start();
-    void thread_i_14_fu_217_p2();
+    void thread_i_16_fu_217_p2();
     void thread_i_fu_142_p2();
     void thread_icmp_ln72_fu_136_p2();
     void thread_icmp_ln75_fu_164_p2();

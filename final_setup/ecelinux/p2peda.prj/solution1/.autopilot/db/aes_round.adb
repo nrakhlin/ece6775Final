@@ -1536,7 +1536,7 @@
             <Obj>
               <type>0</type>
               <id>35</id>
-              <name>tmp_5</name>
+              <name>tmp_7</name>
               <fileName>../../refactored/helper.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>202</lineNumber>
@@ -2212,7 +2212,7 @@
             <Obj>
               <type>0</type>
               <id>47</id>
-              <name>tmp_6</name>
+              <name>tmp_8</name>
               <fileName>../../refactored/helper.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>212</lineNumber>
@@ -3040,7 +3040,7 @@
             <Obj>
               <type>0</type>
               <id>64</id>
-              <name>i_5</name>
+              <name>i_7</name>
               <fileName>../../refactored/helper.cpp</fileName>
               <fileDirectory>..</fileDirectory>
               <lineNumber>225</lineNumber>
@@ -3071,7 +3071,7 @@
                 </item>
               </inlineStackInfo>
               <originalName>i</originalName>
-              <rtlName>i_5_fu_277_p2</rtlName>
+              <rtlName>i_7_fu_277_p2</rtlName>
               <coreName/>
             </Obj>
             <bitwidth>5</bitwidth>
@@ -6379,7 +6379,7 @@
         <count>5</count>
         <item_version>0</item_version>
         <item>
-          <first>i_5_fu_277_p2 ( + ) </first>
+          <first>i_7_fu_277_p2 ( + ) </first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -6874,7 +6874,7 @@
           </second>
         </item>
         <item>
-          <first>i_5_reg_402</first>
+          <first>i_7_reg_402</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -7045,7 +7045,7 @@
           </second>
         </item>
         <item>
-          <first>tmp_6_reg_384</first>
+          <first>tmp_8_reg_384</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
@@ -7091,7 +7091,7 @@
         <count>5</count>
         <item_version>0</item_version>
         <item>
-          <first>i_5_fu_277_p2 ( + ) </first>
+          <first>i_7_fu_277_p2 ( + ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -7965,7 +7965,7 @@
         </second>
       </item>
       <item>
-        <first>i_5_fu_277</first>
+        <first>i_7_fu_277</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -8513,7 +8513,7 @@
         </second>
       </item>
       <item>
-        <first>i_5_reg_402</first>
+        <first>i_7_reg_402</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -8699,7 +8699,7 @@
         </second>
       </item>
       <item>
-        <first>tmp_6_reg_384</first>
+        <first>tmp_8_reg_384</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

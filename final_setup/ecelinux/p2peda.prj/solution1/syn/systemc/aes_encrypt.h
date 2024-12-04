@@ -62,8 +62,8 @@ struct aes_encrypt : public sc_module {
     sc_signal< sc_lv<4> > zext_ln63_fu_207_p1;
     sc_signal< sc_lv<4> > zext_ln63_reg_318;
     sc_signal< sc_logic > ap_CS_fsm_state6;
-    sc_signal< sc_lv<3> > i_13_fu_217_p2;
-    sc_signal< sc_lv<3> > i_13_reg_326;
+    sc_signal< sc_lv<3> > i_15_fu_217_p2;
+    sc_signal< sc_lv<3> > i_15_reg_326;
     sc_signal< sc_lv<4> > shl_ln3_fu_227_p3;
     sc_signal< sc_lv<4> > shl_ln3_reg_331;
     sc_signal< sc_lv<1> > icmp_ln63_fu_211_p2;
@@ -165,7 +165,7 @@ struct aes_encrypt : public sc_module {
     void thread_block_we0();
     void thread_block_we1();
     void thread_grp_aes_main_fu_123_ap_start();
-    void thread_i_13_fu_217_p2();
+    void thread_i_15_fu_217_p2();
     void thread_i_fu_142_p2();
     void thread_icmp_ln47_fu_136_p2();
     void thread_icmp_ln50_fu_164_p2();

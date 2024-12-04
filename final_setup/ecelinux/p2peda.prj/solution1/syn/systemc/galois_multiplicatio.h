@@ -46,7 +46,7 @@ struct galois_multiplicatio : public sc_module {
     sc_signal< sc_lv<4> > counter_0_reg_46;
     sc_signal< sc_lv<8> > p_0_reg_57;
     sc_signal< sc_lv<5> > b_assign_1_reg_68;
-    sc_signal< sc_lv<8> > p_0_15_reg_77;
+    sc_signal< sc_lv<8> > p_0_23_reg_77;
     sc_signal< sc_lv<1> > trunc_ln233_fu_98_p1;
     sc_signal< sc_lv<8> > select_ln235_fu_102_p3;
     sc_signal< sc_lv<8> > shl_ln238_fu_116_p2;

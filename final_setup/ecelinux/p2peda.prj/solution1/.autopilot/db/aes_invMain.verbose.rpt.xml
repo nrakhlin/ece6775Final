@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_invMain'" level="0">
-<item name = "Date">Tue Dec  3 11:39:39 2024
+<item name = "Date">Wed Dec  4 15:55:06 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">p2peda.prj</item>
@@ -77,7 +77,7 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="expandedKey23_U">aes_invMain_expandEe, 1, 0, 0, 0, 176, 8, 1, 1408</column>
+<column name="expandedKey29_U">aes_invMain_expandEe, 1, 0, 0, 0, 176, 8, 1, 1408</column>
 <column name="rsbox_U">aes_invRound_rsbox, 1, 0, 0, 0, 256, 8, 1, 2048</column>
 <column name="roundKey_U">aes_main_roundKey, 0, 16, 2, 0, 16, 8, 1, 128</column>
 </table>
@@ -89,9 +89,9 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="add_ln34_fu_366_p2">+, 0, 0, 13, 4, 2</column>
-<column name="i_10_fu_335_p2">+, 0, 0, 15, 5, 1</column>
-<column name="i_11_fu_378_p2">+, 0, 0, 15, 5, 1</column>
-<column name="i_12_fu_400_p2">+, 0, 0, 15, 5, 1</column>
+<column name="i_12_fu_335_p2">+, 0, 0, 15, 5, 1</column>
+<column name="i_13_fu_378_p2">+, 0, 0, 15, 5, 1</column>
+<column name="i_14_fu_400_p2">+, 0, 0, 15, 5, 1</column>
 <column name="icmp_ln225_2_fu_394_p2">icmp, 0, 0, 11, 5, 6</column>
 <column name="icmp_ln225_fu_329_p2">icmp, 0, 0, 11, 5, 6</column>
 <column name="icmp_ln319_fu_372_p2">icmp, 0, 0, 11, 5, 6</column>
@@ -102,7 +102,7 @@
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">109, 23, 1, 23</column>
-<column name="expandedKey23_ce0">9, 2, 1, 2</column>
+<column name="expandedKey29_ce0">9, 2, 1, 2</column>
 <column name="grp_createRoundKey_fu_298_ptr">21, 4, 9, 36</column>
 <column name="i_0_i3_reg_267">9, 2, 5, 10</column>
 <column name="i_0_i7_reg_278">9, 2, 5, 10</column>
@@ -132,9 +132,9 @@
 <column name="i_0_i3_reg_267">5, 0, 5, 0</column>
 <column name="i_0_i7_reg_278">5, 0, 5, 0</column>
 <column name="i_0_i_reg_245">5, 0, 5, 0</column>
-<column name="i_10_reg_415">5, 0, 5, 0</column>
-<column name="i_11_reg_532">5, 0, 5, 0</column>
-<column name="i_12_reg_550">5, 0, 5, 0</column>
+<column name="i_12_reg_415">5, 0, 5, 0</column>
+<column name="i_13_reg_532">5, 0, 5, 0</column>
+<column name="i_14_reg_550">5, 0, 5, 0</column>
 <column name="i_reg_256">4, 0, 4, 0</column>
 <column name="reg_317">8, 0, 8, 0</column>
 <column name="reg_323">8, 0, 8, 0</column>
@@ -144,7 +144,7 @@
 <column name="state_load_42_reg_465">8, 0, 8, 0</column>
 <column name="state_load_45_reg_492">8, 0, 8, 0</column>
 <column name="state_load_46_reg_497">8, 0, 8, 0</column>
-<column name="tmp_16_reg_514">8, 0, 8, 0</column>
+<column name="tmp_18_reg_514">8, 0, 8, 0</column>
 <column name="zext_ln36_reg_433">4, 0, 9, 5</column>
 </table>
 </item>

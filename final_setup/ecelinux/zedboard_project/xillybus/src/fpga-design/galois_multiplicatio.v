@@ -48,7 +48,7 @@ wire   [4:0] zext_ln241_fu_154_p1;
 reg   [3:0] counter_0_reg_46;
 reg   [7:0] p_0_reg_57;
 reg   [4:0] b_assign_1_reg_68;
-reg   [7:0] p_0_15_reg_77;
+reg   [7:0] p_0_19_reg_77;
 wire   [0:0] trunc_ln233_fu_98_p1;
 wire   [7:0] select_ln235_fu_102_p3;
 wire   [7:0] shl_ln238_fu_116_p2;
@@ -100,9 +100,9 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln233_fu_86_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        p_0_15_reg_77 <= select_ln239_fu_136_p3;
+        p_0_19_reg_77 <= select_ln239_fu_136_p3;
     end else if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        p_0_15_reg_77 <= a;
+        p_0_19_reg_77 <= a;
     end
 end
 
@@ -178,13 +178,13 @@ assign counter_fu_92_p2 = (counter_0_reg_46 + 4'd1);
 
 assign icmp_ln233_fu_86_p2 = ((counter_0_reg_46 == 4'd8) ? 1'b1 : 1'b0);
 
-assign select_ln235_fu_102_p3 = ((trunc_ln233_fu_98_p1[0:0] === 1'b1) ? p_0_15_reg_77 : 8'd0);
+assign select_ln235_fu_102_p3 = ((trunc_ln233_fu_98_p1[0:0] === 1'b1) ? p_0_19_reg_77 : 8'd0);
 
 assign select_ln239_fu_136_p3 = ((tmp_fu_122_p3[0:0] === 1'b1) ? xor_ln240_fu_130_p2 : shl_ln238_fu_116_p2);
 
-assign shl_ln238_fu_116_p2 = p_0_15_reg_77 << 8'd1;
+assign shl_ln238_fu_116_p2 = p_0_19_reg_77 << 8'd1;
 
-assign tmp_fu_122_p3 = p_0_15_reg_77[32'd7];
+assign tmp_fu_122_p3 = p_0_19_reg_77[32'd7];
 
 assign trunc_ln233_fu_98_p1 = b_assign_1_reg_68[0:0];
 

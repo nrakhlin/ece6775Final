@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mixColumns'
 ================================================================
-* Date:           Tue Dec  3 11:39:37 2024
+* Date:           Wed Dec  4 15:55:04 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        p2peda.prj
@@ -252,7 +252,7 @@ ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%column_1_1 = phi i8 [ %column_1_0,
 ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%column_0_1 = phi i8 [ %column_0_0, %.preheader.preheader ], [ %column_0_1_be, %.preheader.backedge ]" [../../refactored/helper.cpp:290]   --->   Operation 24 'phi' 'column_0_1' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ 0, %.preheader.preheader ], [ %j, %.preheader.backedge ]"   --->   Operation 25 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 26 [1/1] (1.13ns)   --->   "%icmp_ln284 = icmp eq i3 %j_0, -4" [../../refactored/helper.cpp:284]   --->   Operation 26 'icmp' 'icmp_ln284' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 27 'speclooptripcount' 'empty_11' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 27 'speclooptripcount' 'empty_19' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 28 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [../../refactored/helper.cpp:284]   --->   Operation 28 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 29 [1/1] (0.00ns)   --->   "br i1 %icmp_ln284, label %2, label %1" [../../refactored/helper.cpp:284]   --->   Operation 29 'br' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln286 = trunc i3 %j_0 to i2" [../../refactored/helper.cpp:286]   --->   Operation 30 'trunc' 'trunc_ln286' <Predicate = (!icmp_ln284)> <Delay = 0.00>
@@ -292,7 +292,7 @@ ST_6 : Operation 52 [1/1] (1.76ns)   --->   "br label %3" [../../refactored/help
 State 7 <SV = 4> <Delay = 4.28>
 ST_7 : Operation 53 [1/1] (0.00ns)   --->   "%j_1 = phi i3 [ 0, %2 ], [ %j_2, %4 ]"   --->   Operation 53 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 54 [1/1] (1.13ns)   --->   "%icmp_ln293 = icmp eq i3 %j_1, -4" [../../refactored/helper.cpp:293]   --->   Operation 54 'icmp' 'icmp_ln293' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 55 'speclooptripcount' 'empty_12' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 55 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 55 'speclooptripcount' 'empty_20' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 56 [1/1] (1.65ns)   --->   "%j_2 = add i3 %j_1, 1" [../../refactored/helper.cpp:293]   --->   Operation 56 'add' 'j_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_7 : Operation 57 [1/1] (0.00ns)   --->   "br i1 %icmp_ln293, label %.loopexit.loopexit, label %4" [../../refactored/helper.cpp:293]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln295 = trunc i3 %j_1 to i2" [../../refactored/helper.cpp:295]   --->   Operation 58 'trunc' 'trunc_ln295' <Predicate = (!icmp_ln293)> <Delay = 0.00>
@@ -343,7 +343,7 @@ column_1_1    (phi              ) [ 00011110]
 column_0_1    (phi              ) [ 00011110]
 j_0           (phi              ) [ 00010000]
 icmp_ln284    (icmp             ) [ 00111111]
-empty_11      (speclooptripcount) [ 00000000]
+empty_19      (speclooptripcount) [ 00000000]
 j             (add              ) [ 00111111]
 br_ln284      (br               ) [ 00000000]
 trunc_ln286   (trunc            ) [ 00001000]
@@ -369,7 +369,7 @@ column_3      (extractvalue     ) [ 01100001]
 br_ln293      (br               ) [ 00111111]
 j_1           (phi              ) [ 00000001]
 icmp_ln293    (icmp             ) [ 00111111]
-empty_12      (speclooptripcount) [ 00000000]
+empty_20      (speclooptripcount) [ 00000000]
 j_2           (add              ) [ 00111111]
 br_ln293      (br               ) [ 00000000]
 trunc_ln295   (trunc            ) [ 00000000]

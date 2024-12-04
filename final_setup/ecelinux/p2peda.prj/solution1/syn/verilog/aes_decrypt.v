@@ -72,8 +72,8 @@ reg   [3:0] add_ln77_1_reg_313;
 wire   [3:0] zext_ln88_fu_207_p1;
 reg   [3:0] zext_ln88_reg_318;
 wire    ap_CS_fsm_state6;
-wire   [2:0] i_14_fu_217_p2;
-reg   [2:0] i_14_reg_326;
+wire   [2:0] i_16_fu_217_p2;
+reg   [2:0] i_16_reg_326;
 wire   [3:0] shl_ln4_fu_227_p3;
 reg   [3:0] shl_ln4_reg_331;
 wire   [0:0] icmp_ln88_fu_211_p2;
@@ -201,7 +201,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln91_fu_239_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
-        i_1_reg_101 <= i_14_reg_326;
+        i_1_reg_101 <= i_16_reg_326;
     end else if (((1'b1 == ap_CS_fsm_state5) & (grp_aes_invMain_fu_123_ap_done == 1'b1))) begin
         i_1_reg_101 <= 3'd0;
     end
@@ -237,7 +237,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state6)) begin
-        i_14_reg_326 <= i_14_fu_217_p2;
+        i_16_reg_326 <= i_16_fu_217_p2;
         zext_ln88_reg_318[2 : 0] <= zext_ln88_fu_207_p1[2 : 0];
     end
 end
@@ -461,7 +461,7 @@ assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
 assign grp_aes_invMain_fu_123_ap_start = grp_aes_invMain_fu_123_ap_start_reg;
 
-assign i_14_fu_217_p2 = (i_1_reg_101 + 3'd1);
+assign i_16_fu_217_p2 = (i_1_reg_101 + 3'd1);
 
 assign i_fu_142_p2 = (i_0_reg_79 + 3'd1);
 

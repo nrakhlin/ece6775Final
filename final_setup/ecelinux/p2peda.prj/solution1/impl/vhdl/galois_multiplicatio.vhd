@@ -57,7 +57,7 @@ architecture behav of galois_multiplicatio is
     signal counter_0_reg_46 : STD_LOGIC_VECTOR (3 downto 0);
     signal p_0_reg_57 : STD_LOGIC_VECTOR (7 downto 0);
     signal b_assign_1_reg_68 : STD_LOGIC_VECTOR (4 downto 0);
-    signal p_0_15_reg_77 : STD_LOGIC_VECTOR (7 downto 0);
+    signal p_0_23_reg_77 : STD_LOGIC_VECTOR (7 downto 0);
     signal trunc_ln233_fu_98_p1 : STD_LOGIC_VECTOR (0 downto 0);
     signal select_ln235_fu_102_p3 : STD_LOGIC_VECTOR (7 downto 0);
     signal shl_ln238_fu_116_p2 : STD_LOGIC_VECTOR (7 downto 0);
@@ -121,13 +121,13 @@ begin
         end if;
     end process;
 
-    p_0_15_reg_77_assign_proc : process (ap_clk)
+    p_0_23_reg_77_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((icmp_ln233_fu_86_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                p_0_15_reg_77 <= select_ln239_fu_136_p3;
+                p_0_23_reg_77 <= select_ln239_fu_136_p3;
             elsif (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                p_0_15_reg_77 <= a;
+                p_0_23_reg_77 <= a;
             end if; 
         end if;
     end process;
@@ -208,13 +208,13 @@ begin
     counter_fu_92_p2 <= std_logic_vector(unsigned(counter_0_reg_46) + unsigned(ap_const_lv4_1));
     icmp_ln233_fu_86_p2 <= "1" when (counter_0_reg_46 = ap_const_lv4_8) else "0";
     select_ln235_fu_102_p3 <= 
-        p_0_15_reg_77 when (trunc_ln233_fu_98_p1(0) = '1') else 
+        p_0_23_reg_77 when (trunc_ln233_fu_98_p1(0) = '1') else 
         ap_const_lv8_0;
     select_ln239_fu_136_p3 <= 
         xor_ln240_fu_130_p2 when (tmp_fu_122_p3(0) = '1') else 
         shl_ln238_fu_116_p2;
-    shl_ln238_fu_116_p2 <= std_logic_vector(shift_left(unsigned(p_0_15_reg_77),to_integer(unsigned('0' & ap_const_lv8_1(8-1 downto 0)))));
-    tmp_fu_122_p3 <= p_0_15_reg_77(7 downto 7);
+    shl_ln238_fu_116_p2 <= std_logic_vector(shift_left(unsigned(p_0_23_reg_77),to_integer(unsigned('0' & ap_const_lv8_1(8-1 downto 0)))));
+    tmp_fu_122_p3 <= p_0_23_reg_77(7 downto 7);
     trunc_ln233_fu_98_p1 <= b_assign_1_reg_68(1 - 1 downto 0);
     xor_ln235_fu_110_p2 <= (select_ln235_fu_102_p3 xor p_0_reg_57);
     xor_ln240_fu_130_p2 <= (shl_ln238_fu_116_p2 xor ap_const_lv8_1B);

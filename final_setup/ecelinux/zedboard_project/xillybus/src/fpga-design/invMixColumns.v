@@ -69,7 +69,7 @@ wire    grp_invMixColumn_fu_246_ap_done;
 reg   [7:0] column_1_reg_414;
 reg   [7:0] column_2_reg_420;
 reg   [7:0] column_3_reg_426;
-wire   [2:0] j_3_fu_330_p2;
+wire   [2:0] j_2_fu_330_p2;
 wire    ap_CS_fsm_state7;
 wire    grp_invMixColumn_fu_246_ap_start;
 wire    grp_invMixColumn_fu_246_ap_idle;
@@ -102,7 +102,7 @@ wire   [7:0] tmp_fu_340_p6;
 wire   [3:0] shl_ln_fu_290_p3;
 wire   [3:0] add_ln418_fu_298_p2;
 wire   [1:0] trunc_ln427_fu_336_p1;
-wire   [3:0] shl_ln2_fu_351_p3;
+wire   [3:0] shl_ln1_fu_351_p3;
 wire   [3:0] add_ln427_fu_359_p2;
 reg   [6:0] ap_NS_fsm;
 
@@ -138,7 +138,7 @@ dut_mux_42_8_1_1 #(
     .din3_WIDTH( 8 ),
     .din4_WIDTH( 2 ),
     .dout_WIDTH( 8 ))
-dut_mux_42_8_1_1_U29(
+dut_mux_42_8_1_1_U22(
     .din0(column_0_reg_408),
     .din1(column_1_reg_414),
     .din2(column_2_reg_420),
@@ -249,7 +249,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln425_fu_324_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
-        j_1_reg_235 <= j_3_fu_330_p2;
+        j_1_reg_235 <= j_2_fu_330_p2;
     end else if (((grp_invMixColumn_fu_246_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state6))) begin
         j_1_reg_235 <= 3'd0;
     end
@@ -393,7 +393,7 @@ end
 
 assign add_ln418_fu_298_p2 = (shl_ln_fu_290_p3 + zext_ln413_reg_369);
 
-assign add_ln427_fu_359_p2 = (shl_ln2_fu_351_p3 + zext_ln413_reg_369);
+assign add_ln427_fu_359_p2 = (shl_ln1_fu_351_p3 + zext_ln413_reg_369);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -419,11 +419,11 @@ assign icmp_ln416_fu_274_p2 = ((j_0_reg_152 == 3'd4) ? 1'b1 : 1'b0);
 
 assign icmp_ln425_fu_324_p2 = ((j_1_reg_235 == 3'd4) ? 1'b1 : 1'b0);
 
-assign j_3_fu_330_p2 = (j_1_reg_235 + 3'd1);
+assign j_2_fu_330_p2 = (j_1_reg_235 + 3'd1);
 
 assign j_fu_280_p2 = (j_0_reg_152 + 3'd1);
 
-assign shl_ln2_fu_351_p3 = {{trunc_ln427_fu_336_p1}, {2'd0}};
+assign shl_ln1_fu_351_p3 = {{trunc_ln427_fu_336_p1}, {2'd0}};
 
 assign shl_ln_fu_290_p3 = {{trunc_ln418_fu_286_p1}, {2'd0}};
 

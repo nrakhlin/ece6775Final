@@ -1587,7 +1587,7 @@
 					<Obj>
 						<type>0</type>
 						<id>49</id>
-						<name>i_13</name>
+						<name>i_15</name>
 						<fileName>../../refactored/encrypt.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/final_setup/ecelinux</fileDirectory>
 						<lineNumber>63</lineNumber>
@@ -5790,7 +5790,7 @@
 			</second>
 		</item>
 		<item>
-			<first>i_13_fu_217</first>
+			<first>i_15_fu_217</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -6284,7 +6284,7 @@
 			</second>
 		</item>
 		<item>
-			<first>i_13_reg_326</first>
+			<first>i_15_reg_326</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

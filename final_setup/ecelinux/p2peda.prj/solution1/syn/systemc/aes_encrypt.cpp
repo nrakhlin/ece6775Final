@@ -164,7 +164,7 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_grp_aes_main_fu_123_ap_start);
     sensitive << ( grp_aes_main_fu_123_ap_start_reg );
 
-    SC_METHOD(thread_i_13_fu_217_p2);
+    SC_METHOD(thread_i_15_fu_217_p2);
     sensitive << ( i_1_reg_101 );
 
     SC_METHOD(thread_i_fu_142_p2);
@@ -320,8 +320,8 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, zext_ln63_fu_207_p1, "zext_ln63_fu_207_p1");
     sc_trace(mVcdFile, zext_ln63_reg_318, "zext_ln63_reg_318");
     sc_trace(mVcdFile, ap_CS_fsm_state6, "ap_CS_fsm_state6");
-    sc_trace(mVcdFile, i_13_fu_217_p2, "i_13_fu_217_p2");
-    sc_trace(mVcdFile, i_13_reg_326, "i_13_reg_326");
+    sc_trace(mVcdFile, i_15_fu_217_p2, "i_15_fu_217_p2");
+    sc_trace(mVcdFile, i_15_reg_326, "i_15_reg_326");
     sc_trace(mVcdFile, shl_ln3_fu_227_p3, "shl_ln3_fu_227_p3");
     sc_trace(mVcdFile, shl_ln3_reg_331, "shl_ln3_reg_331");
     sc_trace(mVcdFile, icmp_ln63_fu_211_p2, "icmp_ln63_fu_211_p2");
@@ -412,7 +412,7 @@ void aes_encrypt::thread_ap_clk_no_reset_() {
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
          esl_seteq<1,1,1>(icmp_ln66_fu_239_p2.read(), ap_const_lv1_1))) {
-        i_1_reg_101 = i_13_reg_326.read();
+        i_1_reg_101 = i_15_reg_326.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read()) && 
                 esl_seteq<1,1,1>(grp_aes_main_fu_123_ap_done.read(), ap_const_logic_1))) {
         i_1_reg_101 = ap_const_lv3_0;
@@ -436,7 +436,7 @@ void aes_encrypt::thread_ap_clk_no_reset_() {
         add_ln68_1_reg_349 = add_ln68_1_fu_273_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        i_13_reg_326 = i_13_fu_217_p2.read();
+        i_15_reg_326 = i_15_fu_217_p2.read();
         zext_ln63_reg_318 = zext_ln63_fu_207_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
@@ -597,8 +597,8 @@ void aes_encrypt::thread_grp_aes_main_fu_123_ap_start() {
     grp_aes_main_fu_123_ap_start = grp_aes_main_fu_123_ap_start_reg.read();
 }
 
-void aes_encrypt::thread_i_13_fu_217_p2() {
-    i_13_fu_217_p2 = (!i_1_reg_101.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_1_reg_101.read()) + sc_biguint<3>(ap_const_lv3_1));
+void aes_encrypt::thread_i_15_fu_217_p2() {
+    i_15_fu_217_p2 = (!i_1_reg_101.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_1_reg_101.read()) + sc_biguint<3>(ap_const_lv3_1));
 }
 
 void aes_encrypt::thread_i_fu_142_p2() {

@@ -74,11 +74,11 @@ reg   [3:0] zext_ln88_reg_318;
 wire    ap_CS_fsm_state6;
 wire   [2:0] i_14_fu_217_p2;
 reg   [2:0] i_14_reg_326;
-wire   [3:0] shl_ln4_fu_227_p3;
-reg   [3:0] shl_ln4_reg_331;
+wire   [3:0] shl_ln2_fu_227_p3;
+reg   [3:0] shl_ln2_reg_331;
 wire   [0:0] icmp_ln88_fu_211_p2;
-wire   [2:0] j_5_fu_245_p2;
-reg   [2:0] j_5_reg_339;
+wire   [2:0] j_3_fu_245_p2;
+reg   [2:0] j_3_reg_339;
 wire    ap_CS_fsm_state7;
 wire   [0:0] icmp_ln91_fu_239_p2;
 wire   [3:0] add_ln93_1_fu_273_p2;
@@ -133,7 +133,7 @@ initial begin
 #0 grp_aes_invMain_fu_123_ap_start_reg = 1'b0;
 end
 
-aes_encrypt_block #(
+aes_decrypt_block #(
     .DataWidth( 8 ),
     .AddressRange( 16 ),
     .AddressWidth( 4 ))
@@ -219,7 +219,7 @@ always @ (posedge ap_clk) begin
     if (((icmp_ln88_fu_211_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state6))) begin
         j_1_reg_112 <= 3'd0;
     end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        j_1_reg_112 <= j_5_reg_339;
+        j_1_reg_112 <= j_3_reg_339;
     end
 end
 
@@ -251,7 +251,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        j_5_reg_339 <= j_5_fu_245_p2;
+        j_3_reg_339 <= j_3_fu_245_p2;
     end
 end
 
@@ -263,7 +263,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln88_fu_211_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state6))) begin
-        shl_ln4_reg_331[3 : 2] <= shl_ln4_fu_227_p3[3 : 2];
+        shl_ln2_reg_331[3 : 2] <= shl_ln2_fu_227_p3[3 : 2];
     end
 end
 
@@ -439,7 +439,7 @@ assign add_ln77_1_fu_198_p2 = (shl_ln77_1_fu_190_p3 + zext_ln72_reg_282);
 
 assign add_ln77_fu_176_p2 = (zext_ln75_fu_160_p1 + shl_ln_reg_295);
 
-assign add_ln93_1_fu_273_p2 = (zext_ln91_fu_235_p1 + shl_ln4_reg_331);
+assign add_ln93_1_fu_273_p2 = (zext_ln91_fu_235_p1 + shl_ln2_reg_331);
 
 assign add_ln93_fu_263_p2 = (shl_ln93_1_fu_255_p3 + zext_ln88_reg_318);
 
@@ -475,7 +475,7 @@ assign icmp_ln91_fu_239_p2 = ((j_1_reg_112 == 3'd4) ? 1'b1 : 1'b0);
 
 assign input_r_address0 = zext_ln77_fu_181_p1;
 
-assign j_5_fu_245_p2 = (j_1_reg_112 + 3'd1);
+assign j_3_fu_245_p2 = (j_1_reg_112 + 3'd1);
 
 assign j_fu_170_p2 = (j_0_reg_90 + 3'd1);
 
@@ -483,7 +483,7 @@ assign output_r_address0 = zext_ln93_1_fu_278_p1;
 
 assign output_r_d0 = block_q0;
 
-assign shl_ln4_fu_227_p3 = {{trunc_ln93_fu_223_p1}, {2'd0}};
+assign shl_ln2_fu_227_p3 = {{trunc_ln93_fu_223_p1}, {2'd0}};
 
 assign shl_ln77_1_fu_190_p3 = {{trunc_ln77_1_fu_186_p1}, {2'd0}};
 
@@ -519,7 +519,7 @@ always @ (posedge ap_clk) begin
     zext_ln72_reg_282[3] <= 1'b0;
     shl_ln_reg_295[1:0] <= 2'b00;
     zext_ln88_reg_318[3] <= 1'b0;
-    shl_ln4_reg_331[1:0] <= 2'b00;
+    shl_ln2_reg_331[1:0] <= 2'b00;
 end
 
 endmodule //aes_decrypt

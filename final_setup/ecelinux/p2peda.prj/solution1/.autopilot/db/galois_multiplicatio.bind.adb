@@ -360,7 +360,7 @@
 					<Obj>
 						<type>0</type>
 						<id>10</id>
-						<name>p_0_15</name>
+						<name>p_0_23</name>
 						<fileName>../../refactored/helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/final_setup/ecelinux</fileDirectory>
 						<lineNumber>228</lineNumber>
@@ -2419,7 +2419,7 @@
 			</second>
 		</item>
 		<item>
-			<first>p_0_15_phi_fu_80</first>
+			<first>p_0_23_phi_fu_80</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2659,7 +2659,7 @@
 			</second>
 		</item>
 		<item>
-			<first>p_0_15_reg_77</first>
+			<first>p_0_23_reg_77</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -2755,7 +2755,7 @@
 			</second>
 		</item>
 		<item>
-			<first>p_0_15_reg_77</first>
+			<first>p_0_23_reg_77</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>

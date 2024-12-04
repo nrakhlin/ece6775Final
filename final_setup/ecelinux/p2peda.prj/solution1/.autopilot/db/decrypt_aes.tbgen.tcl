@@ -59,9 +59,9 @@ set RtlHierarchyInfo {[
 			{"State" : "ap_ST_fsm_state6", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_aes_decrypt_fu_167"}],
 		"Port" : [
 			{"Name" : "ciphertext_V", "Type" : "None", "Direction" : "I"},
-			{"Name" : "expandedKey23", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "expandedKey29", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "grp_aes_decrypt_fu_167", "Port" : "expandedKey23"}]},
+					{"ID" : "3", "SubInstance" : "grp_aes_decrypt_fu_167", "Port" : "expandedKey29"}]},
 			{"Name" : "rsbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "grp_aes_decrypt_fu_167", "Port" : "rsbox"}]}]},
@@ -85,9 +85,9 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "input_r", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "expandedKey23", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "expandedKey29", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "5", "SubInstance" : "grp_aes_invMain_fu_123", "Port" : "expandedKey23"}]},
+					{"ID" : "5", "SubInstance" : "grp_aes_invMain_fu_123", "Port" : "expandedKey29"}]},
 			{"Name" : "rsbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "5", "SubInstance" : "grp_aes_invMain_fu_123", "Port" : "rsbox"}]}]},
@@ -114,13 +114,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "grp_aes_invRound_fu_289", "Port" : "state"}]},
-			{"Name" : "expandedKey23", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "expandedKey29", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "31", "SubInstance" : "grp_createRoundKey_fu_298", "Port" : "expandedKey"}]},
 			{"Name" : "rsbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "grp_aes_invRound_fu_289", "Port" : "rsbox"}]}]},
-	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_decrypt_fu_167.grp_aes_invMain_fu_123.expandedKey23_U", "Parent" : "5"},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_decrypt_fu_167.grp_aes_invMain_fu_123.expandedKey29_U", "Parent" : "5"},
 	{"ID" : "7", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_decrypt_fu_167.grp_aes_invMain_fu_123.rsbox_U", "Parent" : "5"},
 	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_decrypt_fu_167.grp_aes_invMain_fu_123.roundKey_U", "Parent" : "5"},
 	{"ID" : "9", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.grp_aes_decrypt_fu_167.grp_aes_invMain_fu_123.grp_aes_invRound_fu_289", "Parent" : "5", "Child" : ["10", "11"],
@@ -477,16 +477,16 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	decrypt_aes {
 		ciphertext_V {Type I LastRead 0 FirstWrite -1}
-		expandedKey23 {Type I LastRead -1 FirstWrite -1}
+		expandedKey29 {Type I LastRead -1 FirstWrite -1}
 		rsbox {Type I LastRead -1 FirstWrite -1}}
 	aes_decrypt {
 		input_r {Type I LastRead 2 FirstWrite -1}
 		output_r {Type O LastRead -1 FirstWrite 5}
-		expandedKey23 {Type I LastRead -1 FirstWrite -1}
+		expandedKey29 {Type I LastRead -1 FirstWrite -1}
 		rsbox {Type I LastRead -1 FirstWrite -1}}
 	aes_invMain {
 		state {Type IO LastRead 14 FirstWrite 1}
-		expandedKey23 {Type I LastRead -1 FirstWrite -1}
+		expandedKey29 {Type I LastRead -1 FirstWrite -1}
 		rsbox {Type I LastRead -1 FirstWrite -1}}
 	aes_invRound {
 		state {Type IO LastRead 11 FirstWrite 1}

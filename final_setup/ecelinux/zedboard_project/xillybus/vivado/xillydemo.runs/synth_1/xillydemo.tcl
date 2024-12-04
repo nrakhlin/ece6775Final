@@ -46,28 +46,31 @@ read_verilog -library xil_defaultlib {
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/system.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/smbus.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/i2s_audio.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/mixColumn.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/mixColumns.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/invMixColumn.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/invMixColumns.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/galois_multiplicatio.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/encrypt_aes.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/encrypt_bf.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/encrypt_bf_plaintfYi.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/encrypt_bf_cipherhbi.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/dut.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/dut_output.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/dut_mux_42_8_1_1.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/decrypt_aes.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/decrypt_bf.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/createRoundKey.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_round.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_round_sbox.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_main.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_main_roundKey.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_main_expandedbkb.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/createRoundKey_exjbC.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Encrypt.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Encrypt_P.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Encrypt_eOg.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Encrypt_dEe.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Encrypt_cud.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Encrypt_bkb.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/Blowfish_Decrypt.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_invRound.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_invRound_rsbox.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_invMain.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_invMain_expandEe.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_encrypt.v
-  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_encrypt_block.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_invMain_roundkbM.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_decrypt.v
+  /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fpga-design/aes_decrypt_block.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fifo_8x2048.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/xillybus/src/fifo_32x512.v
   /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/zedboard_project/vivado-essentials/system.v

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_encrypt'" level="0">
-<item name = "Date">Tue Dec  3 11:39:38 2024
+<item name = "Date">Wed Dec  4 15:55:04 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">p2peda.prj</item>
@@ -88,7 +88,7 @@
 <column name="add_ln52_fu_176_p2">+, 0, 0, 13, 4, 4</column>
 <column name="add_ln68_1_fu_273_p2">+, 0, 0, 13, 4, 4</column>
 <column name="add_ln68_fu_263_p2">+, 0, 0, 13, 4, 4</column>
-<column name="i_13_fu_217_p2">+, 0, 0, 12, 3, 1</column>
+<column name="i_15_fu_217_p2">+, 0, 0, 12, 3, 1</column>
 <column name="i_fu_142_p2">+, 0, 0, 12, 3, 1</column>
 <column name="j_4_fu_245_p2">+, 0, 0, 12, 3, 1</column>
 <column name="j_fu_170_p2">+, 0, 0, 12, 3, 1</column>
@@ -120,7 +120,7 @@
 <column name="ap_CS_fsm">8, 0, 8, 0</column>
 <column name="grp_aes_main_fu_123_ap_start_reg">1, 0, 1, 0</column>
 <column name="i_0_reg_79">3, 0, 3, 0</column>
-<column name="i_13_reg_326">3, 0, 3, 0</column>
+<column name="i_15_reg_326">3, 0, 3, 0</column>
 <column name="i_1_reg_101">3, 0, 3, 0</column>
 <column name="i_reg_290">3, 0, 3, 0</column>
 <column name="j_0_reg_90">3, 0, 3, 0</column>

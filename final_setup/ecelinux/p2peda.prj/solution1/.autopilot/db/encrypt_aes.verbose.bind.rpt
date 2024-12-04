@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'encrypt_aes'
 ================================================================
-* Date:           Tue Dec  3 11:39:34 2024
+* Date:           Wed Dec  4 15:55:01 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        p2peda.prj
@@ -96,112 +96,112 @@ IsGatedGlobalClock: 0
 
 State 1 <SV = 0> <Delay = 2.32>
 ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%plaintext_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %plaintext_V)"   --->   Operation 9 'read' 'plaintext_V_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (2.32ns)   --->   "%aes_input = alloca [16 x i8], align 16" [p2peda.cpp:25]   --->   Operation 10 'alloca' 'aes_input' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_1 : Operation 11 [1/1] (2.32ns)   --->   "%output = alloca [16 x i8], align 16" [p2peda.cpp:26]   --->   Operation 11 'alloca' 'output' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_1 : Operation 10 [1/1] (2.32ns)   --->   "%aes_input = alloca [16 x i8], align 16" [p2peda.cpp:28]   --->   Operation 10 'alloca' 'aes_input' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_1 : Operation 11 [1/1] (2.32ns)   --->   "%output = alloca [16 x i8], align 16" [p2peda.cpp:29]   --->   Operation 11 'alloca' 'output' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
 ST_1 : Operation 12 [1/1] (1.76ns)   --->   "br label %meminst"   --->   Operation 12 'br' <Predicate = true> <Delay = 1.76>
 
 State 2 <SV = 1> <Delay = 2.32>
-ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%phi_ln25 = phi i4 [ 0, %0 ], [ %add_ln25, %meminst ]" [p2peda.cpp:25]   --->   Operation 13 'phi' 'phi_ln25' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 14 [1/1] (1.73ns)   --->   "%add_ln25 = add i4 %phi_ln25, 1" [p2peda.cpp:25]   --->   Operation 14 'add' 'add_ln25' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln25 = zext i4 %phi_ln25 to i64" [p2peda.cpp:25]   --->   Operation 15 'zext' 'zext_ln25' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%aes_input_addr = getelementptr [16 x i8]* %aes_input, i64 0, i64 %zext_ln25" [p2peda.cpp:25]   --->   Operation 16 'getelementptr' 'aes_input_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 17 [1/1] (2.32ns)   --->   "store i8 0, i8* %aes_input_addr, align 1" [p2peda.cpp:25]   --->   Operation 17 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_2 : Operation 18 [1/1] (1.30ns)   --->   "%icmp_ln25 = icmp eq i4 %phi_ln25, -1" [p2peda.cpp:25]   --->   Operation 18 'icmp' 'icmp_ln25' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%phi_ln28 = phi i4 [ 0, %0 ], [ %add_ln28, %meminst ]" [p2peda.cpp:28]   --->   Operation 13 'phi' 'phi_ln28' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (1.73ns)   --->   "%add_ln28 = add i4 %phi_ln28, 1" [p2peda.cpp:28]   --->   Operation 14 'add' 'add_ln28' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln28 = zext i4 %phi_ln28 to i64" [p2peda.cpp:28]   --->   Operation 15 'zext' 'zext_ln28' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%aes_input_addr = getelementptr [16 x i8]* %aes_input, i64 0, i64 %zext_ln28" [p2peda.cpp:28]   --->   Operation 16 'getelementptr' 'aes_input_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (2.32ns)   --->   "store i8 0, i8* %aes_input_addr, align 1" [p2peda.cpp:28]   --->   Operation 17 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_2 : Operation 18 [1/1] (1.30ns)   --->   "%icmp_ln28 = icmp eq i4 %phi_ln28, -1" [p2peda.cpp:28]   --->   Operation 18 'icmp' 'icmp_ln28' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @memset_aes_input_str)"   --->   Operation 19 'specloopname' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 20 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %icmp_ln25, label %meminst87.preheader, label %meminst" [p2peda.cpp:25]   --->   Operation 21 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (1.76ns)   --->   "br label %meminst87" [p2peda.cpp:26]   --->   Operation 22 'br' <Predicate = (icmp_ln25)> <Delay = 1.76>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %icmp_ln28, label %meminst87.preheader, label %meminst" [p2peda.cpp:28]   --->   Operation 21 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.76ns)   --->   "br label %meminst87" [p2peda.cpp:29]   --->   Operation 22 'br' <Predicate = (icmp_ln28)> <Delay = 1.76>
 
 State 3 <SV = 2> <Delay = 2.32>
-ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%phi_ln26 = phi i4 [ %add_ln26, %meminst87 ], [ 0, %meminst87.preheader ]" [p2peda.cpp:26]   --->   Operation 23 'phi' 'phi_ln26' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 24 [1/1] (1.73ns)   --->   "%add_ln26 = add i4 %phi_ln26, 1" [p2peda.cpp:26]   --->   Operation 24 'add' 'add_ln26' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln26 = zext i4 %phi_ln26 to i64" [p2peda.cpp:26]   --->   Operation 25 'zext' 'zext_ln26' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%output_addr = getelementptr [16 x i8]* %output, i64 0, i64 %zext_ln26" [p2peda.cpp:26]   --->   Operation 26 'getelementptr' 'output_addr' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 27 [1/1] (2.32ns)   --->   "store i8 0, i8* %output_addr, align 1" [p2peda.cpp:26]   --->   Operation 27 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_3 : Operation 28 [1/1] (1.30ns)   --->   "%icmp_ln26 = icmp eq i4 %phi_ln26, -1" [p2peda.cpp:26]   --->   Operation 28 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%phi_ln29 = phi i4 [ %add_ln29, %meminst87 ], [ 0, %meminst87.preheader ]" [p2peda.cpp:29]   --->   Operation 23 'phi' 'phi_ln29' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (1.73ns)   --->   "%add_ln29 = add i4 %phi_ln29, 1" [p2peda.cpp:29]   --->   Operation 24 'add' 'add_ln29' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln29 = zext i4 %phi_ln29 to i64" [p2peda.cpp:29]   --->   Operation 25 'zext' 'zext_ln29' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%output_addr = getelementptr [16 x i8]* %output, i64 0, i64 %zext_ln29" [p2peda.cpp:29]   --->   Operation 26 'getelementptr' 'output_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (2.32ns)   --->   "store i8 0, i8* %output_addr, align 1" [p2peda.cpp:29]   --->   Operation 27 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 28 [1/1] (1.30ns)   --->   "%icmp_ln29 = icmp eq i4 %phi_ln29, -1" [p2peda.cpp:29]   --->   Operation 28 'icmp' 'icmp_ln29' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([14 x i8]* @memset_output_str)"   --->   Operation 29 'specloopname' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 30 'speclooptripcount' 'empty_16' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 31 [1/1] (0.00ns)   --->   "br i1 %icmp_ln26, label %.preheader.preheader, label %meminst87" [p2peda.cpp:26]   --->   Operation 31 'br' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 32 [1/1] (1.76ns)   --->   "br label %.preheader" [p2peda.cpp:28]   --->   Operation 32 'br' <Predicate = (icmp_ln26)> <Delay = 1.76>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 30 'speclooptripcount' 'empty_24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "br i1 %icmp_ln29, label %.preheader.preheader, label %meminst87" [p2peda.cpp:29]   --->   Operation 31 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (1.76ns)   --->   "br label %.preheader" [p2peda.cpp:31]   --->   Operation 32 'br' <Predicate = (icmp_ln29)> <Delay = 1.76>
 
 State 4 <SV = 3> <Delay = 6.38>
 ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ %i, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 33 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 34 [1/1] (1.36ns)   --->   "%icmp_ln28 = icmp eq i5 %i_0, -16" [p2peda.cpp:28]   --->   Operation 34 'icmp' 'icmp_ln28' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 35 'speclooptripcount' 'empty_17' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 36 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [p2peda.cpp:28]   --->   Operation 36 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %icmp_ln28, label %2, label %1" [p2peda.cpp:28]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln29 = trunc i5 %i_0 to i4" [p2peda.cpp:29]   --->   Operation 38 'trunc' 'trunc_ln29' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%Lo_assign = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %trunc_ln29, i3 0)" [p2peda.cpp:29]   --->   Operation 39 'bitconcatenate' 'Lo_assign' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%or_ln29 = or i7 %Lo_assign, 7" [p2peda.cpp:29]   --->   Operation 40 'or' 'or_ln29' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 41 [1/1] (1.48ns)   --->   "%icmp_ln681 = icmp ugt i7 %Lo_assign, %or_ln29" [p2peda.cpp:29]   --->   Operation 41 'icmp' 'icmp_ln681' <Predicate = (!icmp_ln28)> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%zext_ln681 = zext i7 %Lo_assign to i8" [p2peda.cpp:29]   --->   Operation 42 'zext' 'zext_ln681' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln681_1 = zext i7 %or_ln29 to i8" [p2peda.cpp:29]   --->   Operation 43 'zext' 'zext_ln681_1' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 44 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%tmp = call i128 @llvm.part.select.i128(i128 %plaintext_V_read, i32 127, i32 0)" [p2peda.cpp:29]   --->   Operation 44 'partselect' 'tmp' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 45 [1/1] (1.87ns)   --->   "%sub_ln681 = sub i8 %zext_ln681, %zext_ln681_1" [p2peda.cpp:29]   --->   Operation 45 'sub' 'sub_ln681' <Predicate = (!icmp_ln28)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%xor_ln681 = xor i8 %zext_ln681, 127" [p2peda.cpp:29]   --->   Operation 46 'xor' 'xor_ln681' <Predicate = (!icmp_ln28)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 47 [1/1] (1.87ns)   --->   "%sub_ln681_1 = sub i8 %zext_ln681_1, %zext_ln681" [p2peda.cpp:29]   --->   Operation 47 'sub' 'sub_ln681_1' <Predicate = (!icmp_ln28)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 48 [1/1] (0.00ns) (grouped into LUT with out node sub_ln681_2)   --->   "%select_ln681 = select i1 %icmp_ln681, i8 %sub_ln681, i8 %sub_ln681_1" [p2peda.cpp:29]   --->   Operation 48 'select' 'select_ln681' <Predicate = (!icmp_ln28)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_4 : Operation 49 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_1 = select i1 %icmp_ln681, i128 %tmp, i128 %plaintext_V_read" [p2peda.cpp:29]   --->   Operation 49 'select' 'select_ln681_1' <Predicate = (!icmp_ln28)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_4 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_2 = select i1 %icmp_ln681, i8 %xor_ln681, i8 %zext_ln681" [p2peda.cpp:29]   --->   Operation 50 'select' 'select_ln681_2' <Predicate = (!icmp_ln28)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_4 : Operation 51 [1/1] (1.91ns) (out node of the LUT)   --->   "%sub_ln681_2 = sub i8 127, %select_ln681" [p2peda.cpp:29]   --->   Operation 51 'sub' 'sub_ln681_2' <Predicate = (!icmp_ln28)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%zext_ln681_2 = zext i8 %select_ln681_2 to i128" [p2peda.cpp:29]   --->   Operation 52 'zext' 'zext_ln681_2' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_4 : Operation 53 [1/1] (4.89ns) (out node of the LUT)   --->   "%lshr_ln681 = lshr i128 %select_ln681_1, %zext_ln681_2" [p2peda.cpp:29]   --->   Operation 53 'lshr' 'lshr_ln681' <Predicate = (!icmp_ln28)> <Delay = 4.89> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 54 [2/2] (0.00ns)   --->   "call fastcc void @aes_encrypt([16 x i8]* %aes_input, [16 x i8]* %output)" [../../refactored/encrypt.cpp:79->p2peda.cpp:32]   --->   Operation 54 'call' <Predicate = (icmp_ln28)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 34 [1/1] (1.36ns)   --->   "%icmp_ln31 = icmp eq i5 %i_0, -16" [p2peda.cpp:31]   --->   Operation 34 'icmp' 'icmp_ln31' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 35 'speclooptripcount' 'empty_25' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [p2peda.cpp:31]   --->   Operation 36 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %icmp_ln31, label %2, label %1" [p2peda.cpp:31]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln32 = trunc i5 %i_0 to i4" [p2peda.cpp:32]   --->   Operation 38 'trunc' 'trunc_ln32' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%Lo_assign = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %trunc_ln32, i3 0)" [p2peda.cpp:32]   --->   Operation 39 'bitconcatenate' 'Lo_assign' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%or_ln32 = or i7 %Lo_assign, 7" [p2peda.cpp:32]   --->   Operation 40 'or' 'or_ln32' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (1.48ns)   --->   "%icmp_ln681 = icmp ugt i7 %Lo_assign, %or_ln32" [p2peda.cpp:32]   --->   Operation 41 'icmp' 'icmp_ln681' <Predicate = (!icmp_ln31)> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%zext_ln681 = zext i7 %Lo_assign to i8" [p2peda.cpp:32]   --->   Operation 42 'zext' 'zext_ln681' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln681_1 = zext i7 %or_ln32 to i8" [p2peda.cpp:32]   --->   Operation 43 'zext' 'zext_ln681_1' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%tmp = call i128 @llvm.part.select.i128(i128 %plaintext_V_read, i32 127, i32 0)" [p2peda.cpp:32]   --->   Operation 44 'partselect' 'tmp' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 45 [1/1] (1.87ns)   --->   "%sub_ln681 = sub i8 %zext_ln681, %zext_ln681_1" [p2peda.cpp:32]   --->   Operation 45 'sub' 'sub_ln681' <Predicate = (!icmp_ln31)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%xor_ln681 = xor i8 %zext_ln681, 127" [p2peda.cpp:32]   --->   Operation 46 'xor' 'xor_ln681' <Predicate = (!icmp_ln31)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 47 [1/1] (1.87ns)   --->   "%sub_ln681_1 = sub i8 %zext_ln681_1, %zext_ln681" [p2peda.cpp:32]   --->   Operation 47 'sub' 'sub_ln681_1' <Predicate = (!icmp_ln31)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 48 [1/1] (0.00ns) (grouped into LUT with out node sub_ln681_2)   --->   "%select_ln681 = select i1 %icmp_ln681, i8 %sub_ln681, i8 %sub_ln681_1" [p2peda.cpp:32]   --->   Operation 48 'select' 'select_ln681' <Predicate = (!icmp_ln31)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 49 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_1 = select i1 %icmp_ln681, i128 %tmp, i128 %plaintext_V_read" [p2peda.cpp:32]   --->   Operation 49 'select' 'select_ln681_1' <Predicate = (!icmp_ln31)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_2 = select i1 %icmp_ln681, i8 %xor_ln681, i8 %zext_ln681" [p2peda.cpp:32]   --->   Operation 50 'select' 'select_ln681_2' <Predicate = (!icmp_ln31)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 51 [1/1] (1.91ns) (out node of the LUT)   --->   "%sub_ln681_2 = sub i8 127, %select_ln681" [p2peda.cpp:32]   --->   Operation 51 'sub' 'sub_ln681_2' <Predicate = (!icmp_ln31)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%zext_ln681_2 = zext i8 %select_ln681_2 to i128" [p2peda.cpp:32]   --->   Operation 52 'zext' 'zext_ln681_2' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (4.89ns) (out node of the LUT)   --->   "%lshr_ln681 = lshr i128 %select_ln681_1, %zext_ln681_2" [p2peda.cpp:32]   --->   Operation 53 'lshr' 'lshr_ln681' <Predicate = (!icmp_ln31)> <Delay = 4.89> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 54 [2/2] (0.00ns)   --->   "call fastcc void @aes_encrypt([16 x i8]* %aes_input, [16 x i8]* %output)" [../../refactored/encrypt.cpp:79->p2peda.cpp:35]   --->   Operation 54 'call' <Predicate = (icmp_ln31)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 5 <SV = 4> <Delay = 5.47>
-ST_5 : Operation 55 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%zext_ln681_3 = zext i8 %sub_ln681_2 to i128" [p2peda.cpp:29]   --->   Operation 55 'zext' 'zext_ln681_3' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 56 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%lshr_ln681_1 = lshr i128 -1, %zext_ln681_3" [p2peda.cpp:29]   --->   Operation 56 'lshr' 'lshr_ln681_1' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 57 [1/1] (3.14ns) (out node of the LUT)   --->   "%p_Result_s = and i128 %lshr_ln681, %lshr_ln681_1" [p2peda.cpp:29]   --->   Operation 57 'and' 'p_Result_s' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln29_1 = trunc i128 %p_Result_s to i8" [p2peda.cpp:29]   --->   Operation 58 'trunc' 'trunc_ln29_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 59 [1/1] (0.00ns)   --->   "%zext_ln29 = zext i5 %i_0 to i64" [p2peda.cpp:29]   --->   Operation 59 'zext' 'zext_ln29' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 60 [1/1] (0.00ns)   --->   "%aes_input_addr_1 = getelementptr inbounds [16 x i8]* %aes_input, i64 0, i64 %zext_ln29" [p2peda.cpp:29]   --->   Operation 60 'getelementptr' 'aes_input_addr_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 61 [1/1] (2.32ns)   --->   "store i8 %trunc_ln29_1, i8* %aes_input_addr_1, align 1" [p2peda.cpp:29]   --->   Operation 61 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_5 : Operation 62 [1/1] (0.00ns)   --->   "br label %.preheader" [p2peda.cpp:28]   --->   Operation 62 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%zext_ln681_3 = zext i8 %sub_ln681_2 to i128" [p2peda.cpp:32]   --->   Operation 55 'zext' 'zext_ln681_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%lshr_ln681_1 = lshr i128 -1, %zext_ln681_3" [p2peda.cpp:32]   --->   Operation 56 'lshr' 'lshr_ln681_1' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 57 [1/1] (3.14ns) (out node of the LUT)   --->   "%p_Result_s = and i128 %lshr_ln681, %lshr_ln681_1" [p2peda.cpp:32]   --->   Operation 57 'and' 'p_Result_s' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%trunc_ln32_1 = trunc i128 %p_Result_s to i8" [p2peda.cpp:32]   --->   Operation 58 'trunc' 'trunc_ln32_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 59 [1/1] (0.00ns)   --->   "%zext_ln32 = zext i5 %i_0 to i64" [p2peda.cpp:32]   --->   Operation 59 'zext' 'zext_ln32' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 60 [1/1] (0.00ns)   --->   "%aes_input_addr_1 = getelementptr inbounds [16 x i8]* %aes_input, i64 0, i64 %zext_ln32" [p2peda.cpp:32]   --->   Operation 60 'getelementptr' 'aes_input_addr_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 61 [1/1] (2.32ns)   --->   "store i8 %trunc_ln32_1, i8* %aes_input_addr_1, align 1" [p2peda.cpp:32]   --->   Operation 61 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_5 : Operation 62 [1/1] (0.00ns)   --->   "br label %.preheader" [p2peda.cpp:31]   --->   Operation 62 'br' <Predicate = true> <Delay = 0.00>
 
 State 6 <SV = 4> <Delay = 1.76>
-ST_6 : Operation 63 [1/2] (0.00ns)   --->   "call fastcc void @aes_encrypt([16 x i8]* %aes_input, [16 x i8]* %output)" [../../refactored/encrypt.cpp:79->p2peda.cpp:32]   --->   Operation 63 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_6 : Operation 64 [1/1] (1.76ns)   --->   "br label %3" [p2peda.cpp:34]   --->   Operation 64 'br' <Predicate = true> <Delay = 1.76>
+ST_6 : Operation 63 [1/2] (0.00ns)   --->   "call fastcc void @aes_encrypt([16 x i8]* %aes_input, [16 x i8]* %output)" [../../refactored/encrypt.cpp:79->p2peda.cpp:35]   --->   Operation 63 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 64 [1/1] (1.76ns)   --->   "br label %3" [p2peda.cpp:37]   --->   Operation 64 'br' <Predicate = true> <Delay = 1.76>
 
 State 7 <SV = 5> <Delay = 2.32>
 ST_7 : Operation 65 [1/1] (0.00ns)   --->   "%p_Val2_s = phi i128 [ undef, %2 ], [ %p_Result_2, %4 ]"   --->   Operation 65 'phi' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 66 [1/1] (0.00ns)   --->   "%i1_0 = phi i5 [ 0, %2 ], [ %i_1, %4 ]"   --->   Operation 66 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 67 [1/1] (1.36ns)   --->   "%icmp_ln34 = icmp eq i5 %i1_0, -16" [p2peda.cpp:34]   --->   Operation 67 'icmp' 'icmp_ln34' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 68 [1/1] (0.00ns)   --->   "%empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 68 'speclooptripcount' 'empty_18' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 69 [1/1] (1.78ns)   --->   "%i_1 = add i5 %i1_0, 1" [p2peda.cpp:34]   --->   Operation 69 'add' 'i_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 70 [1/1] (0.00ns)   --->   "br i1 %icmp_ln34, label %5, label %4" [p2peda.cpp:34]   --->   Operation 70 'br' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 71 [1/1] (0.00ns)   --->   "%trunc_ln35 = trunc i5 %i1_0 to i4" [p2peda.cpp:35]   --->   Operation 71 'trunc' 'trunc_ln35' <Predicate = (!icmp_ln34)> <Delay = 0.00>
-ST_7 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln35 = zext i5 %i1_0 to i64" [p2peda.cpp:35]   --->   Operation 72 'zext' 'zext_ln35' <Predicate = (!icmp_ln34)> <Delay = 0.00>
-ST_7 : Operation 73 [1/1] (0.00ns)   --->   "%output_addr_1 = getelementptr inbounds [16 x i8]* %output, i64 0, i64 %zext_ln35" [p2peda.cpp:35]   --->   Operation 73 'getelementptr' 'output_addr_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
-ST_7 : Operation 74 [2/2] (2.32ns)   --->   "%output_load = load i8* %output_addr_1, align 1" [p2peda.cpp:35]   --->   Operation 74 'load' 'output_load' <Predicate = (!icmp_ln34)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_7 : Operation 75 [1/1] (0.00ns)   --->   "ret i128 %p_Val2_s" [p2peda.cpp:37]   --->   Operation 75 'ret' <Predicate = (icmp_ln34)> <Delay = 0.00>
+ST_7 : Operation 67 [1/1] (1.36ns)   --->   "%icmp_ln37 = icmp eq i5 %i1_0, -16" [p2peda.cpp:37]   --->   Operation 67 'icmp' 'icmp_ln37' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 68 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 68 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 69 [1/1] (1.78ns)   --->   "%i_1 = add i5 %i1_0, 1" [p2peda.cpp:37]   --->   Operation 69 'add' 'i_1' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 70 [1/1] (0.00ns)   --->   "br i1 %icmp_ln37, label %5, label %4" [p2peda.cpp:37]   --->   Operation 70 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 71 [1/1] (0.00ns)   --->   "%trunc_ln38 = trunc i5 %i1_0 to i4" [p2peda.cpp:38]   --->   Operation 71 'trunc' 'trunc_ln38' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_7 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln38 = zext i5 %i1_0 to i64" [p2peda.cpp:38]   --->   Operation 72 'zext' 'zext_ln38' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_7 : Operation 73 [1/1] (0.00ns)   --->   "%output_addr_1 = getelementptr inbounds [16 x i8]* %output, i64 0, i64 %zext_ln38" [p2peda.cpp:38]   --->   Operation 73 'getelementptr' 'output_addr_1' <Predicate = (!icmp_ln37)> <Delay = 0.00>
+ST_7 : Operation 74 [2/2] (2.32ns)   --->   "%output_load = load i8* %output_addr_1, align 1" [p2peda.cpp:38]   --->   Operation 74 'load' 'output_load' <Predicate = (!icmp_ln37)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_7 : Operation 75 [1/1] (0.00ns)   --->   "ret i128 %p_Val2_s" [p2peda.cpp:40]   --->   Operation 75 'ret' <Predicate = (icmp_ln37)> <Delay = 0.00>
 
 State 8 <SV = 6> <Delay = 7.39>
-ST_8 : Operation 76 [1/1] (0.00ns)   --->   "%Lo_assign_1 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %trunc_ln35, i3 0)" [p2peda.cpp:35]   --->   Operation 76 'bitconcatenate' 'Lo_assign_1' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 77 [1/1] (0.00ns)   --->   "%or_ln35 = or i7 %Lo_assign_1, 7" [p2peda.cpp:35]   --->   Operation 77 'or' 'or_ln35' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 78 [1/2] (2.32ns)   --->   "%output_load = load i8* %output_addr_1, align 1" [p2peda.cpp:35]   --->   Operation 78 'load' 'output_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_8 : Operation 79 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%tmp_V = zext i8 %output_load to i128" [p2peda.cpp:35]   --->   Operation 79 'zext' 'tmp_V' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 80 [1/1] (1.48ns)   --->   "%icmp_ln388 = icmp ugt i7 %Lo_assign_1, %or_ln35" [p2peda.cpp:35]   --->   Operation 80 'icmp' 'icmp_ln388' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 81 [1/1] (0.00ns)   --->   "%zext_ln388 = zext i7 %Lo_assign_1 to i8" [p2peda.cpp:35]   --->   Operation 81 'zext' 'zext_ln388' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 82 [1/1] (0.00ns)   --->   "%zext_ln388_1 = zext i7 %or_ln35 to i8" [p2peda.cpp:35]   --->   Operation 82 'zext' 'zext_ln388_1' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 83 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%xor_ln388 = xor i8 %zext_ln388, 127" [p2peda.cpp:35]   --->   Operation 83 'xor' 'xor_ln388' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 84 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388 = select i1 %icmp_ln388, i8 %zext_ln388, i8 %zext_ln388_1" [p2peda.cpp:35]   --->   Operation 84 'select' 'select_ln388' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_8 : Operation 85 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388_1 = select i1 %icmp_ln388, i8 %zext_ln388_1, i8 %zext_ln388" [p2peda.cpp:35]   --->   Operation 85 'select' 'select_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_8 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%select_ln388_2 = select i1 %icmp_ln388, i8 %xor_ln388, i8 %zext_ln388" [p2peda.cpp:35]   --->   Operation 86 'select' 'select_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_8 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%xor_ln388_1 = xor i8 %select_ln388, 127" [p2peda.cpp:35]   --->   Operation 87 'xor' 'xor_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%zext_ln388_2 = zext i8 %select_ln388_2 to i128" [p2peda.cpp:35]   --->   Operation 88 'zext' 'zext_ln388_2' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 89 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_3 = zext i8 %select_ln388_1 to i128" [p2peda.cpp:35]   --->   Operation 89 'zext' 'zext_ln388_3' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 90 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_4 = zext i8 %xor_ln388_1 to i128" [p2peda.cpp:35]   --->   Operation 90 'zext' 'zext_ln388_4' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 91 [1/1] (3.14ns) (out node of the LUT)   --->   "%shl_ln388 = shl i128 %tmp_V, %zext_ln388_2" [p2peda.cpp:35]   --->   Operation 91 'shl' 'shl_ln388' <Predicate = true> <Delay = 3.14> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 92 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%tmp_1 = call i128 @llvm.part.select.i128(i128 %shl_ln388, i32 127, i32 0)" [p2peda.cpp:35]   --->   Operation 92 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 93 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%select_ln388_3 = select i1 %icmp_ln388, i128 %tmp_1, i128 %shl_ln388" [p2peda.cpp:35]   --->   Operation 93 'select' 'select_ln388_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_8 : Operation 94 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%shl_ln388_1 = shl i128 -1, %zext_ln388_3" [p2peda.cpp:35]   --->   Operation 94 'shl' 'shl_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 95 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%lshr_ln388 = lshr i128 -1, %zext_ln388_4" [p2peda.cpp:35]   --->   Operation 95 'lshr' 'lshr_ln388' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 96 [1/1] (3.14ns) (out node of the LUT)   --->   "%and_ln388 = and i128 %shl_ln388_1, %lshr_ln388" [p2peda.cpp:35]   --->   Operation 96 'and' 'and_ln388' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 97 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%xor_ln388_2 = xor i128 %and_ln388, -1" [p2peda.cpp:35]   --->   Operation 97 'xor' 'xor_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 98 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%and_ln388_1 = and i128 %p_Val2_s, %xor_ln388_2" [p2peda.cpp:35]   --->   Operation 98 'and' 'and_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 99 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%and_ln388_2 = and i128 %select_ln388_3, %and_ln388" [p2peda.cpp:35]   --->   Operation 99 'and' 'and_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 100 [1/1] (1.92ns) (out node of the LUT)   --->   "%p_Result_2 = or i128 %and_ln388_1, %and_ln388_2" [p2peda.cpp:35]   --->   Operation 100 'or' 'p_Result_2' <Predicate = true> <Delay = 1.92> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 101 [1/1] (0.00ns)   --->   "br label %3" [p2peda.cpp:34]   --->   Operation 101 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 76 [1/1] (0.00ns)   --->   "%Lo_assign_1 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %trunc_ln38, i3 0)" [p2peda.cpp:38]   --->   Operation 76 'bitconcatenate' 'Lo_assign_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 77 [1/1] (0.00ns)   --->   "%or_ln38 = or i7 %Lo_assign_1, 7" [p2peda.cpp:38]   --->   Operation 77 'or' 'or_ln38' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 78 [1/2] (2.32ns)   --->   "%output_load = load i8* %output_addr_1, align 1" [p2peda.cpp:38]   --->   Operation 78 'load' 'output_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_8 : Operation 79 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%tmp_V = zext i8 %output_load to i128" [p2peda.cpp:38]   --->   Operation 79 'zext' 'tmp_V' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 80 [1/1] (1.48ns)   --->   "%icmp_ln388 = icmp ugt i7 %Lo_assign_1, %or_ln38" [p2peda.cpp:38]   --->   Operation 80 'icmp' 'icmp_ln388' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 81 [1/1] (0.00ns)   --->   "%zext_ln388 = zext i7 %Lo_assign_1 to i8" [p2peda.cpp:38]   --->   Operation 81 'zext' 'zext_ln388' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 82 [1/1] (0.00ns)   --->   "%zext_ln388_1 = zext i7 %or_ln38 to i8" [p2peda.cpp:38]   --->   Operation 82 'zext' 'zext_ln388_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 83 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%xor_ln388 = xor i8 %zext_ln388, 127" [p2peda.cpp:38]   --->   Operation 83 'xor' 'xor_ln388' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 84 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388 = select i1 %icmp_ln388, i8 %zext_ln388, i8 %zext_ln388_1" [p2peda.cpp:38]   --->   Operation 84 'select' 'select_ln388' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 85 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388_1 = select i1 %icmp_ln388, i8 %zext_ln388_1, i8 %zext_ln388" [p2peda.cpp:38]   --->   Operation 85 'select' 'select_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 86 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%select_ln388_2 = select i1 %icmp_ln388, i8 %xor_ln388, i8 %zext_ln388" [p2peda.cpp:38]   --->   Operation 86 'select' 'select_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 87 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%xor_ln388_1 = xor i8 %select_ln388, 127" [p2peda.cpp:38]   --->   Operation 87 'xor' 'xor_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 88 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%zext_ln388_2 = zext i8 %select_ln388_2 to i128" [p2peda.cpp:38]   --->   Operation 88 'zext' 'zext_ln388_2' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 89 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_3 = zext i8 %select_ln388_1 to i128" [p2peda.cpp:38]   --->   Operation 89 'zext' 'zext_ln388_3' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 90 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_4 = zext i8 %xor_ln388_1 to i128" [p2peda.cpp:38]   --->   Operation 90 'zext' 'zext_ln388_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 91 [1/1] (3.14ns) (out node of the LUT)   --->   "%shl_ln388 = shl i128 %tmp_V, %zext_ln388_2" [p2peda.cpp:38]   --->   Operation 91 'shl' 'shl_ln388' <Predicate = true> <Delay = 3.14> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 92 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%tmp_1 = call i128 @llvm.part.select.i128(i128 %shl_ln388, i32 127, i32 0)" [p2peda.cpp:38]   --->   Operation 92 'partselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 93 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%select_ln388_3 = select i1 %icmp_ln388, i128 %tmp_1, i128 %shl_ln388" [p2peda.cpp:38]   --->   Operation 93 'select' 'select_ln388_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 94 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%shl_ln388_1 = shl i128 -1, %zext_ln388_3" [p2peda.cpp:38]   --->   Operation 94 'shl' 'shl_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 95 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%lshr_ln388 = lshr i128 -1, %zext_ln388_4" [p2peda.cpp:38]   --->   Operation 95 'lshr' 'lshr_ln388' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 96 [1/1] (3.14ns) (out node of the LUT)   --->   "%and_ln388 = and i128 %shl_ln388_1, %lshr_ln388" [p2peda.cpp:38]   --->   Operation 96 'and' 'and_ln388' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 97 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%xor_ln388_2 = xor i128 %and_ln388, -1" [p2peda.cpp:38]   --->   Operation 97 'xor' 'xor_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 98 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%and_ln388_1 = and i128 %p_Val2_s, %xor_ln388_2" [p2peda.cpp:38]   --->   Operation 98 'and' 'and_ln388_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 99 [1/1] (0.00ns) (grouped into LUT with out node p_Result_2)   --->   "%and_ln388_2 = and i128 %select_ln388_3, %and_ln388" [p2peda.cpp:38]   --->   Operation 99 'and' 'and_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 100 [1/1] (1.92ns) (out node of the LUT)   --->   "%p_Result_2 = or i128 %and_ln388_1, %and_ln388_2" [p2peda.cpp:38]   --->   Operation 100 'or' 'p_Result_2' <Predicate = true> <Delay = 1.92> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 101 [1/1] (0.00ns)   --->   "br label %3" [p2peda.cpp:37]   --->   Operation 101 'br' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -228,34 +228,34 @@ plaintext_V_read (read             ) [ 001111000]
 aes_input        (alloca           ) [ 001111100]
 output           (alloca           ) [ 001111111]
 br_ln0           (br               ) [ 011000000]
-phi_ln25         (phi              ) [ 001000000]
-add_ln25         (add              ) [ 011000000]
-zext_ln25        (zext             ) [ 000000000]
+phi_ln28         (phi              ) [ 001000000]
+add_ln28         (add              ) [ 011000000]
+zext_ln28        (zext             ) [ 000000000]
 aes_input_addr   (getelementptr    ) [ 000000000]
-store_ln25       (store            ) [ 000000000]
-icmp_ln25        (icmp             ) [ 001000000]
+store_ln28       (store            ) [ 000000000]
+icmp_ln28        (icmp             ) [ 001000000]
 specloopname_ln0 (specloopname     ) [ 000000000]
 empty            (speclooptripcount) [ 000000000]
-br_ln25          (br               ) [ 011000000]
-br_ln26          (br               ) [ 001100000]
-phi_ln26         (phi              ) [ 000100000]
-add_ln26         (add              ) [ 001100000]
-zext_ln26        (zext             ) [ 000000000]
+br_ln28          (br               ) [ 011000000]
+br_ln29          (br               ) [ 001100000]
+phi_ln29         (phi              ) [ 000100000]
+add_ln29         (add              ) [ 001100000]
+zext_ln29        (zext             ) [ 000000000]
 output_addr      (getelementptr    ) [ 000000000]
-store_ln26       (store            ) [ 000000000]
-icmp_ln26        (icmp             ) [ 000100000]
+store_ln29       (store            ) [ 000000000]
+icmp_ln29        (icmp             ) [ 000100000]
 specloopname_ln0 (specloopname     ) [ 000000000]
-empty_16         (speclooptripcount) [ 000000000]
-br_ln26          (br               ) [ 001100000]
-br_ln28          (br               ) [ 000111000]
+empty_24         (speclooptripcount) [ 000000000]
+br_ln29          (br               ) [ 001100000]
+br_ln31          (br               ) [ 000111000]
 i_0              (phi              ) [ 000011000]
-icmp_ln28        (icmp             ) [ 000011000]
-empty_17         (speclooptripcount) [ 000000000]
+icmp_ln31        (icmp             ) [ 000011000]
+empty_25         (speclooptripcount) [ 000000000]
 i                (add              ) [ 000111000]
-br_ln28          (br               ) [ 000000000]
-trunc_ln29       (trunc            ) [ 000000000]
+br_ln31          (br               ) [ 000000000]
+trunc_ln32       (trunc            ) [ 000000000]
 Lo_assign        (bitconcatenate   ) [ 000000000]
-or_ln29          (or               ) [ 000000000]
+or_ln32          (or               ) [ 000000000]
 icmp_ln681       (icmp             ) [ 000000000]
 zext_ln681       (zext             ) [ 000000000]
 zext_ln681_1     (zext             ) [ 000000000]
@@ -272,25 +272,25 @@ lshr_ln681       (lshr             ) [ 000001000]
 zext_ln681_3     (zext             ) [ 000000000]
 lshr_ln681_1     (lshr             ) [ 000000000]
 p_Result_s       (and              ) [ 000000000]
-trunc_ln29_1     (trunc            ) [ 000000000]
-zext_ln29        (zext             ) [ 000000000]
+trunc_ln32_1     (trunc            ) [ 000000000]
+zext_ln32        (zext             ) [ 000000000]
 aes_input_addr_1 (getelementptr    ) [ 000000000]
-store_ln29       (store            ) [ 000000000]
-br_ln28          (br               ) [ 000111000]
+store_ln32       (store            ) [ 000000000]
+br_ln31          (br               ) [ 000111000]
 call_ln79        (call             ) [ 000000000]
-br_ln34          (br               ) [ 000000111]
+br_ln37          (br               ) [ 000000111]
 p_Val2_s         (phi              ) [ 000000011]
 i1_0             (phi              ) [ 000000010]
-icmp_ln34        (icmp             ) [ 000000011]
-empty_18         (speclooptripcount) [ 000000000]
+icmp_ln37        (icmp             ) [ 000000011]
+empty_26         (speclooptripcount) [ 000000000]
 i_1              (add              ) [ 000000111]
-br_ln34          (br               ) [ 000000000]
-trunc_ln35       (trunc            ) [ 000000001]
-zext_ln35        (zext             ) [ 000000000]
+br_ln37          (br               ) [ 000000000]
+trunc_ln38       (trunc            ) [ 000000001]
+zext_ln38        (zext             ) [ 000000000]
 output_addr_1    (getelementptr    ) [ 000000001]
-ret_ln37         (ret              ) [ 000000000]
+ret_ln40         (ret              ) [ 000000000]
 Lo_assign_1      (bitconcatenate   ) [ 000000000]
-or_ln35          (or               ) [ 000000000]
+or_ln38          (or               ) [ 000000000]
 output_load      (load             ) [ 000000000]
 tmp_V            (zext             ) [ 000000000]
 icmp_ln388       (icmp             ) [ 000000000]
@@ -314,7 +314,7 @@ xor_ln388_2      (xor              ) [ 000000000]
 and_ln388_1      (and              ) [ 000000000]
 and_ln388_2      (and              ) [ 000000000]
 p_Result_2       (or               ) [ 000000111]
-br_ln34          (br               ) [ 000000111]
+br_ln37          (br               ) [ 000000111]
 </LifeTime>
 
 <model>
@@ -630,7 +630,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="store_ln25/2 store_ln29/5 "/>
+<opset="store_ln28/2 store_ln32/5 "/>
 </bind>
 </comp>
 
@@ -656,7 +656,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="load(27) store(28) " fcode="load"/>
-<opset="store_ln26/3 output_load/7 "/>
+<opset="store_ln29/3 output_load/7 "/>
 </bind>
 </comp>
 
@@ -686,17 +686,17 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="110" class="1005" name="phi_ln25_reg_110">
+<comp id="110" class="1005" name="phi_ln28_reg_110">
 <pin_list>
 <pin id="111" dir="0" index="0" bw="4" slack="1"/>
 <pin id="112" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
-<opset="phi_ln25 (phireg) "/>
+<opset="phi_ln28 (phireg) "/>
 </bind>
 </comp>
 
-<comp id="114" class="1004" name="phi_ln25_phi_fu_114">
+<comp id="114" class="1004" name="phi_ln28_phi_fu_114">
 <pin_list>
 <pin id="115" dir="0" index="0" bw="1" slack="1"/>
 <pin id="116" dir="0" index="1" bw="0" slack="2147483647"/>
@@ -706,21 +706,21 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
-<opset="phi_ln25/2 "/>
+<opset="phi_ln28/2 "/>
 </bind>
 </comp>
 
-<comp id="121" class="1005" name="phi_ln26_reg_121">
+<comp id="121" class="1005" name="phi_ln29_reg_121">
 <pin_list>
 <pin id="122" dir="0" index="0" bw="4" slack="1"/>
 <pin id="123" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
-<opset="phi_ln26 (phireg) "/>
+<opset="phi_ln29 (phireg) "/>
 </bind>
 </comp>
 
-<comp id="125" class="1004" name="phi_ln26_phi_fu_125">
+<comp id="125" class="1004" name="phi_ln29_phi_fu_125">
 <pin_list>
 <pin id="126" dir="0" index="0" bw="4" slack="0"/>
 <pin id="127" dir="0" index="1" bw="0" slack="2147483647"/>
@@ -730,7 +730,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
-<opset="phi_ln26/3 "/>
+<opset="phi_ln29/3 "/>
 </bind>
 </comp>
 
@@ -821,7 +821,7 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="177" class="1004" name="add_ln25_fu_177">
+<comp id="177" class="1004" name="add_ln28_fu_177">
 <pin_list>
 <pin id="178" dir="0" index="0" bw="4" slack="0"/>
 <pin id="179" dir="0" index="1" bw="1" slack="0"/>
@@ -829,22 +829,22 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln25/2 "/>
+<opset="add_ln28/2 "/>
 </bind>
 </comp>
 
-<comp id="183" class="1004" name="zext_ln25_fu_183">
+<comp id="183" class="1004" name="zext_ln28_fu_183">
 <pin_list>
 <pin id="184" dir="0" index="0" bw="4" slack="0"/>
 <pin id="185" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln25/2 "/>
+<opset="zext_ln28/2 "/>
 </bind>
 </comp>
 
-<comp id="188" class="1004" name="icmp_ln25_fu_188">
+<comp id="188" class="1004" name="icmp_ln28_fu_188">
 <pin_list>
 <pin id="189" dir="0" index="0" bw="4" slack="0"/>
 <pin id="190" dir="0" index="1" bw="1" slack="0"/>
@@ -852,11 +852,11 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln25/2 "/>
+<opset="icmp_ln28/2 "/>
 </bind>
 </comp>
 
-<comp id="194" class="1004" name="add_ln26_fu_194">
+<comp id="194" class="1004" name="add_ln29_fu_194">
 <pin_list>
 <pin id="195" dir="0" index="0" bw="4" slack="0"/>
 <pin id="196" dir="0" index="1" bw="1" slack="0"/>
@@ -864,22 +864,22 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
-<opset="add_ln26/3 "/>
+<opset="add_ln29/3 "/>
 </bind>
 </comp>
 
-<comp id="200" class="1004" name="zext_ln26_fu_200">
+<comp id="200" class="1004" name="zext_ln29_fu_200">
 <pin_list>
 <pin id="201" dir="0" index="0" bw="4" slack="0"/>
 <pin id="202" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln26/3 "/>
+<opset="zext_ln29/3 "/>
 </bind>
 </comp>
 
-<comp id="205" class="1004" name="icmp_ln26_fu_205">
+<comp id="205" class="1004" name="icmp_ln29_fu_205">
 <pin_list>
 <pin id="206" dir="0" index="0" bw="4" slack="0"/>
 <pin id="207" dir="0" index="1" bw="1" slack="0"/>
@@ -887,11 +887,11 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln26/3 "/>
+<opset="icmp_ln29/3 "/>
 </bind>
 </comp>
 
-<comp id="211" class="1004" name="icmp_ln28_fu_211">
+<comp id="211" class="1004" name="icmp_ln31_fu_211">
 <pin_list>
 <pin id="212" dir="0" index="0" bw="5" slack="0"/>
 <pin id="213" dir="0" index="1" bw="5" slack="0"/>
@@ -899,7 +899,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln28/4 "/>
+<opset="icmp_ln31/4 "/>
 </bind>
 </comp>
 
@@ -915,14 +915,14 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="223" class="1004" name="trunc_ln29_fu_223">
+<comp id="223" class="1004" name="trunc_ln32_fu_223">
 <pin_list>
 <pin id="224" dir="0" index="0" bw="5" slack="0"/>
 <pin id="225" dir="1" index="1" bw="4" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln29/4 "/>
+<opset="trunc_ln32/4 "/>
 </bind>
 </comp>
 
@@ -939,7 +939,7 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="235" class="1004" name="or_ln29_fu_235">
+<comp id="235" class="1004" name="or_ln32_fu_235">
 <pin_list>
 <pin id="236" dir="0" index="0" bw="7" slack="0"/>
 <pin id="237" dir="0" index="1" bw="4" slack="0"/>
@@ -947,7 +947,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="or_ln29/4 "/>
+<opset="or_ln32/4 "/>
 </bind>
 </comp>
 
@@ -1144,29 +1144,29 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="335" class="1004" name="trunc_ln29_1_fu_335">
+<comp id="335" class="1004" name="trunc_ln32_1_fu_335">
 <pin_list>
 <pin id="336" dir="0" index="0" bw="128" slack="0"/>
 <pin id="337" dir="1" index="1" bw="8" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln29_1/5 "/>
+<opset="trunc_ln32_1/5 "/>
 </bind>
 </comp>
 
-<comp id="340" class="1004" name="zext_ln29_fu_340">
+<comp id="340" class="1004" name="zext_ln32_fu_340">
 <pin_list>
 <pin id="341" dir="0" index="0" bw="5" slack="1"/>
 <pin id="342" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln29/5 "/>
+<opset="zext_ln32/5 "/>
 </bind>
 </comp>
 
-<comp id="345" class="1004" name="icmp_ln34_fu_345">
+<comp id="345" class="1004" name="icmp_ln37_fu_345">
 <pin_list>
 <pin id="346" dir="0" index="0" bw="5" slack="0"/>
 <pin id="347" dir="0" index="1" bw="5" slack="0"/>
@@ -1174,7 +1174,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln34/7 "/>
+<opset="icmp_ln37/7 "/>
 </bind>
 </comp>
 
@@ -1190,25 +1190,25 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="357" class="1004" name="trunc_ln35_fu_357">
+<comp id="357" class="1004" name="trunc_ln38_fu_357">
 <pin_list>
 <pin id="358" dir="0" index="0" bw="5" slack="0"/>
 <pin id="359" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln35/7 "/>
+<opset="trunc_ln38/7 "/>
 </bind>
 </comp>
 
-<comp id="361" class="1004" name="zext_ln35_fu_361">
+<comp id="361" class="1004" name="zext_ln38_fu_361">
 <pin_list>
 <pin id="362" dir="0" index="0" bw="5" slack="0"/>
 <pin id="363" dir="1" index="1" bw="64" slack="0"/>
 </pin_list>
 <bind>
 <opcode="zext(34) " fcode="zext"/>
-<opset="zext_ln35/7 "/>
+<opset="zext_ln38/7 "/>
 </bind>
 </comp>
 
@@ -1225,7 +1225,7 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="373" class="1004" name="or_ln35_fu_373">
+<comp id="373" class="1004" name="or_ln38_fu_373">
 <pin_list>
 <pin id="374" dir="0" index="0" bw="7" slack="0"/>
 <pin id="375" dir="0" index="1" bw="4" slack="0"/>
@@ -1233,7 +1233,7 @@ br_ln34          (br               ) [ 000000111]
 </pin_list>
 <bind>
 <opcode="or(24) " fcode="or"/>
-<opset="or_ln35/8 "/>
+<opset="or_ln38/8 "/>
 </bind>
 </comp>
 
@@ -1511,23 +1511,23 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="517" class="1005" name="add_ln25_reg_517">
+<comp id="517" class="1005" name="add_ln28_reg_517">
 <pin_list>
 <pin id="518" dir="0" index="0" bw="4" slack="0"/>
 <pin id="519" dir="1" index="1" bw="4" slack="0"/>
 </pin_list>
 <bind>
-<opset="add_ln25 "/>
+<opset="add_ln28 "/>
 </bind>
 </comp>
 
-<comp id="525" class="1005" name="add_ln26_reg_525">
+<comp id="525" class="1005" name="add_ln29_reg_525">
 <pin_list>
 <pin id="526" dir="0" index="0" bw="4" slack="0"/>
 <pin id="527" dir="1" index="1" bw="4" slack="0"/>
 </pin_list>
 <bind>
-<opset="add_ln26 "/>
+<opset="add_ln29 "/>
 </bind>
 </comp>
 
@@ -1571,13 +1571,13 @@ br_ln34          (br               ) [ 000000111]
 </bind>
 </comp>
 
-<comp id="559" class="1005" name="trunc_ln35_reg_559">
+<comp id="559" class="1005" name="trunc_ln38_reg_559">
 <pin_list>
 <pin id="560" dir="0" index="0" bw="4" slack="1"/>
 <pin id="561" dir="1" index="1" bw="4" slack="1"/>
 </pin_list>
 <bind>
-<opset="trunc_ln35 "/>
+<opset="trunc_ln38 "/>
 </bind>
 </comp>
 
@@ -1938,26 +1938,26 @@ br_ln34          (br               ) [ 000000111]
   - Chain level:
 	State 1
 	State 2
-		add_ln25 : 1
-		zext_ln25 : 1
+		add_ln28 : 1
+		zext_ln28 : 1
 		aes_input_addr : 2
-		store_ln25 : 3
-		icmp_ln25 : 1
-		br_ln25 : 2
-	State 3
-		add_ln26 : 1
-		zext_ln26 : 1
-		output_addr : 2
-		store_ln26 : 3
-		icmp_ln26 : 1
-		br_ln26 : 2
-	State 4
+		store_ln28 : 3
 		icmp_ln28 : 1
-		i : 1
 		br_ln28 : 2
-		trunc_ln29 : 1
+	State 3
+		add_ln29 : 1
+		zext_ln29 : 1
+		output_addr : 2
+		store_ln29 : 3
+		icmp_ln29 : 1
+		br_ln29 : 2
+	State 4
+		icmp_ln31 : 1
+		i : 1
+		br_ln31 : 2
+		trunc_ln32 : 1
 		Lo_assign : 2
-		or_ln29 : 3
+		or_ln32 : 3
 		icmp_ln681 : 3
 		zext_ln681 : 3
 		zext_ln681_1 : 3
@@ -1973,21 +1973,21 @@ br_ln34          (br               ) [ 000000111]
 	State 5
 		lshr_ln681_1 : 1
 		p_Result_s : 2
-		trunc_ln29_1 : 2
+		trunc_ln32_1 : 2
 		aes_input_addr_1 : 1
-		store_ln29 : 3
+		store_ln32 : 3
 	State 6
 	State 7
-		icmp_ln34 : 1
+		icmp_ln37 : 1
 		i_1 : 1
-		br_ln34 : 2
-		trunc_ln35 : 1
-		zext_ln35 : 1
+		br_ln37 : 2
+		trunc_ln38 : 1
+		zext_ln38 : 1
 		output_addr_1 : 2
 		output_load : 3
-		ret_ln37 : 1
+		ret_ln40 : 1
 	State 8
-		or_ln35 : 1
+		or_ln38 : 1
 		tmp_V : 1
 		icmp_ln388 : 1
 		zext_ln388 : 1
@@ -2044,19 +2044,19 @@ br_ln34          (br               ) [ 000000111]
 |          |      xor_ln388_1_fu_427     |    0    |    0    |    0    |    8    |    0    |
 |          |      xor_ln388_2_fu_487     |    0    |    0    |    0    |   128   |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
-|          |        or_ln29_fu_235       |    0    |    0    |    0    |    0    |    0    |
-|    or    |        or_ln35_fu_373       |    0    |    0    |    0    |    0    |    0    |
+|          |        or_ln32_fu_235       |    0    |    0    |    0    |    0    |    0    |
+|    or    |        or_ln38_fu_373       |    0    |    0    |    0    |    0    |    0    |
 |          |      p_Result_2_fu_505      |    0    |    0    |    0    |   128   |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
-|          |       icmp_ln25_fu_188      |    0    |    0    |    0    |    9    |    0    |
-|          |       icmp_ln26_fu_205      |    0    |    0    |    0    |    9    |    0    |
-|   icmp   |       icmp_ln28_fu_211      |    0    |    0    |    0    |    11   |    0    |
+|          |       icmp_ln28_fu_188      |    0    |    0    |    0    |    9    |    0    |
+|          |       icmp_ln29_fu_205      |    0    |    0    |    0    |    9    |    0    |
+|   icmp   |       icmp_ln31_fu_211      |    0    |    0    |    0    |    11   |    0    |
 |          |      icmp_ln681_fu_241      |    0    |    0    |    0    |    11   |    0    |
-|          |       icmp_ln34_fu_345      |    0    |    0    |    0    |    11   |    0    |
+|          |       icmp_ln37_fu_345      |    0    |    0    |    0    |    11   |    0    |
 |          |      icmp_ln388_fu_383      |    0    |    0    |    0    |    11   |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
-|          |       add_ln25_fu_177       |    0    |    0    |    0    |    13   |    0    |
-|    add   |       add_ln26_fu_194       |    0    |    0    |    0    |    13   |    0    |
+|          |       add_ln28_fu_177       |    0    |    0    |    0    |    13   |    0    |
+|    add   |       add_ln29_fu_194       |    0    |    0    |    0    |    13   |    0    |
 |          |           i_fu_217          |    0    |    0    |    0    |    15   |    0    |
 |          |          i_1_fu_351         |    0    |    0    |    0    |    15   |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
@@ -2069,14 +2069,14 @@ br_ln34          (br               ) [ 000000111]
 |----------|-----------------------------|---------|---------|---------|---------|---------|
 |   read   | plaintext_V_read_read_fu_64 |    0    |    0    |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
-|          |       zext_ln25_fu_183      |    0    |    0    |    0    |    0    |    0    |
-|          |       zext_ln26_fu_200      |    0    |    0    |    0    |    0    |    0    |
+|          |       zext_ln28_fu_183      |    0    |    0    |    0    |    0    |    0    |
+|          |       zext_ln29_fu_200      |    0    |    0    |    0    |    0    |    0    |
 |          |      zext_ln681_fu_247      |    0    |    0    |    0    |    0    |    0    |
 |          |     zext_ln681_1_fu_251     |    0    |    0    |    0    |    0    |    0    |
 |          |     zext_ln681_2_fu_311     |    0    |    0    |    0    |    0    |    0    |
 |          |     zext_ln681_3_fu_321     |    0    |    0    |    0    |    0    |    0    |
-|   zext   |       zext_ln29_fu_340      |    0    |    0    |    0    |    0    |    0    |
-|          |       zext_ln35_fu_361      |    0    |    0    |    0    |    0    |    0    |
+|   zext   |       zext_ln32_fu_340      |    0    |    0    |    0    |    0    |    0    |
+|          |       zext_ln38_fu_361      |    0    |    0    |    0    |    0    |    0    |
 |          |         tmp_V_fu_379        |    0    |    0    |    0    |    0    |    0    |
 |          |      zext_ln388_fu_389      |    0    |    0    |    0    |    0    |    0    |
 |          |     zext_ln388_1_fu_393     |    0    |    0    |    0    |    0    |    0    |
@@ -2084,9 +2084,9 @@ br_ln34          (br               ) [ 000000111]
 |          |     zext_ln388_3_fu_437     |    0    |    0    |    0    |    0    |    0    |
 |          |     zext_ln388_4_fu_441     |    0    |    0    |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
-|          |      trunc_ln29_fu_223      |    0    |    0    |    0    |    0    |    0    |
-|   trunc  |     trunc_ln29_1_fu_335     |    0    |    0    |    0    |    0    |    0    |
-|          |      trunc_ln35_fu_357      |    0    |    0    |    0    |    0    |    0    |
+|          |      trunc_ln32_fu_223      |    0    |    0    |    0    |    0    |    0    |
+|   trunc  |     trunc_ln32_1_fu_335     |    0    |    0    |    0    |    0    |    0    |
+|          |      trunc_ln38_fu_357      |    0    |    0    |    0    |    0    |    0    |
 |----------|-----------------------------|---------|---------|---------|---------|---------|
 |bitconcatenate|       Lo_assign_fu_227      |    0    |    0    |    0    |    0    |    0    |
 |          |      Lo_assign_1_fu_366     |    0    |    0    |    0    |    0    |    0    |
@@ -2111,8 +2111,8 @@ Memories:
 +------------------------+--------+
 |                        |   FF   |
 +------------------------+--------+
-|    add_ln25_reg_517    |    4   |
-|    add_ln26_reg_525    |    4   |
+|    add_ln28_reg_517    |    4   |
+|    add_ln29_reg_525    |    4   |
 |      i1_0_reg_156      |    5   |
 |       i_0_reg_132      |    5   |
 |       i_1_reg_554      |    5   |
@@ -2121,11 +2121,11 @@ Memories:
 |  output_addr_1_reg_564 |    4   |
 |   p_Result_2_reg_569   |   128  |
 |    p_Val2_s_reg_144    |   128  |
-|    phi_ln25_reg_110    |    4   |
-|    phi_ln26_reg_121    |    4   |
+|    phi_ln28_reg_110    |    4   |
+|    phi_ln29_reg_121    |    4   |
 |plaintext_V_read_reg_511|   128  |
 |   sub_ln681_2_reg_541  |    8   |
-|   trunc_ln35_reg_559   |    4   |
+|   trunc_ln38_reg_559   |    4   |
 +------------------------+--------+
 |          Total         |   564  |
 +------------------------+--------+

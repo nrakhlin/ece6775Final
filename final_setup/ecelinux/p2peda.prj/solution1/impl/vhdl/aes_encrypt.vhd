@@ -79,8 +79,8 @@ architecture behav of aes_encrypt is
     signal zext_ln63_reg_318 : STD_LOGIC_VECTOR (3 downto 0);
     signal ap_CS_fsm_state6 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
-    signal i_13_fu_217_p2 : STD_LOGIC_VECTOR (2 downto 0);
-    signal i_13_reg_326 : STD_LOGIC_VECTOR (2 downto 0);
+    signal i_15_fu_217_p2 : STD_LOGIC_VECTOR (2 downto 0);
+    signal i_15_reg_326 : STD_LOGIC_VECTOR (2 downto 0);
     signal shl_ln3_fu_227_p3 : STD_LOGIC_VECTOR (3 downto 0);
     signal shl_ln3_reg_331 : STD_LOGIC_VECTOR (3 downto 0);
     signal icmp_ln63_fu_211_p2 : STD_LOGIC_VECTOR (0 downto 0);
@@ -267,7 +267,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((icmp_ln66_fu_239_p2 = ap_const_lv1_1) and (ap_const_logic_1 = ap_CS_fsm_state7))) then 
-                i_1_reg_101 <= i_13_reg_326;
+                i_1_reg_101 <= i_15_reg_326;
             elsif (((ap_const_logic_1 = ap_CS_fsm_state5) and (grp_aes_main_fu_123_ap_done = ap_const_logic_1))) then 
                 i_1_reg_101 <= ap_const_lv3_0;
             end if; 
@@ -315,7 +315,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state6)) then
-                i_13_reg_326 <= i_13_fu_217_p2;
+                i_15_reg_326 <= i_15_fu_217_p2;
                     zext_ln63_reg_318(2 downto 0) <= zext_ln63_fu_207_p1(2 downto 0);
             end if;
         end if;
@@ -526,7 +526,7 @@ begin
     end process;
 
     grp_aes_main_fu_123_ap_start <= grp_aes_main_fu_123_ap_start_reg;
-    i_13_fu_217_p2 <= std_logic_vector(unsigned(i_1_reg_101) + unsigned(ap_const_lv3_1));
+    i_15_fu_217_p2 <= std_logic_vector(unsigned(i_1_reg_101) + unsigned(ap_const_lv3_1));
     i_fu_142_p2 <= std_logic_vector(unsigned(i_0_reg_79) + unsigned(ap_const_lv3_1));
     icmp_ln47_fu_136_p2 <= "1" when (i_0_reg_79 = ap_const_lv3_4) else "0";
     icmp_ln50_fu_164_p2 <= "1" when (j_0_reg_90 = ap_const_lv3_4) else "0";

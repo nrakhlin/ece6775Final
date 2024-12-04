@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'createRoundKey'
 ================================================================
-* Date:           Tue Dec  3 11:39:33 2024
+* Date:           Wed Dec  4 15:54:59 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        p2peda.prj
@@ -105,7 +105,7 @@ State 3 <SV = 2> <Delay = 6.92>
 ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ %j, %1 ], [ 0, %.preheader.preheader ]"   --->   Operation 19 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%zext_ln307 = zext i3 %j_0 to i8" [../../refactored/helper.cpp:307]   --->   Operation 20 'zext' 'zext_ln307' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 21 [1/1] (1.13ns)   --->   "%icmp_ln307 = icmp eq i3 %j_0, -4" [../../refactored/helper.cpp:307]   --->   Operation 21 'icmp' 'icmp_ln307' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 22 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%empty_36 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 22 'speclooptripcount' 'empty_36' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 23 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [../../refactored/helper.cpp:307]   --->   Operation 23 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br i1 %icmp_ln307, label %.loopexit.loopexit, label %1" [../../refactored/helper.cpp:307]   --->   Operation 24 'br' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 25 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln308 = add i8 %trunc_ln308, %zext_ln307" [../../refactored/helper.cpp:308]   --->   Operation 25 'add' 'add_ln308' <Predicate = (!icmp_ln307)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.83> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
@@ -163,7 +163,7 @@ ret_ln310        (ret              ) [ 00000]
 j_0              (phi              ) [ 00010]
 zext_ln307       (zext             ) [ 00000]
 icmp_ln307       (icmp             ) [ 00111]
-empty_26         (speclooptripcount) [ 00000]
+empty_36         (speclooptripcount) [ 00000]
 j                (add              ) [ 00111]
 br_ln307         (br               ) [ 00000]
 add_ln308        (add              ) [ 00000]

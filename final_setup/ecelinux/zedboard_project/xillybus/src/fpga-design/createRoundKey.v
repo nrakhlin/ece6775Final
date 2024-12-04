@@ -14,9 +14,6 @@ module createRoundKey (
         ap_done,
         ap_idle,
         ap_ready,
-        expandedKey_address0,
-        expandedKey_ce0,
-        expandedKey_q0,
         roundKey_address0,
         roundKey_ce0,
         roundKey_we0,
@@ -35,9 +32,6 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
-output  [7:0] expandedKey_address0;
-output   expandedKey_ce0;
-input  [7:0] expandedKey_q0;
 output  [3:0] roundKey_address0;
 output   roundKey_ce0;
 output   roundKey_we0;
@@ -47,12 +41,14 @@ input  [8:0] ptr;
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
-reg expandedKey_ce0;
 reg roundKey_ce0;
 reg roundKey_we0;
 
 (* fsm_encoding = "none" *) reg   [3:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
+wire   [7:0] expandedKey_address0;
+reg    expandedKey_ce0;
+wire   [7:0] expandedKey_q0;
 wire   [7:0] trunc_ln308_fu_79_p1;
 reg   [7:0] trunc_ln308_reg_167;
 wire   [3:0] zext_ln304_fu_83_p1;
@@ -87,6 +83,18 @@ reg   [3:0] ap_NS_fsm;
 initial begin
 #0 ap_CS_fsm = 4'd1;
 end
+
+createRoundKey_exjbC #(
+    .DataWidth( 8 ),
+    .AddressRange( 176 ),
+    .AddressWidth( 8 ))
+expandedKey_U(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .address0(expandedKey_address0),
+    .ce0(expandedKey_ce0),
+    .q0(expandedKey_q0)
+);
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin

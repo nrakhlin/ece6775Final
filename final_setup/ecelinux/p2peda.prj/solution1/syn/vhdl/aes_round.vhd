@@ -123,12 +123,12 @@ architecture behav of aes_round is
     signal ap_CS_fsm_state8 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state8 : signal is "none";
     signal state_load_6_reg_367 : STD_LOGIC_VECTOR (7 downto 0);
-    signal tmp_6_reg_384 : STD_LOGIC_VECTOR (7 downto 0);
+    signal tmp_8_reg_384 : STD_LOGIC_VECTOR (7 downto 0);
     signal ap_CS_fsm_state9 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state9 : signal is "none";
     signal state_addr_13_reg_394 : STD_LOGIC_VECTOR (3 downto 0);
-    signal i_5_fu_277_p2 : STD_LOGIC_VECTOR (4 downto 0);
-    signal i_5_reg_402 : STD_LOGIC_VECTOR (4 downto 0);
+    signal i_7_fu_277_p2 : STD_LOGIC_VECTOR (4 downto 0);
+    signal i_7_reg_402 : STD_LOGIC_VECTOR (4 downto 0);
     signal ap_CS_fsm_state16 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state16 : signal is "none";
     signal state_addr_15_reg_407 : STD_LOGIC_VECTOR (3 downto 0);
@@ -258,7 +258,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state17)) then 
-                i_0_i4_reg_219 <= i_5_reg_402;
+                i_0_i4_reg_219 <= i_7_reg_402;
             elsif (((ap_const_logic_1 = ap_CS_fsm_state15) and (grp_mixColumns_fu_230_ap_done = ap_const_logic_1))) then 
                 i_0_i4_reg_219 <= ap_const_lv5_0;
             end if; 
@@ -301,7 +301,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state16)) then
-                i_5_reg_402 <= i_5_fu_277_p2;
+                i_7_reg_402 <= i_7_fu_277_p2;
             end if;
         end if;
     end process;
@@ -350,7 +350,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state9)) then
-                tmp_6_reg_384 <= state_q0;
+                tmp_8_reg_384 <= state_q0;
             end if;
         end if;
     end process;
@@ -460,7 +460,7 @@ begin
     end process;
 
     grp_mixColumns_fu_230_ap_start <= grp_mixColumns_fu_230_ap_start_reg;
-    i_5_fu_277_p2 <= std_logic_vector(unsigned(i_0_i4_reg_219) + unsigned(ap_const_lv5_1));
+    i_7_fu_277_p2 <= std_logic_vector(unsigned(i_0_i4_reg_219) + unsigned(ap_const_lv5_1));
     i_fu_255_p2 <= std_logic_vector(unsigned(i_0_i_reg_208) + unsigned(ap_const_lv5_1));
     icmp_ln174_fu_249_p2 <= "1" when (i_0_i_reg_208 = ap_const_lv5_10) else "0";
     icmp_ln225_fu_271_p2 <= "1" when (i_0_i4_reg_219 = ap_const_lv5_10) else "0";
@@ -579,10 +579,10 @@ begin
     end process;
 
 
-    state_d0_assign_proc : process(state_q0, state_q1, reg_236, ap_CS_fsm_state10, state_load_2_reg_335, ap_CS_fsm_state7, state_load_6_reg_367, tmp_6_reg_384, ap_CS_fsm_state9, grp_mixColumns_fu_230_state_d0, ap_CS_fsm_state15, ap_CS_fsm_state11, ap_CS_fsm_state12, ap_CS_fsm_state13)
+    state_d0_assign_proc : process(state_q0, state_q1, reg_236, ap_CS_fsm_state10, state_load_2_reg_335, ap_CS_fsm_state7, state_load_6_reg_367, tmp_8_reg_384, ap_CS_fsm_state9, grp_mixColumns_fu_230_state_d0, ap_CS_fsm_state15, ap_CS_fsm_state11, ap_CS_fsm_state12, ap_CS_fsm_state13)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-            state_d0 <= tmp_6_reg_384;
+            state_d0 <= tmp_8_reg_384;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state12)) then 
             state_d0 <= state_load_6_reg_367;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 

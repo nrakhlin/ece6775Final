@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_main'" level="0">
-<item name = "Date">Tue Dec  3 11:39:37 2024
+<item name = "Date">Wed Dec  4 15:55:04 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">p2peda.prj</item>
@@ -88,9 +88,9 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_6_fu_327_p2">+, 0, 0, 15, 5, 1</column>
-<column name="i_7_fu_377_p2">+, 0, 0, 15, 5, 1</column>
-<column name="i_8_fu_399_p2">+, 0, 0, 15, 5, 1</column>
+<column name="i_10_fu_399_p2">+, 0, 0, 15, 5, 1</column>
+<column name="i_8_fu_327_p2">+, 0, 0, 15, 5, 1</column>
+<column name="i_9_fu_377_p2">+, 0, 0, 15, 5, 1</column>
 <column name="i_fu_365_p2">+, 0, 0, 13, 4, 1</column>
 <column name="icmp_ln174_fu_371_p2">icmp, 0, 0, 11, 5, 6</column>
 <column name="icmp_ln225_1_fu_393_p2">icmp, 0, 0, 11, 5, 6</column>
@@ -133,9 +133,9 @@
 <column name="i_0_i7_reg_278">5, 0, 5, 0</column>
 <column name="i_0_i_reg_245">5, 0, 5, 0</column>
 <column name="i_0_reg_256">4, 0, 4, 0</column>
-<column name="i_6_reg_421">5, 0, 5, 0</column>
-<column name="i_7_reg_452">5, 0, 5, 0</column>
-<column name="i_8_reg_557">5, 0, 5, 0</column>
+<column name="i_10_reg_557">5, 0, 5, 0</column>
+<column name="i_8_reg_421">5, 0, 5, 0</column>
+<column name="i_9_reg_452">5, 0, 5, 0</column>
 <column name="i_reg_444">4, 0, 4, 0</column>
 <column name="reg_309">8, 0, 8, 0</column>
 <column name="reg_315">8, 0, 8, 0</column>
@@ -145,7 +145,7 @@
 <column name="state_load_16_reg_490">8, 0, 8, 0</column>
 <column name="state_load_19_reg_517">8, 0, 8, 0</column>
 <column name="state_load_20_reg_522">8, 0, 8, 0</column>
-<column name="tmp_8_reg_539">8, 0, 8, 0</column>
+<column name="tmp_10_reg_539">8, 0, 8, 0</column>
 <column name="zext_ln27_reg_439">4, 0, 9, 5</column>
 </table>
 </item>

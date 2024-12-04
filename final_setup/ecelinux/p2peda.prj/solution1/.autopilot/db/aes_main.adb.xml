@@ -249,7 +249,7 @@
 
 <Node id="10" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
-:0  %i_0_i = phi i5 [ 0, %0 ], [ %i_6, %2 ]
+:0  %i_0_i = phi i5 [ 0, %0 ], [ %i_8, %2 ]
 
 ]]></Node>
 <StgValue><ssdm name="i_0_i"/></StgValue>
@@ -294,10 +294,10 @@
 
 <Node id="13" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-:3  %i_6 = add i5 %i_0_i, 1
+:3  %i_8 = add i5 %i_0_i, 1
 
 ]]></Node>
-<StgValue><ssdm name="i_6"/></StgValue>
+<StgValue><ssdm name="i_8"/></StgValue>
 </operation>
 
 <operation id="32" st_id="3" stage="1" lat="1">
@@ -531,10 +531,10 @@ addRoundKey.exit:1  %icmp_ln25 = icmp eq i4 %i_0, -6
 
 <Node id="29" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-addRoundKey.exit:2  %empty_28 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
+addRoundKey.exit:2  %empty_38 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)
 
 ]]></Node>
-<StgValue><ssdm name="empty_28"/></StgValue>
+<StgValue><ssdm name="empty_38"/></StgValue>
 </operation>
 
 <operation id="47" st_id="5" stage="1" lat="1">
@@ -761,7 +761,7 @@ addRoundKey.exit:3  br i1 %icmp_ln25, label %4, label %3
 
 <Node id="43" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
-:0  %i_0_i1 = phi i5 [ 0, %4 ], [ %i_7, %6 ]
+:0  %i_0_i1 = phi i5 [ 0, %4 ], [ %i_9, %6 ]
 
 ]]></Node>
 <StgValue><ssdm name="i_0_i1"/></StgValue>
@@ -791,10 +791,10 @@ addRoundKey.exit:3  br i1 %icmp_ln25, label %4, label %3
 
 <Node id="45" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:2  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+:2  %empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
 ]]></Node>
-<StgValue><ssdm name="empty_29"/></StgValue>
+<StgValue><ssdm name="empty_39"/></StgValue>
 </operation>
 
 <operation id="63" st_id="10" stage="1" lat="1">
@@ -806,10 +806,10 @@ addRoundKey.exit:3  br i1 %icmp_ln25, label %4, label %3
 
 <Node id="46" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-:3  %i_7 = add i5 %i_0_i1, 1
+:3  %i_9 = add i5 %i_0_i1, 1
 
 ]]></Node>
-<StgValue><ssdm name="i_7"/></StgValue>
+<StgValue><ssdm name="i_9"/></StgValue>
 </operation>
 
 <operation id="64" st_id="10" stage="1" lat="1">
@@ -1215,10 +1215,10 @@ subBytes.exit:12  %state_addr_20 = getelementptr [16 x i8]* %state, i64 0, i64 8
 
 <Node id="71" bw="8" op_0_bw="4">
 <![CDATA[
-subBytes.exit:13  %tmp_7 = load i8* %state_addr_20, align 1
+subBytes.exit:13  %tmp_9 = load i8* %state_addr_20, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_7"/></StgValue>
+<StgValue><ssdm name="tmp_9"/></StgValue>
 </operation>
 
 <operation id="90" st_id="14" stage="1" lat="1">
@@ -1263,10 +1263,10 @@ subBytes.exit:15  %tmp2 = load i8* %state_addr_21, align 1
 
 <Node id="71" bw="8" op_0_bw="4">
 <![CDATA[
-subBytes.exit:13  %tmp_7 = load i8* %state_addr_20, align 1
+subBytes.exit:13  %tmp_9 = load i8* %state_addr_20, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_7"/></StgValue>
+<StgValue><ssdm name="tmp_9"/></StgValue>
 </operation>
 
 <operation id="93" st_id="15" stage="1" lat="2">
@@ -1353,7 +1353,7 @@ subBytes.exit:20  %state_load_20 = load i8* %state_addr_23, align 1
 
 <Node id="80" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-subBytes.exit:22  store i8 %tmp_7, i8* %state_addr_22, align 1
+subBytes.exit:22  store i8 %tmp_9, i8* %state_addr_22, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln207"/></StgValue>
@@ -1431,10 +1431,10 @@ subBytes.exit:24  %state_addr_24 = getelementptr [16 x i8]* %state, i64 0, i64 1
 
 <Node id="83" bw="8" op_0_bw="4">
 <![CDATA[
-subBytes.exit:25  %tmp_8 = load i8* %state_addr_24, align 1
+subBytes.exit:25  %tmp_10 = load i8* %state_addr_24, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_8"/></StgValue>
+<StgValue><ssdm name="tmp_10"/></StgValue>
 </operation>
 
 <operation id="104" st_id="16" stage="1" lat="1">
@@ -1479,10 +1479,10 @@ subBytes.exit:27  %tmp2_2 = load i8* %state_addr_25, align 1
 
 <Node id="83" bw="8" op_0_bw="4">
 <![CDATA[
-subBytes.exit:25  %tmp_8 = load i8* %state_addr_24, align 1
+subBytes.exit:25  %tmp_10 = load i8* %state_addr_24, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_8"/></StgValue>
+<StgValue><ssdm name="tmp_10"/></StgValue>
 </operation>
 
 <operation id="107" st_id="17" stage="1" lat="2">
@@ -1716,7 +1716,7 @@ subBytes.exit:32  store i8 %state_load_24, i8* %state_addr_24, align 1
 
 <Node id="91" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-subBytes.exit:33  store i8 %tmp_8, i8* %state_addr_25, align 1
+subBytes.exit:33  store i8 %tmp_10, i8* %state_addr_25, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln217"/></StgValue>
@@ -1764,7 +1764,7 @@ subBytes.exit:36  br label %7
 
 <Node id="96" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
-:0  %i_0_i7 = phi i5 [ 0, %subBytes.exit ], [ %i_8, %8 ]
+:0  %i_0_i7 = phi i5 [ 0, %subBytes.exit ], [ %i_10, %8 ]
 
 ]]></Node>
 <StgValue><ssdm name="i_0_i7"/></StgValue>
@@ -1794,10 +1794,10 @@ subBytes.exit:36  br label %7
 
 <Node id="98" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:2  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+:2  %empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
 ]]></Node>
-<StgValue><ssdm name="empty_30"/></StgValue>
+<StgValue><ssdm name="empty_40"/></StgValue>
 </operation>
 
 <operation id="127" st_id="22" stage="1" lat="1">
@@ -1809,10 +1809,10 @@ subBytes.exit:36  br label %7
 
 <Node id="99" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-:3  %i_8 = add i5 %i_0_i7, 1
+:3  %i_10 = add i5 %i_0_i7, 1
 
 ]]></Node>
-<StgValue><ssdm name="i_8"/></StgValue>
+<StgValue><ssdm name="i_10"/></StgValue>
 </operation>
 
 <operation id="128" st_id="22" stage="1" lat="1">
@@ -2049,7 +2049,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="189" from="br_ln225" to="i_0_i" fromId="27" toId="28">
 </dataflow>
-<dataflow id="190" from="i_6" to="i_0_i" fromId="31" toId="28">
+<dataflow id="190" from="i_8" to="i_0_i" fromId="31" toId="28">
 <BackEdge/>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
@@ -2070,9 +2070,9 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="200" from="StgValue_197" to="empty" fromId="197" toId="30">
 </dataflow>
-<dataflow id="201" from="i_0_i" to="i_6" fromId="28" toId="31">
+<dataflow id="201" from="i_0_i" to="i_8" fromId="28" toId="31">
 </dataflow>
-<dataflow id="203" from="StgValue_202" to="i_6" fromId="202" toId="31">
+<dataflow id="203" from="StgValue_202" to="i_8" fromId="202" toId="31">
 </dataflow>
 <dataflow id="204" from="icmp_ln225" to="br_ln225" fromId="29" toId="32">
 </dataflow>
@@ -2127,13 +2127,13 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="228" from="StgValue_227" to="icmp_ln25" fromId="227" toId="45">
 </dataflow>
-<dataflow id="229" from="_ssdm_op_SpecLoopTripCount" to="empty_28" fromId="195" toId="46">
+<dataflow id="229" from="_ssdm_op_SpecLoopTripCount" to="empty_38" fromId="195" toId="46">
 </dataflow>
-<dataflow id="231" from="StgValue_230" to="empty_28" fromId="230" toId="46">
+<dataflow id="231" from="StgValue_230" to="empty_38" fromId="230" toId="46">
 </dataflow>
-<dataflow id="232" from="StgValue_230" to="empty_28" fromId="230" toId="46">
+<dataflow id="232" from="StgValue_230" to="empty_38" fromId="230" toId="46">
 </dataflow>
-<dataflow id="233" from="StgValue_230" to="empty_28" fromId="230" toId="46">
+<dataflow id="233" from="StgValue_230" to="empty_38" fromId="230" toId="46">
 </dataflow>
 <dataflow id="234" from="icmp_ln25" to="br_ln25" fromId="45" toId="47">
 </dataflow>
@@ -2208,7 +2208,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="274" from="br_ln174" to="i_0_i1" fromId="59" toId="60">
 </dataflow>
-<dataflow id="275" from="i_7" to="i_0_i1" fromId="63" toId="60">
+<dataflow id="275" from="i_9" to="i_0_i1" fromId="63" toId="60">
 <BackEdge/>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
@@ -2221,17 +2221,17 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="278" from="StgValue_193" to="icmp_ln174" fromId="193" toId="61">
 </dataflow>
-<dataflow id="279" from="_ssdm_op_SpecLoopTripCount" to="empty_29" fromId="195" toId="62">
+<dataflow id="279" from="_ssdm_op_SpecLoopTripCount" to="empty_39" fromId="195" toId="62">
 </dataflow>
-<dataflow id="280" from="StgValue_197" to="empty_29" fromId="197" toId="62">
+<dataflow id="280" from="StgValue_197" to="empty_39" fromId="197" toId="62">
 </dataflow>
-<dataflow id="281" from="StgValue_197" to="empty_29" fromId="197" toId="62">
+<dataflow id="281" from="StgValue_197" to="empty_39" fromId="197" toId="62">
 </dataflow>
-<dataflow id="282" from="StgValue_197" to="empty_29" fromId="197" toId="62">
+<dataflow id="282" from="StgValue_197" to="empty_39" fromId="197" toId="62">
 </dataflow>
-<dataflow id="283" from="i_0_i1" to="i_7" fromId="60" toId="63">
+<dataflow id="283" from="i_0_i1" to="i_9" fromId="60" toId="63">
 </dataflow>
-<dataflow id="284" from="StgValue_202" to="i_7" fromId="202" toId="63">
+<dataflow id="284" from="StgValue_202" to="i_9" fromId="202" toId="63">
 </dataflow>
 <dataflow id="285" from="icmp_ln174" to="br_ln174" fromId="61" toId="64">
 </dataflow>
@@ -2313,7 +2313,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="329" from="StgValue_328" to="state_addr_20" fromId="328" toId="88">
 </dataflow>
-<dataflow id="330" from="state_addr_20" to="tmp_7" fromId="88" toId="89">
+<dataflow id="330" from="state_addr_20" to="tmp_9" fromId="88" toId="89">
 </dataflow>
 <dataflow id="331" from="state" to="state_addr_21" fromId="172" toId="90">
 </dataflow>
@@ -2323,7 +2323,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="334" from="state_addr_21" to="tmp2" fromId="90" toId="91">
 </dataflow>
-<dataflow id="335" from="state_addr_20" to="tmp_7" fromId="88" toId="92">
+<dataflow id="335" from="state_addr_20" to="tmp_9" fromId="88" toId="92">
 </dataflow>
 <dataflow id="336" from="state_addr_21" to="tmp2" fromId="90" toId="93">
 </dataflow>
@@ -2343,7 +2343,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="346" from="state_addr_23" to="state_load_20" fromId="96" toId="97">
 </dataflow>
-<dataflow id="347" from="tmp_7" to="store_ln207" fromId="92" toId="98">
+<dataflow id="347" from="tmp_9" to="store_ln207" fromId="92" toId="98">
 </dataflow>
 <dataflow id="348" from="state_addr_22" to="store_ln207" fromId="94" toId="98">
 </dataflow>
@@ -2361,7 +2361,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="356" from="StgValue_355" to="state_addr_24" fromId="355" toId="102">
 </dataflow>
-<dataflow id="357" from="state_addr_24" to="tmp_8" fromId="102" toId="103">
+<dataflow id="357" from="state_addr_24" to="tmp_10" fromId="102" toId="103">
 </dataflow>
 <dataflow id="358" from="state" to="state_addr_25" fromId="172" toId="104">
 </dataflow>
@@ -2371,7 +2371,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="362" from="state_addr_25" to="tmp2_2" fromId="104" toId="105">
 </dataflow>
-<dataflow id="363" from="state_addr_24" to="tmp_8" fromId="102" toId="106">
+<dataflow id="363" from="state_addr_24" to="tmp_10" fromId="102" toId="106">
 </dataflow>
 <dataflow id="364" from="state_addr_25" to="tmp2_2" fromId="104" toId="107">
 </dataflow>
@@ -2423,7 +2423,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="390" from="state_addr_24" to="store_ln216" fromId="102" toId="120">
 </dataflow>
-<dataflow id="391" from="tmp_8" to="store_ln217" fromId="106" toId="121">
+<dataflow id="391" from="tmp_10" to="store_ln217" fromId="106" toId="121">
 </dataflow>
 <dataflow id="392" from="state_addr_25" to="store_ln217" fromId="104" toId="121">
 </dataflow>
@@ -2438,7 +2438,7 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="396" from="br_ln225" to="i_0_i7" fromId="123" toId="124">
 </dataflow>
-<dataflow id="397" from="i_8" to="i_0_i7" fromId="127" toId="124">
+<dataflow id="397" from="i_10" to="i_0_i7" fromId="127" toId="124">
 <BackEdge/>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
@@ -2451,17 +2451,17 @@ addRoundKey.exit16:0  ret void
 </dataflow>
 <dataflow id="400" from="StgValue_193" to="icmp_ln225_1" fromId="193" toId="125">
 </dataflow>
-<dataflow id="401" from="_ssdm_op_SpecLoopTripCount" to="empty_30" fromId="195" toId="126">
+<dataflow id="401" from="_ssdm_op_SpecLoopTripCount" to="empty_40" fromId="195" toId="126">
 </dataflow>
-<dataflow id="402" from="StgValue_197" to="empty_30" fromId="197" toId="126">
+<dataflow id="402" from="StgValue_197" to="empty_40" fromId="197" toId="126">
 </dataflow>
-<dataflow id="403" from="StgValue_197" to="empty_30" fromId="197" toId="126">
+<dataflow id="403" from="StgValue_197" to="empty_40" fromId="197" toId="126">
 </dataflow>
-<dataflow id="404" from="StgValue_197" to="empty_30" fromId="197" toId="126">
+<dataflow id="404" from="StgValue_197" to="empty_40" fromId="197" toId="126">
 </dataflow>
-<dataflow id="405" from="i_0_i7" to="i_8" fromId="124" toId="127">
+<dataflow id="405" from="i_0_i7" to="i_10" fromId="124" toId="127">
 </dataflow>
-<dataflow id="406" from="StgValue_202" to="i_8" fromId="202" toId="127">
+<dataflow id="406" from="StgValue_202" to="i_10" fromId="202" toId="127">
 </dataflow>
 <dataflow id="407" from="icmp_ln225_1" to="br_ln225" fromId="125" toId="128">
 </dataflow>

@@ -71,9 +71,9 @@ set RtlHierarchyInfo {[
 		"Port" : [
 			{"Name" : "input_r", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "Memory", "Direction" : "O"},
-			{"Name" : "expandedKey23", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "expandedKey29", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_aes_invMain_fu_123", "Port" : "expandedKey23"}]},
+					{"ID" : "2", "SubInstance" : "grp_aes_invMain_fu_123", "Port" : "expandedKey29"}]},
 			{"Name" : "rsbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "grp_aes_invMain_fu_123", "Port" : "rsbox"}]}]},
@@ -100,13 +100,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "6", "SubInstance" : "grp_aes_invRound_fu_289", "Port" : "state"}]},
-			{"Name" : "expandedKey23", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "expandedKey29", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "28", "SubInstance" : "grp_createRoundKey_fu_298", "Port" : "expandedKey"}]},
 			{"Name" : "rsbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "6", "SubInstance" : "grp_aes_invRound_fu_289", "Port" : "rsbox"}]}]},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_invMain_fu_123.expandedKey23_U", "Parent" : "2"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_invMain_fu_123.expandedKey29_U", "Parent" : "2"},
 	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_invMain_fu_123.rsbox_U", "Parent" : "2"},
 	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_invMain_fu_123.roundKey_U", "Parent" : "2"},
 	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_aes_invMain_fu_123.grp_aes_invRound_fu_289", "Parent" : "2", "Child" : ["7", "8"],
@@ -464,11 +464,11 @@ set ArgLastReadFirstWriteLatency {
 	aes_decrypt {
 		input_r {Type I LastRead 2 FirstWrite -1}
 		output_r {Type O LastRead -1 FirstWrite 5}
-		expandedKey23 {Type I LastRead -1 FirstWrite -1}
+		expandedKey29 {Type I LastRead -1 FirstWrite -1}
 		rsbox {Type I LastRead -1 FirstWrite -1}}
 	aes_invMain {
 		state {Type IO LastRead 14 FirstWrite 1}
-		expandedKey23 {Type I LastRead -1 FirstWrite -1}
+		expandedKey29 {Type I LastRead -1 FirstWrite -1}
 		rsbox {Type I LastRead -1 FirstWrite -1}}
 	aes_invRound {
 		state {Type IO LastRead 11 FirstWrite 1}

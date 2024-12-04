@@ -79,13 +79,13 @@ set RtlHierarchyInfo {[
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "4", "SubInstance" : "grp_aes_invRound_fu_289", "Port" : "state"}]},
-			{"Name" : "expandedKey23", "Type" : "Memory", "Direction" : "I",
+			{"Name" : "expandedKey29", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "26", "SubInstance" : "grp_createRoundKey_fu_298", "Port" : "expandedKey"}]},
 			{"Name" : "rsbox", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "4", "SubInstance" : "grp_aes_invRound_fu_289", "Port" : "rsbox"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.expandedKey23_U", "Parent" : "0"},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.expandedKey29_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsbox_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.roundKey_U", "Parent" : "0"},
 	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_aes_invRound_fu_289", "Parent" : "0", "Child" : ["5", "6"],
@@ -442,7 +442,7 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	aes_invMain {
 		state {Type IO LastRead 14 FirstWrite 1}
-		expandedKey23 {Type I LastRead -1 FirstWrite -1}
+		expandedKey29 {Type I LastRead -1 FirstWrite -1}
 		rsbox {Type I LastRead -1 FirstWrite -1}}
 	aes_invRound {
 		state {Type IO LastRead 11 FirstWrite 1}

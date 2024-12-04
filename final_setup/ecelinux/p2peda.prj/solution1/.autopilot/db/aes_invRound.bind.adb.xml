@@ -341,10 +341,10 @@
 
 <Node id="18" bw="8" op_0_bw="4">
 <![CDATA[
-:13  %tmp_9 = load i8* %state_addr_33, align 1
+:13  %tmp_11 = load i8* %state_addr_33, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_9"/></StgValue>
+<StgValue><ssdm name="tmp_11"/></StgValue>
 </operation>
 
 <operation id="32" st_id="3" stage="1" lat="1">
@@ -371,10 +371,10 @@
 
 <Node id="20" bw="8" op_0_bw="4">
 <![CDATA[
-:15  %tmp_10 = load i8* %state_addr_34, align 1
+:15  %tmp_12 = load i8* %state_addr_34, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_10"/></StgValue>
+<StgValue><ssdm name="tmp_12"/></StgValue>
 </operation>
 </state>
 
@@ -389,10 +389,10 @@
 
 <Node id="18" bw="8" op_0_bw="4">
 <![CDATA[
-:13  %tmp_9 = load i8* %state_addr_33, align 1
+:13  %tmp_11 = load i8* %state_addr_33, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_9"/></StgValue>
+<StgValue><ssdm name="tmp_11"/></StgValue>
 </operation>
 
 <operation id="35" st_id="4" stage="1" lat="2">
@@ -404,10 +404,10 @@
 
 <Node id="20" bw="8" op_0_bw="4">
 <![CDATA[
-:15  %tmp_10 = load i8* %state_addr_34, align 1
+:15  %tmp_12 = load i8* %state_addr_34, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_10"/></StgValue>
+<StgValue><ssdm name="tmp_12"/></StgValue>
 </operation>
 
 <operation id="36" st_id="4" stage="1" lat="1">
@@ -479,7 +479,7 @@
 
 <Node id="27" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-:22  store i8 %tmp_9, i8* %state_addr_35, align 1
+:22  store i8 %tmp_11, i8* %state_addr_35, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln354"/></StgValue>
@@ -494,7 +494,7 @@
 
 <Node id="28" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-:23  store i8 %tmp_10, i8* %state_addr_36, align 1
+:23  store i8 %tmp_12, i8* %state_addr_36, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln355"/></StgValue>
@@ -557,10 +557,10 @@
 
 <Node id="30" bw="8" op_0_bw="4">
 <![CDATA[
-:25  %tmp_11 = load i8* %state_addr_37, align 1
+:25  %tmp_13 = load i8* %state_addr_37, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_11"/></StgValue>
+<StgValue><ssdm name="tmp_13"/></StgValue>
 </operation>
 
 <operation id="46" st_id="5" stage="1" lat="1">
@@ -587,10 +587,10 @@
 
 <Node id="32" bw="8" op_0_bw="4">
 <![CDATA[
-:27  %tmp_12 = load i8* %state_addr_38, align 1
+:27  %tmp_14 = load i8* %state_addr_38, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_12"/></StgValue>
+<StgValue><ssdm name="tmp_14"/></StgValue>
 </operation>
 </state>
 
@@ -605,10 +605,10 @@
 
 <Node id="30" bw="8" op_0_bw="4">
 <![CDATA[
-:25  %tmp_11 = load i8* %state_addr_37, align 1
+:25  %tmp_13 = load i8* %state_addr_37, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_11"/></StgValue>
+<StgValue><ssdm name="tmp_13"/></StgValue>
 </operation>
 
 <operation id="49" st_id="6" stage="1" lat="2">
@@ -620,10 +620,10 @@
 
 <Node id="32" bw="8" op_0_bw="4">
 <![CDATA[
-:27  %tmp_12 = load i8* %state_addr_38, align 1
+:27  %tmp_14 = load i8* %state_addr_38, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_12"/></StgValue>
+<StgValue><ssdm name="tmp_14"/></StgValue>
 </operation>
 
 <operation id="50" st_id="6" stage="1" lat="1">
@@ -650,10 +650,10 @@
 
 <Node id="34" bw="8" op_0_bw="4">
 <![CDATA[
-:29  %tmp_13 = load i8* %state_addr_39, align 1
+:29  %tmp_15 = load i8* %state_addr_39, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_13"/></StgValue>
+<StgValue><ssdm name="tmp_15"/></StgValue>
 </operation>
 
 <operation id="52" st_id="6" stage="1" lat="1">
@@ -695,7 +695,7 @@
 
 <Node id="39" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-:34  store i8 %tmp_12, i8* %state_addr_39, align 1
+:34  store i8 %tmp_14, i8* %state_addr_39, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln375"/></StgValue>
@@ -743,10 +743,10 @@
 
 <Node id="34" bw="8" op_0_bw="4">
 <![CDATA[
-:29  %tmp_13 = load i8* %state_addr_39, align 1
+:29  %tmp_15 = load i8* %state_addr_39, align 1
 
 ]]></Node>
-<StgValue><ssdm name="tmp_13"/></StgValue>
+<StgValue><ssdm name="tmp_15"/></StgValue>
 </operation>
 
 <operation id="58" st_id="7" stage="1" lat="2">
@@ -842,7 +842,7 @@
 
 <Node id="38" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-:33  store i8 %tmp_11, i8* %state_addr_38, align 1
+:33  store i8 %tmp_13, i8* %state_addr_38, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln374"/></StgValue>
@@ -857,7 +857,7 @@
 
 <Node id="40" bw="0" op_0_bw="8" op_1_bw="4" op_2_bw="8">
 <![CDATA[
-:35  store i8 %tmp_13, i8* %state_addr_40, align 1
+:35  store i8 %tmp_15, i8* %state_addr_40, align 1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln376"/></StgValue>
@@ -1143,7 +1143,7 @@ invSubBytes.exit.preheader:0  br label %invSubBytes.exit
 
 <Node id="60" bw="5" op_0_bw="5" op_1_bw="0" op_2_bw="5" op_3_bw="0">
 <![CDATA[
-invSubBytes.exit:0  %i_0_i4 = phi i5 [ %i_9, %3 ], [ 0, %invSubBytes.exit.preheader ]
+invSubBytes.exit:0  %i_0_i4 = phi i5 [ %i_11, %3 ], [ 0, %invSubBytes.exit.preheader ]
 
 ]]></Node>
 <StgValue><ssdm name="i_0_i4"/></StgValue>
@@ -1173,10 +1173,10 @@ invSubBytes.exit:1  %icmp_ln225 = icmp eq i5 %i_0_i4, -16
 
 <Node id="62" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-invSubBytes.exit:2  %empty_31 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
+invSubBytes.exit:2  %empty_41 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)
 
 ]]></Node>
-<StgValue><ssdm name="empty_31"/></StgValue>
+<StgValue><ssdm name="empty_41"/></StgValue>
 </operation>
 
 <operation id="85" st_id="14" stage="1" lat="1">
@@ -1188,10 +1188,10 @@ invSubBytes.exit:2  %empty_31 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 
 
 <Node id="63" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-invSubBytes.exit:3  %i_9 = add i5 %i_0_i4, 1
+invSubBytes.exit:3  %i_11 = add i5 %i_0_i4, 1
 
 ]]></Node>
-<StgValue><ssdm name="i_9"/></StgValue>
+<StgValue><ssdm name="i_11"/></StgValue>
 </operation>
 
 <operation id="86" st_id="14" stage="1" lat="1">
@@ -1486,7 +1486,7 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="153" from="StgValue_152" to="state_addr_33" fromId="152" toId="30">
 </dataflow>
-<dataflow id="154" from="state_addr_33" to="tmp_9" fromId="30" toId="31">
+<dataflow id="154" from="state_addr_33" to="tmp_11" fromId="30" toId="31">
 </dataflow>
 <dataflow id="155" from="state" to="state_addr_34" fromId="120" toId="32">
 </dataflow>
@@ -1494,11 +1494,11 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="158" from="StgValue_157" to="state_addr_34" fromId="157" toId="32">
 </dataflow>
-<dataflow id="159" from="state_addr_34" to="tmp_10" fromId="32" toId="33">
+<dataflow id="159" from="state_addr_34" to="tmp_12" fromId="32" toId="33">
 </dataflow>
-<dataflow id="160" from="state_addr_33" to="tmp_9" fromId="30" toId="34">
+<dataflow id="160" from="state_addr_33" to="tmp_11" fromId="30" toId="34">
 </dataflow>
-<dataflow id="161" from="state_addr_34" to="tmp_10" fromId="32" toId="35">
+<dataflow id="161" from="state_addr_34" to="tmp_12" fromId="32" toId="35">
 </dataflow>
 <dataflow id="162" from="state" to="state_addr_35" fromId="120" toId="36">
 </dataflow>
@@ -1516,11 +1516,11 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="171" from="state_addr_36" to="state_load_32" fromId="38" toId="39">
 </dataflow>
-<dataflow id="172" from="tmp_9" to="store_ln354" fromId="34" toId="40">
+<dataflow id="172" from="tmp_11" to="store_ln354" fromId="34" toId="40">
 </dataflow>
 <dataflow id="173" from="state_addr_35" to="store_ln354" fromId="36" toId="40">
 </dataflow>
-<dataflow id="174" from="tmp_10" to="store_ln355" fromId="35" toId="41">
+<dataflow id="174" from="tmp_12" to="store_ln355" fromId="35" toId="41">
 </dataflow>
 <dataflow id="175" from="state_addr_36" to="store_ln355" fromId="38" toId="41">
 </dataflow>
@@ -1534,7 +1534,7 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="181" from="StgValue_180" to="state_addr_37" fromId="180" toId="44">
 </dataflow>
-<dataflow id="182" from="state_addr_37" to="tmp_11" fromId="44" toId="45">
+<dataflow id="182" from="state_addr_37" to="tmp_13" fromId="44" toId="45">
 </dataflow>
 <dataflow id="183" from="state" to="state_addr_38" fromId="120" toId="46">
 </dataflow>
@@ -1542,11 +1542,11 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="186" from="StgValue_185" to="state_addr_38" fromId="185" toId="46">
 </dataflow>
-<dataflow id="187" from="state_addr_38" to="tmp_12" fromId="46" toId="47">
+<dataflow id="187" from="state_addr_38" to="tmp_14" fromId="46" toId="47">
 </dataflow>
-<dataflow id="188" from="state_addr_37" to="tmp_11" fromId="44" toId="48">
+<dataflow id="188" from="state_addr_37" to="tmp_13" fromId="44" toId="48">
 </dataflow>
-<dataflow id="189" from="state_addr_38" to="tmp_12" fromId="46" toId="49">
+<dataflow id="189" from="state_addr_38" to="tmp_14" fromId="46" toId="49">
 </dataflow>
 <dataflow id="190" from="state" to="state_addr_39" fromId="120" toId="50">
 </dataflow>
@@ -1554,7 +1554,7 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="193" from="StgValue_192" to="state_addr_39" fromId="192" toId="50">
 </dataflow>
-<dataflow id="194" from="state_addr_39" to="tmp_13" fromId="50" toId="51">
+<dataflow id="194" from="state_addr_39" to="tmp_15" fromId="50" toId="51">
 </dataflow>
 <dataflow id="195" from="state" to="state_addr_40" fromId="120" toId="52">
 </dataflow>
@@ -1564,7 +1564,7 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="199" from="state_addr_40" to="state_load_36" fromId="52" toId="53">
 </dataflow>
-<dataflow id="200" from="tmp_12" to="store_ln375" fromId="49" toId="54">
+<dataflow id="200" from="tmp_14" to="store_ln375" fromId="49" toId="54">
 </dataflow>
 <dataflow id="201" from="state_addr_39" to="store_ln375" fromId="50" toId="54">
 </dataflow>
@@ -1576,7 +1576,7 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="205" from="state_addr_30" to="store_ln338" fromId="19" toId="56">
 </dataflow>
-<dataflow id="206" from="state_addr_39" to="tmp_13" fromId="50" toId="57">
+<dataflow id="206" from="state_addr_39" to="tmp_15" fromId="50" toId="57">
 </dataflow>
 <dataflow id="207" from="state_addr_40" to="state_load_36" fromId="52" toId="58">
 </dataflow>
@@ -1596,11 +1596,11 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="215" from="state_addr_37" to="store_ln373" fromId="44" toId="62">
 </dataflow>
-<dataflow id="216" from="tmp_11" to="store_ln374" fromId="48" toId="63">
+<dataflow id="216" from="tmp_13" to="store_ln374" fromId="48" toId="63">
 </dataflow>
 <dataflow id="217" from="state_addr_38" to="store_ln374" fromId="46" toId="63">
 </dataflow>
-<dataflow id="218" from="tmp_13" to="store_ln376" fromId="57" toId="64">
+<dataflow id="218" from="tmp_15" to="store_ln376" fromId="57" toId="64">
 </dataflow>
 <dataflow id="219" from="state_addr_40" to="store_ln376" fromId="52" toId="64">
 </dataflow>
@@ -1666,7 +1666,7 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="251" from="state_addr_41" to="store_ln321" fromId="72" toId="80">
 </dataflow>
-<dataflow id="252" from="i_9" to="i_0_i4" fromId="85" toId="82">
+<dataflow id="252" from="i_11" to="i_0_i4" fromId="85" toId="82">
 <BackEdge/>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
@@ -1687,17 +1687,17 @@ addRoundKey.exit:1  ret void
 </dataflow>
 <dataflow id="257" from="StgValue_226" to="icmp_ln225" fromId="226" toId="83">
 </dataflow>
-<dataflow id="258" from="_ssdm_op_SpecLoopTripCount" to="empty_31" fromId="228" toId="84">
+<dataflow id="258" from="_ssdm_op_SpecLoopTripCount" to="empty_41" fromId="228" toId="84">
 </dataflow>
-<dataflow id="259" from="StgValue_230" to="empty_31" fromId="230" toId="84">
+<dataflow id="259" from="StgValue_230" to="empty_41" fromId="230" toId="84">
 </dataflow>
-<dataflow id="260" from="StgValue_230" to="empty_31" fromId="230" toId="84">
+<dataflow id="260" from="StgValue_230" to="empty_41" fromId="230" toId="84">
 </dataflow>
-<dataflow id="261" from="StgValue_230" to="empty_31" fromId="230" toId="84">
+<dataflow id="261" from="StgValue_230" to="empty_41" fromId="230" toId="84">
 </dataflow>
-<dataflow id="262" from="i_0_i4" to="i_9" fromId="82" toId="85">
+<dataflow id="262" from="i_0_i4" to="i_11" fromId="82" toId="85">
 </dataflow>
-<dataflow id="263" from="StgValue_235" to="i_9" fromId="235" toId="85">
+<dataflow id="263" from="StgValue_235" to="i_11" fromId="235" toId="85">
 </dataflow>
 <dataflow id="264" from="icmp_ln225" to="br_ln225" fromId="83" toId="86">
 </dataflow>

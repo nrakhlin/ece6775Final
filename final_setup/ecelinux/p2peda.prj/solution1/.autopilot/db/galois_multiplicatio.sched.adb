@@ -360,7 +360,7 @@
 					<Obj>
 						<type>0</type>
 						<id>10</id>
-						<name>p_0_15</name>
+						<name>p_0_23</name>
 						<fileName>../../refactored/helper.cpp</fileName>
 						<fileDirectory>/home/npr29/hls6775/ece6775Final/final_setup/ecelinux</fileDirectory>
 						<lineNumber>228</lineNumber>

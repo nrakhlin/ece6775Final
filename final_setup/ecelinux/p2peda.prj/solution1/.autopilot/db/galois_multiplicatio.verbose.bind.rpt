@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'galois_multiplicatio'
 ================================================================
-* Date:           Tue Dec  3 11:39:33 2024
+* Date:           Wed Dec  4 15:54:59 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        p2peda.prj
@@ -89,16 +89,16 @@ State 2 <SV = 1> <Delay = 1.73>
 ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%counter_0 = phi i4 [ 0, %0 ], [ %counter, %2 ]"   --->   Operation 6 'phi' 'counter_0' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%p_0 = phi i8 [ 0, %0 ], [ %xor_ln235, %2 ]" [../../refactored/helper.cpp:235]   --->   Operation 7 'phi' 'p_0' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%b_assign_1 = phi i5 [ %b_read, %0 ], [ %zext_ln241, %2 ]" [../../refactored/helper.cpp:228]   --->   Operation 8 'phi' 'b_assign_1' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%p_0_15 = phi i8 [ %a_read, %0 ], [ %select_ln239, %2 ]" [../../refactored/helper.cpp:228]   --->   Operation 9 'phi' 'p_0_15' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%p_0_23 = phi i8 [ %a_read, %0 ], [ %select_ln239, %2 ]" [../../refactored/helper.cpp:228]   --->   Operation 9 'phi' 'p_0_23' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 10 [1/1] (1.30ns)   --->   "%icmp_ln233 = icmp eq i4 %counter_0, -8" [../../refactored/helper.cpp:233]   --->   Operation 10 'icmp' 'icmp_ln233' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8) nounwind"   --->   Operation 11 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 12 [1/1] (1.73ns)   --->   "%counter = add i4 %counter_0, 1" [../../refactored/helper.cpp:233]   --->   Operation 12 'add' 'counter' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln233, label %3, label %2" [../../refactored/helper.cpp:233]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%trunc_ln233 = trunc i5 %b_assign_1 to i1" [../../refactored/helper.cpp:233]   --->   Operation 14 'trunc' 'trunc_ln233' <Predicate = (!icmp_ln233)> <Delay = 0.00>
-ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln235 = select i1 %trunc_ln233, i8 %p_0_15, i8 0" [../../refactored/helper.cpp:235]   --->   Operation 15 'select' 'select_ln235' <Predicate = (!icmp_ln233)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln235 = select i1 %trunc_ln233, i8 %p_0_23, i8 0" [../../refactored/helper.cpp:235]   --->   Operation 15 'select' 'select_ln235' <Predicate = (!icmp_ln233)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
 ST_2 : Operation 16 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln235 = xor i8 %select_ln235, %p_0" [../../refactored/helper.cpp:235]   --->   Operation 16 'xor' 'xor_ln235' <Predicate = (!icmp_ln233)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%shl_ln238 = shl i8 %p_0_15, 1" [../../refactored/helper.cpp:238]   --->   Operation 17 'shl' 'shl_ln238' <Predicate = (!icmp_ln233)> <Delay = 0.00>
-ST_2 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node select_ln239)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %p_0_15, i32 7)" [../../refactored/helper.cpp:239]   --->   Operation 18 'bitselect' 'tmp' <Predicate = (!icmp_ln233)> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%shl_ln238 = shl i8 %p_0_23, 1" [../../refactored/helper.cpp:238]   --->   Operation 17 'shl' 'shl_ln238' <Predicate = (!icmp_ln233)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node select_ln239)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %p_0_23, i32 7)" [../../refactored/helper.cpp:239]   --->   Operation 18 'bitselect' 'tmp' <Predicate = (!icmp_ln233)> <Delay = 0.00>
 ST_2 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node select_ln239)   --->   "%xor_ln240 = xor i8 %shl_ln238, 27" [../../refactored/helper.cpp:240]   --->   Operation 19 'xor' 'xor_ln240' <Predicate = (!icmp_ln233)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 20 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln239 = select i1 %tmp, i8 %xor_ln240, i8 %shl_ln238" [../../refactored/helper.cpp:239]   --->   Operation 20 'select' 'select_ln239' <Predicate = (!icmp_ln233)> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
 ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%b_assign = call i4 @_ssdm_op_PartSelect.i4.i5.i32.i32(i5 %b_assign_1, i32 1, i32 4)" [../../refactored/helper.cpp:241]   --->   Operation 21 'partselect' 'b_assign' <Predicate = (!icmp_ln233)> <Delay = 0.00>
@@ -132,7 +132,7 @@ br_ln233     (br               ) [ 011]
 counter_0    (phi              ) [ 001]
 p_0          (phi              ) [ 001]
 b_assign_1   (phi              ) [ 001]
-p_0_15       (phi              ) [ 001]
+p_0_23       (phi              ) [ 001]
 icmp_ln233   (icmp             ) [ 001]
 empty        (speclooptripcount) [ 000]
 counter      (add              ) [ 011]
@@ -402,17 +402,17 @@ ret_ln243    (ret              ) [ 000]
 </bind>
 </comp>
 
-<comp id="77" class="1005" name="p_0_15_reg_77">
+<comp id="77" class="1005" name="p_0_23_reg_77">
 <pin_list>
 <pin id="78" dir="0" index="0" bw="8" slack="2147483647"/>
 <pin id="79" dir="1" index="1" bw="8" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="p_0_15 (phireg) "/>
+<opset="p_0_23 (phireg) "/>
 </bind>
 </comp>
 
-<comp id="80" class="1004" name="p_0_15_phi_fu_80">
+<comp id="80" class="1004" name="p_0_23_phi_fu_80">
 <pin_list>
 <pin id="81" dir="0" index="0" bw="8" slack="1"/>
 <pin id="82" dir="0" index="1" bw="0" slack="2147483647"/>
@@ -422,7 +422,7 @@ ret_ln243    (ret              ) [ 000]
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
-<opset="p_0_15/2 "/>
+<opset="p_0_23/2 "/>
 </bind>
 </comp>
 
@@ -788,7 +788,7 @@ N/A
 |   b_read_reg_158   |    5   |
 |  counter_0_reg_46  |    4   |
 |   counter_reg_171  |    4   |
-|    p_0_15_reg_77   |    8   |
+|    p_0_23_reg_77   |    8   |
 |     p_0_reg_57     |    8   |
 |select_ln239_reg_181|    8   |
 |  xor_ln235_reg_176 |    8   |

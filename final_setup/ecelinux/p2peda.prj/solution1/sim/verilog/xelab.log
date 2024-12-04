@@ -39,6 +39,8 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Fi
 INFO: [VRFC 10-311] analyzing module aes_decrypt
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/decrypt_aes.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module decrypt_aes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/Blowfish_Decrypt.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/dut.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dut
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/dut_mux_42_8_1_1.v" into library xil_defaultlib
@@ -61,12 +63,37 @@ INFO: [VRFC 10-311] analyzing module aes_invRound_rsbox
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/aes_invMain_expandEe.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module aes_invMain_expandEe_rom
 INFO: [VRFC 10-311] analyzing module aes_invMain_expandEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/Blowfish_Decrypt_P.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_P_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_P
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/Blowfish_Decrypt_g8j.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_g8j_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_g8j
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/Blowfish_Decrypt_hbi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_hbi_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_hbi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/Blowfish_Decrypt_ibs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_ibs_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_ibs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/Blowfish_Decrypt_jbC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_jbC_rom
+INFO: [VRFC 10-311] analyzing module Blowfish_Decrypt_jbC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/dut_ciphertext1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dut_ciphertext1_ram
+INFO: [VRFC 10-311] analyzing module dut_ciphertext1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/sim/verilog/dut_decryptedtext1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dut_decryptedtext1_ram
+INFO: [VRFC 10-311] analyzing module dut_decryptedtext1
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.dut_ciphertext1_ram
+Compiling module xil_defaultlib.dut_ciphertext1(DataWidth=8,Addr...
+Compiling module xil_defaultlib.dut_decryptedtext1_ram
+Compiling module xil_defaultlib.dut_decryptedtext1(DataWidth=8,A...
 Compiling module xil_defaultlib.aes_main_roundKey_ram
 Compiling module xil_defaultlib.aes_main_roundKey(DataWidth=8,Ad...
 Compiling module xil_defaultlib.aes_encrypt_block_ram
@@ -94,6 +121,17 @@ Compiling module xil_defaultlib.aes_round
 Compiling module xil_defaultlib.aes_main
 Compiling module xil_defaultlib.aes_encrypt
 Compiling module xil_defaultlib.encrypt_aes
+Compiling module xil_defaultlib.Blowfish_Decrypt_P_rom
+Compiling module xil_defaultlib.Blowfish_Decrypt_P(DataWidth=32,...
+Compiling module xil_defaultlib.Blowfish_Decrypt_g8j_rom
+Compiling module xil_defaultlib.Blowfish_Decrypt_g8j(DataWidth=3...
+Compiling module xil_defaultlib.Blowfish_Decrypt_hbi_rom
+Compiling module xil_defaultlib.Blowfish_Decrypt_hbi(DataWidth=3...
+Compiling module xil_defaultlib.Blowfish_Decrypt_ibs_rom
+Compiling module xil_defaultlib.Blowfish_Decrypt_ibs(DataWidth=3...
+Compiling module xil_defaultlib.Blowfish_Decrypt_jbC_rom
+Compiling module xil_defaultlib.Blowfish_Decrypt_jbC(DataWidth=3...
+Compiling module xil_defaultlib.Blowfish_Decrypt
 Compiling module xil_defaultlib.dut
 Compiling module xil_defaultlib.AESL_autofifo_strm_in_V_V
 Compiling module xil_defaultlib.AESL_autofifo_strm_out_V_V

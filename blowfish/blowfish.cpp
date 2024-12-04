@@ -5,6 +5,8 @@
 #include <iomanip>
 #include <algorithm>
 
+
+
 // Need to read this paper still: https://ieeexplore.ieee.org/document/10620572
 //  * ==========================================================================
 //  * Encryption Performance Comparison
@@ -40,8 +42,6 @@
 //  *    - ~10.5x faster than Intel 1035G7
 //  *    - ~34.7% slower than ZedBoard
 //  */
-
-
 
 
 // // Encrypts a block of 64-bit data (Only used in SetKey function)
@@ -85,6 +85,20 @@ void Blowfish_Encrypt(const unsigned char plaintext[BLOCK_SIZE], unsigned char c
 }
 
 
+// void Blowfish_Encrypt_128b(const unsigned char plaintext[2 * BLOCK_SIZE], unsigned char ciphertext[2 * BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
+//     unsigned char plaintext_1[BLOCK_SIZE];
+//     std::copy(plaintext, plaintext + BLOCK_SIZE, plaintext_1); // Copy first 64 bytes
+
+
+//     // Encrypt the first 64-bit block
+//     Blowfish_Encrypt(plaintext, ciphertext, P, S);
+    
+//     // Encrypt the second 64-bit block
+//     Blowfish_Encrypt(plaintext + BLOCK_SIZE, ciphertext + BLOCK_SIZE, P, S);
+// }
+
+
+
 // Decrypts a block of 64-bit data
 void Blowfish_Decrypt(unsigned char ciphertext[BLOCK_SIZE], unsigned char decryptedtext[BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
     unsigned int left, right;
@@ -102,6 +116,15 @@ void Blowfish_Decrypt(unsigned char ciphertext[BLOCK_SIZE], unsigned char decryp
     left ^= P[0];
     wordsToBlock(left, right, decryptedtext);  // Convert back to decrypted text block
 }
+
+
+// void Blowfish_Decrypt_128b(const unsigned char ciphertext[2 * BLOCK_SIZE], unsigned char decryptedtext[2 * BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
+//     // Decrypt the first 64-bit block
+//     Blowfish_Decrypt(ciphertext, decryptedtext, P, S);
+
+//     // Decrypt the second 64-bit block
+//     Blowfish_Decrypt(ciphertext + BLOCK_SIZE, decryptedtext + BLOCK_SIZE, P, S);
+// }
 
 
 // F function used in the Blowfish algorithm
@@ -244,4 +267,65 @@ void wordsToBlock(unsigned int left, unsigned int right, unsigned char block[BLO
     block[5] = (right >> 16) & 0xFF;
     block[6] = (right >> 8) & 0xFF;
     block[7] = right & 0xFF;
+}
+
+
+void split_bit128(const ap_uint<128>& plaintext, unsigned char plaintext_1[BLOCK_SIZE], unsigned char plaintext_2[BLOCK_SIZE]) {
+    // Extract the lower 64 bits (first part) and upper 64 bits (second part)
+    // ap_uint<64> lower_64 = plaintext.range(63, 0);   // Extract bits 0 to 63 (lower part)
+    // ap_uint<64> upper_64 = plaintext.range(127, 64); // Extract bits 64 to 127 (upper part)
+
+    // Copy the lower 64 bits into plaintext_1 in little-endian order
+    // for (int i = 0; i < BLOCK_SIZE; i++) {
+    //     // Extract bytes starting from the least significant byte (little-endian)
+    //     plaintext_1[i] = static_cast<unsigned char>((lower_64 >> (8 * i)) & 0xFF);
+    // }
+
+    // // Copy the upper 64 bits into plaintext_2 in little-endian order
+    // for (int i = 0; i < BLOCK_SIZE; i++) {
+    //     // Extract bytes starting from the least significant byte (little-endian)
+    //     plaintext_2[i] = static_cast<unsigned char>((upper_64 >> (8 * i)) & 0xFF);
+    // }
+
+    ap_uint<64> lower_64 = plaintext(63, 0);   // Extract bits 0 to 63 (lower part)
+    ap_uint<64> upper_64 = plaintext(127, 64); // Extract bits 64 to 127 (upper part)
+    for (int i = 0; i < 8; i++) {
+        // Extract bytes starting from the least significant byte (little-endian)
+        // plaintext_1[i] = static_cast<unsigned char>((lower_64 >> (8 * i)) & 0xFF);
+
+        plaintext_1[i] = lower_64(8*i + 7, 8*i);
+    }
+
+    // Copy the upper 64 bits into plaintext_2 in little-endian order
+    for (int i = 0; i < 8; i++) {
+        // Extract bytes starting from the least significant byte (little-endian)
+        // plaintext_2[i] = static_cast<unsigned char>((upper_64 >> (8 * i)) & 0xFF);
+
+        plaintext_2[i] = upper_64(8*i + 7, 8*i);
+    }
+}
+
+
+ap_uint<128> combine_to_bit128(unsigned char plaintext_1[BLOCK_SIZE], unsigned char plaintext_2[BLOCK_SIZE]) {
+    ap_uint<128> combined = 0;  // Initialize a 128-bit variable to 0
+
+    // Combine the first 64 bits (from plaintext_1) into the lower 64 bits of combined
+    for (int i = 0; i < BLOCK_SIZE; i++) {
+        combined.range(8*(i+1)-1, 8*i) = plaintext_1[i];  // Place each byte in the correct range
+    }
+
+    // Combine the second 64 bits (from plaintext_2) into the upper 64 bits of combined
+    for (int i = 0; i < BLOCK_SIZE; i++) {
+        combined.range(8*(i+9)-1, 8*(i+8)) = plaintext_2[i];  // Place each byte in the correct range
+    }
+
+    return combined;
+}
+
+
+void print_array(const unsigned char arr[BLOCK_SIZE]) {
+    for (int i = 0; i < BLOCK_SIZE; i++) {
+        std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)arr[i];
+    }
+    std::cout << std::endl;
 }
