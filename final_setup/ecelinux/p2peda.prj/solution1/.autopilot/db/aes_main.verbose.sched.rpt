@@ -1,0 +1,419 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_main'
+================================================================
+* Date:           Tue Dec  3 11:39:34 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.923 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+------+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+    +---------+---------+-----------+-----------+------+------+---------+
+    |     2720|     2720| 27.200 us | 27.200 us |  2720|  2720|   none  |
+    +---------+---------+-----------+-----------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                 |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1         |       32|       32|         2|          -|          -|    16|    no    |
+        |- AES_MAIN_LOOP  |     2511|     2511|       279|          -|          -|     9|    no    |
+        |- Loop 3         |       48|       48|         3|          -|          -|    16|    no    |
+        |- Loop 4         |       32|       32|         2|          -|          -|    16|    no    |
+        +-----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 23
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 5 
+4 --> 3 
+5 --> 6 9 
+6 --> 7 
+7 --> 8 
+8 --> 5 
+9 --> 10 
+10 --> 11 13 
+11 --> 12 
+12 --> 10 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 22 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.81>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%roundKey = alloca [16 x i8], align 16" [../../refactored/encrypt.cpp:19]   --->   Operation 24 'alloca' 'roundKey' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_1 : Operation 25 [2/2] (1.81ns)   --->   "call fastcc void @createRoundKey([176 x i8]* @expandedKey, [16 x i8]* %roundKey, i9 0)" [../../refactored/encrypt.cpp:21]   --->   Operation 25 'call' <Predicate = true> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 1.76>
+ST_2 : Operation 26 [1/2] (0.00ns)   --->   "call fastcc void @createRoundKey([176 x i8]* @expandedKey, [16 x i8]* %roundKey, i9 0)" [../../refactored/encrypt.cpp:21]   --->   Operation 26 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 27 [1/1] (1.76ns)   --->   "br label %1" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22]   --->   Operation 27 'br' <Predicate = true> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 2.32>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%i_0_i = phi i5 [ 0, %0 ], [ %i_6, %2 ]"   --->   Operation 28 'phi' 'i_0_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (1.36ns)   --->   "%icmp_ln225 = icmp eq i5 %i_0_i, -16" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22]   --->   Operation 29 'icmp' 'icmp_ln225' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 30 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (1.78ns)   --->   "%i_6 = add i5 %i_0_i, 1" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22]   --->   Operation 31 'add' 'i_6' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "br i1 %icmp_ln225, label %addRoundKey.exit.preheader, label %2" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22]   --->   Operation 32 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%zext_ln226 = zext i5 %i_0_i to i64" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 33 'zext' 'zext_ln226' <Predicate = (!icmp_ln225)> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln226" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 34 'getelementptr' 'state_addr' <Predicate = (!icmp_ln225)> <Delay = 0.00>
+ST_3 : Operation 35 [2/2] (2.32ns)   --->   "%state_load = load i8* %state_addr, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 35 'load' 'state_load' <Predicate = (!icmp_ln225)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%roundKey_addr = getelementptr [16 x i8]* %roundKey, i64 0, i64 %zext_ln226" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 36 'getelementptr' 'roundKey_addr' <Predicate = (!icmp_ln225)> <Delay = 0.00>
+ST_3 : Operation 37 [2/2] (2.32ns)   --->   "%roundKey_load = load i8* %roundKey_addr, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 37 'load' 'roundKey_load' <Predicate = (!icmp_ln225)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_3 : Operation 38 [1/1] (1.76ns)   --->   "br label %addRoundKey.exit" [../../refactored/encrypt.cpp:25]   --->   Operation 38 'br' <Predicate = (icmp_ln225)> <Delay = 1.76>
+
+State 4 <SV = 3> <Delay = 5.63>
+ST_4 : Operation 39 [1/2] (2.32ns)   --->   "%state_load = load i8* %state_addr, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 39 'load' 'state_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 40 [1/2] (2.32ns)   --->   "%roundKey_load = load i8* %roundKey_addr, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 40 'load' 'roundKey_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 41 [1/1] (0.99ns)   --->   "%xor_ln226 = xor i8 %roundKey_load, %state_load" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 41 'xor' 'xor_ln226' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 42 [1/1] (2.32ns)   --->   "store i8 %xor_ln226, i8* %state_addr, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22]   --->   Operation 42 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "br label %1" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22]   --->   Operation 43 'br' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 1.81>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%i_0 = phi i4 [ %i, %3 ], [ 1, %addRoundKey.exit.preheader ]"   --->   Operation 44 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 45 [1/1] (1.30ns)   --->   "%icmp_ln25 = icmp eq i4 %i_0, -6" [../../refactored/encrypt.cpp:25]   --->   Operation 45 'icmp' 'icmp_ln25' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%empty_28 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"   --->   Operation 46 'speclooptripcount' 'empty_28' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "br i1 %icmp_ln25, label %4, label %3" [../../refactored/encrypt.cpp:25]   --->   Operation 47 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%shl_ln = call i8 @_ssdm_op_BitConcatenate.i8.i4.i4(i4 %i_0, i4 0)" [../../refactored/encrypt.cpp:27]   --->   Operation 48 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln25)> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%zext_ln27 = zext i8 %shl_ln to i9" [../../refactored/encrypt.cpp:27]   --->   Operation 49 'zext' 'zext_ln27' <Predicate = (!icmp_ln25)> <Delay = 0.00>
+ST_5 : Operation 50 [2/2] (1.81ns)   --->   "call fastcc void @createRoundKey([176 x i8]* @expandedKey, [16 x i8]* %roundKey, i9 %zext_ln27)" [../../refactored/encrypt.cpp:27]   --->   Operation 50 'call' <Predicate = (!icmp_ln25)> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 51 [1/1] (1.73ns)   --->   "%i = add i4 %i_0, 1" [../../refactored/encrypt.cpp:25]   --->   Operation 51 'add' 'i' <Predicate = (!icmp_ln25)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 52 [2/2] (1.81ns)   --->   "call fastcc void @createRoundKey([176 x i8]* @expandedKey, [16 x i8]* %roundKey, i9 160)" [../../refactored/encrypt.cpp:31]   --->   Operation 52 'call' <Predicate = (icmp_ln25)> <Delay = 1.81> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 4> <Delay = 0.00>
+ST_6 : Operation 53 [1/2] (0.00ns)   --->   "call fastcc void @createRoundKey([176 x i8]* @expandedKey, [16 x i8]* %roundKey, i9 %zext_ln27)" [../../refactored/encrypt.cpp:27]   --->   Operation 53 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 5> <Delay = 0.00>
+ST_7 : Operation 54 [2/2] (0.00ns)   --->   "call fastcc void @aes_round([16 x i8]* %state, [16 x i8]* %roundKey)" [../../refactored/encrypt.cpp:28]   --->   Operation 54 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 6> <Delay = 0.00>
+ST_8 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([14 x i8]* @p_str6) nounwind" [../../refactored/encrypt.cpp:26]   --->   Operation 55 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 56 [1/2] (0.00ns)   --->   "call fastcc void @aes_round([16 x i8]* %state, [16 x i8]* %roundKey)" [../../refactored/encrypt.cpp:28]   --->   Operation 56 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_8 : Operation 57 [1/1] (0.00ns)   --->   "br label %addRoundKey.exit" [../../refactored/encrypt.cpp:25]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 4> <Delay = 1.76>
+ST_9 : Operation 58 [1/2] (0.00ns)   --->   "call fastcc void @createRoundKey([176 x i8]* @expandedKey, [16 x i8]* %roundKey, i9 160)" [../../refactored/encrypt.cpp:31]   --->   Operation 58 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_9 : Operation 59 [1/1] (1.76ns)   --->   "br label %5" [../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32]   --->   Operation 59 'br' <Predicate = true> <Delay = 1.76>
+
+State 10 <SV = 5> <Delay = 2.32>
+ST_10 : Operation 60 [1/1] (0.00ns)   --->   "%i_0_i1 = phi i5 [ 0, %4 ], [ %i_7, %6 ]"   --->   Operation 60 'phi' 'i_0_i1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 61 [1/1] (1.36ns)   --->   "%icmp_ln174 = icmp eq i5 %i_0_i1, -16" [../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32]   --->   Operation 61 'icmp' 'icmp_ln174' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 62 [1/1] (0.00ns)   --->   "%empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 62 'speclooptripcount' 'empty_29' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 63 [1/1] (1.78ns)   --->   "%i_7 = add i5 %i_0_i1, 1" [../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32]   --->   Operation 63 'add' 'i_7' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %icmp_ln174, label %subBytes.exit, label %6" [../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 65 [1/1] (0.00ns)   --->   "%zext_ln175 = zext i5 %i_0_i1 to i64" [../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 65 'zext' 'zext_ln175' <Predicate = (!icmp_ln174)> <Delay = 0.00>
+ST_10 : Operation 66 [1/1] (0.00ns)   --->   "%state_addr_28 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln175" [../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 66 'getelementptr' 'state_addr_28' <Predicate = (!icmp_ln174)> <Delay = 0.00>
+ST_10 : Operation 67 [2/2] (2.32ns)   --->   "%state_load_27 = load i8* %state_addr_28, align 1" [../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 67 'load' 'state_load_27' <Predicate = (!icmp_ln174)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_10 : Operation 68 [1/1] (0.00ns)   --->   "%state_addr_16 = getelementptr [16 x i8]* %state, i64 0, i64 4" [../../refactored/helper.cpp:193->../../refactored/encrypt.cpp:33]   --->   Operation 68 'getelementptr' 'state_addr_16' <Predicate = (icmp_ln174)> <Delay = 0.00>
+ST_10 : Operation 69 [2/2] (2.32ns)   --->   "%tmp = load i8* %state_addr_16, align 1" [../../refactored/helper.cpp:193->../../refactored/encrypt.cpp:33]   --->   Operation 69 'load' 'tmp' <Predicate = (icmp_ln174)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_10 : Operation 70 [1/1] (0.00ns)   --->   "%state_addr_17 = getelementptr [16 x i8]* %state, i64 0, i64 5" [../../refactored/helper.cpp:195->../../refactored/encrypt.cpp:33]   --->   Operation 70 'getelementptr' 'state_addr_17' <Predicate = (icmp_ln174)> <Delay = 0.00>
+ST_10 : Operation 71 [2/2] (2.32ns)   --->   "%state_load_14 = load i8* %state_addr_17, align 1" [../../refactored/helper.cpp:195->../../refactored/encrypt.cpp:33]   --->   Operation 71 'load' 'state_load_14' <Predicate = (icmp_ln174)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 11 <SV = 6> <Delay = 5.57>
+ST_11 : Operation 72 [1/2] (2.32ns)   --->   "%state_load_27 = load i8* %state_addr_28, align 1" [../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 72 'load' 'state_load_27' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_11 : Operation 73 [1/1] (0.00ns)   --->   "%zext_ln43 = zext i8 %state_load_27 to i64" [../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 73 'zext' 'zext_ln43' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 74 [1/1] (0.00ns)   --->   "%sbox_addr = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln43" [../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 74 'getelementptr' 'sbox_addr' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 75 [2/2] (3.25ns)   --->   "%sbox_load = load i8* %sbox_addr, align 1" [../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 75 'load' 'sbox_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+
+State 12 <SV = 7> <Delay = 5.57>
+ST_12 : Operation 76 [1/2] (3.25ns)   --->   "%sbox_load = load i8* %sbox_addr, align 1" [../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 76 'load' 'sbox_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 256> <ROM>
+ST_12 : Operation 77 [1/1] (2.32ns)   --->   "store i8 %sbox_load, i8* %state_addr_28, align 1" [../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32]   --->   Operation 77 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_12 : Operation 78 [1/1] (0.00ns)   --->   "br label %5" [../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32]   --->   Operation 78 'br' <Predicate = true> <Delay = 0.00>
+
+State 13 <SV = 6> <Delay = 4.64>
+ST_13 : Operation 79 [1/2] (2.32ns)   --->   "%tmp = load i8* %state_addr_16, align 1" [../../refactored/helper.cpp:193->../../refactored/encrypt.cpp:33]   --->   Operation 79 'load' 'tmp' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 80 [1/2] (2.32ns)   --->   "%state_load_14 = load i8* %state_addr_17, align 1" [../../refactored/helper.cpp:195->../../refactored/encrypt.cpp:33]   --->   Operation 80 'load' 'state_load_14' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 81 [1/1] (0.00ns)   --->   "%state_addr_18 = getelementptr [16 x i8]* %state, i64 0, i64 6" [../../refactored/helper.cpp:196->../../refactored/encrypt.cpp:33]   --->   Operation 81 'getelementptr' 'state_addr_18' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 82 [2/2] (2.32ns)   --->   "%state_load_15 = load i8* %state_addr_18, align 1" [../../refactored/helper.cpp:196->../../refactored/encrypt.cpp:33]   --->   Operation 82 'load' 'state_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 83 [1/1] (0.00ns)   --->   "%state_addr_19 = getelementptr [16 x i8]* %state, i64 0, i64 7" [../../refactored/helper.cpp:197->../../refactored/encrypt.cpp:33]   --->   Operation 83 'getelementptr' 'state_addr_19' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 84 [2/2] (2.32ns)   --->   "%state_load_16 = load i8* %state_addr_19, align 1" [../../refactored/helper.cpp:197->../../refactored/encrypt.cpp:33]   --->   Operation 84 'load' 'state_load_16' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_13 : Operation 85 [1/1] (2.32ns)   --->   "store i8 %tmp, i8* %state_addr_19, align 1" [../../refactored/helper.cpp:198->../../refactored/encrypt.cpp:33]   --->   Operation 85 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 14 <SV = 7> <Delay = 2.32>
+ST_14 : Operation 86 [1/2] (2.32ns)   --->   "%state_load_15 = load i8* %state_addr_18, align 1" [../../refactored/helper.cpp:196->../../refactored/encrypt.cpp:33]   --->   Operation 86 'load' 'state_load_15' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_14 : Operation 87 [1/2] (2.32ns)   --->   "%state_load_16 = load i8* %state_addr_19, align 1" [../../refactored/helper.cpp:197->../../refactored/encrypt.cpp:33]   --->   Operation 87 'load' 'state_load_16' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_14 : Operation 88 [1/1] (0.00ns)   --->   "%state_addr_20 = getelementptr [16 x i8]* %state, i64 0, i64 8" [../../refactored/helper.cpp:202->../../refactored/encrypt.cpp:33]   --->   Operation 88 'getelementptr' 'state_addr_20' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 89 [2/2] (2.32ns)   --->   "%tmp_7 = load i8* %state_addr_20, align 1" [../../refactored/helper.cpp:202->../../refactored/encrypt.cpp:33]   --->   Operation 89 'load' 'tmp_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_14 : Operation 90 [1/1] (0.00ns)   --->   "%state_addr_21 = getelementptr [16 x i8]* %state, i64 0, i64 9" [../../refactored/helper.cpp:203->../../refactored/encrypt.cpp:33]   --->   Operation 90 'getelementptr' 'state_addr_21' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 91 [2/2] (2.32ns)   --->   "%tmp2 = load i8* %state_addr_21, align 1" [../../refactored/helper.cpp:203->../../refactored/encrypt.cpp:33]   --->   Operation 91 'load' 'tmp2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 15 <SV = 8> <Delay = 4.64>
+ST_15 : Operation 92 [1/2] (2.32ns)   --->   "%tmp_7 = load i8* %state_addr_20, align 1" [../../refactored/helper.cpp:202->../../refactored/encrypt.cpp:33]   --->   Operation 92 'load' 'tmp_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 93 [1/2] (2.32ns)   --->   "%tmp2 = load i8* %state_addr_21, align 1" [../../refactored/helper.cpp:203->../../refactored/encrypt.cpp:33]   --->   Operation 93 'load' 'tmp2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 94 [1/1] (0.00ns)   --->   "%state_addr_22 = getelementptr [16 x i8]* %state, i64 0, i64 10" [../../refactored/helper.cpp:205->../../refactored/encrypt.cpp:33]   --->   Operation 94 'getelementptr' 'state_addr_22' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 95 [2/2] (2.32ns)   --->   "%state_load_19 = load i8* %state_addr_22, align 1" [../../refactored/helper.cpp:205->../../refactored/encrypt.cpp:33]   --->   Operation 95 'load' 'state_load_19' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 96 [1/1] (0.00ns)   --->   "%state_addr_23 = getelementptr [16 x i8]* %state, i64 0, i64 11" [../../refactored/helper.cpp:206->../../refactored/encrypt.cpp:33]   --->   Operation 96 'getelementptr' 'state_addr_23' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 97 [2/2] (2.32ns)   --->   "%state_load_20 = load i8* %state_addr_23, align 1" [../../refactored/helper.cpp:206->../../refactored/encrypt.cpp:33]   --->   Operation 97 'load' 'state_load_20' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 98 [1/1] (2.32ns)   --->   "store i8 %tmp_7, i8* %state_addr_22, align 1" [../../refactored/helper.cpp:207->../../refactored/encrypt.cpp:33]   --->   Operation 98 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_15 : Operation 99 [1/1] (2.32ns)   --->   "store i8 %tmp2, i8* %state_addr_23, align 1" [../../refactored/helper.cpp:208->../../refactored/encrypt.cpp:33]   --->   Operation 99 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 16 <SV = 9> <Delay = 2.32>
+ST_16 : Operation 100 [1/2] (2.32ns)   --->   "%state_load_19 = load i8* %state_addr_22, align 1" [../../refactored/helper.cpp:205->../../refactored/encrypt.cpp:33]   --->   Operation 100 'load' 'state_load_19' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_16 : Operation 101 [1/2] (2.32ns)   --->   "%state_load_20 = load i8* %state_addr_23, align 1" [../../refactored/helper.cpp:206->../../refactored/encrypt.cpp:33]   --->   Operation 101 'load' 'state_load_20' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_16 : Operation 102 [1/1] (0.00ns)   --->   "%state_addr_24 = getelementptr [16 x i8]* %state, i64 0, i64 12" [../../refactored/helper.cpp:212->../../refactored/encrypt.cpp:33]   --->   Operation 102 'getelementptr' 'state_addr_24' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 103 [2/2] (2.32ns)   --->   "%tmp_8 = load i8* %state_addr_24, align 1" [../../refactored/helper.cpp:212->../../refactored/encrypt.cpp:33]   --->   Operation 103 'load' 'tmp_8' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_16 : Operation 104 [1/1] (0.00ns)   --->   "%state_addr_25 = getelementptr [16 x i8]* %state, i64 0, i64 13" [../../refactored/helper.cpp:213->../../refactored/encrypt.cpp:33]   --->   Operation 104 'getelementptr' 'state_addr_25' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 105 [2/2] (2.32ns)   --->   "%tmp2_2 = load i8* %state_addr_25, align 1" [../../refactored/helper.cpp:213->../../refactored/encrypt.cpp:33]   --->   Operation 105 'load' 'tmp2_2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 17 <SV = 10> <Delay = 4.64>
+ST_17 : Operation 106 [1/2] (2.32ns)   --->   "%tmp_8 = load i8* %state_addr_24, align 1" [../../refactored/helper.cpp:212->../../refactored/encrypt.cpp:33]   --->   Operation 106 'load' 'tmp_8' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_17 : Operation 107 [1/2] (2.32ns)   --->   "%tmp2_2 = load i8* %state_addr_25, align 1" [../../refactored/helper.cpp:213->../../refactored/encrypt.cpp:33]   --->   Operation 107 'load' 'tmp2_2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_17 : Operation 108 [1/1] (0.00ns)   --->   "%state_addr_26 = getelementptr [16 x i8]* %state, i64 0, i64 14" [../../refactored/helper.cpp:214->../../refactored/encrypt.cpp:33]   --->   Operation 108 'getelementptr' 'state_addr_26' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 109 [2/2] (2.32ns)   --->   "%tmp3 = load i8* %state_addr_26, align 1" [../../refactored/helper.cpp:214->../../refactored/encrypt.cpp:33]   --->   Operation 109 'load' 'tmp3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_17 : Operation 110 [1/1] (0.00ns)   --->   "%state_addr_27 = getelementptr [16 x i8]* %state, i64 0, i64 15" [../../refactored/helper.cpp:216->../../refactored/encrypt.cpp:33]   --->   Operation 110 'getelementptr' 'state_addr_27' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 111 [2/2] (2.32ns)   --->   "%state_load_24 = load i8* %state_addr_27, align 1" [../../refactored/helper.cpp:216->../../refactored/encrypt.cpp:33]   --->   Operation 111 'load' 'state_load_24' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_17 : Operation 112 [1/1] (2.32ns)   --->   "store i8 %tmp2_2, i8* %state_addr_26, align 1" [../../refactored/helper.cpp:218->../../refactored/encrypt.cpp:33]   --->   Operation 112 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 18 <SV = 11> <Delay = 2.32>
+ST_18 : Operation 113 [1/1] (2.32ns)   --->   "store i8 %state_load_14, i8* %state_addr_16, align 1" [../../refactored/helper.cpp:195->../../refactored/encrypt.cpp:33]   --->   Operation 113 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_18 : Operation 114 [1/1] (2.32ns)   --->   "store i8 %state_load_15, i8* %state_addr_17, align 1" [../../refactored/helper.cpp:196->../../refactored/encrypt.cpp:33]   --->   Operation 114 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_18 : Operation 115 [1/2] (2.32ns)   --->   "%tmp3 = load i8* %state_addr_26, align 1" [../../refactored/helper.cpp:214->../../refactored/encrypt.cpp:33]   --->   Operation 115 'load' 'tmp3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_18 : Operation 116 [1/2] (2.32ns)   --->   "%state_load_24 = load i8* %state_addr_27, align 1" [../../refactored/helper.cpp:216->../../refactored/encrypt.cpp:33]   --->   Operation 116 'load' 'state_load_24' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 19 <SV = 12> <Delay = 2.32>
+ST_19 : Operation 117 [1/1] (2.32ns)   --->   "store i8 %state_load_16, i8* %state_addr_18, align 1" [../../refactored/helper.cpp:197->../../refactored/encrypt.cpp:33]   --->   Operation 117 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_19 : Operation 118 [1/1] (2.32ns)   --->   "store i8 %state_load_19, i8* %state_addr_20, align 1" [../../refactored/helper.cpp:205->../../refactored/encrypt.cpp:33]   --->   Operation 118 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 20 <SV = 13> <Delay = 2.32>
+ST_20 : Operation 119 [1/1] (2.32ns)   --->   "store i8 %state_load_20, i8* %state_addr_21, align 1" [../../refactored/helper.cpp:206->../../refactored/encrypt.cpp:33]   --->   Operation 119 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_20 : Operation 120 [1/1] (2.32ns)   --->   "store i8 %state_load_24, i8* %state_addr_24, align 1" [../../refactored/helper.cpp:216->../../refactored/encrypt.cpp:33]   --->   Operation 120 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+
+State 21 <SV = 14> <Delay = 2.32>
+ST_21 : Operation 121 [1/1] (2.32ns)   --->   "store i8 %tmp_8, i8* %state_addr_25, align 1" [../../refactored/helper.cpp:217->../../refactored/encrypt.cpp:33]   --->   Operation 121 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_21 : Operation 122 [1/1] (2.32ns)   --->   "store i8 %tmp3, i8* %state_addr_27, align 1" [../../refactored/helper.cpp:219->../../refactored/encrypt.cpp:33]   --->   Operation 122 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_21 : Operation 123 [1/1] (1.76ns)   --->   "br label %7" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:34]   --->   Operation 123 'br' <Predicate = true> <Delay = 1.76>
+
+State 22 <SV = 15> <Delay = 2.32>
+ST_22 : Operation 124 [1/1] (0.00ns)   --->   "%i_0_i7 = phi i5 [ 0, %subBytes.exit ], [ %i_8, %8 ]"   --->   Operation 124 'phi' 'i_0_i7' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 125 [1/1] (1.36ns)   --->   "%icmp_ln225_1 = icmp eq i5 %i_0_i7, -16" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:34]   --->   Operation 125 'icmp' 'icmp_ln225_1' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 126 [1/1] (0.00ns)   --->   "%empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 126 'speclooptripcount' 'empty_30' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 127 [1/1] (1.78ns)   --->   "%i_8 = add i5 %i_0_i7, 1" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:34]   --->   Operation 127 'add' 'i_8' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 128 [1/1] (0.00ns)   --->   "br i1 %icmp_ln225_1, label %addRoundKey.exit16, label %8" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:34]   --->   Operation 128 'br' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 129 [1/1] (0.00ns)   --->   "%zext_ln226_1 = zext i5 %i_0_i7 to i64" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 129 'zext' 'zext_ln226_1' <Predicate = (!icmp_ln225_1)> <Delay = 0.00>
+ST_22 : Operation 130 [1/1] (0.00ns)   --->   "%state_addr_29 = getelementptr [16 x i8]* %state, i64 0, i64 %zext_ln226_1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 130 'getelementptr' 'state_addr_29' <Predicate = (!icmp_ln225_1)> <Delay = 0.00>
+ST_22 : Operation 131 [2/2] (2.32ns)   --->   "%state_load_26 = load i8* %state_addr_29, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 131 'load' 'state_load_26' <Predicate = (!icmp_ln225_1)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_22 : Operation 132 [1/1] (0.00ns)   --->   "%roundKey_addr_1 = getelementptr [16 x i8]* %roundKey, i64 0, i64 %zext_ln226_1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 132 'getelementptr' 'roundKey_addr_1' <Predicate = (!icmp_ln225_1)> <Delay = 0.00>
+ST_22 : Operation 133 [2/2] (2.32ns)   --->   "%roundKey_load_1 = load i8* %roundKey_addr_1, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 133 'load' 'roundKey_load_1' <Predicate = (!icmp_ln225_1)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_22 : Operation 134 [1/1] (0.00ns)   --->   "ret void" [../../refactored/encrypt.cpp:35]   --->   Operation 134 'ret' <Predicate = (icmp_ln225_1)> <Delay = 0.00>
+
+State 23 <SV = 16> <Delay = 5.63>
+ST_23 : Operation 135 [1/2] (2.32ns)   --->   "%state_load_26 = load i8* %state_addr_29, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 135 'load' 'state_load_26' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_23 : Operation 136 [1/2] (2.32ns)   --->   "%roundKey_load_1 = load i8* %roundKey_addr_1, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 136 'load' 'roundKey_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_23 : Operation 137 [1/1] (0.99ns)   --->   "%xor_ln226_1 = xor i8 %roundKey_load_1, %state_load_26" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 137 'xor' 'xor_ln226_1' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 138 [1/1] (2.32ns)   --->   "store i8 %xor_ln226_1, i8* %state_addr_29, align 1" [../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34]   --->   Operation 138 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
+ST_23 : Operation 139 [1/1] (0.00ns)   --->   "br label %7" [../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:34]   --->   Operation 139 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.81ns
+The critical path consists of the following:
+	'alloca' operation ('roundKey', ../../refactored/encrypt.cpp:19) [6]  (0 ns)
+	'call' operation ('call_ln21', ../../refactored/encrypt.cpp:21) to 'createRoundKey' [7]  (1.81 ns)
+
+ <State 2>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22) [10]  (1.77 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:22) [10]  (0 ns)
+	'getelementptr' operation ('state_addr', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22) [17]  (0 ns)
+	'load' operation ('state_load', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22) on array 'state' [18]  (2.32 ns)
+
+ <State 4>: 5.63ns
+The critical path consists of the following:
+	'load' operation ('state_load', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22) on array 'state' [18]  (2.32 ns)
+	'xor' operation ('xor_ln226', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22) [21]  (0.99 ns)
+	'store' operation ('store_ln226', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22) of variable 'xor_ln226', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:22 on array 'state' [22]  (2.32 ns)
+
+ <State 5>: 1.81ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../../refactored/encrypt.cpp:25) [27]  (0 ns)
+	'call' operation ('call_ln27', ../../refactored/encrypt.cpp:27) to 'createRoundKey' [35]  (1.81 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32) [43]  (1.77 ns)
+
+ <State 10>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../../refactored/helper.cpp:174->../../refactored/encrypt.cpp:32) [43]  (0 ns)
+	'getelementptr' operation ('state_addr_28', ../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) [50]  (0 ns)
+	'load' operation ('num', ../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) on array 'state' [51]  (2.32 ns)
+
+ <State 11>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('num', ../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) on array 'state' [51]  (2.32 ns)
+	'getelementptr' operation ('sbox_addr', ../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) [53]  (0 ns)
+	'load' operation ('sbox_load', ../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) on array 'sbox' [54]  (3.25 ns)
+
+ <State 12>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('sbox_load', ../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) on array 'sbox' [54]  (3.25 ns)
+	'store' operation ('store_ln175', ../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32) of variable 'sbox_load', ../../refactored/helper.cpp:43->../../refactored/helper.cpp:175->../../refactored/encrypt.cpp:32 on array 'state' [55]  (2.32 ns)
+
+ <State 13>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('tmp', ../../refactored/helper.cpp:193->../../refactored/encrypt.cpp:33) on array 'state' [59]  (2.32 ns)
+	'store' operation ('store_ln198', ../../refactored/helper.cpp:198->../../refactored/encrypt.cpp:33) of variable 'tmp', ../../refactored/helper.cpp:193->../../refactored/encrypt.cpp:33 on array 'state' [69]  (2.32 ns)
+
+ <State 14>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_15', ../../refactored/helper.cpp:196->../../refactored/encrypt.cpp:33) on array 'state' [64]  (2.32 ns)
+
+ <State 15>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('tmp', ../../refactored/helper.cpp:202->../../refactored/encrypt.cpp:33) on array 'state' [71]  (2.32 ns)
+	'store' operation ('store_ln207', ../../refactored/helper.cpp:207->../../refactored/encrypt.cpp:33) of variable 'tmp', ../../refactored/helper.cpp:202->../../refactored/encrypt.cpp:33 on array 'state' [80]  (2.32 ns)
+
+ <State 16>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('state_load_19', ../../refactored/helper.cpp:205->../../refactored/encrypt.cpp:33) on array 'state' [75]  (2.32 ns)
+
+ <State 17>: 4.64ns
+The critical path consists of the following:
+	'load' operation ('tmp2', ../../refactored/helper.cpp:213->../../refactored/encrypt.cpp:33) on array 'state' [85]  (2.32 ns)
+	'store' operation ('store_ln218', ../../refactored/helper.cpp:218->../../refactored/encrypt.cpp:33) of variable 'tmp2', ../../refactored/helper.cpp:213->../../refactored/encrypt.cpp:33 on array 'state' [92]  (2.32 ns)
+
+ <State 18>: 2.32ns
+The critical path consists of the following:
+	'store' operation ('store_ln195', ../../refactored/helper.cpp:195->../../refactored/encrypt.cpp:33) of variable 'state_load_14', ../../refactored/helper.cpp:195->../../refactored/encrypt.cpp:33 on array 'state' [62]  (2.32 ns)
+
+ <State 19>: 2.32ns
+The critical path consists of the following:
+	'store' operation ('store_ln197', ../../refactored/helper.cpp:197->../../refactored/encrypt.cpp:33) of variable 'state_load_16', ../../refactored/helper.cpp:197->../../refactored/encrypt.cpp:33 on array 'state' [68]  (2.32 ns)
+
+ <State 20>: 2.32ns
+The critical path consists of the following:
+	'store' operation ('store_ln206', ../../refactored/helper.cpp:206->../../refactored/encrypt.cpp:33) of variable 'state_load_20', ../../refactored/helper.cpp:206->../../refactored/encrypt.cpp:33 on array 'state' [79]  (2.32 ns)
+
+ <State 21>: 2.32ns
+The critical path consists of the following:
+	'store' operation ('store_ln217', ../../refactored/helper.cpp:217->../../refactored/encrypt.cpp:33) of variable 'tmp', ../../refactored/helper.cpp:212->../../refactored/encrypt.cpp:33 on array 'state' [91]  (2.32 ns)
+
+ <State 22>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ../../refactored/helper.cpp:225->../../refactored/encrypt.cpp:34) [96]  (0 ns)
+	'getelementptr' operation ('state_addr_29', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34) [103]  (0 ns)
+	'load' operation ('state_load_26', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34) on array 'state' [104]  (2.32 ns)
+
+ <State 23>: 5.63ns
+The critical path consists of the following:
+	'load' operation ('state_load_26', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34) on array 'state' [104]  (2.32 ns)
+	'xor' operation ('xor_ln226_1', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34) [107]  (0.99 ns)
+	'store' operation ('store_ln226', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34) of variable 'xor_ln226_1', ../../refactored/helper.cpp:226->../../refactored/encrypt.cpp:34 on array 'state' [108]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

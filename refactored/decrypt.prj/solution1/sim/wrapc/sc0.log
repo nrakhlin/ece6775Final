@@ -1,6 +1,0 @@
-   Build using "/opt/xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
-   Compiling decrypt.cpp_pre.cpp.tb.cpp
-   Compiling helper.cpp_pre.cpp.tb.cpp
-   Compiling decrypt_test.cpp_pre.cpp.tb.cpp
-   Compiling apatb_decrypt_dut.cpp
-   Generating cosim.tv.exe

@@ -35,7 +35,7 @@ set_directive_pipeline -II 1 expandKey/EX_WHILE
 ############################################
 
 # Simulate the C++ design
-# csim_design -O
+csim_design -O
 # Synthesize the design
 csynth_design
 # Co-simulate the design

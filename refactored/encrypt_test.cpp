@@ -8,7 +8,7 @@
 #define BLOCK_SIZE 16 // AES block size is always 16 bytes
 
 // Test vectors from known AES examples (AES-128)
-unsigned char test_input[BLOCK_SIZE] = {'d', 'e', 'a', 'd', 'b', 'e', 'e', 'f', 'b', 'e', 'e', 'f', 'd', 'e', 'a', 'd'};
+unsigned char test_input[BLOCK_SIZE] = {'z', 'h', 'i', 'r', 'u', ' ', 'z', 'h', 'a', 'n', 'g', ' ', ' ', ' ', ' ', ' '};
 
 unsigned char test_key[KEY_SIZE] = {0x54, 0x68, 0x61, 0x74, 0x73, 0x20, 0x6D, 0x79, 0x20, 0x4B, 0x75, 0x6E, 0x67, 0x20, 0x46, 0x75};
 

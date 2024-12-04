@@ -1,7 +1,0 @@
-Running: xsim.dir/decrypt_dut/xsimk -simmode gui -wdb decrypt_dut.wdb -simrunnum 0 -socket 35709
-Design successfully loaded
-Design Loading Memory Usage: 38212 KB (Peak: 38220 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 120400 KB (Peak: 177480 KB)
-Simulation CPU Usage: 10 ms

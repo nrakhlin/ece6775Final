@@ -1,0 +1,1697 @@
+INFO-FLOW: Workspace /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1 opened at Tue Dec 03 11:39:09 EST 2024
+Command     open_solution done; 0.27 sec.
+Execute     set_part xc7z020clg484-1 
+Execute       ap_part_info -name xc7z020clg484-1 -data single -quiet 
+Command       ap_part_info done; 1.49 sec.
+Execute       ap_part_info -name xc7z020clg484-1 -data info 
+Execute       add_library xilinx/zynq/zynq:xc7z020:-clg484:-1 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.lib 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.lib 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         ap_part_info -data single -name xc7z020-clg484-1 
+Execute         ap_part_info -name xc7z020-clg484-1 -data resources 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         config_chip_info -quiet -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP48E 220} {BRAM 280} {URAM 0} 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         config_chip_info -quiet -speed slow 
+Command       add_library done; 0.15 sec.
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.lib 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.hlp 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       get_default_platform 
+Command     set_part done; 1.72 sec.
+Execute     create_clock -period 10 
+Execute       config_clock -quiet -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/helper.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/refactored/helper.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/decrypt.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/refactored/decrypt.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/encrypt.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/refactored/encrypt.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
+Execute       is_xip /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       source run_sim.tcl 
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command     csim_design done; 2.4 sec.
+Execute     csynth_design 
+Execute       get_config_compile -dump_cfg 
+Execute       get_config_compile -effort 
+Execute       get_config_compile -enable_clang39 
+Execute       get_config_compile -g 
+Execute       get_config_compile -ng 
+Execute       get_config_compile -opt_fp 
+Execute       get_config_compile -skip_cdt 
+Execute       get_config_compile -skip_syncheck 
+Execute       get_config_compile -skip_transform 
+Execute       get_config_compile -keep_printf 
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute         get_config_schedule -relax_ii_for_timing 
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+Execute         get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file '../../refactored/helper.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling ../../refactored/helper.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted ../../refactored/helper.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "../../refactored/helper.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E ../../refactored/helper.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp
+Command         clang done; 1.11 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.11 sec.
+INFO-FLOW: Done: GCC PP time: 2.2 seconds per iteration
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/try/try.tcl 
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.helper.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.helper.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.helper.pp.0.cpp.err.log 
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.helper.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.helper.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.helper.pp.0.cpp.err.log 
+Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Execute             source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.helper.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.helper.pp.0.cpp.err.log 
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.bc
+Command         clang done; 1.13 sec.
+INFO: [HLS 200-10] Analyzing design file '../../refactored/decrypt.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling ../../refactored/decrypt.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted ../../refactored/decrypt.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "../../refactored/decrypt.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E ../../refactored/decrypt.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp
+Command         clang done; 1.1 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.07 sec.
+INFO-FLOW: Done: GCC PP time: 2.2 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.decrypt.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.decrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.decrypt.pp.0.cpp.err.log 
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.decrypt.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.decrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.decrypt.pp.0.cpp.err.log 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.decrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.decrypt.pp.0.cpp.err.log 
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.bc
+Command         clang done; 1.12 sec.
+INFO: [HLS 200-10] Analyzing design file '../../refactored/encrypt.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling ../../refactored/encrypt.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted ../../refactored/encrypt.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "../../refactored/encrypt.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E ../../refactored/encrypt.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp
+Command         clang done; 1.07 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.13 sec.
+INFO-FLOW: Done: GCC PP time: 2.2 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.encrypt.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.encrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.encrypt.pp.0.cpp.err.log 
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.encrypt.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.encrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.encrypt.pp.0.cpp.err.log 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.encrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.encrypt.pp.0.cpp.err.log 
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.bc
+Command         clang done; 1.11 sec.
+INFO: [HLS 200-10] Analyzing design file 'p2peda.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling p2peda.cpp as C++
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+Execute         is_encrypted p2peda.cpp 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "p2peda.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E p2peda.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp
+Command         clang done; 1.15 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.35 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
+Command         clang done; 1.31 sec.
+INFO-FLOW: Done: GCC PP time: 2.8 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.3 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.3 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.p2peda.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.p2peda.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.p2peda.pp.0.cpp.err.log 
+Command         ap_eval done; 0.34 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.p2peda.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.p2peda.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.p2peda.pp.0.cpp.err.log 
+Command           ap_eval done; 0.41 sec.
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.p2peda.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.p2peda.pp.0.cpp.err.log 
+Command           ap_eval done; 0.26 sec.
+Command         tidy_31 done; 0.67 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 1.3 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.41 sec.
+Execute         ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.bc" 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.bc
+Command         clang done; 1.33 sec.
+INFO-FLOW: Linking Debug ...
+Execute         llvm-ld /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.g.bc /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.g.bc /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.g.bc /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/p2peda.g.bc -hls-opt -except-internalize dut -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lhlsm -lhlsmc++ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g 
+Command         llvm-ld done; 0.59 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6631 ; free virtual = 19144
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6631 ; free virtual = 19144
+Execute         get_config_sdx -target 
+Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute           cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute           transform -promote-dbg-pointer /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.pp.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.pp.0.bc -f 
+Execute           llvm-ld /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lfloatconversion -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.0 
+Command           llvm-ld done; 0.58 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top dut -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.0.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+Command           transform done; 0.14 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6626 ; free virtual = 19140
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.1.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'subBytes' (../../refactored/helper.cpp:175) automatically.
+INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_round' (../../refactored/encrypt.cpp:9) automatically.
+INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_round' (../../refactored/encrypt.cpp:10) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_round' (../../refactored/encrypt.cpp:12) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_main' (../../refactored/encrypt.cpp:22) automatically.
+INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_main' (../../refactored/encrypt.cpp:32) automatically.
+INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_main' (../../refactored/encrypt.cpp:33) automatically.
+INFO: [XFORM 203-602] Inlining function 'encrypt_dut' into 'encrypt_aes' (p2peda.cpp:32) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (../../refactored/helper.cpp:321) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invRound' (../../refactored/decrypt.cpp:18) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (../../refactored/decrypt.cpp:19) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (../../refactored/decrypt.cpp:20) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (../../refactored/decrypt.cpp:31) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invMain' (../../refactored/decrypt.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (../../refactored/decrypt.cpp:42) automatically.
+INFO: [XFORM 203-602] Inlining function 'decrypt_dut' into 'decrypt_aes' (p2peda.cpp:50) automatically.
+INFO: [XFORM 203-602] Inlining function 'decrypt_bf' into 'dut' (p2peda.cpp:145) automatically.
+Command           transform done; 0.19 sec.
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute           transform -syn-check /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+WARNING: [SYNCHK 200-23] p2peda.cpp:29: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6622 ; free virtual = 19136
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.g.1.bc to /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute           transform -hls -tmp /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.1.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-102] Automatically partitioning small array 'column' (../../refactored/helper.cpp:410) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'cpy' (../../refactored/helper.cpp:382) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'column' (../../refactored/helper.cpp:278) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'cpy' (../../refactored/helper.cpp:248) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'column' (../../refactored/helper.cpp:410) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'cpy' (../../refactored/helper.cpp:382) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'column' (../../refactored/helper.cpp:278) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'cpy' (../../refactored/helper.cpp:248) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'subBytes' (../../refactored/helper.cpp:175) automatically.
+INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_round' (../../refactored/encrypt.cpp:9) automatically.
+INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_round' (../../refactored/encrypt.cpp:10) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_round' (../../refactored/encrypt.cpp:12) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_main' (../../refactored/encrypt.cpp:22) automatically.
+INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_main' (../../refactored/encrypt.cpp:32) automatically.
+INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_main' (../../refactored/encrypt.cpp:33) automatically.
+INFO: [XFORM 203-602] Inlining function 'encrypt_dut' into 'encrypt_aes' (p2peda.cpp:32) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (../../refactored/helper.cpp:321) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invRound' (../../refactored/decrypt.cpp:18) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (../../refactored/decrypt.cpp:19) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (../../refactored/decrypt.cpp:20) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (../../refactored/decrypt.cpp:31) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invMain' (../../refactored/decrypt.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (../../refactored/decrypt.cpp:42) automatically.
+INFO: [XFORM 203-602] Inlining function 'decrypt_dut' into 'decrypt_aes' (p2peda.cpp:50) automatically.
+Command           transform done; 0.44 sec.
+INFO-FLOW: Presyn 2...
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (p2peda.cpp:129:7) to (p2peda.cpp:126:28) in function 'dut'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (p2peda.cpp:158:7) to (p2peda.cpp:155:28) in function 'dut'... converting 4 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'mixColumn' (../../refactored/helper.cpp:246)...12 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'invMixColumn' (../../refactored/helper.cpp:380)...12 expression(s) balanced.
+Command           transform done; 0.2 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 6601 ; free virtual = 19116
+INFO-FLOW: Building ssdm...
+Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.2.bc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [XFORM 203-631] Renaming function 'galois_multiplication' to 'galois_multiplicatio' (../../refactored/helper.cpp:233:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:295:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:427:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'aes_input' (p2peda.cpp:25:36)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (p2peda.cpp:26:33)
+INFO: [HLS 200-472] Inferring partial write operation for 'aes_input' (p2peda.cpp:29:20)
+INFO: [HLS 200-472] Inferring partial write operation for 'aes_input' (p2peda.cpp:43:36)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (p2peda.cpp:44:33)
+INFO: [HLS 200-472] Inferring partial write operation for 'aes_input' (p2peda.cpp:47:22)
+INFO: [HLS 200-472] Inferring partial write operation for 'roundKey' (../../refactored/helper.cpp:308:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:175:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:195:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:196:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:197:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:198:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:205:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:206:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:207:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:208:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:216:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:217:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:218:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:219:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:175:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:195:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:196:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:197:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:198:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:205:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:206:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:207:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:208:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:216:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:217:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:218:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:219:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:337:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:338:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:339:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:340:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:352:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:353:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:354:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:355:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:373:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:374:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:375:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:376:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:321:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:337:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:338:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:339:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:340:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:352:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:353:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:354:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:355:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:373:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:374:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:375:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:376:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:321:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'block' (../../refactored/encrypt.cpp:52:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (../../refactored/encrypt.cpp:68:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'block' (../../refactored/decrypt.cpp:77:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (../../refactored/decrypt.cpp:93:7)
+Command           transform done; 0.92 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1296.148 ; gain = 658.125 ; free physical = 6482 ; free virtual = 18997
+INFO-FLOW: Finish building internal data model.
+Command         opt_and_import_c done; 2.55 sec.
+Command       elaborate done; 20.09 sec.
+Execute       autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'dut' ...
+Execute         ap_set_top_model dut 
+Execute         get_model_list dut -filter all-wo-channel -topdown 
+Execute         preproc_iomode -model dut 
+Execute         preproc_iomode -model decrypt_aes 
+Execute         preproc_iomode -model aes_decrypt 
+Execute         preproc_iomode -model aes_invMain 
+Execute         preproc_iomode -model aes_invRound 
+Execute         preproc_iomode -model invMixColumns 
+Execute         preproc_iomode -model invMixColumn 
+Execute         preproc_iomode -model encrypt_aes 
+Execute         preproc_iomode -model aes_encrypt 
+Execute         preproc_iomode -model aes_main 
+Execute         preproc_iomode -model aes_round 
+Execute         preproc_iomode -model mixColumns 
+Execute         preproc_iomode -model mixColumn 
+Execute         preproc_iomode -model galois_multiplicatio 
+Execute         preproc_iomode -model createRoundKey 
+Execute         get_model_list dut -filter all-wo-channel 
+INFO-FLOW: Model list for configure: createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut
+INFO-FLOW: Configuring Module : createRoundKey ...
+Execute         set_default_model createRoundKey 
+Execute         apply_spec_resource_limit createRoundKey 
+INFO-FLOW: Configuring Module : galois_multiplicatio ...
+Execute         set_default_model galois_multiplicatio 
+Execute         apply_spec_resource_limit galois_multiplicatio 
+INFO-FLOW: Configuring Module : mixColumn ...
+Execute         set_default_model mixColumn 
+Execute         apply_spec_resource_limit mixColumn 
+INFO-FLOW: Configuring Module : mixColumns ...
+Execute         set_default_model mixColumns 
+Execute         apply_spec_resource_limit mixColumns 
+INFO-FLOW: Configuring Module : aes_round ...
+Execute         set_default_model aes_round 
+Execute         apply_spec_resource_limit aes_round 
+INFO-FLOW: Configuring Module : aes_main ...
+Execute         set_default_model aes_main 
+Execute         apply_spec_resource_limit aes_main 
+INFO-FLOW: Configuring Module : aes_encrypt ...
+Execute         set_default_model aes_encrypt 
+Execute         apply_spec_resource_limit aes_encrypt 
+INFO-FLOW: Configuring Module : encrypt_aes ...
+Execute         set_default_model encrypt_aes 
+Execute         apply_spec_resource_limit encrypt_aes 
+INFO-FLOW: Configuring Module : invMixColumn ...
+Execute         set_default_model invMixColumn 
+Execute         apply_spec_resource_limit invMixColumn 
+INFO-FLOW: Configuring Module : invMixColumns ...
+Execute         set_default_model invMixColumns 
+Execute         apply_spec_resource_limit invMixColumns 
+INFO-FLOW: Configuring Module : aes_invRound ...
+Execute         set_default_model aes_invRound 
+Execute         apply_spec_resource_limit aes_invRound 
+INFO-FLOW: Configuring Module : aes_invMain ...
+Execute         set_default_model aes_invMain 
+Execute         apply_spec_resource_limit aes_invMain 
+INFO-FLOW: Configuring Module : aes_decrypt ...
+Execute         set_default_model aes_decrypt 
+Execute         apply_spec_resource_limit aes_decrypt 
+INFO-FLOW: Configuring Module : decrypt_aes ...
+Execute         set_default_model decrypt_aes 
+Execute         apply_spec_resource_limit decrypt_aes 
+INFO-FLOW: Configuring Module : dut ...
+Execute         set_default_model dut 
+Execute         apply_spec_resource_limit dut 
+INFO-FLOW: Model list for preprocess: createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut
+INFO-FLOW: Preprocessing Module: createRoundKey ...
+Execute         set_default_model createRoundKey 
+Execute         cdfg_preprocess -model createRoundKey 
+Execute         rtl_gen_preprocess createRoundKey 
+INFO-FLOW: Preprocessing Module: galois_multiplicatio ...
+Execute         set_default_model galois_multiplicatio 
+Execute         cdfg_preprocess -model galois_multiplicatio 
+Execute         rtl_gen_preprocess galois_multiplicatio 
+INFO-FLOW: Preprocessing Module: mixColumn ...
+Execute         set_default_model mixColumn 
+Execute         cdfg_preprocess -model mixColumn 
+Execute         rtl_gen_preprocess mixColumn 
+INFO-FLOW: Preprocessing Module: mixColumns ...
+Execute         set_default_model mixColumns 
+Execute         cdfg_preprocess -model mixColumns 
+Execute         rtl_gen_preprocess mixColumns 
+INFO-FLOW: Preprocessing Module: aes_round ...
+Execute         set_default_model aes_round 
+Execute         cdfg_preprocess -model aes_round 
+Execute         rtl_gen_preprocess aes_round 
+INFO-FLOW: Preprocessing Module: aes_main ...
+Execute         set_default_model aes_main 
+Execute         cdfg_preprocess -model aes_main 
+Execute         rtl_gen_preprocess aes_main 
+INFO-FLOW: Preprocessing Module: aes_encrypt ...
+Execute         set_default_model aes_encrypt 
+Execute         cdfg_preprocess -model aes_encrypt 
+Execute         rtl_gen_preprocess aes_encrypt 
+INFO-FLOW: Preprocessing Module: encrypt_aes ...
+Execute         set_default_model encrypt_aes 
+Execute         cdfg_preprocess -model encrypt_aes 
+Execute         rtl_gen_preprocess encrypt_aes 
+INFO-FLOW: Preprocessing Module: invMixColumn ...
+Execute         set_default_model invMixColumn 
+Execute         cdfg_preprocess -model invMixColumn 
+Execute         rtl_gen_preprocess invMixColumn 
+INFO-FLOW: Preprocessing Module: invMixColumns ...
+Execute         set_default_model invMixColumns 
+Execute         cdfg_preprocess -model invMixColumns 
+Execute         rtl_gen_preprocess invMixColumns 
+INFO-FLOW: Preprocessing Module: aes_invRound ...
+Execute         set_default_model aes_invRound 
+Execute         cdfg_preprocess -model aes_invRound 
+Execute         rtl_gen_preprocess aes_invRound 
+INFO-FLOW: Preprocessing Module: aes_invMain ...
+Execute         set_default_model aes_invMain 
+Execute         cdfg_preprocess -model aes_invMain 
+Execute         rtl_gen_preprocess aes_invMain 
+INFO-FLOW: Preprocessing Module: aes_decrypt ...
+Execute         set_default_model aes_decrypt 
+Execute         cdfg_preprocess -model aes_decrypt 
+Execute         rtl_gen_preprocess aes_decrypt 
+INFO-FLOW: Preprocessing Module: decrypt_aes ...
+Execute         set_default_model decrypt_aes 
+Execute         cdfg_preprocess -model decrypt_aes 
+Execute         rtl_gen_preprocess decrypt_aes 
+INFO-FLOW: Preprocessing Module: dut ...
+Execute         set_default_model dut 
+Execute         cdfg_preprocess -model dut 
+Execute         rtl_gen_preprocess dut 
+INFO-FLOW: Model list for synthesis: createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model createRoundKey 
+Execute         schedule -model createRoundKey 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 24.76 seconds; current allocated memory: 265.173 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.sched.adb -f 
+INFO-FLOW: Finish scheduling createRoundKey.
+Execute         set_default_model createRoundKey 
+Execute         bind -model createRoundKey 
+BIND OPTION: model=createRoundKey
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 265.308 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.bind.adb -f 
+INFO-FLOW: Finish binding createRoundKey.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model galois_multiplicatio 
+Execute         schedule -model galois_multiplicatio 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 265.478 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.sched.adb -f 
+INFO-FLOW: Finish scheduling galois_multiplicatio.
+Execute         set_default_model galois_multiplicatio 
+Execute         bind -model galois_multiplicatio 
+BIND OPTION: model=galois_multiplicatio
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 265.586 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.bind.adb -f 
+INFO-FLOW: Finish binding galois_multiplicatio.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model mixColumn 
+Execute         schedule -model mixColumn 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 265.774 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.sched.adb -f 
+INFO-FLOW: Finish scheduling mixColumn.
+Execute         set_default_model mixColumn 
+Execute         bind -model mixColumn 
+BIND OPTION: model=mixColumn
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 266.026 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.bind.adb -f 
+INFO-FLOW: Finish binding mixColumn.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'mixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model mixColumns 
+Execute         schedule -model mixColumns 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 266.303 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.sched.adb -f 
+INFO-FLOW: Finish scheduling mixColumns.
+Execute         set_default_model mixColumns 
+Execute         bind -model mixColumns 
+BIND OPTION: model=mixColumns
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 266.580 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.bind.adb -f 
+INFO-FLOW: Finish binding mixColumns.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_round' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_round 
+Execute         schedule -model aes_round 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 266.966 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_round.
+Execute         set_default_model aes_round 
+Execute         bind -model aes_round 
+BIND OPTION: model=aes_round
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 267.255 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.bind.adb -f 
+INFO-FLOW: Finish binding aes_round.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_main' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_main 
+Execute         schedule -model aes_main 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 267.640 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_main.
+Execute         set_default_model aes_main 
+Execute         bind -model aes_main 
+BIND OPTION: model=aes_main
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 268.088 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.bind.adb -f 
+INFO-FLOW: Finish binding aes_main.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_encrypt 
+Execute         schedule -model aes_encrypt 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 268.387 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_encrypt.
+Execute         set_default_model aes_encrypt 
+Execute         bind -model aes_encrypt 
+BIND OPTION: model=aes_encrypt
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 268.601 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.bind.adb -f 
+INFO-FLOW: Finish binding aes_encrypt.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'encrypt_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model encrypt_aes 
+Execute         schedule -model encrypt_aes 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 269.030 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.sched.adb -f 
+INFO-FLOW: Finish scheduling encrypt_aes.
+Execute         set_default_model encrypt_aes 
+Execute         bind -model encrypt_aes 
+BIND OPTION: model=encrypt_aes
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 269.398 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.verbose.bind.rpt 
+Command         syn_report done; 0.13 sec.
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.bind.adb -f 
+INFO-FLOW: Finish binding encrypt_aes.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model invMixColumn 
+Execute         schedule -model invMixColumn 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 269.730 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.sched.adb -f 
+INFO-FLOW: Finish scheduling invMixColumn.
+Execute         set_default_model invMixColumn 
+Execute         bind -model invMixColumn 
+BIND OPTION: model=invMixColumn
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 270.047 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.bind.adb -f 
+INFO-FLOW: Finish binding invMixColumn.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model invMixColumns 
+Execute         schedule -model invMixColumns 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 270.337 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.sched.adb -f 
+INFO-FLOW: Finish scheduling invMixColumns.
+Execute         set_default_model invMixColumns 
+Execute         bind -model invMixColumns 
+BIND OPTION: model=invMixColumns
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 270.648 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.bind.adb -f 
+INFO-FLOW: Finish binding invMixColumns.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_invRound 
+Execute         schedule -model aes_invRound 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 270.993 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_invRound.
+Execute         set_default_model aes_invRound 
+Execute         bind -model aes_invRound 
+BIND OPTION: model=aes_invRound
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 271.261 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.bind.adb -f 
+INFO-FLOW: Finish binding aes_invRound.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_invMain 
+Execute         schedule -model aes_invMain 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 271.730 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_invMain.
+Execute         set_default_model aes_invMain 
+Execute         bind -model aes_invMain 
+BIND OPTION: model=aes_invMain
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 272.138 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.verbose.bind.rpt 
+Command         syn_report done; 0.11 sec.
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.bind.adb -f 
+INFO-FLOW: Finish binding aes_invMain.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model aes_decrypt 
+Execute         schedule -model aes_decrypt 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 272.447 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.sched.adb -f 
+INFO-FLOW: Finish scheduling aes_decrypt.
+Execute         set_default_model aes_decrypt 
+Execute         bind -model aes_decrypt 
+BIND OPTION: model=aes_decrypt
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 272.697 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.verbose.bind.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.bind.adb -f 
+INFO-FLOW: Finish binding aes_decrypt.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'decrypt_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model decrypt_aes 
+Execute         schedule -model decrypt_aes 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 273.117 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.sched.adb -f 
+INFO-FLOW: Finish scheduling decrypt_aes.
+Execute         set_default_model decrypt_aes 
+Execute         bind -model decrypt_aes 
+BIND OPTION: model=decrypt_aes
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 273.487 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.verbose.bind.rpt 
+Command         syn_report done; 0.13 sec.
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.bind.adb -f 
+INFO-FLOW: Finish binding decrypt_aes.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model dut 
+Execute         schedule -model dut 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 274.093 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.verbose.sched.rpt 
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.sched.adb -f 
+INFO-FLOW: Finish scheduling dut.
+Execute         set_default_model dut 
+Execute         bind -model dut 
+BIND OPTION: model=dut
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.19 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 274.789 MB.
+Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.verbose.bind.rpt 
+Command         syn_report done; 0.28 sec.
+Execute         db_write -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.bind.adb -f 
+INFO-FLOW: Finish binding dut.
+Execute         get_model_list dut -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute         rtl_gen_preprocess createRoundKey 
+Execute         rtl_gen_preprocess galois_multiplicatio 
+Execute         rtl_gen_preprocess mixColumn 
+Execute         rtl_gen_preprocess mixColumns 
+Execute         rtl_gen_preprocess aes_round 
+Execute         rtl_gen_preprocess aes_main 
+Execute         rtl_gen_preprocess aes_encrypt 
+Execute         rtl_gen_preprocess encrypt_aes 
+Execute         rtl_gen_preprocess invMixColumn 
+Execute         rtl_gen_preprocess invMixColumns 
+Execute         rtl_gen_preprocess aes_invRound 
+Execute         rtl_gen_preprocess aes_invMain 
+Execute         rtl_gen_preprocess aes_decrypt 
+Execute         rtl_gen_preprocess decrypt_aes 
+Execute         rtl_gen_preprocess dut 
+INFO-FLOW: Model list for RTL generation: createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model createRoundKey -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'createRoundKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 275.424 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl createRoundKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/createRoundKey -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl createRoundKey -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/createRoundKey 
+Execute         gen_rtl createRoundKey -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/createRoundKey 
+Execute         syn_report -csynth -model createRoundKey -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/createRoundKey_csynth.rpt 
+Execute         syn_report -rtlxml -model createRoundKey -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/createRoundKey_csynth.xml 
+Execute         syn_report -verbosereport -model createRoundKey -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.verbose.rpt 
+Execute         db_write -model createRoundKey -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.adb 
+Execute         gen_tb_info createRoundKey -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model galois_multiplicatio -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'galois_multiplicatio'.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 276.246 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl galois_multiplicatio -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/galois_multiplicatio -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl galois_multiplicatio -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/galois_multiplicatio 
+Execute         gen_rtl galois_multiplicatio -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/galois_multiplicatio 
+Execute         syn_report -csynth -model galois_multiplicatio -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/galois_multiplicatio_csynth.rpt 
+Execute         syn_report -rtlxml -model galois_multiplicatio -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/galois_multiplicatio_csynth.xml 
+Execute         syn_report -verbosereport -model galois_multiplicatio -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.rpt 
+Execute         db_write -model galois_multiplicatio -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.adb 
+Execute         gen_tb_info galois_multiplicatio -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model mixColumn -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mixColumn'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 277.253 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl mixColumn -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/mixColumn -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl mixColumn -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/mixColumn 
+Execute         gen_rtl mixColumn -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/mixColumn 
+Execute         syn_report -csynth -model mixColumn -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/mixColumn_csynth.rpt 
+Execute         syn_report -rtlxml -model mixColumn -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/mixColumn_csynth.xml 
+Execute         syn_report -verbosereport -model mixColumn -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.verbose.rpt 
+Execute         db_write -model mixColumn -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.adb 
+Execute         gen_tb_info mixColumn -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'mixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model mixColumns -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'mixColumns'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 278.820 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl mixColumns -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/mixColumns -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl mixColumns -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/mixColumns 
+Execute         gen_rtl mixColumns -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/mixColumns 
+Execute         syn_report -csynth -model mixColumns -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/mixColumns_csynth.rpt 
+Execute         syn_report -rtlxml -model mixColumns -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/mixColumns_csynth.xml 
+Execute         syn_report -verbosereport -model mixColumns -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.verbose.rpt 
+Execute         db_write -model mixColumns -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.adb 
+Execute         gen_tb_info mixColumns -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_round' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_round -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_round'.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 280.340 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_round -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/aes_round -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl aes_round -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/aes_round 
+Execute         gen_rtl aes_round -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/aes_round 
+Execute         syn_report -csynth -model aes_round -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_round_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_round -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_round_csynth.xml 
+Execute         syn_report -verbosereport -model aes_round -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.verbose.rpt 
+Execute         db_write -model aes_round -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.adb 
+Execute         gen_tb_info aes_round -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_main' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_main -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'aes_main_expandedKey' to 'aes_main_expandedbkb' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_main'.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 282.255 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_main -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/aes_main -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl aes_main -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/aes_main 
+Execute         gen_rtl aes_main -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/aes_main 
+Execute         syn_report -csynth -model aes_main -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_main_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_main -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_main_csynth.xml 
+Execute         syn_report -verbosereport -model aes_main -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.verbose.rpt 
+Execute         db_write -model aes_main -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.adb 
+Execute         gen_tb_info aes_main -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_encrypt -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 284.354 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_encrypt -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/aes_encrypt -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl aes_encrypt -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/aes_encrypt 
+Execute         gen_rtl aes_encrypt -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/aes_encrypt 
+Execute         syn_report -csynth -model aes_encrypt -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_encrypt_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_encrypt -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_encrypt_csynth.xml 
+Execute         syn_report -verbosereport -model aes_encrypt -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.verbose.rpt 
+Execute         db_write -model aes_encrypt -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.adb 
+Execute         gen_tb_info aes_encrypt -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'encrypt_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model encrypt_aes -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'encrypt_aes_aes_input' to 'encrypt_aes_aes_icud' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'encrypt_aes'.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 286.128 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl encrypt_aes -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/encrypt_aes -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl encrypt_aes -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/encrypt_aes 
+Execute         gen_rtl encrypt_aes -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/encrypt_aes 
+Execute         syn_report -csynth -model encrypt_aes -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/encrypt_aes_csynth.rpt 
+Execute         syn_report -rtlxml -model encrypt_aes -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/encrypt_aes_csynth.xml 
+Execute         syn_report -verbosereport -model encrypt_aes -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.verbose.rpt 
+Command         syn_report done; 0.14 sec.
+Execute         db_write -model encrypt_aes -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.adb 
+Execute         gen_tb_info encrypt_aes -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model invMixColumn -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invMixColumn'.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 288.327 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl invMixColumn -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/invMixColumn -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl invMixColumn -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/invMixColumn 
+Execute         gen_rtl invMixColumn -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/invMixColumn 
+Execute         syn_report -csynth -model invMixColumn -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/invMixColumn_csynth.rpt 
+Execute         syn_report -rtlxml -model invMixColumn -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/invMixColumn_csynth.xml 
+Execute         syn_report -verbosereport -model invMixColumn -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.verbose.rpt 
+Execute         db_write -model invMixColumn -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.adb 
+Execute         gen_tb_info invMixColumn -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model invMixColumns -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invMixColumns'.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 290.025 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl invMixColumns -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/invMixColumns -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl invMixColumns -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/invMixColumns 
+Execute         gen_rtl invMixColumns -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/invMixColumns 
+Execute         syn_report -csynth -model invMixColumns -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/invMixColumns_csynth.rpt 
+Execute         syn_report -rtlxml -model invMixColumns -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/invMixColumns_csynth.xml 
+Execute         syn_report -verbosereport -model invMixColumns -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.verbose.rpt 
+Execute         db_write -model invMixColumns -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.adb 
+Execute         gen_tb_info invMixColumns -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_invRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_invRound -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_invRound'.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 291.616 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_invRound -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/aes_invRound -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl aes_invRound -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/aes_invRound 
+Execute         gen_rtl aes_invRound -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/aes_invRound 
+Execute         syn_report -csynth -model aes_invRound -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_invRound_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_invRound -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_invRound_csynth.xml 
+Execute         syn_report -verbosereport -model aes_invRound -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.verbose.rpt 
+Execute         db_write -model aes_invRound -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.adb 
+Execute         gen_tb_info aes_invRound -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_invMain -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'aes_invMain_expandedKey23' to 'aes_invMain_expandEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_invMain_roundKey' to 'aes_invMain_roundeOg' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_invMain'.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 293.500 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_invMain -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/aes_invMain -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl aes_invMain -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/aes_invMain 
+Execute         gen_rtl aes_invMain -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/aes_invMain 
+Execute         syn_report -csynth -model aes_invMain -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_invMain_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_invMain -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_invMain_csynth.xml 
+Execute         syn_report -verbosereport -model aes_invMain -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.verbose.rpt 
+Command         syn_report done; 0.12 sec.
+Execute         db_write -model aes_invMain -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.adb 
+Execute         gen_tb_info aes_invMain -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model aes_decrypt -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_decrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 295.655 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl aes_decrypt -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/aes_decrypt -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl aes_decrypt -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/aes_decrypt 
+Execute         gen_rtl aes_decrypt -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/aes_decrypt 
+Execute         syn_report -csynth -model aes_decrypt -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_decrypt_csynth.rpt 
+Execute         syn_report -rtlxml -model aes_decrypt -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/aes_decrypt_csynth.xml 
+Execute         syn_report -verbosereport -model aes_decrypt -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.verbose.rpt 
+Command         syn_report done; 0.12 sec.
+Execute         db_write -model aes_decrypt -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.adb 
+Execute         gen_tb_info aes_decrypt -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'decrypt_aes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model decrypt_aes -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'decrypt_aes_aes_input' to 'decrypt_aes_aes_ifYi' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'decrypt_aes'.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 297.400 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl decrypt_aes -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/decrypt_aes -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl decrypt_aes -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/decrypt_aes 
+Execute         gen_rtl decrypt_aes -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/decrypt_aes 
+Execute         syn_report -csynth -model decrypt_aes -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/decrypt_aes_csynth.rpt 
+Execute         syn_report -rtlxml -model decrypt_aes -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/decrypt_aes_csynth.xml 
+Execute         syn_report -verbosereport -model decrypt_aes -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.verbose.rpt 
+Command         syn_report done; 0.14 sec.
+Execute         db_write -model decrypt_aes -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.adb 
+Execute         gen_tb_info decrypt_aes -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model dut -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'dut/strm_in_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dut/strm_out_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'dut' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'lfsr_decrypt' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dut'.
+INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 299.767 MB.
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         gen_rtl dut -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/systemc/dut -synmodules createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut 
+Execute         gen_rtl dut -istop -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/vhdl/dut 
+Execute         gen_rtl dut -istop -style xilinx -f -lang vlog -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/verilog/dut 
+Execute         syn_report -csynth -model dut -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/dut_csynth.rpt 
+Execute         syn_report -rtlxml -model dut -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/syn/report/dut_csynth.xml 
+Execute         syn_report -verbosereport -model dut -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.verbose.rpt 
+Command         syn_report done; 0.26 sec.
+Execute         db_write -model dut -f -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.adb 
+Command         db_write done; 0.13 sec.
+Execute         gen_tb_info dut -p /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut 
+Execute         export_constraint_db -f -tool general -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.constraint.tcl 
+Execute         syn_report -designview -model dut -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.design.xml 
+Command         syn_report done; 0.14 sec.
+Execute         get_config_rtl -disable_wave_debug 
+Execute         syn_report -wcfg -model dut -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut_dataflow_ana.wcfg 
+Execute         syn_report -protoinst -model dut -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.protoinst 
+Execute         get_config_debug -directory 
+Execute         sc_get_clocks dut 
+Execute         get_config_export -vivado_clock 
+Execute         sc_get_portdomain dut 
+INFO-FLOW: Model list for RTL component generation: createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut
+INFO-FLOW: Handling components in module [createRoundKey] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+INFO-FLOW: Handling components in module [galois_multiplicatio] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+INFO-FLOW: Handling components in module [mixColumn] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
+INFO-FLOW: Found component dut_mux_42_8_1_1.
+INFO-FLOW: Append model dut_mux_42_8_1_1
+INFO-FLOW: Handling components in module [mixColumns] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.compgen.tcl 
+INFO-FLOW: Handling components in module [aes_round] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
+INFO-FLOW: Found component aes_round_sbox.
+INFO-FLOW: Append model aes_round_sbox
+INFO-FLOW: Handling components in module [aes_main] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
+INFO-FLOW: Found component aes_main_expandedbkb.
+INFO-FLOW: Append model aes_main_expandedbkb
+INFO-FLOW: Found component aes_main_roundKey.
+INFO-FLOW: Append model aes_main_roundKey
+INFO-FLOW: Handling components in module [aes_encrypt] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
+INFO-FLOW: Found component aes_encrypt_block.
+INFO-FLOW: Append model aes_encrypt_block
+INFO-FLOW: Handling components in module [encrypt_aes] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.compgen.tcl 
+INFO-FLOW: Handling components in module [invMixColumn] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+INFO-FLOW: Handling components in module [invMixColumns] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+INFO-FLOW: Handling components in module [aes_invRound] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.compgen.tcl 
+INFO-FLOW: Found component aes_invRound_rsbox.
+INFO-FLOW: Append model aes_invRound_rsbox
+INFO-FLOW: Handling components in module [aes_invMain] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+INFO-FLOW: Found component aes_invMain_expandEe.
+INFO-FLOW: Append model aes_invMain_expandEe
+INFO-FLOW: Handling components in module [aes_decrypt] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+INFO-FLOW: Handling components in module [decrypt_aes] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.compgen.tcl 
+INFO-FLOW: Handling components in module [dut] ... 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO-FLOW: Append model createRoundKey
+INFO-FLOW: Append model galois_multiplicatio
+INFO-FLOW: Append model mixColumn
+INFO-FLOW: Append model mixColumns
+INFO-FLOW: Append model aes_round
+INFO-FLOW: Append model aes_main
+INFO-FLOW: Append model aes_encrypt
+INFO-FLOW: Append model encrypt_aes
+INFO-FLOW: Append model invMixColumn
+INFO-FLOW: Append model invMixColumns
+INFO-FLOW: Append model aes_invRound
+INFO-FLOW: Append model aes_invMain
+INFO-FLOW: Append model aes_decrypt
+INFO-FLOW: Append model decrypt_aes
+INFO-FLOW: Append model dut
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: dut_mux_42_8_1_1 aes_round_sbox aes_main_expandedbkb aes_main_roundKey aes_encrypt_block aes_invRound_rsbox aes_invMain_expandEe createRoundKey galois_multiplicatio mixColumn mixColumns aes_round aes_main aes_encrypt encrypt_aes invMixColumn invMixColumns aes_invRound aes_invMain aes_decrypt decrypt_aes dut
+INFO-FLOW: To file: write model dut_mux_42_8_1_1
+INFO-FLOW: To file: write model aes_round_sbox
+INFO-FLOW: To file: write model aes_main_expandedbkb
+INFO-FLOW: To file: write model aes_main_roundKey
+INFO-FLOW: To file: write model aes_encrypt_block
+INFO-FLOW: To file: write model aes_invRound_rsbox
+INFO-FLOW: To file: write model aes_invMain_expandEe
+INFO-FLOW: To file: write model createRoundKey
+INFO-FLOW: To file: write model galois_multiplicatio
+INFO-FLOW: To file: write model mixColumn
+INFO-FLOW: To file: write model mixColumns
+INFO-FLOW: To file: write model aes_round
+INFO-FLOW: To file: write model aes_main
+INFO-FLOW: To file: write model aes_encrypt
+INFO-FLOW: To file: write model encrypt_aes
+INFO-FLOW: To file: write model invMixColumn
+INFO-FLOW: To file: write model invMixColumns
+INFO-FLOW: To file: write model aes_invRound
+INFO-FLOW: To file: write model aes_invMain
+INFO-FLOW: To file: write model aes_decrypt
+INFO-FLOW: To file: write model decrypt_aes
+INFO-FLOW: To file: write model dut
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute         syn_report -model dut -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 123.81 MHz
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'aes_round_sbox_rom' using auto ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
+WARNING: [RTMG 210-274] Memory 'aes_main_expandedbkb' is read-only, switch it to a ROM.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'aes_main_expandedbkb_rom' using block ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-278] Implementing memory 'aes_main_roundKey_ram (RAM)' using distributed RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
+INFO: [RTMG 210-278] Implementing memory 'aes_encrypt_block_ram (RAM)' using block RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'aes_invRound_rsbox_rom' using auto ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+WARNING: [RTMG 210-274] Memory 'aes_invMain_expandEe' is read-only, switch it to a ROM.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-279] Implementing memory 'aes_invMain_expandEe_rom' using block ROMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=dut xml_exists=0
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.compgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.constraint.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=6
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=2
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=22 #gSsdmPorts=6
+Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_export -xo 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_sdx -target 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.compgen.dataonly.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.constraint.tcl 
+Execute         sc_get_clocks dut 
+Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute         get_config_debug -directory 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/createRoundKey.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/galois_multiplicatio.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumn.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/mixColumns.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_round.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_main.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_encrypt.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt_aes.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumn.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/invMixColumns.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invRound.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_invMain.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/aes_decrypt.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt_aes.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute         get_config_sdx -target 
+Execute         get_config_sdx -profile 
+Execute         get_config_rtl -kernel_profile 
+Execute         get_config_rtl -stall_sig_gen 
+Execute         get_config_rtl -profile 
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1360.148 ; gain = 722.125 ; free physical = 6416 ; free virtual = 18949
+INFO: [VHDL 208-304] Generating VHDL RTL for dut.
+INFO: [VLOG 209-307] Generating Verilog RTL for dut.
+Command       autosyn done; 8.5 sec.
+Command     csynth_design done; 28.6 sec.
+Execute     cosim_design 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/common.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/util.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/ip/xfir.gen 
+Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/dsp48.gen 
+Execute       source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/common/xilinx_fp.gen 
+Execute       ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/helper.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/decrypt.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/encrypt.cpp 
+Execute       is_encrypted /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda_test.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda_test.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda_test.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.81 sec.
+Execute       tidy_31 xilinx-tb31-process /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda_test.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda_test.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 1.47 sec.
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/npr29/hls6775/ece6775Final/refactored/helper.cpp /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/helper.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/helper.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/helper.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute       tidy_31 xilinx-tb31-process /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/helper.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/helper.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/npr29/hls6775/ece6775Final/refactored/decrypt.cpp /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/decrypt.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/decrypt.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/decrypt.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute       tidy_31 xilinx-tb31-process /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/decrypt.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/decrypt.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/npr29/hls6775/ece6775Final/refactored/encrypt.cpp /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/encrypt.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/encrypt.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/encrypt.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute       tidy_31 xilinx-tb31-process /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/encrypt.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/encrypt.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO-FLOW: TB processing: /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.cpp /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda.cpp_pre.cpp
+Execute       tidy_31 xilinx-tb-xfmat /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda.cpp_pre.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb-xfmat -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda.cpp_pre.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.8 sec.
+Execute       tidy_31 xilinx-tb31-process /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda.cpp_pre.cpp.tb.cpp std=c++11 
+INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-tb31-process -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda.cpp_pre.cpp.tb.cpp -- -std=c++11 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.82 sec.
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/tb.status.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.rtl_wrap.cfg.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+Execute       source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command       ap_source done; 0.15 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute       ap_part_info -name xc7z020-clg484-1 -data info 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source ../tv/cdatafile/ref.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source ../tv/cdatafile/ref.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+Execute       source /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/dut.tbgen.tcl 
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+Execute       source .run_sim.tcl 
+Execute         source check_sim.tcl 
+Execute         source .sim.status.tcl 
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+Command       ap_source done; 11.19 sec.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+Command     cosim_design done; 20.86 sec.
+Execute     cleanup_all 

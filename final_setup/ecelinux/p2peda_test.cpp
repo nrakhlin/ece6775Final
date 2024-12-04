@@ -97,6 +97,7 @@ void send_to_accelerator(hls::stream<bit32_t>* in_stream, hls::stream<bit32_t>* 
       input_word(28,0) = input_binary(29*i + 28, 29*i);
     }
     // std::cout << std::hex << "Input word = " << input_word << std::endl;
+    // (*in_stream).write(input_word + 0x40000000);
     (*in_stream).write(input_word);
     // std::cout << "write: i = " << i << std::endl;
   }
@@ -141,11 +142,15 @@ std::string test_encrypt(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* 
   send_to_accelerator(p2peda_in, p2peda_out, input_string, key, 1);
   received_inst = receive_from_accelerator(p2peda_out);
   std::cout << "Output string = " << received_inst.output_string << std::endl;
+
+  // printf("outside_accel: %d\n", received_inst.output_string);
   return received_inst.output_string;
 }
 
 std::string test_decrypt(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* p2peda_out, std::string input_string, bool key){
   received_t received_inst;
+  // printf("outside_accel: %d\n", input_string);
+
   std::cout << "Decrypt: " << std::endl;
   std::cout << "Input string = " << input_string << std::endl;
   send_to_accelerator(p2peda_in, p2peda_out, input_string, key, 0);
@@ -173,7 +178,7 @@ int main() {
   test_loopback(&p2peda_in, &p2peda_out, "efghijkl");
   test_loopback(&p2peda_in, &p2peda_out, "efghijklmnopqrst");
   std::string cta = test_encrypt(&p2peda_in, &p2peda_out, "hello world", 0);
-  std::string ctb = test_encrypt(&p2peda_in, &p2peda_out, "zhiru zhang", 0);
+  std::string ctb = test_encrypt(&p2peda_in, &p2peda_out, "zhiru zhang     ", 0);
   test_decrypt(&p2peda_in, &p2peda_out, cta, 0);
   test_decrypt(&p2peda_in, &p2peda_out, ctb, 0);
   return 0;
