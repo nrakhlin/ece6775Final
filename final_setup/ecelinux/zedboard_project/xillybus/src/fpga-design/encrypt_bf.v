@@ -18,14 +18,16 @@ module encrypt_bf (
         ap_return
 );
 
-parameter    ap_ST_fsm_state1 = 8'd1;
-parameter    ap_ST_fsm_state2 = 8'd2;
-parameter    ap_ST_fsm_state3 = 8'd4;
-parameter    ap_ST_fsm_state4 = 8'd8;
-parameter    ap_ST_fsm_state5 = 8'd16;
-parameter    ap_ST_fsm_state6 = 8'd32;
-parameter    ap_ST_fsm_state7 = 8'd64;
-parameter    ap_ST_fsm_state8 = 8'd128;
+parameter    ap_ST_fsm_state1 = 10'd1;
+parameter    ap_ST_fsm_state2 = 10'd2;
+parameter    ap_ST_fsm_state3 = 10'd4;
+parameter    ap_ST_fsm_state4 = 10'd8;
+parameter    ap_ST_fsm_state5 = 10'd16;
+parameter    ap_ST_fsm_state6 = 10'd32;
+parameter    ap_ST_fsm_state7 = 10'd64;
+parameter    ap_ST_fsm_state8 = 10'd128;
+parameter    ap_ST_fsm_state9 = 10'd256;
+parameter    ap_ST_fsm_state10 = 10'd512;
 
 input   ap_clk;
 input   ap_rst;
@@ -41,31 +43,43 @@ reg ap_idle;
 reg ap_ready;
 reg[127:0] ap_return;
 
-(* fsm_encoding = "none" *) reg   [7:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [9:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-wire   [63:0] lower_64_V_fu_227_p1;
-reg   [63:0] lower_64_V_reg_676;
-reg   [63:0] upper_64_V_reg_681;
-wire   [3:0] i_fu_247_p2;
+wire   [63:0] lower_64_V_fu_235_p1;
+reg   [63:0] lower_64_V_reg_872;
+reg   [63:0] upper_64_V_reg_877;
+wire   [3:0] i_fu_255_p2;
+reg   [3:0] i_reg_885;
 wire    ap_CS_fsm_state2;
-wire   [3:0] i_1_fu_290_p2;
-wire    ap_CS_fsm_state3;
-wire   [3:0] i_2_fu_333_p2;
-reg   [3:0] i_2_reg_705;
-wire    ap_CS_fsm_state5;
-wire   [2:0] trunc_ln297_fu_339_p1;
-reg   [2:0] trunc_ln297_reg_710;
-wire   [0:0] icmp_ln296_fu_327_p2;
-wire   [127:0] p_Result_s_fu_487_p2;
-wire    ap_CS_fsm_state6;
-wire   [3:0] i_3_fu_499_p2;
-reg   [3:0] i_3_reg_728;
+wire   [6:0] sub_ln681_2_fu_343_p2;
+reg   [6:0] sub_ln681_2_reg_890;
+wire   [0:0] icmp_ln292_fu_249_p2;
+wire   [63:0] lshr_ln681_fu_353_p2;
+reg   [63:0] lshr_ln681_reg_895;
+wire   [3:0] i_1_fu_389_p2;
+reg   [3:0] i_1_reg_903;
+wire    ap_CS_fsm_state4;
+wire   [6:0] sub_ln681_5_fu_477_p2;
+reg   [6:0] sub_ln681_5_reg_908;
+wire   [0:0] icmp_ln300_fu_383_p2;
+wire   [63:0] lshr_ln681_2_fu_487_p2;
+reg   [63:0] lshr_ln681_2_reg_913;
+wire   [3:0] i_2_fu_523_p2;
+reg   [3:0] i_2_reg_921;
 wire    ap_CS_fsm_state7;
-wire   [2:0] trunc_ln302_fu_505_p1;
-reg   [2:0] trunc_ln302_reg_733;
-wire   [0:0] icmp_ln301_fu_493_p2;
-wire   [127:0] p_Result_1_fu_670_p2;
+wire   [2:0] trunc_ln314_fu_529_p1;
+reg   [2:0] trunc_ln314_reg_926;
+wire   [0:0] icmp_ln313_fu_517_p2;
+wire   [127:0] p_Result_4_fu_677_p2;
 wire    ap_CS_fsm_state8;
+wire   [3:0] i_3_fu_689_p2;
+reg   [3:0] i_3_reg_944;
+wire    ap_CS_fsm_state9;
+wire   [2:0] trunc_ln319_fu_695_p1;
+reg   [2:0] trunc_ln319_reg_949;
+wire   [0:0] icmp_ln318_fu_683_p2;
+wire   [127:0] p_Result_5_fu_860_p2;
+wire    ap_CS_fsm_state10;
 reg   [2:0] plaintext1_address0;
 reg    plaintext1_ce0;
 reg    plaintext1_we0;
@@ -92,118 +106,144 @@ reg    ciphertext2_we0;
 wire   [7:0] ciphertext2_q0;
 reg    ciphertext2_ce1;
 reg    ciphertext2_we1;
-wire    grp_Blowfish_Encrypt_fu_195_ap_start;
-wire    grp_Blowfish_Encrypt_fu_195_ap_done;
-wire    grp_Blowfish_Encrypt_fu_195_ap_idle;
-wire    grp_Blowfish_Encrypt_fu_195_ap_ready;
-wire   [2:0] grp_Blowfish_Encrypt_fu_195_plaintext_address0;
-wire    grp_Blowfish_Encrypt_fu_195_plaintext_ce0;
-wire   [2:0] grp_Blowfish_Encrypt_fu_195_plaintext_address1;
-wire    grp_Blowfish_Encrypt_fu_195_plaintext_ce1;
-wire   [2:0] grp_Blowfish_Encrypt_fu_195_ciphertext_address0;
-wire    grp_Blowfish_Encrypt_fu_195_ciphertext_ce0;
-wire    grp_Blowfish_Encrypt_fu_195_ciphertext_we0;
-wire   [7:0] grp_Blowfish_Encrypt_fu_195_ciphertext_d0;
-wire   [2:0] grp_Blowfish_Encrypt_fu_195_ciphertext_address1;
-wire    grp_Blowfish_Encrypt_fu_195_ciphertext_ce1;
-wire    grp_Blowfish_Encrypt_fu_195_ciphertext_we1;
-wire   [7:0] grp_Blowfish_Encrypt_fu_195_ciphertext_d1;
-wire    grp_Blowfish_Encrypt_fu_211_ap_start;
-wire    grp_Blowfish_Encrypt_fu_211_ap_done;
-wire    grp_Blowfish_Encrypt_fu_211_ap_idle;
-wire    grp_Blowfish_Encrypt_fu_211_ap_ready;
-wire   [2:0] grp_Blowfish_Encrypt_fu_211_plaintext_address0;
-wire    grp_Blowfish_Encrypt_fu_211_plaintext_ce0;
-wire   [2:0] grp_Blowfish_Encrypt_fu_211_plaintext_address1;
-wire    grp_Blowfish_Encrypt_fu_211_plaintext_ce1;
-wire   [2:0] grp_Blowfish_Encrypt_fu_211_ciphertext_address0;
-wire    grp_Blowfish_Encrypt_fu_211_ciphertext_ce0;
-wire    grp_Blowfish_Encrypt_fu_211_ciphertext_we0;
-wire   [7:0] grp_Blowfish_Encrypt_fu_211_ciphertext_d0;
-wire   [2:0] grp_Blowfish_Encrypt_fu_211_ciphertext_address1;
-wire    grp_Blowfish_Encrypt_fu_211_ciphertext_ce1;
-wire    grp_Blowfish_Encrypt_fu_211_ciphertext_we1;
-wire   [7:0] grp_Blowfish_Encrypt_fu_211_ciphertext_d1;
-reg   [3:0] i_0_i_reg_128;
-wire   [0:0] icmp_ln279_fu_241_p2;
-reg   [3:0] i1_0_i_reg_139;
-wire   [0:0] icmp_ln285_fu_284_p2;
-reg   [127:0] p_Val2_s_reg_150;
-wire    ap_CS_fsm_state4;
-reg    ap_block_state4_on_subcall_done;
-reg   [3:0] i_0_i3_reg_162;
-reg   [127:0] p_Val2_1_reg_173;
-reg   [3:0] i1_0_i6_reg_184;
-reg    grp_Blowfish_Encrypt_fu_195_ap_start_reg;
-reg    grp_Blowfish_Encrypt_fu_211_ap_start_reg;
-wire   [63:0] zext_ln281_fu_279_p1;
-wire   [63:0] zext_ln287_fu_322_p1;
-wire   [63:0] zext_ln297_fu_343_p1;
-wire   [63:0] zext_ln302_fu_509_p1;
-wire   [2:0] trunc_ln281_fu_253_p1;
-wire   [5:0] op2_assign_fu_257_p3;
-wire   [63:0] zext_ln1503_fu_265_p1;
-wire   [63:0] lshr_ln1503_fu_269_p2;
-wire   [2:0] trunc_ln287_fu_296_p1;
-wire   [5:0] op2_assign_1_fu_300_p3;
-wire   [63:0] zext_ln1503_1_fu_308_p1;
-wire   [63:0] lshr_ln1503_1_fu_312_p2;
-wire   [5:0] Lo_assign_fu_348_p3;
-wire   [5:0] or_ln297_fu_355_p2;
-wire   [7:0] zext_ln388_fu_371_p1;
-wire   [0:0] icmp_ln388_fu_365_p2;
-wire   [7:0] zext_ln388_1_fu_375_p1;
-wire   [7:0] xor_ln388_fu_379_p2;
-wire   [7:0] select_ln388_fu_385_p3;
-wire   [7:0] select_ln388_2_fu_401_p3;
-wire   [7:0] select_ln388_1_fu_393_p3;
-wire   [7:0] xor_ln388_1_fu_409_p2;
-wire   [127:0] tmp_V_fu_361_p1;
-wire   [127:0] zext_ln388_2_fu_415_p1;
-wire   [127:0] shl_ln388_fu_427_p2;
-reg   [127:0] tmp_fu_433_p4;
-wire   [127:0] zext_ln388_3_fu_419_p1;
-wire   [127:0] zext_ln388_4_fu_423_p1;
-wire   [127:0] shl_ln388_1_fu_451_p2;
-wire   [127:0] lshr_ln388_fu_457_p2;
-wire   [127:0] and_ln388_fu_463_p2;
-wire   [127:0] xor_ln388_2_fu_469_p2;
-wire   [127:0] select_ln388_3_fu_443_p3;
-wire   [127:0] and_ln388_1_fu_475_p2;
-wire   [127:0] and_ln388_2_fu_481_p2;
-wire   [5:0] shl_ln_fu_514_p3;
-wire   [5:0] or_ln302_fu_521_p2;
-wire   [6:0] Lo_assign_1_fu_535_p4;
-wire   [6:0] Hi_assign_1_fu_527_p3;
-wire   [7:0] zext_ln388_5_fu_554_p1;
-wire   [0:0] icmp_ln388_1_fu_548_p2;
-wire   [7:0] zext_ln388_6_fu_558_p1;
-wire   [7:0] xor_ln388_3_fu_562_p2;
-wire   [7:0] select_ln388_4_fu_568_p3;
-wire   [7:0] select_ln388_6_fu_584_p3;
-wire   [7:0] select_ln388_5_fu_576_p3;
-wire   [7:0] xor_ln388_4_fu_592_p2;
-wire   [127:0] tmp_V_1_fu_544_p1;
-wire   [127:0] zext_ln388_7_fu_598_p1;
-wire   [127:0] shl_ln388_2_fu_610_p2;
-reg   [127:0] tmp_1_fu_616_p4;
-wire   [127:0] zext_ln388_8_fu_602_p1;
-wire   [127:0] zext_ln388_9_fu_606_p1;
-wire   [127:0] shl_ln388_3_fu_634_p2;
-wire   [127:0] lshr_ln388_1_fu_640_p2;
-wire   [127:0] and_ln388_3_fu_646_p2;
-wire   [127:0] xor_ln388_5_fu_652_p2;
-wire   [127:0] select_ln388_7_fu_626_p3;
-wire   [127:0] and_ln388_4_fu_658_p2;
-wire   [127:0] and_ln388_5_fu_664_p2;
+wire    grp_Blowfish_Encrypt_fu_203_ap_start;
+wire    grp_Blowfish_Encrypt_fu_203_ap_done;
+wire    grp_Blowfish_Encrypt_fu_203_ap_idle;
+wire    grp_Blowfish_Encrypt_fu_203_ap_ready;
+wire   [2:0] grp_Blowfish_Encrypt_fu_203_plaintext_address0;
+wire    grp_Blowfish_Encrypt_fu_203_plaintext_ce0;
+wire   [2:0] grp_Blowfish_Encrypt_fu_203_plaintext_address1;
+wire    grp_Blowfish_Encrypt_fu_203_plaintext_ce1;
+wire   [2:0] grp_Blowfish_Encrypt_fu_203_ciphertext_address0;
+wire    grp_Blowfish_Encrypt_fu_203_ciphertext_ce0;
+wire    grp_Blowfish_Encrypt_fu_203_ciphertext_we0;
+wire   [7:0] grp_Blowfish_Encrypt_fu_203_ciphertext_d0;
+wire   [2:0] grp_Blowfish_Encrypt_fu_203_ciphertext_address1;
+wire    grp_Blowfish_Encrypt_fu_203_ciphertext_ce1;
+wire    grp_Blowfish_Encrypt_fu_203_ciphertext_we1;
+wire   [7:0] grp_Blowfish_Encrypt_fu_203_ciphertext_d1;
+wire    grp_Blowfish_Encrypt_fu_219_ap_start;
+wire    grp_Blowfish_Encrypt_fu_219_ap_done;
+wire    grp_Blowfish_Encrypt_fu_219_ap_idle;
+wire    grp_Blowfish_Encrypt_fu_219_ap_ready;
+wire   [2:0] grp_Blowfish_Encrypt_fu_219_plaintext_address0;
+wire    grp_Blowfish_Encrypt_fu_219_plaintext_ce0;
+wire   [2:0] grp_Blowfish_Encrypt_fu_219_plaintext_address1;
+wire    grp_Blowfish_Encrypt_fu_219_plaintext_ce1;
+wire   [2:0] grp_Blowfish_Encrypt_fu_219_ciphertext_address0;
+wire    grp_Blowfish_Encrypt_fu_219_ciphertext_ce0;
+wire    grp_Blowfish_Encrypt_fu_219_ciphertext_we0;
+wire   [7:0] grp_Blowfish_Encrypt_fu_219_ciphertext_d0;
+wire   [2:0] grp_Blowfish_Encrypt_fu_219_ciphertext_address1;
+wire    grp_Blowfish_Encrypt_fu_219_ciphertext_ce1;
+wire    grp_Blowfish_Encrypt_fu_219_ciphertext_we1;
+wire   [7:0] grp_Blowfish_Encrypt_fu_219_ciphertext_d1;
+reg   [3:0] i_0_i_reg_134;
+wire    ap_CS_fsm_state3;
+reg   [3:0] i1_0_i_reg_146;
+wire    ap_CS_fsm_state5;
+reg   [127:0] p_Val2_2_reg_158;
+wire    ap_CS_fsm_state6;
+reg    ap_block_state6_on_subcall_done;
+reg   [3:0] i_0_i3_reg_170;
+reg   [127:0] p_Val2_3_reg_181;
+reg   [3:0] i1_0_i9_reg_192;
+reg    grp_Blowfish_Encrypt_fu_203_ap_start_reg;
+reg    grp_Blowfish_Encrypt_fu_219_ap_start_reg;
+wire   [63:0] zext_ln296_fu_378_p1;
+wire   [63:0] zext_ln304_fu_512_p1;
+wire   [63:0] zext_ln314_fu_533_p1;
+wire   [63:0] zext_ln319_fu_699_p1;
+wire   [2:0] trunc_ln296_fu_261_p1;
+wire   [5:0] Lo_assign_fu_265_p3;
+wire   [5:0] or_ln296_fu_273_p2;
+wire   [6:0] zext_ln681_fu_285_p1;
+wire   [6:0] zext_ln681_1_fu_289_p1;
+wire   [0:0] icmp_ln681_fu_279_p2;
+wire   [6:0] sub_ln681_fu_302_p2;
+wire   [6:0] sub_ln681_1_fu_314_p2;
+reg   [63:0] tmp_fu_293_p4;
+wire   [6:0] xor_ln681_fu_308_p2;
+wire   [6:0] select_ln681_fu_320_p3;
+wire   [6:0] select_ln681_2_fu_335_p3;
+wire   [63:0] select_ln681_1_fu_328_p3;
+wire   [63:0] zext_ln681_2_fu_349_p1;
+wire   [63:0] zext_ln681_3_fu_359_p1;
+wire   [63:0] lshr_ln681_1_fu_362_p2;
+wire   [63:0] p_Result_s_fu_368_p2;
+wire   [2:0] trunc_ln304_fu_395_p1;
+wire   [5:0] Lo_assign_1_fu_399_p3;
+wire   [5:0] or_ln304_fu_407_p2;
+wire   [6:0] zext_ln681_4_fu_419_p1;
+wire   [6:0] zext_ln681_5_fu_423_p1;
+wire   [0:0] icmp_ln681_1_fu_413_p2;
+wire   [6:0] sub_ln681_3_fu_436_p2;
+wire   [6:0] sub_ln681_4_fu_448_p2;
+reg   [63:0] tmp_1_fu_427_p4;
+wire   [6:0] xor_ln681_1_fu_442_p2;
+wire   [6:0] select_ln681_3_fu_454_p3;
+wire   [6:0] select_ln681_5_fu_469_p3;
+wire   [63:0] select_ln681_4_fu_462_p3;
+wire   [63:0] zext_ln681_6_fu_483_p1;
+wire   [63:0] zext_ln681_7_fu_493_p1;
+wire   [63:0] lshr_ln681_3_fu_496_p2;
+wire   [63:0] p_Result_1_fu_502_p2;
+wire   [5:0] Lo_assign_2_fu_538_p3;
+wire   [5:0] or_ln314_fu_545_p2;
+wire   [7:0] zext_ln388_fu_561_p1;
+wire   [0:0] icmp_ln388_fu_555_p2;
+wire   [7:0] zext_ln388_1_fu_565_p1;
+wire   [7:0] xor_ln388_fu_569_p2;
+wire   [7:0] select_ln388_fu_575_p3;
+wire   [7:0] select_ln388_2_fu_591_p3;
+wire   [7:0] select_ln388_1_fu_583_p3;
+wire   [7:0] xor_ln388_1_fu_599_p2;
+wire   [127:0] tmp_V_fu_551_p1;
+wire   [127:0] zext_ln388_2_fu_605_p1;
+wire   [127:0] shl_ln388_fu_617_p2;
+reg   [127:0] tmp_2_fu_623_p4;
+wire   [127:0] zext_ln388_3_fu_609_p1;
+wire   [127:0] zext_ln388_4_fu_613_p1;
+wire   [127:0] shl_ln388_1_fu_641_p2;
+wire   [127:0] lshr_ln388_fu_647_p2;
+wire   [127:0] and_ln388_fu_653_p2;
+wire   [127:0] xor_ln388_2_fu_659_p2;
+wire   [127:0] select_ln388_3_fu_633_p3;
+wire   [127:0] and_ln388_1_fu_665_p2;
+wire   [127:0] and_ln388_2_fu_671_p2;
+wire   [5:0] shl_ln_fu_704_p3;
+wire   [5:0] or_ln319_fu_711_p2;
+wire   [6:0] Lo_assign_3_fu_725_p4;
+wire   [6:0] Hi_assign_3_fu_717_p3;
+wire   [7:0] zext_ln388_5_fu_744_p1;
+wire   [0:0] icmp_ln388_1_fu_738_p2;
+wire   [7:0] zext_ln388_6_fu_748_p1;
+wire   [7:0] xor_ln388_3_fu_752_p2;
+wire   [7:0] select_ln388_4_fu_758_p3;
+wire   [7:0] select_ln388_6_fu_774_p3;
+wire   [7:0] select_ln388_5_fu_766_p3;
+wire   [7:0] xor_ln388_4_fu_782_p2;
+wire   [127:0] tmp_V_1_fu_734_p1;
+wire   [127:0] zext_ln388_7_fu_788_p1;
+wire   [127:0] shl_ln388_2_fu_800_p2;
+reg   [127:0] tmp_3_fu_806_p4;
+wire   [127:0] zext_ln388_8_fu_792_p1;
+wire   [127:0] zext_ln388_9_fu_796_p1;
+wire   [127:0] shl_ln388_3_fu_824_p2;
+wire   [127:0] lshr_ln388_1_fu_830_p2;
+wire   [127:0] and_ln388_3_fu_836_p2;
+wire   [127:0] xor_ln388_5_fu_842_p2;
+wire   [127:0] select_ln388_7_fu_816_p3;
+wire   [127:0] and_ln388_4_fu_848_p2;
+wire   [127:0] and_ln388_5_fu_854_p2;
 reg   [127:0] ap_return_preg;
-reg   [7:0] ap_NS_fsm;
+reg   [9:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 8'd1;
-#0 grp_Blowfish_Encrypt_fu_195_ap_start_reg = 1'b0;
-#0 grp_Blowfish_Encrypt_fu_211_ap_start_reg = 1'b0;
+#0 ap_CS_fsm = 10'd1;
+#0 grp_Blowfish_Encrypt_fu_203_ap_start_reg = 1'b0;
+#0 grp_Blowfish_Encrypt_fu_219_ap_start_reg = 1'b0;
 #0 ap_return_preg = 128'd0;
 end
 
@@ -219,7 +259,7 @@ plaintext1_U(
     .we0(plaintext1_we0),
     .d0(plaintext1_d0),
     .q0(plaintext1_q0),
-    .address1(grp_Blowfish_Encrypt_fu_195_plaintext_address1),
+    .address1(grp_Blowfish_Encrypt_fu_203_plaintext_address1),
     .ce1(plaintext1_ce1),
     .q1(plaintext1_q1)
 );
@@ -236,7 +276,7 @@ plaintext2_U(
     .we0(plaintext2_we0),
     .d0(plaintext2_d0),
     .q0(plaintext2_q0),
-    .address1(grp_Blowfish_Encrypt_fu_211_plaintext_address1),
+    .address1(grp_Blowfish_Encrypt_fu_219_plaintext_address1),
     .ce1(plaintext2_ce1),
     .q1(plaintext2_q1)
 );
@@ -251,12 +291,12 @@ ciphertext1_U(
     .address0(ciphertext1_address0),
     .ce0(ciphertext1_ce0),
     .we0(ciphertext1_we0),
-    .d0(grp_Blowfish_Encrypt_fu_195_ciphertext_d0),
+    .d0(grp_Blowfish_Encrypt_fu_203_ciphertext_d0),
     .q0(ciphertext1_q0),
-    .address1(grp_Blowfish_Encrypt_fu_195_ciphertext_address1),
+    .address1(grp_Blowfish_Encrypt_fu_203_ciphertext_address1),
     .ce1(ciphertext1_ce1),
     .we1(ciphertext1_we1),
-    .d1(grp_Blowfish_Encrypt_fu_195_ciphertext_d1)
+    .d1(grp_Blowfish_Encrypt_fu_203_ciphertext_d1)
 );
 
 encrypt_bf_cipherhbi #(
@@ -269,58 +309,58 @@ ciphertext2_U(
     .address0(ciphertext2_address0),
     .ce0(ciphertext2_ce0),
     .we0(ciphertext2_we0),
-    .d0(grp_Blowfish_Encrypt_fu_211_ciphertext_d0),
+    .d0(grp_Blowfish_Encrypt_fu_219_ciphertext_d0),
     .q0(ciphertext2_q0),
-    .address1(grp_Blowfish_Encrypt_fu_211_ciphertext_address1),
+    .address1(grp_Blowfish_Encrypt_fu_219_ciphertext_address1),
     .ce1(ciphertext2_ce1),
     .we1(ciphertext2_we1),
-    .d1(grp_Blowfish_Encrypt_fu_211_ciphertext_d1)
+    .d1(grp_Blowfish_Encrypt_fu_219_ciphertext_d1)
 );
 
-Blowfish_Encrypt grp_Blowfish_Encrypt_fu_195(
+Blowfish_Encrypt grp_Blowfish_Encrypt_fu_203(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_Blowfish_Encrypt_fu_195_ap_start),
-    .ap_done(grp_Blowfish_Encrypt_fu_195_ap_done),
-    .ap_idle(grp_Blowfish_Encrypt_fu_195_ap_idle),
-    .ap_ready(grp_Blowfish_Encrypt_fu_195_ap_ready),
-    .plaintext_address0(grp_Blowfish_Encrypt_fu_195_plaintext_address0),
-    .plaintext_ce0(grp_Blowfish_Encrypt_fu_195_plaintext_ce0),
+    .ap_start(grp_Blowfish_Encrypt_fu_203_ap_start),
+    .ap_done(grp_Blowfish_Encrypt_fu_203_ap_done),
+    .ap_idle(grp_Blowfish_Encrypt_fu_203_ap_idle),
+    .ap_ready(grp_Blowfish_Encrypt_fu_203_ap_ready),
+    .plaintext_address0(grp_Blowfish_Encrypt_fu_203_plaintext_address0),
+    .plaintext_ce0(grp_Blowfish_Encrypt_fu_203_plaintext_ce0),
     .plaintext_q0(plaintext1_q0),
-    .plaintext_address1(grp_Blowfish_Encrypt_fu_195_plaintext_address1),
-    .plaintext_ce1(grp_Blowfish_Encrypt_fu_195_plaintext_ce1),
+    .plaintext_address1(grp_Blowfish_Encrypt_fu_203_plaintext_address1),
+    .plaintext_ce1(grp_Blowfish_Encrypt_fu_203_plaintext_ce1),
     .plaintext_q1(plaintext1_q1),
-    .ciphertext_address0(grp_Blowfish_Encrypt_fu_195_ciphertext_address0),
-    .ciphertext_ce0(grp_Blowfish_Encrypt_fu_195_ciphertext_ce0),
-    .ciphertext_we0(grp_Blowfish_Encrypt_fu_195_ciphertext_we0),
-    .ciphertext_d0(grp_Blowfish_Encrypt_fu_195_ciphertext_d0),
-    .ciphertext_address1(grp_Blowfish_Encrypt_fu_195_ciphertext_address1),
-    .ciphertext_ce1(grp_Blowfish_Encrypt_fu_195_ciphertext_ce1),
-    .ciphertext_we1(grp_Blowfish_Encrypt_fu_195_ciphertext_we1),
-    .ciphertext_d1(grp_Blowfish_Encrypt_fu_195_ciphertext_d1)
+    .ciphertext_address0(grp_Blowfish_Encrypt_fu_203_ciphertext_address0),
+    .ciphertext_ce0(grp_Blowfish_Encrypt_fu_203_ciphertext_ce0),
+    .ciphertext_we0(grp_Blowfish_Encrypt_fu_203_ciphertext_we0),
+    .ciphertext_d0(grp_Blowfish_Encrypt_fu_203_ciphertext_d0),
+    .ciphertext_address1(grp_Blowfish_Encrypt_fu_203_ciphertext_address1),
+    .ciphertext_ce1(grp_Blowfish_Encrypt_fu_203_ciphertext_ce1),
+    .ciphertext_we1(grp_Blowfish_Encrypt_fu_203_ciphertext_we1),
+    .ciphertext_d1(grp_Blowfish_Encrypt_fu_203_ciphertext_d1)
 );
 
-Blowfish_Encrypt grp_Blowfish_Encrypt_fu_211(
+Blowfish_Encrypt grp_Blowfish_Encrypt_fu_219(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_Blowfish_Encrypt_fu_211_ap_start),
-    .ap_done(grp_Blowfish_Encrypt_fu_211_ap_done),
-    .ap_idle(grp_Blowfish_Encrypt_fu_211_ap_idle),
-    .ap_ready(grp_Blowfish_Encrypt_fu_211_ap_ready),
-    .plaintext_address0(grp_Blowfish_Encrypt_fu_211_plaintext_address0),
-    .plaintext_ce0(grp_Blowfish_Encrypt_fu_211_plaintext_ce0),
+    .ap_start(grp_Blowfish_Encrypt_fu_219_ap_start),
+    .ap_done(grp_Blowfish_Encrypt_fu_219_ap_done),
+    .ap_idle(grp_Blowfish_Encrypt_fu_219_ap_idle),
+    .ap_ready(grp_Blowfish_Encrypt_fu_219_ap_ready),
+    .plaintext_address0(grp_Blowfish_Encrypt_fu_219_plaintext_address0),
+    .plaintext_ce0(grp_Blowfish_Encrypt_fu_219_plaintext_ce0),
     .plaintext_q0(plaintext2_q0),
-    .plaintext_address1(grp_Blowfish_Encrypt_fu_211_plaintext_address1),
-    .plaintext_ce1(grp_Blowfish_Encrypt_fu_211_plaintext_ce1),
+    .plaintext_address1(grp_Blowfish_Encrypt_fu_219_plaintext_address1),
+    .plaintext_ce1(grp_Blowfish_Encrypt_fu_219_plaintext_ce1),
     .plaintext_q1(plaintext2_q1),
-    .ciphertext_address0(grp_Blowfish_Encrypt_fu_211_ciphertext_address0),
-    .ciphertext_ce0(grp_Blowfish_Encrypt_fu_211_ciphertext_ce0),
-    .ciphertext_we0(grp_Blowfish_Encrypt_fu_211_ciphertext_we0),
-    .ciphertext_d0(grp_Blowfish_Encrypt_fu_211_ciphertext_d0),
-    .ciphertext_address1(grp_Blowfish_Encrypt_fu_211_ciphertext_address1),
-    .ciphertext_ce1(grp_Blowfish_Encrypt_fu_211_ciphertext_ce1),
-    .ciphertext_we1(grp_Blowfish_Encrypt_fu_211_ciphertext_we1),
-    .ciphertext_d1(grp_Blowfish_Encrypt_fu_211_ciphertext_d1)
+    .ciphertext_address0(grp_Blowfish_Encrypt_fu_219_ciphertext_address0),
+    .ciphertext_ce0(grp_Blowfish_Encrypt_fu_219_ciphertext_ce0),
+    .ciphertext_we0(grp_Blowfish_Encrypt_fu_219_ciphertext_we0),
+    .ciphertext_d0(grp_Blowfish_Encrypt_fu_219_ciphertext_d0),
+    .ciphertext_address1(grp_Blowfish_Encrypt_fu_219_ciphertext_address1),
+    .ciphertext_ce1(grp_Blowfish_Encrypt_fu_219_ciphertext_ce1),
+    .ciphertext_we1(grp_Blowfish_Encrypt_fu_219_ciphertext_we1),
+    .ciphertext_d1(grp_Blowfish_Encrypt_fu_219_ciphertext_d1)
 );
 
 always @ (posedge ap_clk) begin
@@ -335,117 +375,143 @@ always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         ap_return_preg <= 128'd0;
     end else begin
-        if (((icmp_ln301_fu_493_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
-            ap_return_preg <= p_Val2_1_reg_173;
+        if (((icmp_ln318_fu_683_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state9))) begin
+            ap_return_preg <= p_Val2_3_reg_181;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_Blowfish_Encrypt_fu_195_ap_start_reg <= 1'b0;
+        grp_Blowfish_Encrypt_fu_203_ap_start_reg <= 1'b0;
     end else begin
-        if (((1'b1 == ap_CS_fsm_state3) & (icmp_ln285_fu_284_p2 == 1'd1))) begin
-            grp_Blowfish_Encrypt_fu_195_ap_start_reg <= 1'b1;
-        end else if ((grp_Blowfish_Encrypt_fu_195_ap_ready == 1'b1)) begin
-            grp_Blowfish_Encrypt_fu_195_ap_start_reg <= 1'b0;
+        if (((icmp_ln300_fu_383_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
+            grp_Blowfish_Encrypt_fu_203_ap_start_reg <= 1'b1;
+        end else if ((grp_Blowfish_Encrypt_fu_203_ap_ready == 1'b1)) begin
+            grp_Blowfish_Encrypt_fu_203_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_Blowfish_Encrypt_fu_211_ap_start_reg <= 1'b0;
+        grp_Blowfish_Encrypt_fu_219_ap_start_reg <= 1'b0;
     end else begin
-        if (((1'b1 == ap_CS_fsm_state3) & (icmp_ln285_fu_284_p2 == 1'd1))) begin
-            grp_Blowfish_Encrypt_fu_211_ap_start_reg <= 1'b1;
-        end else if ((grp_Blowfish_Encrypt_fu_211_ap_ready == 1'b1)) begin
-            grp_Blowfish_Encrypt_fu_211_ap_start_reg <= 1'b0;
+        if (((icmp_ln300_fu_383_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
+            grp_Blowfish_Encrypt_fu_219_ap_start_reg <= 1'b1;
+        end else if ((grp_Blowfish_Encrypt_fu_219_ap_ready == 1'b1)) begin
+            grp_Blowfish_Encrypt_fu_219_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln296_fu_327_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
-        i1_0_i6_reg_184 <= 4'd0;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        i1_0_i6_reg_184 <= i_3_reg_728;
+    if (((icmp_ln313_fu_517_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+        i1_0_i9_reg_192 <= 4'd0;
+    end else if ((1'b1 == ap_CS_fsm_state10)) begin
+        i1_0_i9_reg_192 <= i_3_reg_944;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln279_fu_241_p2 == 1'd1))) begin
-        i1_0_i_reg_139 <= 4'd0;
-    end else if (((icmp_ln285_fu_284_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        i1_0_i_reg_139 <= i_1_fu_290_p2;
+    if (((icmp_ln292_fu_249_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+        i1_0_i_reg_146 <= 4'd0;
+    end else if ((1'b1 == ap_CS_fsm_state5)) begin
+        i1_0_i_reg_146 <= i_1_reg_903;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        i_0_i3_reg_162 <= i_2_reg_705;
-    end else if (((1'b0 == ap_block_state4_on_subcall_done) & (1'b1 == ap_CS_fsm_state4))) begin
-        i_0_i3_reg_162 <= 4'd0;
+    if ((1'b1 == ap_CS_fsm_state8)) begin
+        i_0_i3_reg_170 <= i_2_reg_921;
+    end else if (((1'b0 == ap_block_state6_on_subcall_done) & (1'b1 == ap_CS_fsm_state6))) begin
+        i_0_i3_reg_170 <= 4'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln279_fu_241_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        i_0_i_reg_128 <= i_fu_247_p2;
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        i_0_i_reg_134 <= i_reg_885;
     end else if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        i_0_i_reg_128 <= 4'd0;
+        i_0_i_reg_134 <= 4'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln296_fu_327_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
-        p_Val2_1_reg_173 <= p_Val2_s_reg_150;
-    end else if ((1'b1 == ap_CS_fsm_state8)) begin
-        p_Val2_1_reg_173 <= p_Result_1_fu_670_p2;
+    if ((1'b1 == ap_CS_fsm_state8)) begin
+        p_Val2_2_reg_158 <= p_Result_4_fu_677_p2;
+    end else if (((1'b0 == ap_block_state6_on_subcall_done) & (1'b1 == ap_CS_fsm_state6))) begin
+        p_Val2_2_reg_158 <= 128'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        p_Val2_s_reg_150 <= p_Result_s_fu_487_p2;
-    end else if (((1'b0 == ap_block_state4_on_subcall_done) & (1'b1 == ap_CS_fsm_state4))) begin
-        p_Val2_s_reg_150 <= 128'd0;
+    if (((icmp_ln313_fu_517_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+        p_Val2_3_reg_181 <= p_Val2_2_reg_158;
+    end else if ((1'b1 == ap_CS_fsm_state10)) begin
+        p_Val2_3_reg_181 <= p_Result_5_fu_860_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        i_2_reg_705 <= i_2_fu_333_p2;
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        i_1_reg_903 <= i_1_fu_389_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state7)) begin
-        i_3_reg_728 <= i_3_fu_499_p2;
+        i_2_reg_921 <= i_2_fu_523_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state9)) begin
+        i_3_reg_944 <= i_3_fu_689_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        i_reg_885 <= i_fu_255_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        lower_64_V_reg_676 <= lower_64_V_fu_227_p1;
-        upper_64_V_reg_681 <= {{plaintext_V[127:64]}};
+        lower_64_V_reg_872 <= lower_64_V_fu_235_p1;
+        upper_64_V_reg_877 <= {{plaintext_V[127:64]}};
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln296_fu_327_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
-        trunc_ln297_reg_710 <= trunc_ln297_fu_339_p1;
+    if (((icmp_ln300_fu_383_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state4))) begin
+        lshr_ln681_2_reg_913 <= lshr_ln681_2_fu_487_p2;
+        sub_ln681_5_reg_908[6 : 1] <= sub_ln681_5_fu_477_p2[6 : 1];
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln301_fu_493_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
-        trunc_ln302_reg_733 <= trunc_ln302_fu_505_p1;
+    if (((icmp_ln292_fu_249_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        lshr_ln681_reg_895 <= lshr_ln681_fu_353_p2;
+        sub_ln681_2_reg_890[6 : 1] <= sub_ln681_2_fu_343_p2[6 : 1];
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((icmp_ln313_fu_517_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        trunc_ln314_reg_926 <= trunc_ln314_fu_529_p1;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((icmp_ln318_fu_683_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state9))) begin
+        trunc_ln319_reg_949 <= trunc_ln319_fu_695_p1;
     end
 end
 
 always @ (*) begin
-    if ((((icmp_ln301_fu_493_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7)) | ((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)))) begin
+    if ((((icmp_ln318_fu_683_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state9)) | ((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1)))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -461,7 +527,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln301_fu_493_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+    if (((icmp_ln318_fu_683_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state9))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -469,131 +535,131 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln301_fu_493_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
-        ap_return = p_Val2_1_reg_173;
+    if (((icmp_ln318_fu_683_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state9))) begin
+        ap_return = p_Val2_3_reg_181;
     end else begin
         ap_return = ap_return_preg;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        ciphertext1_address0 = zext_ln297_fu_343_p1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext1_address0 = grp_Blowfish_Encrypt_fu_195_ciphertext_address0;
+    if ((1'b1 == ap_CS_fsm_state7)) begin
+        ciphertext1_address0 = zext_ln314_fu_533_p1;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext1_address0 = grp_Blowfish_Encrypt_fu_203_ciphertext_address0;
     end else begin
         ciphertext1_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
+    if ((1'b1 == ap_CS_fsm_state7)) begin
         ciphertext1_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext1_ce0 = grp_Blowfish_Encrypt_fu_195_ciphertext_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext1_ce0 = grp_Blowfish_Encrypt_fu_203_ciphertext_ce0;
     end else begin
         ciphertext1_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext1_ce1 = grp_Blowfish_Encrypt_fu_195_ciphertext_ce1;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext1_ce1 = grp_Blowfish_Encrypt_fu_203_ciphertext_ce1;
     end else begin
         ciphertext1_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext1_we0 = grp_Blowfish_Encrypt_fu_195_ciphertext_we0;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext1_we0 = grp_Blowfish_Encrypt_fu_203_ciphertext_we0;
     end else begin
         ciphertext1_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext1_we1 = grp_Blowfish_Encrypt_fu_195_ciphertext_we1;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext1_we1 = grp_Blowfish_Encrypt_fu_203_ciphertext_we1;
     end else begin
         ciphertext1_we1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        ciphertext2_address0 = zext_ln302_fu_509_p1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext2_address0 = grp_Blowfish_Encrypt_fu_211_ciphertext_address0;
+    if ((1'b1 == ap_CS_fsm_state9)) begin
+        ciphertext2_address0 = zext_ln319_fu_699_p1;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext2_address0 = grp_Blowfish_Encrypt_fu_219_ciphertext_address0;
     end else begin
         ciphertext2_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
+    if ((1'b1 == ap_CS_fsm_state9)) begin
         ciphertext2_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext2_ce0 = grp_Blowfish_Encrypt_fu_211_ciphertext_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext2_ce0 = grp_Blowfish_Encrypt_fu_219_ciphertext_ce0;
     end else begin
         ciphertext2_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext2_ce1 = grp_Blowfish_Encrypt_fu_211_ciphertext_ce1;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext2_ce1 = grp_Blowfish_Encrypt_fu_219_ciphertext_ce1;
     end else begin
         ciphertext2_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext2_we0 = grp_Blowfish_Encrypt_fu_211_ciphertext_we0;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext2_we0 = grp_Blowfish_Encrypt_fu_219_ciphertext_we0;
     end else begin
         ciphertext2_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        ciphertext2_we1 = grp_Blowfish_Encrypt_fu_211_ciphertext_we1;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        ciphertext2_we1 = grp_Blowfish_Encrypt_fu_219_ciphertext_we1;
     end else begin
         ciphertext2_we1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        plaintext1_address0 = zext_ln281_fu_279_p1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext1_address0 = grp_Blowfish_Encrypt_fu_195_plaintext_address0;
+    if ((1'b1 == ap_CS_fsm_state3)) begin
+        plaintext1_address0 = zext_ln296_fu_378_p1;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        plaintext1_address0 = grp_Blowfish_Encrypt_fu_203_plaintext_address0;
     end else begin
         plaintext1_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         plaintext1_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext1_ce0 = grp_Blowfish_Encrypt_fu_195_plaintext_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        plaintext1_ce0 = grp_Blowfish_Encrypt_fu_203_plaintext_ce0;
     end else begin
         plaintext1_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext1_ce1 = grp_Blowfish_Encrypt_fu_195_plaintext_ce1;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        plaintext1_ce1 = grp_Blowfish_Encrypt_fu_203_plaintext_ce1;
     end else begin
         plaintext1_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln279_fu_241_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         plaintext1_we0 = 1'b1;
     end else begin
         plaintext1_we0 = 1'b0;
@@ -601,35 +667,35 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln285_fu_284_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        plaintext2_address0 = zext_ln287_fu_322_p1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext2_address0 = grp_Blowfish_Encrypt_fu_211_plaintext_address0;
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        plaintext2_address0 = zext_ln304_fu_512_p1;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        plaintext2_address0 = grp_Blowfish_Encrypt_fu_219_plaintext_address0;
     end else begin
         plaintext2_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln285_fu_284_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         plaintext2_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext2_ce0 = grp_Blowfish_Encrypt_fu_211_plaintext_ce0;
+    end else if ((1'b1 == ap_CS_fsm_state6)) begin
+        plaintext2_ce0 = grp_Blowfish_Encrypt_fu_219_plaintext_ce0;
     end else begin
         plaintext2_ce0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        plaintext2_ce1 = grp_Blowfish_Encrypt_fu_211_plaintext_ce1;
+    if ((1'b1 == ap_CS_fsm_state6)) begin
+        plaintext2_ce1 = grp_Blowfish_Encrypt_fu_219_plaintext_ce1;
     end else begin
         plaintext2_ce1 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln285_fu_284_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         plaintext2_we0 = 1'b1;
     end else begin
         plaintext2_we0 = 1'b0;
@@ -646,39 +712,35 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln279_fu_241_p2 == 1'd1))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
+            if (((icmp_ln292_fu_249_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+                ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state2;
+                ap_NS_fsm = ap_ST_fsm_state3;
             end
         end
         ap_ST_fsm_state3 : begin
-            if (((icmp_ln285_fu_284_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
-            end
+            ap_NS_fsm = ap_ST_fsm_state2;
         end
         ap_ST_fsm_state4 : begin
-            if (((1'b0 == ap_block_state4_on_subcall_done) & (1'b1 == ap_CS_fsm_state4))) begin
-                ap_NS_fsm = ap_ST_fsm_state5;
+            if (((icmp_ln300_fu_383_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state4))) begin
+                ap_NS_fsm = ap_ST_fsm_state6;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         ap_ST_fsm_state5 : begin
-            if (((icmp_ln296_fu_327_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
+            ap_NS_fsm = ap_ST_fsm_state4;
+        end
+        ap_ST_fsm_state6 : begin
+            if (((1'b0 == ap_block_state6_on_subcall_done) & (1'b1 == ap_CS_fsm_state6))) begin
                 ap_NS_fsm = ap_ST_fsm_state7;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state6;
             end
         end
-        ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state5;
-        end
         ap_ST_fsm_state7 : begin
-            if (((icmp_ln301_fu_493_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
+            if (((icmp_ln313_fu_517_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+                ap_NS_fsm = ap_ST_fsm_state9;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state8;
             end
@@ -686,31 +748,47 @@ always @ (*) begin
         ap_ST_fsm_state8 : begin
             ap_NS_fsm = ap_ST_fsm_state7;
         end
+        ap_ST_fsm_state9 : begin
+            if (((icmp_ln318_fu_683_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state9))) begin
+                ap_NS_fsm = ap_ST_fsm_state1;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state10;
+            end
+        end
+        ap_ST_fsm_state10 : begin
+            ap_NS_fsm = ap_ST_fsm_state9;
+        end
         default : begin
             ap_NS_fsm = 'bx;
         end
     endcase
 end
 
-assign Hi_assign_1_fu_527_p3 = {{1'd1}, {or_ln302_fu_521_p2}};
+assign Hi_assign_3_fu_717_p3 = {{1'd1}, {or_ln319_fu_711_p2}};
 
-assign Lo_assign_1_fu_535_p4 = {{{{1'd1}, {trunc_ln302_reg_733}}}, {3'd0}};
+assign Lo_assign_1_fu_399_p3 = {{trunc_ln304_fu_395_p1}, {3'd0}};
 
-assign Lo_assign_fu_348_p3 = {{trunc_ln297_reg_710}, {3'd0}};
+assign Lo_assign_2_fu_538_p3 = {{trunc_ln314_reg_926}, {3'd0}};
 
-assign and_ln388_1_fu_475_p2 = (xor_ln388_2_fu_469_p2 & p_Val2_s_reg_150);
+assign Lo_assign_3_fu_725_p4 = {{{{1'd1}, {trunc_ln319_reg_949}}}, {3'd0}};
 
-assign and_ln388_2_fu_481_p2 = (select_ln388_3_fu_443_p3 & and_ln388_fu_463_p2);
+assign Lo_assign_fu_265_p3 = {{trunc_ln296_fu_261_p1}, {3'd0}};
 
-assign and_ln388_3_fu_646_p2 = (shl_ln388_3_fu_634_p2 & lshr_ln388_1_fu_640_p2);
+assign and_ln388_1_fu_665_p2 = (xor_ln388_2_fu_659_p2 & p_Val2_2_reg_158);
 
-assign and_ln388_4_fu_658_p2 = (xor_ln388_5_fu_652_p2 & p_Val2_1_reg_173);
+assign and_ln388_2_fu_671_p2 = (select_ln388_3_fu_633_p3 & and_ln388_fu_653_p2);
 
-assign and_ln388_5_fu_664_p2 = (select_ln388_7_fu_626_p3 & and_ln388_3_fu_646_p2);
+assign and_ln388_3_fu_836_p2 = (shl_ln388_3_fu_824_p2 & lshr_ln388_1_fu_830_p2);
 
-assign and_ln388_fu_463_p2 = (shl_ln388_1_fu_451_p2 & lshr_ln388_fu_457_p2);
+assign and_ln388_4_fu_848_p2 = (xor_ln388_5_fu_842_p2 & p_Val2_3_reg_181);
+
+assign and_ln388_5_fu_854_p2 = (select_ln388_7_fu_816_p3 & and_ln388_3_fu_836_p2);
+
+assign and_ln388_fu_653_p2 = (shl_ln388_1_fu_641_p2 & lshr_ln388_fu_647_p2);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+
+assign ap_CS_fsm_state10 = ap_CS_fsm[32'd9];
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
@@ -726,164 +804,247 @@ assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 
 assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
+assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
+
 always @ (*) begin
-    ap_block_state4_on_subcall_done = ((grp_Blowfish_Encrypt_fu_211_ap_done == 1'b0) | (grp_Blowfish_Encrypt_fu_195_ap_done == 1'b0));
+    ap_block_state6_on_subcall_done = ((grp_Blowfish_Encrypt_fu_219_ap_done == 1'b0) | (grp_Blowfish_Encrypt_fu_203_ap_done == 1'b0));
 end
 
-assign grp_Blowfish_Encrypt_fu_195_ap_start = grp_Blowfish_Encrypt_fu_195_ap_start_reg;
+assign grp_Blowfish_Encrypt_fu_203_ap_start = grp_Blowfish_Encrypt_fu_203_ap_start_reg;
 
-assign grp_Blowfish_Encrypt_fu_211_ap_start = grp_Blowfish_Encrypt_fu_211_ap_start_reg;
+assign grp_Blowfish_Encrypt_fu_219_ap_start = grp_Blowfish_Encrypt_fu_219_ap_start_reg;
 
-assign i_1_fu_290_p2 = (i1_0_i_reg_139 + 4'd1);
+assign i_1_fu_389_p2 = (i1_0_i_reg_146 + 4'd1);
 
-assign i_2_fu_333_p2 = (i_0_i3_reg_162 + 4'd1);
+assign i_2_fu_523_p2 = (i_0_i3_reg_170 + 4'd1);
 
-assign i_3_fu_499_p2 = (i1_0_i6_reg_184 + 4'd1);
+assign i_3_fu_689_p2 = (i1_0_i9_reg_192 + 4'd1);
 
-assign i_fu_247_p2 = (i_0_i_reg_128 + 4'd1);
+assign i_fu_255_p2 = (i_0_i_reg_134 + 4'd1);
 
-assign icmp_ln279_fu_241_p2 = ((i_0_i_reg_128 == 4'd8) ? 1'b1 : 1'b0);
+assign icmp_ln292_fu_249_p2 = ((i_0_i_reg_134 == 4'd8) ? 1'b1 : 1'b0);
 
-assign icmp_ln285_fu_284_p2 = ((i1_0_i_reg_139 == 4'd8) ? 1'b1 : 1'b0);
+assign icmp_ln300_fu_383_p2 = ((i1_0_i_reg_146 == 4'd8) ? 1'b1 : 1'b0);
 
-assign icmp_ln296_fu_327_p2 = ((i_0_i3_reg_162 == 4'd8) ? 1'b1 : 1'b0);
+assign icmp_ln313_fu_517_p2 = ((i_0_i3_reg_170 == 4'd8) ? 1'b1 : 1'b0);
 
-assign icmp_ln301_fu_493_p2 = ((i1_0_i6_reg_184 == 4'd8) ? 1'b1 : 1'b0);
+assign icmp_ln318_fu_683_p2 = ((i1_0_i9_reg_192 == 4'd8) ? 1'b1 : 1'b0);
 
-assign icmp_ln388_1_fu_548_p2 = ((Lo_assign_1_fu_535_p4 > Hi_assign_1_fu_527_p3) ? 1'b1 : 1'b0);
+assign icmp_ln388_1_fu_738_p2 = ((Lo_assign_3_fu_725_p4 > Hi_assign_3_fu_717_p3) ? 1'b1 : 1'b0);
 
-assign icmp_ln388_fu_365_p2 = ((Lo_assign_fu_348_p3 > or_ln297_fu_355_p2) ? 1'b1 : 1'b0);
+assign icmp_ln388_fu_555_p2 = ((Lo_assign_2_fu_538_p3 > or_ln314_fu_545_p2) ? 1'b1 : 1'b0);
 
-assign lower_64_V_fu_227_p1 = plaintext_V[63:0];
+assign icmp_ln681_1_fu_413_p2 = ((Lo_assign_1_fu_399_p3 > or_ln304_fu_407_p2) ? 1'b1 : 1'b0);
 
-assign lshr_ln1503_1_fu_312_p2 = upper_64_V_reg_681 >> zext_ln1503_1_fu_308_p1;
+assign icmp_ln681_fu_279_p2 = ((Lo_assign_fu_265_p3 > or_ln296_fu_273_p2) ? 1'b1 : 1'b0);
 
-assign lshr_ln1503_fu_269_p2 = lower_64_V_reg_676 >> zext_ln1503_fu_265_p1;
+assign lower_64_V_fu_235_p1 = plaintext_V[63:0];
 
-assign lshr_ln388_1_fu_640_p2 = 128'd340282366920938463463374607431768211455 >> zext_ln388_9_fu_606_p1;
+assign lshr_ln388_1_fu_830_p2 = 128'd340282366920938463463374607431768211455 >> zext_ln388_9_fu_796_p1;
 
-assign lshr_ln388_fu_457_p2 = 128'd340282366920938463463374607431768211455 >> zext_ln388_4_fu_423_p1;
+assign lshr_ln388_fu_647_p2 = 128'd340282366920938463463374607431768211455 >> zext_ln388_4_fu_613_p1;
 
-assign op2_assign_1_fu_300_p3 = {{trunc_ln287_fu_296_p1}, {3'd0}};
+assign lshr_ln681_1_fu_362_p2 = 64'd18446744073709551615 >> zext_ln681_3_fu_359_p1;
 
-assign op2_assign_fu_257_p3 = {{trunc_ln281_fu_253_p1}, {3'd0}};
+assign lshr_ln681_2_fu_487_p2 = select_ln681_4_fu_462_p3 >> zext_ln681_6_fu_483_p1;
 
-assign or_ln297_fu_355_p2 = (6'd7 | Lo_assign_fu_348_p3);
+assign lshr_ln681_3_fu_496_p2 = 64'd18446744073709551615 >> zext_ln681_7_fu_493_p1;
 
-assign or_ln302_fu_521_p2 = (shl_ln_fu_514_p3 | 6'd7);
+assign lshr_ln681_fu_353_p2 = select_ln681_1_fu_328_p3 >> zext_ln681_2_fu_349_p1;
 
-assign p_Result_1_fu_670_p2 = (and_ln388_5_fu_664_p2 | and_ln388_4_fu_658_p2);
+assign or_ln296_fu_273_p2 = (6'd7 | Lo_assign_fu_265_p3);
 
-assign p_Result_s_fu_487_p2 = (and_ln388_2_fu_481_p2 | and_ln388_1_fu_475_p2);
+assign or_ln304_fu_407_p2 = (6'd7 | Lo_assign_1_fu_399_p3);
 
-assign plaintext1_d0 = lshr_ln1503_fu_269_p2[7:0];
+assign or_ln314_fu_545_p2 = (6'd7 | Lo_assign_2_fu_538_p3);
 
-assign plaintext2_d0 = lshr_ln1503_1_fu_312_p2[7:0];
+assign or_ln319_fu_711_p2 = (shl_ln_fu_704_p3 | 6'd7);
 
-assign select_ln388_1_fu_393_p3 = ((icmp_ln388_fu_365_p2[0:0] === 1'b1) ? zext_ln388_1_fu_375_p1 : zext_ln388_fu_371_p1);
+assign p_Result_1_fu_502_p2 = (lshr_ln681_3_fu_496_p2 & lshr_ln681_2_reg_913);
 
-assign select_ln388_2_fu_401_p3 = ((icmp_ln388_fu_365_p2[0:0] === 1'b1) ? xor_ln388_fu_379_p2 : zext_ln388_fu_371_p1);
+assign p_Result_4_fu_677_p2 = (and_ln388_2_fu_671_p2 | and_ln388_1_fu_665_p2);
 
-assign select_ln388_3_fu_443_p3 = ((icmp_ln388_fu_365_p2[0:0] === 1'b1) ? tmp_fu_433_p4 : shl_ln388_fu_427_p2);
+assign p_Result_5_fu_860_p2 = (and_ln388_5_fu_854_p2 | and_ln388_4_fu_848_p2);
 
-assign select_ln388_4_fu_568_p3 = ((icmp_ln388_1_fu_548_p2[0:0] === 1'b1) ? zext_ln388_5_fu_554_p1 : zext_ln388_6_fu_558_p1);
+assign p_Result_s_fu_368_p2 = (lshr_ln681_reg_895 & lshr_ln681_1_fu_362_p2);
 
-assign select_ln388_5_fu_576_p3 = ((icmp_ln388_1_fu_548_p2[0:0] === 1'b1) ? zext_ln388_6_fu_558_p1 : zext_ln388_5_fu_554_p1);
+assign plaintext1_d0 = p_Result_s_fu_368_p2[7:0];
 
-assign select_ln388_6_fu_584_p3 = ((icmp_ln388_1_fu_548_p2[0:0] === 1'b1) ? xor_ln388_3_fu_562_p2 : zext_ln388_5_fu_554_p1);
+assign plaintext2_d0 = p_Result_1_fu_502_p2[7:0];
 
-assign select_ln388_7_fu_626_p3 = ((icmp_ln388_1_fu_548_p2[0:0] === 1'b1) ? tmp_1_fu_616_p4 : shl_ln388_2_fu_610_p2);
+assign select_ln388_1_fu_583_p3 = ((icmp_ln388_fu_555_p2[0:0] === 1'b1) ? zext_ln388_1_fu_565_p1 : zext_ln388_fu_561_p1);
 
-assign select_ln388_fu_385_p3 = ((icmp_ln388_fu_365_p2[0:0] === 1'b1) ? zext_ln388_fu_371_p1 : zext_ln388_1_fu_375_p1);
+assign select_ln388_2_fu_591_p3 = ((icmp_ln388_fu_555_p2[0:0] === 1'b1) ? xor_ln388_fu_569_p2 : zext_ln388_fu_561_p1);
 
-assign shl_ln388_1_fu_451_p2 = 128'd340282366920938463463374607431768211455 << zext_ln388_3_fu_419_p1;
+assign select_ln388_3_fu_633_p3 = ((icmp_ln388_fu_555_p2[0:0] === 1'b1) ? tmp_2_fu_623_p4 : shl_ln388_fu_617_p2);
 
-assign shl_ln388_2_fu_610_p2 = tmp_V_1_fu_544_p1 << zext_ln388_7_fu_598_p1;
+assign select_ln388_4_fu_758_p3 = ((icmp_ln388_1_fu_738_p2[0:0] === 1'b1) ? zext_ln388_5_fu_744_p1 : zext_ln388_6_fu_748_p1);
 
-assign shl_ln388_3_fu_634_p2 = 128'd340282366920938463463374607431768211455 << zext_ln388_8_fu_602_p1;
+assign select_ln388_5_fu_766_p3 = ((icmp_ln388_1_fu_738_p2[0:0] === 1'b1) ? zext_ln388_6_fu_748_p1 : zext_ln388_5_fu_744_p1);
 
-assign shl_ln388_fu_427_p2 = tmp_V_fu_361_p1 << zext_ln388_2_fu_415_p1;
+assign select_ln388_6_fu_774_p3 = ((icmp_ln388_1_fu_738_p2[0:0] === 1'b1) ? xor_ln388_3_fu_752_p2 : zext_ln388_5_fu_744_p1);
 
-assign shl_ln_fu_514_p3 = {{trunc_ln302_reg_733}, {3'd0}};
+assign select_ln388_7_fu_816_p3 = ((icmp_ln388_1_fu_738_p2[0:0] === 1'b1) ? tmp_3_fu_806_p4 : shl_ln388_2_fu_800_p2);
+
+assign select_ln388_fu_575_p3 = ((icmp_ln388_fu_555_p2[0:0] === 1'b1) ? zext_ln388_fu_561_p1 : zext_ln388_1_fu_565_p1);
+
+assign select_ln681_1_fu_328_p3 = ((icmp_ln681_fu_279_p2[0:0] === 1'b1) ? tmp_fu_293_p4 : lower_64_V_reg_872);
+
+assign select_ln681_2_fu_335_p3 = ((icmp_ln681_fu_279_p2[0:0] === 1'b1) ? xor_ln681_fu_308_p2 : zext_ln681_fu_285_p1);
+
+assign select_ln681_3_fu_454_p3 = ((icmp_ln681_1_fu_413_p2[0:0] === 1'b1) ? sub_ln681_3_fu_436_p2 : sub_ln681_4_fu_448_p2);
+
+assign select_ln681_4_fu_462_p3 = ((icmp_ln681_1_fu_413_p2[0:0] === 1'b1) ? tmp_1_fu_427_p4 : upper_64_V_reg_877);
+
+assign select_ln681_5_fu_469_p3 = ((icmp_ln681_1_fu_413_p2[0:0] === 1'b1) ? xor_ln681_1_fu_442_p2 : zext_ln681_4_fu_419_p1);
+
+assign select_ln681_fu_320_p3 = ((icmp_ln681_fu_279_p2[0:0] === 1'b1) ? sub_ln681_fu_302_p2 : sub_ln681_1_fu_314_p2);
+
+assign shl_ln388_1_fu_641_p2 = 128'd340282366920938463463374607431768211455 << zext_ln388_3_fu_609_p1;
+
+assign shl_ln388_2_fu_800_p2 = tmp_V_1_fu_734_p1 << zext_ln388_7_fu_788_p1;
+
+assign shl_ln388_3_fu_824_p2 = 128'd340282366920938463463374607431768211455 << zext_ln388_8_fu_792_p1;
+
+assign shl_ln388_fu_617_p2 = tmp_V_fu_551_p1 << zext_ln388_2_fu_605_p1;
+
+assign shl_ln_fu_704_p3 = {{trunc_ln319_reg_949}, {3'd0}};
+
+assign sub_ln681_1_fu_314_p2 = (zext_ln681_1_fu_289_p1 - zext_ln681_fu_285_p1);
+
+assign sub_ln681_2_fu_343_p2 = (7'd63 - select_ln681_fu_320_p3);
+
+assign sub_ln681_3_fu_436_p2 = (zext_ln681_4_fu_419_p1 - zext_ln681_5_fu_423_p1);
+
+assign sub_ln681_4_fu_448_p2 = (zext_ln681_5_fu_423_p1 - zext_ln681_4_fu_419_p1);
+
+assign sub_ln681_5_fu_477_p2 = (7'd63 - select_ln681_3_fu_454_p3);
+
+assign sub_ln681_fu_302_p2 = (zext_ln681_fu_285_p1 - zext_ln681_1_fu_289_p1);
 
 integer ap_tvar_int_0;
 
-always @ (shl_ln388_2_fu_610_p2) begin
-    for (ap_tvar_int_0 = 128 - 1; ap_tvar_int_0 >= 0; ap_tvar_int_0 = ap_tvar_int_0 - 1) begin
-        if (ap_tvar_int_0 > 127 - 0) begin
-            tmp_1_fu_616_p4[ap_tvar_int_0] = 1'b0;
+always @ (plaintext_V) begin
+    for (ap_tvar_int_0 = 64 - 1; ap_tvar_int_0 >= 0; ap_tvar_int_0 = ap_tvar_int_0 - 1) begin
+        if (ap_tvar_int_0 > 127 - 64) begin
+            tmp_1_fu_427_p4[ap_tvar_int_0] = 1'b0;
         end else begin
-            tmp_1_fu_616_p4[ap_tvar_int_0] = shl_ln388_2_fu_610_p2[127 - ap_tvar_int_0];
+            tmp_1_fu_427_p4[ap_tvar_int_0] = plaintext_V[127 - ap_tvar_int_0];
         end
     end
 end
-
-assign tmp_V_1_fu_544_p1 = ciphertext2_q0;
-
-assign tmp_V_fu_361_p1 = ciphertext1_q0;
 
 integer ap_tvar_int_1;
 
-always @ (shl_ln388_fu_427_p2) begin
+always @ (shl_ln388_fu_617_p2) begin
     for (ap_tvar_int_1 = 128 - 1; ap_tvar_int_1 >= 0; ap_tvar_int_1 = ap_tvar_int_1 - 1) begin
         if (ap_tvar_int_1 > 127 - 0) begin
-            tmp_fu_433_p4[ap_tvar_int_1] = 1'b0;
+            tmp_2_fu_623_p4[ap_tvar_int_1] = 1'b0;
         end else begin
-            tmp_fu_433_p4[ap_tvar_int_1] = shl_ln388_fu_427_p2[127 - ap_tvar_int_1];
+            tmp_2_fu_623_p4[ap_tvar_int_1] = shl_ln388_fu_617_p2[127 - ap_tvar_int_1];
         end
     end
 end
 
-assign trunc_ln281_fu_253_p1 = i_0_i_reg_128[2:0];
+integer ap_tvar_int_2;
 
-assign trunc_ln287_fu_296_p1 = i1_0_i_reg_139[2:0];
+always @ (shl_ln388_2_fu_800_p2) begin
+    for (ap_tvar_int_2 = 128 - 1; ap_tvar_int_2 >= 0; ap_tvar_int_2 = ap_tvar_int_2 - 1) begin
+        if (ap_tvar_int_2 > 127 - 0) begin
+            tmp_3_fu_806_p4[ap_tvar_int_2] = 1'b0;
+        end else begin
+            tmp_3_fu_806_p4[ap_tvar_int_2] = shl_ln388_2_fu_800_p2[127 - ap_tvar_int_2];
+        end
+    end
+end
 
-assign trunc_ln297_fu_339_p1 = i_0_i3_reg_162[2:0];
+assign tmp_V_1_fu_734_p1 = ciphertext2_q0;
 
-assign trunc_ln302_fu_505_p1 = i1_0_i6_reg_184[2:0];
+assign tmp_V_fu_551_p1 = ciphertext1_q0;
 
-assign xor_ln388_1_fu_409_p2 = (select_ln388_fu_385_p3 ^ 8'd127);
+integer ap_tvar_int_3;
 
-assign xor_ln388_2_fu_469_p2 = (128'd340282366920938463463374607431768211455 ^ and_ln388_fu_463_p2);
+always @ (plaintext_V) begin
+    for (ap_tvar_int_3 = 64 - 1; ap_tvar_int_3 >= 0; ap_tvar_int_3 = ap_tvar_int_3 - 1) begin
+        if (ap_tvar_int_3 > 63 - 0) begin
+            tmp_fu_293_p4[ap_tvar_int_3] = 1'b0;
+        end else begin
+            tmp_fu_293_p4[ap_tvar_int_3] = plaintext_V[63 - ap_tvar_int_3];
+        end
+    end
+end
 
-assign xor_ln388_3_fu_562_p2 = (zext_ln388_5_fu_554_p1 ^ 8'd127);
+assign trunc_ln296_fu_261_p1 = i_0_i_reg_134[2:0];
 
-assign xor_ln388_4_fu_592_p2 = (select_ln388_4_fu_568_p3 ^ 8'd127);
+assign trunc_ln304_fu_395_p1 = i1_0_i_reg_146[2:0];
 
-assign xor_ln388_5_fu_652_p2 = (128'd340282366920938463463374607431768211455 ^ and_ln388_3_fu_646_p2);
+assign trunc_ln314_fu_529_p1 = i_0_i3_reg_170[2:0];
 
-assign xor_ln388_fu_379_p2 = (zext_ln388_fu_371_p1 ^ 8'd127);
+assign trunc_ln319_fu_695_p1 = i1_0_i9_reg_192[2:0];
 
-assign zext_ln1503_1_fu_308_p1 = op2_assign_1_fu_300_p3;
+assign xor_ln388_1_fu_599_p2 = (select_ln388_fu_575_p3 ^ 8'd127);
 
-assign zext_ln1503_fu_265_p1 = op2_assign_fu_257_p3;
+assign xor_ln388_2_fu_659_p2 = (128'd340282366920938463463374607431768211455 ^ and_ln388_fu_653_p2);
 
-assign zext_ln281_fu_279_p1 = i_0_i_reg_128;
+assign xor_ln388_3_fu_752_p2 = (zext_ln388_5_fu_744_p1 ^ 8'd127);
 
-assign zext_ln287_fu_322_p1 = i1_0_i_reg_139;
+assign xor_ln388_4_fu_782_p2 = (select_ln388_4_fu_758_p3 ^ 8'd127);
 
-assign zext_ln297_fu_343_p1 = i_0_i3_reg_162;
+assign xor_ln388_5_fu_842_p2 = (128'd340282366920938463463374607431768211455 ^ and_ln388_3_fu_836_p2);
 
-assign zext_ln302_fu_509_p1 = i1_0_i6_reg_184;
+assign xor_ln388_fu_569_p2 = (zext_ln388_fu_561_p1 ^ 8'd127);
 
-assign zext_ln388_1_fu_375_p1 = or_ln297_fu_355_p2;
+assign xor_ln681_1_fu_442_p2 = (zext_ln681_4_fu_419_p1 ^ 7'd63);
 
-assign zext_ln388_2_fu_415_p1 = select_ln388_2_fu_401_p3;
+assign xor_ln681_fu_308_p2 = (zext_ln681_fu_285_p1 ^ 7'd63);
 
-assign zext_ln388_3_fu_419_p1 = select_ln388_1_fu_393_p3;
+assign zext_ln296_fu_378_p1 = i_0_i_reg_134;
 
-assign zext_ln388_4_fu_423_p1 = xor_ln388_1_fu_409_p2;
+assign zext_ln304_fu_512_p1 = i1_0_i_reg_146;
 
-assign zext_ln388_5_fu_554_p1 = Lo_assign_1_fu_535_p4;
+assign zext_ln314_fu_533_p1 = i_0_i3_reg_170;
 
-assign zext_ln388_6_fu_558_p1 = Hi_assign_1_fu_527_p3;
+assign zext_ln319_fu_699_p1 = i1_0_i9_reg_192;
 
-assign zext_ln388_7_fu_598_p1 = select_ln388_6_fu_584_p3;
+assign zext_ln388_1_fu_565_p1 = or_ln314_fu_545_p2;
 
-assign zext_ln388_8_fu_602_p1 = select_ln388_5_fu_576_p3;
+assign zext_ln388_2_fu_605_p1 = select_ln388_2_fu_591_p3;
 
-assign zext_ln388_9_fu_606_p1 = xor_ln388_4_fu_592_p2;
+assign zext_ln388_3_fu_609_p1 = select_ln388_1_fu_583_p3;
 
-assign zext_ln388_fu_371_p1 = Lo_assign_fu_348_p3;
+assign zext_ln388_4_fu_613_p1 = xor_ln388_1_fu_599_p2;
+
+assign zext_ln388_5_fu_744_p1 = Lo_assign_3_fu_725_p4;
+
+assign zext_ln388_6_fu_748_p1 = Hi_assign_3_fu_717_p3;
+
+assign zext_ln388_7_fu_788_p1 = select_ln388_6_fu_774_p3;
+
+assign zext_ln388_8_fu_792_p1 = select_ln388_5_fu_766_p3;
+
+assign zext_ln388_9_fu_796_p1 = xor_ln388_4_fu_782_p2;
+
+assign zext_ln388_fu_561_p1 = Lo_assign_2_fu_538_p3;
+
+assign zext_ln681_1_fu_289_p1 = or_ln296_fu_273_p2;
+
+assign zext_ln681_2_fu_349_p1 = select_ln681_2_fu_335_p3;
+
+assign zext_ln681_3_fu_359_p1 = sub_ln681_2_reg_890;
+
+assign zext_ln681_4_fu_419_p1 = Lo_assign_1_fu_399_p3;
+
+assign zext_ln681_5_fu_423_p1 = or_ln304_fu_407_p2;
+
+assign zext_ln681_6_fu_483_p1 = select_ln681_5_fu_469_p3;
+
+assign zext_ln681_7_fu_493_p1 = sub_ln681_5_reg_908;
+
+assign zext_ln681_fu_285_p1 = Lo_assign_fu_265_p3;
+
+always @ (posedge ap_clk) begin
+    sub_ln681_2_reg_890[0] <= 1'b0;
+    sub_ln681_5_reg_908[0] <= 1'b0;
+end
 
 endmodule //encrypt_bf

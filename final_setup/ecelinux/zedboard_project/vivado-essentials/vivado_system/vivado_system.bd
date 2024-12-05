@@ -2240,16 +2240,16 @@
               }
             },
             "interface_nets": {
-              "auto_pc_to_m00_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "auto_pc/M_AXI"
-                ]
-              },
               "m00_couplers_to_auto_pc": {
                 "interface_ports": [
                   "S_AXI",
                   "auto_pc/S_AXI"
+                ]
+              },
+              "auto_pc_to_m00_couplers": {
+                "interface_ports": [
+                  "M_AXI",
+                  "auto_pc/M_AXI"
                 ]
               }
             },
@@ -2664,16 +2664,10 @@
       }
     },
     "interface_nets": {
-      "processing_system7_0_axi_periph_M00_AXI": {
+      "xillybus_ip_0_m_axi": {
         "interface_ports": [
-          "processing_system7_0_axi_periph/M00_AXI",
-          "xillybus_ip_0/S_AXI"
-        ]
-      },
-      "processing_system7_0_USBIND_0": {
-        "interface_ports": [
-          "USBIND_0",
-          "processing_system7_0/USBIND_0"
+          "xillybus_ip_0/m_axi",
+          "processing_system7_0/S_AXI_ACP"
         ]
       },
       "xillybus_ip_0_xillybus_S_AXI": {
@@ -2682,34 +2676,22 @@
           "xillybus_ip_0/xillybus_S_AXI"
         ]
       },
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
-      "xillybus_M_AXI_1": {
-        "interface_ports": [
-          "xillybus_M_AXI",
-          "xillybus_ip_0/xillybus_M_AXI"
-        ]
-      },
-      "xillyvga_0_m_axi": {
-        "interface_ports": [
-          "xillyvga_0/m_axi",
-          "processing_system7_0/S_AXI_HP2"
-        ]
-      },
       "processing_system7_0_axi_periph_M02_AXI": {
         "interface_ports": [
           "processing_system7_0_axi_periph/M02_AXI",
           "xillybus_lite_0/S_AXI"
         ]
       },
-      "processing_system7_0_FIXED_IO": {
+      "processing_system7_0_DDR": {
         "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
+          "DDR",
+          "processing_system7_0/DDR"
+        ]
+      },
+      "processing_system7_0_USBIND_0": {
+        "interface_ports": [
+          "USBIND_0",
+          "processing_system7_0/USBIND_0"
         ]
       },
       "processing_system7_0_M_AXI_GP0": {
@@ -2718,10 +2700,28 @@
           "processing_system7_0_axi_periph/S00_AXI"
         ]
       },
-      "processing_system7_0_GPIO_0": {
+      "xillyvga_0_m_axi": {
         "interface_ports": [
-          "GPIO_0",
-          "processing_system7_0/GPIO_0"
+          "xillyvga_0/m_axi",
+          "processing_system7_0/S_AXI_HP2"
+        ]
+      },
+      "xillybus_M_AXI_1": {
+        "interface_ports": [
+          "xillybus_M_AXI",
+          "xillybus_ip_0/xillybus_M_AXI"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "processing_system7_0_axi_periph_M00_AXI": {
+        "interface_ports": [
+          "processing_system7_0_axi_periph/M00_AXI",
+          "xillybus_ip_0/S_AXI"
         ]
       },
       "processing_system7_0_axi_periph_M01_AXI": {
@@ -2730,10 +2730,10 @@
           "xillyvga_0/S_AXI"
         ]
       },
-      "xillybus_ip_0_m_axi": {
+      "processing_system7_0_GPIO_0": {
         "interface_ports": [
-          "xillybus_ip_0/m_axi",
-          "processing_system7_0/S_AXI_ACP"
+          "GPIO_0",
+          "processing_system7_0/GPIO_0"
         ]
       }
     },

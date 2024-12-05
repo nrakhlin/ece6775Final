@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/./sim/autowrap/testbench/p2peda.cpp_pre.cpp.tb.cpp

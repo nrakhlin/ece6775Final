@@ -1,7 +1,0 @@
-Running: xsim.dir/Blowfish_SetKey/xsimk -simmode gui -wdb Blowfish_SetKey.wdb -simrunnum 0 -socket 45785
-Design successfully loaded
-Design Loading Memory Usage: 37228 KB (Peak: 37236 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 119416 KB (Peak: 176496 KB)
-Simulation CPU Usage: 230 ms

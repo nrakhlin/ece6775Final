@@ -13,7 +13,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_Blowfish_Decrypt_fu_302/grp_Blowfish_Decrypt_fu_302_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_decrypt_fu_333_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -23,7 +23,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_Blowfish_Decrypt_fu_318/grp_Blowfish_Decrypt_fu_318_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invMain_fu_123_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -33,7 +33,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_decrypt_fu_167_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_aes_invRound_fu_289_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -43,7 +43,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invMain_fu_123_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_100/grp_galois_multiplicatio_fu_100_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -53,7 +53,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_aes_invRound_fu_289_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_107/grp_galois_multiplicatio_fu_107_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -63,7 +63,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_100/grp_galois_multiplicatio_fu_100_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_114/grp_galois_multiplicatio_fu_114_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -73,7 +73,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_107/grp_galois_multiplicatio_fu_107_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_121/grp_galois_multiplicatio_fu_121_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -83,7 +83,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_114/grp_galois_multiplicatio_fu_114_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_128/grp_galois_multiplicatio_fu_128_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -93,7 +93,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_121/grp_galois_multiplicatio_fu_121_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_135/grp_galois_multiplicatio_fu_135_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -103,7 +103,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_128/grp_galois_multiplicatio_fu_128_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_142/grp_galois_multiplicatio_fu_142_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -113,7 +113,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_135/grp_galois_multiplicatio_fu_135_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_149/grp_galois_multiplicatio_fu_149_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -123,7 +123,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_142/grp_galois_multiplicatio_fu_142_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_156/grp_galois_multiplicatio_fu_156_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -133,7 +133,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_149/grp_galois_multiplicatio_fu_149_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_163/grp_galois_multiplicatio_fu_163_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -143,7 +143,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_156/grp_galois_multiplicatio_fu_156_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_170/grp_galois_multiplicatio_fu_170_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -153,7 +153,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_163/grp_galois_multiplicatio_fu_163_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_177/grp_galois_multiplicatio_fu_177_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -163,7 +163,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_170/grp_galois_multiplicatio_fu_170_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_184/grp_galois_multiplicatio_fu_184_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -173,7 +173,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_177/grp_galois_multiplicatio_fu_177_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_191/grp_galois_multiplicatio_fu_191_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -183,7 +183,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_184/grp_galois_multiplicatio_fu_184_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_198/grp_galois_multiplicatio_fu_198_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -193,7 +193,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_191/grp_galois_multiplicatio_fu_191_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_93/grp_galois_multiplicatio_fu_93_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -203,7 +203,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_198/grp_galois_multiplicatio_fu_198_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_invMixColumn_fu_246_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -213,7 +213,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_galois_multiplicatio_fu_93/grp_galois_multiplicatio_fu_93_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumns_fu_230_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -223,7 +223,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumn_fu_246/grp_invMixColumn_fu_246_activity": {
+				"grp_aes_decrypt_fu_333/grp_aes_invMain_fu_123/grp_createRoundKey_fu_298/grp_createRoundKey_fu_298_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -233,7 +233,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_aes_invRound_fu_289/grp_invMixColumns_fu_230/grp_invMixColumns_fu_230_activity": {
+				"grp_decrypt_bf_fu_318/grp_Blowfish_Decrypt_fu_203/grp_Blowfish_Decrypt_fu_203_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -243,7 +243,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_aes_decrypt_fu_167/grp_aes_invMain_fu_123/grp_createRoundKey_fu_298/grp_createRoundKey_fu_298_activity": {
+				"grp_decrypt_bf_fu_318/grp_Blowfish_Decrypt_fu_219/grp_Blowfish_Decrypt_fu_219_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -253,7 +253,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_decrypt_aes_fu_284/grp_decrypt_aes_fu_284_activity": {
+				"grp_decrypt_bf_fu_318/grp_decrypt_bf_fu_318_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -263,7 +263,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_encrypt_fu_167_activity": {
+				"grp_encrypt_bf_fu_303/grp_Blowfish_Encrypt_fu_203/grp_Blowfish_Encrypt_fu_203_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -273,7 +273,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_main_fu_123_activity": {
+				"grp_encrypt_bf_fu_303/grp_Blowfish_Encrypt_fu_219/grp_Blowfish_Encrypt_fu_219_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -283,167 +283,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_aes_round_fu_289_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_105/grp_galois_multiplicatio_fu_105_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_112/grp_galois_multiplicatio_fu_112_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_119/grp_galois_multiplicatio_fu_119_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_126/grp_galois_multiplicatio_fu_126_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_133/grp_galois_multiplicatio_fu_133_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_140/grp_galois_multiplicatio_fu_140_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_147/grp_galois_multiplicatio_fu_147_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_154/grp_galois_multiplicatio_fu_154_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_161/grp_galois_multiplicatio_fu_161_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_168/grp_galois_multiplicatio_fu_168_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_91/grp_galois_multiplicatio_fu_91_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_galois_multiplicatio_fu_98/grp_galois_multiplicatio_fu_98_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumn_fu_246/grp_mixColumn_fu_246_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_aes_round_fu_289/grp_mixColumns_fu_230/grp_mixColumns_fu_230_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_aes_encrypt_fu_167/grp_aes_main_fu_123/grp_createRoundKey_fu_298/grp_createRoundKey_fu_298_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
-				"grp_encrypt_aes_fu_293/grp_encrypt_aes_fu_293_activity": {
+				"grp_encrypt_bf_fu_303/grp_encrypt_bf_fu_303_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

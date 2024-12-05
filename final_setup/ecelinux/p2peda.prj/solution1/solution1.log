@@ -4658,3 +4658,402 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_encrypt'.
 INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 314.578 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '../../refactored/helper.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file '../../refactored/decrypt.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file '../../refactored/encrypt.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'p2peda.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3967 ; free virtual = 8681
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3967 ; free virtual = 8681
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3858 ; free virtual = 8676
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:72) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:78) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:79) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:84) automatically.
+INFO: [XFORM 203-602] Inlining function 'split_bit128' into 'encrypt_bf' (p2peda.cpp:79) automatically.
+INFO: [XFORM 203-602] Inlining function 'combine_to_bit128' into 'encrypt_bf' (p2peda.cpp:84) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (../../refactored/helper.cpp:321) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invRound' (../../refactored/decrypt.cpp:18) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (../../refactored/decrypt.cpp:19) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (../../refactored/decrypt.cpp:20) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (../../refactored/decrypt.cpp:31) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invMain' (../../refactored/decrypt.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (../../refactored/decrypt.cpp:42) automatically.
+INFO: [XFORM 203-602] Inlining function 'decrypt_dut' into 'decrypt_aes' (p2peda.cpp:53) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:105) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:111) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:112) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'split_bit128' into 'decrypt_bf' (p2peda.cpp:107) automatically.
+INFO: [XFORM 203-602] Inlining function 'combine_to_bit128' into 'decrypt_bf' (p2peda.cpp:113) automatically.
+WARNING: [SYNCHK 200-23] ./../../blowfish/blowfish.cpp:296: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3827 ; free virtual = 8660
+INFO: [XFORM 203-102] Partitioning array 'S' in dimension 1 automatically.
+INFO: [XFORM 203-102] Partitioning array 'S29' in dimension 1 automatically.
+INFO: [XFORM 203-102] Automatically partitioning small array 'column' (../../refactored/helper.cpp:410) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'cpy' (../../refactored/helper.cpp:382) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'column' (../../refactored/helper.cpp:410) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'cpy' (../../refactored/helper.cpp:382) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:72) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:78) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:79) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Encrypt' (./../../blowfish/blowfish.cpp:84) automatically.
+INFO: [XFORM 203-602] Inlining function 'split_bit128' into 'encrypt_bf' (p2peda.cpp:79) automatically.
+INFO: [XFORM 203-602] Inlining function 'combine_to_bit128' into 'encrypt_bf' (p2peda.cpp:84) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxInvert' into 'invSubBytes' (../../refactored/helper.cpp:321) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invRound' (../../refactored/decrypt.cpp:18) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invRound' (../../refactored/decrypt.cpp:19) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invRound' (../../refactored/decrypt.cpp:20) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_invMain' (../../refactored/decrypt.cpp:31) automatically.
+INFO: [XFORM 203-602] Inlining function 'invShiftRows' into 'aes_invMain' (../../refactored/decrypt.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'invSubBytes' into 'aes_invMain' (../../refactored/decrypt.cpp:42) automatically.
+INFO: [XFORM 203-602] Inlining function 'decrypt_dut' into 'decrypt_aes' (p2peda.cpp:53) automatically.
+INFO: [XFORM 203-602] Inlining function 'blockToWords' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:105) automatically.
+INFO: [XFORM 203-602] Inlining function 'feistel' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:111) automatically.
+INFO: [XFORM 203-602] Inlining function 'std::swap<unsigned int>' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:112) automatically.
+INFO: [XFORM 203-602] Inlining function 'wordsToBlock' into 'Blowfish_Decrypt' (./../../blowfish/blowfish.cpp:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'split_bit128' into 'decrypt_bf' (p2peda.cpp:107) automatically.
+INFO: [XFORM 203-602] Inlining function 'combine_to_bit128' into 'decrypt_bf' (p2peda.cpp:113) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (p2peda.cpp:180:7) to (p2peda.cpp:177:28) in function 'dut'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (p2peda.cpp:209:7) to (p2peda.cpp:206:28) in function 'dut'... converting 4 basic blocks.
+INFO: [XFORM 203-602] Inlining function 'decrypt_aes' into 'dut' (p2peda.cpp:195) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'invMixColumn' (../../refactored/helper.cpp:380)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 3777 ; free virtual = 8635
+WARNING: [XFORM 203-631] Renaming function 'galois_multiplication' to 'galois_multiplicatio' (../../refactored/helper.cpp:233:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:427:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'plaintext1' (./../../blowfish/blowfish.cpp:296:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'plaintext2' (./../../blowfish/blowfish.cpp:304:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'aes_input' (p2peda.cpp:46:36)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (p2peda.cpp:47:33)
+INFO: [HLS 200-472] Inferring partial write operation for 'aes_input' (p2peda.cpp:50:22)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext1' (./../../blowfish/blowfish.cpp:296:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext2' (./../../blowfish/blowfish.cpp:304:26)
+INFO: [HLS 200-472] Inferring partial write operation for 'roundKey' (../../refactored/helper.cpp:308:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:337:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:338:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:339:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:340:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:352:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:353:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:354:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:355:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:373:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:374:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:375:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:376:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:321:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:337:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:338:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:339:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:340:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:352:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:353:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:354:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:355:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:373:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:374:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:375:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:376:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:321:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (../../refactored/helper.cpp:226:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'block' (../../refactored/decrypt.cpp:77:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (../../refactored/decrypt.cpp:93:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:262:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:263:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:264:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:265:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:266:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:267:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:268:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'ciphertext' (./../../blowfish/blowfish.cpp:269:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:262:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:263:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:264:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:265:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:266:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:267:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:268:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'decryptedtext' (./../../blowfish/blowfish.cpp:269:5)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:27 ; elapsed = 00:00:33 . Memory (MB): peak = 1296.148 ; gain = 658.125 ; free physical = 3680 ; free virtual = 8546
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dut' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 33.02 seconds; current allocated memory: 254.989 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 255.380 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'encrypt_bf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 255.869 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 256.408 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.15 seconds; current allocated memory: 256.646 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 256.774 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 256.868 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 256.979 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 257.218 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 257.533 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 257.839 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 258.114 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 258.459 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.57 seconds; current allocated memory: 258.746 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 259.165 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 259.624 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 259.926 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 260.176 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Blowfish_Decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 260.603 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 261.030 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'decrypt_bf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 261.439 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 261.981 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 262.639 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.38 seconds; current allocated memory: 263.671 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Encrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Encrypt_S_0' to 'Blowfish_Encrypt_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Encrypt_S_1' to 'Blowfish_Encrypt_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Encrypt_S_2' to 'Blowfish_Encrypt_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Encrypt_S_3' to 'Blowfish_Encrypt_eOg' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_Encrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.73 seconds; current allocated memory: 264.758 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'encrypt_bf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'encrypt_bf_plaintext1' to 'encrypt_bf_plaintfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'encrypt_bf_plaintext2' to 'encrypt_bf_plaintg8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'encrypt_bf_ciphertext1' to 'encrypt_bf_cipherhbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'encrypt_bf_ciphertext2' to 'encrypt_bf_cipheribs' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'encrypt_bf'.
+INFO: [HLS 200-111]  Elapsed time: 0.45 seconds; current allocated memory: 267.434 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'createRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'createRoundKey_expandedKey' to 'createRoundKey_exjbC' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'createRoundKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 270.227 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'galois_multiplicatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'galois_multiplicatio'.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 270.958 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumn' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invMixColumn'.
+INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 272.005 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'invMixColumns' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'dut_mux_42_8_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'invMixColumns'.
+INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 273.671 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_invRound' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_invRound'.
+INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 275.248 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_invMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'aes_invMain_roundKey' to 'aes_invMain_roundkbM' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_invMain'.
+INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 277.101 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'aes_decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_decrypt'.
+INFO: [HLS 200-111]  Elapsed time: 1.69 seconds; current allocated memory: 279.192 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Blowfish_Decrypt' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Decrypt_P28' to 'Blowfish_Decrypt_lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Decrypt_S29_0' to 'Blowfish_Decrypt_mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Decrypt_S29_1' to 'Blowfish_Decrypt_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Decrypt_S29_2' to 'Blowfish_Decrypt_ocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'Blowfish_Decrypt_S29_3' to 'Blowfish_Decrypt_pcA' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Blowfish_Decrypt'.
+INFO: [HLS 200-111]  Elapsed time: 0.55 seconds; current allocated memory: 280.962 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'decrypt_bf' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'decrypt_bf_ciphertext1' to 'decrypt_bf_cipherqcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'decrypt_bf_ciphertext2' to 'decrypt_bf_cipherrcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'decrypt_bf_decryptedtext1' to 'decrypt_bf_decrypsc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'decrypt_bf_decryptedtext2' to 'decrypt_bf_decryptde' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'decrypt_bf'.
+INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 283.588 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dut' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'dut/strm_in_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dut/strm_out_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'dut' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'lfsr_decrypt' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dut'.
+INFO: [HLS 200-111]  Elapsed time: 0.6 seconds; current allocated memory: 287.267 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 119.65 MHz
+INFO: [RTMG 210-279] Implementing memory 'Blowfish_Encrypt_P_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'Blowfish_Encrypt_bkb_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'Blowfish_Encrypt_cud_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'Blowfish_Encrypt_dEe_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'Blowfish_Encrypt_eOg_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'encrypt_bf_plaintfYi_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'encrypt_bf_cipherhbi_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-279] Implementing memory 'createRoundKey_exjbC_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'aes_invRound_rsbox_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_invMain_roundkbM_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_decrypt_block_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'dut_output_ram (RAM)' using distributed RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:31 ; elapsed = 00:00:50 . Memory (MB): peak = 1296.148 ; gain = 658.125 ; free physical = 3322 ; free virtual = 8353
+INFO: [VHDL 208-304] Generating VHDL RTL for dut.
+INFO: [VLOG 209-307] Generating Verilog RTL for dut.
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-112] Total elapsed time: 73.6 seconds; peak allocated memory: 287.267 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================

@@ -2411,7 +2411,7 @@ void encrypt_dut(unsigned char input[16], unsigned char output[16], unsigned cha
 
 
 void aes_round(unsigned char state[16], unsigned char roundKey[16])
-{_ssdm_SpecArrayDimSize(state, 16);_ssdm_SpecArrayDimSize(roundKey, 16);
+{
   subBytes(state);
   shiftRows(state);
   mixColumns(state);
@@ -2419,7 +2419,7 @@ void aes_round(unsigned char state[16], unsigned char roundKey[16])
 }
 
 void aes_main(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 1))], int nbrRounds)
-{_ssdm_SpecArrayDimSize(state, 16);_ssdm_SpecArrayDimSize(expandedKey, 176);
+{
   int i = 0;
   int j, k;
   unsigned char roundKey[16];
@@ -2444,7 +2444,7 @@ void aes_encrypt(unsigned char input[16],
                  unsigned char output[16],
                  unsigned char key[16],
                  int size)
-{_ssdm_SpecArrayDimSize(input, 16);_ssdm_SpecArrayDimSize(output, 16);_ssdm_SpecArrayDimSize(key, 16);
+{
 
   unsigned char block[16];
   int i, j;
@@ -2480,7 +2480,7 @@ void aes_encrypt(unsigned char input[16],
 void encrypt_dut(unsigned char input[16],
                  unsigned char output[16],
                  unsigned char key[16])
-{_ssdm_SpecArrayDimSize(input, 16);_ssdm_SpecArrayDimSize(output, 16);_ssdm_SpecArrayDimSize(key, 16);
+{
 
   aes_encrypt(input, output, key, 16);
 }

@@ -165,7 +165,7 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     lfsr_encrypt = !lfsr_encrypt;
     // std::cout << "encrypting" << std::endl;
 
-    lfsr_encrypt = 1;
+    lfsr_encrypt = 0;
     if (lfsr_encrypt){
       output_message = encrypt_aes(input_message);
     }
@@ -202,7 +202,7 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
       // std::cout << "BF decrypt" << std::endl;
       output_message = output_message_bf;
     }
-    output_message = output_message_aes;
+    output_message = output_message_bf;
     for (int i = 0; i < 5; i++){
       output_word(31,31) = 0;
       output_word(30,30) = 0;

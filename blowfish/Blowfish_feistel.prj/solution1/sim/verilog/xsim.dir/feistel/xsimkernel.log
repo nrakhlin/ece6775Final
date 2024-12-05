@@ -1,7 +1,0 @@
-Running: xsim.dir/feistel/xsimk -simmode gui -wdb feistel.wdb -simrunnum 0 -socket 40983
-Design successfully loaded
-Design Loading Memory Usage: 37284 KB (Peak: 37292 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 119472 KB (Peak: 176552 KB)
-Simulation CPU Usage: 6770 ms

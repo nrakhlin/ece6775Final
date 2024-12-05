@@ -97,7 +97,7 @@ wire    ap_CS_fsm_state4;
 reg   [7:0] state_load_5_reg_343;
 wire    ap_CS_fsm_state5;
 reg   [7:0] state_load_6_reg_348;
-reg   [7:0] tmp_8_reg_365;
+reg   [7:0] tmp_12_reg_365;
 wire    ap_CS_fsm_state6;
 wire   [3:0] state_addr_12_reg_375;
 wire   [4:0] i_fu_255_p2;
@@ -257,7 +257,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state6)) begin
-        tmp_8_reg_365 <= state_q0;
+        tmp_12_reg_365 <= state_q0;
     end
 end
 
@@ -383,7 +383,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state10)) begin
-        state_d0 = tmp_8_reg_365;
+        state_d0 = tmp_12_reg_365;
     end else if ((1'b1 == ap_CS_fsm_state9)) begin
         state_d0 = state_load_6_reg_348;
     end else if ((1'b1 == ap_CS_fsm_state8)) begin

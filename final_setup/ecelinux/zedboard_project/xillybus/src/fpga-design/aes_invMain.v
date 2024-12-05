@@ -105,7 +105,7 @@ wire    ap_CS_fsm_state11;
 reg   [7:0] state_load_19_reg_492;
 wire    ap_CS_fsm_state12;
 reg   [7:0] state_load_20_reg_497;
-reg   [7:0] tmp_13_reg_514;
+reg   [7:0] tmp_17_reg_514;
 wire    ap_CS_fsm_state13;
 wire   [3:0] state_addr_26_reg_524;
 wire   [4:0] i_12_fu_378_p2;
@@ -375,7 +375,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state13)) begin
-        tmp_13_reg_514 <= state_q1;
+        tmp_17_reg_514 <= state_q1;
     end
 end
 
@@ -581,7 +581,7 @@ always @ (*) begin
     end else if ((1'b1 == ap_CS_fsm_state20)) begin
         state_d1 = rsbox_q0;
     end else if ((1'b1 == ap_CS_fsm_state17)) begin
-        state_d1 = tmp_13_reg_514;
+        state_d1 = tmp_17_reg_514;
     end else if ((1'b1 == ap_CS_fsm_state16)) begin
         state_d1 = state_load_20_reg_497;
     end else if ((1'b1 == ap_CS_fsm_state15)) begin
