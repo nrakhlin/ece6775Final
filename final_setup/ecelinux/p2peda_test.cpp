@@ -189,7 +189,7 @@ int main() {
   std::string input_string;
   while(1){
     std::string result = "";
-    std::cout << "Enter a string (max 16 characters): ";
+    std::cout << "Enter a string: ";
     getline(std::cin, input_string);
     std::cout << "Input string (long): " << input_string << "\n";
     temp = input_string.length();
