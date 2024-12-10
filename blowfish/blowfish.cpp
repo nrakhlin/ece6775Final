@@ -127,15 +127,15 @@ unsigned int feistel(unsigned int x, unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
 // |Utilization (%)  |        0|      0|       8|     18|    0|
 // +-----------------+---------+-------+--------+-------+-----+
 void Blowfish_SetKey(unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]) {
+    // // Parray
     // #pragma HLS array_reshape variable=initial_parray complete dim=0
     // #pragma HLS array_partition variable=P complete dim=0
-    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
-    // #pragma HLS array_reshape variable=initial_sbox complete dim=0
-    // #pragma HLS array_partition variable=S cyclic factor=4 dim=1
-    // #pragma HLS array_partition variable=initial_sbox block factor=4 dim=1
-    // #pragma HLS array_partition variable=S block factor=4 dim=1
+
+    // // Sboxes
+    // #pragma HLS array_reshape variable=initial_sbox complete dim=1
     // #pragma HLS array_partition variable=S complete dim=1
-    // #pragma HLS INLINE
+    
+    // #pragma HLS array_reshape variable=initial_sbox complete dim=2
 
 
     size_t keyIndex = 0;
@@ -178,19 +178,15 @@ void Blowfish_SetKey(unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, un
 
 // Sets the key and encrypts the block
 void Blowfish_SetKey_Encrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, const unsigned char plaintext[BLOCK_SIZE], unsigned char ciphertext[BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]){
-    // #pragma HLS array_partition variable=initial_parray complete dim=0
-    // #pragma HLS array_reshape variable=initial_parray complete dim=0
-    // #pragma HLS array_partition variable=P complete dim=0
-    // #pragma HLS array_reshape variable=initial_sbox complete dim=1
-    // #pragma HLS array_partition variable=S complete dim=1
+    // Parray partitions
+    #pragma HLS array_reshape variable=initial_parray complete dim=0
+    #pragma HLS array_partition variable=P complete dim=0
 
-    // #pragma HLS array_partition variable=S cyclic factor=4 dim=1
-    // #pragma HLS array_partition variable=initial_sbox block factor=4 dim=1
-    // #pragma HLS array_partition variable=S block factor=4 dim=1
-    // #pragma HLS array_partition variable=initial_sbox cyclic factor=4 dim=1
-    // #pragma HLS array_partition variable=initial_sbox complete dim=1
-    // #pragma HLS INLINE
-    // #pragma HLS inline off
+    // Sboxes
+    #pragma HLS array_reshape variable=initial_sbox complete dim=1
+    #pragma HLS array_partition variable=S complete dim=1
+    
+    #pragma HLS array_reshape variable=initial_sbox complete dim=2
 
 
     if(set_key){
@@ -207,15 +203,15 @@ void Blowfish_SetKey_Encrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH
 
 // Sets the key, encrypts, and decrypts the block (Mainly for testing purposes)
 void Blowfish_SetKey_Encrypt_Decrypt(bool set_key, unsigned char key[MAX_KEY_BYTE_LENGTH], size_t key_size, const unsigned char plaintext[BLOCK_SIZE], unsigned char decryptedtext[BLOCK_SIZE], unsigned int P[PARRAY_SIZE], unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2]){
-    // Parray partitions
-    #pragma HLS array_reshape variable=initial_parray complete dim=0
-    #pragma HLS array_partition variable=P complete dim=0
+    // // Parray partitions
+    // #pragma HLS array_reshape variable=initial_parray complete dim=0
+    // #pragma HLS array_partition variable=P complete dim=0
 
-    // Sboxes
-    #pragma HLS array_reshape variable=initial_sbox complete dim=1
-    #pragma HLS array_partition variable=S complete dim=1
+    // // Sboxes
+    // #pragma HLS array_reshape variable=initial_sbox complete dim=1
+    // #pragma HLS array_partition variable=S complete dim=1
     
-    #pragma HLS array_reshape variable=initial_sbox complete dim=2
+    // #pragma HLS array_reshape variable=initial_sbox complete dim=2
     // #pragma HLS array_partition variable=S block factor=2 dim=2
     // #pragma HLS array_partition variable=S cyclic factor=2 dim=2
     // #pragma HLS array_partition variable=S complete dim=2
