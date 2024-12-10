@@ -33,6 +33,7 @@ int main()
 
   // Call the decrypt_dut function to decrypt the ciphertext
   decrypt_dut(ciphertext, decrypted, key);
+  decrypt_dut(ciphertext, decrypted, key);
 
   std::cout << "Ciphertext: ";
   print_hex(ciphertext, 16);

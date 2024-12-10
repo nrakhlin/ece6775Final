@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'createRoundKey'" level="0">
-<item name = "Date">Mon Dec  9 19:14:23 2024
+<item name = "Date">Mon Dec  9 22:58:08 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 5.169 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 4.280 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -49,18 +49,22 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 231, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, -, -, -</column>
+<column name="Instance">-, -, 0, 260, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 150, -</column>
-<column name="Register">-, -, 130, -, -</column>
+<column name="Multiplexer">-, -, -, 444, -</column>
+<column name="Register">-, -, 134, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="encrypt_dut_mux_4cud_U25">encrypt_dut_mux_4cud, 0, 0, 0, 65, 0</column>
+<column name="encrypt_dut_mux_4cud_U26">encrypt_dut_mux_4cud, 0, 0, 0, 65, 0</column>
+<column name="encrypt_dut_mux_4cud_U27">encrypt_dut_mux_4cud, 0, 0, 0, 65, 0</column>
+<column name="encrypt_dut_mux_4cud_U28">encrypt_dut_mux_4cud, 0, 0, 0, 65, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -77,21 +81,21 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln308_10_fu_293_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_11_fu_303_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_12_fu_313_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_13_fu_323_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_14_fu_333_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_1_fu_203_p2">+, 0, 0, 15, 2, 8</column>
-<column name="add_ln308_2_fu_213_p2">+, 0, 0, 15, 2, 8</column>
-<column name="add_ln308_3_fu_223_p2">+, 0, 0, 15, 3, 8</column>
-<column name="add_ln308_4_fu_233_p2">+, 0, 0, 15, 3, 8</column>
-<column name="add_ln308_5_fu_243_p2">+, 0, 0, 15, 3, 8</column>
-<column name="add_ln308_6_fu_253_p2">+, 0, 0, 15, 3, 8</column>
-<column name="add_ln308_7_fu_263_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_8_fu_273_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_9_fu_283_p2">+, 0, 0, 15, 4, 8</column>
-<column name="add_ln308_fu_192_p2">+, 0, 0, 15, 1, 8</column>
+<column name="add_ln318_10_fu_924_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_11_fu_947_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_12_fu_970_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_13_fu_993_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_14_fu_1016_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_1_fu_717_p2">+, 0, 0, 15, 2, 8</column>
+<column name="add_ln318_2_fu_740_p2">+, 0, 0, 15, 2, 8</column>
+<column name="add_ln318_3_fu_763_p2">+, 0, 0, 15, 3, 8</column>
+<column name="add_ln318_4_fu_786_p2">+, 0, 0, 15, 3, 8</column>
+<column name="add_ln318_5_fu_809_p2">+, 0, 0, 15, 3, 8</column>
+<column name="add_ln318_6_fu_832_p2">+, 0, 0, 15, 3, 8</column>
+<column name="add_ln318_7_fu_855_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_8_fu_878_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_9_fu_901_p2">+, 0, 0, 15, 4, 8</column>
+<column name="add_ln318_fu_688_p2">+, 0, 0, 15, 1, 8</column>
 <column name="ap_block_pp0_stage0_11001">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage0_subdone">or, 0, 0, 2, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
@@ -102,8 +106,16 @@
 <column name="ap_NS_fsm">44, 9, 1, 9</column>
 <column name="ap_enable_reg_pp0_iter0">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="expandedKey_address0">44, 9, 8, 72</column>
-<column name="expandedKey_address1">44, 9, 8, 72</column>
+<column name="expandedKey_0_address0">44, 9, 6, 54</column>
+<column name="expandedKey_0_address1">44, 9, 6, 54</column>
+<column name="expandedKey_1_address0">44, 9, 6, 54</column>
+<column name="expandedKey_1_address1">44, 9, 6, 54</column>
+<column name="expandedKey_2_address0">44, 9, 6, 54</column>
+<column name="expandedKey_2_address1">44, 9, 6, 54</column>
+<column name="expandedKey_3_address0">44, 9, 6, 54</column>
+<column name="expandedKey_3_address1">44, 9, 6, 54</column>
+<column name="grp_fu_610_p5">15, 3, 32, 96</column>
+<column name="grp_fu_623_p5">15, 3, 32, 96</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
@@ -111,21 +123,23 @@
 <column name="ap_CS_fsm">8, 0, 8, 0</column>
 <column name="ap_enable_reg_pp0_iter0_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="expandedKey_load_10_reg_518">8, 0, 8, 0</column>
-<column name="expandedKey_load_11_reg_533">8, 0, 8, 0</column>
-<column name="expandedKey_load_12_reg_538">8, 0, 8, 0</column>
-<column name="expandedKey_load_13_reg_553">8, 0, 8, 0</column>
-<column name="expandedKey_load_14_reg_558">8, 0, 8, 0</column>
-<column name="expandedKey_load_15_reg_573">8, 0, 8, 0</column>
-<column name="expandedKey_load_16_reg_578">8, 0, 8, 0</column>
-<column name="expandedKey_load_4_reg_458">8, 0, 8, 0</column>
-<column name="expandedKey_load_5_reg_473">8, 0, 8, 0</column>
-<column name="expandedKey_load_6_reg_478">8, 0, 8, 0</column>
-<column name="expandedKey_load_7_reg_493">8, 0, 8, 0</column>
-<column name="expandedKey_load_8_reg_498">8, 0, 8, 0</column>
-<column name="expandedKey_load_9_reg_513">8, 0, 8, 0</column>
-<column name="expandedKey_load_reg_453">8, 0, 8, 0</column>
-<column name="trunc_ln308_reg_430">8, 0, 8, 0</column>
+<column name="roundKey_0_write_as_reg_1192">8, 0, 8, 0</column>
+<column name="roundKey_10_write_a_reg_1442">8, 0, 8, 0</column>
+<column name="roundKey_12_write_a_reg_1247">8, 0, 8, 0</column>
+<column name="roundKey_13_write_a_reg_1347">8, 0, 8, 0</column>
+<column name="roundKey_14_write_a_reg_1447">8, 0, 8, 0</column>
+<column name="roundKey_1_write_as_reg_1292">8, 0, 8, 0</column>
+<column name="roundKey_2_write_as_reg_1392">8, 0, 8, 0</column>
+<column name="roundKey_3_write_as_reg_1492">8, 0, 8, 0</column>
+<column name="roundKey_4_write_as_reg_1197">8, 0, 8, 0</column>
+<column name="roundKey_5_write_as_reg_1297">8, 0, 8, 0</column>
+<column name="roundKey_6_write_as_reg_1397">8, 0, 8, 0</column>
+<column name="roundKey_7_write_as_reg_1497">8, 0, 8, 0</column>
+<column name="roundKey_8_write_as_reg_1242">8, 0, 8, 0</column>
+<column name="roundKey_9_write_as_reg_1342">8, 0, 8, 0</column>
+<column name="trunc_ln318_1_reg_1126">8, 0, 8, 0</column>
+<column name="trunc_ln318_reg_1121">2, 0, 2, 0</column>
+<column name="zext_ln318_reg_1184">2, 0, 32, 30</column>
 </table>
 </item>
 </section>
@@ -158,12 +172,30 @@
 <column name="ap_return_13">out, 8, ap_ctrl_hs, createRoundKey, return value</column>
 <column name="ap_return_14">out, 8, ap_ctrl_hs, createRoundKey, return value</column>
 <column name="ap_return_15">out, 8, ap_ctrl_hs, createRoundKey, return value</column>
-<column name="expandedKey_address0">out, 8, ap_memory, expandedKey, array</column>
-<column name="expandedKey_ce0">out, 1, ap_memory, expandedKey, array</column>
-<column name="expandedKey_q0">in, 8, ap_memory, expandedKey, array</column>
-<column name="expandedKey_address1">out, 8, ap_memory, expandedKey, array</column>
-<column name="expandedKey_ce1">out, 1, ap_memory, expandedKey, array</column>
-<column name="expandedKey_q1">in, 8, ap_memory, expandedKey, array</column>
+<column name="expandedKey_0_address0">out, 6, ap_memory, expandedKey_0, array</column>
+<column name="expandedKey_0_ce0">out, 1, ap_memory, expandedKey_0, array</column>
+<column name="expandedKey_0_q0">in, 8, ap_memory, expandedKey_0, array</column>
+<column name="expandedKey_0_address1">out, 6, ap_memory, expandedKey_0, array</column>
+<column name="expandedKey_0_ce1">out, 1, ap_memory, expandedKey_0, array</column>
+<column name="expandedKey_0_q1">in, 8, ap_memory, expandedKey_0, array</column>
+<column name="expandedKey_1_address0">out, 6, ap_memory, expandedKey_1, array</column>
+<column name="expandedKey_1_ce0">out, 1, ap_memory, expandedKey_1, array</column>
+<column name="expandedKey_1_q0">in, 8, ap_memory, expandedKey_1, array</column>
+<column name="expandedKey_1_address1">out, 6, ap_memory, expandedKey_1, array</column>
+<column name="expandedKey_1_ce1">out, 1, ap_memory, expandedKey_1, array</column>
+<column name="expandedKey_1_q1">in, 8, ap_memory, expandedKey_1, array</column>
+<column name="expandedKey_2_address0">out, 6, ap_memory, expandedKey_2, array</column>
+<column name="expandedKey_2_ce0">out, 1, ap_memory, expandedKey_2, array</column>
+<column name="expandedKey_2_q0">in, 8, ap_memory, expandedKey_2, array</column>
+<column name="expandedKey_2_address1">out, 6, ap_memory, expandedKey_2, array</column>
+<column name="expandedKey_2_ce1">out, 1, ap_memory, expandedKey_2, array</column>
+<column name="expandedKey_2_q1">in, 8, ap_memory, expandedKey_2, array</column>
+<column name="expandedKey_3_address0">out, 6, ap_memory, expandedKey_3, array</column>
+<column name="expandedKey_3_ce0">out, 1, ap_memory, expandedKey_3, array</column>
+<column name="expandedKey_3_q0">in, 8, ap_memory, expandedKey_3, array</column>
+<column name="expandedKey_3_address1">out, 6, ap_memory, expandedKey_3, array</column>
+<column name="expandedKey_3_ce1">out, 1, ap_memory, expandedKey_3, array</column>
+<column name="expandedKey_3_q1">in, 8, ap_memory, expandedKey_3, array</column>
 <column name="ptr">in, 10, ap_none, ptr, scalar</column>
 </table>
 </item>

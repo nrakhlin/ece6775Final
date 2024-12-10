@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'expandKey'
 ================================================================
-* Date:           Mon Dec  9 19:19:41 2024
+* Date:           Mon Dec  9 22:29:40 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 7.756 ns |   1.25 ns  |
+    |ap_clk  | 10.00 ns | 6.824 ns |   1.25 ns  |
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      275|      275| 2.750 us | 2.750 us |  275|  275|   none  |
+    |      164|      164| 1.640 us | 1.640 us |  164|  164|   none  |
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -37,13 +37,12 @@
         N/A
 
         * Loop: 
-        +--------------+---------+---------+----------+-----------+-----------+------+----------+
-        |              |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |   Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +--------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- EX_K_LOOP1  |       32|       32|         2|          -|          -|    16|    no    |
-        |- EX_WHILE    |      240|      240|         6|          6|          1|    40|    yes   |
-        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |            |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- EX_WHILE  |      161|      161|         6|          4|          1|    40|    yes   |
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
 
@@ -55,14 +54,14 @@
 |       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
 +-----------------+---------+-------+--------+-------+-----+
 |DSP              |        -|      -|       -|      -|    -|
-|Expression       |        -|      -|       0|    355|    -|
+|Expression       |        -|      -|       0|    331|    -|
 |FIFO             |        -|      -|       -|      -|    -|
 |Instance         |        -|      -|       -|      -|    -|
 |Memory           |        2|      -|       0|      0|    -|
-|Multiplexer      |        -|      -|       -|    219|    -|
-|Register         |        -|      -|     190|      -|    -|
+|Multiplexer      |        -|      -|       -|    449|    -|
+|Register         |        -|      -|     177|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        2|      0|     190|    574|    0|
+|Total            |        2|      0|     177|    780|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
@@ -93,81 +92,96 @@
     +---------------------------+----------+-------+---+----+------------+------------+
     |       Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------------+----------+-------+---+----+------------+------------+
-    |add_ln136_1_fu_321_p2      |     +    |      0|  0|  15|           3|           8|
-    |add_ln136_2_fu_361_p2      |     +    |      0|  0|  15|           3|           8|
-    |add_ln136_3_fu_372_p2      |     +    |      0|  0|  15|           2|           8|
-    |add_ln136_fu_310_p2        |     +    |      0|  0|  15|           4|           8|
-    |add_ln161_1_fu_414_p2      |     +    |      0|  0|  15|           6|           9|
-    |add_ln161_2_fu_462_p2      |     +    |      0|  0|  15|           5|           9|
-    |add_ln161_3_fu_486_p2      |     +    |      0|  0|  15|           6|           9|
-    |add_ln161_fu_393_p2        |     +    |      0|  0|  15|           6|           8|
-    |add_ln162_fu_539_p2        |     +    |      0|  0|  15|           1|           9|
-    |currentSize_fu_533_p2      |     +    |      0|  0|  15|           3|           8|
-    |i_fu_289_p2                |     +    |      0|  0|  15|           5|           1|
-    |rconIteration_fu_338_p2    |     +    |      0|  0|  39|           1|          32|
-    |icmp_ln126_fu_283_p2       |   icmp   |      0|  0|  11|           5|           6|
-    |icmp_ln130_fu_300_p2       |   icmp   |      0|  0|  11|           8|           8|
-    |icmp_ln142_fu_332_p2       |   icmp   |      0|  0|   9|           4|           1|
-    |or_ln162_1_fu_476_p2       |    or    |      0|  0|   8|           8|           2|
-    |or_ln162_fu_404_p2         |    or    |      0|  0|   8|           8|           1|
-    |rconIteration_1_fu_353_p3  |  select  |      0|  0|  32|           1|          32|
-    |t_0_2_fu_443_p3            |  select  |      0|  0|   8|           1|           8|
-    |t_1_2_fu_437_p3            |  select  |      0|  0|   8|           1|           8|
-    |t_2_2_fu_506_p3            |  select  |      0|  0|   8|           1|           8|
-    |t_3_2_fu_527_p3            |  select  |      0|  0|   8|           1|           8|
-    |t_0_fu_433_p2              |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln161_1_fu_456_p2      |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln161_2_fu_521_p2      |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln161_3_fu_549_p2      |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln161_fu_450_p2        |    xor   |      0|  0|   8|           8|           8|
+    |add_ln145_1_fu_745_p2      |     +    |      0|  0|  15|           3|           8|
+    |add_ln145_2_fu_771_p2      |     +    |      0|  0|  15|           3|           8|
+    |add_ln145_3_fu_604_p2      |     +    |      0|  0|  15|           2|           8|
+    |add_ln145_fu_583_p2        |     +    |      0|  0|  15|           4|           8|
+    |add_ln170_1_fu_685_p2      |     +    |      0|  0|  15|           6|           9|
+    |add_ln170_2_fu_873_p2      |     +    |      0|  0|  15|           5|           9|
+    |add_ln170_3_fu_720_p2      |     +    |      0|  0|  15|           6|           9|
+    |add_ln170_fu_654_p2        |     +    |      0|  0|  15|           6|           8|
+    |add_ln172_fu_868_p2        |     +    |      0|  0|  15|           1|           9|
+    |currentSize_fu_840_p2      |     +    |      0|  0|  15|           3|           8|
+    |rconIteration_fu_631_p2    |     +    |      0|  0|  39|           1|          32|
+    |icmp_ln139_fu_573_p2       |   icmp   |      0|  0|  11|           8|           8|
+    |icmp_ln151_fu_625_p2       |   icmp   |      0|  0|   9|           4|           1|
+    |or_ln172_1_fu_710_p2       |    or    |      0|  0|   8|           8|           2|
+    |or_ln172_fu_675_p2         |    or    |      0|  0|   8|           8|           1|
+    |rconIteration_1_fu_646_p3  |  select  |      0|  0|  32|           1|          32|
+    |t_0_2_fu_834_p3            |  select  |      0|  0|   8|           1|           8|
+    |t_1_2_fu_856_p3            |  select  |      0|  0|   8|           1|           8|
+    |t_2_2_fu_907_p3            |  select  |      0|  0|   8|           1|           8|
+    |t_3_2_fu_797_p3            |  select  |      0|  0|   8|           1|           8|
+    |ap_enable_pp0              |    xor   |      0|  0|   2|           1|           2|
+    |t_0_fu_829_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln171_1_fu_862_p2      |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln171_2_fu_913_p2      |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln171_3_fu_818_p2      |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln171_fu_846_p2        |    xor   |      0|  0|   8|           8|           8|
     +---------------------------+----------+-------+---+----+------------+------------+
-    |Total                      |          |      0|  0| 355|         123|         239|
+    |Total                      |          |      0|  0| 331|         114|         234|
     +---------------------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +--------------------------+----+-----------+-----+-----------+
-    |           Name           | LUT| Input Size| Bits| Total Bits|
-    +--------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                 |  50|         11|    1|         11|
-    |currentSize_0_reg_256     |   9|          2|    8|         16|
-    |expandedKey_address0      |  41|          8|    8|         64|
-    |expandedKey_address1      |  38|          7|    8|         56|
-    |expandedKey_d0            |  21|          4|    8|         32|
-    |expandedKey_d1            |  15|          3|    8|         24|
-    |i_0_reg_245               |   9|          2|    5|         10|
-    |iteration_assign_reg_268  |   9|          2|   32|         64|
-    |sbox_address0             |  27|          5|    8|         40|
-    +--------------------------+----+-----------+-----+-----------+
-    |Total                     | 219|         44|   86|        317|
-    +--------------------------+----+-----------+-----+-----------+
+    +-------------------------------------------+----+-----------+-----+-----------+
+    |                    Name                   | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                  |  41|          8|    1|          8|
+    |ap_enable_reg_pp0_iter1                    |   9|          2|    1|          2|
+    |ap_phi_mux_currentSize_0_phi_fu_554_p4     |   9|          2|    8|         16|
+    |ap_phi_mux_iteration_assign_phi_fu_566_p4  |   9|          2|   32|         64|
+    |currentSize_0_reg_550                      |   9|          2|    8|         16|
+    |expandedKey_0_address0                     |  27|          5|    6|         30|
+    |expandedKey_0_address1                     |  21|          4|    6|         24|
+    |expandedKey_0_d0                           |  21|          4|    8|         32|
+    |expandedKey_0_d1                           |  15|          3|    8|         24|
+    |expandedKey_1_address0                     |  27|          5|    6|         30|
+    |expandedKey_1_address1                     |  21|          4|    6|         24|
+    |expandedKey_1_d0                           |  15|          3|    8|         24|
+    |expandedKey_1_d1                           |  21|          4|    8|         32|
+    |expandedKey_2_address0                     |  27|          5|    6|         30|
+    |expandedKey_2_address1                     |  21|          4|    6|         24|
+    |expandedKey_2_d0                           |  15|          3|    8|         24|
+    |expandedKey_2_d1                           |  21|          4|    8|         32|
+    |expandedKey_3_address0                     |  27|          5|    6|         30|
+    |expandedKey_3_address1                     |  21|          4|    6|         24|
+    |expandedKey_3_d0                           |  21|          4|    8|         32|
+    |expandedKey_3_d1                           |  15|          3|    8|         24|
+    |iteration_assign_reg_562                   |   9|          2|   32|         64|
+    |sbox_address0                              |  27|          5|    8|         40|
+    +-------------------------------------------+----+-----------+-----+-----------+
+    |Total                                      | 449|         87|  202|        650|
+    +-------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +--------------------------+----+----+-----+-----------+
-    |           Name           | FF | LUT| Bits| Const Bits|
-    +--------------------------+----+----+-----+-----------+
-    |Rcon_load_reg_630         |   8|   0|    8|          0|
-    |ap_CS_fsm                 |  10|   0|   10|          0|
-    |currentSize_0_reg_256     |   8|   0|    8|          0|
-    |i_0_reg_245               |   5|   0|    5|          0|
-    |i_reg_564                 |   5|   0|    5|          0|
-    |icmp_ln142_reg_592        |   1|   0|    1|          0|
-    |iteration_assign_reg_268  |  32|   0|   32|          0|
-    |or_ln162_1_reg_697        |   6|   0|    8|          2|
-    |or_ln162_reg_661          |   7|   0|    8|          1|
-    |rconIteration_1_reg_605   |  32|   0|   32|          0|
-    |reg_279                   |   8|   0|    8|          0|
-    |sbox_load_reg_646         |   8|   0|    8|          0|
-    |t_1_1_reg_610             |   8|   0|    8|          0|
-    |t_2_1_reg_635             |   8|   0|    8|          0|
-    |t_3_1_reg_640             |   8|   0|    8|          0|
-    |xor_ln161_1_reg_687       |   8|   0|    8|          0|
-    |xor_ln161_2_reg_712       |   8|   0|    8|          0|
-    |xor_ln161_reg_682         |   8|   0|    8|          0|
-    |zext_ln127_reg_569        |   5|   0|   64|         59|
-    |zext_ln162_reg_666        |   7|   0|    9|          2|
-    +--------------------------+----+----+-----+-----------+
-    |Total                     | 190|   0|  254|         64|
-    +--------------------------+----+----+-----+-----------+
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |Rcon_load_reg_998                 |   8|   0|    8|          0|
+    |ap_CS_fsm                         |   7|   0|    7|          0|
+    |ap_enable_reg_pp0_iter0           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |currentSize_0_reg_550             |   8|   0|    8|          0|
+    |currentSize_reg_1049              |   8|   0|    8|          0|
+    |expandedKey_0_load_reg_1003       |   8|   0|    8|          0|
+    |expandedKey_1_load_reg_1008       |   8|   0|    8|          0|
+    |expandedKey_3_load_reg_1013       |   8|   0|    8|          0|
+    |icmp_ln139_reg_924                |   1|   0|    1|          0|
+    |icmp_ln139_reg_924_pp0_iter1_reg  |   1|   0|    1|          0|
+    |icmp_ln151_reg_938                |   1|   0|    1|          0|
+    |icmp_ln151_reg_938_pp0_iter1_reg  |   1|   0|    1|          0|
+    |iteration_assign_reg_562          |  32|   0|   32|          0|
+    |lshr_ln171_1_reg_1064             |   7|   0|    7|          0|
+    |rconIteration_1_reg_951           |  32|   0|   32|          0|
+    |t_0_3_reg_977                     |   8|   0|    8|          0|
+    |t_1_1_reg_1018                    |   8|   0|    8|          0|
+    |t_2_1_reg_1039                    |   8|   0|    8|          0|
+    |t_3_1_reg_987                     |   8|   0|    8|          0|
+    |zext_ln171_reg_1033               |   6|   0|   64|         58|
+    |zext_ln172_reg_961                |   7|   0|    9|          2|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             | 177|   0|  237|         60|
+    +----------------------------------+----+----+-----+-----------+
 
 
 
@@ -175,27 +189,68 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------------+-----+-----+------------+--------------+--------------+
-|       RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+----------------------+-----+-----+------------+--------------+--------------+
-|ap_clk                |  in |    1| ap_ctrl_hs |   expandKey  | return value |
-|ap_rst                |  in |    1| ap_ctrl_hs |   expandKey  | return value |
-|ap_start              |  in |    1| ap_ctrl_hs |   expandKey  | return value |
-|ap_done               | out |    1| ap_ctrl_hs |   expandKey  | return value |
-|ap_idle               | out |    1| ap_ctrl_hs |   expandKey  | return value |
-|ap_ready              | out |    1| ap_ctrl_hs |   expandKey  | return value |
-|expandedKey_address0  | out |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_ce0       | out |    1|  ap_memory |  expandedKey |     array    |
-|expandedKey_we0       | out |    1|  ap_memory |  expandedKey |     array    |
-|expandedKey_d0        | out |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_q0        |  in |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_address1  | out |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_ce1       | out |    1|  ap_memory |  expandedKey |     array    |
-|expandedKey_we1       | out |    1|  ap_memory |  expandedKey |     array    |
-|expandedKey_d1        | out |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_q1        |  in |    8|  ap_memory |  expandedKey |     array    |
-|key_address0          | out |    4|  ap_memory |      key     |     array    |
-|key_ce0               | out |    1|  ap_memory |      key     |     array    |
-|key_q0                |  in |    8|  ap_memory |      key     |     array    |
-+----------------------+-----+-----+------------+--------------+--------------+
++------------------------+-----+-----+------------+---------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  | Source Object |    C Type    |
++------------------------+-----+-----+------------+---------------+--------------+
+|ap_clk                  |  in |    1| ap_ctrl_hs |   expandKey   | return value |
+|ap_rst                  |  in |    1| ap_ctrl_hs |   expandKey   | return value |
+|ap_start                |  in |    1| ap_ctrl_hs |   expandKey   | return value |
+|ap_done                 | out |    1| ap_ctrl_hs |   expandKey   | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs |   expandKey   | return value |
+|ap_ready                | out |    1| ap_ctrl_hs |   expandKey   | return value |
+|expandedKey_0_address0  | out |    6|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_ce0       | out |    1|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_we0       | out |    1|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_d0        | out |    8|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_q0        |  in |    8|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_address1  | out |    6|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_ce1       | out |    1|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_we1       | out |    1|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_d1        | out |    8|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_q1        |  in |    8|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_1_address0  | out |    6|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_ce0       | out |    1|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_we0       | out |    1|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_d0        | out |    8|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_q0        |  in |    8|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_address1  | out |    6|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_ce1       | out |    1|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_we1       | out |    1|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_d1        | out |    8|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_2_address0  | out |    6|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_ce0       | out |    1|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_we0       | out |    1|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_d0        | out |    8|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_q0        |  in |    8|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_address1  | out |    6|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_ce1       | out |    1|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_we1       | out |    1|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_d1        | out |    8|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_3_address0  | out |    6|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_ce0       | out |    1|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_we0       | out |    1|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_d0        | out |    8|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_q0        |  in |    8|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_address1  | out |    6|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_ce1       | out |    1|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_we1       | out |    1|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_d1        | out |    8|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_q1        |  in |    8|  ap_memory | expandedKey_3 |     array    |
+|key_0_read              |  in |    8|   ap_none  |   key_0_read  |    scalar    |
+|key_1_read              |  in |    8|   ap_none  |   key_1_read  |    scalar    |
+|key_2_read              |  in |    8|   ap_none  |   key_2_read  |    scalar    |
+|key_3_read              |  in |    8|   ap_none  |   key_3_read  |    scalar    |
+|key_4_read              |  in |    8|   ap_none  |   key_4_read  |    scalar    |
+|key_5_read              |  in |    8|   ap_none  |   key_5_read  |    scalar    |
+|key_6_read              |  in |    8|   ap_none  |   key_6_read  |    scalar    |
+|key_7_read              |  in |    8|   ap_none  |   key_7_read  |    scalar    |
+|key_8_read              |  in |    8|   ap_none  |   key_8_read  |    scalar    |
+|key_9_read              |  in |    8|   ap_none  |   key_9_read  |    scalar    |
+|key_10_read             |  in |    8|   ap_none  |  key_10_read  |    scalar    |
+|key_11_read             |  in |    8|   ap_none  |  key_11_read  |    scalar    |
+|key_12_read             |  in |    8|   ap_none  |  key_12_read  |    scalar    |
+|key_13_read             |  in |    8|   ap_none  |  key_13_read  |    scalar    |
+|key_14_read             |  in |    8|   ap_none  |  key_14_read  |    scalar    |
+|key_15_read             |  in |    8|   ap_none  |  key_15_read  |    scalar    |
++------------------------+-----+-----+------------+---------------+--------------+
 

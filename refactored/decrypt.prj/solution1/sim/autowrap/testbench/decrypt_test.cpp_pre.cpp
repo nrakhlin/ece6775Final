@@ -33753,6 +33753,7 @@ int main()
 
 
   decrypt_dut(ciphertext, decrypted, key);
+  decrypt_dut(ciphertext, decrypted, key);
 
   std::cout << "Ciphertext: ";
   print_hex(ciphertext, 16);
@@ -33773,6 +33774,6 @@ int main()
   {
     std::cout << "Decryption failed! The output does not match the expected plaintext." << std::endl;
   }
-# 77 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
+# 78 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
   return 0;
 }

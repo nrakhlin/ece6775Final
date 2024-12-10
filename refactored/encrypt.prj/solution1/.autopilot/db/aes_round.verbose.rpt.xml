@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_round'" level="0">
-<item name = "Date">Mon Dec  9 19:14:23 2024
+<item name = "Date">Mon Dec  9 22:58:09 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -80,22 +80,22 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="xor_ln226_10_fu_676_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_11_fu_615_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_12_fu_560_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_13_fu_738_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_14_fu_683_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_15_fu_622_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_1_fu_718_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_2_fu_663_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_3_fu_602_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_4_fu_547_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_5_fu_725_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_6_fu_670_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_7_fu_609_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_8_fu_553_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_9_fu_732_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln226_fu_541_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_10_fu_676_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_11_fu_615_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_12_fu_560_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_13_fu_738_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_14_fu_683_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_15_fu_622_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_1_fu_718_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_2_fu_663_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_3_fu_602_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_4_fu_547_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_5_fu_725_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_6_fu_670_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_7_fu_609_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_8_fu_553_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_9_fu_732_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln236_fu_541_p2">xor, 0, 0, 8, 8, 8</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -117,22 +117,22 @@
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">19, 0, 19, 0</column>
-<column name="ap_port_reg_p_read">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read1">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read10">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read11">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read12">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read13">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read14">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read15">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read2">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read3">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read4">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read5">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read6">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read7">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read8">8, 0, 8, 0</column>
-<column name="ap_port_reg_p_read9">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_0_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_10_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_11_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_12_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_13_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_14_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_15_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_1_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_2_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_3_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_4_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_5_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_6_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_7_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_8_read">8, 0, 8, 0</column>
+<column name="ap_port_reg_roundKey_9_read">8, 0, 8, 0</column>
 <column name="reg_464">8, 0, 8, 0</column>
 <column name="reg_468">8, 0, 8, 0</column>
 <column name="reg_473">8, 0, 8, 0</column>
@@ -144,14 +144,14 @@
 <column name="state_load_12_reg_863">8, 0, 8, 0</column>
 <column name="state_load_13_reg_827">8, 0, 8, 0</column>
 <column name="state_load_7_reg_873">8, 0, 8, 0</column>
-<column name="xor_ln226_13_reg_963">8, 0, 8, 0</column>
-<column name="xor_ln226_14_reg_938">8, 0, 8, 0</column>
-<column name="xor_ln226_15_reg_908">8, 0, 8, 0</column>
-<column name="xor_ln226_4_reg_842">8, 0, 8, 0</column>
-<column name="xor_ln226_6_reg_933">8, 0, 8, 0</column>
-<column name="xor_ln226_7_reg_903">8, 0, 8, 0</column>
-<column name="xor_ln226_9_reg_958">8, 0, 8, 0</column>
-<column name="xor_ln226_reg_837">8, 0, 8, 0</column>
+<column name="xor_ln236_13_reg_963">8, 0, 8, 0</column>
+<column name="xor_ln236_14_reg_938">8, 0, 8, 0</column>
+<column name="xor_ln236_15_reg_908">8, 0, 8, 0</column>
+<column name="xor_ln236_4_reg_842">8, 0, 8, 0</column>
+<column name="xor_ln236_6_reg_933">8, 0, 8, 0</column>
+<column name="xor_ln236_7_reg_903">8, 0, 8, 0</column>
+<column name="xor_ln236_9_reg_958">8, 0, 8, 0</column>
+<column name="xor_ln236_reg_837">8, 0, 8, 0</column>
 </table>
 </item>
 </section>
@@ -177,22 +177,22 @@
 <column name="state_we1">out, 1, ap_memory, state, array</column>
 <column name="state_d1">out, 8, ap_memory, state, array</column>
 <column name="state_q1">in, 8, ap_memory, state, array</column>
-<column name="p_read">in, 8, ap_none, p_read, scalar</column>
-<column name="p_read1">in, 8, ap_none, p_read1, scalar</column>
-<column name="p_read2">in, 8, ap_none, p_read2, scalar</column>
-<column name="p_read3">in, 8, ap_none, p_read3, scalar</column>
-<column name="p_read4">in, 8, ap_none, p_read4, scalar</column>
-<column name="p_read5">in, 8, ap_none, p_read5, scalar</column>
-<column name="p_read6">in, 8, ap_none, p_read6, scalar</column>
-<column name="p_read7">in, 8, ap_none, p_read7, scalar</column>
-<column name="p_read8">in, 8, ap_none, p_read8, scalar</column>
-<column name="p_read9">in, 8, ap_none, p_read9, scalar</column>
-<column name="p_read10">in, 8, ap_none, p_read10, scalar</column>
-<column name="p_read11">in, 8, ap_none, p_read11, scalar</column>
-<column name="p_read12">in, 8, ap_none, p_read12, scalar</column>
-<column name="p_read13">in, 8, ap_none, p_read13, scalar</column>
-<column name="p_read14">in, 8, ap_none, p_read14, scalar</column>
-<column name="p_read15">in, 8, ap_none, p_read15, scalar</column>
+<column name="roundKey_0_read">in, 8, ap_none, roundKey_0_read, scalar</column>
+<column name="roundKey_1_read">in, 8, ap_none, roundKey_1_read, scalar</column>
+<column name="roundKey_2_read">in, 8, ap_none, roundKey_2_read, scalar</column>
+<column name="roundKey_3_read">in, 8, ap_none, roundKey_3_read, scalar</column>
+<column name="roundKey_4_read">in, 8, ap_none, roundKey_4_read, scalar</column>
+<column name="roundKey_5_read">in, 8, ap_none, roundKey_5_read, scalar</column>
+<column name="roundKey_6_read">in, 8, ap_none, roundKey_6_read, scalar</column>
+<column name="roundKey_7_read">in, 8, ap_none, roundKey_7_read, scalar</column>
+<column name="roundKey_8_read">in, 8, ap_none, roundKey_8_read, scalar</column>
+<column name="roundKey_9_read">in, 8, ap_none, roundKey_9_read, scalar</column>
+<column name="roundKey_10_read">in, 8, ap_none, roundKey_10_read, scalar</column>
+<column name="roundKey_11_read">in, 8, ap_none, roundKey_11_read, scalar</column>
+<column name="roundKey_12_read">in, 8, ap_none, roundKey_12_read, scalar</column>
+<column name="roundKey_13_read">in, 8, ap_none, roundKey_13_read, scalar</column>
+<column name="roundKey_14_read">in, 8, ap_none, roundKey_14_read, scalar</column>
+<column name="roundKey_15_read">in, 8, ap_none, roundKey_15_read, scalar</column>
 </table>
 </item>
 </section>

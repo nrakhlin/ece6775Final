@@ -35,6 +35,22 @@ const sc_lv<32> aes_encrypt::ap_const_lv32_5 = "101";
 const sc_lv<32> aes_encrypt::ap_const_lv32_8 = "1000";
 const sc_lv<32> aes_encrypt::ap_const_lv32_4 = "100";
 const sc_lv<32> aes_encrypt::ap_const_lv32_3 = "11";
+const sc_lv<4> aes_encrypt::ap_const_lv4_E = "1110";
+const sc_lv<4> aes_encrypt::ap_const_lv4_D = "1101";
+const sc_lv<4> aes_encrypt::ap_const_lv4_C = "1100";
+const sc_lv<4> aes_encrypt::ap_const_lv4_B = "1011";
+const sc_lv<4> aes_encrypt::ap_const_lv4_A = "1010";
+const sc_lv<4> aes_encrypt::ap_const_lv4_9 = "1001";
+const sc_lv<4> aes_encrypt::ap_const_lv4_8 = "1000";
+const sc_lv<4> aes_encrypt::ap_const_lv4_7 = "111";
+const sc_lv<4> aes_encrypt::ap_const_lv4_6 = "110";
+const sc_lv<4> aes_encrypt::ap_const_lv4_5 = "101";
+const sc_lv<4> aes_encrypt::ap_const_lv4_4 = "100";
+const sc_lv<4> aes_encrypt::ap_const_lv4_3 = "11";
+const sc_lv<4> aes_encrypt::ap_const_lv4_2 = "10";
+const sc_lv<4> aes_encrypt::ap_const_lv4_1 = "1";
+const sc_lv<4> aes_encrypt::ap_const_lv4_0 = "0000";
+const sc_lv<4> aes_encrypt::ap_const_lv4_F = "1111";
 const sc_lv<3> aes_encrypt::ap_const_lv3_4 = "100";
 const sc_lv<3> aes_encrypt::ap_const_lv3_1 = "1";
 const sc_lv<2> aes_encrypt::ap_const_lv2_0 = "00";
@@ -49,102 +65,195 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     block_U->we0(block_we0);
     block_U->d0(block_d0);
     block_U->q0(block_q0);
-    block_U->address1(grp_aes_main_fu_247_state_address1);
+    block_U->address1(grp_aes_main_fu_561_state_address1);
     block_U->ce1(block_ce1);
     block_U->we1(block_we1);
-    block_U->d1(grp_aes_main_fu_247_state_d1);
+    block_U->d1(grp_aes_main_fu_561_state_d1);
     block_U->q1(block_q1);
-    expandedKey_U = new aes_encrypt_expanbkb("expandedKey_U");
-    expandedKey_U->clk(ap_clk);
-    expandedKey_U->reset(ap_rst);
-    expandedKey_U->address0(expandedKey_address0);
-    expandedKey_U->ce0(expandedKey_ce0);
-    expandedKey_U->we0(expandedKey_we0);
-    expandedKey_U->d0(grp_expandKey_fu_255_expandedKey_d0);
-    expandedKey_U->q0(expandedKey_q0);
-    expandedKey_U->address1(expandedKey_address1);
-    expandedKey_U->ce1(expandedKey_ce1);
-    expandedKey_U->we1(expandedKey_we1);
-    expandedKey_U->d1(grp_expandKey_fu_255_expandedKey_d1);
-    expandedKey_U->q1(expandedKey_q1);
-    grp_aes_main_fu_247 = new aes_main("grp_aes_main_fu_247");
-    grp_aes_main_fu_247->ap_clk(ap_clk);
-    grp_aes_main_fu_247->ap_rst(ap_rst);
-    grp_aes_main_fu_247->ap_start(grp_aes_main_fu_247_ap_start);
-    grp_aes_main_fu_247->ap_done(grp_aes_main_fu_247_ap_done);
-    grp_aes_main_fu_247->ap_idle(grp_aes_main_fu_247_ap_idle);
-    grp_aes_main_fu_247->ap_ready(grp_aes_main_fu_247_ap_ready);
-    grp_aes_main_fu_247->state_address0(grp_aes_main_fu_247_state_address0);
-    grp_aes_main_fu_247->state_ce0(grp_aes_main_fu_247_state_ce0);
-    grp_aes_main_fu_247->state_we0(grp_aes_main_fu_247_state_we0);
-    grp_aes_main_fu_247->state_d0(grp_aes_main_fu_247_state_d0);
-    grp_aes_main_fu_247->state_q0(block_q0);
-    grp_aes_main_fu_247->state_address1(grp_aes_main_fu_247_state_address1);
-    grp_aes_main_fu_247->state_ce1(grp_aes_main_fu_247_state_ce1);
-    grp_aes_main_fu_247->state_we1(grp_aes_main_fu_247_state_we1);
-    grp_aes_main_fu_247->state_d1(grp_aes_main_fu_247_state_d1);
-    grp_aes_main_fu_247->state_q1(block_q1);
-    grp_aes_main_fu_247->expandedKey_address0(grp_aes_main_fu_247_expandedKey_address0);
-    grp_aes_main_fu_247->expandedKey_ce0(grp_aes_main_fu_247_expandedKey_ce0);
-    grp_aes_main_fu_247->expandedKey_q0(expandedKey_q0);
-    grp_aes_main_fu_247->expandedKey_address1(grp_aes_main_fu_247_expandedKey_address1);
-    grp_aes_main_fu_247->expandedKey_ce1(grp_aes_main_fu_247_expandedKey_ce1);
-    grp_aes_main_fu_247->expandedKey_q1(expandedKey_q1);
-    grp_expandKey_fu_255 = new expandKey("grp_expandKey_fu_255");
-    grp_expandKey_fu_255->ap_clk(ap_clk);
-    grp_expandKey_fu_255->ap_rst(ap_rst);
-    grp_expandKey_fu_255->ap_start(grp_expandKey_fu_255_ap_start);
-    grp_expandKey_fu_255->ap_done(grp_expandKey_fu_255_ap_done);
-    grp_expandKey_fu_255->ap_idle(grp_expandKey_fu_255_ap_idle);
-    grp_expandKey_fu_255->ap_ready(grp_expandKey_fu_255_ap_ready);
-    grp_expandKey_fu_255->expandedKey_address0(grp_expandKey_fu_255_expandedKey_address0);
-    grp_expandKey_fu_255->expandedKey_ce0(grp_expandKey_fu_255_expandedKey_ce0);
-    grp_expandKey_fu_255->expandedKey_we0(grp_expandKey_fu_255_expandedKey_we0);
-    grp_expandKey_fu_255->expandedKey_d0(grp_expandKey_fu_255_expandedKey_d0);
-    grp_expandKey_fu_255->expandedKey_q0(expandedKey_q0);
-    grp_expandKey_fu_255->expandedKey_address1(grp_expandKey_fu_255_expandedKey_address1);
-    grp_expandKey_fu_255->expandedKey_ce1(grp_expandKey_fu_255_expandedKey_ce1);
-    grp_expandKey_fu_255->expandedKey_we1(grp_expandKey_fu_255_expandedKey_we1);
-    grp_expandKey_fu_255->expandedKey_d1(grp_expandKey_fu_255_expandedKey_d1);
-    grp_expandKey_fu_255->expandedKey_q1(expandedKey_q1);
-    grp_expandKey_fu_255->key_address0(grp_expandKey_fu_255_key_address0);
-    grp_expandKey_fu_255->key_ce0(grp_expandKey_fu_255_key_ce0);
-    grp_expandKey_fu_255->key_q0(key_q0);
-    encrypt_dut_mux_1cud_U50 = new encrypt_dut_mux_1cud<1,1,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,4,8>("encrypt_dut_mux_1cud_U50");
-    encrypt_dut_mux_1cud_U50->din0(input_0_read);
-    encrypt_dut_mux_1cud_U50->din1(input_1_read);
-    encrypt_dut_mux_1cud_U50->din2(input_2_read);
-    encrypt_dut_mux_1cud_U50->din3(input_3_read);
-    encrypt_dut_mux_1cud_U50->din4(input_4_read);
-    encrypt_dut_mux_1cud_U50->din5(input_5_read);
-    encrypt_dut_mux_1cud_U50->din6(input_6_read);
-    encrypt_dut_mux_1cud_U50->din7(input_7_read);
-    encrypt_dut_mux_1cud_U50->din8(input_8_read);
-    encrypt_dut_mux_1cud_U50->din9(input_9_read);
-    encrypt_dut_mux_1cud_U50->din10(input_10_read);
-    encrypt_dut_mux_1cud_U50->din11(input_11_read);
-    encrypt_dut_mux_1cud_U50->din12(input_12_read);
-    encrypt_dut_mux_1cud_U50->din13(input_13_read);
-    encrypt_dut_mux_1cud_U50->din14(input_14_read);
-    encrypt_dut_mux_1cud_U50->din15(input_15_read);
-    encrypt_dut_mux_1cud_U50->din16(tmp_fu_315_p17);
-    encrypt_dut_mux_1cud_U50->dout(tmp_fu_315_p18);
+    expandedKey_0_U = new aes_encrypt_expandEe("expandedKey_0_U");
+    expandedKey_0_U->clk(ap_clk);
+    expandedKey_0_U->reset(ap_rst);
+    expandedKey_0_U->address0(expandedKey_0_address0);
+    expandedKey_0_U->ce0(expandedKey_0_ce0);
+    expandedKey_0_U->we0(expandedKey_0_we0);
+    expandedKey_0_U->d0(grp_expandKey_fu_572_expandedKey_0_d0);
+    expandedKey_0_U->q0(expandedKey_0_q0);
+    expandedKey_0_U->address1(expandedKey_0_address1);
+    expandedKey_0_U->ce1(expandedKey_0_ce1);
+    expandedKey_0_U->we1(expandedKey_0_we1);
+    expandedKey_0_U->d1(grp_expandKey_fu_572_expandedKey_0_d1);
+    expandedKey_0_U->q1(expandedKey_0_q1);
+    expandedKey_1_U = new aes_encrypt_expandEe("expandedKey_1_U");
+    expandedKey_1_U->clk(ap_clk);
+    expandedKey_1_U->reset(ap_rst);
+    expandedKey_1_U->address0(expandedKey_1_address0);
+    expandedKey_1_U->ce0(expandedKey_1_ce0);
+    expandedKey_1_U->we0(expandedKey_1_we0);
+    expandedKey_1_U->d0(grp_expandKey_fu_572_expandedKey_1_d0);
+    expandedKey_1_U->q0(expandedKey_1_q0);
+    expandedKey_1_U->address1(expandedKey_1_address1);
+    expandedKey_1_U->ce1(expandedKey_1_ce1);
+    expandedKey_1_U->we1(expandedKey_1_we1);
+    expandedKey_1_U->d1(grp_expandKey_fu_572_expandedKey_1_d1);
+    expandedKey_1_U->q1(expandedKey_1_q1);
+    expandedKey_2_U = new aes_encrypt_expanfYi("expandedKey_2_U");
+    expandedKey_2_U->clk(ap_clk);
+    expandedKey_2_U->reset(ap_rst);
+    expandedKey_2_U->address0(expandedKey_2_address0);
+    expandedKey_2_U->ce0(expandedKey_2_ce0);
+    expandedKey_2_U->we0(expandedKey_2_we0);
+    expandedKey_2_U->d0(grp_expandKey_fu_572_expandedKey_2_d0);
+    expandedKey_2_U->q0(expandedKey_2_q0);
+    expandedKey_2_U->address1(grp_aes_main_fu_561_expandedKey_2_address1);
+    expandedKey_2_U->ce1(expandedKey_2_ce1);
+    expandedKey_2_U->q1(expandedKey_2_q1);
+    expandedKey_3_U = new aes_encrypt_expandEe("expandedKey_3_U");
+    expandedKey_3_U->clk(ap_clk);
+    expandedKey_3_U->reset(ap_rst);
+    expandedKey_3_U->address0(expandedKey_3_address0);
+    expandedKey_3_U->ce0(expandedKey_3_ce0);
+    expandedKey_3_U->we0(expandedKey_3_we0);
+    expandedKey_3_U->d0(grp_expandKey_fu_572_expandedKey_3_d0);
+    expandedKey_3_U->q0(expandedKey_3_q0);
+    expandedKey_3_U->address1(expandedKey_3_address1);
+    expandedKey_3_U->ce1(expandedKey_3_ce1);
+    expandedKey_3_U->we1(expandedKey_3_we1);
+    expandedKey_3_U->d1(grp_expandKey_fu_572_expandedKey_3_d1);
+    expandedKey_3_U->q1(expandedKey_3_q1);
+    grp_aes_main_fu_561 = new aes_main("grp_aes_main_fu_561");
+    grp_aes_main_fu_561->ap_clk(ap_clk);
+    grp_aes_main_fu_561->ap_rst(ap_rst);
+    grp_aes_main_fu_561->ap_start(grp_aes_main_fu_561_ap_start);
+    grp_aes_main_fu_561->ap_done(grp_aes_main_fu_561_ap_done);
+    grp_aes_main_fu_561->ap_idle(grp_aes_main_fu_561_ap_idle);
+    grp_aes_main_fu_561->ap_ready(grp_aes_main_fu_561_ap_ready);
+    grp_aes_main_fu_561->state_address0(grp_aes_main_fu_561_state_address0);
+    grp_aes_main_fu_561->state_ce0(grp_aes_main_fu_561_state_ce0);
+    grp_aes_main_fu_561->state_we0(grp_aes_main_fu_561_state_we0);
+    grp_aes_main_fu_561->state_d0(grp_aes_main_fu_561_state_d0);
+    grp_aes_main_fu_561->state_q0(block_q0);
+    grp_aes_main_fu_561->state_address1(grp_aes_main_fu_561_state_address1);
+    grp_aes_main_fu_561->state_ce1(grp_aes_main_fu_561_state_ce1);
+    grp_aes_main_fu_561->state_we1(grp_aes_main_fu_561_state_we1);
+    grp_aes_main_fu_561->state_d1(grp_aes_main_fu_561_state_d1);
+    grp_aes_main_fu_561->state_q1(block_q1);
+    grp_aes_main_fu_561->expandedKey_0_address0(grp_aes_main_fu_561_expandedKey_0_address0);
+    grp_aes_main_fu_561->expandedKey_0_ce0(grp_aes_main_fu_561_expandedKey_0_ce0);
+    grp_aes_main_fu_561->expandedKey_0_q0(expandedKey_0_q0);
+    grp_aes_main_fu_561->expandedKey_0_address1(grp_aes_main_fu_561_expandedKey_0_address1);
+    grp_aes_main_fu_561->expandedKey_0_ce1(grp_aes_main_fu_561_expandedKey_0_ce1);
+    grp_aes_main_fu_561->expandedKey_0_q1(expandedKey_0_q1);
+    grp_aes_main_fu_561->expandedKey_1_address0(grp_aes_main_fu_561_expandedKey_1_address0);
+    grp_aes_main_fu_561->expandedKey_1_ce0(grp_aes_main_fu_561_expandedKey_1_ce0);
+    grp_aes_main_fu_561->expandedKey_1_q0(expandedKey_1_q0);
+    grp_aes_main_fu_561->expandedKey_1_address1(grp_aes_main_fu_561_expandedKey_1_address1);
+    grp_aes_main_fu_561->expandedKey_1_ce1(grp_aes_main_fu_561_expandedKey_1_ce1);
+    grp_aes_main_fu_561->expandedKey_1_q1(expandedKey_1_q1);
+    grp_aes_main_fu_561->expandedKey_2_address0(grp_aes_main_fu_561_expandedKey_2_address0);
+    grp_aes_main_fu_561->expandedKey_2_ce0(grp_aes_main_fu_561_expandedKey_2_ce0);
+    grp_aes_main_fu_561->expandedKey_2_q0(expandedKey_2_q0);
+    grp_aes_main_fu_561->expandedKey_2_address1(grp_aes_main_fu_561_expandedKey_2_address1);
+    grp_aes_main_fu_561->expandedKey_2_ce1(grp_aes_main_fu_561_expandedKey_2_ce1);
+    grp_aes_main_fu_561->expandedKey_2_q1(expandedKey_2_q1);
+    grp_aes_main_fu_561->expandedKey_3_address0(grp_aes_main_fu_561_expandedKey_3_address0);
+    grp_aes_main_fu_561->expandedKey_3_ce0(grp_aes_main_fu_561_expandedKey_3_ce0);
+    grp_aes_main_fu_561->expandedKey_3_q0(expandedKey_3_q0);
+    grp_aes_main_fu_561->expandedKey_3_address1(grp_aes_main_fu_561_expandedKey_3_address1);
+    grp_aes_main_fu_561->expandedKey_3_ce1(grp_aes_main_fu_561_expandedKey_3_ce1);
+    grp_aes_main_fu_561->expandedKey_3_q1(expandedKey_3_q1);
+    grp_expandKey_fu_572 = new expandKey("grp_expandKey_fu_572");
+    grp_expandKey_fu_572->ap_clk(ap_clk);
+    grp_expandKey_fu_572->ap_rst(ap_rst);
+    grp_expandKey_fu_572->ap_start(grp_expandKey_fu_572_ap_start);
+    grp_expandKey_fu_572->ap_done(grp_expandKey_fu_572_ap_done);
+    grp_expandKey_fu_572->ap_idle(grp_expandKey_fu_572_ap_idle);
+    grp_expandKey_fu_572->ap_ready(grp_expandKey_fu_572_ap_ready);
+    grp_expandKey_fu_572->expandedKey_0_address0(grp_expandKey_fu_572_expandedKey_0_address0);
+    grp_expandKey_fu_572->expandedKey_0_ce0(grp_expandKey_fu_572_expandedKey_0_ce0);
+    grp_expandKey_fu_572->expandedKey_0_we0(grp_expandKey_fu_572_expandedKey_0_we0);
+    grp_expandKey_fu_572->expandedKey_0_d0(grp_expandKey_fu_572_expandedKey_0_d0);
+    grp_expandKey_fu_572->expandedKey_0_q0(expandedKey_0_q0);
+    grp_expandKey_fu_572->expandedKey_0_address1(grp_expandKey_fu_572_expandedKey_0_address1);
+    grp_expandKey_fu_572->expandedKey_0_ce1(grp_expandKey_fu_572_expandedKey_0_ce1);
+    grp_expandKey_fu_572->expandedKey_0_we1(grp_expandKey_fu_572_expandedKey_0_we1);
+    grp_expandKey_fu_572->expandedKey_0_d1(grp_expandKey_fu_572_expandedKey_0_d1);
+    grp_expandKey_fu_572->expandedKey_0_q1(expandedKey_0_q1);
+    grp_expandKey_fu_572->expandedKey_1_address0(grp_expandKey_fu_572_expandedKey_1_address0);
+    grp_expandKey_fu_572->expandedKey_1_ce0(grp_expandKey_fu_572_expandedKey_1_ce0);
+    grp_expandKey_fu_572->expandedKey_1_we0(grp_expandKey_fu_572_expandedKey_1_we0);
+    grp_expandKey_fu_572->expandedKey_1_d0(grp_expandKey_fu_572_expandedKey_1_d0);
+    grp_expandKey_fu_572->expandedKey_1_q0(expandedKey_1_q0);
+    grp_expandKey_fu_572->expandedKey_1_address1(grp_expandKey_fu_572_expandedKey_1_address1);
+    grp_expandKey_fu_572->expandedKey_1_ce1(grp_expandKey_fu_572_expandedKey_1_ce1);
+    grp_expandKey_fu_572->expandedKey_1_we1(grp_expandKey_fu_572_expandedKey_1_we1);
+    grp_expandKey_fu_572->expandedKey_1_d1(grp_expandKey_fu_572_expandedKey_1_d1);
+    grp_expandKey_fu_572->expandedKey_1_q1(expandedKey_1_q1);
+    grp_expandKey_fu_572->expandedKey_2_address0(grp_expandKey_fu_572_expandedKey_2_address0);
+    grp_expandKey_fu_572->expandedKey_2_ce0(grp_expandKey_fu_572_expandedKey_2_ce0);
+    grp_expandKey_fu_572->expandedKey_2_we0(grp_expandKey_fu_572_expandedKey_2_we0);
+    grp_expandKey_fu_572->expandedKey_2_d0(grp_expandKey_fu_572_expandedKey_2_d0);
+    grp_expandKey_fu_572->expandedKey_2_q0(expandedKey_2_q0);
+    grp_expandKey_fu_572->expandedKey_3_address0(grp_expandKey_fu_572_expandedKey_3_address0);
+    grp_expandKey_fu_572->expandedKey_3_ce0(grp_expandKey_fu_572_expandedKey_3_ce0);
+    grp_expandKey_fu_572->expandedKey_3_we0(grp_expandKey_fu_572_expandedKey_3_we0);
+    grp_expandKey_fu_572->expandedKey_3_d0(grp_expandKey_fu_572_expandedKey_3_d0);
+    grp_expandKey_fu_572->expandedKey_3_q0(expandedKey_3_q0);
+    grp_expandKey_fu_572->expandedKey_3_address1(grp_expandKey_fu_572_expandedKey_3_address1);
+    grp_expandKey_fu_572->expandedKey_3_ce1(grp_expandKey_fu_572_expandedKey_3_ce1);
+    grp_expandKey_fu_572->expandedKey_3_we1(grp_expandKey_fu_572_expandedKey_3_we1);
+    grp_expandKey_fu_572->expandedKey_3_d1(grp_expandKey_fu_572_expandedKey_3_d1);
+    grp_expandKey_fu_572->expandedKey_3_q1(expandedKey_3_q1);
+    grp_expandKey_fu_572->key_0_read(key_0_read);
+    grp_expandKey_fu_572->key_1_read(key_1_read);
+    grp_expandKey_fu_572->key_2_read(key_2_read);
+    grp_expandKey_fu_572->key_3_read(key_3_read);
+    grp_expandKey_fu_572->key_4_read(key_4_read);
+    grp_expandKey_fu_572->key_5_read(key_5_read);
+    grp_expandKey_fu_572->key_6_read(key_6_read);
+    grp_expandKey_fu_572->key_7_read(key_7_read);
+    grp_expandKey_fu_572->key_8_read(key_8_read);
+    grp_expandKey_fu_572->key_9_read(key_9_read);
+    grp_expandKey_fu_572->key_10_read(key_10_read);
+    grp_expandKey_fu_572->key_11_read(key_11_read);
+    grp_expandKey_fu_572->key_12_read(key_12_read);
+    grp_expandKey_fu_572->key_13_read(key_13_read);
+    grp_expandKey_fu_572->key_14_read(key_14_read);
+    grp_expandKey_fu_572->key_15_read(key_15_read);
+    encrypt_dut_mux_1bkb_U81 = new encrypt_dut_mux_1bkb<1,1,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,4,8>("encrypt_dut_mux_1bkb_U81");
+    encrypt_dut_mux_1bkb_U81->din0(input_0_read);
+    encrypt_dut_mux_1bkb_U81->din1(input_1_read);
+    encrypt_dut_mux_1bkb_U81->din2(input_2_read);
+    encrypt_dut_mux_1bkb_U81->din3(input_3_read);
+    encrypt_dut_mux_1bkb_U81->din4(input_4_read);
+    encrypt_dut_mux_1bkb_U81->din5(input_5_read);
+    encrypt_dut_mux_1bkb_U81->din6(input_6_read);
+    encrypt_dut_mux_1bkb_U81->din7(input_7_read);
+    encrypt_dut_mux_1bkb_U81->din8(input_8_read);
+    encrypt_dut_mux_1bkb_U81->din9(input_9_read);
+    encrypt_dut_mux_1bkb_U81->din10(input_10_read);
+    encrypt_dut_mux_1bkb_U81->din11(input_11_read);
+    encrypt_dut_mux_1bkb_U81->din12(input_12_read);
+    encrypt_dut_mux_1bkb_U81->din13(input_13_read);
+    encrypt_dut_mux_1bkb_U81->din14(input_14_read);
+    encrypt_dut_mux_1bkb_U81->din15(input_15_read);
+    encrypt_dut_mux_1bkb_U81->din16(tmp_fu_649_p17);
+    encrypt_dut_mux_1bkb_U81->dout(tmp_fu_649_p18);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
     sensitive << ( ap_clk.pos() );
 
-    SC_METHOD(thread_add_ln52_1_fu_350_p2);
-    sensitive << ( zext_ln47_reg_515 );
-    sensitive << ( shl_ln52_1_fu_342_p3 );
+    SC_METHOD(thread_add_ln54_1_fu_684_p2);
+    sensitive << ( zext_ln49_reg_925 );
+    sensitive << ( shl_ln54_1_fu_676_p3 );
 
-    SC_METHOD(thread_add_ln68_1_fu_426_p2);
-    sensitive << ( shl_ln1_reg_554 );
-    sensitive << ( zext_ln66_fu_388_p1 );
+    SC_METHOD(thread_add_ln70_1_fu_760_p2);
+    sensitive << ( shl_ln1_reg_964 );
+    sensitive << ( zext_ln68_fu_722_p1 );
 
-    SC_METHOD(thread_add_ln68_fu_416_p2);
-    sensitive << ( zext_ln63_reg_541 );
-    sensitive << ( shl_ln68_1_fu_408_p3 );
+    SC_METHOD(thread_add_ln70_fu_750_p2);
+    sensitive << ( zext_ln65_reg_951 );
+    sensitive << ( shl_ln70_1_fu_742_p3 );
 
     SC_METHOD(thread_ap_CS_fsm_state1);
     sensitive << ( ap_CS_fsm );
@@ -177,7 +286,7 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( icmp_ln63_fu_364_p2 );
+    sensitive << ( icmp_ln65_fu_698_p2 );
 
     SC_METHOD(thread_ap_idle);
     sensitive << ( ap_start );
@@ -185,200 +294,403 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
     SC_METHOD(thread_ap_ready);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( icmp_ln63_fu_364_p2 );
+    sensitive << ( icmp_ln65_fu_698_p2 );
 
     SC_METHOD(thread_block_address0);
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( grp_aes_main_fu_247_state_address0 );
+    sensitive << ( grp_aes_main_fu_561_state_address0 );
     sensitive << ( ap_CS_fsm_state6 );
-    sensitive << ( zext_ln52_fu_355_p1 );
-    sensitive << ( zext_ln68_fu_421_p1 );
+    sensitive << ( zext_ln54_fu_689_p1 );
+    sensitive << ( zext_ln70_fu_755_p1 );
 
     SC_METHOD(thread_block_ce0);
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( grp_aes_main_fu_247_state_ce0 );
+    sensitive << ( grp_aes_main_fu_561_state_ce0 );
     sensitive << ( ap_CS_fsm_state6 );
 
     SC_METHOD(thread_block_ce1);
-    sensitive << ( grp_aes_main_fu_247_state_ce1 );
+    sensitive << ( grp_aes_main_fu_561_state_ce1 );
     sensitive << ( ap_CS_fsm_state6 );
 
     SC_METHOD(thread_block_d0);
     sensitive << ( ap_CS_fsm_state3 );
-    sensitive << ( grp_aes_main_fu_247_state_d0 );
+    sensitive << ( grp_aes_main_fu_561_state_d0 );
     sensitive << ( ap_CS_fsm_state6 );
-    sensitive << ( tmp_fu_315_p18 );
+    sensitive << ( tmp_fu_649_p18 );
 
     SC_METHOD(thread_block_we0);
     sensitive << ( ap_CS_fsm_state3 );
-    sensitive << ( grp_aes_main_fu_247_state_we0 );
-    sensitive << ( icmp_ln50_fu_298_p2 );
+    sensitive << ( grp_aes_main_fu_561_state_we0 );
+    sensitive << ( icmp_ln52_fu_632_p2 );
     sensitive << ( ap_CS_fsm_state6 );
 
     SC_METHOD(thread_block_we1);
-    sensitive << ( grp_aes_main_fu_247_state_we1 );
+    sensitive << ( grp_aes_main_fu_561_state_we1 );
     sensitive << ( ap_CS_fsm_state6 );
 
-    SC_METHOD(thread_expandedKey_address0);
-    sensitive << ( grp_aes_main_fu_247_expandedKey_address0 );
-    sensitive << ( grp_expandKey_fu_255_expandedKey_address0 );
-    sensitive << ( ap_CS_fsm_state6 );
-    sensitive << ( ap_CS_fsm_state4 );
-
-    SC_METHOD(thread_expandedKey_address1);
-    sensitive << ( grp_aes_main_fu_247_expandedKey_address1 );
-    sensitive << ( grp_expandKey_fu_255_expandedKey_address1 );
+    SC_METHOD(thread_expandedKey_0_address0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_0_address0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_0_address0 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_expandedKey_ce0);
-    sensitive << ( grp_aes_main_fu_247_expandedKey_ce0 );
-    sensitive << ( grp_expandKey_fu_255_expandedKey_ce0 );
+    SC_METHOD(thread_expandedKey_0_address1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_0_address1 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_0_address1 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_expandedKey_ce1);
-    sensitive << ( grp_aes_main_fu_247_expandedKey_ce1 );
-    sensitive << ( grp_expandKey_fu_255_expandedKey_ce1 );
+    SC_METHOD(thread_expandedKey_0_ce0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_0_ce0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_0_ce0 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_expandedKey_we0);
-    sensitive << ( grp_expandKey_fu_255_expandedKey_we0 );
+    SC_METHOD(thread_expandedKey_0_ce1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_0_ce1 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_0_ce1 );
+    sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_expandedKey_we1);
-    sensitive << ( grp_expandKey_fu_255_expandedKey_we1 );
+    SC_METHOD(thread_expandedKey_0_we0);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_0_we0 );
     sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_grp_aes_main_fu_247_ap_start);
-    sensitive << ( grp_aes_main_fu_247_ap_start_reg );
+    SC_METHOD(thread_expandedKey_0_we1);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_0_we1 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_grp_expandKey_fu_255_ap_start);
-    sensitive << ( grp_expandKey_fu_255_ap_start_reg );
+    SC_METHOD(thread_expandedKey_1_address0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_1_address0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_1_address0 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_i_2_fu_370_p2);
-    sensitive << ( i_1_reg_225 );
+    SC_METHOD(thread_expandedKey_1_address1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_1_address1 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_1_address1 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_i_fu_276_p2);
-    sensitive << ( i_0_reg_203 );
+    SC_METHOD(thread_expandedKey_1_ce0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_1_ce0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_1_ce0 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
 
-    SC_METHOD(thread_icmp_ln47_fu_270_p2);
+    SC_METHOD(thread_expandedKey_1_ce1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_1_ce1 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_1_ce1 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_1_we0);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_1_we0 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_1_we1);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_1_we1 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_2_address0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_2_address0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_2_address0 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_2_ce0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_2_ce0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_2_ce0 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_2_ce1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_2_ce1 );
+    sensitive << ( ap_CS_fsm_state6 );
+
+    SC_METHOD(thread_expandedKey_2_we0);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_2_we0 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_3_address0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_3_address0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_3_address0 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_3_address1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_3_address1 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_3_address1 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_3_ce0);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_3_ce0 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_3_ce0 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_3_ce1);
+    sensitive << ( grp_aes_main_fu_561_expandedKey_3_ce1 );
+    sensitive << ( grp_expandKey_fu_572_expandedKey_3_ce1 );
+    sensitive << ( ap_CS_fsm_state6 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_3_we0);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_3_we0 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_expandedKey_3_we1);
+    sensitive << ( grp_expandKey_fu_572_expandedKey_3_we1 );
+    sensitive << ( ap_CS_fsm_state4 );
+
+    SC_METHOD(thread_grp_aes_main_fu_561_ap_start);
+    sensitive << ( grp_aes_main_fu_561_ap_start_reg );
+
+    SC_METHOD(thread_grp_expandKey_fu_572_ap_start);
+    sensitive << ( grp_expandKey_fu_572_ap_start_reg );
+
+    SC_METHOD(thread_i_2_fu_704_p2);
+    sensitive << ( i_1_reg_539 );
+
+    SC_METHOD(thread_i_fu_610_p2);
+    sensitive << ( i_0_reg_517 );
+
+    SC_METHOD(thread_icmp_ln49_fu_604_p2);
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( i_0_reg_203 );
+    sensitive << ( i_0_reg_517 );
 
-    SC_METHOD(thread_icmp_ln50_fu_298_p2);
+    SC_METHOD(thread_icmp_ln52_fu_632_p2);
     sensitive << ( ap_CS_fsm_state3 );
-    sensitive << ( j_0_reg_214 );
+    sensitive << ( j_0_reg_528 );
 
-    SC_METHOD(thread_icmp_ln63_fu_364_p2);
+    SC_METHOD(thread_icmp_ln65_fu_698_p2);
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( i_1_reg_225 );
+    sensitive << ( i_1_reg_539 );
 
-    SC_METHOD(thread_icmp_ln66_fu_392_p2);
+    SC_METHOD(thread_icmp_ln68_fu_726_p2);
     sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( j_1_reg_236 );
+    sensitive << ( j_1_reg_550 );
 
-    SC_METHOD(thread_j_2_fu_398_p2);
-    sensitive << ( j_1_reg_236 );
+    SC_METHOD(thread_j_2_fu_732_p2);
+    sensitive << ( j_1_reg_550 );
 
-    SC_METHOD(thread_j_fu_304_p2);
-    sensitive << ( j_0_reg_214 );
+    SC_METHOD(thread_j_fu_638_p2);
+    sensitive << ( j_0_reg_528 );
 
-    SC_METHOD(thread_key_address0);
-    sensitive << ( grp_expandKey_fu_255_key_address0 );
-    sensitive << ( ap_CS_fsm_state4 );
-
-    SC_METHOD(thread_key_ce0);
-    sensitive << ( grp_expandKey_fu_255_key_ce0 );
-    sensitive << ( ap_CS_fsm_state4 );
-
-    SC_METHOD(thread_output_r_address0);
-    sensitive << ( ap_CS_fsm_state9 );
-    sensitive << ( zext_ln68_1_fu_431_p1 );
-
-    SC_METHOD(thread_output_r_ce0);
-    sensitive << ( ap_CS_fsm_state9 );
-
-    SC_METHOD(thread_output_r_d0);
+    SC_METHOD(thread_output_0);
+    sensitive << ( add_ln70_1_reg_982 );
     sensitive << ( block_q0 );
     sensitive << ( ap_CS_fsm_state9 );
 
-    SC_METHOD(thread_output_r_we0);
+    SC_METHOD(thread_output_0_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
     sensitive << ( ap_CS_fsm_state9 );
 
-    SC_METHOD(thread_shl_ln1_fu_380_p3);
-    sensitive << ( trunc_ln68_fu_376_p1 );
+    SC_METHOD(thread_output_1);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
 
-    SC_METHOD(thread_shl_ln52_1_fu_342_p3);
-    sensitive << ( trunc_ln52_1_fu_338_p1 );
+    SC_METHOD(thread_output_10);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
 
-    SC_METHOD(thread_shl_ln68_1_fu_408_p3);
-    sensitive << ( trunc_ln68_1_fu_404_p1 );
+    SC_METHOD(thread_output_10_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
 
-    SC_METHOD(thread_shl_ln_fu_286_p3);
-    sensitive << ( trunc_ln52_fu_282_p1 );
+    SC_METHOD(thread_output_11);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
 
-    SC_METHOD(thread_tmp_fu_315_p17);
-    sensitive << ( shl_ln_reg_528 );
+    SC_METHOD(thread_output_11_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_12);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_12_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_13);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_13_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_14);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_14_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_15);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_15_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_1_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_2);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_2_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_3);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_3_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_4);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_4_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_5);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_5_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_6);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_6_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_7);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_7_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_8);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_8_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_9);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( block_q0 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_output_9_ap_vld);
+    sensitive << ( add_ln70_1_reg_982 );
+    sensitive << ( ap_CS_fsm_state9 );
+
+    SC_METHOD(thread_shl_ln1_fu_714_p3);
+    sensitive << ( trunc_ln70_fu_710_p1 );
+
+    SC_METHOD(thread_shl_ln54_1_fu_676_p3);
+    sensitive << ( trunc_ln54_1_fu_672_p1 );
+
+    SC_METHOD(thread_shl_ln70_1_fu_742_p3);
+    sensitive << ( trunc_ln70_1_fu_738_p1 );
+
+    SC_METHOD(thread_shl_ln_fu_620_p3);
+    sensitive << ( trunc_ln54_fu_616_p1 );
+
+    SC_METHOD(thread_tmp_fu_649_p17);
+    sensitive << ( shl_ln_reg_938 );
     sensitive << ( ap_CS_fsm_state3 );
-    sensitive << ( zext_ln50_fu_294_p1 );
+    sensitive << ( zext_ln52_fu_628_p1 );
 
-    SC_METHOD(thread_trunc_ln52_1_fu_338_p1);
-    sensitive << ( j_0_reg_214 );
+    SC_METHOD(thread_trunc_ln54_1_fu_672_p1);
+    sensitive << ( j_0_reg_528 );
 
-    SC_METHOD(thread_trunc_ln52_fu_282_p1);
-    sensitive << ( i_0_reg_203 );
+    SC_METHOD(thread_trunc_ln54_fu_616_p1);
+    sensitive << ( i_0_reg_517 );
 
-    SC_METHOD(thread_trunc_ln68_1_fu_404_p1);
-    sensitive << ( j_1_reg_236 );
+    SC_METHOD(thread_trunc_ln70_1_fu_738_p1);
+    sensitive << ( j_1_reg_550 );
 
-    SC_METHOD(thread_trunc_ln68_fu_376_p1);
-    sensitive << ( i_1_reg_225 );
+    SC_METHOD(thread_trunc_ln70_fu_710_p1);
+    sensitive << ( i_1_reg_539 );
 
-    SC_METHOD(thread_zext_ln47_fu_266_p1);
-    sensitive << ( i_0_reg_203 );
+    SC_METHOD(thread_zext_ln49_fu_600_p1);
+    sensitive << ( i_0_reg_517 );
 
-    SC_METHOD(thread_zext_ln50_fu_294_p1);
-    sensitive << ( j_0_reg_214 );
+    SC_METHOD(thread_zext_ln52_fu_628_p1);
+    sensitive << ( j_0_reg_528 );
 
-    SC_METHOD(thread_zext_ln52_fu_355_p1);
-    sensitive << ( add_ln52_1_fu_350_p2 );
+    SC_METHOD(thread_zext_ln54_fu_689_p1);
+    sensitive << ( add_ln54_1_fu_684_p2 );
 
-    SC_METHOD(thread_zext_ln63_fu_360_p1);
-    sensitive << ( i_1_reg_225 );
+    SC_METHOD(thread_zext_ln65_fu_694_p1);
+    sensitive << ( i_1_reg_539 );
 
-    SC_METHOD(thread_zext_ln66_fu_388_p1);
-    sensitive << ( j_1_reg_236 );
+    SC_METHOD(thread_zext_ln68_fu_722_p1);
+    sensitive << ( j_1_reg_550 );
 
-    SC_METHOD(thread_zext_ln68_1_fu_431_p1);
-    sensitive << ( add_ln68_1_reg_572 );
-
-    SC_METHOD(thread_zext_ln68_fu_421_p1);
-    sensitive << ( add_ln68_fu_416_p2 );
+    SC_METHOD(thread_zext_ln70_fu_755_p1);
+    sensitive << ( add_ln70_fu_750_p2 );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( ap_start );
     sensitive << ( ap_CS_fsm );
     sensitive << ( ap_CS_fsm_state1 );
     sensitive << ( ap_CS_fsm_state2 );
-    sensitive << ( icmp_ln47_fu_270_p2 );
+    sensitive << ( icmp_ln49_fu_604_p2 );
     sensitive << ( ap_CS_fsm_state3 );
     sensitive << ( ap_CS_fsm_state7 );
-    sensitive << ( icmp_ln63_fu_364_p2 );
+    sensitive << ( icmp_ln65_fu_698_p2 );
     sensitive << ( ap_CS_fsm_state8 );
-    sensitive << ( icmp_ln66_fu_392_p2 );
-    sensitive << ( grp_aes_main_fu_247_ap_done );
-    sensitive << ( grp_expandKey_fu_255_ap_done );
-    sensitive << ( icmp_ln50_fu_298_p2 );
+    sensitive << ( icmp_ln68_fu_726_p2 );
+    sensitive << ( grp_aes_main_fu_561_ap_done );
+    sensitive << ( grp_expandKey_fu_572_ap_done );
+    sensitive << ( icmp_ln52_fu_632_p2 );
     sensitive << ( ap_CS_fsm_state6 );
     sensitive << ( ap_CS_fsm_state4 );
 
     ap_CS_fsm = "000000001";
-    grp_aes_main_fu_247_ap_start_reg = SC_LOGIC_0;
-    grp_expandKey_fu_255_ap_start_reg = SC_LOGIC_0;
+    grp_aes_main_fu_561_ap_start_reg = SC_LOGIC_0;
+    grp_expandKey_fu_572_ap_start_reg = SC_LOGIC_0;
     static int apTFileNum = 0;
     stringstream apTFilenSS;
     apTFilenSS << "aes_encrypt_sc_trace_" << apTFileNum ++;
@@ -409,41 +721,82 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, input_13_read, "(port)input_13_read");
     sc_trace(mVcdFile, input_14_read, "(port)input_14_read");
     sc_trace(mVcdFile, input_15_read, "(port)input_15_read");
-    sc_trace(mVcdFile, output_r_address0, "(port)output_r_address0");
-    sc_trace(mVcdFile, output_r_ce0, "(port)output_r_ce0");
-    sc_trace(mVcdFile, output_r_we0, "(port)output_r_we0");
-    sc_trace(mVcdFile, output_r_d0, "(port)output_r_d0");
-    sc_trace(mVcdFile, key_address0, "(port)key_address0");
-    sc_trace(mVcdFile, key_ce0, "(port)key_ce0");
-    sc_trace(mVcdFile, key_q0, "(port)key_q0");
+    sc_trace(mVcdFile, output_0, "(port)output_0");
+    sc_trace(mVcdFile, output_0_ap_vld, "(port)output_0_ap_vld");
+    sc_trace(mVcdFile, output_1, "(port)output_1");
+    sc_trace(mVcdFile, output_1_ap_vld, "(port)output_1_ap_vld");
+    sc_trace(mVcdFile, output_2, "(port)output_2");
+    sc_trace(mVcdFile, output_2_ap_vld, "(port)output_2_ap_vld");
+    sc_trace(mVcdFile, output_3, "(port)output_3");
+    sc_trace(mVcdFile, output_3_ap_vld, "(port)output_3_ap_vld");
+    sc_trace(mVcdFile, output_4, "(port)output_4");
+    sc_trace(mVcdFile, output_4_ap_vld, "(port)output_4_ap_vld");
+    sc_trace(mVcdFile, output_5, "(port)output_5");
+    sc_trace(mVcdFile, output_5_ap_vld, "(port)output_5_ap_vld");
+    sc_trace(mVcdFile, output_6, "(port)output_6");
+    sc_trace(mVcdFile, output_6_ap_vld, "(port)output_6_ap_vld");
+    sc_trace(mVcdFile, output_7, "(port)output_7");
+    sc_trace(mVcdFile, output_7_ap_vld, "(port)output_7_ap_vld");
+    sc_trace(mVcdFile, output_8, "(port)output_8");
+    sc_trace(mVcdFile, output_8_ap_vld, "(port)output_8_ap_vld");
+    sc_trace(mVcdFile, output_9, "(port)output_9");
+    sc_trace(mVcdFile, output_9_ap_vld, "(port)output_9_ap_vld");
+    sc_trace(mVcdFile, output_10, "(port)output_10");
+    sc_trace(mVcdFile, output_10_ap_vld, "(port)output_10_ap_vld");
+    sc_trace(mVcdFile, output_11, "(port)output_11");
+    sc_trace(mVcdFile, output_11_ap_vld, "(port)output_11_ap_vld");
+    sc_trace(mVcdFile, output_12, "(port)output_12");
+    sc_trace(mVcdFile, output_12_ap_vld, "(port)output_12_ap_vld");
+    sc_trace(mVcdFile, output_13, "(port)output_13");
+    sc_trace(mVcdFile, output_13_ap_vld, "(port)output_13_ap_vld");
+    sc_trace(mVcdFile, output_14, "(port)output_14");
+    sc_trace(mVcdFile, output_14_ap_vld, "(port)output_14_ap_vld");
+    sc_trace(mVcdFile, output_15, "(port)output_15");
+    sc_trace(mVcdFile, output_15_ap_vld, "(port)output_15_ap_vld");
+    sc_trace(mVcdFile, key_0_read, "(port)key_0_read");
+    sc_trace(mVcdFile, key_1_read, "(port)key_1_read");
+    sc_trace(mVcdFile, key_2_read, "(port)key_2_read");
+    sc_trace(mVcdFile, key_3_read, "(port)key_3_read");
+    sc_trace(mVcdFile, key_4_read, "(port)key_4_read");
+    sc_trace(mVcdFile, key_5_read, "(port)key_5_read");
+    sc_trace(mVcdFile, key_6_read, "(port)key_6_read");
+    sc_trace(mVcdFile, key_7_read, "(port)key_7_read");
+    sc_trace(mVcdFile, key_8_read, "(port)key_8_read");
+    sc_trace(mVcdFile, key_9_read, "(port)key_9_read");
+    sc_trace(mVcdFile, key_10_read, "(port)key_10_read");
+    sc_trace(mVcdFile, key_11_read, "(port)key_11_read");
+    sc_trace(mVcdFile, key_12_read, "(port)key_12_read");
+    sc_trace(mVcdFile, key_13_read, "(port)key_13_read");
+    sc_trace(mVcdFile, key_14_read, "(port)key_14_read");
+    sc_trace(mVcdFile, key_15_read, "(port)key_15_read");
 #endif
 #ifdef __HLS_TRACE_LEVEL_INT__
     sc_trace(mVcdFile, ap_CS_fsm, "ap_CS_fsm");
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
-    sc_trace(mVcdFile, zext_ln47_fu_266_p1, "zext_ln47_fu_266_p1");
-    sc_trace(mVcdFile, zext_ln47_reg_515, "zext_ln47_reg_515");
+    sc_trace(mVcdFile, zext_ln49_fu_600_p1, "zext_ln49_fu_600_p1");
+    sc_trace(mVcdFile, zext_ln49_reg_925, "zext_ln49_reg_925");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
-    sc_trace(mVcdFile, i_fu_276_p2, "i_fu_276_p2");
-    sc_trace(mVcdFile, i_reg_523, "i_reg_523");
-    sc_trace(mVcdFile, shl_ln_fu_286_p3, "shl_ln_fu_286_p3");
-    sc_trace(mVcdFile, shl_ln_reg_528, "shl_ln_reg_528");
-    sc_trace(mVcdFile, icmp_ln47_fu_270_p2, "icmp_ln47_fu_270_p2");
-    sc_trace(mVcdFile, j_fu_304_p2, "j_fu_304_p2");
+    sc_trace(mVcdFile, i_fu_610_p2, "i_fu_610_p2");
+    sc_trace(mVcdFile, i_reg_933, "i_reg_933");
+    sc_trace(mVcdFile, shl_ln_fu_620_p3, "shl_ln_fu_620_p3");
+    sc_trace(mVcdFile, shl_ln_reg_938, "shl_ln_reg_938");
+    sc_trace(mVcdFile, icmp_ln49_fu_604_p2, "icmp_ln49_fu_604_p2");
+    sc_trace(mVcdFile, j_fu_638_p2, "j_fu_638_p2");
     sc_trace(mVcdFile, ap_CS_fsm_state3, "ap_CS_fsm_state3");
-    sc_trace(mVcdFile, zext_ln63_fu_360_p1, "zext_ln63_fu_360_p1");
-    sc_trace(mVcdFile, zext_ln63_reg_541, "zext_ln63_reg_541");
+    sc_trace(mVcdFile, zext_ln65_fu_694_p1, "zext_ln65_fu_694_p1");
+    sc_trace(mVcdFile, zext_ln65_reg_951, "zext_ln65_reg_951");
     sc_trace(mVcdFile, ap_CS_fsm_state7, "ap_CS_fsm_state7");
-    sc_trace(mVcdFile, i_2_fu_370_p2, "i_2_fu_370_p2");
-    sc_trace(mVcdFile, i_2_reg_549, "i_2_reg_549");
-    sc_trace(mVcdFile, shl_ln1_fu_380_p3, "shl_ln1_fu_380_p3");
-    sc_trace(mVcdFile, shl_ln1_reg_554, "shl_ln1_reg_554");
-    sc_trace(mVcdFile, icmp_ln63_fu_364_p2, "icmp_ln63_fu_364_p2");
-    sc_trace(mVcdFile, j_2_fu_398_p2, "j_2_fu_398_p2");
-    sc_trace(mVcdFile, j_2_reg_562, "j_2_reg_562");
+    sc_trace(mVcdFile, i_2_fu_704_p2, "i_2_fu_704_p2");
+    sc_trace(mVcdFile, i_2_reg_959, "i_2_reg_959");
+    sc_trace(mVcdFile, shl_ln1_fu_714_p3, "shl_ln1_fu_714_p3");
+    sc_trace(mVcdFile, shl_ln1_reg_964, "shl_ln1_reg_964");
+    sc_trace(mVcdFile, icmp_ln65_fu_698_p2, "icmp_ln65_fu_698_p2");
+    sc_trace(mVcdFile, j_2_fu_732_p2, "j_2_fu_732_p2");
+    sc_trace(mVcdFile, j_2_reg_972, "j_2_reg_972");
     sc_trace(mVcdFile, ap_CS_fsm_state8, "ap_CS_fsm_state8");
-    sc_trace(mVcdFile, icmp_ln66_fu_392_p2, "icmp_ln66_fu_392_p2");
-    sc_trace(mVcdFile, add_ln68_1_fu_426_p2, "add_ln68_1_fu_426_p2");
-    sc_trace(mVcdFile, add_ln68_1_reg_572, "add_ln68_1_reg_572");
+    sc_trace(mVcdFile, icmp_ln68_fu_726_p2, "icmp_ln68_fu_726_p2");
+    sc_trace(mVcdFile, add_ln70_1_fu_760_p2, "add_ln70_1_fu_760_p2");
+    sc_trace(mVcdFile, add_ln70_1_reg_982, "add_ln70_1_reg_982");
     sc_trace(mVcdFile, block_address0, "block_address0");
     sc_trace(mVcdFile, block_ce0, "block_ce0");
     sc_trace(mVcdFile, block_we0, "block_we0");
@@ -452,70 +805,121 @@ aes_encrypt::aes_encrypt(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, block_ce1, "block_ce1");
     sc_trace(mVcdFile, block_we1, "block_we1");
     sc_trace(mVcdFile, block_q1, "block_q1");
-    sc_trace(mVcdFile, expandedKey_address0, "expandedKey_address0");
-    sc_trace(mVcdFile, expandedKey_ce0, "expandedKey_ce0");
-    sc_trace(mVcdFile, expandedKey_we0, "expandedKey_we0");
-    sc_trace(mVcdFile, expandedKey_q0, "expandedKey_q0");
-    sc_trace(mVcdFile, expandedKey_address1, "expandedKey_address1");
-    sc_trace(mVcdFile, expandedKey_ce1, "expandedKey_ce1");
-    sc_trace(mVcdFile, expandedKey_we1, "expandedKey_we1");
-    sc_trace(mVcdFile, expandedKey_q1, "expandedKey_q1");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_ap_start, "grp_aes_main_fu_247_ap_start");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_ap_done, "grp_aes_main_fu_247_ap_done");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_ap_idle, "grp_aes_main_fu_247_ap_idle");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_ap_ready, "grp_aes_main_fu_247_ap_ready");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_address0, "grp_aes_main_fu_247_state_address0");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_ce0, "grp_aes_main_fu_247_state_ce0");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_we0, "grp_aes_main_fu_247_state_we0");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_d0, "grp_aes_main_fu_247_state_d0");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_address1, "grp_aes_main_fu_247_state_address1");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_ce1, "grp_aes_main_fu_247_state_ce1");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_we1, "grp_aes_main_fu_247_state_we1");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_state_d1, "grp_aes_main_fu_247_state_d1");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_expandedKey_address0, "grp_aes_main_fu_247_expandedKey_address0");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_expandedKey_ce0, "grp_aes_main_fu_247_expandedKey_ce0");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_expandedKey_address1, "grp_aes_main_fu_247_expandedKey_address1");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_expandedKey_ce1, "grp_aes_main_fu_247_expandedKey_ce1");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_ap_start, "grp_expandKey_fu_255_ap_start");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_ap_done, "grp_expandKey_fu_255_ap_done");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_ap_idle, "grp_expandKey_fu_255_ap_idle");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_ap_ready, "grp_expandKey_fu_255_ap_ready");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_address0, "grp_expandKey_fu_255_expandedKey_address0");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_ce0, "grp_expandKey_fu_255_expandedKey_ce0");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_we0, "grp_expandKey_fu_255_expandedKey_we0");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_d0, "grp_expandKey_fu_255_expandedKey_d0");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_address1, "grp_expandKey_fu_255_expandedKey_address1");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_ce1, "grp_expandKey_fu_255_expandedKey_ce1");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_we1, "grp_expandKey_fu_255_expandedKey_we1");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_expandedKey_d1, "grp_expandKey_fu_255_expandedKey_d1");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_key_address0, "grp_expandKey_fu_255_key_address0");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_key_ce0, "grp_expandKey_fu_255_key_ce0");
-    sc_trace(mVcdFile, i_0_reg_203, "i_0_reg_203");
-    sc_trace(mVcdFile, icmp_ln50_fu_298_p2, "icmp_ln50_fu_298_p2");
-    sc_trace(mVcdFile, j_0_reg_214, "j_0_reg_214");
-    sc_trace(mVcdFile, i_1_reg_225, "i_1_reg_225");
+    sc_trace(mVcdFile, expandedKey_0_address0, "expandedKey_0_address0");
+    sc_trace(mVcdFile, expandedKey_0_ce0, "expandedKey_0_ce0");
+    sc_trace(mVcdFile, expandedKey_0_we0, "expandedKey_0_we0");
+    sc_trace(mVcdFile, expandedKey_0_q0, "expandedKey_0_q0");
+    sc_trace(mVcdFile, expandedKey_0_address1, "expandedKey_0_address1");
+    sc_trace(mVcdFile, expandedKey_0_ce1, "expandedKey_0_ce1");
+    sc_trace(mVcdFile, expandedKey_0_we1, "expandedKey_0_we1");
+    sc_trace(mVcdFile, expandedKey_0_q1, "expandedKey_0_q1");
+    sc_trace(mVcdFile, expandedKey_1_address0, "expandedKey_1_address0");
+    sc_trace(mVcdFile, expandedKey_1_ce0, "expandedKey_1_ce0");
+    sc_trace(mVcdFile, expandedKey_1_we0, "expandedKey_1_we0");
+    sc_trace(mVcdFile, expandedKey_1_q0, "expandedKey_1_q0");
+    sc_trace(mVcdFile, expandedKey_1_address1, "expandedKey_1_address1");
+    sc_trace(mVcdFile, expandedKey_1_ce1, "expandedKey_1_ce1");
+    sc_trace(mVcdFile, expandedKey_1_we1, "expandedKey_1_we1");
+    sc_trace(mVcdFile, expandedKey_1_q1, "expandedKey_1_q1");
+    sc_trace(mVcdFile, expandedKey_2_address0, "expandedKey_2_address0");
+    sc_trace(mVcdFile, expandedKey_2_ce0, "expandedKey_2_ce0");
+    sc_trace(mVcdFile, expandedKey_2_we0, "expandedKey_2_we0");
+    sc_trace(mVcdFile, expandedKey_2_q0, "expandedKey_2_q0");
+    sc_trace(mVcdFile, expandedKey_2_ce1, "expandedKey_2_ce1");
+    sc_trace(mVcdFile, expandedKey_2_q1, "expandedKey_2_q1");
+    sc_trace(mVcdFile, expandedKey_3_address0, "expandedKey_3_address0");
+    sc_trace(mVcdFile, expandedKey_3_ce0, "expandedKey_3_ce0");
+    sc_trace(mVcdFile, expandedKey_3_we0, "expandedKey_3_we0");
+    sc_trace(mVcdFile, expandedKey_3_q0, "expandedKey_3_q0");
+    sc_trace(mVcdFile, expandedKey_3_address1, "expandedKey_3_address1");
+    sc_trace(mVcdFile, expandedKey_3_ce1, "expandedKey_3_ce1");
+    sc_trace(mVcdFile, expandedKey_3_we1, "expandedKey_3_we1");
+    sc_trace(mVcdFile, expandedKey_3_q1, "expandedKey_3_q1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_ap_start, "grp_aes_main_fu_561_ap_start");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_ap_done, "grp_aes_main_fu_561_ap_done");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_ap_idle, "grp_aes_main_fu_561_ap_idle");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_ap_ready, "grp_aes_main_fu_561_ap_ready");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_address0, "grp_aes_main_fu_561_state_address0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_ce0, "grp_aes_main_fu_561_state_ce0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_we0, "grp_aes_main_fu_561_state_we0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_d0, "grp_aes_main_fu_561_state_d0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_address1, "grp_aes_main_fu_561_state_address1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_ce1, "grp_aes_main_fu_561_state_ce1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_we1, "grp_aes_main_fu_561_state_we1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_state_d1, "grp_aes_main_fu_561_state_d1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_0_address0, "grp_aes_main_fu_561_expandedKey_0_address0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_0_ce0, "grp_aes_main_fu_561_expandedKey_0_ce0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_0_address1, "grp_aes_main_fu_561_expandedKey_0_address1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_0_ce1, "grp_aes_main_fu_561_expandedKey_0_ce1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_1_address0, "grp_aes_main_fu_561_expandedKey_1_address0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_1_ce0, "grp_aes_main_fu_561_expandedKey_1_ce0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_1_address1, "grp_aes_main_fu_561_expandedKey_1_address1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_1_ce1, "grp_aes_main_fu_561_expandedKey_1_ce1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_2_address0, "grp_aes_main_fu_561_expandedKey_2_address0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_2_ce0, "grp_aes_main_fu_561_expandedKey_2_ce0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_2_address1, "grp_aes_main_fu_561_expandedKey_2_address1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_2_ce1, "grp_aes_main_fu_561_expandedKey_2_ce1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_3_address0, "grp_aes_main_fu_561_expandedKey_3_address0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_3_ce0, "grp_aes_main_fu_561_expandedKey_3_ce0");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_3_address1, "grp_aes_main_fu_561_expandedKey_3_address1");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_expandedKey_3_ce1, "grp_aes_main_fu_561_expandedKey_3_ce1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_ap_start, "grp_expandKey_fu_572_ap_start");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_ap_done, "grp_expandKey_fu_572_ap_done");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_ap_idle, "grp_expandKey_fu_572_ap_idle");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_ap_ready, "grp_expandKey_fu_572_ap_ready");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_address0, "grp_expandKey_fu_572_expandedKey_0_address0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_ce0, "grp_expandKey_fu_572_expandedKey_0_ce0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_we0, "grp_expandKey_fu_572_expandedKey_0_we0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_d0, "grp_expandKey_fu_572_expandedKey_0_d0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_address1, "grp_expandKey_fu_572_expandedKey_0_address1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_ce1, "grp_expandKey_fu_572_expandedKey_0_ce1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_we1, "grp_expandKey_fu_572_expandedKey_0_we1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_0_d1, "grp_expandKey_fu_572_expandedKey_0_d1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_address0, "grp_expandKey_fu_572_expandedKey_1_address0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_ce0, "grp_expandKey_fu_572_expandedKey_1_ce0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_we0, "grp_expandKey_fu_572_expandedKey_1_we0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_d0, "grp_expandKey_fu_572_expandedKey_1_d0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_address1, "grp_expandKey_fu_572_expandedKey_1_address1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_ce1, "grp_expandKey_fu_572_expandedKey_1_ce1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_we1, "grp_expandKey_fu_572_expandedKey_1_we1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_1_d1, "grp_expandKey_fu_572_expandedKey_1_d1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_2_address0, "grp_expandKey_fu_572_expandedKey_2_address0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_2_ce0, "grp_expandKey_fu_572_expandedKey_2_ce0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_2_we0, "grp_expandKey_fu_572_expandedKey_2_we0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_2_d0, "grp_expandKey_fu_572_expandedKey_2_d0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_address0, "grp_expandKey_fu_572_expandedKey_3_address0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_ce0, "grp_expandKey_fu_572_expandedKey_3_ce0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_we0, "grp_expandKey_fu_572_expandedKey_3_we0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_d0, "grp_expandKey_fu_572_expandedKey_3_d0");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_address1, "grp_expandKey_fu_572_expandedKey_3_address1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_ce1, "grp_expandKey_fu_572_expandedKey_3_ce1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_we1, "grp_expandKey_fu_572_expandedKey_3_we1");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_expandedKey_3_d1, "grp_expandKey_fu_572_expandedKey_3_d1");
+    sc_trace(mVcdFile, i_0_reg_517, "i_0_reg_517");
+    sc_trace(mVcdFile, icmp_ln52_fu_632_p2, "icmp_ln52_fu_632_p2");
+    sc_trace(mVcdFile, j_0_reg_528, "j_0_reg_528");
+    sc_trace(mVcdFile, i_1_reg_539, "i_1_reg_539");
     sc_trace(mVcdFile, ap_CS_fsm_state6, "ap_CS_fsm_state6");
-    sc_trace(mVcdFile, j_1_reg_236, "j_1_reg_236");
+    sc_trace(mVcdFile, j_1_reg_550, "j_1_reg_550");
     sc_trace(mVcdFile, ap_CS_fsm_state9, "ap_CS_fsm_state9");
-    sc_trace(mVcdFile, grp_aes_main_fu_247_ap_start_reg, "grp_aes_main_fu_247_ap_start_reg");
+    sc_trace(mVcdFile, grp_aes_main_fu_561_ap_start_reg, "grp_aes_main_fu_561_ap_start_reg");
     sc_trace(mVcdFile, ap_CS_fsm_state5, "ap_CS_fsm_state5");
-    sc_trace(mVcdFile, grp_expandKey_fu_255_ap_start_reg, "grp_expandKey_fu_255_ap_start_reg");
+    sc_trace(mVcdFile, grp_expandKey_fu_572_ap_start_reg, "grp_expandKey_fu_572_ap_start_reg");
     sc_trace(mVcdFile, ap_CS_fsm_state4, "ap_CS_fsm_state4");
-    sc_trace(mVcdFile, zext_ln52_fu_355_p1, "zext_ln52_fu_355_p1");
-    sc_trace(mVcdFile, zext_ln68_fu_421_p1, "zext_ln68_fu_421_p1");
-    sc_trace(mVcdFile, zext_ln68_1_fu_431_p1, "zext_ln68_1_fu_431_p1");
-    sc_trace(mVcdFile, tmp_fu_315_p18, "tmp_fu_315_p18");
-    sc_trace(mVcdFile, trunc_ln52_fu_282_p1, "trunc_ln52_fu_282_p1");
-    sc_trace(mVcdFile, zext_ln50_fu_294_p1, "zext_ln50_fu_294_p1");
-    sc_trace(mVcdFile, tmp_fu_315_p17, "tmp_fu_315_p17");
-    sc_trace(mVcdFile, trunc_ln52_1_fu_338_p1, "trunc_ln52_1_fu_338_p1");
-    sc_trace(mVcdFile, shl_ln52_1_fu_342_p3, "shl_ln52_1_fu_342_p3");
-    sc_trace(mVcdFile, add_ln52_1_fu_350_p2, "add_ln52_1_fu_350_p2");
-    sc_trace(mVcdFile, trunc_ln68_fu_376_p1, "trunc_ln68_fu_376_p1");
-    sc_trace(mVcdFile, trunc_ln68_1_fu_404_p1, "trunc_ln68_1_fu_404_p1");
-    sc_trace(mVcdFile, shl_ln68_1_fu_408_p3, "shl_ln68_1_fu_408_p3");
-    sc_trace(mVcdFile, add_ln68_fu_416_p2, "add_ln68_fu_416_p2");
-    sc_trace(mVcdFile, zext_ln66_fu_388_p1, "zext_ln66_fu_388_p1");
+    sc_trace(mVcdFile, zext_ln54_fu_689_p1, "zext_ln54_fu_689_p1");
+    sc_trace(mVcdFile, zext_ln70_fu_755_p1, "zext_ln70_fu_755_p1");
+    sc_trace(mVcdFile, tmp_fu_649_p18, "tmp_fu_649_p18");
+    sc_trace(mVcdFile, trunc_ln54_fu_616_p1, "trunc_ln54_fu_616_p1");
+    sc_trace(mVcdFile, zext_ln52_fu_628_p1, "zext_ln52_fu_628_p1");
+    sc_trace(mVcdFile, tmp_fu_649_p17, "tmp_fu_649_p17");
+    sc_trace(mVcdFile, trunc_ln54_1_fu_672_p1, "trunc_ln54_1_fu_672_p1");
+    sc_trace(mVcdFile, shl_ln54_1_fu_676_p3, "shl_ln54_1_fu_676_p3");
+    sc_trace(mVcdFile, add_ln54_1_fu_684_p2, "add_ln54_1_fu_684_p2");
+    sc_trace(mVcdFile, trunc_ln70_fu_710_p1, "trunc_ln70_fu_710_p1");
+    sc_trace(mVcdFile, trunc_ln70_1_fu_738_p1, "trunc_ln70_1_fu_738_p1");
+    sc_trace(mVcdFile, shl_ln70_1_fu_742_p3, "shl_ln70_1_fu_742_p3");
+    sc_trace(mVcdFile, add_ln70_fu_750_p2, "add_ln70_fu_750_p2");
+    sc_trace(mVcdFile, zext_ln68_fu_722_p1, "zext_ln68_fu_722_p1");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
 
@@ -527,10 +931,13 @@ aes_encrypt::~aes_encrypt() {
         sc_close_vcd_trace_file(mVcdFile);
 
     delete block_U;
-    delete expandedKey_U;
-    delete grp_aes_main_fu_247;
-    delete grp_expandKey_fu_255;
-    delete encrypt_dut_mux_1cud_U50;
+    delete expandedKey_0_U;
+    delete expandedKey_1_U;
+    delete expandedKey_2_U;
+    delete expandedKey_3_U;
+    delete grp_aes_main_fu_561;
+    delete grp_expandKey_fu_572;
+    delete encrypt_dut_mux_1bkb_U81;
 }
 
 void aes_encrypt::thread_ap_clk_no_reset_() {
@@ -540,83 +947,83 @@ void aes_encrypt::thread_ap_clk_no_reset_() {
         ap_CS_fsm = ap_NS_fsm.read();
     }
     if ( ap_rst.read() == ap_const_logic_1) {
-        grp_aes_main_fu_247_ap_start_reg = ap_const_logic_0;
+        grp_aes_main_fu_561_ap_start_reg = ap_const_logic_0;
     } else {
         if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state5.read())) {
-            grp_aes_main_fu_247_ap_start_reg = ap_const_logic_1;
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_aes_main_fu_247_ap_ready.read())) {
-            grp_aes_main_fu_247_ap_start_reg = ap_const_logic_0;
+            grp_aes_main_fu_561_ap_start_reg = ap_const_logic_1;
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_aes_main_fu_561_ap_ready.read())) {
+            grp_aes_main_fu_561_ap_start_reg = ap_const_logic_0;
         }
     }
     if ( ap_rst.read() == ap_const_logic_1) {
-        grp_expandKey_fu_255_ap_start_reg = ap_const_logic_0;
+        grp_expandKey_fu_572_ap_start_reg = ap_const_logic_0;
     } else {
         if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-             esl_seteq<1,1,1>(icmp_ln47_fu_270_p2.read(), ap_const_lv1_1))) {
-            grp_expandKey_fu_255_ap_start_reg = ap_const_logic_1;
-        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_expandKey_fu_255_ap_ready.read())) {
-            grp_expandKey_fu_255_ap_start_reg = ap_const_logic_0;
+             esl_seteq<1,1,1>(icmp_ln49_fu_604_p2.read(), ap_const_lv1_1))) {
+            grp_expandKey_fu_572_ap_start_reg = ap_const_logic_1;
+        } else if (esl_seteq<1,1,1>(ap_const_logic_1, grp_expandKey_fu_572_ap_ready.read())) {
+            grp_expandKey_fu_572_ap_start_reg = ap_const_logic_0;
         }
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
-         esl_seteq<1,1,1>(icmp_ln50_fu_298_p2.read(), ap_const_lv1_1))) {
-        i_0_reg_203 = i_reg_523.read();
+         esl_seteq<1,1,1>(icmp_ln52_fu_632_p2.read(), ap_const_lv1_1))) {
+        i_0_reg_517 = i_reg_933.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                 esl_seteq<1,1,1>(ap_start.read(), ap_const_logic_1))) {
-        i_0_reg_203 = ap_const_lv3_0;
+        i_0_reg_517 = ap_const_lv3_0;
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && 
-         esl_seteq<1,1,1>(icmp_ln66_fu_392_p2.read(), ap_const_lv1_1))) {
-        i_1_reg_225 = i_2_reg_549.read();
+         esl_seteq<1,1,1>(icmp_ln68_fu_726_p2.read(), ap_const_lv1_1))) {
+        i_1_reg_539 = i_2_reg_959.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && 
-                esl_seteq<1,1,1>(grp_aes_main_fu_247_ap_done.read(), ap_const_logic_1))) {
-        i_1_reg_225 = ap_const_lv3_0;
+                esl_seteq<1,1,1>(grp_aes_main_fu_561_ap_done.read(), ap_const_logic_1))) {
+        i_1_reg_539 = ap_const_lv3_0;
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && 
-         esl_seteq<1,1,1>(icmp_ln47_fu_270_p2.read(), ap_const_lv1_0))) {
-        j_0_reg_214 = ap_const_lv3_0;
+         esl_seteq<1,1,1>(icmp_ln49_fu_604_p2.read(), ap_const_lv1_0))) {
+        j_0_reg_528 = ap_const_lv3_0;
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
-                esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln50_fu_298_p2.read()))) {
-        j_0_reg_214 = j_fu_304_p2.read();
+                esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln52_fu_632_p2.read()))) {
+        j_0_reg_528 = j_fu_638_p2.read();
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-         esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln63_fu_364_p2.read()))) {
-        j_1_reg_236 = ap_const_lv3_0;
+         esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln65_fu_698_p2.read()))) {
+        j_1_reg_550 = ap_const_lv3_0;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        j_1_reg_236 = j_2_reg_562.read();
+        j_1_reg_550 = j_2_reg_972.read();
     }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln66_fu_392_p2.read()))) {
-        add_ln68_1_reg_572 = add_ln68_1_fu_426_p2.read();
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln68_fu_726_p2.read()))) {
+        add_ln70_1_reg_982 = add_ln70_1_fu_760_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read())) {
-        i_2_reg_549 = i_2_fu_370_p2.read();
-        zext_ln63_reg_541 = zext_ln63_fu_360_p1.read();
+        i_2_reg_959 = i_2_fu_704_p2.read();
+        zext_ln65_reg_951 = zext_ln65_fu_694_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read())) {
-        i_reg_523 = i_fu_276_p2.read();
-        zext_ln47_reg_515 = zext_ln47_fu_266_p1.read();
+        i_reg_933 = i_fu_610_p2.read();
+        zext_ln49_reg_925 = zext_ln49_fu_600_p1.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        j_2_reg_562 = j_2_fu_398_p2.read();
+        j_2_reg_972 = j_2_fu_732_p2.read();
     }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln63_fu_364_p2.read()))) {
-        shl_ln1_reg_554 = shl_ln1_fu_380_p3.read();
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln65_fu_698_p2.read()))) {
+        shl_ln1_reg_964 = shl_ln1_fu_714_p3.read();
     }
-    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(icmp_ln47_fu_270_p2.read(), ap_const_lv1_0))) {
-        shl_ln_reg_528 = shl_ln_fu_286_p3.read();
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(icmp_ln49_fu_604_p2.read(), ap_const_lv1_0))) {
+        shl_ln_reg_938 = shl_ln_fu_620_p3.read();
     }
 }
 
-void aes_encrypt::thread_add_ln52_1_fu_350_p2() {
-    add_ln52_1_fu_350_p2 = (!zext_ln47_reg_515.read().is_01() || !shl_ln52_1_fu_342_p3.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln47_reg_515.read()) + sc_biguint<4>(shl_ln52_1_fu_342_p3.read()));
+void aes_encrypt::thread_add_ln54_1_fu_684_p2() {
+    add_ln54_1_fu_684_p2 = (!zext_ln49_reg_925.read().is_01() || !shl_ln54_1_fu_676_p3.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln49_reg_925.read()) + sc_biguint<4>(shl_ln54_1_fu_676_p3.read()));
 }
 
-void aes_encrypt::thread_add_ln68_1_fu_426_p2() {
-    add_ln68_1_fu_426_p2 = (!zext_ln66_fu_388_p1.read().is_01() || !shl_ln1_reg_554.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln66_fu_388_p1.read()) + sc_biguint<4>(shl_ln1_reg_554.read()));
+void aes_encrypt::thread_add_ln70_1_fu_760_p2() {
+    add_ln70_1_fu_760_p2 = (!zext_ln68_fu_722_p1.read().is_01() || !shl_ln1_reg_964.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln68_fu_722_p1.read()) + sc_biguint<4>(shl_ln1_reg_964.read()));
 }
 
-void aes_encrypt::thread_add_ln68_fu_416_p2() {
-    add_ln68_fu_416_p2 = (!shl_ln68_1_fu_408_p3.read().is_01() || !zext_ln63_reg_541.read().is_01())? sc_lv<4>(): (sc_biguint<4>(shl_ln68_1_fu_408_p3.read()) + sc_biguint<4>(zext_ln63_reg_541.read()));
+void aes_encrypt::thread_add_ln70_fu_750_p2() {
+    add_ln70_fu_750_p2 = (!zext_ln65_reg_951.read().is_01() || !shl_ln70_1_fu_742_p3.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln65_reg_951.read()) + sc_biguint<4>(shl_ln70_1_fu_742_p3.read()));
 }
 
 void aes_encrypt::thread_ap_CS_fsm_state1() {
@@ -659,7 +1066,7 @@ void aes_encrypt::thread_ap_done() {
     if (((esl_seteq<1,1,1>(ap_const_logic_0, ap_start.read()) && 
           esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read())) || 
          (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-          esl_seteq<1,1,1>(icmp_ln63_fu_364_p2.read(), ap_const_lv1_1)))) {
+          esl_seteq<1,1,1>(icmp_ln65_fu_698_p2.read(), ap_const_lv1_1)))) {
         ap_done = ap_const_logic_1;
     } else {
         ap_done = ap_const_logic_0;
@@ -677,7 +1084,7 @@ void aes_encrypt::thread_ap_idle() {
 
 void aes_encrypt::thread_ap_ready() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && 
-         esl_seteq<1,1,1>(icmp_ln63_fu_364_p2.read(), ap_const_lv1_1))) {
+         esl_seteq<1,1,1>(icmp_ln65_fu_698_p2.read(), ap_const_lv1_1))) {
         ap_ready = ap_const_logic_1;
     } else {
         ap_ready = ap_const_logic_0;
@@ -686,11 +1093,11 @@ void aes_encrypt::thread_ap_ready() {
 
 void aes_encrypt::thread_block_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read())) {
-        block_address0 =  (sc_lv<4>) (zext_ln68_fu_421_p1.read());
+        block_address0 =  (sc_lv<4>) (zext_ln70_fu_755_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        block_address0 =  (sc_lv<4>) (zext_ln52_fu_355_p1.read());
+        block_address0 =  (sc_lv<4>) (zext_ln54_fu_689_p1.read());
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        block_address0 = grp_aes_main_fu_247_state_address0.read();
+        block_address0 = grp_aes_main_fu_561_state_address0.read();
     } else {
         block_address0 = "XXXX";
     }
@@ -701,7 +1108,7 @@ void aes_encrypt::thread_block_ce0() {
          esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()))) {
         block_ce0 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        block_ce0 = grp_aes_main_fu_247_state_ce0.read();
+        block_ce0 = grp_aes_main_fu_561_state_ce0.read();
     } else {
         block_ce0 = ap_const_logic_0;
     }
@@ -709,7 +1116,7 @@ void aes_encrypt::thread_block_ce0() {
 
 void aes_encrypt::thread_block_ce1() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        block_ce1 = grp_aes_main_fu_247_state_ce1.read();
+        block_ce1 = grp_aes_main_fu_561_state_ce1.read();
     } else {
         block_ce1 = ap_const_logic_0;
     }
@@ -717,9 +1124,9 @@ void aes_encrypt::thread_block_ce1() {
 
 void aes_encrypt::thread_block_d0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read())) {
-        block_d0 = tmp_fu_315_p18.read();
+        block_d0 = tmp_fu_649_p18.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        block_d0 = grp_aes_main_fu_247_state_d0.read();
+        block_d0 = grp_aes_main_fu_561_state_d0.read();
     } else {
         block_d0 =  (sc_lv<8>) ("XXXXXXXX");
     }
@@ -727,10 +1134,10 @@ void aes_encrypt::thread_block_d0() {
 
 void aes_encrypt::thread_block_we0() {
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && 
-         esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln50_fu_298_p2.read()))) {
+         esl_seteq<1,1,1>(ap_const_lv1_0, icmp_ln52_fu_632_p2.read()))) {
         block_we0 = ap_const_logic_1;
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        block_we0 = grp_aes_main_fu_247_state_we0.read();
+        block_we0 = grp_aes_main_fu_561_state_we0.read();
     } else {
         block_we0 = ap_const_logic_0;
     }
@@ -738,202 +1145,522 @@ void aes_encrypt::thread_block_we0() {
 
 void aes_encrypt::thread_block_we1() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        block_we1 = grp_aes_main_fu_247_state_we1.read();
+        block_we1 = grp_aes_main_fu_561_state_we1.read();
     } else {
         block_we1 = ap_const_logic_0;
     }
 }
 
-void aes_encrypt::thread_expandedKey_address0() {
+void aes_encrypt::thread_expandedKey_0_address0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        expandedKey_address0 = grp_expandKey_fu_255_expandedKey_address0.read();
+        expandedKey_0_address0 = grp_expandKey_fu_572_expandedKey_0_address0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        expandedKey_address0 = grp_aes_main_fu_247_expandedKey_address0.read();
+        expandedKey_0_address0 = grp_aes_main_fu_561_expandedKey_0_address0.read();
     } else {
-        expandedKey_address0 =  (sc_lv<8>) ("XXXXXXXX");
+        expandedKey_0_address0 =  (sc_lv<6>) ("XXXXXX");
     }
 }
 
-void aes_encrypt::thread_expandedKey_address1() {
+void aes_encrypt::thread_expandedKey_0_address1() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        expandedKey_address1 = grp_expandKey_fu_255_expandedKey_address1.read();
+        expandedKey_0_address1 = grp_expandKey_fu_572_expandedKey_0_address1.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        expandedKey_address1 = grp_aes_main_fu_247_expandedKey_address1.read();
+        expandedKey_0_address1 = grp_aes_main_fu_561_expandedKey_0_address1.read();
     } else {
-        expandedKey_address1 =  (sc_lv<8>) ("XXXXXXXX");
+        expandedKey_0_address1 =  (sc_lv<6>) ("XXXXXX");
     }
 }
 
-void aes_encrypt::thread_expandedKey_ce0() {
+void aes_encrypt::thread_expandedKey_0_ce0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        expandedKey_ce0 = grp_expandKey_fu_255_expandedKey_ce0.read();
+        expandedKey_0_ce0 = grp_expandKey_fu_572_expandedKey_0_ce0.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        expandedKey_ce0 = grp_aes_main_fu_247_expandedKey_ce0.read();
+        expandedKey_0_ce0 = grp_aes_main_fu_561_expandedKey_0_ce0.read();
     } else {
-        expandedKey_ce0 = ap_const_logic_0;
+        expandedKey_0_ce0 = ap_const_logic_0;
     }
 }
 
-void aes_encrypt::thread_expandedKey_ce1() {
+void aes_encrypt::thread_expandedKey_0_ce1() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        expandedKey_ce1 = grp_expandKey_fu_255_expandedKey_ce1.read();
+        expandedKey_0_ce1 = grp_expandKey_fu_572_expandedKey_0_ce1.read();
     } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
-        expandedKey_ce1 = grp_aes_main_fu_247_expandedKey_ce1.read();
+        expandedKey_0_ce1 = grp_aes_main_fu_561_expandedKey_0_ce1.read();
     } else {
-        expandedKey_ce1 = ap_const_logic_0;
+        expandedKey_0_ce1 = ap_const_logic_0;
     }
 }
 
-void aes_encrypt::thread_expandedKey_we0() {
+void aes_encrypt::thread_expandedKey_0_we0() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        expandedKey_we0 = grp_expandKey_fu_255_expandedKey_we0.read();
+        expandedKey_0_we0 = grp_expandKey_fu_572_expandedKey_0_we0.read();
     } else {
-        expandedKey_we0 = ap_const_logic_0;
+        expandedKey_0_we0 = ap_const_logic_0;
     }
 }
 
-void aes_encrypt::thread_expandedKey_we1() {
+void aes_encrypt::thread_expandedKey_0_we1() {
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
-        expandedKey_we1 = grp_expandKey_fu_255_expandedKey_we1.read();
+        expandedKey_0_we1 = grp_expandKey_fu_572_expandedKey_0_we1.read();
     } else {
-        expandedKey_we1 = ap_const_logic_0;
+        expandedKey_0_we1 = ap_const_logic_0;
     }
 }
 
-void aes_encrypt::thread_grp_aes_main_fu_247_ap_start() {
-    grp_aes_main_fu_247_ap_start = grp_aes_main_fu_247_ap_start_reg.read();
-}
-
-void aes_encrypt::thread_grp_expandKey_fu_255_ap_start() {
-    grp_expandKey_fu_255_ap_start = grp_expandKey_fu_255_ap_start_reg.read();
-}
-
-void aes_encrypt::thread_i_2_fu_370_p2() {
-    i_2_fu_370_p2 = (!i_1_reg_225.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_1_reg_225.read()) + sc_biguint<3>(ap_const_lv3_1));
-}
-
-void aes_encrypt::thread_i_fu_276_p2() {
-    i_fu_276_p2 = (!i_0_reg_203.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_0_reg_203.read()) + sc_biguint<3>(ap_const_lv3_1));
-}
-
-void aes_encrypt::thread_icmp_ln47_fu_270_p2() {
-    icmp_ln47_fu_270_p2 = (!i_0_reg_203.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(i_0_reg_203.read() == ap_const_lv3_4);
-}
-
-void aes_encrypt::thread_icmp_ln50_fu_298_p2() {
-    icmp_ln50_fu_298_p2 = (!j_0_reg_214.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(j_0_reg_214.read() == ap_const_lv3_4);
-}
-
-void aes_encrypt::thread_icmp_ln63_fu_364_p2() {
-    icmp_ln63_fu_364_p2 = (!i_1_reg_225.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(i_1_reg_225.read() == ap_const_lv3_4);
-}
-
-void aes_encrypt::thread_icmp_ln66_fu_392_p2() {
-    icmp_ln66_fu_392_p2 = (!j_1_reg_236.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(j_1_reg_236.read() == ap_const_lv3_4);
-}
-
-void aes_encrypt::thread_j_2_fu_398_p2() {
-    j_2_fu_398_p2 = (!j_1_reg_236.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(j_1_reg_236.read()) + sc_biguint<3>(ap_const_lv3_1));
-}
-
-void aes_encrypt::thread_j_fu_304_p2() {
-    j_fu_304_p2 = (!j_0_reg_214.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(j_0_reg_214.read()) + sc_biguint<3>(ap_const_lv3_1));
-}
-
-void aes_encrypt::thread_key_address0() {
-    key_address0 = grp_expandKey_fu_255_key_address0.read();
-}
-
-void aes_encrypt::thread_key_ce0() {
-    key_ce0 = grp_expandKey_fu_255_key_ce0.read();
-}
-
-void aes_encrypt::thread_output_r_address0() {
-    output_r_address0 =  (sc_lv<4>) (zext_ln68_1_fu_431_p1.read());
-}
-
-void aes_encrypt::thread_output_r_ce0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        output_r_ce0 = ap_const_logic_1;
+void aes_encrypt::thread_expandedKey_1_address0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_1_address0 = grp_expandKey_fu_572_expandedKey_1_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_1_address0 = grp_aes_main_fu_561_expandedKey_1_address0.read();
     } else {
-        output_r_ce0 = ap_const_logic_0;
+        expandedKey_1_address0 =  (sc_lv<6>) ("XXXXXX");
     }
 }
 
-void aes_encrypt::thread_output_r_d0() {
-    output_r_d0 = block_q0.read();
-}
-
-void aes_encrypt::thread_output_r_we0() {
-    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read())) {
-        output_r_we0 = ap_const_logic_1;
+void aes_encrypt::thread_expandedKey_1_address1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_1_address1 = grp_expandKey_fu_572_expandedKey_1_address1.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_1_address1 = grp_aes_main_fu_561_expandedKey_1_address1.read();
     } else {
-        output_r_we0 = ap_const_logic_0;
+        expandedKey_1_address1 =  (sc_lv<6>) ("XXXXXX");
     }
 }
 
-void aes_encrypt::thread_shl_ln1_fu_380_p3() {
-    shl_ln1_fu_380_p3 = esl_concat<2,2>(trunc_ln68_fu_376_p1.read(), ap_const_lv2_0);
+void aes_encrypt::thread_expandedKey_1_ce0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_1_ce0 = grp_expandKey_fu_572_expandedKey_1_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_1_ce0 = grp_aes_main_fu_561_expandedKey_1_ce0.read();
+    } else {
+        expandedKey_1_ce0 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_shl_ln52_1_fu_342_p3() {
-    shl_ln52_1_fu_342_p3 = esl_concat<2,2>(trunc_ln52_1_fu_338_p1.read(), ap_const_lv2_0);
+void aes_encrypt::thread_expandedKey_1_ce1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_1_ce1 = grp_expandKey_fu_572_expandedKey_1_ce1.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_1_ce1 = grp_aes_main_fu_561_expandedKey_1_ce1.read();
+    } else {
+        expandedKey_1_ce1 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_shl_ln68_1_fu_408_p3() {
-    shl_ln68_1_fu_408_p3 = esl_concat<2,2>(trunc_ln68_1_fu_404_p1.read(), ap_const_lv2_0);
+void aes_encrypt::thread_expandedKey_1_we0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_1_we0 = grp_expandKey_fu_572_expandedKey_1_we0.read();
+    } else {
+        expandedKey_1_we0 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_shl_ln_fu_286_p3() {
-    shl_ln_fu_286_p3 = esl_concat<2,2>(trunc_ln52_fu_282_p1.read(), ap_const_lv2_0);
+void aes_encrypt::thread_expandedKey_1_we1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_1_we1 = grp_expandKey_fu_572_expandedKey_1_we1.read();
+    } else {
+        expandedKey_1_we1 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_tmp_fu_315_p17() {
-    tmp_fu_315_p17 = (!zext_ln50_fu_294_p1.read().is_01() || !shl_ln_reg_528.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln50_fu_294_p1.read()) + sc_biguint<4>(shl_ln_reg_528.read()));
+void aes_encrypt::thread_expandedKey_2_address0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_2_address0 = grp_expandKey_fu_572_expandedKey_2_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_2_address0 = grp_aes_main_fu_561_expandedKey_2_address0.read();
+    } else {
+        expandedKey_2_address0 =  (sc_lv<6>) ("XXXXXX");
+    }
 }
 
-void aes_encrypt::thread_trunc_ln52_1_fu_338_p1() {
-    trunc_ln52_1_fu_338_p1 = j_0_reg_214.read().range(2-1, 0);
+void aes_encrypt::thread_expandedKey_2_ce0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_2_ce0 = grp_expandKey_fu_572_expandedKey_2_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_2_ce0 = grp_aes_main_fu_561_expandedKey_2_ce0.read();
+    } else {
+        expandedKey_2_ce0 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_trunc_ln52_fu_282_p1() {
-    trunc_ln52_fu_282_p1 = i_0_reg_203.read().range(2-1, 0);
+void aes_encrypt::thread_expandedKey_2_ce1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_2_ce1 = grp_aes_main_fu_561_expandedKey_2_ce1.read();
+    } else {
+        expandedKey_2_ce1 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_trunc_ln68_1_fu_404_p1() {
-    trunc_ln68_1_fu_404_p1 = j_1_reg_236.read().range(2-1, 0);
+void aes_encrypt::thread_expandedKey_2_we0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_2_we0 = grp_expandKey_fu_572_expandedKey_2_we0.read();
+    } else {
+        expandedKey_2_we0 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_trunc_ln68_fu_376_p1() {
-    trunc_ln68_fu_376_p1 = i_1_reg_225.read().range(2-1, 0);
+void aes_encrypt::thread_expandedKey_3_address0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_3_address0 = grp_expandKey_fu_572_expandedKey_3_address0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_3_address0 = grp_aes_main_fu_561_expandedKey_3_address0.read();
+    } else {
+        expandedKey_3_address0 =  (sc_lv<6>) ("XXXXXX");
+    }
 }
 
-void aes_encrypt::thread_zext_ln47_fu_266_p1() {
-    zext_ln47_fu_266_p1 = esl_zext<4,3>(i_0_reg_203.read());
+void aes_encrypt::thread_expandedKey_3_address1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_3_address1 = grp_expandKey_fu_572_expandedKey_3_address1.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_3_address1 = grp_aes_main_fu_561_expandedKey_3_address1.read();
+    } else {
+        expandedKey_3_address1 =  (sc_lv<6>) ("XXXXXX");
+    }
 }
 
-void aes_encrypt::thread_zext_ln50_fu_294_p1() {
-    zext_ln50_fu_294_p1 = esl_zext<4,3>(j_0_reg_214.read());
+void aes_encrypt::thread_expandedKey_3_ce0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_3_ce0 = grp_expandKey_fu_572_expandedKey_3_ce0.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_3_ce0 = grp_aes_main_fu_561_expandedKey_3_ce0.read();
+    } else {
+        expandedKey_3_ce0 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_zext_ln52_fu_355_p1() {
-    zext_ln52_fu_355_p1 = esl_zext<64,4>(add_ln52_1_fu_350_p2.read());
+void aes_encrypt::thread_expandedKey_3_ce1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_3_ce1 = grp_expandKey_fu_572_expandedKey_3_ce1.read();
+    } else if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
+        expandedKey_3_ce1 = grp_aes_main_fu_561_expandedKey_3_ce1.read();
+    } else {
+        expandedKey_3_ce1 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_zext_ln63_fu_360_p1() {
-    zext_ln63_fu_360_p1 = esl_zext<4,3>(i_1_reg_225.read());
+void aes_encrypt::thread_expandedKey_3_we0() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_3_we0 = grp_expandKey_fu_572_expandedKey_3_we0.read();
+    } else {
+        expandedKey_3_we0 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_zext_ln66_fu_388_p1() {
-    zext_ln66_fu_388_p1 = esl_zext<4,3>(j_1_reg_236.read());
+void aes_encrypt::thread_expandedKey_3_we1() {
+    if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read())) {
+        expandedKey_3_we1 = grp_expandKey_fu_572_expandedKey_3_we1.read();
+    } else {
+        expandedKey_3_we1 = ap_const_logic_0;
+    }
 }
 
-void aes_encrypt::thread_zext_ln68_1_fu_431_p1() {
-    zext_ln68_1_fu_431_p1 = esl_zext<64,4>(add_ln68_1_reg_572.read());
+void aes_encrypt::thread_grp_aes_main_fu_561_ap_start() {
+    grp_aes_main_fu_561_ap_start = grp_aes_main_fu_561_ap_start_reg.read();
 }
 
-void aes_encrypt::thread_zext_ln68_fu_421_p1() {
-    zext_ln68_fu_421_p1 = esl_zext<64,4>(add_ln68_fu_416_p2.read());
+void aes_encrypt::thread_grp_expandKey_fu_572_ap_start() {
+    grp_expandKey_fu_572_ap_start = grp_expandKey_fu_572_ap_start_reg.read();
+}
+
+void aes_encrypt::thread_i_2_fu_704_p2() {
+    i_2_fu_704_p2 = (!i_1_reg_539.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_1_reg_539.read()) + sc_biguint<3>(ap_const_lv3_1));
+}
+
+void aes_encrypt::thread_i_fu_610_p2() {
+    i_fu_610_p2 = (!i_0_reg_517.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(i_0_reg_517.read()) + sc_biguint<3>(ap_const_lv3_1));
+}
+
+void aes_encrypt::thread_icmp_ln49_fu_604_p2() {
+    icmp_ln49_fu_604_p2 = (!i_0_reg_517.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(i_0_reg_517.read() == ap_const_lv3_4);
+}
+
+void aes_encrypt::thread_icmp_ln52_fu_632_p2() {
+    icmp_ln52_fu_632_p2 = (!j_0_reg_528.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(j_0_reg_528.read() == ap_const_lv3_4);
+}
+
+void aes_encrypt::thread_icmp_ln65_fu_698_p2() {
+    icmp_ln65_fu_698_p2 = (!i_1_reg_539.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(i_1_reg_539.read() == ap_const_lv3_4);
+}
+
+void aes_encrypt::thread_icmp_ln68_fu_726_p2() {
+    icmp_ln68_fu_726_p2 = (!j_1_reg_550.read().is_01() || !ap_const_lv3_4.is_01())? sc_lv<1>(): sc_lv<1>(j_1_reg_550.read() == ap_const_lv3_4);
+}
+
+void aes_encrypt::thread_j_2_fu_732_p2() {
+    j_2_fu_732_p2 = (!j_1_reg_550.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(j_1_reg_550.read()) + sc_biguint<3>(ap_const_lv3_1));
+}
+
+void aes_encrypt::thread_j_fu_638_p2() {
+    j_fu_638_p2 = (!j_0_reg_528.read().is_01() || !ap_const_lv3_1.is_01())? sc_lv<3>(): (sc_biguint<3>(j_0_reg_528.read()) + sc_biguint<3>(ap_const_lv3_1));
+}
+
+void aes_encrypt::thread_output_0() {
+    output_0 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_0_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_0))) {
+        output_0_ap_vld = ap_const_logic_1;
+    } else {
+        output_0_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_1() {
+    output_1 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_10() {
+    output_10 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_10_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_A))) {
+        output_10_ap_vld = ap_const_logic_1;
+    } else {
+        output_10_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_11() {
+    output_11 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_11_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_B))) {
+        output_11_ap_vld = ap_const_logic_1;
+    } else {
+        output_11_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_12() {
+    output_12 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_12_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_C))) {
+        output_12_ap_vld = ap_const_logic_1;
+    } else {
+        output_12_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_13() {
+    output_13 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_13_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_D))) {
+        output_13_ap_vld = ap_const_logic_1;
+    } else {
+        output_13_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_14() {
+    output_14 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_14_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_E))) {
+        output_14_ap_vld = ap_const_logic_1;
+    } else {
+        output_14_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_15() {
+    output_15 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_15_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_F))) {
+        output_15_ap_vld = ap_const_logic_1;
+    } else {
+        output_15_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_1_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_1))) {
+        output_1_ap_vld = ap_const_logic_1;
+    } else {
+        output_1_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_2() {
+    output_2 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_2_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_2))) {
+        output_2_ap_vld = ap_const_logic_1;
+    } else {
+        output_2_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_3() {
+    output_3 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_3_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_3))) {
+        output_3_ap_vld = ap_const_logic_1;
+    } else {
+        output_3_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_4() {
+    output_4 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_4_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_4))) {
+        output_4_ap_vld = ap_const_logic_1;
+    } else {
+        output_4_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_5() {
+    output_5 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_5_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_5))) {
+        output_5_ap_vld = ap_const_logic_1;
+    } else {
+        output_5_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_6() {
+    output_6 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_6_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_6))) {
+        output_6_ap_vld = ap_const_logic_1;
+    } else {
+        output_6_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_7() {
+    output_7 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_7_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_7))) {
+        output_7_ap_vld = ap_const_logic_1;
+    } else {
+        output_7_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_8() {
+    output_8 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_8_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_8))) {
+        output_8_ap_vld = ap_const_logic_1;
+    } else {
+        output_8_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_output_9() {
+    output_9 = block_q0.read();
+}
+
+void aes_encrypt::thread_output_9_ap_vld() {
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state9.read()) && 
+         esl_seteq<1,4,4>(add_ln70_1_reg_982.read(), ap_const_lv4_9))) {
+        output_9_ap_vld = ap_const_logic_1;
+    } else {
+        output_9_ap_vld = ap_const_logic_0;
+    }
+}
+
+void aes_encrypt::thread_shl_ln1_fu_714_p3() {
+    shl_ln1_fu_714_p3 = esl_concat<2,2>(trunc_ln70_fu_710_p1.read(), ap_const_lv2_0);
+}
+
+void aes_encrypt::thread_shl_ln54_1_fu_676_p3() {
+    shl_ln54_1_fu_676_p3 = esl_concat<2,2>(trunc_ln54_1_fu_672_p1.read(), ap_const_lv2_0);
+}
+
+void aes_encrypt::thread_shl_ln70_1_fu_742_p3() {
+    shl_ln70_1_fu_742_p3 = esl_concat<2,2>(trunc_ln70_1_fu_738_p1.read(), ap_const_lv2_0);
+}
+
+void aes_encrypt::thread_shl_ln_fu_620_p3() {
+    shl_ln_fu_620_p3 = esl_concat<2,2>(trunc_ln54_fu_616_p1.read(), ap_const_lv2_0);
+}
+
+void aes_encrypt::thread_tmp_fu_649_p17() {
+    tmp_fu_649_p17 = (!zext_ln52_fu_628_p1.read().is_01() || !shl_ln_reg_938.read().is_01())? sc_lv<4>(): (sc_biguint<4>(zext_ln52_fu_628_p1.read()) + sc_biguint<4>(shl_ln_reg_938.read()));
+}
+
+void aes_encrypt::thread_trunc_ln54_1_fu_672_p1() {
+    trunc_ln54_1_fu_672_p1 = j_0_reg_528.read().range(2-1, 0);
+}
+
+void aes_encrypt::thread_trunc_ln54_fu_616_p1() {
+    trunc_ln54_fu_616_p1 = i_0_reg_517.read().range(2-1, 0);
+}
+
+void aes_encrypt::thread_trunc_ln70_1_fu_738_p1() {
+    trunc_ln70_1_fu_738_p1 = j_1_reg_550.read().range(2-1, 0);
+}
+
+void aes_encrypt::thread_trunc_ln70_fu_710_p1() {
+    trunc_ln70_fu_710_p1 = i_1_reg_539.read().range(2-1, 0);
+}
+
+void aes_encrypt::thread_zext_ln49_fu_600_p1() {
+    zext_ln49_fu_600_p1 = esl_zext<4,3>(i_0_reg_517.read());
+}
+
+void aes_encrypt::thread_zext_ln52_fu_628_p1() {
+    zext_ln52_fu_628_p1 = esl_zext<4,3>(j_0_reg_528.read());
+}
+
+void aes_encrypt::thread_zext_ln54_fu_689_p1() {
+    zext_ln54_fu_689_p1 = esl_zext<64,4>(add_ln54_1_fu_684_p2.read());
+}
+
+void aes_encrypt::thread_zext_ln65_fu_694_p1() {
+    zext_ln65_fu_694_p1 = esl_zext<4,3>(i_1_reg_539.read());
+}
+
+void aes_encrypt::thread_zext_ln68_fu_722_p1() {
+    zext_ln68_fu_722_p1 = esl_zext<4,3>(j_1_reg_550.read());
+}
+
+void aes_encrypt::thread_zext_ln70_fu_755_p1() {
+    zext_ln70_fu_755_p1 = esl_zext<64,4>(add_ln70_fu_750_p2.read());
 }
 
 void aes_encrypt::thread_ap_NS_fsm() {
@@ -946,21 +1673,21 @@ void aes_encrypt::thread_ap_NS_fsm() {
             }
             break;
         case 2 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(icmp_ln47_fu_270_p2.read(), ap_const_lv1_0))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(icmp_ln49_fu_604_p2.read(), ap_const_lv1_0))) {
                 ap_NS_fsm = ap_ST_fsm_state3;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state4;
             }
             break;
         case 4 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && esl_seteq<1,1,1>(icmp_ln50_fu_298_p2.read(), ap_const_lv1_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state3.read()) && esl_seteq<1,1,1>(icmp_ln52_fu_632_p2.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state2;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state3;
             }
             break;
         case 8 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && esl_seteq<1,1,1>(grp_expandKey_fu_255_ap_done.read(), ap_const_logic_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state4.read()) && esl_seteq<1,1,1>(grp_expandKey_fu_572_ap_done.read(), ap_const_logic_1))) {
                 ap_NS_fsm = ap_ST_fsm_state5;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state4;
@@ -970,21 +1697,21 @@ void aes_encrypt::thread_ap_NS_fsm() {
             ap_NS_fsm = ap_ST_fsm_state6;
             break;
         case 32 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && esl_seteq<1,1,1>(grp_aes_main_fu_247_ap_done.read(), ap_const_logic_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read()) && esl_seteq<1,1,1>(grp_aes_main_fu_561_ap_done.read(), ap_const_logic_1))) {
                 ap_NS_fsm = ap_ST_fsm_state7;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state6;
             }
             break;
         case 64 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && esl_seteq<1,1,1>(icmp_ln63_fu_364_p2.read(), ap_const_lv1_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state7.read()) && esl_seteq<1,1,1>(icmp_ln65_fu_698_p2.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state1;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state8;
             }
             break;
         case 128 : 
-            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && esl_seteq<1,1,1>(icmp_ln66_fu_392_p2.read(), ap_const_lv1_1))) {
+            if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state8.read()) && esl_seteq<1,1,1>(icmp_ln68_fu_726_p2.read(), ap_const_lv1_1))) {
                 ap_NS_fsm = ap_ST_fsm_state7;
             } else {
                 ap_NS_fsm = ap_ST_fsm_state9;

@@ -29,6 +29,8 @@ create_clock -period 10
 ### You can insert your own directives here ###
 set_directive_pipeline -II 1 aes_main/AES_MAIN_LOOP
 set_directive_array_partition -type complete -dim 0 encrypt_dut input
+set_directive_array_partition -type complete -dim 0 encrypt_dut key
+set_directive_array_partition -type complete -dim 0 encrypt_dut output
 
 set_directive_pipeline -II 1 expandKey/EX_WHILE
 

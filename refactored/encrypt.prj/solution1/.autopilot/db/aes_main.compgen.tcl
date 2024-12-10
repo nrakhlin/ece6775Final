@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 47
+set ID 75
 set hasByteEnable 0
 set MemName aes_main_sbox
 set CoreName ap_simcore_mem
@@ -94,7 +94,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 48 \
+    id 76 \
     name state \
     reset_level 1 \
     sync_rst true \
@@ -113,17 +113,74 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 49 \
-    name expandedKey \
+    id 77 \
+    name expandedKey_0 \
     reset_level 1 \
     sync_rst true \
     dir I \
-    corename expandedKey \
+    corename expandedKey_0 \
     op interface \
-    ports { expandedKey_address0 { O 8 vector } expandedKey_ce0 { O 1 bit } expandedKey_q0 { I 8 vector } expandedKey_address1 { O 8 vector } expandedKey_ce1 { O 1 bit } expandedKey_q1 { I 8 vector } } \
+    ports { expandedKey_0_address0 { O 6 vector } expandedKey_0_ce0 { O 1 bit } expandedKey_0_q0 { I 8 vector } expandedKey_0_address1 { O 6 vector } expandedKey_0_ce1 { O 1 bit } expandedKey_0_q1 { I 8 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expandedKey'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expandedKey_0'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 78 \
+    name expandedKey_1 \
+    reset_level 1 \
+    sync_rst true \
+    dir I \
+    corename expandedKey_1 \
+    op interface \
+    ports { expandedKey_1_address0 { O 6 vector } expandedKey_1_ce0 { O 1 bit } expandedKey_1_q0 { I 8 vector } expandedKey_1_address1 { O 6 vector } expandedKey_1_ce1 { O 1 bit } expandedKey_1_q1 { I 8 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expandedKey_1'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 79 \
+    name expandedKey_2 \
+    reset_level 1 \
+    sync_rst true \
+    dir I \
+    corename expandedKey_2 \
+    op interface \
+    ports { expandedKey_2_address0 { O 6 vector } expandedKey_2_ce0 { O 1 bit } expandedKey_2_q0 { I 8 vector } expandedKey_2_address1 { O 6 vector } expandedKey_2_ce1 { O 1 bit } expandedKey_2_q1 { I 8 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expandedKey_2'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 80 \
+    name expandedKey_3 \
+    reset_level 1 \
+    sync_rst true \
+    dir I \
+    corename expandedKey_3 \
+    op interface \
+    ports { expandedKey_3_address0 { O 6 vector } expandedKey_3_ce0 { O 1 bit } expandedKey_3_q0 { I 8 vector } expandedKey_3_address1 { O 6 vector } expandedKey_3_ce1 { O 1 bit } expandedKey_3_q1 { I 8 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'expandedKey_3'"
 }
 }
 

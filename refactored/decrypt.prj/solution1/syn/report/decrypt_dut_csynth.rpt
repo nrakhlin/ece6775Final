@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'decrypt_dut'
 ================================================================
-* Date:           Mon Dec  9 19:19:43 2024
+* Date:           Mon Dec  9 22:29:43 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -17,11 +17,11 @@
 ================================================================
 + Timing: 
     * Summary: 
-    +--------+----------+-----------+------------+
-    |  Clock |  Target  | Estimated | Uncertainty|
-    +--------+----------+-----------+------------+
-    |ap_clk  | 10.00 ns | 12.548 ns |   1.25 ns  |
-    +--------+----------+-----------+------------+
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.824 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
 
 + Latency: 
     * Summary: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      583|      583| 7.315 us | 7.315 us |  583|  583|   none  |
+    |      319|      319| 3.190 us | 3.190 us |  319|  319|   none  |
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                        |             |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
         |        Instance        |    Module   |   min   |   max   |    min   |    max   | min | max |   Type  |
         +------------------------+-------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_aes_decrypt_fu_148  |aes_decrypt  |      582|      582| 7.303 us | 7.303 us |  582|  582|   none  |
+        |grp_aes_decrypt_fu_304  |aes_decrypt  |      318|      318| 3.180 us | 3.180 us |  318|  318|   none  |
         +------------------------+-------------+---------+---------+----------+----------+-----+-----+---------+
 
         * Loop: 
@@ -56,16 +56,16 @@
 |DSP              |        -|      -|       -|      -|    -|
 |Expression       |        -|      -|       -|      -|    -|
 |FIFO             |        -|      -|       -|      -|    -|
-|Instance         |        6|      -|    1127|   4972|    0|
+|Instance         |        8|      -|    1333|   8155|    0|
 |Memory           |        -|      -|       -|      -|    -|
 |Multiplexer      |        -|      -|       -|     15|    -|
 |Register         |        -|      -|       3|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        6|      0|    1130|   4987|    0|
+|Total            |        8|      0|    1336|   8170|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
-|Utilization (%)  |        2|      0|       1|      9|    0|
+|Utilization (%)  |        2|      0|       1|     15|    0|
 +-----------------+---------+-------+--------+-------+-----+
 
 + Detail: 
@@ -73,9 +73,9 @@
     +------------------------+-------------+---------+-------+------+------+-----+
     |        Instance        |    Module   | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
     +------------------------+-------------+---------+-------+------+------+-----+
-    |grp_aes_decrypt_fu_148  |aes_decrypt  |        6|      0|  1127|  4972|    0|
+    |grp_aes_decrypt_fu_304  |aes_decrypt  |        8|      0|  1333|  8155|    0|
     +------------------------+-------------+---------+-------+------+------+-----+
-    |Total                   |             |        6|      0|  1127|  4972|    0|
+    |Total                   |             |        8|      0|  1333|  8155|    0|
     +------------------------+-------------+---------+-------+------+------+-----+
 
     * DSP48E: 
@@ -104,7 +104,7 @@
     |                 Name                | FF| LUT| Bits| Const Bits|
     +-------------------------------------+---+----+-----+-----------+
     |ap_CS_fsm                            |  2|   0|    2|          0|
-    |grp_aes_decrypt_fu_148_ap_start_reg  |  1|   0|    1|          0|
+    |grp_aes_decrypt_fu_304_ap_start_reg  |  1|   0|    1|          0|
     +-------------------------------------+---+----+-----+-----------+
     |Total                                |  3|   0|    3|          0|
     +-------------------------------------+---+----+-----+-----------+
@@ -115,37 +115,78 @@
 == Interface
 ================================================================
 * Summary: 
-+-------------------+-----+-----+------------+--------------+--------------+
-|     RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+-------------------+-----+-----+------------+--------------+--------------+
-|ap_clk             |  in |    1| ap_ctrl_hs |  decrypt_dut | return value |
-|ap_rst             |  in |    1| ap_ctrl_hs |  decrypt_dut | return value |
-|ap_start           |  in |    1| ap_ctrl_hs |  decrypt_dut | return value |
-|ap_done            | out |    1| ap_ctrl_hs |  decrypt_dut | return value |
-|ap_idle            | out |    1| ap_ctrl_hs |  decrypt_dut | return value |
-|ap_ready           | out |    1| ap_ctrl_hs |  decrypt_dut | return value |
-|input_0            |  in |    8|   ap_none  |    input_0   |    pointer   |
-|input_1            |  in |    8|   ap_none  |    input_1   |    pointer   |
-|input_2            |  in |    8|   ap_none  |    input_2   |    pointer   |
-|input_3            |  in |    8|   ap_none  |    input_3   |    pointer   |
-|input_4            |  in |    8|   ap_none  |    input_4   |    pointer   |
-|input_5            |  in |    8|   ap_none  |    input_5   |    pointer   |
-|input_6            |  in |    8|   ap_none  |    input_6   |    pointer   |
-|input_7            |  in |    8|   ap_none  |    input_7   |    pointer   |
-|input_8            |  in |    8|   ap_none  |    input_8   |    pointer   |
-|input_9            |  in |    8|   ap_none  |    input_9   |    pointer   |
-|input_10           |  in |    8|   ap_none  |   input_10   |    pointer   |
-|input_11           |  in |    8|   ap_none  |   input_11   |    pointer   |
-|input_12           |  in |    8|   ap_none  |   input_12   |    pointer   |
-|input_13           |  in |    8|   ap_none  |   input_13   |    pointer   |
-|input_14           |  in |    8|   ap_none  |   input_14   |    pointer   |
-|input_15           |  in |    8|   ap_none  |   input_15   |    pointer   |
-|output_r_address0  | out |    4|  ap_memory |   output_r   |     array    |
-|output_r_ce0       | out |    1|  ap_memory |   output_r   |     array    |
-|output_r_we0       | out |    1|  ap_memory |   output_r   |     array    |
-|output_r_d0        | out |    8|  ap_memory |   output_r   |     array    |
-|key_address0       | out |    4|  ap_memory |      key     |     array    |
-|key_ce0            | out |    1|  ap_memory |      key     |     array    |
-|key_q0             |  in |    8|  ap_memory |      key     |     array    |
-+-------------------+-----+-----+------------+--------------+--------------+
++------------------+-----+-----+------------+--------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------+-----+-----+------------+--------------+--------------+
+|ap_clk            |  in |    1| ap_ctrl_hs |  decrypt_dut | return value |
+|ap_rst            |  in |    1| ap_ctrl_hs |  decrypt_dut | return value |
+|ap_start          |  in |    1| ap_ctrl_hs |  decrypt_dut | return value |
+|ap_done           | out |    1| ap_ctrl_hs |  decrypt_dut | return value |
+|ap_idle           | out |    1| ap_ctrl_hs |  decrypt_dut | return value |
+|ap_ready          | out |    1| ap_ctrl_hs |  decrypt_dut | return value |
+|input_0           |  in |    8|   ap_none  |    input_0   |    pointer   |
+|input_1           |  in |    8|   ap_none  |    input_1   |    pointer   |
+|input_2           |  in |    8|   ap_none  |    input_2   |    pointer   |
+|input_3           |  in |    8|   ap_none  |    input_3   |    pointer   |
+|input_4           |  in |    8|   ap_none  |    input_4   |    pointer   |
+|input_5           |  in |    8|   ap_none  |    input_5   |    pointer   |
+|input_6           |  in |    8|   ap_none  |    input_6   |    pointer   |
+|input_7           |  in |    8|   ap_none  |    input_7   |    pointer   |
+|input_8           |  in |    8|   ap_none  |    input_8   |    pointer   |
+|input_9           |  in |    8|   ap_none  |    input_9   |    pointer   |
+|input_10          |  in |    8|   ap_none  |   input_10   |    pointer   |
+|input_11          |  in |    8|   ap_none  |   input_11   |    pointer   |
+|input_12          |  in |    8|   ap_none  |   input_12   |    pointer   |
+|input_13          |  in |    8|   ap_none  |   input_13   |    pointer   |
+|input_14          |  in |    8|   ap_none  |   input_14   |    pointer   |
+|input_15          |  in |    8|   ap_none  |   input_15   |    pointer   |
+|output_0          | out |    8|   ap_vld   |   output_0   |    pointer   |
+|output_0_ap_vld   | out |    1|   ap_vld   |   output_0   |    pointer   |
+|output_1          | out |    8|   ap_vld   |   output_1   |    pointer   |
+|output_1_ap_vld   | out |    1|   ap_vld   |   output_1   |    pointer   |
+|output_2          | out |    8|   ap_vld   |   output_2   |    pointer   |
+|output_2_ap_vld   | out |    1|   ap_vld   |   output_2   |    pointer   |
+|output_3          | out |    8|   ap_vld   |   output_3   |    pointer   |
+|output_3_ap_vld   | out |    1|   ap_vld   |   output_3   |    pointer   |
+|output_4          | out |    8|   ap_vld   |   output_4   |    pointer   |
+|output_4_ap_vld   | out |    1|   ap_vld   |   output_4   |    pointer   |
+|output_5          | out |    8|   ap_vld   |   output_5   |    pointer   |
+|output_5_ap_vld   | out |    1|   ap_vld   |   output_5   |    pointer   |
+|output_6          | out |    8|   ap_vld   |   output_6   |    pointer   |
+|output_6_ap_vld   | out |    1|   ap_vld   |   output_6   |    pointer   |
+|output_7          | out |    8|   ap_vld   |   output_7   |    pointer   |
+|output_7_ap_vld   | out |    1|   ap_vld   |   output_7   |    pointer   |
+|output_8          | out |    8|   ap_vld   |   output_8   |    pointer   |
+|output_8_ap_vld   | out |    1|   ap_vld   |   output_8   |    pointer   |
+|output_9          | out |    8|   ap_vld   |   output_9   |    pointer   |
+|output_9_ap_vld   | out |    1|   ap_vld   |   output_9   |    pointer   |
+|output_10         | out |    8|   ap_vld   |   output_10  |    pointer   |
+|output_10_ap_vld  | out |    1|   ap_vld   |   output_10  |    pointer   |
+|output_11         | out |    8|   ap_vld   |   output_11  |    pointer   |
+|output_11_ap_vld  | out |    1|   ap_vld   |   output_11  |    pointer   |
+|output_12         | out |    8|   ap_vld   |   output_12  |    pointer   |
+|output_12_ap_vld  | out |    1|   ap_vld   |   output_12  |    pointer   |
+|output_13         | out |    8|   ap_vld   |   output_13  |    pointer   |
+|output_13_ap_vld  | out |    1|   ap_vld   |   output_13  |    pointer   |
+|output_14         | out |    8|   ap_vld   |   output_14  |    pointer   |
+|output_14_ap_vld  | out |    1|   ap_vld   |   output_14  |    pointer   |
+|output_15         | out |    8|   ap_vld   |   output_15  |    pointer   |
+|output_15_ap_vld  | out |    1|   ap_vld   |   output_15  |    pointer   |
+|key_0             |  in |    8|   ap_none  |     key_0    |    pointer   |
+|key_1             |  in |    8|   ap_none  |     key_1    |    pointer   |
+|key_2             |  in |    8|   ap_none  |     key_2    |    pointer   |
+|key_3             |  in |    8|   ap_none  |     key_3    |    pointer   |
+|key_4             |  in |    8|   ap_none  |     key_4    |    pointer   |
+|key_5             |  in |    8|   ap_none  |     key_5    |    pointer   |
+|key_6             |  in |    8|   ap_none  |     key_6    |    pointer   |
+|key_7             |  in |    8|   ap_none  |     key_7    |    pointer   |
+|key_8             |  in |    8|   ap_none  |     key_8    |    pointer   |
+|key_9             |  in |    8|   ap_none  |     key_9    |    pointer   |
+|key_10            |  in |    8|   ap_none  |    key_10    |    pointer   |
+|key_11            |  in |    8|   ap_none  |    key_11    |    pointer   |
+|key_12            |  in |    8|   ap_none  |    key_12    |    pointer   |
+|key_13            |  in |    8|   ap_none  |    key_13    |    pointer   |
+|key_14            |  in |    8|   ap_none  |    key_14    |    pointer   |
+|key_15            |  in |    8|   ap_none  |    key_15    |    pointer   |
++------------------+-----+-----+------------+--------------+--------------+
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mixColumn'" level="0">
-<item name = "Date">Mon Dec  9 19:14:23 2024
+<item name = "Date">Mon Dec  9 22:58:09 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -101,18 +101,18 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="xor_ln257_1_fu_140_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln257_2_fu_146_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln257_fu_152_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln262_1_fu_158_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln262_2_fu_164_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln262_fu_170_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln267_1_fu_176_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln267_2_fu_182_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln267_fu_188_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln272_1_fu_194_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln272_2_fu_200_p2">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln272_fu_206_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln267_1_fu_140_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln267_2_fu_146_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln267_fu_152_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln272_1_fu_158_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln272_2_fu_164_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln272_fu_170_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln277_1_fu_176_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln277_2_fu_182_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln277_fu_188_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln282_1_fu_194_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln282_2_fu_200_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="xor_ln282_fu_206_p2">xor, 0, 0, 8, 8, 8</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">

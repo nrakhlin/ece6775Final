@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_decrypt'
 ================================================================
-* Date:           Mon Dec  9 19:19:40 2024
+* Date:           Mon Dec  9 22:29:39 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -17,11 +17,11 @@
 ================================================================
 + Timing: 
     * Summary: 
-    +--------+----------+-----------+------------+
-    |  Clock |  Target  | Estimated | Uncertainty|
-    +--------+----------+-----------+------------+
-    |ap_clk  | 10.00 ns | 12.548 ns |   1.25 ns  |
-    +--------+----------+-----------+------------+
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.824 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
 
 + Latency: 
     * Summary: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      582|      582| 7.303 us | 7.303 us |  582|  582|   none  |
+    |      318|      318| 3.180 us | 3.180 us |  318|  318|   none  |
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -43,8 +43,8 @@
         +-------------+---------+---------+----------+-----------+-----------+------+----------+
         |- Loop 1     |       24|       24|         6|          -|          -|     4|    no    |
         | + Loop 1.1  |        4|        4|         1|          -|          -|     4|    no    |
-        |- Loop 2     |       40|       40|        10|          -|          -|     4|    no    |
-        | + Loop 2.1  |        8|        8|         2|          -|          -|     4|    no    |
+        |- Loop 2     |       24|       24|         6|          -|          -|     4|    no    |
+        | + Loop 2.1  |        4|        4|         1|          -|          -|     4|    no    |
         +-------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -73,7 +73,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 9
+* Number of FSM states : 8
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -85,106 +85,257 @@ IsGatedGlobalClock: 0
 5 --> 6 
 6 --> 7 
 7 --> 8 
-8 --> 9 7 
-9 --> 8 
+8 --> 8 7 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%input_15_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_15_read)"   --->   Operation 10 'read' 'input_15_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%input_14_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_14_read)"   --->   Operation 11 'read' 'input_14_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%input_13_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_13_read)"   --->   Operation 12 'read' 'input_13_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%input_12_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_12_read)"   --->   Operation 13 'read' 'input_12_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%input_11_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_11_read)"   --->   Operation 14 'read' 'input_11_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%input_10_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_10_read)"   --->   Operation 15 'read' 'input_10_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%input_9_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_9_read)"   --->   Operation 16 'read' 'input_9_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%input_8_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_8_read)"   --->   Operation 17 'read' 'input_8_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%input_7_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_7_read)"   --->   Operation 18 'read' 'input_7_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%input_6_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_6_read)"   --->   Operation 19 'read' 'input_6_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%input_5_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_5_read)"   --->   Operation 20 'read' 'input_5_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%input_4_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_4_read)"   --->   Operation 21 'read' 'input_4_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%input_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_3_read)"   --->   Operation 22 'read' 'input_3_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%input_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_2_read)"   --->   Operation 23 'read' 'input_2_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%input_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_1_read)"   --->   Operation 24 'read' 'input_1_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%input_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_0_read)"   --->   Operation 25 'read' 'input_0_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%expandedKey = alloca [176 x i8], align 16" [decrypt.cpp:56]   --->   Operation 26 'alloca' 'expandedKey' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%block = alloca [16 x i8], align 16" [decrypt.cpp:59]   --->   Operation 27 'alloca' 'block' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_1 : Operation 28 [1/1] (1.76ns)   --->   "br label %.loopexit17" [decrypt.cpp:72]   --->   Operation 28 'br' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%block_016 = alloca i8"   --->   Operation 9 'alloca' 'block_016' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%block_117 = alloca i8"   --->   Operation 10 'alloca' 'block_117' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%block_218 = alloca i8"   --->   Operation 11 'alloca' 'block_218' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%block_319 = alloca i8"   --->   Operation 12 'alloca' 'block_319' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%block_420 = alloca i8"   --->   Operation 13 'alloca' 'block_420' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%block_521 = alloca i8"   --->   Operation 14 'alloca' 'block_521' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%block_622 = alloca i8"   --->   Operation 15 'alloca' 'block_622' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%block_723 = alloca i8"   --->   Operation 16 'alloca' 'block_723' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%block_824 = alloca i8"   --->   Operation 17 'alloca' 'block_824' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%block_925 = alloca i8"   --->   Operation 18 'alloca' 'block_925' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%block_1026 = alloca i8"   --->   Operation 19 'alloca' 'block_1026' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%block_1127 = alloca i8"   --->   Operation 20 'alloca' 'block_1127' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%block_1228 = alloca i8"   --->   Operation 21 'alloca' 'block_1228' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%block_1329 = alloca i8"   --->   Operation 22 'alloca' 'block_1329' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%block_1430 = alloca i8"   --->   Operation 23 'alloca' 'block_1430' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%block_1531 = alloca i8"   --->   Operation 24 'alloca' 'block_1531' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%key_15_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_15_read)"   --->   Operation 25 'read' 'key_15_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%key_14_read31 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_14_read)"   --->   Operation 26 'read' 'key_14_read31' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%key_13_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_13_read)"   --->   Operation 27 'read' 'key_13_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%key_12_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_12_read)"   --->   Operation 28 'read' 'key_12_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%key_11_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_11_read)"   --->   Operation 29 'read' 'key_11_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%key_10_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_10_read)"   --->   Operation 30 'read' 'key_10_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%key_9_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_9_read)"   --->   Operation 31 'read' 'key_9_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%key_8_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_8_read)"   --->   Operation 32 'read' 'key_8_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%key_7_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_7_read)"   --->   Operation 33 'read' 'key_7_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%key_6_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_6_read)"   --->   Operation 34 'read' 'key_6_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%key_5_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_5_read)"   --->   Operation 35 'read' 'key_5_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%key_4_read21 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_4_read)"   --->   Operation 36 'read' 'key_4_read21' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%key_3_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_3_read)"   --->   Operation 37 'read' 'key_3_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%key_2_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_2_read)"   --->   Operation 38 'read' 'key_2_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%key_1_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_1_read)"   --->   Operation 39 'read' 'key_1_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%key_0_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_0_read)"   --->   Operation 40 'read' 'key_0_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%input_15_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_15_read)"   --->   Operation 41 'read' 'input_15_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%input_14_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_14_read)"   --->   Operation 42 'read' 'input_14_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%input_13_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_13_read)"   --->   Operation 43 'read' 'input_13_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%input_12_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_12_read)"   --->   Operation 44 'read' 'input_12_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%input_11_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_11_read)"   --->   Operation 45 'read' 'input_11_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%input_10_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_10_read)"   --->   Operation 46 'read' 'input_10_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%input_9_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_9_read)"   --->   Operation 47 'read' 'input_9_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%input_8_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_8_read)"   --->   Operation 48 'read' 'input_8_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%input_7_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_7_read)"   --->   Operation 49 'read' 'input_7_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%input_6_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_6_read)"   --->   Operation 50 'read' 'input_6_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%input_5_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_5_read)"   --->   Operation 51 'read' 'input_5_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%input_4_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_4_read)"   --->   Operation 52 'read' 'input_4_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%input_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_3_read)"   --->   Operation 53 'read' 'input_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%input_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_2_read)"   --->   Operation 54 'read' 'input_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%input_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_1_read)"   --->   Operation 55 'read' 'input_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%input_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %input_0_read)"   --->   Operation 56 'read' 'input_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%expandedKey_0 = alloca [44 x i8], align 1" [decrypt.cpp:58]   --->   Operation 57 'alloca' 'expandedKey_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%expandedKey_1 = alloca [44 x i8], align 1" [decrypt.cpp:58]   --->   Operation 58 'alloca' 'expandedKey_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%expandedKey_2 = alloca [44 x i8], align 1" [decrypt.cpp:58]   --->   Operation 59 'alloca' 'expandedKey_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%expandedKey_3 = alloca [44 x i8], align 1" [decrypt.cpp:58]   --->   Operation 60 'alloca' 'expandedKey_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (1.76ns)   --->   "br label %.loopexit33" [decrypt.cpp:76]   --->   Operation 61 'br' <Predicate = true> <Delay = 1.76>
 
-State 2 <SV = 1> <Delay = 1.76>
-ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %.loopexit17.loopexit ]"   --->   Operation 29 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln72 = zext i3 %i_0 to i4" [decrypt.cpp:72]   --->   Operation 30 'zext' 'zext_ln72' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 31 [1/1] (1.13ns)   --->   "%icmp_ln72 = icmp eq i3 %i_0, -4" [decrypt.cpp:72]   --->   Operation 31 'icmp' 'icmp_ln72' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 32 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 33 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [decrypt.cpp:72]   --->   Operation 33 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 34 [1/1] (0.00ns)   --->   "br i1 %icmp_ln72, label %2, label %.preheader1.preheader" [decrypt.cpp:72]   --->   Operation 34 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%trunc_ln77 = trunc i3 %i_0 to i2" [decrypt.cpp:77]   --->   Operation 35 'trunc' 'trunc_ln77' <Predicate = (!icmp_ln72)> <Delay = 0.00>
-ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%shl_ln = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln77, i2 0)" [decrypt.cpp:77]   --->   Operation 36 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln72)> <Delay = 0.00>
-ST_2 : Operation 37 [1/1] (1.76ns)   --->   "br label %.preheader1" [decrypt.cpp:75]   --->   Operation 37 'br' <Predicate = (!icmp_ln72)> <Delay = 1.76>
-ST_2 : Operation 38 [2/2] (0.00ns)   --->   "call fastcc void @expandKey([176 x i8]* %expandedKey, [16 x i8]* %key)" [decrypt.cpp:82]   --->   Operation 38 'call' <Predicate = (icmp_ln72)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 0, %0 ], [ %i, %.loopexit33.loopexit ]"   --->   Operation 62 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (1.13ns)   --->   "%icmp_ln76 = icmp eq i3 %i_0, -4" [decrypt.cpp:76]   --->   Operation 63 'icmp' 'icmp_ln76' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 64 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [decrypt.cpp:76]   --->   Operation 65 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "br i1 %icmp_ln76, label %1, label %.preheader1.preheader" [decrypt.cpp:76]   --->   Operation 66 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%zext_ln81 = zext i3 %i_0 to i4" [decrypt.cpp:81]   --->   Operation 67 'zext' 'zext_ln81' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%trunc_ln81 = trunc i3 %i_0 to i2" [decrypt.cpp:81]   --->   Operation 68 'trunc' 'trunc_ln81' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%shl_ln = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln81, i2 0)" [decrypt.cpp:81]   --->   Operation 69 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (1.76ns)   --->   "br label %.preheader1" [decrypt.cpp:79]   --->   Operation 70 'br' <Predicate = (!icmp_ln76)> <Delay = 1.76>
+ST_2 : Operation 71 [2/2] (2.32ns)   --->   "call fastcc void @expandKey([44 x i8]* %expandedKey_0, [44 x i8]* %expandedKey_1, [44 x i8]* %expandedKey_2, [44 x i8]* %expandedKey_3, i8 %key_0_read_2, i8 %key_1_read_2, i8 %key_2_read_2, i8 %key_3_read_2, i8 %key_4_read21, i8 %key_5_read_2, i8 %key_6_read_2, i8 %key_7_read_2, i8 %key_8_read_2, i8 %key_9_read_2, i8 %key_10_read_2, i8 %key_11_read_2, i8 %key_12_read_2, i8 %key_13_read_2, i8 %key_14_read31, i8 %key_15_read_2)" [decrypt.cpp:86]   --->   Operation 71 'call' <Predicate = (icmp_ln76)> <Delay = 2.32> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 3 <SV = 2> <Delay = 6.12>
-ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ %j, %1 ], [ 0, %.preheader1.preheader ]"   --->   Operation 39 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%zext_ln75 = zext i3 %j_0 to i4" [decrypt.cpp:75]   --->   Operation 40 'zext' 'zext_ln75' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 41 [1/1] (1.13ns)   --->   "%icmp_ln75 = icmp eq i3 %j_0, -4" [decrypt.cpp:75]   --->   Operation 41 'icmp' 'icmp_ln75' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 42 'speclooptripcount' 'empty_6' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 43 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [decrypt.cpp:75]   --->   Operation 43 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 44 [1/1] (0.00ns)   --->   "br i1 %icmp_ln75, label %.loopexit17.loopexit, label %1" [decrypt.cpp:75]   --->   Operation 44 'br' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 45 [1/1] (1.73ns)   --->   "%add_ln77 = add i4 %zext_ln75, %shl_ln" [decrypt.cpp:77]   --->   Operation 45 'add' 'add_ln77' <Predicate = (!icmp_ln75)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 46 [1/1] (2.06ns)   --->   "%tmp = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %input_0_read_1, i8 %input_1_read_1, i8 %input_2_read_1, i8 %input_3_read_1, i8 %input_4_read_1, i8 %input_5_read_1, i8 %input_6_read_1, i8 %input_7_read_1, i8 %input_8_read_1, i8 %input_9_read_1, i8 %input_10_read_1, i8 %input_11_read_1, i8 %input_12_read_1, i8 %input_13_read_1, i8 %input_14_read_1, i8 %input_15_read_1, i4 %add_ln77)" [decrypt.cpp:77]   --->   Operation 46 'mux' 'tmp' <Predicate = (!icmp_ln75)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%trunc_ln77_1 = trunc i3 %j_0 to i2" [decrypt.cpp:77]   --->   Operation 47 'trunc' 'trunc_ln77_1' <Predicate = (!icmp_ln75)> <Delay = 0.00>
-ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%shl_ln77_1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln77_1, i2 0)" [decrypt.cpp:77]   --->   Operation 48 'bitconcatenate' 'shl_ln77_1' <Predicate = (!icmp_ln75)> <Delay = 0.00>
-ST_3 : Operation 49 [1/1] (1.73ns)   --->   "%add_ln77_1 = add i4 %zext_ln72, %shl_ln77_1" [decrypt.cpp:77]   --->   Operation 49 'add' 'add_ln77_1' <Predicate = (!icmp_ln75)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%zext_ln77 = zext i4 %add_ln77_1 to i64" [decrypt.cpp:77]   --->   Operation 50 'zext' 'zext_ln77' <Predicate = (!icmp_ln75)> <Delay = 0.00>
-ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%block_addr = getelementptr inbounds [16 x i8]* %block, i64 0, i64 %zext_ln77" [decrypt.cpp:77]   --->   Operation 51 'getelementptr' 'block_addr' <Predicate = (!icmp_ln75)> <Delay = 0.00>
-ST_3 : Operation 52 [1/1] (2.32ns)   --->   "store i8 %tmp, i8* %block_addr, align 1" [decrypt.cpp:77]   --->   Operation 52 'store' <Predicate = (!icmp_ln75)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_3 : Operation 53 [1/1] (0.00ns)   --->   "br label %.preheader1" [decrypt.cpp:75]   --->   Operation 53 'br' <Predicate = (!icmp_ln75)> <Delay = 0.00>
-ST_3 : Operation 54 [1/1] (0.00ns)   --->   "br label %.loopexit17"   --->   Operation 54 'br' <Predicate = (icmp_ln75)> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 5.86>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%j_0 = phi i3 [ %j, %branch0 ], [ 0, %.preheader1.preheader ]"   --->   Operation 72 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (1.13ns)   --->   "%icmp_ln79 = icmp eq i3 %j_0, -4" [decrypt.cpp:79]   --->   Operation 73 'icmp' 'icmp_ln79' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 74 'speclooptripcount' 'empty_10' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (1.65ns)   --->   "%j = add i3 %j_0, 1" [decrypt.cpp:79]   --->   Operation 75 'add' 'j' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "br i1 %icmp_ln79, label %.loopexit33.loopexit, label %branch0" [decrypt.cpp:79]   --->   Operation 76 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%block_016_load_1 = load i8* %block_016"   --->   Operation 77 'load' 'block_016_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%block_117_load_1 = load i8* %block_117"   --->   Operation 78 'load' 'block_117_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%block_218_load_1 = load i8* %block_218"   --->   Operation 79 'load' 'block_218_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%block_319_load_1 = load i8* %block_319"   --->   Operation 80 'load' 'block_319_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%block_420_load_1 = load i8* %block_420"   --->   Operation 81 'load' 'block_420_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "%block_521_load_1 = load i8* %block_521"   --->   Operation 82 'load' 'block_521_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 83 [1/1] (0.00ns)   --->   "%block_622_load_1 = load i8* %block_622"   --->   Operation 83 'load' 'block_622_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "%block_723_load_1 = load i8* %block_723"   --->   Operation 84 'load' 'block_723_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%block_824_load_1 = load i8* %block_824"   --->   Operation 85 'load' 'block_824_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%block_925_load_1 = load i8* %block_925"   --->   Operation 86 'load' 'block_925_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%block_1026_load_1 = load i8* %block_1026"   --->   Operation 87 'load' 'block_1026_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (0.00ns)   --->   "%block_1127_load_1 = load i8* %block_1127"   --->   Operation 88 'load' 'block_1127_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%block_1228_load_1 = load i8* %block_1228"   --->   Operation 89 'load' 'block_1228_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%block_1329_load_1 = load i8* %block_1329"   --->   Operation 90 'load' 'block_1329_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%block_1430_load_1 = load i8* %block_1430"   --->   Operation 91 'load' 'block_1430_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "%block_1531_load_1 = load i8* %block_1531"   --->   Operation 92 'load' 'block_1531_load_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%zext_ln81_1 = zext i3 %j_0 to i4" [decrypt.cpp:81]   --->   Operation 93 'zext' 'zext_ln81_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 94 [1/1] (1.73ns)   --->   "%add_ln81 = add i4 %zext_ln81_1, %shl_ln" [decrypt.cpp:81]   --->   Operation 94 'add' 'add_ln81' <Predicate = (!icmp_ln79)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 95 [1/1] (2.06ns)   --->   "%tmp = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %input_0_read_1, i8 %input_1_read_1, i8 %input_2_read_1, i8 %input_3_read_1, i8 %input_4_read_1, i8 %input_5_read_1, i8 %input_6_read_1, i8 %input_7_read_1, i8 %input_8_read_1, i8 %input_9_read_1, i8 %input_10_read_1, i8 %input_11_read_1, i8 %input_12_read_1, i8 %input_13_read_1, i8 %input_14_read_1, i8 %input_15_read_1, i4 %add_ln81)" [decrypt.cpp:81]   --->   Operation 95 'mux' 'tmp' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%trunc_ln81_1 = trunc i3 %j_0 to i2" [decrypt.cpp:81]   --->   Operation 96 'trunc' 'trunc_ln81_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%shl_ln81_1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln81_1, i2 0)" [decrypt.cpp:81]   --->   Operation 97 'bitconcatenate' 'shl_ln81_1' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (1.73ns)   --->   "%add_ln81_1 = add i4 %shl_ln81_1, %zext_ln81" [decrypt.cpp:81]   --->   Operation 98 'add' 'add_ln81_1' <Predicate = (!icmp_ln79)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 99 [1/1] (2.06ns)   --->   "%block_s = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %tmp, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i8 %block_016_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 99 'mux' 'block_s' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 100 [1/1] (2.06ns)   --->   "%block_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_117_load_1, i8 %tmp, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i8 %block_117_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 100 'mux' 'block_1' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 101 [1/1] (2.06ns)   --->   "%block_2 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_218_load_1, i8 %block_218_load_1, i8 %tmp, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i8 %block_218_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 101 'mux' 'block_2' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 102 [1/1] (2.06ns)   --->   "%block_3 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %tmp, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i8 %block_319_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 102 'mux' 'block_3' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 103 [1/1] (2.06ns)   --->   "%block_4 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %tmp, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i8 %block_420_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 103 'mux' 'block_4' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 104 [1/1] (2.06ns)   --->   "%block_5 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %tmp, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i8 %block_521_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 104 'mux' 'block_5' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 105 [1/1] (2.06ns)   --->   "%block_6 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %tmp, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i8 %block_622_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 105 'mux' 'block_6' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (2.06ns)   --->   "%block_7 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %tmp, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i8 %block_723_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 106 'mux' 'block_7' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 107 [1/1] (2.06ns)   --->   "%block_8 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %tmp, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i8 %block_824_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 107 'mux' 'block_8' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 108 [1/1] (2.06ns)   --->   "%block_9 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %tmp, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i8 %block_925_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 108 'mux' 'block_9' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 109 [1/1] (2.06ns)   --->   "%block_10 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %tmp, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i8 %block_1026_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 109 'mux' 'block_10' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 110 [1/1] (2.06ns)   --->   "%block_11 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %tmp, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i8 %block_1127_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 110 'mux' 'block_11' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 111 [1/1] (2.06ns)   --->   "%block_12 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %tmp, i8 %block_1228_load_1, i8 %block_1228_load_1, i8 %block_1228_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 111 'mux' 'block_12' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 112 [1/1] (2.06ns)   --->   "%block_13 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %block_1329_load_1, i8 %tmp, i8 %block_1329_load_1, i8 %block_1329_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 112 'mux' 'block_13' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 113 [1/1] (2.06ns)   --->   "%block_14 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %block_1430_load_1, i8 %tmp, i8 %block_1430_load_1, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 113 'mux' 'block_14' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 114 [1/1] (2.06ns)   --->   "%block_15 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %block_1531_load_1, i8 %tmp, i4 %add_ln81_1)" [decrypt.cpp:81]   --->   Operation 114 'mux' 'block_15' <Predicate = (!icmp_ln79)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "store i8 %block_15, i8* %block_1531" [decrypt.cpp:79]   --->   Operation 115 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "store i8 %block_14, i8* %block_1430" [decrypt.cpp:79]   --->   Operation 116 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 117 [1/1] (0.00ns)   --->   "store i8 %block_13, i8* %block_1329" [decrypt.cpp:79]   --->   Operation 117 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "store i8 %block_12, i8* %block_1228" [decrypt.cpp:79]   --->   Operation 118 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 119 [1/1] (0.00ns)   --->   "store i8 %block_11, i8* %block_1127" [decrypt.cpp:79]   --->   Operation 119 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 120 [1/1] (0.00ns)   --->   "store i8 %block_10, i8* %block_1026" [decrypt.cpp:79]   --->   Operation 120 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 121 [1/1] (0.00ns)   --->   "store i8 %block_9, i8* %block_925" [decrypt.cpp:79]   --->   Operation 121 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "store i8 %block_8, i8* %block_824" [decrypt.cpp:79]   --->   Operation 122 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 123 [1/1] (0.00ns)   --->   "store i8 %block_7, i8* %block_723" [decrypt.cpp:79]   --->   Operation 123 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "store i8 %block_6, i8* %block_622" [decrypt.cpp:79]   --->   Operation 124 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "store i8 %block_5, i8* %block_521" [decrypt.cpp:79]   --->   Operation 125 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "store i8 %block_4, i8* %block_420" [decrypt.cpp:79]   --->   Operation 126 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 127 [1/1] (0.00ns)   --->   "store i8 %block_3, i8* %block_319" [decrypt.cpp:79]   --->   Operation 127 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "store i8 %block_2, i8* %block_218" [decrypt.cpp:79]   --->   Operation 128 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "store i8 %block_1, i8* %block_117" [decrypt.cpp:79]   --->   Operation 129 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "store i8 %block_s, i8* %block_016" [decrypt.cpp:79]   --->   Operation 130 'store' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 131 [1/1] (0.00ns)   --->   "br label %.preheader1" [decrypt.cpp:79]   --->   Operation 131 'br' <Predicate = (!icmp_ln79)> <Delay = 0.00>
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "br label %.loopexit33"   --->   Operation 132 'br' <Predicate = (icmp_ln79)> <Delay = 0.00>
 
 State 4 <SV = 2> <Delay = 0.00>
-ST_4 : Operation 55 [1/2] (0.00ns)   --->   "call fastcc void @expandKey([176 x i8]* %expandedKey, [16 x i8]* %key)" [decrypt.cpp:82]   --->   Operation 55 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 133 [1/2] (0.00ns)   --->   "call fastcc void @expandKey([44 x i8]* %expandedKey_0, [44 x i8]* %expandedKey_1, [44 x i8]* %expandedKey_2, [44 x i8]* %expandedKey_3, i8 %key_0_read_2, i8 %key_1_read_2, i8 %key_2_read_2, i8 %key_3_read_2, i8 %key_4_read21, i8 %key_5_read_2, i8 %key_6_read_2, i8 %key_7_read_2, i8 %key_8_read_2, i8 %key_9_read_2, i8 %key_10_read_2, i8 %key_11_read_2, i8 %key_12_read_2, i8 %key_13_read_2, i8 %key_14_read31, i8 %key_15_read_2)" [decrypt.cpp:86]   --->   Operation 133 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 5 <SV = 3> <Delay = 0.00>
-ST_5 : Operation 56 [2/2] (0.00ns)   --->   "call fastcc void @aes_invMain([16 x i8]* %block, [176 x i8]* %expandedKey)" [decrypt.cpp:85]   --->   Operation 56 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 5 <SV = 3> <Delay = 2.75>
+ST_5 : Operation 134 [1/1] (0.00ns)   --->   "%block_016_load = load i8* %block_016" [decrypt.cpp:89]   --->   Operation 134 'load' 'block_016_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 135 [1/1] (0.00ns)   --->   "%block_117_load = load i8* %block_117" [decrypt.cpp:89]   --->   Operation 135 'load' 'block_117_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 136 [1/1] (0.00ns)   --->   "%block_218_load = load i8* %block_218" [decrypt.cpp:89]   --->   Operation 136 'load' 'block_218_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 137 [1/1] (0.00ns)   --->   "%block_319_load = load i8* %block_319" [decrypt.cpp:89]   --->   Operation 137 'load' 'block_319_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 138 [1/1] (0.00ns)   --->   "%block_420_load = load i8* %block_420" [decrypt.cpp:89]   --->   Operation 138 'load' 'block_420_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 139 [1/1] (0.00ns)   --->   "%block_521_load = load i8* %block_521" [decrypt.cpp:89]   --->   Operation 139 'load' 'block_521_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 140 [1/1] (0.00ns)   --->   "%block_622_load = load i8* %block_622" [decrypt.cpp:89]   --->   Operation 140 'load' 'block_622_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 141 [1/1] (0.00ns)   --->   "%block_723_load = load i8* %block_723" [decrypt.cpp:89]   --->   Operation 141 'load' 'block_723_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 142 [1/1] (0.00ns)   --->   "%block_824_load = load i8* %block_824" [decrypt.cpp:89]   --->   Operation 142 'load' 'block_824_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 143 [1/1] (0.00ns)   --->   "%block_925_load = load i8* %block_925" [decrypt.cpp:89]   --->   Operation 143 'load' 'block_925_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 144 [1/1] (0.00ns)   --->   "%block_1026_load = load i8* %block_1026" [decrypt.cpp:89]   --->   Operation 144 'load' 'block_1026_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 145 [1/1] (0.00ns)   --->   "%block_1127_load = load i8* %block_1127" [decrypt.cpp:89]   --->   Operation 145 'load' 'block_1127_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 146 [1/1] (0.00ns)   --->   "%block_1228_load = load i8* %block_1228" [decrypt.cpp:89]   --->   Operation 146 'load' 'block_1228_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 147 [1/1] (0.00ns)   --->   "%block_1329_load = load i8* %block_1329" [decrypt.cpp:89]   --->   Operation 147 'load' 'block_1329_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 148 [1/1] (0.00ns)   --->   "%block_1430_load = load i8* %block_1430" [decrypt.cpp:89]   --->   Operation 148 'load' 'block_1430_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 149 [1/1] (0.00ns)   --->   "%block_1531_load = load i8* %block_1531" [decrypt.cpp:89]   --->   Operation 149 'load' 'block_1531_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 150 [2/2] (2.75ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } @aes_invMain(i8 %block_016_load, i8 %block_117_load, i8 %block_218_load, i8 %block_319_load, i8 %block_420_load, i8 %block_521_load, i8 %block_622_load, i8 %block_723_load, i8 %block_824_load, i8 %block_925_load, i8 %block_1026_load, i8 %block_1127_load, i8 %block_1228_load, i8 %block_1329_load, i8 %block_1430_load, i8 %block_1531_load, [44 x i8]* %expandedKey_0, [44 x i8]* %expandedKey_1, [44 x i8]* %expandedKey_2, [44 x i8]* %expandedKey_3)" [decrypt.cpp:89]   --->   Operation 150 'call' 'call_ret' <Predicate = true> <Delay = 2.75> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 6 <SV = 4> <Delay = 1.76>
-ST_6 : Operation 57 [1/2] (0.00ns)   --->   "call fastcc void @aes_invMain([16 x i8]* %block, [176 x i8]* %expandedKey)" [decrypt.cpp:85]   --->   Operation 57 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_6 : Operation 58 [1/1] (1.76ns)   --->   "br label %.loopexit" [decrypt.cpp:88]   --->   Operation 58 'br' <Predicate = true> <Delay = 1.76>
+State 6 <SV = 4> <Delay = 5.27>
+ST_6 : Operation 151 [1/2] (5.27ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } @aes_invMain(i8 %block_016_load, i8 %block_117_load, i8 %block_218_load, i8 %block_319_load, i8 %block_420_load, i8 %block_521_load, i8 %block_622_load, i8 %block_723_load, i8 %block_824_load, i8 %block_925_load, i8 %block_1026_load, i8 %block_1127_load, i8 %block_1228_load, i8 %block_1329_load, i8 %block_1430_load, i8 %block_1531_load, [44 x i8]* %expandedKey_0, [44 x i8]* %expandedKey_1, [44 x i8]* %expandedKey_2, [44 x i8]* %expandedKey_3)" [decrypt.cpp:89]   --->   Operation 151 'call' 'call_ret' <Predicate = true> <Delay = 5.27> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 152 [1/1] (0.00ns)   --->   "%block_0 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 0" [decrypt.cpp:89]   --->   Operation 152 'extractvalue' 'block_0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 153 [1/1] (0.00ns)   --->   "%block_1_11 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 1" [decrypt.cpp:89]   --->   Operation 153 'extractvalue' 'block_1_11' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 154 [1/1] (0.00ns)   --->   "%block_2_12 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 2" [decrypt.cpp:89]   --->   Operation 154 'extractvalue' 'block_2_12' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 155 [1/1] (0.00ns)   --->   "%block_3_13 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 3" [decrypt.cpp:89]   --->   Operation 155 'extractvalue' 'block_3_13' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 156 [1/1] (0.00ns)   --->   "%block_4_14 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 4" [decrypt.cpp:89]   --->   Operation 156 'extractvalue' 'block_4_14' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 157 [1/1] (0.00ns)   --->   "%block_5_15 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 5" [decrypt.cpp:89]   --->   Operation 157 'extractvalue' 'block_5_15' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 158 [1/1] (0.00ns)   --->   "%block_6_16 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 6" [decrypt.cpp:89]   --->   Operation 158 'extractvalue' 'block_6_16' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 159 [1/1] (0.00ns)   --->   "%block_7_17 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 7" [decrypt.cpp:89]   --->   Operation 159 'extractvalue' 'block_7_17' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 160 [1/1] (0.00ns)   --->   "%block_8_18 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 8" [decrypt.cpp:89]   --->   Operation 160 'extractvalue' 'block_8_18' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 161 [1/1] (0.00ns)   --->   "%block_9_19 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 9" [decrypt.cpp:89]   --->   Operation 161 'extractvalue' 'block_9_19' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 162 [1/1] (0.00ns)   --->   "%block_10_20 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 10" [decrypt.cpp:89]   --->   Operation 162 'extractvalue' 'block_10_20' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 163 [1/1] (0.00ns)   --->   "%block_11_21 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 11" [decrypt.cpp:89]   --->   Operation 163 'extractvalue' 'block_11_21' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 164 [1/1] (0.00ns)   --->   "%block_12_22 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 12" [decrypt.cpp:89]   --->   Operation 164 'extractvalue' 'block_12_22' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 165 [1/1] (0.00ns)   --->   "%block_13_23 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 13" [decrypt.cpp:89]   --->   Operation 165 'extractvalue' 'block_13_23' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 166 [1/1] (0.00ns)   --->   "%block_14_24 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 14" [decrypt.cpp:89]   --->   Operation 166 'extractvalue' 'block_14_24' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 167 [1/1] (0.00ns)   --->   "%block_15_25 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 15" [decrypt.cpp:89]   --->   Operation 167 'extractvalue' 'block_15_25' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 168 [1/1] (1.76ns)   --->   "br label %.loopexit" [decrypt.cpp:92]   --->   Operation 168 'br' <Predicate = true> <Delay = 1.76>
 
 State 7 <SV = 5> <Delay = 1.76>
-ST_7 : Operation 59 [1/1] (0.00ns)   --->   "%i_1 = phi i3 [ 0, %2 ], [ %i_2, %.loopexit.loopexit ]"   --->   Operation 59 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln88 = zext i3 %i_1 to i4" [decrypt.cpp:88]   --->   Operation 60 'zext' 'zext_ln88' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 61 [1/1] (1.13ns)   --->   "%icmp_ln88 = icmp eq i3 %i_1, -4" [decrypt.cpp:88]   --->   Operation 61 'icmp' 'icmp_ln88' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 62 'speclooptripcount' 'empty_7' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 63 [1/1] (1.65ns)   --->   "%i_2 = add i3 %i_1, 1" [decrypt.cpp:88]   --->   Operation 63 'add' 'i_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %icmp_ln88, label %4, label %.preheader.preheader" [decrypt.cpp:88]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 65 [1/1] (0.00ns)   --->   "%trunc_ln93 = trunc i3 %i_1 to i2" [decrypt.cpp:93]   --->   Operation 65 'trunc' 'trunc_ln93' <Predicate = (!icmp_ln88)> <Delay = 0.00>
-ST_7 : Operation 66 [1/1] (0.00ns)   --->   "%shl_ln1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln93, i2 0)" [decrypt.cpp:93]   --->   Operation 66 'bitconcatenate' 'shl_ln1' <Predicate = (!icmp_ln88)> <Delay = 0.00>
-ST_7 : Operation 67 [1/1] (1.76ns)   --->   "br label %.preheader" [decrypt.cpp:91]   --->   Operation 67 'br' <Predicate = (!icmp_ln88)> <Delay = 1.76>
-ST_7 : Operation 68 [1/1] (0.00ns)   --->   "ret void" [decrypt.cpp:96]   --->   Operation 68 'ret' <Predicate = (icmp_ln88)> <Delay = 0.00>
+ST_7 : Operation 169 [1/1] (0.00ns)   --->   "%i_1 = phi i3 [ 0, %1 ], [ %i_2, %.loopexit.loopexit ]"   --->   Operation 169 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 170 [1/1] (1.13ns)   --->   "%icmp_ln92 = icmp eq i3 %i_1, -4" [decrypt.cpp:92]   --->   Operation 170 'icmp' 'icmp_ln92' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 171 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 171 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 172 [1/1] (1.65ns)   --->   "%i_2 = add i3 %i_1, 1" [decrypt.cpp:92]   --->   Operation 172 'add' 'i_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 173 [1/1] (0.00ns)   --->   "br i1 %icmp_ln92, label %4, label %.preheader.preheader" [decrypt.cpp:92]   --->   Operation 173 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 174 [1/1] (0.00ns)   --->   "%zext_ln97 = zext i3 %i_1 to i4" [decrypt.cpp:97]   --->   Operation 174 'zext' 'zext_ln97' <Predicate = (!icmp_ln92)> <Delay = 0.00>
+ST_7 : Operation 175 [1/1] (0.00ns)   --->   "%trunc_ln97 = trunc i3 %i_1 to i2" [decrypt.cpp:97]   --->   Operation 175 'trunc' 'trunc_ln97' <Predicate = (!icmp_ln92)> <Delay = 0.00>
+ST_7 : Operation 176 [1/1] (0.00ns)   --->   "%shl_ln1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln97, i2 0)" [decrypt.cpp:97]   --->   Operation 176 'bitconcatenate' 'shl_ln1' <Predicate = (!icmp_ln92)> <Delay = 0.00>
+ST_7 : Operation 177 [1/1] (1.76ns)   --->   "br label %.preheader" [decrypt.cpp:95]   --->   Operation 177 'br' <Predicate = (!icmp_ln92)> <Delay = 1.76>
+ST_7 : Operation 178 [1/1] (0.00ns)   --->   "ret void" [decrypt.cpp:100]   --->   Operation 178 'ret' <Predicate = (icmp_ln92)> <Delay = 0.00>
 
-State 8 <SV = 6> <Delay = 4.05>
-ST_8 : Operation 69 [1/1] (0.00ns)   --->   "%j_1 = phi i3 [ %j_2, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 69 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 70 [1/1] (0.00ns)   --->   "%zext_ln91 = zext i3 %j_1 to i4" [decrypt.cpp:91]   --->   Operation 70 'zext' 'zext_ln91' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 71 [1/1] (1.13ns)   --->   "%icmp_ln91 = icmp eq i3 %j_1, -4" [decrypt.cpp:91]   --->   Operation 71 'icmp' 'icmp_ln91' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 72 [1/1] (0.00ns)   --->   "%empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 72 'speclooptripcount' 'empty_8' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 73 [1/1] (1.65ns)   --->   "%j_2 = add i3 %j_1, 1" [decrypt.cpp:91]   --->   Operation 73 'add' 'j_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 74 [1/1] (0.00ns)   --->   "br i1 %icmp_ln91, label %.loopexit.loopexit, label %3" [decrypt.cpp:91]   --->   Operation 74 'br' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 75 [1/1] (0.00ns)   --->   "%trunc_ln93_1 = trunc i3 %j_1 to i2" [decrypt.cpp:93]   --->   Operation 75 'trunc' 'trunc_ln93_1' <Predicate = (!icmp_ln91)> <Delay = 0.00>
-ST_8 : Operation 76 [1/1] (0.00ns)   --->   "%shl_ln93_1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln93_1, i2 0)" [decrypt.cpp:93]   --->   Operation 76 'bitconcatenate' 'shl_ln93_1' <Predicate = (!icmp_ln91)> <Delay = 0.00>
-ST_8 : Operation 77 [1/1] (1.73ns)   --->   "%add_ln93 = add i4 %shl_ln93_1, %zext_ln88" [decrypt.cpp:93]   --->   Operation 77 'add' 'add_ln93' <Predicate = (!icmp_ln91)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln93 = zext i4 %add_ln93 to i64" [decrypt.cpp:93]   --->   Operation 78 'zext' 'zext_ln93' <Predicate = (!icmp_ln91)> <Delay = 0.00>
-ST_8 : Operation 79 [1/1] (0.00ns)   --->   "%block_addr_1 = getelementptr inbounds [16 x i8]* %block, i64 0, i64 %zext_ln93" [decrypt.cpp:93]   --->   Operation 79 'getelementptr' 'block_addr_1' <Predicate = (!icmp_ln91)> <Delay = 0.00>
-ST_8 : Operation 80 [2/2] (2.32ns)   --->   "%block_load = load i8* %block_addr_1, align 1" [decrypt.cpp:93]   --->   Operation 80 'load' 'block_load' <Predicate = (!icmp_ln91)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_8 : Operation 81 [1/1] (1.73ns)   --->   "%add_ln93_1 = add i4 %zext_ln91, %shl_ln1" [decrypt.cpp:93]   --->   Operation 81 'add' 'add_ln93_1' <Predicate = (!icmp_ln91)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 82 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 82 'br' <Predicate = (icmp_ln91)> <Delay = 0.00>
-
-State 9 <SV = 7> <Delay = 4.64>
-ST_9 : Operation 83 [1/2] (2.32ns)   --->   "%block_load = load i8* %block_addr_1, align 1" [decrypt.cpp:93]   --->   Operation 83 'load' 'block_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_9 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln93_1 = zext i4 %add_ln93_1 to i64" [decrypt.cpp:93]   --->   Operation 84 'zext' 'zext_ln93_1' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 85 [1/1] (0.00ns)   --->   "%output_addr = getelementptr [16 x i8]* %output_r, i64 0, i64 %zext_ln93_1" [decrypt.cpp:93]   --->   Operation 85 'getelementptr' 'output_addr' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 86 [1/1] (2.32ns)   --->   "store i8 %block_load, i8* %output_addr, align 1" [decrypt.cpp:93]   --->   Operation 86 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 16> <RAM>
-ST_9 : Operation 87 [1/1] (0.00ns)   --->   "br label %.preheader" [decrypt.cpp:91]   --->   Operation 87 'br' <Predicate = true> <Delay = 0.00>
+State 8 <SV = 6> <Delay = 3.79>
+ST_8 : Operation 179 [1/1] (0.00ns)   --->   "%j_1 = phi i3 [ %j_2, %3 ], [ 0, %.preheader.preheader ]"   --->   Operation 179 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 180 [1/1] (1.13ns)   --->   "%icmp_ln95 = icmp eq i3 %j_1, -4" [decrypt.cpp:95]   --->   Operation 180 'icmp' 'icmp_ln95' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 181 [1/1] (0.00ns)   --->   "%empty_27 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 181 'speclooptripcount' 'empty_27' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 182 [1/1] (1.65ns)   --->   "%j_2 = add i3 %j_1, 1" [decrypt.cpp:95]   --->   Operation 182 'add' 'j_2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 183 [1/1] (0.00ns)   --->   "br i1 %icmp_ln95, label %.loopexit.loopexit, label %2" [decrypt.cpp:95]   --->   Operation 183 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 184 [1/1] (0.00ns)   --->   "%zext_ln97_1 = zext i3 %j_1 to i4" [decrypt.cpp:97]   --->   Operation 184 'zext' 'zext_ln97_1' <Predicate = (!icmp_ln95)> <Delay = 0.00>
+ST_8 : Operation 185 [1/1] (0.00ns)   --->   "%trunc_ln97_1 = trunc i3 %j_1 to i2" [decrypt.cpp:97]   --->   Operation 185 'trunc' 'trunc_ln97_1' <Predicate = (!icmp_ln95)> <Delay = 0.00>
+ST_8 : Operation 186 [1/1] (0.00ns)   --->   "%shl_ln97_1 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %trunc_ln97_1, i2 0)" [decrypt.cpp:97]   --->   Operation 186 'bitconcatenate' 'shl_ln97_1' <Predicate = (!icmp_ln95)> <Delay = 0.00>
+ST_8 : Operation 187 [1/1] (1.73ns)   --->   "%add_ln97 = add i4 %shl_ln97_1, %zext_ln97" [decrypt.cpp:97]   --->   Operation 187 'add' 'add_ln97' <Predicate = (!icmp_ln95)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 188 [1/1] (2.06ns)   --->   "%tmp_s = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %block_0, i8 %block_1_11, i8 %block_2_12, i8 %block_3_13, i8 %block_4_14, i8 %block_5_15, i8 %block_6_16, i8 %block_7_17, i8 %block_8_18, i8 %block_9_19, i8 %block_10_20, i8 %block_11_21, i8 %block_12_22, i8 %block_13_23, i8 %block_14_24, i8 %block_15_25, i4 %add_ln97)" [decrypt.cpp:97]   --->   Operation 188 'mux' 'tmp_s' <Predicate = (!icmp_ln95)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 189 [1/1] (1.73ns)   --->   "%add_ln97_1 = add i4 %zext_ln97_1, %shl_ln1" [decrypt.cpp:97]   --->   Operation 189 'add' 'add_ln97_1' <Predicate = (!icmp_ln95)> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 190 [1/1] (1.42ns)   --->   "switch i4 %add_ln97_1, label %branch1593 [
+    i4 0, label %branch078
+    i4 1, label %branch179
+    i4 2, label %branch280
+    i4 3, label %branch381
+    i4 4, label %branch482
+    i4 5, label %branch583
+    i4 6, label %branch684
+    i4 7, label %branch785
+    i4 -8, label %branch886
+    i4 -7, label %branch987
+    i4 -6, label %branch1088
+    i4 -5, label %branch1189
+    i4 -4, label %branch1290
+    i4 -3, label %branch1391
+    i4 -2, label %branch1492
+  ]" [decrypt.cpp:97]   --->   Operation 190 'switch' <Predicate = (!icmp_ln95)> <Delay = 1.42>
+ST_8 : Operation 191 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_14, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 191 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 14)> <Delay = 0.00>
+ST_8 : Operation 192 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 192 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 14)> <Delay = 0.00>
+ST_8 : Operation 193 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_13, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 193 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 13)> <Delay = 0.00>
+ST_8 : Operation 194 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 194 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 13)> <Delay = 0.00>
+ST_8 : Operation 195 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_12, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 195 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 12)> <Delay = 0.00>
+ST_8 : Operation 196 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 196 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 12)> <Delay = 0.00>
+ST_8 : Operation 197 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_11, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 197 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 11)> <Delay = 0.00>
+ST_8 : Operation 198 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 198 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 11)> <Delay = 0.00>
+ST_8 : Operation 199 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_10, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 199 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 10)> <Delay = 0.00>
+ST_8 : Operation 200 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 200 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 10)> <Delay = 0.00>
+ST_8 : Operation 201 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_9, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 201 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 9)> <Delay = 0.00>
+ST_8 : Operation 202 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 202 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 9)> <Delay = 0.00>
+ST_8 : Operation 203 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_8, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 203 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 8)> <Delay = 0.00>
+ST_8 : Operation 204 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 204 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 8)> <Delay = 0.00>
+ST_8 : Operation 205 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_7, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 205 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 7)> <Delay = 0.00>
+ST_8 : Operation 206 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 206 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 7)> <Delay = 0.00>
+ST_8 : Operation 207 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_6, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 207 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 6)> <Delay = 0.00>
+ST_8 : Operation 208 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 208 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 6)> <Delay = 0.00>
+ST_8 : Operation 209 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_5, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 209 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 5)> <Delay = 0.00>
+ST_8 : Operation 210 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 210 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 5)> <Delay = 0.00>
+ST_8 : Operation 211 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_4, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 211 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 4)> <Delay = 0.00>
+ST_8 : Operation 212 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 212 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 4)> <Delay = 0.00>
+ST_8 : Operation 213 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_3, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 213 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 3)> <Delay = 0.00>
+ST_8 : Operation 214 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 214 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 3)> <Delay = 0.00>
+ST_8 : Operation 215 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_2, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 215 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 2)> <Delay = 0.00>
+ST_8 : Operation 216 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 216 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 2)> <Delay = 0.00>
+ST_8 : Operation 217 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_1, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 217 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 1)> <Delay = 0.00>
+ST_8 : Operation 218 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 218 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 1)> <Delay = 0.00>
+ST_8 : Operation 219 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_0, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 219 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 0)> <Delay = 0.00>
+ST_8 : Operation 220 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 220 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 0)> <Delay = 0.00>
+ST_8 : Operation 221 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i8P(i8* %output_15, i8 %tmp_s)" [decrypt.cpp:97]   --->   Operation 221 'write' <Predicate = (!icmp_ln95 & add_ln97_1 == 15)> <Delay = 0.00>
+ST_8 : Operation 222 [1/1] (0.00ns)   --->   "br label %3" [decrypt.cpp:97]   --->   Operation 222 'br' <Predicate = (!icmp_ln95 & add_ln97_1 == 15)> <Delay = 0.00>
+ST_8 : Operation 223 [1/1] (0.00ns)   --->   "br label %.preheader" [decrypt.cpp:95]   --->   Operation 223 'br' <Predicate = (!icmp_ln95)> <Delay = 0.00>
+ST_8 : Operation 224 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 224 'br' <Predicate = (icmp_ln95)> <Delay = 0.00>
 
 
 ============================================================
@@ -194,44 +345,41 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', decrypt.cpp:72) [45]  (1.77 ns)
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', decrypt.cpp:76) [109]  (1.77 ns)
 
- <State 2>: 1.77ns
+ <State 2>: 2.32ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', decrypt.cpp:75) [56]  (1.77 ns)
+	'call' operation ('call_ln86', decrypt.cpp:86) to 'expandKey' [200]  (2.32 ns)
 
- <State 3>: 6.12ns
+ <State 3>: 5.86ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', decrypt.cpp:75) [56]  (0 ns)
-	'add' operation ('add_ln77', decrypt.cpp:77) [63]  (1.74 ns)
-	'mux' operation ('tmp', decrypt.cpp:77) [64]  (2.06 ns)
-	'store' operation ('store_ln77', decrypt.cpp:77) of variable 'tmp', decrypt.cpp:77 on array 'block', decrypt.cpp:59 [70]  (2.32 ns)
+	'phi' operation ('j') with incoming values : ('j', decrypt.cpp:79) [120]  (0 ns)
+	'add' operation ('add_ln81', decrypt.cpp:81) [143]  (1.74 ns)
+	'mux' operation ('tmp', decrypt.cpp:81) [144]  (2.06 ns)
+	'mux' operation ('block_s', decrypt.cpp:81) [148]  (2.06 ns)
 
  <State 4>: 0ns
 The critical path consists of the following:
 
- <State 5>: 0ns
+ <State 5>: 2.76ns
 The critical path consists of the following:
+	'load' operation ('block_016_load', decrypt.cpp:89) on local variable 'block_016' [184]  (0 ns)
+	'call' operation ('call_ret', decrypt.cpp:89) to 'aes_invMain' [201]  (2.76 ns)
 
- <State 6>: 1.77ns
+ <State 6>: 5.27ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', decrypt.cpp:88) [79]  (1.77 ns)
+	'call' operation ('call_ret', decrypt.cpp:89) to 'aes_invMain' [201]  (5.27 ns)
 
  <State 7>: 1.77ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('j') with incoming values : ('j', decrypt.cpp:91) [90]  (1.77 ns)
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', decrypt.cpp:95) [231]  (1.77 ns)
 
- <State 8>: 4.06ns
+ <State 8>: 3.8ns
 The critical path consists of the following:
-	'phi' operation ('j') with incoming values : ('j', decrypt.cpp:91) [90]  (0 ns)
-	'add' operation ('add_ln93', decrypt.cpp:93) [99]  (1.74 ns)
-	'getelementptr' operation ('block_addr_1', decrypt.cpp:93) [101]  (0 ns)
-	'load' operation ('block_load', decrypt.cpp:93) on array 'block', decrypt.cpp:59 [102]  (2.32 ns)
-
- <State 9>: 4.64ns
-The critical path consists of the following:
-	'load' operation ('block_load', decrypt.cpp:93) on array 'block', decrypt.cpp:59 [102]  (2.32 ns)
-	'store' operation ('store_ln93', decrypt.cpp:93) of variable 'block_load', decrypt.cpp:93 on array 'output_r' [106]  (2.32 ns)
+	'phi' operation ('j') with incoming values : ('j', decrypt.cpp:95) [231]  (0 ns)
+	'add' operation ('add_ln97', decrypt.cpp:97) [240]  (1.74 ns)
+	'mux' operation ('tmp_s', decrypt.cpp:97) [241]  (2.06 ns)
+	wire write on port 'output_11' (decrypt.cpp:97) [254]  (0 ns)
 
 
 ============================================================
@@ -250,7 +398,6 @@ N/A
 	State 6
 	State 7
 	State 8
-	State 9
 
 
 ============================================================

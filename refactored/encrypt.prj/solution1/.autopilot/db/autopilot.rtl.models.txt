@@ -1,9 +1,11 @@
+encrypt_dut_mux_1bkb
 expandKey_sbox
 expandKey_Rcon
+encrypt_dut_mux_4cud
 aes_main_sbox
-encrypt_dut_mux_1cud
 aes_encrypt_block
-aes_encrypt_expanbkb
+aes_encrypt_expandEe
+aes_encrypt_expanfYi
 expandKey
 createRoundKey
 addRoundKey

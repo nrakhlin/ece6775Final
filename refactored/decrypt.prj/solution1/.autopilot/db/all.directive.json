@@ -38,6 +38,78 @@
           }
         },
         {
+          "functionName": "decrypt_dut",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ARRAY_PARTITION",
+            "option": [
+              {
+                "name": "variable",
+                "value": "key",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "complete",
+                "value": "",
+                "positionalBoolean": "type"
+              },
+              {
+                "name": "dim",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "decrypt_dut",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ARRAY_PARTITION",
+            "option": [
+              {
+                "name": "variable",
+                "value": "output",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "complete",
+                "value": "",
+                "positionalBoolean": "type"
+              },
+              {
+                "name": "dim",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "aes_decrypt",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ARRAY_PARTITION",
+            "option": [
+              {
+                "name": "variable",
+                "value": "block",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "complete",
+                "value": "",
+                "positionalBoolean": "type"
+              },
+              {
+                "name": "dim",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
           "functionName": "expandKey",
           "label": "EX_WHILE",
           "functionLabel": "",
@@ -48,6 +120,12 @@
                 "value": "1"
               }]
           }
+        },
+        {
+          "functionName": "expandKey",
+          "label": "EX_K_LOOP1",
+          "functionLabel": "",
+          "pragma": {"name": "UNROLL"}
         }
       ]
     }]}

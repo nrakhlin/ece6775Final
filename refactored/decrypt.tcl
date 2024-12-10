@@ -28,9 +28,28 @@ create_clock -period 10
 
 ### You can insert your own directives here ###
 set_directive_pipeline -II 1 aes_invMain/DECRYPT_MAIN_LOOP
+# set_directive_unroll aes_invMain/DECRYPT_MAIN_LOOP
 
 set_directive_array_partition -type complete -dim 0 decrypt_dut input
-set_directive_pipeline -II 1 expandKey/EX_WHILE;
+set_directive_array_partition -type complete -dim 0 decrypt_dut key
+set_directive_array_partition -type complete -dim 0 decrypt_dut output
+
+set_directive_array_partition -type complete -dim 0 aes_decrypt block
+# set_directive_array_partition -type complete -dim 0 aes_decrypt expandKey
+
+# set_directive_array_partition -type complete -dim 0 expandKey t
+
+# set_directive_array_reshape -type complete -dim 0 helper sbox
+# set_directive_array_partition -type complete -dim 0 helper sbox
+# set_directive_array_reshape -type complete -dim 0 helper rsbox
+# set_directive_array_partition -type complete -dim 0 helper rsbox
+# set_directive_array_reshape -type complete -dim 0 helper Rcon
+# set_directive_array_partition -type complete -dim 0 helper Rcon
+
+set_directive_pipeline -II 1 expandKey/EX_WHILE
+set_directive_unroll expandKey/EX_K_LOOP1
+# set_directive_unroll expandKey/EX_INNER1
+# set_directive_unroll expandKey/EX_INNER2
 ############################################
 
 # Simulate the C++ design

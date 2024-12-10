@@ -2430,15 +2430,16 @@ void aes_main(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 1))
   int i = 0;
   int j, k;
   unsigned char roundKey[16];
+_ssdm_SpecArrayPartition( roundKey, 0, "COMPLETE", 0, "");
 
-  createRoundKey(expandedKey, roundKey, 0);
+ createRoundKey(expandedKey, roundKey, 0);
   addRoundKey(state, roundKey);
 
   AES_MAIN_LOOP:
     for (i = 1; i < nbrRounds; i++)
     {
 _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
-# 26 "encrypt.cpp"
+# 27 "encrypt.cpp"
 
       createRoundKey(expandedKey, roundKey, 16 * i);
       aes_round(state, roundKey);
@@ -2459,8 +2460,9 @@ void aes_encrypt(unsigned char input[16],
   unsigned char block[16];
   int i, j;
   unsigned char expandedKey[(16 * (10 + 1))];
+_ssdm_SpecArrayPartition( expandedKey, 0, "CYCLIC", 4, "");
 
-  for (i = 0; i < 4; i++)
+ for (i = 0; i < 4; i++)
   {
 
     for (j = 0; j < 4; j++)
@@ -2492,7 +2494,13 @@ void encrypt_dut(unsigned char input[16],
                  unsigned char key[16])
 {_ssdm_SpecArrayDimSize(input, 16);_ssdm_SpecArrayDimSize(output, 16);_ssdm_SpecArrayDimSize(key, 16);
 _ssdm_SpecArrayPartition( input, 0, "COMPLETE", 0, "");
-# 77 "encrypt.cpp"
+# 79 "encrypt.cpp"
+
+_ssdm_SpecArrayPartition( key, 0, "COMPLETE", 0, "");
+# 79 "encrypt.cpp"
+
+_ssdm_SpecArrayPartition( output, 0, "COMPLETE", 0, "");
+# 79 "encrypt.cpp"
 
 
   aes_encrypt(input, output, key, 16);

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'galois_multiplicatio'
 ================================================================
-* Date:           Mon Dec  9 19:14:21 2024
+* Date:           Mon Dec  9 22:58:06 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -79,18 +79,18 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.24>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [helper.cpp:228]   --->   Operation 2 'read' 'b_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:228]   --->   Operation 3 'read' 'a_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%trunc_ln235 = trunc i3 %b_read to i1" [helper.cpp:235]   --->   Operation 4 'trunc' 'trunc_ln235' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln235 = select i1 %trunc_ln235, i8 %a_read, i8 0" [helper.cpp:235]   --->   Operation 5 'select' 'select_ln235' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln238 = shl i8 %a_read, 1" [helper.cpp:238]   --->   Operation 6 'shl' 'shl_ln238' <Predicate = (tmp_1)> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %a_read, i32 7)" [helper.cpp:239]   --->   Operation 7 'bitselect' 'tmp' <Predicate = (tmp_1)> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%xor_ln240 = xor i8 %shl_ln238, 27" [helper.cpp:240]   --->   Operation 8 'xor' 'xor_ln240' <Predicate = (tmp & tmp_1)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 9 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln239 = select i1 %tmp, i8 %xor_ln240, i8 %shl_ln238" [helper.cpp:239]   --->   Operation 9 'select' 'select_ln239' <Predicate = (tmp_1)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i3.i32(i3 %b_read, i32 1)" [helper.cpp:235]   --->   Operation 10 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235)   --->   "%select_ln235_1 = select i1 %tmp_1, i8 %select_ln239, i8 0" [helper.cpp:235]   --->   Operation 11 'select' 'select_ln235_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln235 = xor i8 %select_ln235, %select_ln235_1" [helper.cpp:235]   --->   Operation 12 'xor' 'xor_ln235' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "ret i8 %xor_ln235" [helper.cpp:243]   --->   Operation 13 'ret' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%b_read = call i3 @_ssdm_op_Read.ap_auto.i3(i3 %b) nounwind" [helper.cpp:238]   --->   Operation 2 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:238]   --->   Operation 3 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%trunc_ln245 = trunc i3 %b_read to i1" [helper.cpp:245]   --->   Operation 4 'trunc' 'trunc_ln245' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%select_ln245 = select i1 %trunc_ln245, i8 %a_read, i8 0" [helper.cpp:245]   --->   Operation 5 'select' 'select_ln245' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln248 = shl i8 %a_read, 1" [helper.cpp:248]   --->   Operation 6 'shl' 'shl_ln248' <Predicate = (tmp_1)> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %a_read, i32 7)" [helper.cpp:249]   --->   Operation 7 'bitselect' 'tmp' <Predicate = (tmp_1)> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%xor_ln250 = xor i8 %shl_ln248, 27" [helper.cpp:250]   --->   Operation 8 'xor' 'xor_ln250' <Predicate = (tmp & tmp_1)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%select_ln249 = select i1 %tmp, i8 %xor_ln250, i8 %shl_ln248" [helper.cpp:249]   --->   Operation 9 'select' 'select_ln249' <Predicate = (tmp_1)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i3.i32(i3 %b_read, i32 1)" [helper.cpp:245]   --->   Operation 10 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245)   --->   "%select_ln245_1 = select i1 %tmp_1, i8 %select_ln249, i8 0" [helper.cpp:245]   --->   Operation 11 'select' 'select_ln245_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln245 = xor i8 %select_ln245, %select_ln245_1" [helper.cpp:245]   --->   Operation 12 'xor' 'xor_ln245' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "ret i8 %xor_ln245" [helper.cpp:253]   --->   Operation 13 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -100,9 +100,9 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.25ns
 The critical path consists of the following:
-	wire read on port 'b' (helper.cpp:228) [3]  (0 ns)
-	'select' operation ('select_ln235_1', helper.cpp:235) [12]  (0 ns)
-	'xor' operation ('xor_ln235', helper.cpp:235) [13]  (1.25 ns)
+	wire read on port 'b' (helper.cpp:238) [3]  (0 ns)
+	'select' operation ('select_ln245_1', helper.cpp:245) [12]  (0 ns)
+	'xor' operation ('xor_ln245', helper.cpp:245) [13]  (1.25 ns)
 
 
 ============================================================

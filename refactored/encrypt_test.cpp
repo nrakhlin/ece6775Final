@@ -49,6 +49,14 @@ int main()
   }
   assert(memcmp(encrypted_output, expected_output, BLOCK_SIZE) == 0);
 
+  for (int i = 0; i < BLOCK_SIZE; i++){
+    if (encrypted_output[i] != expected_output[i]){
+          printf("FAIL FAIL FAIL");
+          return 1;
+    }
+  }
+  assert(memcmp(encrypted_output, expected_output, BLOCK_SIZE) == 0);
+
   // If the assertion passes, print success message
   printf("AES encryption test passed successfully!\n");
 

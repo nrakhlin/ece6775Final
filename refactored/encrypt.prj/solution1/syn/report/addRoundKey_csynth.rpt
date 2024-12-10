@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'addRoundKey'
 ================================================================
-* Date:           Mon Dec  9 19:14:23 2024
+* Date:           Mon Dec  9 22:58:09 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -80,22 +80,22 @@
     +------------------------+----------+-------+---+----+------------+------------+
     |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +------------------------+----------+-------+---+----+------------+------------+
-    |xor_ln226_10_fu_387_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_11_fu_393_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_12_fu_399_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_13_fu_405_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_14_fu_411_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_15_fu_418_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_1_fu_332_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_2_fu_339_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_3_fu_345_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_4_fu_351_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_5_fu_357_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_6_fu_363_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_7_fu_369_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_8_fu_375_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_9_fu_381_p2   |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln226_fu_325_p2     |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_10_fu_387_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_11_fu_393_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_12_fu_399_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_13_fu_405_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_14_fu_411_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_15_fu_418_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_1_fu_332_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_2_fu_339_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_3_fu_345_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_4_fu_351_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_5_fu_357_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_6_fu_363_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_7_fu_369_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_8_fu_375_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_9_fu_381_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_fu_325_p2     |    xor   |      0|  0|   8|           8|           8|
     +------------------------+----------+-------+---+----+------------+------------+
     |Total                   |          |      0|  0| 128|         128|         128|
     +------------------------+----------+-------+---+----+------------+------------+
@@ -142,40 +142,40 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------+-----+-----+------------+--------------+--------------+
-|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+----------------+-----+-----+------------+--------------+--------------+
-|ap_clk          |  in |    1| ap_ctrl_hs |  addRoundKey | return value |
-|ap_rst          |  in |    1| ap_ctrl_hs |  addRoundKey | return value |
-|ap_start        |  in |    1| ap_ctrl_hs |  addRoundKey | return value |
-|ap_done         | out |    1| ap_ctrl_hs |  addRoundKey | return value |
-|ap_idle         | out |    1| ap_ctrl_hs |  addRoundKey | return value |
-|ap_ready        | out |    1| ap_ctrl_hs |  addRoundKey | return value |
-|state_address0  | out |    4|  ap_memory |     state    |     array    |
-|state_ce0       | out |    1|  ap_memory |     state    |     array    |
-|state_we0       | out |    1|  ap_memory |     state    |     array    |
-|state_d0        | out |    8|  ap_memory |     state    |     array    |
-|state_q0        |  in |    8|  ap_memory |     state    |     array    |
-|state_address1  | out |    4|  ap_memory |     state    |     array    |
-|state_ce1       | out |    1|  ap_memory |     state    |     array    |
-|state_we1       | out |    1|  ap_memory |     state    |     array    |
-|state_d1        | out |    8|  ap_memory |     state    |     array    |
-|state_q1        |  in |    8|  ap_memory |     state    |     array    |
-|p_read          |  in |    8|   ap_none  |    p_read    |    scalar    |
-|p_read1         |  in |    8|   ap_none  |    p_read1   |    scalar    |
-|p_read2         |  in |    8|   ap_none  |    p_read2   |    scalar    |
-|p_read3         |  in |    8|   ap_none  |    p_read3   |    scalar    |
-|p_read4         |  in |    8|   ap_none  |    p_read4   |    scalar    |
-|p_read5         |  in |    8|   ap_none  |    p_read5   |    scalar    |
-|p_read6         |  in |    8|   ap_none  |    p_read6   |    scalar    |
-|p_read7         |  in |    8|   ap_none  |    p_read7   |    scalar    |
-|p_read8         |  in |    8|   ap_none  |    p_read8   |    scalar    |
-|p_read9         |  in |    8|   ap_none  |    p_read9   |    scalar    |
-|p_read10        |  in |    8|   ap_none  |   p_read10   |    scalar    |
-|p_read11        |  in |    8|   ap_none  |   p_read11   |    scalar    |
-|p_read12        |  in |    8|   ap_none  |   p_read12   |    scalar    |
-|p_read13        |  in |    8|   ap_none  |   p_read13   |    scalar    |
-|p_read14        |  in |    8|   ap_none  |   p_read14   |    scalar    |
-|p_read15        |  in |    8|   ap_none  |   p_read15   |    scalar    |
-+----------------+-----+-----+------------+--------------+--------------+
++------------------+-----+-----+------------+------------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++------------------+-----+-----+------------+------------------+--------------+
+|ap_clk            |  in |    1| ap_ctrl_hs |    addRoundKey   | return value |
+|ap_rst            |  in |    1| ap_ctrl_hs |    addRoundKey   | return value |
+|ap_start          |  in |    1| ap_ctrl_hs |    addRoundKey   | return value |
+|ap_done           | out |    1| ap_ctrl_hs |    addRoundKey   | return value |
+|ap_idle           | out |    1| ap_ctrl_hs |    addRoundKey   | return value |
+|ap_ready          | out |    1| ap_ctrl_hs |    addRoundKey   | return value |
+|state_address0    | out |    4|  ap_memory |       state      |     array    |
+|state_ce0         | out |    1|  ap_memory |       state      |     array    |
+|state_we0         | out |    1|  ap_memory |       state      |     array    |
+|state_d0          | out |    8|  ap_memory |       state      |     array    |
+|state_q0          |  in |    8|  ap_memory |       state      |     array    |
+|state_address1    | out |    4|  ap_memory |       state      |     array    |
+|state_ce1         | out |    1|  ap_memory |       state      |     array    |
+|state_we1         | out |    1|  ap_memory |       state      |     array    |
+|state_d1          | out |    8|  ap_memory |       state      |     array    |
+|state_q1          |  in |    8|  ap_memory |       state      |     array    |
+|roundKey_0_read   |  in |    8|   ap_none  |  roundKey_0_read |    scalar    |
+|roundKey_1_read   |  in |    8|   ap_none  |  roundKey_1_read |    scalar    |
+|roundKey_2_read   |  in |    8|   ap_none  |  roundKey_2_read |    scalar    |
+|roundKey_3_read   |  in |    8|   ap_none  |  roundKey_3_read |    scalar    |
+|roundKey_4_read   |  in |    8|   ap_none  |  roundKey_4_read |    scalar    |
+|roundKey_5_read   |  in |    8|   ap_none  |  roundKey_5_read |    scalar    |
+|roundKey_6_read   |  in |    8|   ap_none  |  roundKey_6_read |    scalar    |
+|roundKey_7_read   |  in |    8|   ap_none  |  roundKey_7_read |    scalar    |
+|roundKey_8_read   |  in |    8|   ap_none  |  roundKey_8_read |    scalar    |
+|roundKey_9_read   |  in |    8|   ap_none  |  roundKey_9_read |    scalar    |
+|roundKey_10_read  |  in |    8|   ap_none  | roundKey_10_read |    scalar    |
+|roundKey_11_read  |  in |    8|   ap_none  | roundKey_11_read |    scalar    |
+|roundKey_12_read  |  in |    8|   ap_none  | roundKey_12_read |    scalar    |
+|roundKey_13_read  |  in |    8|   ap_none  | roundKey_13_read |    scalar    |
+|roundKey_14_read  |  in |    8|   ap_none  | roundKey_14_read |    scalar    |
+|roundKey_15_read  |  in |    8|   ap_none  | roundKey_15_read |    scalar    |
++------------------+-----+-----+------------+------------------+--------------+
 
