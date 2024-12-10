@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'mixColumn'
 ================================================================
-* Date:           Mon Dec  9 19:14:23 2024
+* Date:           Mon Dec  9 22:58:09 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -113,18 +113,18 @@
     +-----------------------+----------+-------+---+----+------------+------------+
     |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +-----------------------+----------+-------+---+----+------------+------------+
-    |xor_ln257_1_fu_140_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln257_2_fu_146_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln257_fu_152_p2    |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln262_1_fu_158_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln262_2_fu_164_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln262_fu_170_p2    |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln267_1_fu_176_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln267_2_fu_182_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln267_fu_188_p2    |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln272_1_fu_194_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln272_2_fu_200_p2  |    xor   |      0|  0|   8|           8|           8|
-    |xor_ln272_fu_206_p2    |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln267_1_fu_140_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln267_2_fu_146_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln267_fu_152_p2    |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln272_1_fu_158_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln272_2_fu_164_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln272_fu_170_p2    |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln277_1_fu_176_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln277_2_fu_182_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln277_fu_188_p2    |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln282_1_fu_194_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln282_2_fu_200_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln282_fu_206_p2    |    xor   |      0|  0|   8|           8|           8|
     +-----------------------+----------+-------+---+----+------------+------------+
     |Total                  |          |      0|  0|  96|          96|          96|
     +-----------------------+----------+-------+---+----+------------+------------+
@@ -195,39 +195,39 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 2.23>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [helper.cpp:254]   --->   Operation 2 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [helper.cpp:254]   --->   Operation 3 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [helper.cpp:254]   --->   Operation 4 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [helper.cpp:254]   --->   Operation 5 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (1.24ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i3 zeroext 2)" [helper.cpp:254]   --->   Operation 6 'call' 'tmp' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 7 [1/1] (1.24ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i3 zeroext 1)" [helper.cpp:255]   --->   Operation 7 'call' 'tmp_3' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 8 [1/1] (1.24ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i3 zeroext 1)" [helper.cpp:256]   --->   Operation 8 'call' 'tmp_4' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 9 [1/1] (1.24ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i3 zeroext 3)" [helper.cpp:257]   --->   Operation 9 'call' 'tmp_5' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln257)   --->   "%xor_ln257_1 = xor i8 %tmp_3, %tmp" [helper.cpp:257]   --->   Operation 10 'xor' 'xor_ln257_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln257)   --->   "%xor_ln257_2 = xor i8 %tmp_4, %tmp_5" [helper.cpp:257]   --->   Operation 11 'xor' 'xor_ln257_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln257 = xor i8 %xor_ln257_2, %xor_ln257_1" [helper.cpp:257]   --->   Operation 12 'xor' 'xor_ln257' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 13 [1/1] (1.24ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i3 zeroext 2)" [helper.cpp:259]   --->   Operation 13 'call' 'tmp_6' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 14 [1/1] (1.24ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i3 zeroext 1)" [helper.cpp:260]   --->   Operation 14 'call' 'tmp_7' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 15 [1/1] (1.24ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i3 zeroext 3)" [helper.cpp:262]   --->   Operation 15 'call' 'tmp_9' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node xor_ln262)   --->   "%xor_ln262_1 = xor i8 %tmp_7, %tmp_6" [helper.cpp:262]   --->   Operation 16 'xor' 'xor_ln262_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln262)   --->   "%xor_ln262_2 = xor i8 %tmp_3, %tmp_9" [helper.cpp:262]   --->   Operation 17 'xor' 'xor_ln262_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 18 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln262 = xor i8 %xor_ln262_2, %xor_ln262_1" [helper.cpp:262]   --->   Operation 18 'xor' 'xor_ln262' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 19 [1/1] (1.24ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i3 zeroext 2)" [helper.cpp:264]   --->   Operation 19 'call' 'tmp_s' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 20 [1/1] (1.24ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i3 zeroext 1)" [helper.cpp:265]   --->   Operation 20 'call' 'tmp_1' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 21 [1/1] (1.24ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i3 zeroext 3)" [helper.cpp:267]   --->   Operation 21 'call' 'tmp_2' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node xor_ln267)   --->   "%xor_ln267_1 = xor i8 %tmp_1, %tmp_s" [helper.cpp:267]   --->   Operation 22 'xor' 'xor_ln267_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node xor_ln267)   --->   "%xor_ln267_2 = xor i8 %tmp_7, %tmp_2" [helper.cpp:267]   --->   Operation 23 'xor' 'xor_ln267_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 24 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln267 = xor i8 %xor_ln267_2, %xor_ln267_1" [helper.cpp:267]   --->   Operation 24 'xor' 'xor_ln267' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 25 [1/1] (1.24ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i3 zeroext 2)" [helper.cpp:269]   --->   Operation 25 'call' 'tmp_8' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 26 [1/1] (1.24ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i3 zeroext 3)" [helper.cpp:272]   --->   Operation 26 'call' 'tmp_10' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_1 : Operation 27 [1/1] (0.00ns) (grouped into LUT with out node xor_ln272)   --->   "%xor_ln272_1 = xor i8 %tmp_4, %tmp_8" [helper.cpp:272]   --->   Operation 27 'xor' 'xor_ln272_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node xor_ln272)   --->   "%xor_ln272_2 = xor i8 %tmp_1, %tmp_10" [helper.cpp:272]   --->   Operation 28 'xor' 'xor_ln272_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 29 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln272 = xor i8 %xor_ln272_2, %xor_ln272_1" [helper.cpp:272]   --->   Operation 29 'xor' 'xor_ln272' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln257, 0" [helper.cpp:273]   --->   Operation 30 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln262, 1" [helper.cpp:273]   --->   Operation 31 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln267, 2" [helper.cpp:273]   --->   Operation 32 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln272, 3" [helper.cpp:273]   --->   Operation 33 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 34 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [helper.cpp:273]   --->   Operation 34 'ret' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%column_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [helper.cpp:264]   --->   Operation 2 'read' 'column_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%column_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [helper.cpp:264]   --->   Operation 3 'read' 'column_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%column_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [helper.cpp:264]   --->   Operation 4 'read' 'column_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%column_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [helper.cpp:264]   --->   Operation 5 'read' 'column_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (1.24ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i3 zeroext 2)" [helper.cpp:264]   --->   Operation 6 'call' 'tmp' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 7 [1/1] (1.24ns)   --->   "%tmp_3 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i3 zeroext 1)" [helper.cpp:265]   --->   Operation 7 'call' 'tmp_3' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 8 [1/1] (1.24ns)   --->   "%tmp_4 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i3 zeroext 1)" [helper.cpp:266]   --->   Operation 8 'call' 'tmp_4' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 9 [1/1] (1.24ns)   --->   "%tmp_5 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i3 zeroext 3)" [helper.cpp:267]   --->   Operation 9 'call' 'tmp_5' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln267)   --->   "%xor_ln267_1 = xor i8 %tmp_3, %tmp" [helper.cpp:267]   --->   Operation 10 'xor' 'xor_ln267_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln267)   --->   "%xor_ln267_2 = xor i8 %tmp_4, %tmp_5" [helper.cpp:267]   --->   Operation 11 'xor' 'xor_ln267_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln267 = xor i8 %xor_ln267_2, %xor_ln267_1" [helper.cpp:267]   --->   Operation 12 'xor' 'xor_ln267' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (1.24ns)   --->   "%tmp_6 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i3 zeroext 2)" [helper.cpp:269]   --->   Operation 13 'call' 'tmp_6' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 14 [1/1] (1.24ns)   --->   "%tmp_7 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i3 zeroext 1)" [helper.cpp:270]   --->   Operation 14 'call' 'tmp_7' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 15 [1/1] (1.24ns)   --->   "%tmp_9 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i3 zeroext 3)" [helper.cpp:272]   --->   Operation 15 'call' 'tmp_9' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node xor_ln272)   --->   "%xor_ln272_1 = xor i8 %tmp_7, %tmp_6" [helper.cpp:272]   --->   Operation 16 'xor' 'xor_ln272_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln272)   --->   "%xor_ln272_2 = xor i8 %tmp_3, %tmp_9" [helper.cpp:272]   --->   Operation 17 'xor' 'xor_ln272_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln272 = xor i8 %xor_ln272_2, %xor_ln272_1" [helper.cpp:272]   --->   Operation 18 'xor' 'xor_ln272' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (1.24ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_1, i3 zeroext 2)" [helper.cpp:274]   --->   Operation 19 'call' 'tmp_s' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 20 [1/1] (1.24ns)   --->   "%tmp_1 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_1, i3 zeroext 1)" [helper.cpp:275]   --->   Operation 20 'call' 'tmp_1' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 21 [1/1] (1.24ns)   --->   "%tmp_2 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i3 zeroext 3)" [helper.cpp:277]   --->   Operation 21 'call' 'tmp_2' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node xor_ln277)   --->   "%xor_ln277_1 = xor i8 %tmp_1, %tmp_s" [helper.cpp:277]   --->   Operation 22 'xor' 'xor_ln277_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node xor_ln277)   --->   "%xor_ln277_2 = xor i8 %tmp_7, %tmp_2" [helper.cpp:277]   --->   Operation 23 'xor' 'xor_ln277_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 24 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln277 = xor i8 %xor_ln277_2, %xor_ln277_1" [helper.cpp:277]   --->   Operation 24 'xor' 'xor_ln277' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (1.24ns)   --->   "%tmp_8 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_1, i3 zeroext 2)" [helper.cpp:279]   --->   Operation 25 'call' 'tmp_8' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 26 [1/1] (1.24ns)   --->   "%tmp_10 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_1, i3 zeroext 3)" [helper.cpp:282]   --->   Operation 26 'call' 'tmp_10' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 27 [1/1] (0.00ns) (grouped into LUT with out node xor_ln282)   --->   "%xor_ln282_1 = xor i8 %tmp_4, %tmp_8" [helper.cpp:282]   --->   Operation 27 'xor' 'xor_ln282_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node xor_ln282)   --->   "%xor_ln282_2 = xor i8 %tmp_1, %tmp_10" [helper.cpp:282]   --->   Operation 28 'xor' 'xor_ln282_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln282 = xor i8 %xor_ln282_2, %xor_ln282_1" [helper.cpp:282]   --->   Operation 29 'xor' 'xor_ln282' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln267, 0" [helper.cpp:283]   --->   Operation 30 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln272, 1" [helper.cpp:283]   --->   Operation 31 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln277, 2" [helper.cpp:283]   --->   Operation 32 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln282, 3" [helper.cpp:283]   --->   Operation 33 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [helper.cpp:283]   --->   Operation 34 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -259,31 +259,31 @@ tmp             (call       ) [ 00]
 tmp_3           (call       ) [ 00]
 tmp_4           (call       ) [ 00]
 tmp_5           (call       ) [ 00]
-xor_ln257_1     (xor        ) [ 00]
-xor_ln257_2     (xor        ) [ 00]
-xor_ln257       (xor        ) [ 00]
-tmp_6           (call       ) [ 00]
-tmp_7           (call       ) [ 00]
-tmp_9           (call       ) [ 00]
-xor_ln262_1     (xor        ) [ 00]
-xor_ln262_2     (xor        ) [ 00]
-xor_ln262       (xor        ) [ 00]
-tmp_s           (call       ) [ 00]
-tmp_1           (call       ) [ 00]
-tmp_2           (call       ) [ 00]
 xor_ln267_1     (xor        ) [ 00]
 xor_ln267_2     (xor        ) [ 00]
 xor_ln267       (xor        ) [ 00]
-tmp_8           (call       ) [ 00]
-tmp_10          (call       ) [ 00]
+tmp_6           (call       ) [ 00]
+tmp_7           (call       ) [ 00]
+tmp_9           (call       ) [ 00]
 xor_ln272_1     (xor        ) [ 00]
 xor_ln272_2     (xor        ) [ 00]
 xor_ln272       (xor        ) [ 00]
+tmp_s           (call       ) [ 00]
+tmp_1           (call       ) [ 00]
+tmp_2           (call       ) [ 00]
+xor_ln277_1     (xor        ) [ 00]
+xor_ln277_2     (xor        ) [ 00]
+xor_ln277       (xor        ) [ 00]
+tmp_8           (call       ) [ 00]
+tmp_10          (call       ) [ 00]
+xor_ln282_1     (xor        ) [ 00]
+xor_ln282_2     (xor        ) [ 00]
+xor_ln282       (xor        ) [ 00]
 mrv             (insertvalue) [ 00]
 mrv_1           (insertvalue) [ 00]
 mrv_2           (insertvalue) [ 00]
 mrv_3           (insertvalue) [ 00]
-ret_ln273       (ret        ) [ 00]
+ret_ln283       (ret        ) [ 00]
 </LifeTime>
 
 <model>
@@ -583,7 +583,7 @@ ret_ln273       (ret        ) [ 00]
 </bind>
 </comp>
 
-<comp id="140" class="1004" name="xor_ln257_1_fu_140">
+<comp id="140" class="1004" name="xor_ln267_1_fu_140">
 <pin_list>
 <pin id="141" dir="0" index="0" bw="8" slack="0"/>
 <pin id="142" dir="0" index="1" bw="8" slack="0"/>
@@ -591,11 +591,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln257_1/1 "/>
+<opset="xor_ln267_1/1 "/>
 </bind>
 </comp>
 
-<comp id="146" class="1004" name="xor_ln257_2_fu_146">
+<comp id="146" class="1004" name="xor_ln267_2_fu_146">
 <pin_list>
 <pin id="147" dir="0" index="0" bw="8" slack="0"/>
 <pin id="148" dir="0" index="1" bw="8" slack="0"/>
@@ -603,11 +603,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln257_2/1 "/>
+<opset="xor_ln267_2/1 "/>
 </bind>
 </comp>
 
-<comp id="152" class="1004" name="xor_ln257_fu_152">
+<comp id="152" class="1004" name="xor_ln267_fu_152">
 <pin_list>
 <pin id="153" dir="0" index="0" bw="8" slack="0"/>
 <pin id="154" dir="0" index="1" bw="8" slack="0"/>
@@ -615,11 +615,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln257/1 "/>
+<opset="xor_ln267/1 "/>
 </bind>
 </comp>
 
-<comp id="158" class="1004" name="xor_ln262_1_fu_158">
+<comp id="158" class="1004" name="xor_ln272_1_fu_158">
 <pin_list>
 <pin id="159" dir="0" index="0" bw="8" slack="0"/>
 <pin id="160" dir="0" index="1" bw="8" slack="0"/>
@@ -627,11 +627,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln262_1/1 "/>
+<opset="xor_ln272_1/1 "/>
 </bind>
 </comp>
 
-<comp id="164" class="1004" name="xor_ln262_2_fu_164">
+<comp id="164" class="1004" name="xor_ln272_2_fu_164">
 <pin_list>
 <pin id="165" dir="0" index="0" bw="8" slack="0"/>
 <pin id="166" dir="0" index="1" bw="8" slack="0"/>
@@ -639,11 +639,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln262_2/1 "/>
+<opset="xor_ln272_2/1 "/>
 </bind>
 </comp>
 
-<comp id="170" class="1004" name="xor_ln262_fu_170">
+<comp id="170" class="1004" name="xor_ln272_fu_170">
 <pin_list>
 <pin id="171" dir="0" index="0" bw="8" slack="0"/>
 <pin id="172" dir="0" index="1" bw="8" slack="0"/>
@@ -651,11 +651,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln262/1 "/>
+<opset="xor_ln272/1 "/>
 </bind>
 </comp>
 
-<comp id="176" class="1004" name="xor_ln267_1_fu_176">
+<comp id="176" class="1004" name="xor_ln277_1_fu_176">
 <pin_list>
 <pin id="177" dir="0" index="0" bw="8" slack="0"/>
 <pin id="178" dir="0" index="1" bw="8" slack="0"/>
@@ -663,11 +663,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln267_1/1 "/>
+<opset="xor_ln277_1/1 "/>
 </bind>
 </comp>
 
-<comp id="182" class="1004" name="xor_ln267_2_fu_182">
+<comp id="182" class="1004" name="xor_ln277_2_fu_182">
 <pin_list>
 <pin id="183" dir="0" index="0" bw="8" slack="0"/>
 <pin id="184" dir="0" index="1" bw="8" slack="0"/>
@@ -675,11 +675,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln267_2/1 "/>
+<opset="xor_ln277_2/1 "/>
 </bind>
 </comp>
 
-<comp id="188" class="1004" name="xor_ln267_fu_188">
+<comp id="188" class="1004" name="xor_ln277_fu_188">
 <pin_list>
 <pin id="189" dir="0" index="0" bw="8" slack="0"/>
 <pin id="190" dir="0" index="1" bw="8" slack="0"/>
@@ -687,11 +687,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln267/1 "/>
+<opset="xor_ln277/1 "/>
 </bind>
 </comp>
 
-<comp id="194" class="1004" name="xor_ln272_1_fu_194">
+<comp id="194" class="1004" name="xor_ln282_1_fu_194">
 <pin_list>
 <pin id="195" dir="0" index="0" bw="8" slack="0"/>
 <pin id="196" dir="0" index="1" bw="8" slack="0"/>
@@ -699,11 +699,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln272_1/1 "/>
+<opset="xor_ln282_1/1 "/>
 </bind>
 </comp>
 
-<comp id="200" class="1004" name="xor_ln272_2_fu_200">
+<comp id="200" class="1004" name="xor_ln282_2_fu_200">
 <pin_list>
 <pin id="201" dir="0" index="0" bw="8" slack="0"/>
 <pin id="202" dir="0" index="1" bw="8" slack="0"/>
@@ -711,11 +711,11 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln272_2/1 "/>
+<opset="xor_ln282_2/1 "/>
 </bind>
 </comp>
 
-<comp id="206" class="1004" name="xor_ln272_fu_206">
+<comp id="206" class="1004" name="xor_ln282_fu_206">
 <pin_list>
 <pin id="207" dir="0" index="0" bw="8" slack="0"/>
 <pin id="208" dir="0" index="1" bw="8" slack="0"/>
@@ -723,7 +723,7 @@ ret_ln273       (ret        ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln272/1 "/>
+<opset="xor_ln282/1 "/>
 </bind>
 </comp>
 
@@ -944,23 +944,23 @@ ret_ln273       (ret        ) [ 00]
 	Port: mixColumn : column_3_read | {1 }
   - Chain level:
 	State 1
-		xor_ln257_1 : 1
-		xor_ln257_2 : 1
-		xor_ln257 : 1
-		xor_ln262_1 : 1
-		xor_ln262_2 : 1
-		xor_ln262 : 1
 		xor_ln267_1 : 1
 		xor_ln267_2 : 1
 		xor_ln267 : 1
 		xor_ln272_1 : 1
 		xor_ln272_2 : 1
 		xor_ln272 : 1
+		xor_ln277_1 : 1
+		xor_ln277_2 : 1
+		xor_ln277 : 1
+		xor_ln282_1 : 1
+		xor_ln282_2 : 1
+		xor_ln282 : 1
 		mrv : 1
 		mrv_1 : 2
 		mrv_2 : 3
 		mrv_3 : 4
-		ret_ln273 : 5
+		ret_ln283 : 5
 
 
 ============================================================
@@ -984,18 +984,18 @@ ret_ln273       (ret        ) [ 00]
 |          |  tmp_8_galois_multiplicatio_fu_124 |    0    |    40   |
 |          | tmp_10_galois_multiplicatio_fu_132 |    0    |    40   |
 |----------|------------------------------------|---------|---------|
-|          |         xor_ln257_1_fu_140         |    0    |    8    |
-|          |         xor_ln257_2_fu_146         |    0    |    8    |
-|          |          xor_ln257_fu_152          |    0    |    8    |
-|          |         xor_ln262_1_fu_158         |    0    |    8    |
-|          |         xor_ln262_2_fu_164         |    0    |    8    |
-|    xor   |          xor_ln262_fu_170          |    0    |    8    |
-|          |         xor_ln267_1_fu_176         |    0    |    8    |
-|          |         xor_ln267_2_fu_182         |    0    |    8    |
-|          |          xor_ln267_fu_188          |    0    |    8    |
-|          |         xor_ln272_1_fu_194         |    0    |    8    |
-|          |         xor_ln272_2_fu_200         |    0    |    8    |
-|          |          xor_ln272_fu_206          |    0    |    8    |
+|          |         xor_ln267_1_fu_140         |    0    |    8    |
+|          |         xor_ln267_2_fu_146         |    0    |    8    |
+|          |          xor_ln267_fu_152          |    0    |    8    |
+|          |         xor_ln272_1_fu_158         |    0    |    8    |
+|          |         xor_ln272_2_fu_164         |    0    |    8    |
+|    xor   |          xor_ln272_fu_170          |    0    |    8    |
+|          |         xor_ln277_1_fu_176         |    0    |    8    |
+|          |         xor_ln277_2_fu_182         |    0    |    8    |
+|          |          xor_ln277_fu_188          |    0    |    8    |
+|          |         xor_ln282_1_fu_194         |    0    |    8    |
+|          |         xor_ln282_2_fu_200         |    0    |    8    |
+|          |          xor_ln282_fu_206          |    0    |    8    |
 |----------|------------------------------------|---------|---------|
 |          |     column_3_read_1_read_fu_20     |    0    |    0    |
 |   read   |     column_2_read_1_read_fu_26     |    0    |    0    |

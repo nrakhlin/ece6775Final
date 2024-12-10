@@ -26,22 +26,14 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Fi
 INFO: [VRFC 10-311] analyzing module glbl
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/decrypt_dut.autotb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module apatb_decrypt_dut_top
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/AESL_automem_output_r.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AESL_automem_output_r
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/AESL_automem_key.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module AESL_automem_key
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/expandKey.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module expandKey
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/createRoundKey.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module createRoundKey
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/addRoundKey.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module addRoundKey
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/galois_multiplicatio.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module galois_multiplicatio
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/invMixColumn.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module invMixColumn
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_invRound.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module aes_invRound
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_invMain.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module aes_invMain
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_decrypt.v" into library xil_defaultlib
@@ -54,50 +46,39 @@ INFO: [VRFC 10-311] analyzing module expandKey_sbox
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/expandKey_Rcon.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module expandKey_Rcon_rom
 INFO: [VRFC 10-311] analyzing module expandKey_Rcon
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_invRound_rsbox.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module aes_invRound_rsbox_rom
-INFO: [VRFC 10-311] analyzing module aes_invRound_rsbox
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/decrypt_dut_mux_4bkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decrypt_dut_mux_4bkb
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_invMain_rsbox.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module aes_invMain_rsbox_rom
 INFO: [VRFC 10-311] analyzing module aes_invMain_rsbox
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/decrypt_dut_mux_1cud.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module decrypt_dut_mux_1cud
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_decrypt_expanbkb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module aes_decrypt_expanbkb_ram
-INFO: [VRFC 10-311] analyzing module aes_decrypt_expanbkb
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_decrypt_block.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module aes_decrypt_block_ram
-INFO: [VRFC 10-311] analyzing module aes_decrypt_block
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/decrypt_dut_mux_1g8j.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decrypt_dut_mux_1g8j
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/aes_decrypt_expancud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_decrypt_expancud_ram
+INFO: [VRFC 10-311] analyzing module aes_decrypt_expancud
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.aes_decrypt_expanbkb_ram
-Compiling module xil_defaultlib.aes_decrypt_expanbkb(DataWidth=8...
-Compiling module xil_defaultlib.aes_decrypt_block_ram
-Compiling module xil_defaultlib.aes_decrypt_block(DataWidth=8,Ad...
+Compiling module xil_defaultlib.aes_decrypt_expancud_ram
+Compiling module xil_defaultlib.aes_decrypt_expancud(DataWidth=8...
 Compiling module xil_defaultlib.aes_invMain_rsbox_rom
 Compiling module xil_defaultlib.aes_invMain_rsbox(DataWidth=8,Ad...
-Compiling module xil_defaultlib.aes_invRound_rsbox_rom
-Compiling module xil_defaultlib.aes_invRound_rsbox(DataWidth=8,A...
 Compiling module xil_defaultlib.galois_multiplicatio
 Compiling module xil_defaultlib.invMixColumn
-Compiling module xil_defaultlib.aes_invRound
+Compiling module xil_defaultlib.decrypt_dut_mux_4bkb(ID=1,din0_W...
 Compiling module xil_defaultlib.createRoundKey
-Compiling module xil_defaultlib.addRoundKey
 Compiling module xil_defaultlib.aes_invMain
 Compiling module xil_defaultlib.expandKey_sbox_rom
 Compiling module xil_defaultlib.expandKey_sbox(DataWidth=8,Addre...
 Compiling module xil_defaultlib.expandKey_Rcon_rom
 Compiling module xil_defaultlib.expandKey_Rcon(DataWidth=8,Addre...
 Compiling module xil_defaultlib.expandKey
-Compiling module xil_defaultlib.decrypt_dut_mux_1cud(ID=1,din0_W...
+Compiling module xil_defaultlib.decrypt_dut_mux_1g8j(ID=1,din0_W...
 Compiling module xil_defaultlib.aes_decrypt
 Compiling module xil_defaultlib.decrypt_dut
-Compiling module xil_defaultlib.AESL_automem_output_r
-Compiling module xil_defaultlib.AESL_automem_key
 Compiling module xil_defaultlib.apatb_decrypt_dut_top
 Compiling module work.glbl
 Built simulation snapshot decrypt_dut
@@ -108,7 +89,7 @@ Built simulation snapshot decrypt_dut
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
 source /home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/xsim.dir/decrypt_dut/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Mon Dec  9 19:19:54 2024...
+INFO: [Common 17-206] Exiting Webtalk at Mon Dec  9 22:29:57 2024...
 
 ****** xsim v2019.2 (64-bit)
   **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
@@ -127,15 +108,15 @@ source decrypt_dut.tcl
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 1 [0.00%] @ "125000"
-// RTL Simulation : 1 / 1 [100.00%] @ "5975000"
+// RTL Simulation : 0 / 2 [0.00%] @ "125000"
+// RTL Simulation : 1 / 2 [100.00%] @ "3335000"
+// RTL Simulation : 2 / 2 [100.00%] @ "6535000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 6015 ns : File "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/decrypt_dut.autotb.v" Line 1225
+$finish called at time : 6575 ns : File "/home/npr29/hls6775/ece6775Final/refactored/decrypt.prj/solution1/sim/verilog/decrypt_dut.autotb.v" Line 3056
 ## quit
-INFO: [Common 17-206] Exiting xsim at Mon Dec  9 19:20:02 2024...
+INFO: [Common 17-206] Exiting xsim at Mon Dec  9 22:30:04 2024...
 Ciphertext: 72 e5 db 87 94 7e 05 97 4b 22 17 fd c6 b1 8a 29 
 Decrypted plaintext: 64 65 61 64 62 65 65 66 62 65 65 66 64 65 61 64 
 Expected plaintext: 64 65 61 64 62 65 65 66 62 65 65 66 64 65 61 64 
 Decryption successful! The output matches the expected plaintext.
 INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
-INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

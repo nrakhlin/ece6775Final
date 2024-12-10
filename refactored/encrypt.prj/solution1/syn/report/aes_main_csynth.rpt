@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'aes_main'
 ================================================================
-* Date:           Mon Dec  9 19:14:24 2024
+* Date:           Mon Dec  9 22:58:10 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        encrypt.prj
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      237|      237| 2.370 us | 2.370 us |  237|  237|   none  |
+    |      238|      238| 2.380 us | 2.380 us |  238|  238|   none  |
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,9 +38,9 @@
         |                           |                |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
         |          Instance         |     Module     |   min   |   max   |    min    |    max    | min | max |   Type   |
         +---------------------------+----------------+---------+---------+-----------+-----------+-----+-----+----------+
-        |grp_aes_round_fu_380       |aes_round       |       18|       18|  0.180 us |  0.180 us |   19|   19| function |
-        |grp_createRoundKey_fu_404  |createRoundKey  |        8|        8| 80.000 ns | 80.000 ns |    8|    8| function |
-        |grp_addRoundKey_fu_413     |addRoundKey     |       15|       15|  0.150 us |  0.150 us |   15|   15|   none   |
+        |grp_aes_round_fu_386       |aes_round       |       18|       18|  0.180 us |  0.180 us |   19|   19| function |
+        |grp_createRoundKey_fu_410  |createRoundKey  |        8|        8| 80.000 ns | 80.000 ns |    8|    8| function |
+        |grp_addRoundKey_fu_425     |addRoundKey     |       15|       15|  0.150 us |  0.150 us |   15|   15|   none   |
         +---------------------------+----------------+---------+---------+-----------+-----------+-----+-----+----------+
 
         * Loop: 
@@ -63,16 +63,16 @@
 |DSP              |        -|      -|       -|      -|    -|
 |Expression       |        -|      -|       0|     24|    -|
 |FIFO             |        -|      -|       -|      -|    -|
-|Instance         |        1|      -|     557|   2028|    -|
+|Instance         |        1|      -|     561|   2582|    -|
 |Memory           |        1|      -|       0|      0|    -|
-|Multiplexer      |        -|      -|       -|    699|    -|
-|Register         |        -|      -|     286|      -|    -|
+|Multiplexer      |        -|      -|       -|    757|    -|
+|Register         |        -|      -|     287|      -|    -|
 +-----------------+---------+-------+--------+-------+-----+
-|Total            |        2|      0|     843|   2751|    0|
+|Total            |        2|      0|     848|   3363|    0|
 +-----------------+---------+-------+--------+-------+-----+
 |Available        |      280|    220|  106400|  53200|    0|
 +-----------------+---------+-------+--------+-------+-----+
-|Utilization (%)  |    ~0   |      0|   ~0   |      5|    0|
+|Utilization (%)  |    ~0   |      0|   ~0   |      6|    0|
 +-----------------+---------+-------+--------+-------+-----+
 
 + Detail: 
@@ -80,11 +80,11 @@
     +---------------------------+----------------+---------+-------+-----+------+-----+
     |          Instance         |     Module     | BRAM_18K| DSP48E|  FF |  LUT | URAM|
     +---------------------------+----------------+---------+-------+-----+------+-----+
-    |grp_addRoundKey_fu_413     |addRoundKey     |        0|      0|  128|   471|    0|
-    |grp_aes_round_fu_380       |aes_round       |        1|      0|  299|  1176|    0|
-    |grp_createRoundKey_fu_404  |createRoundKey  |        0|      0|  130|   381|    0|
+    |grp_addRoundKey_fu_425     |addRoundKey     |        0|      0|  128|   471|    0|
+    |grp_aes_round_fu_386       |aes_round       |        1|      0|  299|  1176|    0|
+    |grp_createRoundKey_fu_410  |createRoundKey  |        0|      0|  134|   935|    0|
     +---------------------------+----------------+---------+-------+-----+------+-----+
-    |Total                      |                |        1|      0|  557|  2028|    0|
+    |Total                      |                |        1|      0|  561|  2582|    0|
     +---------------------------+----------------+---------+-------+-----+------+-----+
 
     * DSP48E: 
@@ -106,8 +106,8 @@
     +---------------------+----------+-------+---+----+------------+------------+
     |    Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
     +---------------------+----------+-------+---+----+------------+------------+
-    |i_fu_662_p2          |     +    |      0|  0|  13|           4|           1|
-    |icmp_ln25_fu_643_p2  |   icmp   |      0|  0|   9|           4|           4|
+    |i_fu_658_p2          |     +    |      0|  0|  13|           4|           1|
+    |icmp_ln26_fu_639_p2  |   icmp   |      0|  0|   9|           4|           4|
     |ap_enable_pp0        |    xor   |      0|  0|   2|           1|           2|
     +---------------------+----------+-------+---+----+------------+------------+
     |Total                |          |      0|  0|  24|           9|           7|
@@ -117,14 +117,20 @@
     +------------------------------------+-----+-----------+-----+-----------+
     |                Name                | LUT | Input Size| Bits| Total Bits|
     +------------------------------------+-----+-----------+-----+-----------+
-    |ap_NS_fsm                           |  209|         48|    1|         48|
+    |ap_NS_fsm                           |  213|         49|    1|         49|
     |ap_enable_reg_pp0_iter1             |    9|          2|    1|          2|
-    |ap_phi_mux_i_0_phi_fu_372_p4        |    9|          2|    4|          8|
-    |expandedKey_ce0                     |    9|          2|    1|          2|
-    |expandedKey_ce1                     |    9|          2|    1|          2|
-    |grp_createRoundKey_fu_404_ap_start  |    9|          2|    1|          2|
-    |grp_createRoundKey_fu_404_ptr       |   21|          4|   10|         40|
-    |i_0_reg_368                         |    9|          2|    4|          8|
+    |ap_phi_mux_i_0_phi_fu_378_p4        |    9|          2|    4|          8|
+    |expandedKey_0_ce0                   |    9|          2|    1|          2|
+    |expandedKey_0_ce1                   |    9|          2|    1|          2|
+    |expandedKey_1_ce0                   |    9|          2|    1|          2|
+    |expandedKey_1_ce1                   |    9|          2|    1|          2|
+    |expandedKey_2_ce0                   |    9|          2|    1|          2|
+    |expandedKey_2_ce1                   |    9|          2|    1|          2|
+    |expandedKey_3_ce0                   |    9|          2|    1|          2|
+    |expandedKey_3_ce1                   |    9|          2|    1|          2|
+    |grp_createRoundKey_fu_410_ap_start  |    9|          2|    1|          2|
+    |grp_createRoundKey_fu_410_ptr       |   21|          4|   10|         40|
+    |i_0_reg_374                         |    9|          2|    4|          8|
     |sbox_address0                       |   47|         10|    8|         80|
     |sbox_address1                       |   44|          9|    8|         72|
     |state_address0                      |   93|         19|    4|         76|
@@ -136,53 +142,53 @@
     |state_we0                           |   21|          4|    1|          4|
     |state_we1                           |   21|          4|    1|          4|
     +------------------------------------+-----+-----------+-----+-----------+
-    |Total                               |  699|        147|   67|        512|
+    |Total                               |  757|        160|   73|        525|
     +------------------------------------+-----+-----------+-----+-----------+
 
     * Register: 
     +----------------------------------------+----+----+-----+-----------+
     |                  Name                  | FF | LUT| Bits| Const Bits|
     +----------------------------------------+----+----+-----+-----------+
-    |ap_CS_fsm                               |  47|   0|   47|          0|
+    |ap_CS_fsm                               |  48|   0|   48|          0|
     |ap_enable_reg_pp0_iter0                 |   1|   0|    1|          0|
     |ap_enable_reg_pp0_iter1                 |   1|   0|    1|          0|
-    |grp_addRoundKey_fu_413_ap_start_reg     |   1|   0|    1|          0|
-    |grp_aes_round_fu_380_ap_start_reg       |   1|   0|    1|          0|
-    |grp_createRoundKey_fu_404_ap_start_reg  |   1|   0|    1|          0|
-    |i_0_reg_368                             |   4|   0|    4|          0|
-    |i_reg_744                               |   4|   0|    4|          0|
-    |icmp_ln25_reg_740                       |   1|   0|    1|          0|
-    |icmp_ln25_reg_740_pp0_iter1_reg         |   1|   0|    1|          0|
-    |reg_531                                 |   8|   0|    8|          0|
-    |reg_537                                 |   8|   0|    8|          0|
-    |reg_543                                 |   8|   0|    8|          0|
-    |reg_549                                 |   8|   0|    8|          0|
-    |reg_555                                 |   8|   0|    8|          0|
-    |reg_561                                 |   8|   0|    8|          0|
-    |reg_567                                 |   8|   0|    8|          0|
-    |reg_573                                 |   8|   0|    8|          0|
-    |reg_579                                 |   8|   0|    8|          0|
-    |reg_585                                 |   8|   0|    8|          0|
-    |reg_591                                 |   8|   0|    8|          0|
-    |reg_597                                 |   8|   0|    8|          0|
-    |reg_603                                 |   8|   0|    8|          0|
-    |reg_609                                 |   8|   0|    8|          0|
-    |reg_615                                 |   8|   0|    8|          0|
-    |reg_621                                 |   8|   0|    8|          0|
+    |grp_addRoundKey_fu_425_ap_start_reg     |   1|   0|    1|          0|
+    |grp_aes_round_fu_386_ap_start_reg       |   1|   0|    1|          0|
+    |grp_createRoundKey_fu_410_ap_start_reg  |   1|   0|    1|          0|
+    |i_0_reg_374                             |   4|   0|    4|          0|
+    |i_reg_740                               |   4|   0|    4|          0|
+    |icmp_ln26_reg_736                       |   1|   0|    1|          0|
+    |icmp_ln26_reg_736_pp0_iter1_reg         |   1|   0|    1|          0|
+    |reg_527                                 |   8|   0|    8|          0|
+    |reg_533                                 |   8|   0|    8|          0|
+    |reg_539                                 |   8|   0|    8|          0|
+    |reg_545                                 |   8|   0|    8|          0|
+    |reg_551                                 |   8|   0|    8|          0|
+    |reg_557                                 |   8|   0|    8|          0|
+    |reg_563                                 |   8|   0|    8|          0|
+    |reg_569                                 |   8|   0|    8|          0|
+    |reg_575                                 |   8|   0|    8|          0|
+    |reg_581                                 |   8|   0|    8|          0|
+    |reg_587                                 |   8|   0|    8|          0|
+    |reg_593                                 |   8|   0|    8|          0|
+    |reg_599                                 |   8|   0|    8|          0|
+    |reg_605                                 |   8|   0|    8|          0|
+    |reg_611                                 |   8|   0|    8|          0|
+    |reg_617                                 |   8|   0|    8|          0|
+    |reg_623                                 |   8|   0|    8|          0|
     |reg_627                                 |   8|   0|    8|          0|
     |reg_631                                 |   8|   0|    8|          0|
     |reg_635                                 |   8|   0|    8|          0|
-    |reg_639                                 |   8|   0|    8|          0|
-    |state_load_19_reg_779                   |   8|   0|    8|          0|
-    |state_load_20_reg_784                   |   8|   0|    8|          0|
-    |state_load_21_reg_799                   |   8|   0|    8|          0|
-    |state_load_22_reg_804                   |   8|   0|    8|          0|
-    |state_load_23_reg_819                   |   8|   0|    8|          0|
-    |state_load_24_reg_824                   |   8|   0|    8|          0|
-    |state_load_25_reg_839                   |   8|   0|    8|          0|
-    |state_load_26_reg_844                   |   8|   0|    8|          0|
+    |state_load_19_reg_775                   |   8|   0|    8|          0|
+    |state_load_20_reg_780                   |   8|   0|    8|          0|
+    |state_load_21_reg_795                   |   8|   0|    8|          0|
+    |state_load_22_reg_800                   |   8|   0|    8|          0|
+    |state_load_23_reg_815                   |   8|   0|    8|          0|
+    |state_load_24_reg_820                   |   8|   0|    8|          0|
+    |state_load_25_reg_835                   |   8|   0|    8|          0|
+    |state_load_26_reg_840                   |   8|   0|    8|          0|
     +----------------------------------------+----+----+-----+-----------+
-    |Total                                   | 286|   0|  286|          0|
+    |Total                                   | 287|   0|  287|          0|
     +----------------------------------------+----+----+-----+-----------+
 
 
@@ -191,30 +197,48 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------------+-----+-----+------------+--------------+--------------+
-|       RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+----------------------+-----+-----+------------+--------------+--------------+
-|ap_clk                |  in |    1| ap_ctrl_hs |   aes_main   | return value |
-|ap_rst                |  in |    1| ap_ctrl_hs |   aes_main   | return value |
-|ap_start              |  in |    1| ap_ctrl_hs |   aes_main   | return value |
-|ap_done               | out |    1| ap_ctrl_hs |   aes_main   | return value |
-|ap_idle               | out |    1| ap_ctrl_hs |   aes_main   | return value |
-|ap_ready              | out |    1| ap_ctrl_hs |   aes_main   | return value |
-|state_address0        | out |    4|  ap_memory |     state    |     array    |
-|state_ce0             | out |    1|  ap_memory |     state    |     array    |
-|state_we0             | out |    1|  ap_memory |     state    |     array    |
-|state_d0              | out |    8|  ap_memory |     state    |     array    |
-|state_q0              |  in |    8|  ap_memory |     state    |     array    |
-|state_address1        | out |    4|  ap_memory |     state    |     array    |
-|state_ce1             | out |    1|  ap_memory |     state    |     array    |
-|state_we1             | out |    1|  ap_memory |     state    |     array    |
-|state_d1              | out |    8|  ap_memory |     state    |     array    |
-|state_q1              |  in |    8|  ap_memory |     state    |     array    |
-|expandedKey_address0  | out |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_ce0       | out |    1|  ap_memory |  expandedKey |     array    |
-|expandedKey_q0        |  in |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_address1  | out |    8|  ap_memory |  expandedKey |     array    |
-|expandedKey_ce1       | out |    1|  ap_memory |  expandedKey |     array    |
-|expandedKey_q1        |  in |    8|  ap_memory |  expandedKey |     array    |
-+----------------------+-----+-----+------------+--------------+--------------+
++------------------------+-----+-----+------------+---------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  | Source Object |    C Type    |
++------------------------+-----+-----+------------+---------------+--------------+
+|ap_clk                  |  in |    1| ap_ctrl_hs |    aes_main   | return value |
+|ap_rst                  |  in |    1| ap_ctrl_hs |    aes_main   | return value |
+|ap_start                |  in |    1| ap_ctrl_hs |    aes_main   | return value |
+|ap_done                 | out |    1| ap_ctrl_hs |    aes_main   | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs |    aes_main   | return value |
+|ap_ready                | out |    1| ap_ctrl_hs |    aes_main   | return value |
+|state_address0          | out |    4|  ap_memory |     state     |     array    |
+|state_ce0               | out |    1|  ap_memory |     state     |     array    |
+|state_we0               | out |    1|  ap_memory |     state     |     array    |
+|state_d0                | out |    8|  ap_memory |     state     |     array    |
+|state_q0                |  in |    8|  ap_memory |     state     |     array    |
+|state_address1          | out |    4|  ap_memory |     state     |     array    |
+|state_ce1               | out |    1|  ap_memory |     state     |     array    |
+|state_we1               | out |    1|  ap_memory |     state     |     array    |
+|state_d1                | out |    8|  ap_memory |     state     |     array    |
+|state_q1                |  in |    8|  ap_memory |     state     |     array    |
+|expandedKey_0_address0  | out |    6|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_ce0       | out |    1|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_q0        |  in |    8|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_address1  | out |    6|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_ce1       | out |    1|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_0_q1        |  in |    8|  ap_memory | expandedKey_0 |     array    |
+|expandedKey_1_address0  | out |    6|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_ce0       | out |    1|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_q0        |  in |    8|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_address1  | out |    6|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_ce1       | out |    1|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_1_q1        |  in |    8|  ap_memory | expandedKey_1 |     array    |
+|expandedKey_2_address0  | out |    6|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_ce0       | out |    1|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_q0        |  in |    8|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_address1  | out |    6|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_ce1       | out |    1|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_2_q1        |  in |    8|  ap_memory | expandedKey_2 |     array    |
+|expandedKey_3_address0  | out |    6|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_ce0       | out |    1|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_q0        |  in |    8|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_address1  | out |    6|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_ce1       | out |    1|  ap_memory | expandedKey_3 |     array    |
+|expandedKey_3_q1        |  in |    8|  ap_memory | expandedKey_3 |     array    |
++------------------------+-----+-----+------------+---------------+--------------+
 

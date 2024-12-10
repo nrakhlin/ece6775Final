@@ -26,6 +26,7 @@ void aes_invMain(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_S
   int i = 0;
 
   unsigned char roundKey[16];
+  #pragma HLS array_partition variable=roundKey complete dim=0
 
   createRoundKey(expandedKey, roundKey, 16 * nbrRounds);
   addRoundKey(state, roundKey);
@@ -53,7 +54,10 @@ void aes_decrypt(unsigned char input[16],
                  int size)
 {
   // the expanded key
+  // #pragma HLS array_partition variable=expandKey complete dim=0
   unsigned char expandedKey[EXPAND_KEY_SIZE];
+  // #pragma HLS array_partition variable=expandedKey complete dim=0
+  #pragma HLS array_partition variable=expandedKey cyclic factor=4 dim=0
 
   // the 128 bit block to decode
   unsigned char block[16];

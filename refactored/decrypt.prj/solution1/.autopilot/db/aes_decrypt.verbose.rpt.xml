@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'aes_decrypt'" level="0">
-<item name = "Date">Mon Dec  9 19:19:43 2024
+<item name = "Date">Mon Dec  9 22:29:42 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">decrypt.prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 12.548 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 6.824 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,23 +24,23 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">582, 582, 7.303 us, 7.303 us, 582, 582, none</column>
+<column name="">318, 318, 3.180 us, 3.180 us, 318, 318, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aes_invMain_fu_249">aes_invMain, 238, 238, 2.986 us, 2.986 us, 238, 238, none</column>
-<column name="grp_expandKey_fu_257">expandKey, 275, 275, 3.451 us, 3.451 us, 275, 275, none</column>
+<column name="grp_aes_invMain_fu_588">aes_invMain, 101, 101, 1.010 us, 1.010 us, 101, 101, none</column>
+<column name="grp_expandKey_fu_614">expandKey, 164, 164, 1.640 us, 1.640 us, 164, 164, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- Loop 1">24, 24, 6, -, -, 4, no</column>
 <column name=" + Loop 1.1">4, 4, 1, -, -, 4, no</column>
-<column name="- Loop 2">40, 40, 10, -, -, 4, no</column>
-<column name=" + Loop 2.1">8, 8, 2, -, -, 4, no</column>
+<column name="- Loop 2">24, 24, 6, -, -, 4, no</column>
+<column name=" + Loop 2.1">4, 4, 1, -, -, 4, no</column>
 </table>
 </item>
 </section>
@@ -55,21 +55,38 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 136, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">4, -, 1081, 4591, -</column>
-<column name="Memory">2, -, 0, 0, 0</column>
-<column name="Multiplexer">-, -, -, 245, -</column>
-<column name="Register">-, -, 46, -, -</column>
+<column name="Instance">4, -, 911, 7627, -</column>
+<column name="Memory">4, -, 0, 0, 0</column>
+<column name="Multiplexer">-, -, -, 392, -</column>
+<column name="Register">-, -, 422, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">2, 0, 1, 9, 0</specialColumn>
+<specialColumn name="Utilization (%)">2, 0, 1, 15, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_aes_invMain_fu_249">aes_invMain, 2, 0, 891, 3952, 0</column>
-<column name="decrypt_dut_mux_1cud_U51">decrypt_dut_mux_1cud, 0, 0, 0, 65, 0</column>
-<column name="grp_expandKey_fu_257">expandKey, 2, 0, 190, 574, 0</column>
+<column name="grp_aes_invMain_fu_588">aes_invMain, 2, 0, 734, 5677, 0</column>
+<column name="decrypt_dut_mux_1g8j_U60">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U61">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U62">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U63">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U64">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U65">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U66">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U67">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U68">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U69">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U70">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U71">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U72">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U73">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U74">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U75">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U76">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="decrypt_dut_mux_1g8j_U77">decrypt_dut_mux_1g8j, 0, 0, 0, 65, 0</column>
+<column name="grp_expandKey_fu_614">expandKey, 2, 0, 177, 780, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -78,8 +95,10 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="block_U">aes_decrypt_block, 1, 0, 0, 0, 16, 8, 1, 128</column>
-<column name="expandedKey_U">aes_decrypt_expanbkb, 1, 0, 0, 0, 176, 8, 1, 1408</column>
+<column name="expandedKey_0_U">aes_decrypt_expancud, 1, 0, 0, 0, 44, 8, 1, 352</column>
+<column name="expandedKey_1_U">aes_decrypt_expancud, 1, 0, 0, 0, 44, 8, 1, 352</column>
+<column name="expandedKey_2_U">aes_decrypt_expancud, 1, 0, 0, 0, 44, 8, 1, 352</column>
+<column name="expandedKey_3_U">aes_decrypt_expancud, 1, 0, 0, 0, 44, 8, 1, 352</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -88,58 +107,116 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln77_1_fu_352_p2">+, 0, 0, 13, 4, 4</column>
-<column name="add_ln93_1_fu_428_p2">+, 0, 0, 13, 4, 4</column>
-<column name="add_ln93_fu_418_p2">+, 0, 0, 13, 4, 4</column>
-<column name="i_2_fu_372_p2">+, 0, 0, 12, 3, 1</column>
-<column name="i_fu_278_p2">+, 0, 0, 12, 3, 1</column>
-<column name="j_2_fu_400_p2">+, 0, 0, 12, 3, 1</column>
-<column name="j_fu_306_p2">+, 0, 0, 12, 3, 1</column>
-<column name="tmp_fu_317_p17">+, 0, 0, 13, 4, 4</column>
-<column name="icmp_ln72_fu_272_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln75_fu_300_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln88_fu_366_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="icmp_ln91_fu_394_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="add_ln81_1_fu_789_p2">+, 0, 0, 13, 4, 4</column>
+<column name="add_ln97_1_fu_1645_p2">+, 0, 0, 13, 4, 4</column>
+<column name="i_2_fu_1552_p2">+, 0, 0, 12, 3, 1</column>
+<column name="i_fu_712_p2">+, 0, 0, 12, 3, 1</column>
+<column name="j_2_fu_1580_p2">+, 0, 0, 12, 3, 1</column>
+<column name="j_fu_740_p2">+, 0, 0, 12, 3, 1</column>
+<column name="tmp_fu_755_p17">+, 0, 0, 13, 4, 4</column>
+<column name="tmp_s_fu_1607_p17">+, 0, 0, 13, 4, 4</column>
+<column name="icmp_ln76_fu_706_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln79_fu_734_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln92_fu_1546_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln95_fu_1574_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">47, 10, 1, 10</column>
-<column name="block_address0">21, 4, 4, 16</column>
-<column name="block_ce0">15, 3, 1, 3</column>
-<column name="block_ce1">9, 2, 1, 2</column>
-<column name="block_d0">15, 3, 8, 24</column>
-<column name="block_we0">15, 3, 1, 3</column>
-<column name="block_we1">9, 2, 1, 2</column>
-<column name="expandedKey_address0">15, 3, 8, 24</column>
-<column name="expandedKey_address1">15, 3, 8, 24</column>
-<column name="expandedKey_ce0">15, 3, 1, 3</column>
-<column name="expandedKey_ce1">15, 3, 1, 3</column>
-<column name="expandedKey_we0">9, 2, 1, 2</column>
-<column name="expandedKey_we1">9, 2, 1, 2</column>
-<column name="i_0_reg_205">9, 2, 3, 6</column>
-<column name="i_1_reg_227">9, 2, 3, 6</column>
-<column name="j_0_reg_216">9, 2, 3, 6</column>
-<column name="j_1_reg_238">9, 2, 3, 6</column>
+<column name="ap_NS_fsm">44, 9, 1, 9</column>
+<column name="expandedKey_0_address0">15, 3, 6, 18</column>
+<column name="expandedKey_0_address1">15, 3, 6, 18</column>
+<column name="expandedKey_0_ce0">15, 3, 1, 3</column>
+<column name="expandedKey_0_ce1">15, 3, 1, 3</column>
+<column name="expandedKey_0_we0">9, 2, 1, 2</column>
+<column name="expandedKey_0_we1">9, 2, 1, 2</column>
+<column name="expandedKey_1_address0">15, 3, 6, 18</column>
+<column name="expandedKey_1_address1">15, 3, 6, 18</column>
+<column name="expandedKey_1_ce0">15, 3, 1, 3</column>
+<column name="expandedKey_1_ce1">15, 3, 1, 3</column>
+<column name="expandedKey_1_we0">9, 2, 1, 2</column>
+<column name="expandedKey_1_we1">9, 2, 1, 2</column>
+<column name="expandedKey_2_address0">15, 3, 6, 18</column>
+<column name="expandedKey_2_address1">15, 3, 6, 18</column>
+<column name="expandedKey_2_ce0">15, 3, 1, 3</column>
+<column name="expandedKey_2_ce1">15, 3, 1, 3</column>
+<column name="expandedKey_2_we0">9, 2, 1, 2</column>
+<column name="expandedKey_2_we1">9, 2, 1, 2</column>
+<column name="expandedKey_3_address0">15, 3, 6, 18</column>
+<column name="expandedKey_3_address1">15, 3, 6, 18</column>
+<column name="expandedKey_3_ce0">15, 3, 1, 3</column>
+<column name="expandedKey_3_ce1">15, 3, 1, 3</column>
+<column name="expandedKey_3_we0">9, 2, 1, 2</column>
+<column name="expandedKey_3_we1">9, 2, 1, 2</column>
+<column name="i_0_reg_544">9, 2, 3, 6</column>
+<column name="i_1_reg_566">9, 2, 3, 6</column>
+<column name="j_0_reg_555">9, 2, 3, 6</column>
+<column name="j_1_reg_577">9, 2, 3, 6</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="add_ln93_1_reg_574">4, 0, 4, 0</column>
-<column name="ap_CS_fsm">9, 0, 9, 0</column>
-<column name="grp_aes_invMain_fu_249_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_expandKey_fu_257_ap_start_reg">1, 0, 1, 0</column>
-<column name="i_0_reg_205">3, 0, 3, 0</column>
-<column name="i_1_reg_227">3, 0, 3, 0</column>
-<column name="i_2_reg_551">3, 0, 3, 0</column>
-<column name="i_reg_525">3, 0, 3, 0</column>
-<column name="j_0_reg_216">3, 0, 3, 0</column>
-<column name="j_1_reg_238">3, 0, 3, 0</column>
-<column name="j_2_reg_564">3, 0, 3, 0</column>
-<column name="shl_ln1_reg_556">2, 0, 4, 2</column>
-<column name="shl_ln_reg_530">2, 0, 4, 2</column>
-<column name="zext_ln72_reg_517">3, 0, 4, 1</column>
-<column name="zext_ln88_reg_543">3, 0, 4, 1</column>
+<column name="ap_CS_fsm">8, 0, 8, 0</column>
+<column name="block_016_fu_160">8, 0, 8, 0</column>
+<column name="block_016_load_reg_1932">8, 0, 8, 0</column>
+<column name="block_0_reg_2012">8, 0, 8, 0</column>
+<column name="block_1026_fu_200">8, 0, 8, 0</column>
+<column name="block_1026_load_reg_1982">8, 0, 8, 0</column>
+<column name="block_10_20_reg_2062">8, 0, 8, 0</column>
+<column name="block_1127_fu_204">8, 0, 8, 0</column>
+<column name="block_1127_load_reg_1987">8, 0, 8, 0</column>
+<column name="block_117_fu_164">8, 0, 8, 0</column>
+<column name="block_117_load_reg_1937">8, 0, 8, 0</column>
+<column name="block_11_21_reg_2067">8, 0, 8, 0</column>
+<column name="block_1228_fu_208">8, 0, 8, 0</column>
+<column name="block_1228_load_reg_1992">8, 0, 8, 0</column>
+<column name="block_12_22_reg_2072">8, 0, 8, 0</column>
+<column name="block_1329_fu_212">8, 0, 8, 0</column>
+<column name="block_1329_load_reg_1997">8, 0, 8, 0</column>
+<column name="block_13_23_reg_2077">8, 0, 8, 0</column>
+<column name="block_1430_fu_216">8, 0, 8, 0</column>
+<column name="block_1430_load_reg_2002">8, 0, 8, 0</column>
+<column name="block_14_24_reg_2082">8, 0, 8, 0</column>
+<column name="block_1531_fu_220">8, 0, 8, 0</column>
+<column name="block_1531_load_reg_2007">8, 0, 8, 0</column>
+<column name="block_15_25_reg_2087">8, 0, 8, 0</column>
+<column name="block_1_11_reg_2017">8, 0, 8, 0</column>
+<column name="block_218_fu_168">8, 0, 8, 0</column>
+<column name="block_218_load_reg_1942">8, 0, 8, 0</column>
+<column name="block_2_12_reg_2022">8, 0, 8, 0</column>
+<column name="block_319_fu_172">8, 0, 8, 0</column>
+<column name="block_319_load_reg_1947">8, 0, 8, 0</column>
+<column name="block_3_13_reg_2027">8, 0, 8, 0</column>
+<column name="block_420_fu_176">8, 0, 8, 0</column>
+<column name="block_420_load_reg_1952">8, 0, 8, 0</column>
+<column name="block_4_14_reg_2032">8, 0, 8, 0</column>
+<column name="block_521_fu_180">8, 0, 8, 0</column>
+<column name="block_521_load_reg_1957">8, 0, 8, 0</column>
+<column name="block_5_15_reg_2037">8, 0, 8, 0</column>
+<column name="block_622_fu_184">8, 0, 8, 0</column>
+<column name="block_622_load_reg_1962">8, 0, 8, 0</column>
+<column name="block_6_16_reg_2042">8, 0, 8, 0</column>
+<column name="block_723_fu_188">8, 0, 8, 0</column>
+<column name="block_723_load_reg_1967">8, 0, 8, 0</column>
+<column name="block_7_17_reg_2047">8, 0, 8, 0</column>
+<column name="block_824_fu_192">8, 0, 8, 0</column>
+<column name="block_824_load_reg_1972">8, 0, 8, 0</column>
+<column name="block_8_18_reg_2052">8, 0, 8, 0</column>
+<column name="block_925_fu_196">8, 0, 8, 0</column>
+<column name="block_925_load_reg_1977">8, 0, 8, 0</column>
+<column name="block_9_19_reg_2057">8, 0, 8, 0</column>
+<column name="grp_aes_invMain_fu_588_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_expandKey_fu_614_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_0_reg_544">3, 0, 3, 0</column>
+<column name="i_1_reg_566">3, 0, 3, 0</column>
+<column name="i_2_reg_2095">3, 0, 3, 0</column>
+<column name="i_reg_1909">3, 0, 3, 0</column>
+<column name="j_0_reg_555">3, 0, 3, 0</column>
+<column name="j_1_reg_577">3, 0, 3, 0</column>
+<column name="shl_ln1_reg_2105">2, 0, 4, 2</column>
+<column name="shl_ln_reg_1919">2, 0, 4, 2</column>
+<column name="zext_ln81_reg_1914">3, 0, 4, 1</column>
+<column name="zext_ln97_reg_2100">3, 0, 4, 1</column>
 </table>
 </item>
 </section>
@@ -171,13 +248,54 @@
 <column name="input_13_read">in, 8, ap_none, input_13_read, scalar</column>
 <column name="input_14_read">in, 8, ap_none, input_14_read, scalar</column>
 <column name="input_15_read">in, 8, ap_none, input_15_read, scalar</column>
-<column name="output_r_address0">out, 4, ap_memory, output_r, array</column>
-<column name="output_r_ce0">out, 1, ap_memory, output_r, array</column>
-<column name="output_r_we0">out, 1, ap_memory, output_r, array</column>
-<column name="output_r_d0">out, 8, ap_memory, output_r, array</column>
-<column name="key_address0">out, 4, ap_memory, key, array</column>
-<column name="key_ce0">out, 1, ap_memory, key, array</column>
-<column name="key_q0">in, 8, ap_memory, key, array</column>
+<column name="output_0">out, 8, ap_vld, output_0, pointer</column>
+<column name="output_0_ap_vld">out, 1, ap_vld, output_0, pointer</column>
+<column name="output_1">out, 8, ap_vld, output_1, pointer</column>
+<column name="output_1_ap_vld">out, 1, ap_vld, output_1, pointer</column>
+<column name="output_2">out, 8, ap_vld, output_2, pointer</column>
+<column name="output_2_ap_vld">out, 1, ap_vld, output_2, pointer</column>
+<column name="output_3">out, 8, ap_vld, output_3, pointer</column>
+<column name="output_3_ap_vld">out, 1, ap_vld, output_3, pointer</column>
+<column name="output_4">out, 8, ap_vld, output_4, pointer</column>
+<column name="output_4_ap_vld">out, 1, ap_vld, output_4, pointer</column>
+<column name="output_5">out, 8, ap_vld, output_5, pointer</column>
+<column name="output_5_ap_vld">out, 1, ap_vld, output_5, pointer</column>
+<column name="output_6">out, 8, ap_vld, output_6, pointer</column>
+<column name="output_6_ap_vld">out, 1, ap_vld, output_6, pointer</column>
+<column name="output_7">out, 8, ap_vld, output_7, pointer</column>
+<column name="output_7_ap_vld">out, 1, ap_vld, output_7, pointer</column>
+<column name="output_8">out, 8, ap_vld, output_8, pointer</column>
+<column name="output_8_ap_vld">out, 1, ap_vld, output_8, pointer</column>
+<column name="output_9">out, 8, ap_vld, output_9, pointer</column>
+<column name="output_9_ap_vld">out, 1, ap_vld, output_9, pointer</column>
+<column name="output_10">out, 8, ap_vld, output_10, pointer</column>
+<column name="output_10_ap_vld">out, 1, ap_vld, output_10, pointer</column>
+<column name="output_11">out, 8, ap_vld, output_11, pointer</column>
+<column name="output_11_ap_vld">out, 1, ap_vld, output_11, pointer</column>
+<column name="output_12">out, 8, ap_vld, output_12, pointer</column>
+<column name="output_12_ap_vld">out, 1, ap_vld, output_12, pointer</column>
+<column name="output_13">out, 8, ap_vld, output_13, pointer</column>
+<column name="output_13_ap_vld">out, 1, ap_vld, output_13, pointer</column>
+<column name="output_14">out, 8, ap_vld, output_14, pointer</column>
+<column name="output_14_ap_vld">out, 1, ap_vld, output_14, pointer</column>
+<column name="output_15">out, 8, ap_vld, output_15, pointer</column>
+<column name="output_15_ap_vld">out, 1, ap_vld, output_15, pointer</column>
+<column name="key_0_read">in, 8, ap_none, key_0_read, scalar</column>
+<column name="key_1_read">in, 8, ap_none, key_1_read, scalar</column>
+<column name="key_2_read">in, 8, ap_none, key_2_read, scalar</column>
+<column name="key_3_read">in, 8, ap_none, key_3_read, scalar</column>
+<column name="key_4_read">in, 8, ap_none, key_4_read, scalar</column>
+<column name="key_5_read">in, 8, ap_none, key_5_read, scalar</column>
+<column name="key_6_read">in, 8, ap_none, key_6_read, scalar</column>
+<column name="key_7_read">in, 8, ap_none, key_7_read, scalar</column>
+<column name="key_8_read">in, 8, ap_none, key_8_read, scalar</column>
+<column name="key_9_read">in, 8, ap_none, key_9_read, scalar</column>
+<column name="key_10_read">in, 8, ap_none, key_10_read, scalar</column>
+<column name="key_11_read">in, 8, ap_none, key_11_read, scalar</column>
+<column name="key_12_read">in, 8, ap_none, key_12_read, scalar</column>
+<column name="key_13_read">in, 8, ap_none, key_13_read, scalar</column>
+<column name="key_14_read">in, 8, ap_none, key_14_read, scalar</column>
+<column name="key_15_read">in, 8, ap_none, key_15_read, scalar</column>
 </table>
 </item>
 </section>

@@ -15,7 +15,37 @@ set depth_list {
 {input_13 1}
 {input_14 1}
 {input_15 1}
-{output_r 16}
-{key 16}
+{output_0 1}
+{output_1 1}
+{output_2 1}
+{output_3 1}
+{output_4 1}
+{output_5 1}
+{output_6 1}
+{output_7 1}
+{output_8 1}
+{output_9 1}
+{output_10 1}
+{output_11 1}
+{output_12 1}
+{output_13 1}
+{output_14 1}
+{output_15 1}
+{key_0 1}
+{key_1 1}
+{key_2 1}
+{key_3 1}
+{key_4 1}
+{key_5 1}
+{key_6 1}
+{key_7 1}
+{key_8 1}
+{key_9 1}
+{key_10 1}
+{key_11 1}
+{key_12 1}
+{key_13 1}
+{key_14 1}
+{key_15 1}
 }
-set trans_num 1
+set trans_num 2

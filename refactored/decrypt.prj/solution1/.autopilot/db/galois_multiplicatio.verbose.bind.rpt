@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'galois_multiplicatio'
 ================================================================
-* Date:           Mon Dec  9 19:19:38 2024
+* Date:           Mon Dec  9 22:29:37 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -79,32 +79,32 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 4.99>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%b_read = call i5 @_ssdm_op_Read.ap_auto.i5(i5 %b) nounwind" [helper.cpp:228]   --->   Operation 2 'read' 'b_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:228]   --->   Operation 3 'read' 'a_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%trunc_ln235 = trunc i5 %b_read to i1" [helper.cpp:235]   --->   Operation 4 'trunc' 'trunc_ln235' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%select_ln235 = select i1 %trunc_ln235, i8 %a_read, i8 0" [helper.cpp:235]   --->   Operation 5 'select' 'select_ln235' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln238 = shl i8 %a_read, 1" [helper.cpp:238]   --->   Operation 6 'shl' 'shl_ln238' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node select_ln239)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %a_read, i32 7)" [helper.cpp:239]   --->   Operation 7 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node select_ln239)   --->   "%xor_ln240 = xor i8 %shl_ln238, 27" [helper.cpp:240]   --->   Operation 8 'xor' 'xor_ln240' <Predicate = (tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 9 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln239 = select i1 %tmp, i8 %xor_ln240, i8 %shl_ln238" [helper.cpp:239]   --->   Operation 9 'select' 'select_ln239' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 1)" [helper.cpp:235]   --->   Operation 10 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%select_ln235_1 = select i1 %tmp_1, i8 %select_ln239, i8 0" [helper.cpp:235]   --->   Operation 11 'select' 'select_ln235_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%shl_ln238_1 = shl i8 %select_ln239, 1" [helper.cpp:238]   --->   Operation 12 'shl' 'shl_ln238_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns) (grouped into LUT with out node select_ln239_1)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %select_ln239, i32 7)" [helper.cpp:239]   --->   Operation 13 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node select_ln239_1)   --->   "%xor_ln240_1 = xor i8 %shl_ln238_1, 27" [helper.cpp:240]   --->   Operation 14 'xor' 'xor_ln240_1' <Predicate = (tmp_2)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 15 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln239_1 = select i1 %tmp_2, i8 %xor_ln240_1, i8 %shl_ln238_1" [helper.cpp:239]   --->   Operation 15 'select' 'select_ln239_1' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 2)" [helper.cpp:235]   --->   Operation 16 'bitselect' 'tmp_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%select_ln235_2 = select i1 %tmp_3, i8 %select_ln239_1, i8 0" [helper.cpp:235]   --->   Operation 17 'select' 'select_ln235_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%shl_ln238_2 = shl i8 %select_ln239_1, 1" [helper.cpp:238]   --->   Operation 18 'shl' 'shl_ln238_2' <Predicate = (tmp_5)> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_2)   --->   "%tmp_4 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %select_ln239_1, i32 7)" [helper.cpp:239]   --->   Operation 19 'bitselect' 'tmp_4' <Predicate = (tmp_5)> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_2)   --->   "%xor_ln240_2 = xor i8 %shl_ln238_2, 27" [helper.cpp:240]   --->   Operation 20 'xor' 'xor_ln240_2' <Predicate = (tmp_4 & tmp_5)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 21 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_2)   --->   "%select_ln239_2 = select i1 %tmp_4, i8 %xor_ln240_2, i8 %shl_ln238_2" [helper.cpp:239]   --->   Operation 21 'select' 'select_ln239_2' <Predicate = (tmp_5)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_2)   --->   "%tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 3)" [helper.cpp:235]   --->   Operation 22 'bitselect' 'tmp_5' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_2)   --->   "%select_ln235_3 = select i1 %tmp_5, i8 %select_ln239_2, i8 0" [helper.cpp:235]   --->   Operation 23 'select' 'select_ln235_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node xor_ln235_1)   --->   "%xor_ln235 = xor i8 %select_ln235, %select_ln235_2" [helper.cpp:235]   --->   Operation 24 'xor' 'xor_ln235' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 25 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln235_1 = xor i8 %xor_ln235, %select_ln235_1" [helper.cpp:235]   --->   Operation 25 'xor' 'xor_ln235_1' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 26 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln235_2 = xor i8 %select_ln235_3, %xor_ln235_1" [helper.cpp:235]   --->   Operation 26 'xor' 'xor_ln235_2' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "ret i8 %xor_ln235_2" [helper.cpp:243]   --->   Operation 27 'ret' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%b_read = call i5 @_ssdm_op_Read.ap_auto.i5(i5 %b) nounwind" [helper.cpp:238]   --->   Operation 2 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [helper.cpp:238]   --->   Operation 3 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%trunc_ln245 = trunc i5 %b_read to i1" [helper.cpp:245]   --->   Operation 4 'trunc' 'trunc_ln245' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%select_ln245 = select i1 %trunc_ln245, i8 %a_read, i8 0" [helper.cpp:245]   --->   Operation 5 'select' 'select_ln245' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln248 = shl i8 %a_read, 1" [helper.cpp:248]   --->   Operation 6 'shl' 'shl_ln248' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node select_ln249)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %a_read, i32 7)" [helper.cpp:249]   --->   Operation 7 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node select_ln249)   --->   "%xor_ln250 = xor i8 %shl_ln248, 27" [helper.cpp:250]   --->   Operation 8 'xor' 'xor_ln250' <Predicate = (tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln249 = select i1 %tmp, i8 %xor_ln250, i8 %shl_ln248" [helper.cpp:249]   --->   Operation 9 'select' 'select_ln249' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 1)" [helper.cpp:245]   --->   Operation 10 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%select_ln245_1 = select i1 %tmp_1, i8 %select_ln249, i8 0" [helper.cpp:245]   --->   Operation 11 'select' 'select_ln245_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%shl_ln248_1 = shl i8 %select_ln249, 1" [helper.cpp:248]   --->   Operation 12 'shl' 'shl_ln248_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns) (grouped into LUT with out node select_ln249_1)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %select_ln249, i32 7)" [helper.cpp:249]   --->   Operation 13 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node select_ln249_1)   --->   "%xor_ln250_1 = xor i8 %shl_ln248_1, 27" [helper.cpp:250]   --->   Operation 14 'xor' 'xor_ln250_1' <Predicate = (tmp_2)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln249_1 = select i1 %tmp_2, i8 %xor_ln250_1, i8 %shl_ln248_1" [helper.cpp:249]   --->   Operation 15 'select' 'select_ln249_1' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 2)" [helper.cpp:245]   --->   Operation 16 'bitselect' 'tmp_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%select_ln245_2 = select i1 %tmp_3, i8 %select_ln249_1, i8 0" [helper.cpp:245]   --->   Operation 17 'select' 'select_ln245_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%shl_ln248_2 = shl i8 %select_ln249_1, 1" [helper.cpp:248]   --->   Operation 18 'shl' 'shl_ln248_2' <Predicate = (tmp_5)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%tmp_4 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %select_ln249_1, i32 7)" [helper.cpp:249]   --->   Operation 19 'bitselect' 'tmp_4' <Predicate = (tmp_5)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%xor_ln250_2 = xor i8 %shl_ln248_2, 27" [helper.cpp:250]   --->   Operation 20 'xor' 'xor_ln250_2' <Predicate = (tmp_4 & tmp_5)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%select_ln249_2 = select i1 %tmp_4, i8 %xor_ln250_2, i8 %shl_ln248_2" [helper.cpp:249]   --->   Operation 21 'select' 'select_ln249_2' <Predicate = (tmp_5)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 3)" [helper.cpp:245]   --->   Operation 22 'bitselect' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%select_ln245_3 = select i1 %tmp_5, i8 %select_ln249_2, i8 0" [helper.cpp:245]   --->   Operation 23 'select' 'select_ln245_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%xor_ln245 = xor i8 %select_ln245, %select_ln245_2" [helper.cpp:245]   --->   Operation 24 'xor' 'xor_ln245' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln245_1 = xor i8 %xor_ln245, %select_ln245_1" [helper.cpp:245]   --->   Operation 25 'xor' 'xor_ln245_1' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln245_2 = xor i8 %select_ln245_3, %xor_ln245_1" [helper.cpp:245]   --->   Operation 26 'xor' 'xor_ln245_2' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "ret i8 %xor_ln245_2" [helper.cpp:253]   --->   Operation 27 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -128,30 +128,30 @@ Port [ b]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0
 <method=bitvector/>
 b_read         (read     ) [ 00]
 a_read         (read     ) [ 00]
-trunc_ln235    (trunc    ) [ 00]
-select_ln235   (select   ) [ 00]
-shl_ln238      (shl      ) [ 00]
+trunc_ln245    (trunc    ) [ 00]
+select_ln245   (select   ) [ 00]
+shl_ln248      (shl      ) [ 00]
 tmp            (bitselect) [ 01]
-xor_ln240      (xor      ) [ 00]
-select_ln239   (select   ) [ 00]
+xor_ln250      (xor      ) [ 00]
+select_ln249   (select   ) [ 00]
 tmp_1          (bitselect) [ 00]
-select_ln235_1 (select   ) [ 00]
-shl_ln238_1    (shl      ) [ 00]
+select_ln245_1 (select   ) [ 00]
+shl_ln248_1    (shl      ) [ 00]
 tmp_2          (bitselect) [ 01]
-xor_ln240_1    (xor      ) [ 00]
-select_ln239_1 (select   ) [ 00]
+xor_ln250_1    (xor      ) [ 00]
+select_ln249_1 (select   ) [ 00]
 tmp_3          (bitselect) [ 00]
-select_ln235_2 (select   ) [ 00]
-shl_ln238_2    (shl      ) [ 00]
+select_ln245_2 (select   ) [ 00]
+shl_ln248_2    (shl      ) [ 00]
 tmp_4          (bitselect) [ 01]
-xor_ln240_2    (xor      ) [ 00]
-select_ln239_2 (select   ) [ 00]
+xor_ln250_2    (xor      ) [ 00]
+select_ln249_2 (select   ) [ 00]
 tmp_5          (bitselect) [ 01]
-select_ln235_3 (select   ) [ 00]
-xor_ln235      (xor      ) [ 00]
-xor_ln235_1    (xor      ) [ 00]
-xor_ln235_2    (xor      ) [ 00]
-ret_ln243      (ret      ) [ 00]
+select_ln245_3 (select   ) [ 00]
+xor_ln245      (xor      ) [ 00]
+xor_ln245_1    (xor      ) [ 00]
+xor_ln245_2    (xor      ) [ 00]
+ret_ln253      (ret      ) [ 00]
 </LifeTime>
 
 <model>
@@ -298,18 +298,18 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="38" class="1004" name="trunc_ln235_fu_38">
+<comp id="38" class="1004" name="trunc_ln245_fu_38">
 <pin_list>
 <pin id="39" dir="0" index="0" bw="5" slack="0"/>
 <pin id="40" dir="1" index="1" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln235/1 "/>
+<opset="trunc_ln245/1 "/>
 </bind>
 </comp>
 
-<comp id="42" class="1004" name="select_ln235_fu_42">
+<comp id="42" class="1004" name="select_ln245_fu_42">
 <pin_list>
 <pin id="43" dir="0" index="0" bw="1" slack="0"/>
 <pin id="44" dir="0" index="1" bw="8" slack="0"/>
@@ -318,11 +318,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln235/1 "/>
+<opset="select_ln245/1 "/>
 </bind>
 </comp>
 
-<comp id="50" class="1004" name="shl_ln238_fu_50">
+<comp id="50" class="1004" name="shl_ln248_fu_50">
 <pin_list>
 <pin id="51" dir="0" index="0" bw="8" slack="0"/>
 <pin id="52" dir="0" index="1" bw="1" slack="0"/>
@@ -330,7 +330,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="shl(20) " fcode="shl"/>
-<opset="shl_ln238/1 "/>
+<opset="shl_ln248/1 "/>
 </bind>
 </comp>
 
@@ -347,7 +347,7 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="64" class="1004" name="xor_ln240_fu_64">
+<comp id="64" class="1004" name="xor_ln250_fu_64">
 <pin_list>
 <pin id="65" dir="0" index="0" bw="8" slack="0"/>
 <pin id="66" dir="0" index="1" bw="6" slack="0"/>
@@ -355,11 +355,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln240/1 "/>
+<opset="xor_ln250/1 "/>
 </bind>
 </comp>
 
-<comp id="70" class="1004" name="select_ln239_fu_70">
+<comp id="70" class="1004" name="select_ln249_fu_70">
 <pin_list>
 <pin id="71" dir="0" index="0" bw="1" slack="0"/>
 <pin id="72" dir="0" index="1" bw="8" slack="0"/>
@@ -368,7 +368,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln239/1 "/>
+<opset="select_ln249/1 "/>
 </bind>
 </comp>
 
@@ -385,7 +385,7 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="86" class="1004" name="select_ln235_1_fu_86">
+<comp id="86" class="1004" name="select_ln245_1_fu_86">
 <pin_list>
 <pin id="87" dir="0" index="0" bw="1" slack="0"/>
 <pin id="88" dir="0" index="1" bw="8" slack="0"/>
@@ -394,11 +394,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln235_1/1 "/>
+<opset="select_ln245_1/1 "/>
 </bind>
 </comp>
 
-<comp id="94" class="1004" name="shl_ln238_1_fu_94">
+<comp id="94" class="1004" name="shl_ln248_1_fu_94">
 <pin_list>
 <pin id="95" dir="0" index="0" bw="8" slack="0"/>
 <pin id="96" dir="0" index="1" bw="1" slack="0"/>
@@ -406,7 +406,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="shl(20) " fcode="shl"/>
-<opset="shl_ln238_1/1 "/>
+<opset="shl_ln248_1/1 "/>
 </bind>
 </comp>
 
@@ -423,7 +423,7 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="108" class="1004" name="xor_ln240_1_fu_108">
+<comp id="108" class="1004" name="xor_ln250_1_fu_108">
 <pin_list>
 <pin id="109" dir="0" index="0" bw="8" slack="0"/>
 <pin id="110" dir="0" index="1" bw="6" slack="0"/>
@@ -431,11 +431,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln240_1/1 "/>
+<opset="xor_ln250_1/1 "/>
 </bind>
 </comp>
 
-<comp id="114" class="1004" name="select_ln239_1_fu_114">
+<comp id="114" class="1004" name="select_ln249_1_fu_114">
 <pin_list>
 <pin id="115" dir="0" index="0" bw="1" slack="0"/>
 <pin id="116" dir="0" index="1" bw="8" slack="0"/>
@@ -444,7 +444,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln239_1/1 "/>
+<opset="select_ln249_1/1 "/>
 </bind>
 </comp>
 
@@ -461,7 +461,7 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="130" class="1004" name="select_ln235_2_fu_130">
+<comp id="130" class="1004" name="select_ln245_2_fu_130">
 <pin_list>
 <pin id="131" dir="0" index="0" bw="1" slack="0"/>
 <pin id="132" dir="0" index="1" bw="8" slack="0"/>
@@ -470,11 +470,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln235_2/1 "/>
+<opset="select_ln245_2/1 "/>
 </bind>
 </comp>
 
-<comp id="138" class="1004" name="shl_ln238_2_fu_138">
+<comp id="138" class="1004" name="shl_ln248_2_fu_138">
 <pin_list>
 <pin id="139" dir="0" index="0" bw="8" slack="0"/>
 <pin id="140" dir="0" index="1" bw="1" slack="0"/>
@@ -482,7 +482,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="shl(20) " fcode="shl"/>
-<opset="shl_ln238_2/1 "/>
+<opset="shl_ln248_2/1 "/>
 </bind>
 </comp>
 
@@ -499,7 +499,7 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="152" class="1004" name="xor_ln240_2_fu_152">
+<comp id="152" class="1004" name="xor_ln250_2_fu_152">
 <pin_list>
 <pin id="153" dir="0" index="0" bw="8" slack="0"/>
 <pin id="154" dir="0" index="1" bw="6" slack="0"/>
@@ -507,11 +507,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln240_2/1 "/>
+<opset="xor_ln250_2/1 "/>
 </bind>
 </comp>
 
-<comp id="158" class="1004" name="select_ln239_2_fu_158">
+<comp id="158" class="1004" name="select_ln249_2_fu_158">
 <pin_list>
 <pin id="159" dir="0" index="0" bw="1" slack="0"/>
 <pin id="160" dir="0" index="1" bw="8" slack="0"/>
@@ -520,7 +520,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln239_2/1 "/>
+<opset="select_ln249_2/1 "/>
 </bind>
 </comp>
 
@@ -537,7 +537,7 @@ ret_ln243      (ret      ) [ 00]
 </bind>
 </comp>
 
-<comp id="174" class="1004" name="select_ln235_3_fu_174">
+<comp id="174" class="1004" name="select_ln245_3_fu_174">
 <pin_list>
 <pin id="175" dir="0" index="0" bw="1" slack="0"/>
 <pin id="176" dir="0" index="1" bw="8" slack="0"/>
@@ -546,11 +546,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
-<opset="select_ln235_3/1 "/>
+<opset="select_ln245_3/1 "/>
 </bind>
 </comp>
 
-<comp id="182" class="1004" name="xor_ln235_fu_182">
+<comp id="182" class="1004" name="xor_ln245_fu_182">
 <pin_list>
 <pin id="183" dir="0" index="0" bw="8" slack="0"/>
 <pin id="184" dir="0" index="1" bw="8" slack="0"/>
@@ -558,11 +558,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln235/1 "/>
+<opset="xor_ln245/1 "/>
 </bind>
 </comp>
 
-<comp id="188" class="1004" name="xor_ln235_1_fu_188">
+<comp id="188" class="1004" name="xor_ln245_1_fu_188">
 <pin_list>
 <pin id="189" dir="0" index="0" bw="8" slack="0"/>
 <pin id="190" dir="0" index="1" bw="8" slack="0"/>
@@ -570,11 +570,11 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln235_1/1 "/>
+<opset="xor_ln245_1/1 "/>
 </bind>
 </comp>
 
-<comp id="194" class="1004" name="xor_ln235_2_fu_194">
+<comp id="194" class="1004" name="xor_ln245_2_fu_194">
 <pin_list>
 <pin id="195" dir="0" index="0" bw="8" slack="0"/>
 <pin id="196" dir="0" index="1" bw="8" slack="0"/>
@@ -582,7 +582,7 @@ ret_ln243      (ret      ) [ 00]
 </pin_list>
 <bind>
 <opcode="xor(25) " fcode="xor"/>
-<opset="xor_ln235_2/1 "/>
+<opset="xor_ln245_2/1 "/>
 </bind>
 </comp>
 
@@ -725,22 +725,22 @@ ret_ln243      (ret      ) [ 00]
 	Port: galois_multiplicatio : b | {1 }
   - Chain level:
 	State 1
-		select_ln235 : 1
-		select_ln235_1 : 1
-		shl_ln238_1 : 1
+		select_ln245 : 1
+		select_ln245_1 : 1
+		shl_ln248_1 : 1
 		tmp_2 : 1
-		xor_ln240_1 : 1
-		select_ln239_1 : 1
-		select_ln235_2 : 2
-		shl_ln238_2 : 2
+		xor_ln250_1 : 1
+		select_ln249_1 : 1
+		select_ln245_2 : 2
+		shl_ln248_2 : 2
 		tmp_4 : 2
-		xor_ln240_2 : 2
-		select_ln239_2 : 2
-		select_ln235_3 : 3
-		xor_ln235 : 3
-		xor_ln235_1 : 3
-		xor_ln235_2 : 4
-		ret_ln243 : 4
+		xor_ln250_2 : 2
+		select_ln249_2 : 2
+		select_ln245_3 : 3
+		xor_ln245 : 3
+		xor_ln245_1 : 3
+		xor_ln245_2 : 4
+		ret_ln253 : 4
 
 
 ============================================================
@@ -751,29 +751,29 @@ ret_ln243      (ret      ) [ 00]
 |----------|-----------------------|---------|---------|
 | Operation|    Functional Unit    |    FF   |   LUT   |
 |----------|-----------------------|---------|---------|
-|          |   select_ln235_fu_42  |    0    |    8    |
-|          |   select_ln239_fu_70  |    0    |    8    |
-|          |  select_ln235_1_fu_86 |    0    |    8    |
-|  select  | select_ln239_1_fu_114 |    0    |    8    |
-|          | select_ln235_2_fu_130 |    0    |    8    |
-|          | select_ln239_2_fu_158 |    0    |    8    |
-|          | select_ln235_3_fu_174 |    0    |    8    |
+|          |   select_ln245_fu_42  |    0    |    8    |
+|          |   select_ln249_fu_70  |    0    |    8    |
+|          |  select_ln245_1_fu_86 |    0    |    8    |
+|  select  | select_ln249_1_fu_114 |    0    |    8    |
+|          | select_ln245_2_fu_130 |    0    |    8    |
+|          | select_ln249_2_fu_158 |    0    |    8    |
+|          | select_ln245_3_fu_174 |    0    |    8    |
 |----------|-----------------------|---------|---------|
-|          |    xor_ln240_fu_64    |    0    |    8    |
-|          |   xor_ln240_1_fu_108  |    0    |    8    |
-|    xor   |   xor_ln240_2_fu_152  |    0    |    8    |
-|          |    xor_ln235_fu_182   |    0    |    8    |
-|          |   xor_ln235_1_fu_188  |    0    |    8    |
-|          |   xor_ln235_2_fu_194  |    0    |    8    |
+|          |    xor_ln250_fu_64    |    0    |    8    |
+|          |   xor_ln250_1_fu_108  |    0    |    8    |
+|    xor   |   xor_ln250_2_fu_152  |    0    |    8    |
+|          |    xor_ln245_fu_182   |    0    |    8    |
+|          |   xor_ln245_1_fu_188  |    0    |    8    |
+|          |   xor_ln245_2_fu_194  |    0    |    8    |
 |----------|-----------------------|---------|---------|
 |   read   |   b_read_read_fu_26   |    0    |    0    |
 |          |   a_read_read_fu_32   |    0    |    0    |
 |----------|-----------------------|---------|---------|
-|   trunc  |   trunc_ln235_fu_38   |    0    |    0    |
+|   trunc  |   trunc_ln245_fu_38   |    0    |    0    |
 |----------|-----------------------|---------|---------|
-|          |    shl_ln238_fu_50    |    0    |    0    |
-|    shl   |   shl_ln238_1_fu_94   |    0    |    0    |
-|          |   shl_ln238_2_fu_138  |    0    |    0    |
+|          |    shl_ln248_fu_50    |    0    |    0    |
+|    shl   |   shl_ln248_1_fu_94   |    0    |    0    |
+|          |   shl_ln248_2_fu_138  |    0    |    0    |
 |----------|-----------------------|---------|---------|
 |          |       tmp_fu_56       |    0    |    0    |
 |          |      tmp_1_fu_78      |    0    |    0    |

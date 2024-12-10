@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'galois_multiplicatio'" level="0">
-<item name = "Date">Mon Dec  9 19:14:23 2024
+<item name = "Date">Mon Dec  9 22:58:09 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -77,11 +77,11 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="select_ln235_1_fu_82_p3">select, 0, 0, 8, 1, 8</column>
-<column name="select_ln235_fu_38_p3">select, 0, 0, 8, 1, 8</column>
-<column name="select_ln239_fu_66_p3">select, 0, 0, 8, 1, 8</column>
+<column name="select_ln245_1_fu_82_p3">select, 0, 0, 8, 1, 8</column>
+<column name="select_ln245_fu_38_p3">select, 0, 0, 8, 1, 8</column>
+<column name="select_ln249_fu_66_p3">select, 0, 0, 8, 1, 8</column>
 <column name="ap_return">xor, 0, 0, 8, 8, 8</column>
-<column name="xor_ln240_fu_60_p2">xor, 0, 0, 8, 8, 5</column>
+<column name="xor_ln250_fu_60_p2">xor, 0, 0, 8, 8, 5</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">

@@ -12,6 +12,20 @@
                 <option name="dim" value="0"/>
             </pragma>
         </directive>
+        <directive functionName="encrypt_dut" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="key" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="dim" value="0"/>
+            </pragma>
+        </directive>
+        <directive functionName="encrypt_dut" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="output" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="dim" value="0"/>
+            </pragma>
+        </directive>
         <directive functionName="expandKey" label="EX_WHILE" functionLabel="">
             <pragma name="PIPELINE">
                 <option name="II" value="1"/>

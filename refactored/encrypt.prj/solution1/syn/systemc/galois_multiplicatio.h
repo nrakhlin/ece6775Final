@@ -30,14 +30,14 @@ struct galois_multiplicatio : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    sc_signal< sc_lv<1> > trunc_ln235_fu_34_p1;
-    sc_signal< sc_lv<8> > shl_ln238_fu_46_p2;
+    sc_signal< sc_lv<1> > trunc_ln245_fu_34_p1;
+    sc_signal< sc_lv<8> > shl_ln248_fu_46_p2;
     sc_signal< sc_lv<1> > tmp_fu_52_p3;
-    sc_signal< sc_lv<8> > xor_ln240_fu_60_p2;
+    sc_signal< sc_lv<8> > xor_ln250_fu_60_p2;
     sc_signal< sc_lv<1> > tmp_1_fu_74_p3;
-    sc_signal< sc_lv<8> > select_ln239_fu_66_p3;
-    sc_signal< sc_lv<8> > select_ln235_fu_38_p3;
-    sc_signal< sc_lv<8> > select_ln235_1_fu_82_p3;
+    sc_signal< sc_lv<8> > select_ln249_fu_66_p3;
+    sc_signal< sc_lv<8> > select_ln245_fu_38_p3;
+    sc_signal< sc_lv<8> > select_ln245_1_fu_82_p3;
     static const sc_logic ap_const_logic_1;
     static const bool ap_const_boolean_1;
     static const sc_lv<8> ap_const_lv8_0;
@@ -49,14 +49,14 @@ struct galois_multiplicatio : public sc_module {
     // Thread declarations
     void thread_ap_ready();
     void thread_ap_return();
-    void thread_select_ln235_1_fu_82_p3();
-    void thread_select_ln235_fu_38_p3();
-    void thread_select_ln239_fu_66_p3();
-    void thread_shl_ln238_fu_46_p2();
+    void thread_select_ln245_1_fu_82_p3();
+    void thread_select_ln245_fu_38_p3();
+    void thread_select_ln249_fu_66_p3();
+    void thread_shl_ln248_fu_46_p2();
     void thread_tmp_1_fu_74_p3();
     void thread_tmp_fu_52_p3();
-    void thread_trunc_ln235_fu_34_p1();
-    void thread_xor_ln240_fu_60_p2();
+    void thread_trunc_ln245_fu_34_p1();
+    void thread_xor_ln250_fu_60_p2();
 };
 
 }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'encrypt_dut'" level="0">
-<item name = "Date">Mon Dec  9 19:14:24 2024
+<item name = "Date">Mon Dec  9 22:58:11 2024
 </item>
 <item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
 <item name = "Project">encrypt.prj</item>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">582, 582, 5.820 us, 5.820 us, 582, 582, none</column>
+<column name="">488, 488, 4.880 us, 4.880 us, 488, 488, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_aes_encrypt_fu_146">aes_encrypt, 581, 581, 5.810 us, 5.810 us, 581, 581, none</column>
+<column name="grp_aes_encrypt_fu_302">aes_encrypt, 487, 487, 4.870 us, 4.870 us, 487, 487, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -50,19 +50,19 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, -, -, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">6, -, 1079, 3771, 0</column>
+<column name="Instance">8, -, 1092, 4695, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 15, -</column>
 <column name="Register">-, -, 3, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
-<specialColumn name="Utilization (%)">2, 0, 1, 7, 0</specialColumn>
+<specialColumn name="Utilization (%)">2, 0, 1, 8, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="grp_aes_encrypt_fu_146">aes_encrypt, 6, 0, 1079, 3771, 0</column>
+<column name="grp_aes_encrypt_fu_302">aes_encrypt, 8, 0, 1092, 4695, 0</column>
 </table>
 </item>
 <item name = "DSP48E"><table name="" hasTotal="0">
@@ -89,7 +89,7 @@
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">2, 0, 2, 0</column>
-<column name="grp_aes_encrypt_fu_146_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_aes_encrypt_fu_302_ap_start_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -121,13 +121,54 @@
 <column name="input_13">in, 8, ap_none, input_13, pointer</column>
 <column name="input_14">in, 8, ap_none, input_14, pointer</column>
 <column name="input_15">in, 8, ap_none, input_15, pointer</column>
-<column name="output_r_address0">out, 4, ap_memory, output_r, array</column>
-<column name="output_r_ce0">out, 1, ap_memory, output_r, array</column>
-<column name="output_r_we0">out, 1, ap_memory, output_r, array</column>
-<column name="output_r_d0">out, 8, ap_memory, output_r, array</column>
-<column name="key_address0">out, 4, ap_memory, key, array</column>
-<column name="key_ce0">out, 1, ap_memory, key, array</column>
-<column name="key_q0">in, 8, ap_memory, key, array</column>
+<column name="output_0">out, 8, ap_vld, output_0, pointer</column>
+<column name="output_0_ap_vld">out, 1, ap_vld, output_0, pointer</column>
+<column name="output_1">out, 8, ap_vld, output_1, pointer</column>
+<column name="output_1_ap_vld">out, 1, ap_vld, output_1, pointer</column>
+<column name="output_2">out, 8, ap_vld, output_2, pointer</column>
+<column name="output_2_ap_vld">out, 1, ap_vld, output_2, pointer</column>
+<column name="output_3">out, 8, ap_vld, output_3, pointer</column>
+<column name="output_3_ap_vld">out, 1, ap_vld, output_3, pointer</column>
+<column name="output_4">out, 8, ap_vld, output_4, pointer</column>
+<column name="output_4_ap_vld">out, 1, ap_vld, output_4, pointer</column>
+<column name="output_5">out, 8, ap_vld, output_5, pointer</column>
+<column name="output_5_ap_vld">out, 1, ap_vld, output_5, pointer</column>
+<column name="output_6">out, 8, ap_vld, output_6, pointer</column>
+<column name="output_6_ap_vld">out, 1, ap_vld, output_6, pointer</column>
+<column name="output_7">out, 8, ap_vld, output_7, pointer</column>
+<column name="output_7_ap_vld">out, 1, ap_vld, output_7, pointer</column>
+<column name="output_8">out, 8, ap_vld, output_8, pointer</column>
+<column name="output_8_ap_vld">out, 1, ap_vld, output_8, pointer</column>
+<column name="output_9">out, 8, ap_vld, output_9, pointer</column>
+<column name="output_9_ap_vld">out, 1, ap_vld, output_9, pointer</column>
+<column name="output_10">out, 8, ap_vld, output_10, pointer</column>
+<column name="output_10_ap_vld">out, 1, ap_vld, output_10, pointer</column>
+<column name="output_11">out, 8, ap_vld, output_11, pointer</column>
+<column name="output_11_ap_vld">out, 1, ap_vld, output_11, pointer</column>
+<column name="output_12">out, 8, ap_vld, output_12, pointer</column>
+<column name="output_12_ap_vld">out, 1, ap_vld, output_12, pointer</column>
+<column name="output_13">out, 8, ap_vld, output_13, pointer</column>
+<column name="output_13_ap_vld">out, 1, ap_vld, output_13, pointer</column>
+<column name="output_14">out, 8, ap_vld, output_14, pointer</column>
+<column name="output_14_ap_vld">out, 1, ap_vld, output_14, pointer</column>
+<column name="output_15">out, 8, ap_vld, output_15, pointer</column>
+<column name="output_15_ap_vld">out, 1, ap_vld, output_15, pointer</column>
+<column name="key_0">in, 8, ap_none, key_0, pointer</column>
+<column name="key_1">in, 8, ap_none, key_1, pointer</column>
+<column name="key_2">in, 8, ap_none, key_2, pointer</column>
+<column name="key_3">in, 8, ap_none, key_3, pointer</column>
+<column name="key_4">in, 8, ap_none, key_4, pointer</column>
+<column name="key_5">in, 8, ap_none, key_5, pointer</column>
+<column name="key_6">in, 8, ap_none, key_6, pointer</column>
+<column name="key_7">in, 8, ap_none, key_7, pointer</column>
+<column name="key_8">in, 8, ap_none, key_8, pointer</column>
+<column name="key_9">in, 8, ap_none, key_9, pointer</column>
+<column name="key_10">in, 8, ap_none, key_10, pointer</column>
+<column name="key_11">in, 8, ap_none, key_11, pointer</column>
+<column name="key_12">in, 8, ap_none, key_12, pointer</column>
+<column name="key_13">in, 8, ap_none, key_13, pointer</column>
+<column name="key_14">in, 8, ap_none, key_14, pointer</column>
+<column name="key_15">in, 8, ap_none, key_15, pointer</column>
 </table>
 </item>
 </section>

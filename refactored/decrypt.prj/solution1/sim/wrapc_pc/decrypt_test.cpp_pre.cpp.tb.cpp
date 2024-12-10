@@ -33770,6 +33770,15 @@ decrypt_dut(ciphertext, decrypted, key);
 #undef decrypt_dut
 # 35 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
 
+  
+#ifndef HLS_FASTSIM
+#define decrypt_dut AESL_WRAP_decrypt_dut
+#endif
+# 36 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
+decrypt_dut(ciphertext, decrypted, key);
+#undef decrypt_dut
+# 36 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
+
 
   std::cout << "Ciphertext: ";
   print_hex(ciphertext, 16);
@@ -33790,9 +33799,9 @@ decrypt_dut(ciphertext, decrypted, key);
   {
     std::cout << "Decryption failed! The output does not match the expected plaintext." << std::endl;
   }
-# 77 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
+# 78 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
   return 0;
 }
 #endif
-# 78 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
+# 79 "/home/npr29/hls6775/ece6775Final/refactored/decrypt_test.cpp"
 

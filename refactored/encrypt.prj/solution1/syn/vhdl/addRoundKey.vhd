@@ -27,22 +27,22 @@ port (
     state_we1 : OUT STD_LOGIC;
     state_d1 : OUT STD_LOGIC_VECTOR (7 downto 0);
     state_q1 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read1 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read2 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read3 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read4 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read5 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read6 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read7 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read8 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read9 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read10 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read11 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read12 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read13 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read14 : IN STD_LOGIC_VECTOR (7 downto 0);
-    p_read15 : IN STD_LOGIC_VECTOR (7 downto 0) );
+    roundKey_0_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_1_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_2_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_3_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_4_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_5_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_6_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_7_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_8_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_9_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_10_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_11_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_12_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_13_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_14_read : IN STD_LOGIC_VECTOR (7 downto 0);
+    roundKey_15_read : IN STD_LOGIC_VECTOR (7 downto 0) );
 end;
 
 
@@ -164,22 +164,22 @@ architecture behav of addRoundKey is
     attribute fsm_encoding of ap_CS_fsm_state15 : signal is "none";
     signal ap_CS_fsm_state16 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state16 : signal is "none";
-    signal xor_ln226_fu_325_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_1_fu_332_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_2_fu_339_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_3_fu_345_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_4_fu_351_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_5_fu_357_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_6_fu_363_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_7_fu_369_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_8_fu_375_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_9_fu_381_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_10_fu_387_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_11_fu_393_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_12_fu_399_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_13_fu_405_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_14_fu_411_p2 : STD_LOGIC_VECTOR (7 downto 0);
-    signal xor_ln226_15_fu_418_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_fu_325_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_1_fu_332_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_2_fu_339_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_3_fu_345_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_4_fu_351_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_5_fu_357_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_6_fu_363_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_7_fu_369_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_8_fu_375_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_9_fu_381_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_10_fu_387_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_11_fu_393_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_12_fu_399_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_13_fu_405_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_14_fu_411_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal xor_ln236_15_fu_418_p2 : STD_LOGIC_VECTOR (7 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (15 downto 0);
 
 
@@ -469,48 +469,48 @@ begin
     end process;
 
 
-    state_d0_assign_proc : process(ap_CS_fsm_state9, ap_CS_fsm_state10, ap_CS_fsm_state11, ap_CS_fsm_state12, ap_CS_fsm_state13, ap_CS_fsm_state14, ap_CS_fsm_state15, ap_CS_fsm_state16, xor_ln226_fu_325_p2, xor_ln226_2_fu_339_p2, xor_ln226_4_fu_351_p2, xor_ln226_6_fu_363_p2, xor_ln226_8_fu_375_p2, xor_ln226_10_fu_387_p2, xor_ln226_12_fu_399_p2, xor_ln226_14_fu_411_p2)
+    state_d0_assign_proc : process(ap_CS_fsm_state9, ap_CS_fsm_state10, ap_CS_fsm_state11, ap_CS_fsm_state12, ap_CS_fsm_state13, ap_CS_fsm_state14, ap_CS_fsm_state15, ap_CS_fsm_state16, xor_ln236_fu_325_p2, xor_ln236_2_fu_339_p2, xor_ln236_4_fu_351_p2, xor_ln236_6_fu_363_p2, xor_ln236_8_fu_375_p2, xor_ln236_10_fu_387_p2, xor_ln236_12_fu_399_p2, xor_ln236_14_fu_411_p2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state16)) then 
-            state_d0 <= xor_ln226_14_fu_411_p2;
+            state_d0 <= xor_ln236_14_fu_411_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
-            state_d0 <= xor_ln226_12_fu_399_p2;
+            state_d0 <= xor_ln236_12_fu_399_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state14)) then 
-            state_d0 <= xor_ln226_10_fu_387_p2;
+            state_d0 <= xor_ln236_10_fu_387_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-            state_d0 <= xor_ln226_8_fu_375_p2;
+            state_d0 <= xor_ln236_8_fu_375_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state12)) then 
-            state_d0 <= xor_ln226_6_fu_363_p2;
+            state_d0 <= xor_ln236_6_fu_363_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
-            state_d0 <= xor_ln226_4_fu_351_p2;
+            state_d0 <= xor_ln236_4_fu_351_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            state_d0 <= xor_ln226_2_fu_339_p2;
+            state_d0 <= xor_ln236_2_fu_339_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            state_d0 <= xor_ln226_fu_325_p2;
+            state_d0 <= xor_ln236_fu_325_p2;
         else 
             state_d0 <= "XXXXXXXX";
         end if; 
     end process;
 
 
-    state_d1_assign_proc : process(ap_CS_fsm_state9, ap_CS_fsm_state10, ap_CS_fsm_state11, ap_CS_fsm_state12, ap_CS_fsm_state13, ap_CS_fsm_state14, ap_CS_fsm_state15, ap_CS_fsm_state16, xor_ln226_1_fu_332_p2, xor_ln226_3_fu_345_p2, xor_ln226_5_fu_357_p2, xor_ln226_7_fu_369_p2, xor_ln226_9_fu_381_p2, xor_ln226_11_fu_393_p2, xor_ln226_13_fu_405_p2, xor_ln226_15_fu_418_p2)
+    state_d1_assign_proc : process(ap_CS_fsm_state9, ap_CS_fsm_state10, ap_CS_fsm_state11, ap_CS_fsm_state12, ap_CS_fsm_state13, ap_CS_fsm_state14, ap_CS_fsm_state15, ap_CS_fsm_state16, xor_ln236_1_fu_332_p2, xor_ln236_3_fu_345_p2, xor_ln236_5_fu_357_p2, xor_ln236_7_fu_369_p2, xor_ln236_9_fu_381_p2, xor_ln236_11_fu_393_p2, xor_ln236_13_fu_405_p2, xor_ln236_15_fu_418_p2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state16)) then 
-            state_d1 <= xor_ln226_15_fu_418_p2;
+            state_d1 <= xor_ln236_15_fu_418_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state15)) then 
-            state_d1 <= xor_ln226_13_fu_405_p2;
+            state_d1 <= xor_ln236_13_fu_405_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state14)) then 
-            state_d1 <= xor_ln226_11_fu_393_p2;
+            state_d1 <= xor_ln236_11_fu_393_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state13)) then 
-            state_d1 <= xor_ln226_9_fu_381_p2;
+            state_d1 <= xor_ln236_9_fu_381_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state12)) then 
-            state_d1 <= xor_ln226_7_fu_369_p2;
+            state_d1 <= xor_ln236_7_fu_369_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state11)) then 
-            state_d1 <= xor_ln226_5_fu_357_p2;
+            state_d1 <= xor_ln236_5_fu_357_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state10)) then 
-            state_d1 <= xor_ln226_3_fu_345_p2;
+            state_d1 <= xor_ln236_3_fu_345_p2;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state9)) then 
-            state_d1 <= xor_ln226_1_fu_332_p2;
+            state_d1 <= xor_ln236_1_fu_332_p2;
         else 
             state_d1 <= "XXXXXXXX";
         end if; 
@@ -536,20 +536,20 @@ begin
         end if; 
     end process;
 
-    xor_ln226_10_fu_387_p2 <= (state_load_10_reg_525 xor p_read10);
-    xor_ln226_11_fu_393_p2 <= (state_load_11_reg_530 xor p_read11);
-    xor_ln226_12_fu_399_p2 <= (state_load_12_reg_545 xor p_read12);
-    xor_ln226_13_fu_405_p2 <= (state_load_13_reg_550 xor p_read13);
-    xor_ln226_14_fu_411_p2 <= (reg_317 xor p_read14);
-    xor_ln226_15_fu_418_p2 <= (reg_321 xor p_read15);
-    xor_ln226_1_fu_332_p2 <= (reg_321 xor p_read1);
-    xor_ln226_2_fu_339_p2 <= (state_load_2_reg_445 xor p_read2);
-    xor_ln226_3_fu_345_p2 <= (state_load_3_reg_450 xor p_read3);
-    xor_ln226_4_fu_351_p2 <= (state_load_4_reg_465 xor p_read4);
-    xor_ln226_5_fu_357_p2 <= (state_load_5_reg_470 xor p_read5);
-    xor_ln226_6_fu_363_p2 <= (state_load_6_reg_485 xor p_read6);
-    xor_ln226_7_fu_369_p2 <= (state_load_7_reg_490 xor p_read7);
-    xor_ln226_8_fu_375_p2 <= (state_load_8_reg_505 xor p_read8);
-    xor_ln226_9_fu_381_p2 <= (state_load_9_reg_510 xor p_read9);
-    xor_ln226_fu_325_p2 <= (reg_317 xor p_read);
+    xor_ln236_10_fu_387_p2 <= (state_load_10_reg_525 xor roundKey_10_read);
+    xor_ln236_11_fu_393_p2 <= (state_load_11_reg_530 xor roundKey_11_read);
+    xor_ln236_12_fu_399_p2 <= (state_load_12_reg_545 xor roundKey_12_read);
+    xor_ln236_13_fu_405_p2 <= (state_load_13_reg_550 xor roundKey_13_read);
+    xor_ln236_14_fu_411_p2 <= (roundKey_14_read xor reg_317);
+    xor_ln236_15_fu_418_p2 <= (roundKey_15_read xor reg_321);
+    xor_ln236_1_fu_332_p2 <= (roundKey_1_read xor reg_321);
+    xor_ln236_2_fu_339_p2 <= (state_load_2_reg_445 xor roundKey_2_read);
+    xor_ln236_3_fu_345_p2 <= (state_load_3_reg_450 xor roundKey_3_read);
+    xor_ln236_4_fu_351_p2 <= (state_load_4_reg_465 xor roundKey_4_read);
+    xor_ln236_5_fu_357_p2 <= (state_load_5_reg_470 xor roundKey_5_read);
+    xor_ln236_6_fu_363_p2 <= (state_load_6_reg_485 xor roundKey_6_read);
+    xor_ln236_7_fu_369_p2 <= (state_load_7_reg_490 xor roundKey_7_read);
+    xor_ln236_8_fu_375_p2 <= (state_load_8_reg_505 xor roundKey_8_read);
+    xor_ln236_9_fu_381_p2 <= (state_load_9_reg_510 xor roundKey_9_read);
+    xor_ln236_fu_325_p2 <= (roundKey_0_read xor reg_317);
 end behav;

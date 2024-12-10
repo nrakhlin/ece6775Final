@@ -2430,15 +2430,16 @@ void aes_main(unsigned char state[16], unsigned char expandedKey[(16 * (10 + 1))
   int i = 0;
   int j, k;
   unsigned char roundKey[16];
+#pragma HLS array_partition variable=&roundKey complete dim=0
 
-  createRoundKey(expandedKey, roundKey, 0);
+ createRoundKey(expandedKey, roundKey, 0);
   addRoundKey(state, roundKey);
 
   AES_MAIN_LOOP:
     for (i = 1; i < nbrRounds; i++)
     {
 #pragma HLS PIPELINE II=1
-# 26 "encrypt.cpp"
+# 27 "encrypt.cpp"
 
       createRoundKey(expandedKey, roundKey, 16 * i);
       aes_round(state, roundKey);
@@ -2459,8 +2460,9 @@ void aes_encrypt(unsigned char input[16],
   unsigned char block[16];
   int i, j;
   unsigned char expandedKey[(16 * (10 + 1))];
+#pragma HLS array_partition variable=&expandedKey cyclic factor=4 dim=0
 
-  for (i = 0; i < 4; i++)
+ for (i = 0; i < 4; i++)
   {
 
     for (j = 0; j < 4; j++)
@@ -2492,7 +2494,13 @@ void encrypt_dut(unsigned char input[16],
                  unsigned char key[16])
 {_ssdm_SpecArrayDimSize(input, 16);_ssdm_SpecArrayDimSize(output, 16);_ssdm_SpecArrayDimSize(key, 16);
 #pragma HLS ARRAY_PARTITION variable=&input complete dim=0
-# 77 "encrypt.cpp"
+# 79 "encrypt.cpp"
+
+#pragma HLS ARRAY_PARTITION variable=&key complete dim=0
+# 79 "encrypt.cpp"
+
+#pragma HLS ARRAY_PARTITION variable=&output complete dim=0
+# 79 "encrypt.cpp"
 
 
   aes_encrypt(input, output, key, 16);

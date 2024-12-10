@@ -24,22 +24,22 @@ module addRoundKey (
         state_we1,
         state_d1,
         state_q1,
-        p_read,
-        p_read1,
-        p_read2,
-        p_read3,
-        p_read4,
-        p_read5,
-        p_read6,
-        p_read7,
-        p_read8,
-        p_read9,
-        p_read10,
-        p_read11,
-        p_read12,
-        p_read13,
-        p_read14,
-        p_read15
+        roundKey_0_read,
+        roundKey_1_read,
+        roundKey_2_read,
+        roundKey_3_read,
+        roundKey_4_read,
+        roundKey_5_read,
+        roundKey_6_read,
+        roundKey_7_read,
+        roundKey_8_read,
+        roundKey_9_read,
+        roundKey_10_read,
+        roundKey_11_read,
+        roundKey_12_read,
+        roundKey_13_read,
+        roundKey_14_read,
+        roundKey_15_read
 );
 
 parameter    ap_ST_fsm_state1 = 16'd1;
@@ -75,22 +75,22 @@ output   state_ce1;
 output   state_we1;
 output  [7:0] state_d1;
 input  [7:0] state_q1;
-input  [7:0] p_read;
-input  [7:0] p_read1;
-input  [7:0] p_read2;
-input  [7:0] p_read3;
-input  [7:0] p_read4;
-input  [7:0] p_read5;
-input  [7:0] p_read6;
-input  [7:0] p_read7;
-input  [7:0] p_read8;
-input  [7:0] p_read9;
-input  [7:0] p_read10;
-input  [7:0] p_read11;
-input  [7:0] p_read12;
-input  [7:0] p_read13;
-input  [7:0] p_read14;
-input  [7:0] p_read15;
+input  [7:0] roundKey_0_read;
+input  [7:0] roundKey_1_read;
+input  [7:0] roundKey_2_read;
+input  [7:0] roundKey_3_read;
+input  [7:0] roundKey_4_read;
+input  [7:0] roundKey_5_read;
+input  [7:0] roundKey_6_read;
+input  [7:0] roundKey_7_read;
+input  [7:0] roundKey_8_read;
+input  [7:0] roundKey_9_read;
+input  [7:0] roundKey_10_read;
+input  [7:0] roundKey_11_read;
+input  [7:0] roundKey_12_read;
+input  [7:0] roundKey_13_read;
+input  [7:0] roundKey_14_read;
+input  [7:0] roundKey_15_read;
 
 reg ap_done;
 reg ap_idle;
@@ -151,22 +151,22 @@ wire    ap_CS_fsm_state13;
 wire    ap_CS_fsm_state14;
 wire    ap_CS_fsm_state15;
 wire    ap_CS_fsm_state16;
-wire   [7:0] xor_ln226_fu_325_p2;
-wire   [7:0] xor_ln226_1_fu_332_p2;
-wire   [7:0] xor_ln226_2_fu_339_p2;
-wire   [7:0] xor_ln226_3_fu_345_p2;
-wire   [7:0] xor_ln226_4_fu_351_p2;
-wire   [7:0] xor_ln226_5_fu_357_p2;
-wire   [7:0] xor_ln226_6_fu_363_p2;
-wire   [7:0] xor_ln226_7_fu_369_p2;
-wire   [7:0] xor_ln226_8_fu_375_p2;
-wire   [7:0] xor_ln226_9_fu_381_p2;
-wire   [7:0] xor_ln226_10_fu_387_p2;
-wire   [7:0] xor_ln226_11_fu_393_p2;
-wire   [7:0] xor_ln226_12_fu_399_p2;
-wire   [7:0] xor_ln226_13_fu_405_p2;
-wire   [7:0] xor_ln226_14_fu_411_p2;
-wire   [7:0] xor_ln226_15_fu_418_p2;
+wire   [7:0] xor_ln236_fu_325_p2;
+wire   [7:0] xor_ln236_1_fu_332_p2;
+wire   [7:0] xor_ln236_2_fu_339_p2;
+wire   [7:0] xor_ln236_3_fu_345_p2;
+wire   [7:0] xor_ln236_4_fu_351_p2;
+wire   [7:0] xor_ln236_5_fu_357_p2;
+wire   [7:0] xor_ln236_6_fu_363_p2;
+wire   [7:0] xor_ln236_7_fu_369_p2;
+wire   [7:0] xor_ln236_8_fu_375_p2;
+wire   [7:0] xor_ln236_9_fu_381_p2;
+wire   [7:0] xor_ln236_10_fu_387_p2;
+wire   [7:0] xor_ln236_11_fu_393_p2;
+wire   [7:0] xor_ln236_12_fu_399_p2;
+wire   [7:0] xor_ln236_13_fu_405_p2;
+wire   [7:0] xor_ln236_14_fu_411_p2;
+wire   [7:0] xor_ln236_15_fu_418_p2;
 reg   [15:0] ap_NS_fsm;
 
 // power-on initialization
@@ -349,21 +349,21 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state16)) begin
-        state_d0 = xor_ln226_14_fu_411_p2;
+        state_d0 = xor_ln236_14_fu_411_p2;
     end else if ((1'b1 == ap_CS_fsm_state15)) begin
-        state_d0 = xor_ln226_12_fu_399_p2;
+        state_d0 = xor_ln236_12_fu_399_p2;
     end else if ((1'b1 == ap_CS_fsm_state14)) begin
-        state_d0 = xor_ln226_10_fu_387_p2;
+        state_d0 = xor_ln236_10_fu_387_p2;
     end else if ((1'b1 == ap_CS_fsm_state13)) begin
-        state_d0 = xor_ln226_8_fu_375_p2;
+        state_d0 = xor_ln236_8_fu_375_p2;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        state_d0 = xor_ln226_6_fu_363_p2;
+        state_d0 = xor_ln236_6_fu_363_p2;
     end else if ((1'b1 == ap_CS_fsm_state11)) begin
-        state_d0 = xor_ln226_4_fu_351_p2;
+        state_d0 = xor_ln236_4_fu_351_p2;
     end else if ((1'b1 == ap_CS_fsm_state10)) begin
-        state_d0 = xor_ln226_2_fu_339_p2;
+        state_d0 = xor_ln236_2_fu_339_p2;
     end else if ((1'b1 == ap_CS_fsm_state9)) begin
-        state_d0 = xor_ln226_fu_325_p2;
+        state_d0 = xor_ln236_fu_325_p2;
     end else begin
         state_d0 = 'bx;
     end
@@ -371,21 +371,21 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state16)) begin
-        state_d1 = xor_ln226_15_fu_418_p2;
+        state_d1 = xor_ln236_15_fu_418_p2;
     end else if ((1'b1 == ap_CS_fsm_state15)) begin
-        state_d1 = xor_ln226_13_fu_405_p2;
+        state_d1 = xor_ln236_13_fu_405_p2;
     end else if ((1'b1 == ap_CS_fsm_state14)) begin
-        state_d1 = xor_ln226_11_fu_393_p2;
+        state_d1 = xor_ln236_11_fu_393_p2;
     end else if ((1'b1 == ap_CS_fsm_state13)) begin
-        state_d1 = xor_ln226_9_fu_381_p2;
+        state_d1 = xor_ln236_9_fu_381_p2;
     end else if ((1'b1 == ap_CS_fsm_state12)) begin
-        state_d1 = xor_ln226_7_fu_369_p2;
+        state_d1 = xor_ln236_7_fu_369_p2;
     end else if ((1'b1 == ap_CS_fsm_state11)) begin
-        state_d1 = xor_ln226_5_fu_357_p2;
+        state_d1 = xor_ln236_5_fu_357_p2;
     end else if ((1'b1 == ap_CS_fsm_state10)) begin
-        state_d1 = xor_ln226_3_fu_345_p2;
+        state_d1 = xor_ln236_3_fu_345_p2;
     end else if ((1'b1 == ap_CS_fsm_state9)) begin
-        state_d1 = xor_ln226_1_fu_332_p2;
+        state_d1 = xor_ln236_1_fu_332_p2;
     end else begin
         state_d1 = 'bx;
     end
@@ -531,36 +531,36 @@ assign state_addr_45_reg_560 = 64'd15;
 
 assign state_addr_reg_425 = 64'd0;
 
-assign xor_ln226_10_fu_387_p2 = (state_load_10_reg_525 ^ p_read10);
+assign xor_ln236_10_fu_387_p2 = (state_load_10_reg_525 ^ roundKey_10_read);
 
-assign xor_ln226_11_fu_393_p2 = (state_load_11_reg_530 ^ p_read11);
+assign xor_ln236_11_fu_393_p2 = (state_load_11_reg_530 ^ roundKey_11_read);
 
-assign xor_ln226_12_fu_399_p2 = (state_load_12_reg_545 ^ p_read12);
+assign xor_ln236_12_fu_399_p2 = (state_load_12_reg_545 ^ roundKey_12_read);
 
-assign xor_ln226_13_fu_405_p2 = (state_load_13_reg_550 ^ p_read13);
+assign xor_ln236_13_fu_405_p2 = (state_load_13_reg_550 ^ roundKey_13_read);
 
-assign xor_ln226_14_fu_411_p2 = (reg_317 ^ p_read14);
+assign xor_ln236_14_fu_411_p2 = (roundKey_14_read ^ reg_317);
 
-assign xor_ln226_15_fu_418_p2 = (reg_321 ^ p_read15);
+assign xor_ln236_15_fu_418_p2 = (roundKey_15_read ^ reg_321);
 
-assign xor_ln226_1_fu_332_p2 = (reg_321 ^ p_read1);
+assign xor_ln236_1_fu_332_p2 = (roundKey_1_read ^ reg_321);
 
-assign xor_ln226_2_fu_339_p2 = (state_load_2_reg_445 ^ p_read2);
+assign xor_ln236_2_fu_339_p2 = (state_load_2_reg_445 ^ roundKey_2_read);
 
-assign xor_ln226_3_fu_345_p2 = (state_load_3_reg_450 ^ p_read3);
+assign xor_ln236_3_fu_345_p2 = (state_load_3_reg_450 ^ roundKey_3_read);
 
-assign xor_ln226_4_fu_351_p2 = (state_load_4_reg_465 ^ p_read4);
+assign xor_ln236_4_fu_351_p2 = (state_load_4_reg_465 ^ roundKey_4_read);
 
-assign xor_ln226_5_fu_357_p2 = (state_load_5_reg_470 ^ p_read5);
+assign xor_ln236_5_fu_357_p2 = (state_load_5_reg_470 ^ roundKey_5_read);
 
-assign xor_ln226_6_fu_363_p2 = (state_load_6_reg_485 ^ p_read6);
+assign xor_ln236_6_fu_363_p2 = (state_load_6_reg_485 ^ roundKey_6_read);
 
-assign xor_ln226_7_fu_369_p2 = (state_load_7_reg_490 ^ p_read7);
+assign xor_ln236_7_fu_369_p2 = (state_load_7_reg_490 ^ roundKey_7_read);
 
-assign xor_ln226_8_fu_375_p2 = (state_load_8_reg_505 ^ p_read8);
+assign xor_ln236_8_fu_375_p2 = (state_load_8_reg_505 ^ roundKey_8_read);
 
-assign xor_ln226_9_fu_381_p2 = (state_load_9_reg_510 ^ p_read9);
+assign xor_ln236_9_fu_381_p2 = (state_load_9_reg_510 ^ roundKey_9_read);
 
-assign xor_ln226_fu_325_p2 = (reg_317 ^ p_read);
+assign xor_ln236_fu_325_p2 = (roundKey_0_read ^ reg_317);
 
 endmodule //addRoundKey

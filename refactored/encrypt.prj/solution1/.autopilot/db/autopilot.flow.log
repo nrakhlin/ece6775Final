@@ -1,7 +1,8 @@
-INFO-FLOW: Workspace /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1 opened at Mon Dec 09 19:14:09 EST 2024
+INFO-FLOW: Workspace /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1 opened at Mon Dec 09 22:57:52 EST 2024
+Command     open_solution done; 0.2 sec.
 Execute     set_part xc7z020clg484-1 
 Execute       ap_part_info -name xc7z020clg484-1 -data single -quiet 
-Command       ap_part_info done; 1.53 sec.
+Command       ap_part_info done; 1.79 sec.
 Execute       ap_part_info -name xc7z020clg484-1 -data info 
 Execute       add_library xilinx/zynq/zynq:xc7z020:-clg484:-1 
 Execute         get_default_platform 
@@ -53,7 +54,7 @@ Execute         ap_part_info -name xc7z020-clg484-1 -data info
 Execute         config_chip_info -quiet -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP48E 220} {BRAM 280} {URAM 0} 
 Execute         ap_part_info -name xc7z020-clg484-1 -data info 
 Execute         config_chip_info -quiet -speed slow 
-Command       add_library done; 0.14 sec.
+Command       add_library done; 0.16 sec.
 Execute       add_library xilinx/zynq/zynq_fpv6 
 Execute         get_default_platform 
 Execute         open_platform DefaultPlatform 
@@ -71,7 +72,7 @@ Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/comm
 INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
 Execute       ap_part_info -name xc7z020-clg484-1 -data info 
 Execute       get_default_platform 
-Command     set_part done; 1.75 sec.
+Command     set_part done; 2.04 sec.
 Execute     create_clock -period 10 
 Execute       config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
@@ -80,9 +81,20 @@ INFO-FLOW: Setting directive 'PIPELINE' II=1
 Execute     set_directive_array_partition -type complete -dim 0 encrypt_dut input 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+Execute     set_directive_array_partition -type complete -dim 0 encrypt_dut key 
+INFO-FLOW: Setting directive 'PIPELINE' II=1 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+Execute     set_directive_array_partition -type complete -dim 0 encrypt_dut output 
+INFO-FLOW: Setting directive 'PIPELINE' II=1 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredoutput complete=positionBoolean0type dim=0 
 Execute     set_directive_pipeline -II 1 expandKey/EX_WHILE 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredoutput complete=positionBoolean0type dim=0 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 Execute     csim_design -O 
 INFO: [SIM 211-2] *************** CSIM start ***************
@@ -97,7 +109,7 @@ Execute       ap_part_info -name xc7z020-clg484-1 -data info
 Execute       source run_sim.tcl 
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-Command     csim_design done; 0.36 sec.
+Command     csim_design done; 0.39 sec.
 Execute     csynth_design 
 Execute       get_config_compile -dump_cfg 
 Execute       get_config_compile -effort 
@@ -124,22 +136,26 @@ INFO-FLOW: Running: GCC PP
 INFO-FLOW: Source preprocessing
 Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "helper.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp" 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E helper.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp
-Command         clang done; 1.1 sec.
+Command         clang done; 1.15 sec.
 Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp std=c++11 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
 INFO-FLOW: Syntax Checking before pre-processing...
 Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/useless.bc"  
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/useless.bc
-Command         clang done; 1.26 sec.
-INFO-FLOW: Done: GCC PP time: 2.4 seconds per iteration
+Command         clang done; 1.13 sec.
+INFO-FLOW: Done: GCC PP time: 2.3 seconds per iteration
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredoutput complete=positionBoolean0type dim=0 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
 Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
 Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/try/try.tcl 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredoutput complete=positionBoolean0type dim=0 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 Execute         list_core -type functional_unit 
 Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pp.0.cpp std=c++11 -directive=/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/.systemc_flag 
@@ -162,7 +178,7 @@ Execute         ap_part_info -name xc7z020-clg484-1 -data info
 INFO-FLOW: Processing labels
 Execute         clang -src /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.bc" 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.bc
-Command         clang done; 1.1 sec.
+Command         clang done; 1.14 sec.
 INFO: [HLS 200-10] Analyzing design file 'encrypt.cpp' ... 
 INFO-FLOW: Compiling one TU...
 Execute         is_m_axi_addr64 
@@ -174,7 +190,7 @@ INFO-FLOW: Running: GCC PP
 INFO-FLOW: Source preprocessing
 Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "encrypt.cpp"   -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pp.0.cpp" 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E encrypt.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pp.0.cpp
-Command         clang done; 1.1 sec.
+Command         clang done; 1.09 sec.
 Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=c++11 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=c++11 -fhls -ferror-limit=0
 INFO-FLOW: Syntax Checking before pre-processing...
@@ -184,9 +200,13 @@ Command         clang done; 1.08 sec.
 INFO-FLOW: Done: GCC PP time: 2.2 seconds per iteration
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredoutput complete=positionBoolean0type dim=0 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredinput complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredkey complete=positionBoolean0type dim=0 
+INFO-FLOW: Setting directive 'ARRAY_PARTITION' partition=positionBooleanCmd variable=positionBooleanTextRequiredoutput complete=positionBoolean0type dim=0 
 INFO-FLOW: Setting directive 'PIPELINE' II=1 
 Execute         list_core -type functional_unit 
 Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=c++11 -directive=/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/.systemc_flag 
@@ -207,116 +227,118 @@ Execute         ap_part_info -name xc7z020-clg484-1 -data info
 INFO-FLOW: Processing labels
 Execute         clang -src /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pragma.2.cpp"  -std=c++11  -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.bc" 
 INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.pragma.2.cpp -std=c++11 -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.bc
-Command         clang done; 1.1 sec.
+Command         clang done; 1.12 sec.
 INFO-FLOW: Linking Debug ...
 Execute         llvm-ld /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/helper.g.bc /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt.g.bc -hls-opt -except-internalize encrypt_dut -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lhlsm -lhlsmc++ -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g 
-Command         llvm-ld done; 0.56 sec.
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5169 ; free virtual = 11422
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5169 ; free virtual = 11422
+Command         llvm-ld done; 0.58 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 1727 ; free virtual = 7490
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 1727 ; free virtual = 7490
 Execute         get_config_sdx -target 
 Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 Execute           cleanup_all_models 
 INFO: [HLS 200-10] Starting code transformations ...
 Execute           transform -promote-dbg-pointer /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.pp.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.pp.0.bc -f 
 Execute           llvm-ld /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.pp.0.bc -disable-opt -L/opt/xilinx/Vivado/2019.2/lnx64/lib -lfloatconversion -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.0 
-Command           llvm-ld done; 0.54 sec.
+Command           llvm-ld done; 0.57 sec.
 INFO-FLOW: Running Standard Transforms...
 Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top encrypt_dut -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.0.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5167 ; free virtual = 11421
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 1726 ; free virtual = 7488
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
 Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.1.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.2.prechk.bc -f 
-INFO: [XFORM 203-602] Inlining function 'rotate' into 'core' (helper.cpp:100) automatically.
-INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'core' (helper.cpp:105) automatically.
-INFO: [XFORM 203-602] Inlining function 'getRconValue' into 'core' (helper.cpp:109) automatically.
-INFO: [XFORM 203-602] Inlining function 'core' into 'expandKey' (helper.cpp:144) automatically.
-INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'subBytes' (helper.cpp:175) automatically.
+INFO: [XFORM 203-602] Inlining function 'rotate' into 'core' (helper.cpp:105) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'core' (helper.cpp:110) automatically.
+INFO: [XFORM 203-602] Inlining function 'getRconValue' into 'core' (helper.cpp:114) automatically.
+INFO: [XFORM 203-602] Inlining function 'core' into 'expandKey' (helper.cpp:153) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'subBytes' (helper.cpp:185) automatically.
 INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_round' (encrypt.cpp:9) automatically.
 INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_round' (encrypt.cpp:10) automatically.
 INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_round' (encrypt.cpp:12) automatically.
-INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_main' (encrypt.cpp:22) automatically.
-INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_main' (encrypt.cpp:32) automatically.
-INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_main' (encrypt.cpp:33) automatically.
+INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_main' (encrypt.cpp:23) automatically.
+INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_main' (encrypt.cpp:33) automatically.
+INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_main' (encrypt.cpp:34) automatically.
 INFO-FLOW: Checking Synthesizability 2/2..
 Execute           transform -syn-check /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.2.prechk.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5167 ; free virtual = 11421
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 1725 ; free virtual = 7488
 INFO-FLOW: Compiler optimizing ...
 INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.g.1.bc to /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
 Execute           transform -hls -tmp /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.1.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.1.tmp.bc -f 
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'galois_multiplication' (helper.cpp:228).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'mixColumns' (helper.cpp:275).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'mixColumn' (helper.cpp:246).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'subBytes' (helper.cpp:168).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'addRoundKey' (helper.cpp:222).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'createRoundKey' (helper.cpp:300).
-INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'EX_WHILE' (helper.cpp:131) in function 'expandKey' for pipelining.
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'core' (helper.cpp:95).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'rotate' (helper.cpp:80).
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:233) in function 'galois_multiplication' completely with a factor of 8.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:281) in function 'mixColumns' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (helper.cpp:284) in function 'mixColumns' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1.2' (helper.cpp:293) in function 'mixColumns' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:250) in function 'mixColumn' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:174) in function 'subBytes' completely with a factor of 16.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:225) in function 'addRoundKey' completely with a factor of 16.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:304) in function 'createRoundKey' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (helper.cpp:307) in function 'createRoundKey' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'EX_INNER1' (helper.cpp:135) in function 'expandKey' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'EX_INNER3' (helper.cpp:160) in function 'expandKey' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:103) in function 'core' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:86) in function 'rotate' completely with a factor of 3.
-INFO: [XFORM 203-102] Partitioning array 'cpy' (helper.cpp:248) automatically.
-INFO: [XFORM 203-102] Partitioning array 'column' (helper.cpp:278) automatically.
-INFO: [XFORM 203-102] Partitioning array 'roundKey' (encrypt.cpp:19) automatically.
-INFO: [XFORM 203-102] Automatically partitioning small array 't' (helper.cpp:122) completely based on array size.
-INFO: [XFORM 203-101] Partitioning array 'input' (encrypt.cpp:74) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 't' (helper.cpp:122) in dimension 1 completely.
-INFO: [XFORM 203-602] Inlining function 'rotate' into 'core' (helper.cpp:100) automatically.
-INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'core' (helper.cpp:105) automatically.
-INFO: [XFORM 203-602] Inlining function 'getRconValue' into 'core' (helper.cpp:109) automatically.
-INFO: [XFORM 203-602] Inlining function 'core' into 'expandKey' (helper.cpp:144) automatically.
-INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'subBytes' (helper.cpp:175) automatically.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'galois_multiplication' (helper.cpp:238).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'mixColumns' (helper.cpp:285).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'mixColumn' (helper.cpp:256).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'subBytes' (helper.cpp:178).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'addRoundKey' (helper.cpp:232).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'createRoundKey' (helper.cpp:310).
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'EX_WHILE' (helper.cpp:140) in function 'expandKey' for pipelining.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'core' (helper.cpp:100).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'rotate' (helper.cpp:85).
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:243) in function 'galois_multiplication' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:291) in function 'mixColumns' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (helper.cpp:294) in function 'mixColumns' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.2' (helper.cpp:303) in function 'mixColumns' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:260) in function 'mixColumn' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:184) in function 'subBytes' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:235) in function 'addRoundKey' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:314) in function 'createRoundKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (helper.cpp:317) in function 'createRoundKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'EX_INNER1' (helper.cpp:144) in function 'expandKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'EX_INNER3' (helper.cpp:169) in function 'expandKey' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:108) in function 'core' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (helper.cpp:91) in function 'rotate' completely with a factor of 3.
+INFO: [XFORM 203-102] Partitioning array 'cpy' (helper.cpp:258) automatically.
+INFO: [XFORM 203-102] Partitioning array 'column' (helper.cpp:288) automatically.
+INFO: [XFORM 203-101] Partitioning array 'input' (encrypt.cpp:76) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'key' (encrypt.cpp:78) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'output' (encrypt.cpp:77) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'expandedKey' (encrypt.cpp:46) in dimension 1 with a cyclic factor 4.
+INFO: [XFORM 203-101] Partitioning array 'roundKey' (encrypt.cpp:19) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 't' (helper.cpp:128) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'rotate' into 'core' (helper.cpp:105) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'core' (helper.cpp:110) automatically.
+INFO: [XFORM 203-602] Inlining function 'getRconValue' into 'core' (helper.cpp:114) automatically.
+INFO: [XFORM 203-602] Inlining function 'core' into 'expandKey' (helper.cpp:153) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'subBytes' (helper.cpp:185) automatically.
 INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_round' (encrypt.cpp:10) automatically.
 INFO: [XFORM 203-602] Inlining function 'mixColumns' into 'aes_round' (encrypt.cpp:11) automatically.
 INFO: [XFORM 203-602] Inlining function 'addRoundKey' into 'aes_round' (encrypt.cpp:12) automatically.
-INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_main' (encrypt.cpp:33) automatically.
-Command           transform done; 0.29 sec.
+INFO: [XFORM 203-602] Inlining function 'shiftRows' into 'aes_main' (encrypt.cpp:34) automatically.
+Command           transform done; 0.45 sec.
 INFO-FLOW: Presyn 2...
 Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.1.tmp.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (helper.cpp:131:6) to (helper.cpp:164:5) in function 'expandKey'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (helper.cpp:140:6) to (helper.cpp:174:5) in function 'expandKey'... converting 3 basic blocks.
 INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_round' (encrypt.cpp:9) automatically.
-INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_main' (encrypt.cpp:32) automatically.
-INFO: [XFORM 203-11] Balancing expressions in function 'mixColumn' (helper.cpp:254:1)...12 expression(s) balanced.
-INFO: [XFORM 203-11] Balancing expressions in function 'galois_multiplication' (helper.cpp:228)...6 expression(s) balanced.
-Command           transform done; 0.14 sec.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5147 ; free virtual = 11401
+INFO: [XFORM 203-602] Inlining function 'subBytes' into 'aes_main' (encrypt.cpp:33) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'mixColumn' (helper.cpp:264:1)...12 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'galois_multiplication' (helper.cpp:238)...6 expression(s) balanced.
+Command           transform done; 0.31 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 1705 ; free virtual = 7468
 INFO-FLOW: Building ssdm...
 Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.2.bc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-WARNING: [XFORM 203-631] Renaming function 'galois_multiplication' to 'galois_multiplicatio' (helper.cpp:235:3)
-INFO: [HLS 200-472] Inferring partial write operation for 'expandedKey' (helper.cpp:127:7)
-INFO: [HLS 200-472] Inferring partial write operation for 'expandedKey' (helper.cpp:161:9)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:226:5)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:175:16)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:195:3)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:196:3)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:197:3)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:198:3)
+WARNING: [XFORM 203-631] Renaming function 'galois_multiplication' to 'galois_multiplicatio' (helper.cpp:245:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'expandedKey[0]' (helper.cpp:171:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'expandedKey[0]' (helper.cpp:136:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:236:5)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:185:16)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:205:3)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:206:3)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:207:3)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:208:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:215:3)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:216:3)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:217:3)
 INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:218:3)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:219:3)
-INFO: [HLS 200-472] Inferring partial write operation for 'block' (encrypt.cpp:52:7)
-INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:226:5)
-Command           transform done; 0.38 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5082 ; free virtual = 11335
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:226:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:227:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:228:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:229:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'block' (encrypt.cpp:54:7)
+INFO: [HLS 200-472] Inferring partial write operation for 'state' (helper.cpp:236:5)
+Command           transform done; 0.74 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 1625 ; free virtual = 7388
 INFO-FLOW: Finish building internal data model.
-Command         opt_and_import_c done; 1.48 sec.
-Command       elaborate done; 9.41 sec.
+Command         opt_and_import_c done; 2.25 sec.
+Command       elaborate done; 10.21 sec.
 Execute       autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO-FLOW: Synthesizing C/C++ design ...
@@ -398,7 +420,6 @@ INFO-FLOW: Preprocessing Module: encrypt_dut ...
 Execute         set_default_model encrypt_dut 
 Execute         cdfg_preprocess -model encrypt_dut 
 Execute         rtl_gen_preprocess encrypt_dut 
-WARNING: [SYN 201-107] Renaming port name 'encrypt_dut/output' to 'encrypt_dut/output_r' to avoid the conflict with HDL keywords or other object names.
 INFO-FLOW: Model list for synthesis: expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'expandKey' 
@@ -408,14 +429,13 @@ Execute         schedule -model expandKey
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'EX_WHILE'.
 WARNING: [SCHED 204-68] The II Violation in module 'expandKey' (Loop: EX_WHILE): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
-   between 'store' operation ('expandedKey_addr_6_write_ln161', helper.cpp:161) of variable 'xor_ln161', helper.cpp:161 on array 'expandedKey' and 'load' operation ('t[0]', helper.cpp:136) on array 'expandedKey'.
+   between 'store' operation ('expandedKey_0_addr_3_write_ln171', helper.cpp:171) of variable 'xor_ln171', helper.cpp:171 on array 'expandedKey_0' and 'load' operation ('t[0]', helper.cpp:145) on array 'expandedKey_0'.
 WARNING: [SCHED 204-68] The II Violation in module 'expandKey' (Loop: EX_WHILE): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
-   between 'store' operation ('expandedKey_addr_12_write_ln161', helper.cpp:161) of variable 'xor_ln161_3', helper.cpp:161 on array 'expandedKey' and 'load' operation ('t[3]', helper.cpp:136) on array 'expandedKey'.
-WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('t[1]', helper.cpp:136) on array 'expandedKey' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'expandedKey'.
-WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('sbox_load', helper.cpp:43->helper.cpp:105->helper.cpp:144) on array 'sbox' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'sbox'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 6, Depth = 6.
+   between 'store' operation ('expandedKey_3_addr_3_write_ln171', helper.cpp:171) of variable 'xor_ln171_3', helper.cpp:171 on array 'expandedKey_3' and 'load' operation ('t[3]', helper.cpp:145) on array 'expandedKey_3'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('t[1]', helper.cpp:46->helper.cpp:110->helper.cpp:153) on array 'sbox' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'sbox'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 4, Depth = 6.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 11.91 seconds; current allocated memory: 197.071 MB.
+INFO: [HLS 200-111]  Elapsed time: 13.38 seconds; current allocated memory: 199.805 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.sched.adb -f 
 INFO-FLOW: Finish scheduling expandKey.
@@ -427,7 +447,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 197.518 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 200.472 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.verbose.bind.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.bind.adb -f 
 INFO-FLOW: Finish binding expandKey.
@@ -438,10 +458,12 @@ Execute         set_default_model createRoundKey
 Execute         schedule -model createRoundKey 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'createRoundKey'.
-WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('expandedKey_load_5', helper.cpp:308) on array 'expandedKey' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'expandedKey'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('expandedKey_2_load_3', helper.cpp:318) on array 'expandedKey_2' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'expandedKey_2'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('expandedKey_0_load_5', helper.cpp:318) on array 'expandedKey_0' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'expandedKey_0'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 8, Depth = 9.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 197.773 MB.
+Command         schedule done; 0.15 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.25 seconds; current allocated memory: 201.052 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.sched.adb -f 
 INFO-FLOW: Finish scheduling createRoundKey.
@@ -453,7 +475,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 198.084 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 201.884 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.verbose.bind.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.bind.adb -f 
 INFO-FLOW: Finish binding createRoundKey.
@@ -464,7 +486,7 @@ Execute         set_default_model addRoundKey
 Execute         schedule -model addRoundKey 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 198.347 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.2 seconds; current allocated memory: 202.147 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.sched.adb -f 
 INFO-FLOW: Finish scheduling addRoundKey.
@@ -476,7 +498,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 198.664 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 202.461 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.verbose.bind.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.bind.adb -f 
 INFO-FLOW: Finish binding addRoundKey.
@@ -489,7 +511,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'galois_multiplicatio'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 198.731 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 202.529 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/galois_multiplicatio.sched.adb -f 
 INFO-FLOW: Finish scheduling galois_multiplicatio.
@@ -501,7 +523,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 198.804 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 202.604 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/galois_multiplicatio.verbose.bind.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/galois_multiplicatio.bind.adb -f 
 INFO-FLOW: Finish binding galois_multiplicatio.
@@ -514,7 +536,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'mixColumn'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 198.924 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 202.720 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/mixColumn.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/mixColumn.sched.adb -f 
 INFO-FLOW: Finish scheduling mixColumn.
@@ -526,7 +548,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 199.091 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 202.889 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/mixColumn.verbose.bind.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/mixColumn.bind.adb -f 
 INFO-FLOW: Finish binding mixColumn.
@@ -538,20 +560,20 @@ Execute         schedule -model aes_round
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'aes_round'.
 WARNING: [SCHED 204-68] The II Violation in module 'aes_round' (Function: aes_round): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
-   between 'store' operation ('state_addr_write_ln226', helper.cpp:226->encrypt.cpp:12) of variable 'xor_ln226', helper.cpp:226->encrypt.cpp:12 on array 'state' and 'load' operation ('num', helper.cpp:175->encrypt.cpp:9) on array 'state'.
+   between 'store' operation ('state_addr_write_ln236', helper.cpp:236->encrypt.cpp:12) of variable 'xor_ln236', helper.cpp:236->encrypt.cpp:12 on array 'state' and 'load' operation ('num', helper.cpp:185->encrypt.cpp:9) on array 'state'.
 WARNING: [SCHED 204-68] The II Violation in module 'aes_round' (Function: aes_round): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
-   between 'store' operation ('state_addr_write_ln226', helper.cpp:226->encrypt.cpp:12) of variable 'xor_ln226', helper.cpp:226->encrypt.cpp:12 on array 'state' and 'load' operation ('num', helper.cpp:175->encrypt.cpp:9) on array 'state'.
-WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('num', helper.cpp:175->encrypt.cpp:9) on array 'state' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state'.
+   between 'store' operation ('state_addr_write_ln236', helper.cpp:236->encrypt.cpp:12) of variable 'xor_ln236', helper.cpp:236->encrypt.cpp:12 on array 'state' and 'load' operation ('num', helper.cpp:185->encrypt.cpp:9) on array 'state'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('num', helper.cpp:185->encrypt.cpp:9) on array 'state' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'state'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 19, Depth = 19.
 WARNING: [SCHED 204-21] Estimated clock period (8.804ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns).
 WARNING: [SCHED 204-21] The critical path in module 'aes_round' consists of the following:
-	'load' operation ('column[1]', helper.cpp:43->helper.cpp:175->encrypt.cpp:9) on array 'sbox' [65]  (3.25 ns)
-	'call' operation ('call_ret1_i', helper.cpp:290->encrypt.cpp:11) to 'mixColumn' [116]  (2.24 ns)
-	'xor' operation ('xor_ln226_8', helper.cpp:226->encrypt.cpp:12) [152]  (0.99 ns)
-	'store' operation ('state_addr_8_write_ln226', helper.cpp:226->encrypt.cpp:12) of variable 'xor_ln226_8', helper.cpp:226->encrypt.cpp:12 on array 'state' [153]  (2.32 ns)
+	'load' operation ('column[1]', helper.cpp:46->helper.cpp:185->encrypt.cpp:9) on array 'sbox' [65]  (3.25 ns)
+	'call' operation ('call_ret1_i', helper.cpp:300->encrypt.cpp:11) to 'mixColumn' [116]  (2.24 ns)
+	'xor' operation ('xor_ln236_8', helper.cpp:236->encrypt.cpp:12) [152]  (0.99 ns)
+	'store' operation ('state_addr_8_write_ln236', helper.cpp:236->encrypt.cpp:12) of variable 'xor_ln236_8', helper.cpp:236->encrypt.cpp:12 on array 'state' [153]  (2.32 ns)
 INFO: [SCHED 204-11] Finished scheduling.
-Command         schedule done; 0.4 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.46 seconds; current allocated memory: 199.611 MB.
+Command         schedule done; 0.43 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.51 seconds; current allocated memory: 203.404 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.sched.adb -f 
 INFO-FLOW: Finish scheduling aes_round.
@@ -563,7 +585,7 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 200.179 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 203.967 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.verbose.bind.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.bind.adb -f 
 INFO-FLOW: Finish binding aes_round.
@@ -576,7 +598,7 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'AES_MAIN_LOOP'.
 INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 19, Depth = 28.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 200.803 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.22 seconds; current allocated memory: 204.596 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.sched.adb -f 
 INFO-FLOW: Finish scheduling aes_main.
@@ -588,10 +610,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command         bind done; 0.14 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 201.791 MB.
+Command         bind done; 0.19 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 205.622 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.verbose.bind.rpt 
-Command         syn_report done; 0.11 sec.
+Command         syn_report done; 0.14 sec.
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.bind.adb -f 
 INFO-FLOW: Finish binding aes_main.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -601,7 +623,7 @@ Execute         set_default_model aes_encrypt
 Execute         schedule -model aes_encrypt 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.18 seconds; current allocated memory: 202.130 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 206.097 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.sched.adb -f 
 INFO-FLOW: Finish scheduling aes_encrypt.
@@ -613,10 +635,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-Command         bind done; 0.11 sec.
-INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 202.553 MB.
+Command         bind done; 0.12 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 206.811 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.verbose.bind.rpt 
-Command         syn_report done; 0.12 sec.
+Command         syn_report done; 0.13 sec.
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.bind.adb -f 
 INFO-FLOW: Finish binding aes_encrypt.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -626,7 +648,7 @@ Execute         set_default_model encrypt_dut
 Execute         schedule -model encrypt_dut 
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 202.825 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 207.196 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.verbose.sched.rpt 
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.sched.adb -f 
 INFO-FLOW: Finish scheduling encrypt_dut.
@@ -638,9 +660,10 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 203.026 MB.
+Command         bind done; 0.11 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 207.587 MB.
 Execute         syn_report -verbosereport -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.verbose.bind.rpt 
-Command         syn_report done; 0.14 sec.
+Command         syn_report done; 0.16 sec.
 Execute         db_write -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.bind.adb -f 
 INFO-FLOW: Finish binding encrypt_dut.
 Execute         get_model_list encrypt_dut -filter all-wo-channel 
@@ -661,8 +684,10 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute         get_config_rtl -module_prefix 
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model expandKey -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'encrypt_dut_mux_164_8_1_1' to 'encrypt_dut_mux_1bkb' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'encrypt_dut_mux_1bkb': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'expandKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 203.829 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 208.810 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl expandKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/expandKey -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl expandKey -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/expandKey 
@@ -678,8 +703,10 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute         get_config_rtl -module_prefix 
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model createRoundKey -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+INFO: [SYN 201-210] Renamed object name 'encrypt_dut_mux_432_8_1_1' to 'encrypt_dut_mux_4cud' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'encrypt_dut_mux_4cud': 4 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'createRoundKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 206.828 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 212.824 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl createRoundKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/createRoundKey -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl createRoundKey -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/createRoundKey 
@@ -687,6 +714,7 @@ Execute         gen_rtl createRoundKey -style xilinx -f -lang vlog -o /home/npr2
 Execute         syn_report -csynth -model createRoundKey -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/createRoundKey_csynth.rpt 
 Execute         syn_report -rtlxml -model createRoundKey -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/createRoundKey_csynth.xml 
 Execute         syn_report -verbosereport -model createRoundKey -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.verbose.rpt 
+Command         syn_report done; 0.11 sec.
 Execute         db_write -model createRoundKey -f -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.adb 
 Execute         gen_tb_info createRoundKey -p /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -696,7 +724,7 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model addRoundKey -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'addRoundKey'.
-INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 208.503 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.29 seconds; current allocated memory: 216.201 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl addRoundKey -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/addRoundKey -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl addRoundKey -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/addRoundKey 
@@ -713,7 +741,7 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model galois_multiplicatio -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'galois_multiplicatio'.
-INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 209.920 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 217.566 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl galois_multiplicatio -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/galois_multiplicatio -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl galois_multiplicatio -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/galois_multiplicatio 
@@ -730,7 +758,7 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model mixColumn -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'mixColumn'.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 210.483 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.11 seconds; current allocated memory: 218.145 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl mixColumn -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/mixColumn -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl mixColumn -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/mixColumn 
@@ -747,7 +775,7 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model aes_round -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_round'.
-INFO: [HLS 200-111]  Elapsed time: 0.14 seconds; current allocated memory: 212.004 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 219.676 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl aes_round -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/aes_round -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl aes_round -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/aes_round 
@@ -755,6 +783,7 @@ Execute         gen_rtl aes_round -style xilinx -f -lang vlog -o /home/npr29/hls
 Execute         syn_report -csynth -model aes_round -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/aes_round_csynth.rpt 
 Execute         syn_report -rtlxml -model aes_round -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/aes_round_csynth.xml 
 Execute         syn_report -verbosereport -model aes_round -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.verbose.rpt 
+Command         syn_report done; 0.12 sec.
 Execute         db_write -model aes_round -f -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round.adb 
 Execute         gen_tb_info aes_round -p /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_round 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -764,7 +793,7 @@ Execute         get_config_rtl -module_prefix
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model aes_main -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.compgen.tcl 
 INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_main'.
-INFO: [HLS 200-111]  Elapsed time: 0.28 seconds; current allocated memory: 216.338 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 224.161 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl aes_main -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/aes_main -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl aes_main -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/aes_main 
@@ -772,7 +801,7 @@ Execute         gen_rtl aes_main -style xilinx -f -lang vlog -o /home/npr29/hls6
 Execute         syn_report -csynth -model aes_main -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/aes_main_csynth.rpt 
 Execute         syn_report -rtlxml -model aes_main -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/aes_main_csynth.xml 
 Execute         syn_report -verbosereport -model aes_main -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.verbose.rpt 
-Command         syn_report done; 0.12 sec.
+Command         syn_report done; 0.15 sec.
 Execute         db_write -model aes_main -f -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main.adb 
 Execute         gen_tb_info aes_main -p /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_main 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -781,11 +810,13 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute         get_config_rtl -module_prefix 
 Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model aes_encrypt -vendor xilinx -mg_file /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
-INFO: [SYN 201-210] Renamed object name 'aes_encrypt_expandedKey' to 'aes_encrypt_expanbkb' due to the length limit 20
-INFO: [SYN 201-210] Renamed object name 'encrypt_dut_mux_164_8_1_1' to 'encrypt_dut_mux_1cud' due to the length limit 20
-INFO: [RTGEN 206-100] Generating core module 'encrypt_dut_mux_1cud': 1 instance(s).
+INFO: [SYN 201-210] Renamed object name 'aes_encrypt_expandedKey_0' to 'aes_encrypt_expandEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_encrypt_expandedKey_1' to 'aes_encrypt_expaneOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_encrypt_expandedKey_2' to 'aes_encrypt_expanfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'aes_encrypt_expandedKey_3' to 'aes_encrypt_expang8j' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'encrypt_dut_mux_1bkb': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'aes_encrypt'.
-INFO: [HLS 200-111]  Elapsed time: 0.32 seconds; current allocated memory: 219.571 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 227.807 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl aes_encrypt -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/aes_encrypt -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl aes_encrypt -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/aes_encrypt 
@@ -793,7 +824,7 @@ Execute         gen_rtl aes_encrypt -style xilinx -f -lang vlog -o /home/npr29/h
 Execute         syn_report -csynth -model aes_encrypt -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/aes_encrypt_csynth.rpt 
 Execute         syn_report -rtlxml -model aes_encrypt -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/aes_encrypt_csynth.xml 
 Execute         syn_report -verbosereport -model aes_encrypt -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.verbose.rpt 
-Command         syn_report done; 0.12 sec.
+Command         syn_report done; 0.15 sec.
 Execute         db_write -model aes_encrypt -f -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.adb 
 Execute         gen_tb_info aes_encrypt -p /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -818,11 +849,42 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/input_12' to '
 INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/input_13' to 'ap_none'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/input_14' to 'ap_none'.
 INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/input_15' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_r' to 'ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_5' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_6' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_7' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_8' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_9' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_10' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_11' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_12' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_13' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_14' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/output_15' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_5' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_6' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_7' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_8' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_9' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_10' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_11' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_12' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_13' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_14' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'encrypt_dut/key_15' to 'ap_none'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'encrypt_dut' to 'ap_ctrl_hs'.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'encrypt_dut'.
-INFO: [HLS 200-111]  Elapsed time: 0.35 seconds; current allocated memory: 221.272 MB.
+Command         create_rtl_model done; 0.32 sec.
+INFO: [HLS 200-111]  Elapsed time: 0.68 seconds; current allocated memory: 230.782 MB.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.rtl_wrap.cfg.tcl 
 Execute         gen_rtl encrypt_dut -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/systemc/encrypt_dut -synmodules expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut 
 Execute         gen_rtl encrypt_dut -istop -style xilinx -f -lang vhdl -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/vhdl/encrypt_dut 
@@ -830,8 +892,9 @@ Execute         gen_rtl encrypt_dut -istop -style xilinx -f -lang vlog -o /home/
 Execute         syn_report -csynth -model encrypt_dut -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/encrypt_dut_csynth.rpt 
 Execute         syn_report -rtlxml -model encrypt_dut -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/syn/report/encrypt_dut_csynth.xml 
 Execute         syn_report -verbosereport -model encrypt_dut -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.verbose.rpt 
-Command         syn_report done; 0.12 sec.
+Command         syn_report done; 0.16 sec.
 Execute         db_write -model encrypt_dut -f -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.adb 
+Command         db_write done; 0.11 sec.
 Execute         gen_tb_info encrypt_dut -p /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut 
 Execute         export_constraint_db -f -tool general -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.constraint.tcl 
 Execute         syn_report -designview -model encrypt_dut -o /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.design.xml 
@@ -845,12 +908,16 @@ Execute         sc_get_portdomain encrypt_dut
 INFO-FLOW: Model list for RTL component generation: expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut
 INFO-FLOW: Handling components in module [expandKey] ... 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.compgen.tcl 
+INFO-FLOW: Found component encrypt_dut_mux_1bkb.
+INFO-FLOW: Append model encrypt_dut_mux_1bkb
 INFO-FLOW: Found component expandKey_sbox.
 INFO-FLOW: Append model expandKey_sbox
 INFO-FLOW: Found component expandKey_Rcon.
 INFO-FLOW: Append model expandKey_Rcon
 INFO-FLOW: Handling components in module [createRoundKey] ... 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+INFO-FLOW: Found component encrypt_dut_mux_4cud.
+INFO-FLOW: Append model encrypt_dut_mux_4cud
 INFO-FLOW: Handling components in module [addRoundKey] ... 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.compgen.tcl 
 INFO-FLOW: Handling components in module [galois_multiplicatio] ... 
@@ -865,12 +932,12 @@ INFO-FLOW: Found component aes_main_sbox.
 INFO-FLOW: Append model aes_main_sbox
 INFO-FLOW: Handling components in module [aes_encrypt] ... 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
-INFO-FLOW: Found component encrypt_dut_mux_1cud.
-INFO-FLOW: Append model encrypt_dut_mux_1cud
 INFO-FLOW: Found component aes_encrypt_block.
 INFO-FLOW: Append model aes_encrypt_block
-INFO-FLOW: Found component aes_encrypt_expanbkb.
-INFO-FLOW: Append model aes_encrypt_expanbkb
+INFO-FLOW: Found component aes_encrypt_expandEe.
+INFO-FLOW: Append model aes_encrypt_expandEe
+INFO-FLOW: Found component aes_encrypt_expanfYi.
+INFO-FLOW: Append model aes_encrypt_expanfYi
 INFO-FLOW: Handling components in module [encrypt_dut] ... 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.compgen.tcl 
 INFO-FLOW: Append model expandKey
@@ -883,13 +950,15 @@ INFO-FLOW: Append model aes_main
 INFO-FLOW: Append model aes_encrypt
 INFO-FLOW: Append model encrypt_dut
 INFO-FLOW: Generating RTL model list ...
-INFO-FLOW: All models in this session: expandKey_sbox expandKey_Rcon aes_main_sbox encrypt_dut_mux_1cud aes_encrypt_block aes_encrypt_expanbkb expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut
+INFO-FLOW: All models in this session: encrypt_dut_mux_1bkb expandKey_sbox expandKey_Rcon encrypt_dut_mux_4cud aes_main_sbox aes_encrypt_block aes_encrypt_expandEe aes_encrypt_expanfYi expandKey createRoundKey addRoundKey galois_multiplicatio mixColumn aes_round aes_main aes_encrypt encrypt_dut
+INFO-FLOW: To file: write model encrypt_dut_mux_1bkb
 INFO-FLOW: To file: write model expandKey_sbox
 INFO-FLOW: To file: write model expandKey_Rcon
+INFO-FLOW: To file: write model encrypt_dut_mux_4cud
 INFO-FLOW: To file: write model aes_main_sbox
-INFO-FLOW: To file: write model encrypt_dut_mux_1cud
 INFO-FLOW: To file: write model aes_encrypt_block
-INFO-FLOW: To file: write model aes_encrypt_expanbkb
+INFO-FLOW: To file: write model aes_encrypt_expandEe
+INFO-FLOW: To file: write model aes_encrypt_expanfYi
 INFO-FLOW: To file: write model expandKey
 INFO-FLOW: To file: write model createRoundKey
 INFO-FLOW: To file: write model addRoundKey
@@ -945,6 +1014,8 @@ Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/s
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/expandKey.compgen.tcl 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 INFO: [RTMG 210-279] Implementing memory 'expandKey_sbox_rom' using auto ROMs.
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
@@ -957,8 +1028,10 @@ Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
-Command         ap_source done; 0.11 sec.
+Command         ap_source done; 0.17 sec.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/createRoundKey.compgen.tcl 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/addRoundKey.compgen.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/galois_multiplicatio.compgen.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/mixColumn.compgen.tcl 
@@ -974,14 +1047,16 @@ Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/aes_encrypt.compgen.tcl 
-Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
-Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 INFO: [RTMG 210-278] Implementing memory 'aes_encrypt_block_ram (RAM)' using block RAMs.
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
-INFO: [RTMG 210-278] Implementing memory 'aes_encrypt_expanbkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'aes_encrypt_expandEe_ram (RAM)' using block RAMs.
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+INFO: [RTMG 210-278] Implementing memory 'aes_encrypt_expanfYi_ram (RAM)' using distributed RAMs.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Command         ap_source done; 0.11 sec.
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.compgen.tcl 
 INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/global.setting.tcl 
@@ -1042,8 +1117,6 @@ Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
-Execute           source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
-Execute           source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
@@ -1086,7 +1159,71 @@ Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
-Command         ap_source done; 0.25 sec.
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data names -quiet 
+Execute           ap_part_info -name xc7z020-clg484-1 -data info -quiet 
+Command         ap_source done; 0.6 sec.
 Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet 
 Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
@@ -1109,13 +1246,28 @@ Execute         ap_part_info -name xc7z020-clg484-1 -data names -quiet
 Execute         ap_part_info -name xc7z020-clg484-1 -data info -quiet 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.constraint.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
-INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=38
-INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=18
-INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=15 #gSsdmPorts=38
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=98
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=48
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=17 #gSsdmPorts=98
 Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/global.setting.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/global.setting.tcl 
 Execute         get_config_export -xo 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
+Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
 Execute         source /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/encrypt_dut.tbgen.tcl 
@@ -1148,9 +1300,9 @@ Execute         get_config_rtl -stall_sig_gen
 Execute         get_config_rtl -profile 
 INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/npr29/hls6775/ece6775Final/refactored/encrypt.prj/solution1/.autopilot/db/kernel.internal.xml
 INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1168.148 ; gain = 530.125 ; free physical = 5032 ; free virtual = 11299
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 1296.148 ; gain = 658.125 ; free physical = 1549 ; free virtual = 7329
 INFO: [VHDL 208-304] Generating VHDL RTL for encrypt_dut.
 INFO: [VLOG 209-307] Generating Verilog RTL for encrypt_dut.
-Command       autosyn done; 6.4 sec.
-Command     csynth_design done; 15.81 sec.
+Command       autosyn done; 9.51 sec.
+Command     csynth_design done; 19.73 sec.
 Execute     cleanup_all 

@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 7 \
+    id 35 \
     name state \
     reset_level 1 \
     sync_rst true \
@@ -29,240 +29,240 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 8 \
-    name p_read \
+    id 36 \
+    name roundKey_0_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read \
+    corename dc_roundKey_0_read \
     op interface \
-    ports { p_read { I 8 vector } } \
+    ports { roundKey_0_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 9 \
-    name p_read1 \
+    id 37 \
+    name roundKey_1_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read1 \
+    corename dc_roundKey_1_read \
     op interface \
-    ports { p_read1 { I 8 vector } } \
+    ports { roundKey_1_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 10 \
-    name p_read2 \
+    id 38 \
+    name roundKey_2_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read2 \
+    corename dc_roundKey_2_read \
     op interface \
-    ports { p_read2 { I 8 vector } } \
+    ports { roundKey_2_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 11 \
-    name p_read3 \
+    id 39 \
+    name roundKey_3_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read3 \
+    corename dc_roundKey_3_read \
     op interface \
-    ports { p_read3 { I 8 vector } } \
+    ports { roundKey_3_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 12 \
-    name p_read4 \
+    id 40 \
+    name roundKey_4_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read4 \
+    corename dc_roundKey_4_read \
     op interface \
-    ports { p_read4 { I 8 vector } } \
+    ports { roundKey_4_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 13 \
-    name p_read5 \
+    id 41 \
+    name roundKey_5_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read5 \
+    corename dc_roundKey_5_read \
     op interface \
-    ports { p_read5 { I 8 vector } } \
+    ports { roundKey_5_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 14 \
-    name p_read6 \
+    id 42 \
+    name roundKey_6_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read6 \
+    corename dc_roundKey_6_read \
     op interface \
-    ports { p_read6 { I 8 vector } } \
+    ports { roundKey_6_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 15 \
-    name p_read7 \
+    id 43 \
+    name roundKey_7_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read7 \
+    corename dc_roundKey_7_read \
     op interface \
-    ports { p_read7 { I 8 vector } } \
+    ports { roundKey_7_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 16 \
-    name p_read8 \
+    id 44 \
+    name roundKey_8_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read8 \
+    corename dc_roundKey_8_read \
     op interface \
-    ports { p_read8 { I 8 vector } } \
+    ports { roundKey_8_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 17 \
-    name p_read9 \
+    id 45 \
+    name roundKey_9_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read9 \
+    corename dc_roundKey_9_read \
     op interface \
-    ports { p_read9 { I 8 vector } } \
+    ports { roundKey_9_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 18 \
-    name p_read10 \
+    id 46 \
+    name roundKey_10_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read10 \
+    corename dc_roundKey_10_read \
     op interface \
-    ports { p_read10 { I 8 vector } } \
+    ports { roundKey_10_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 19 \
-    name p_read11 \
+    id 47 \
+    name roundKey_11_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read11 \
+    corename dc_roundKey_11_read \
     op interface \
-    ports { p_read11 { I 8 vector } } \
+    ports { roundKey_11_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 20 \
-    name p_read12 \
+    id 48 \
+    name roundKey_12_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read12 \
+    corename dc_roundKey_12_read \
     op interface \
-    ports { p_read12 { I 8 vector } } \
+    ports { roundKey_12_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 21 \
-    name p_read13 \
+    id 49 \
+    name roundKey_13_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read13 \
+    corename dc_roundKey_13_read \
     op interface \
-    ports { p_read13 { I 8 vector } } \
+    ports { roundKey_13_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 22 \
-    name p_read14 \
+    id 50 \
+    name roundKey_14_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read14 \
+    corename dc_roundKey_14_read \
     op interface \
-    ports { p_read14 { I 8 vector } } \
+    ports { roundKey_14_read { I 8 vector } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 23 \
-    name p_read15 \
+    id 51 \
+    name roundKey_15_read \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_p_read15 \
+    corename dc_roundKey_15_read \
     op interface \
-    ports { p_read15 { I 8 vector } } \
+    ports { roundKey_15_read { I 8 vector } } \
 } "
 }
 

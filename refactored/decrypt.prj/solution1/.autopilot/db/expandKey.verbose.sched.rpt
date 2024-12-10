@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'expandKey'
 ================================================================
-* Date:           Mon Dec  9 19:19:38 2024
+* Date:           Mon Dec  9 22:29:37 2024
 
 * Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
 * Project:        decrypt.prj
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  | 10.00 ns | 7.756 ns |   1.25 ns  |
+    |ap_clk  | 10.00 ns | 6.824 ns |   1.25 ns  |
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      275|      275| 2.750 us | 2.750 us |  275|  275|   none  |
+    |      164|      164| 1.640 us | 1.640 us |  164|  164|   none  |
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -37,13 +37,12 @@
         N/A
 
         * Loop: 
-        +--------------+---------+---------+----------+-----------+-----------+------+----------+
-        |              |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |   Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +--------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- EX_K_LOOP1  |       32|       32|         2|          -|          -|    16|    no    |
-        |- EX_WHILE    |      240|      240|         6|          6|          1|    40|    yes   |
-        +--------------+---------+---------+----------+-----------+-----------+------+----------+
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |            |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- EX_WHILE  |      161|      161|         6|          4|          1|    40|    yes   |
+        +------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -68,171 +67,210 @@ HasImplIP: 0
 IsGatedGlobalClock: 0
 
 + Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 6, depth = 6
+  * Pipeline-0: initiation interval (II) = 4, depth = 6
 
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 10
+* Number of FSM states : 9
 * Pipeline : 1
-  Pipeline-0 : II = 6, D = 6, States = { 4 5 6 7 8 9 }
+  Pipeline-0 : II = 4, D = 6, States = { 3 4 5 6 7 8 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 2 
-2 --> 3 4 
-3 --> 2 
-4 --> 10 5 
+2 --> 3 
+3 --> 9 4 
+4 --> 5 
 5 --> 6 
 6 --> 7 
 7 --> 8 
-8 --> 9 
-9 --> 4 
-10 --> 
+8 --> 3 
+9 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 1.76>
-ST_1 : Operation 11 [1/1] (1.76ns)   --->   "br label %.preheader" [helper.cpp:126]   --->   Operation 11 'br' <Predicate = true> <Delay = 1.76>
+State 1 <SV = 0> <Delay = 2.32>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%key_7_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_7_read)" [helper.cpp:117]   --->   Operation 10 'read' 'key_7_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%key_6_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_6_read)" [helper.cpp:117]   --->   Operation 11 'read' 'key_6_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%key_5_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_5_read)" [helper.cpp:117]   --->   Operation 12 'read' 'key_5_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%key_4_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_4_read)" [helper.cpp:117]   --->   Operation 13 'read' 'key_4_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%key_3_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_3_read)" [helper.cpp:117]   --->   Operation 14 'read' 'key_3_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%key_2_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_2_read)" [helper.cpp:117]   --->   Operation 15 'read' 'key_2_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%key_1_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_1_read)" [helper.cpp:117]   --->   Operation 16 'read' 'key_1_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%key_0_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_0_read)" [helper.cpp:117]   --->   Operation 17 'read' 'key_0_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%expandedKey_0_addr = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 0" [helper.cpp:136]   --->   Operation 18 'getelementptr' 'expandedKey_0_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (2.32ns)   --->   "store i8 %key_0_read_1, i8* %expandedKey_0_addr, align 1" [helper.cpp:136]   --->   Operation 19 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%expandedKey_1_addr = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 0" [helper.cpp:136]   --->   Operation 20 'getelementptr' 'expandedKey_1_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (2.32ns)   --->   "store i8 %key_1_read_1, i8* %expandedKey_1_addr, align 1" [helper.cpp:136]   --->   Operation 21 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%expandedKey_2_addr = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 0" [helper.cpp:136]   --->   Operation 22 'getelementptr' 'expandedKey_2_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (2.32ns)   --->   "store i8 %key_2_read_1, i8* %expandedKey_2_addr, align 1" [helper.cpp:136]   --->   Operation 23 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%expandedKey_3_addr = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 0" [helper.cpp:136]   --->   Operation 24 'getelementptr' 'expandedKey_3_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (2.32ns)   --->   "store i8 %key_3_read_1, i8* %expandedKey_3_addr, align 1" [helper.cpp:136]   --->   Operation 25 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%expandedKey_0_addr_1 = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 1" [helper.cpp:136]   --->   Operation 26 'getelementptr' 'expandedKey_0_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (2.32ns)   --->   "store i8 %key_4_read_1, i8* %expandedKey_0_addr_1, align 1" [helper.cpp:136]   --->   Operation 27 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%expandedKey_1_addr_1 = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 1" [helper.cpp:136]   --->   Operation 28 'getelementptr' 'expandedKey_1_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (2.32ns)   --->   "store i8 %key_5_read_1, i8* %expandedKey_1_addr_1, align 1" [helper.cpp:136]   --->   Operation 29 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%expandedKey_2_addr_1 = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 1" [helper.cpp:136]   --->   Operation 30 'getelementptr' 'expandedKey_2_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (2.32ns)   --->   "store i8 %key_6_read_1, i8* %expandedKey_2_addr_1, align 1" [helper.cpp:136]   --->   Operation 31 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%expandedKey_3_addr_1 = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 1" [helper.cpp:136]   --->   Operation 32 'getelementptr' 'expandedKey_3_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (2.32ns)   --->   "store i8 %key_7_read_1, i8* %expandedKey_3_addr_1, align 1" [helper.cpp:136]   --->   Operation 33 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
 
 State 2 <SV = 1> <Delay = 2.32>
-ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ %i, %0 ], [ 0, %.preheader.preheader ]"   --->   Operation 12 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 13 [1/1] (1.36ns)   --->   "%icmp_ln126 = icmp eq i5 %i_0, -16" [helper.cpp:126]   --->   Operation 13 'icmp' 'icmp_ln126' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 14 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 15 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [helper.cpp:126]   --->   Operation 15 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 16 [1/1] (0.00ns)   --->   "br i1 %icmp_ln126, label %.preheader1.preheader, label %0" [helper.cpp:126]   --->   Operation 16 'br' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln127 = zext i5 %i_0 to i64" [helper.cpp:127]   --->   Operation 17 'zext' 'zext_ln127' <Predicate = (!icmp_ln126)> <Delay = 0.00>
-ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%key_addr = getelementptr [16 x i8]* %key, i64 0, i64 %zext_ln127" [helper.cpp:127]   --->   Operation 18 'getelementptr' 'key_addr' <Predicate = (!icmp_ln126)> <Delay = 0.00>
-ST_2 : Operation 19 [2/2] (2.32ns)   --->   "%key_load = load i8* %key_addr, align 1" [helper.cpp:127]   --->   Operation 19 'load' 'key_load' <Predicate = (!icmp_ln126)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_2 : Operation 20 [1/1] (1.76ns)   --->   "br label %.preheader1" [helper.cpp:130]   --->   Operation 20 'br' <Predicate = (icmp_ln126)> <Delay = 1.76>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%key_15_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_15_read)" [helper.cpp:117]   --->   Operation 34 'read' 'key_15_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%key_14_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_14_read)" [helper.cpp:117]   --->   Operation 35 'read' 'key_14_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%key_13_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_13_read)" [helper.cpp:117]   --->   Operation 36 'read' 'key_13_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%key_12_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_12_read)" [helper.cpp:117]   --->   Operation 37 'read' 'key_12_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%key_11_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_11_read)" [helper.cpp:117]   --->   Operation 38 'read' 'key_11_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%key_10_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_10_read)" [helper.cpp:117]   --->   Operation 39 'read' 'key_10_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%key_9_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_9_read)" [helper.cpp:117]   --->   Operation 40 'read' 'key_9_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%key_8_read_1 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %key_8_read)" [helper.cpp:117]   --->   Operation 41 'read' 'key_8_read_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%expandedKey_0_addr_2 = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 2" [helper.cpp:136]   --->   Operation 42 'getelementptr' 'expandedKey_0_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (2.32ns)   --->   "store i8 %key_8_read_1, i8* %expandedKey_0_addr_2, align 1" [helper.cpp:136]   --->   Operation 43 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%expandedKey_1_addr_2 = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 2" [helper.cpp:136]   --->   Operation 44 'getelementptr' 'expandedKey_1_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 45 [1/1] (2.32ns)   --->   "store i8 %key_9_read_1, i8* %expandedKey_1_addr_2, align 1" [helper.cpp:136]   --->   Operation 45 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%expandedKey_2_addr_2 = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 2" [helper.cpp:136]   --->   Operation 46 'getelementptr' 'expandedKey_2_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (2.32ns)   --->   "store i8 %key_10_read_1, i8* %expandedKey_2_addr_2, align 1" [helper.cpp:136]   --->   Operation 47 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%expandedKey_3_addr_2 = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 2" [helper.cpp:136]   --->   Operation 48 'getelementptr' 'expandedKey_3_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (2.32ns)   --->   "store i8 %key_11_read_1, i8* %expandedKey_3_addr_2, align 1" [helper.cpp:136]   --->   Operation 49 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%expandedKey_0_addr_3 = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 3" [helper.cpp:136]   --->   Operation 50 'getelementptr' 'expandedKey_0_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (2.32ns)   --->   "store i8 %key_12_read_1, i8* %expandedKey_0_addr_3, align 1" [helper.cpp:136]   --->   Operation 51 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%expandedKey_1_addr_3 = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 3" [helper.cpp:136]   --->   Operation 52 'getelementptr' 'expandedKey_1_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (2.32ns)   --->   "store i8 %key_13_read_1, i8* %expandedKey_1_addr_3, align 1" [helper.cpp:136]   --->   Operation 53 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%expandedKey_2_addr_3 = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 3" [helper.cpp:136]   --->   Operation 54 'getelementptr' 'expandedKey_2_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (2.32ns)   --->   "store i8 %key_14_read_1, i8* %expandedKey_2_addr_3, align 1" [helper.cpp:136]   --->   Operation 55 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%expandedKey_3_addr_3 = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 3" [helper.cpp:136]   --->   Operation 56 'getelementptr' 'expandedKey_3_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (2.32ns)   --->   "store i8 %key_15_read_1, i8* %expandedKey_3_addr_3, align 1" [helper.cpp:136]   --->   Operation 57 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_2 : Operation 58 [1/1] (1.76ns)   --->   "br label %.preheader1" [helper.cpp:139]   --->   Operation 58 'br' <Predicate = true> <Delay = 1.76>
 
-State 3 <SV = 2> <Delay = 5.57>
-ST_3 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([11 x i8]* @p_str) nounwind" [helper.cpp:126]   --->   Operation 21 'specloopname' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 22 [1/2] (2.32ns)   --->   "%key_load = load i8* %key_addr, align 1" [helper.cpp:127]   --->   Operation 22 'load' 'key_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%expandedKey_addr = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln127" [helper.cpp:127]   --->   Operation 23 'getelementptr' 'expandedKey_addr' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 24 [1/1] (3.25ns)   --->   "store i8 %key_load, i8* %expandedKey_addr, align 1" [helper.cpp:127]   --->   Operation 24 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_3 : Operation 25 [1/1] (0.00ns)   --->   "br label %.preheader" [helper.cpp:126]   --->   Operation 25 'br' <Predicate = true> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 4.23>
+ST_3 : Operation 59 [1/1] (0.00ns)   --->   "%currentSize_0 = phi i8 [ %currentSize, %EX_WHILE ], [ 16, %.preheader1.preheader ]"   --->   Operation 59 'phi' 'currentSize_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%iteration_assign = phi i32 [ %rconIteration_1, %EX_WHILE ], [ 1, %.preheader1.preheader ]"   --->   Operation 60 'phi' 'iteration_assign' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (1.55ns)   --->   "%icmp_ln139 = icmp ult i8 %currentSize_0, -80" [helper.cpp:139]   --->   Operation 61 'icmp' 'icmp_ln139' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 40, i64 40, i64 40)"   --->   Operation 62 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "br i1 %icmp_ln139, label %EX_WHILE, label %0" [helper.cpp:139]   --->   Operation 63 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%trunc_ln139 = trunc i8 %currentSize_0 to i4" [helper.cpp:139]   --->   Operation 64 'trunc' 'trunc_ln139' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (1.91ns)   --->   "%add_ln145 = add i8 -4, %currentSize_0" [helper.cpp:145]   --->   Operation 65 'add' 'add_ln145' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 66 [1/1] (0.00ns)   --->   "%lshr_ln = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %add_ln145, i32 2, i32 7)" [helper.cpp:145]   --->   Operation 66 'partselect' 'lshr_ln' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%zext_ln145 = zext i6 %lshr_ln to i64" [helper.cpp:145]   --->   Operation 67 'zext' 'zext_ln145' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%expandedKey_0_addr_4 = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 %zext_ln145" [helper.cpp:145]   --->   Operation 68 'getelementptr' 'expandedKey_0_addr_4' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 69 [2/2] (2.32ns)   --->   "%t_0_3 = load i8* %expandedKey_0_addr_4, align 1" [helper.cpp:145]   --->   Operation 69 'load' 't_0_3' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_3 : Operation 70 [1/1] (1.91ns)   --->   "%add_ln145_3 = add i8 -1, %currentSize_0" [helper.cpp:145]   --->   Operation 70 'add' 'add_ln145_3' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%lshr_ln145_3 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %add_ln145_3, i32 2, i32 7)" [helper.cpp:145]   --->   Operation 71 'partselect' 'lshr_ln145_3' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln145_3 = zext i6 %lshr_ln145_3 to i64" [helper.cpp:145]   --->   Operation 72 'zext' 'zext_ln145_3' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%expandedKey_3_addr_4 = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 %zext_ln145_3" [helper.cpp:145]   --->   Operation 73 'getelementptr' 'expandedKey_3_addr_4' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 74 [2/2] (2.32ns)   --->   "%t_3_1 = load i8* %expandedKey_3_addr_4, align 1" [helper.cpp:145]   --->   Operation 74 'load' 't_3_1' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_3 : Operation 75 [1/1] (1.30ns)   --->   "%icmp_ln151 = icmp eq i4 %trunc_ln139, 0" [helper.cpp:151]   --->   Operation 75 'icmp' 'icmp_ln151' <Predicate = (icmp_ln139)> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 76 [1/1] (2.55ns)   --->   "%rconIteration = add nsw i32 1, %iteration_assign" [helper.cpp:153]   --->   Operation 76 'add' 'rconIteration' <Predicate = (icmp_ln139)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%trunc_ln114 = trunc i32 %iteration_assign to i8" [helper.cpp:114->helper.cpp:153]   --->   Operation 77 'trunc' 'trunc_ln114' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln97 = zext i8 %trunc_ln114 to i64" [helper.cpp:97->helper.cpp:114->helper.cpp:153]   --->   Operation 78 'zext' 'zext_ln97' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%Rcon_addr = getelementptr inbounds [255 x i8]* @Rcon, i64 0, i64 %zext_ln97" [helper.cpp:97->helper.cpp:114->helper.cpp:153]   --->   Operation 79 'getelementptr' 'Rcon_addr' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 80 [2/2] (3.25ns)   --->   "%Rcon_load = load i8* %Rcon_addr, align 1" [helper.cpp:97->helper.cpp:114->helper.cpp:153]   --->   Operation 80 'load' 'Rcon_load' <Predicate = (icmp_ln139)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_3 : Operation 81 [1/1] (0.69ns)   --->   "%rconIteration_1 = select i1 %icmp_ln151, i32 %rconIteration, i32 %iteration_assign" [helper.cpp:151]   --->   Operation 81 'select' 'rconIteration_1' <Predicate = (icmp_ln139)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 82 [1/1] (1.91ns)   --->   "%add_ln170 = add i8 -16, %currentSize_0" [helper.cpp:170]   --->   Operation 82 'add' 'add_ln170' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 83 [1/1] (0.00ns)   --->   "%lshr_ln1 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %add_ln170, i32 2, i32 7)" [helper.cpp:170]   --->   Operation 83 'partselect' 'lshr_ln1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln170 = zext i6 %lshr_ln1 to i64" [helper.cpp:170]   --->   Operation 84 'zext' 'zext_ln170' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%expandedKey_0_addr_5 = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 %zext_ln170" [helper.cpp:170]   --->   Operation 85 'getelementptr' 'expandedKey_0_addr_5' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 86 [2/2] (2.32ns)   --->   "%expandedKey_0_load = load i8* %expandedKey_0_addr_5, align 1" [helper.cpp:170]   --->   Operation 86 'load' 'expandedKey_0_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%or_ln172 = or i8 %currentSize_0, 1" [helper.cpp:172]   --->   Operation 87 'or' 'or_ln172' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (0.00ns)   --->   "%zext_ln172 = zext i8 %or_ln172 to i9" [helper.cpp:172]   --->   Operation 88 'zext' 'zext_ln172' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 89 [1/1] (1.91ns)   --->   "%add_ln170_1 = add i9 -16, %zext_ln172" [helper.cpp:170]   --->   Operation 89 'add' 'add_ln170_1' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%trunc_ln1 = call i7 @_ssdm_op_PartSelect.i7.i9.i32.i32(i9 %add_ln170_1, i32 2, i32 8)" [helper.cpp:170]   --->   Operation 90 'partselect' 'trunc_ln1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%sext_ln170 = sext i7 %trunc_ln1 to i30" [helper.cpp:170]   --->   Operation 91 'sext' 'sext_ln170' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln170_1 = zext i30 %sext_ln170 to i64" [helper.cpp:170]   --->   Operation 92 'zext' 'zext_ln170_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%expandedKey_1_addr_5 = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 %zext_ln170_1" [helper.cpp:170]   --->   Operation 93 'getelementptr' 'expandedKey_1_addr_5' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 94 [2/2] (2.32ns)   --->   "%expandedKey_1_load = load i8* %expandedKey_1_addr_5, align 1" [helper.cpp:170]   --->   Operation 94 'load' 'expandedKey_1_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_3 : Operation 95 [1/1] (0.00ns) (grouped into LUT with out node add_ln170_3)   --->   "%or_ln172_1 = or i8 %currentSize_0, 3" [helper.cpp:172]   --->   Operation 95 'or' 'or_ln172_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 96 [1/1] (0.00ns) (grouped into LUT with out node add_ln170_3)   --->   "%zext_ln172_1 = zext i8 %or_ln172_1 to i9" [helper.cpp:172]   --->   Operation 96 'zext' 'zext_ln172_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (1.91ns) (out node of the LUT)   --->   "%add_ln170_3 = add i9 -16, %zext_ln172_1" [helper.cpp:170]   --->   Operation 97 'add' 'add_ln170_3' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln170_2 = call i7 @_ssdm_op_PartSelect.i7.i9.i32.i32(i9 %add_ln170_3, i32 2, i32 8)" [helper.cpp:170]   --->   Operation 98 'partselect' 'trunc_ln170_2' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%sext_ln170_2 = sext i7 %trunc_ln170_2 to i30" [helper.cpp:170]   --->   Operation 99 'sext' 'sext_ln170_2' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%zext_ln170_3 = zext i30 %sext_ln170_2 to i64" [helper.cpp:170]   --->   Operation 100 'zext' 'zext_ln170_3' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%expandedKey_3_addr_5 = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 %zext_ln170_3" [helper.cpp:170]   --->   Operation 101 'getelementptr' 'expandedKey_3_addr_5' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_3 : Operation 102 [2/2] (2.32ns)   --->   "%expandedKey_3_load = load i8* %expandedKey_3_addr_5, align 1" [helper.cpp:170]   --->   Operation 102 'load' 'expandedKey_3_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
 
-State 4 <SV = 2> <Delay = 5.16>
-ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%currentSize_0 = phi i8 [ %currentSize, %EX_WHILE ], [ 16, %.preheader1.preheader ]"   --->   Operation 26 'phi' 'currentSize_0' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%iteration_assign = phi i32 [ %rconIteration_1, %EX_WHILE ], [ 1, %.preheader1.preheader ]"   --->   Operation 27 'phi' 'iteration_assign' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 28 [1/1] (1.55ns)   --->   "%icmp_ln130 = icmp ult i8 %currentSize_0, -80" [helper.cpp:130]   --->   Operation 28 'icmp' 'icmp_ln130' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 40, i64 40, i64 40)"   --->   Operation 29 'speclooptripcount' 'empty_3' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 30 [1/1] (0.00ns)   --->   "br i1 %icmp_ln130, label %EX_WHILE, label %1" [helper.cpp:130]   --->   Operation 30 'br' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%trunc_ln130 = trunc i8 %currentSize_0 to i4" [helper.cpp:130]   --->   Operation 31 'trunc' 'trunc_ln130' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 32 [1/1] (1.91ns)   --->   "%add_ln136 = add i8 -4, %currentSize_0" [helper.cpp:136]   --->   Operation 32 'add' 'add_ln136' <Predicate = (icmp_ln130)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%zext_ln136 = zext i8 %add_ln136 to i64" [helper.cpp:136]   --->   Operation 33 'zext' 'zext_ln136' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%expandedKey_addr_1 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln136" [helper.cpp:136]   --->   Operation 34 'getelementptr' 'expandedKey_addr_1' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 35 [2/2] (3.25ns)   --->   "%t_0_3 = load i8* %expandedKey_addr_1, align 1" [helper.cpp:136]   --->   Operation 35 'load' 't_0_3' <Predicate = (icmp_ln130)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_4 : Operation 36 [1/1] (1.91ns)   --->   "%add_ln136_1 = add i8 -3, %currentSize_0" [helper.cpp:136]   --->   Operation 36 'add' 'add_ln136_1' <Predicate = (icmp_ln130)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln136_1 = zext i8 %add_ln136_1 to i64" [helper.cpp:136]   --->   Operation 37 'zext' 'zext_ln136_1' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%expandedKey_addr_2 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln136_1" [helper.cpp:136]   --->   Operation 38 'getelementptr' 'expandedKey_addr_2' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 39 [2/2] (3.25ns)   --->   "%t_1_1 = load i8* %expandedKey_addr_2, align 1" [helper.cpp:136]   --->   Operation 39 'load' 't_1_1' <Predicate = (icmp_ln130)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_4 : Operation 40 [1/1] (1.30ns)   --->   "%icmp_ln142 = icmp eq i4 %trunc_ln130, 0" [helper.cpp:142]   --->   Operation 40 'icmp' 'icmp_ln142' <Predicate = (icmp_ln130)> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 41 [1/1] (2.55ns)   --->   "%rconIteration = add nsw i32 1, %iteration_assign" [helper.cpp:144]   --->   Operation 41 'add' 'rconIteration' <Predicate = (icmp_ln130)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%trunc_ln109 = trunc i32 %iteration_assign to i8" [helper.cpp:109->helper.cpp:144]   --->   Operation 42 'trunc' 'trunc_ln109' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln92 = zext i8 %trunc_ln109 to i64" [helper.cpp:92->helper.cpp:109->helper.cpp:144]   --->   Operation 43 'zext' 'zext_ln92' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%Rcon_addr = getelementptr inbounds [255 x i8]* @Rcon, i64 0, i64 %zext_ln92" [helper.cpp:92->helper.cpp:109->helper.cpp:144]   --->   Operation 44 'getelementptr' 'Rcon_addr' <Predicate = (icmp_ln130)> <Delay = 0.00>
-ST_4 : Operation 45 [2/2] (3.25ns)   --->   "%Rcon_load = load i8* %Rcon_addr, align 1" [helper.cpp:92->helper.cpp:109->helper.cpp:144]   --->   Operation 45 'load' 'Rcon_load' <Predicate = (icmp_ln130)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_4 : Operation 46 [1/1] (0.69ns)   --->   "%rconIteration_1 = select i1 %icmp_ln142, i32 %rconIteration, i32 %iteration_assign" [helper.cpp:142]   --->   Operation 46 'select' 'rconIteration_1' <Predicate = (icmp_ln130)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+State 4 <SV = 3> <Delay = 5.57>
+ST_4 : Operation 103 [1/2] (2.32ns)   --->   "%t_0_3 = load i8* %expandedKey_0_addr_4, align 1" [helper.cpp:145]   --->   Operation 103 'load' 't_0_3' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_4 : Operation 104 [1/1] (1.91ns)   --->   "%add_ln145_1 = add i8 -3, %currentSize_0" [helper.cpp:145]   --->   Operation 104 'add' 'add_ln145_1' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 105 [1/1] (0.00ns)   --->   "%lshr_ln145_1 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %add_ln145_1, i32 2, i32 7)" [helper.cpp:145]   --->   Operation 105 'partselect' 'lshr_ln145_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_4 : Operation 106 [1/1] (0.00ns)   --->   "%zext_ln145_1 = zext i6 %lshr_ln145_1 to i64" [helper.cpp:145]   --->   Operation 106 'zext' 'zext_ln145_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_4 : Operation 107 [1/1] (0.00ns)   --->   "%expandedKey_1_addr_4 = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 %zext_ln145_1" [helper.cpp:145]   --->   Operation 107 'getelementptr' 'expandedKey_1_addr_4' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_4 : Operation 108 [2/2] (2.32ns)   --->   "%t_1_1 = load i8* %expandedKey_1_addr_4, align 1" [helper.cpp:145]   --->   Operation 108 'load' 't_1_1' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_4 : Operation 109 [1/2] (2.32ns)   --->   "%t_3_1 = load i8* %expandedKey_3_addr_4, align 1" [helper.cpp:145]   --->   Operation 109 'load' 't_3_1' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_4 : Operation 110 [1/1] (0.00ns)   --->   "%zext_ln46_3 = zext i8 %t_0_3 to i64" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 110 'zext' 'zext_ln46_3' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_4 : Operation 111 [1/1] (0.00ns)   --->   "%sbox_addr_3 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln46_3" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 111 'getelementptr' 'sbox_addr_3' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_4 : Operation 112 [2/2] (3.25ns)   --->   "%t_3 = load i8* %sbox_addr_3, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 112 'load' 't_3' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_4 : Operation 113 [1/2] (3.25ns)   --->   "%Rcon_load = load i8* %Rcon_addr, align 1" [helper.cpp:97->helper.cpp:114->helper.cpp:153]   --->   Operation 113 'load' 'Rcon_load' <Predicate = (icmp_ln139)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_4 : Operation 114 [1/2] (2.32ns)   --->   "%expandedKey_0_load = load i8* %expandedKey_0_addr_5, align 1" [helper.cpp:170]   --->   Operation 114 'load' 'expandedKey_0_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_4 : Operation 115 [1/2] (2.32ns)   --->   "%expandedKey_1_load = load i8* %expandedKey_1_addr_5, align 1" [helper.cpp:170]   --->   Operation 115 'load' 'expandedKey_1_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_4 : Operation 116 [1/2] (2.32ns)   --->   "%expandedKey_3_load = load i8* %expandedKey_3_addr_5, align 1" [helper.cpp:170]   --->   Operation 116 'load' 'expandedKey_3_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
 
-State 5 <SV = 3> <Delay = 6.50>
-ST_5 : Operation 47 [1/2] (3.25ns)   --->   "%t_0_3 = load i8* %expandedKey_addr_1, align 1" [helper.cpp:136]   --->   Operation 47 'load' 't_0_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_5 : Operation 48 [1/2] (3.25ns)   --->   "%t_1_1 = load i8* %expandedKey_addr_2, align 1" [helper.cpp:136]   --->   Operation 48 'load' 't_1_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_5 : Operation 49 [1/1] (1.91ns)   --->   "%add_ln136_2 = add i8 -2, %currentSize_0" [helper.cpp:136]   --->   Operation 49 'add' 'add_ln136_2' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%zext_ln136_2 = zext i8 %add_ln136_2 to i64" [helper.cpp:136]   --->   Operation 50 'zext' 'zext_ln136_2' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 51 [1/1] (0.00ns)   --->   "%expandedKey_addr_3 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln136_2" [helper.cpp:136]   --->   Operation 51 'getelementptr' 'expandedKey_addr_3' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 52 [2/2] (3.25ns)   --->   "%t_2_1 = load i8* %expandedKey_addr_3, align 1" [helper.cpp:136]   --->   Operation 52 'load' 't_2_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_5 : Operation 53 [1/1] (1.91ns)   --->   "%add_ln136_3 = add i8 -1, %currentSize_0" [helper.cpp:136]   --->   Operation 53 'add' 'add_ln136_3' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%zext_ln136_3 = zext i8 %add_ln136_3 to i64" [helper.cpp:136]   --->   Operation 54 'zext' 'zext_ln136_3' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%expandedKey_addr_4 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln136_3" [helper.cpp:136]   --->   Operation 55 'getelementptr' 'expandedKey_addr_4' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 56 [2/2] (3.25ns)   --->   "%t_3_1 = load i8* %expandedKey_addr_4, align 1" [helper.cpp:136]   --->   Operation 56 'load' 't_3_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%zext_ln43 = zext i8 %t_1_1 to i64" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 57 'zext' 'zext_ln43' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%sbox_addr = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln43" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 58 'getelementptr' 'sbox_addr' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_5 : Operation 59 [2/2] (3.25ns)   --->   "%sbox_load = load i8* %sbox_addr, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 59 'load' 'sbox_load' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_5 : Operation 60 [1/2] (3.25ns)   --->   "%Rcon_load = load i8* %Rcon_addr, align 1" [helper.cpp:92->helper.cpp:109->helper.cpp:144]   --->   Operation 60 'load' 'Rcon_load' <Predicate = true> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+State 5 <SV = 4> <Delay = 6.82>
+ST_5 : Operation 117 [1/2] (2.32ns)   --->   "%t_1_1 = load i8* %expandedKey_1_addr_4, align 1" [helper.cpp:145]   --->   Operation 117 'load' 't_1_1' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_5 : Operation 118 [1/1] (1.91ns)   --->   "%add_ln145_2 = add i8 -2, %currentSize_0" [helper.cpp:145]   --->   Operation 118 'add' 'add_ln145_2' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 119 [1/1] (0.00ns)   --->   "%lshr_ln145_2 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %add_ln145_2, i32 2, i32 7)" [helper.cpp:145]   --->   Operation 119 'partselect' 'lshr_ln145_2' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_5 : Operation 120 [1/1] (0.00ns)   --->   "%zext_ln145_2 = zext i6 %lshr_ln145_2 to i64" [helper.cpp:145]   --->   Operation 120 'zext' 'zext_ln145_2' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_5 : Operation 121 [1/1] (0.00ns)   --->   "%expandedKey_2_addr_4 = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 %zext_ln145_2" [helper.cpp:145]   --->   Operation 121 'getelementptr' 'expandedKey_2_addr_4' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_5 : Operation 122 [2/2] (2.32ns)   --->   "%t_2_1 = load i8* %expandedKey_2_addr_4, align 1" [helper.cpp:145]   --->   Operation 122 'load' 't_2_1' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_5 : Operation 123 [1/1] (0.00ns)   --->   "%zext_ln46 = zext i8 %t_1_1 to i64" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 123 'zext' 'zext_ln46' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_5 : Operation 124 [1/1] (0.00ns)   --->   "%sbox_addr = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln46" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 124 'getelementptr' 'sbox_addr' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_5 : Operation 125 [2/2] (3.25ns)   --->   "%sbox_load = load i8* %sbox_addr, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 125 'load' 'sbox_load' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_5 : Operation 126 [1/2] (3.25ns)   --->   "%t_3 = load i8* %sbox_addr_3, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 126 'load' 't_3' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_5 : Operation 127 [1/1] (0.00ns) (grouped into LUT with out node xor_ln171_3)   --->   "%t_3_2 = select i1 %icmp_ln151, i8 %t_3, i8 %t_3_1" [helper.cpp:151]   --->   Operation 127 'select' 't_3_2' <Predicate = (icmp_ln139)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 128 [1/1] (0.00ns)   --->   "%lshr_ln2 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %currentSize_0, i32 2, i32 7)" [helper.cpp:171]   --->   Operation 128 'partselect' 'lshr_ln2' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_5 : Operation 129 [1/1] (0.00ns)   --->   "%zext_ln171 = zext i6 %lshr_ln2 to i64" [helper.cpp:171]   --->   Operation 129 'zext' 'zext_ln171' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_5 : Operation 130 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln171_3 = xor i8 %expandedKey_3_load, %t_3_2" [helper.cpp:171]   --->   Operation 130 'xor' 'xor_ln171_3' <Predicate = (icmp_ln139)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 131 [1/1] (0.00ns)   --->   "%expandedKey_3_addr_6 = getelementptr [44 x i8]* %expandedKey_3, i64 0, i64 %zext_ln171" [helper.cpp:171]   --->   Operation 131 'getelementptr' 'expandedKey_3_addr_6' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_5 : Operation 132 [1/1] (2.32ns)   --->   "store i8 %xor_ln171_3, i8* %expandedKey_3_addr_6, align 1" [helper.cpp:171]   --->   Operation 132 'store' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
 
-State 6 <SV = 4> <Delay = 6.50>
-ST_6 : Operation 61 [1/2] (3.25ns)   --->   "%t_2_1 = load i8* %expandedKey_addr_3, align 1" [helper.cpp:136]   --->   Operation 61 'load' 't_2_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_6 : Operation 62 [1/2] (3.25ns)   --->   "%t_3_1 = load i8* %expandedKey_addr_4, align 1" [helper.cpp:136]   --->   Operation 62 'load' 't_3_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_6 : Operation 63 [1/2] (3.25ns)   --->   "%sbox_load = load i8* %sbox_addr, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 63 'load' 'sbox_load' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%zext_ln43_1 = zext i8 %t_2_1 to i64" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 64 'zext' 'zext_ln43_1' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%sbox_addr_1 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln43_1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 65 'getelementptr' 'sbox_addr_1' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_6 : Operation 66 [2/2] (3.25ns)   --->   "%t_1 = load i8* %sbox_addr_1, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 66 'load' 't_1' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_6 : Operation 67 [1/1] (1.91ns)   --->   "%add_ln161 = add i8 -16, %currentSize_0" [helper.cpp:161]   --->   Operation 67 'add' 'add_ln161' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln161 = zext i8 %add_ln161 to i64" [helper.cpp:161]   --->   Operation 68 'zext' 'zext_ln161' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 69 [1/1] (0.00ns)   --->   "%expandedKey_addr_5 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161" [helper.cpp:161]   --->   Operation 69 'getelementptr' 'expandedKey_addr_5' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 70 [2/2] (3.25ns)   --->   "%expandedKey_load = load i8* %expandedKey_addr_5, align 1" [helper.cpp:161]   --->   Operation 70 'load' 'expandedKey_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%or_ln162 = or i8 %currentSize_0, 1" [helper.cpp:162]   --->   Operation 71 'or' 'or_ln162' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln162 = zext i8 %or_ln162 to i9" [helper.cpp:162]   --->   Operation 72 'zext' 'zext_ln162' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 73 [1/1] (1.91ns)   --->   "%add_ln161_1 = add i9 -16, %zext_ln162" [helper.cpp:161]   --->   Operation 73 'add' 'add_ln161_1' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 74 [1/1] (0.00ns)   --->   "%sext_ln161 = sext i9 %add_ln161_1 to i32" [helper.cpp:161]   --->   Operation 74 'sext' 'sext_ln161' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%zext_ln161_2 = zext i32 %sext_ln161 to i64" [helper.cpp:161]   --->   Operation 75 'zext' 'zext_ln161_2' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 76 [1/1] (0.00ns)   --->   "%expandedKey_addr_7 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_2" [helper.cpp:161]   --->   Operation 76 'getelementptr' 'expandedKey_addr_7' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 77 [2/2] (3.25ns)   --->   "%expandedKey_load_1 = load i8* %expandedKey_addr_7, align 1" [helper.cpp:161]   --->   Operation 77 'load' 'expandedKey_load_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
+State 6 <SV = 5> <Delay = 6.82>
+ST_6 : Operation 133 [1/2] (2.32ns)   --->   "%t_2_1 = load i8* %expandedKey_2_addr_4, align 1" [helper.cpp:145]   --->   Operation 133 'load' 't_2_1' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_6 : Operation 134 [1/2] (3.25ns)   --->   "%sbox_load = load i8* %sbox_addr, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 134 'load' 'sbox_load' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_6 : Operation 135 [1/1] (0.00ns)   --->   "%zext_ln46_1 = zext i8 %t_2_1 to i64" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 135 'zext' 'zext_ln46_1' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_6 : Operation 136 [1/1] (0.00ns)   --->   "%sbox_addr_1 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln46_1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 136 'getelementptr' 'sbox_addr_1' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_6 : Operation 137 [2/2] (3.25ns)   --->   "%t_1 = load i8* %sbox_addr_1, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 137 'load' 't_1' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_6 : Operation 138 [1/1] (0.00ns) (grouped into LUT with out node xor_ln171)   --->   "%t_0 = xor i8 %Rcon_load, %sbox_load" [helper.cpp:114->helper.cpp:153]   --->   Operation 138 'xor' 't_0' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node xor_ln171)   --->   "%t_0_2 = select i1 %icmp_ln151, i8 %t_0, i8 %t_0_3" [helper.cpp:151]   --->   Operation 139 'select' 't_0_2' <Predicate = (icmp_ln139)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 140 [1/1] (1.91ns)   --->   "%currentSize = add i8 4, %currentSize_0" [helper.cpp:172]   --->   Operation 140 'add' 'currentSize' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 141 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln171 = xor i8 %expandedKey_0_load, %t_0_2" [helper.cpp:171]   --->   Operation 141 'xor' 'xor_ln171' <Predicate = (icmp_ln139)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 142 [1/1] (0.00ns)   --->   "%expandedKey_0_addr_6 = getelementptr [44 x i8]* %expandedKey_0, i64 0, i64 %zext_ln171" [helper.cpp:171]   --->   Operation 142 'getelementptr' 'expandedKey_0_addr_6' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_6 : Operation 143 [1/1] (2.32ns)   --->   "store i8 %xor_ln171, i8* %expandedKey_0_addr_6, align 1" [helper.cpp:171]   --->   Operation 143 'store' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
 
-State 7 <SV = 5> <Delay = 5.16>
-ST_7 : Operation 78 [1/2] (3.25ns)   --->   "%t_1 = load i8* %sbox_addr_1, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 78 'load' 't_1' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_7 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln43_2 = zext i8 %t_3_1 to i64" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 79 'zext' 'zext_ln43_2' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_7 : Operation 80 [1/1] (0.00ns)   --->   "%sbox_addr_2 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln43_2" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 80 'getelementptr' 'sbox_addr_2' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_7 : Operation 81 [2/2] (3.25ns)   --->   "%t_2 = load i8* %sbox_addr_2, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 81 'load' 't_2' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_7 : Operation 82 [1/1] (0.00ns) (grouped into LUT with out node xor_ln161)   --->   "%t_0 = xor i8 %Rcon_load, %sbox_load" [helper.cpp:109->helper.cpp:144]   --->   Operation 82 'xor' 't_0' <Predicate = (icmp_ln142)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 83 [1/1] (0.00ns) (grouped into LUT with out node xor_ln161_1)   --->   "%t_1_2 = select i1 %icmp_ln142, i8 %t_1, i8 %t_1_1" [helper.cpp:142]   --->   Operation 83 'select' 't_1_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_7 : Operation 84 [1/1] (0.00ns) (grouped into LUT with out node xor_ln161)   --->   "%t_0_2 = select i1 %icmp_ln142, i8 %t_0, i8 %t_0_3" [helper.cpp:142]   --->   Operation 84 'select' 't_0_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_7 : Operation 85 [1/2] (3.25ns)   --->   "%expandedKey_load = load i8* %expandedKey_addr_5, align 1" [helper.cpp:161]   --->   Operation 85 'load' 'expandedKey_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_7 : Operation 86 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln161 = xor i8 %expandedKey_load, %t_0_2" [helper.cpp:161]   --->   Operation 86 'xor' 'xor_ln161' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 87 [1/2] (3.25ns)   --->   "%expandedKey_load_1 = load i8* %expandedKey_addr_7, align 1" [helper.cpp:161]   --->   Operation 87 'load' 'expandedKey_load_1' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_7 : Operation 88 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln161_1 = xor i8 %expandedKey_load_1, %t_1_2" [helper.cpp:161]   --->   Operation 88 'xor' 'xor_ln161_1' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 89 [1/1] (1.91ns)   --->   "%add_ln161_2 = add i9 -15, %zext_ln162" [helper.cpp:161]   --->   Operation 89 'add' 'add_ln161_2' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 90 [1/1] (0.00ns)   --->   "%sext_ln161_1 = sext i9 %add_ln161_2 to i32" [helper.cpp:161]   --->   Operation 90 'sext' 'sext_ln161_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 91 [1/1] (0.00ns)   --->   "%zext_ln161_4 = zext i32 %sext_ln161_1 to i64" [helper.cpp:161]   --->   Operation 91 'zext' 'zext_ln161_4' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 92 [1/1] (0.00ns)   --->   "%expandedKey_addr_9 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_4" [helper.cpp:161]   --->   Operation 92 'getelementptr' 'expandedKey_addr_9' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 93 [2/2] (3.25ns)   --->   "%expandedKey_load_2 = load i8* %expandedKey_addr_9, align 1" [helper.cpp:161]   --->   Operation 93 'load' 'expandedKey_load_2' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_7 : Operation 94 [1/1] (0.00ns)   --->   "%or_ln162_1 = or i8 %currentSize_0, 3" [helper.cpp:162]   --->   Operation 94 'or' 'or_ln162_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln162_1 = zext i8 %or_ln162_1 to i9" [helper.cpp:162]   --->   Operation 95 'zext' 'zext_ln162_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 96 [1/1] (1.91ns)   --->   "%add_ln161_3 = add i9 -16, %zext_ln162_1" [helper.cpp:161]   --->   Operation 96 'add' 'add_ln161_3' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 97 [1/1] (0.00ns)   --->   "%sext_ln161_2 = sext i9 %add_ln161_3 to i32" [helper.cpp:161]   --->   Operation 97 'sext' 'sext_ln161_2' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 98 [1/1] (0.00ns)   --->   "%zext_ln161_6 = zext i32 %sext_ln161_2 to i64" [helper.cpp:161]   --->   Operation 98 'zext' 'zext_ln161_6' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 99 [1/1] (0.00ns)   --->   "%expandedKey_addr_11 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_6" [helper.cpp:161]   --->   Operation 99 'getelementptr' 'expandedKey_addr_11' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 100 [2/2] (3.25ns)   --->   "%expandedKey_load_3 = load i8* %expandedKey_addr_11, align 1" [helper.cpp:161]   --->   Operation 100 'load' 'expandedKey_load_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
+State 7 <SV = 6> <Delay = 6.82>
+ST_7 : Operation 144 [1/2] (3.25ns)   --->   "%t_1 = load i8* %sbox_addr_1, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 144 'load' 't_1' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_7 : Operation 145 [1/1] (0.00ns)   --->   "%zext_ln46_2 = zext i8 %t_3_1 to i64" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 145 'zext' 'zext_ln46_2' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_7 : Operation 146 [1/1] (0.00ns)   --->   "%sbox_addr_2 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln46_2" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 146 'getelementptr' 'sbox_addr_2' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 0.00>
+ST_7 : Operation 147 [2/2] (3.25ns)   --->   "%t_2 = load i8* %sbox_addr_2, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 147 'load' 't_2' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_7 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node xor_ln171_1)   --->   "%t_1_2 = select i1 %icmp_ln151, i8 %t_1, i8 %t_1_1" [helper.cpp:151]   --->   Operation 148 'select' 't_1_2' <Predicate = (icmp_ln139)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 149 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln171_1 = xor i8 %expandedKey_1_load, %t_1_2" [helper.cpp:171]   --->   Operation 149 'xor' 'xor_ln171_1' <Predicate = (icmp_ln139)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 150 [1/1] (0.00ns)   --->   "%expandedKey_1_addr_6 = getelementptr [44 x i8]* %expandedKey_1, i64 0, i64 %zext_ln171" [helper.cpp:171]   --->   Operation 150 'getelementptr' 'expandedKey_1_addr_6' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_7 : Operation 151 [1/1] (2.32ns)   --->   "store i8 %xor_ln171_1, i8* %expandedKey_1_addr_6, align 1" [helper.cpp:171]   --->   Operation 151 'store' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_7 : Operation 152 [1/1] (1.91ns)   --->   "%add_ln172 = add i9 1, %zext_ln172" [helper.cpp:172]   --->   Operation 152 'add' 'add_ln172' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 153 [1/1] (1.91ns)   --->   "%add_ln170_2 = add i9 -15, %zext_ln172" [helper.cpp:170]   --->   Operation 153 'add' 'add_ln170_2' <Predicate = (icmp_ln139)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 154 [1/1] (0.00ns)   --->   "%trunc_ln170_1 = call i7 @_ssdm_op_PartSelect.i7.i9.i32.i32(i9 %add_ln170_2, i32 2, i32 8)" [helper.cpp:170]   --->   Operation 154 'partselect' 'trunc_ln170_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_7 : Operation 155 [1/1] (0.00ns)   --->   "%sext_ln170_1 = sext i7 %trunc_ln170_1 to i30" [helper.cpp:170]   --->   Operation 155 'sext' 'sext_ln170_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_7 : Operation 156 [1/1] (0.00ns)   --->   "%zext_ln170_2 = zext i30 %sext_ln170_1 to i64" [helper.cpp:170]   --->   Operation 156 'zext' 'zext_ln170_2' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_7 : Operation 157 [1/1] (0.00ns)   --->   "%expandedKey_2_addr_5 = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 %zext_ln170_2" [helper.cpp:170]   --->   Operation 157 'getelementptr' 'expandedKey_2_addr_5' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_7 : Operation 158 [2/2] (2.32ns)   --->   "%expandedKey_2_load = load i8* %expandedKey_2_addr_5, align 1" [helper.cpp:170]   --->   Operation 158 'load' 'expandedKey_2_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_7 : Operation 159 [1/1] (0.00ns)   --->   "%lshr_ln171_1 = call i7 @_ssdm_op_PartSelect.i7.i9.i32.i32(i9 %add_ln172, i32 2, i32 8)" [helper.cpp:171]   --->   Operation 159 'partselect' 'lshr_ln171_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
 
-State 8 <SV = 6> <Delay = 4.50>
-ST_8 : Operation 101 [1/2] (3.25ns)   --->   "%t_2 = load i8* %sbox_addr_2, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 101 'load' 't_2' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_8 : Operation 102 [1/1] (0.00ns)   --->   "%zext_ln43_3 = zext i8 %t_0_3 to i64" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 102 'zext' 'zext_ln43_3' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_8 : Operation 103 [1/1] (0.00ns)   --->   "%sbox_addr_3 = getelementptr inbounds [256 x i8]* @sbox, i64 0, i64 %zext_ln43_3" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 103 'getelementptr' 'sbox_addr_3' <Predicate = (icmp_ln142)> <Delay = 0.00>
-ST_8 : Operation 104 [2/2] (3.25ns)   --->   "%t_3 = load i8* %sbox_addr_3, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 104 'load' 't_3' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_8 : Operation 105 [1/1] (0.00ns) (grouped into LUT with out node xor_ln161_2)   --->   "%t_2_2 = select i1 %icmp_ln142, i8 %t_2, i8 %t_2_1" [helper.cpp:142]   --->   Operation 105 'select' 't_2_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_8 : Operation 106 [1/1] (0.00ns)   --->   "%zext_ln161_1 = zext i8 %currentSize_0 to i64" [helper.cpp:161]   --->   Operation 106 'zext' 'zext_ln161_1' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 107 [1/1] (0.00ns)   --->   "%expandedKey_addr_6 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_1" [helper.cpp:161]   --->   Operation 107 'getelementptr' 'expandedKey_addr_6' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 108 [1/1] (3.25ns)   --->   "store i8 %xor_ln161, i8* %expandedKey_addr_6, align 1" [helper.cpp:161]   --->   Operation 108 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_8 : Operation 109 [1/1] (0.00ns)   --->   "%zext_ln161_3 = zext i8 %or_ln162 to i64" [helper.cpp:161]   --->   Operation 109 'zext' 'zext_ln161_3' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 110 [1/1] (0.00ns)   --->   "%expandedKey_addr_8 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_3" [helper.cpp:161]   --->   Operation 110 'getelementptr' 'expandedKey_addr_8' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 111 [1/1] (3.25ns)   --->   "store i8 %xor_ln161_1, i8* %expandedKey_addr_8, align 1" [helper.cpp:161]   --->   Operation 111 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_8 : Operation 112 [1/2] (3.25ns)   --->   "%expandedKey_load_2 = load i8* %expandedKey_addr_9, align 1" [helper.cpp:161]   --->   Operation 112 'load' 'expandedKey_load_2' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_8 : Operation 113 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln161_2 = xor i8 %expandedKey_load_2, %t_2_2" [helper.cpp:161]   --->   Operation 113 'xor' 'xor_ln161_2' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 114 [1/2] (3.25ns)   --->   "%expandedKey_load_3 = load i8* %expandedKey_addr_11, align 1" [helper.cpp:161]   --->   Operation 114 'load' 'expandedKey_load_3' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
+State 8 <SV = 7> <Delay = 6.82>
+ST_8 : Operation 160 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str3) nounwind" [helper.cpp:140]   --->   Operation 160 'specloopname' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_8 : Operation 161 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str3)" [helper.cpp:140]   --->   Operation 161 'specregionbegin' 'tmp' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_8 : Operation 162 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [helper.cpp:141]   --->   Operation 162 'specpipeline' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_8 : Operation 163 [1/2] (3.25ns)   --->   "%t_2 = load i8* %sbox_addr_2, align 1" [helper.cpp:46->helper.cpp:110->helper.cpp:153]   --->   Operation 163 'load' 't_2' <Predicate = (icmp_ln139 & icmp_ln151)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
+ST_8 : Operation 164 [1/1] (0.00ns) (grouped into LUT with out node xor_ln171_2)   --->   "%t_2_2 = select i1 %icmp_ln151, i8 %t_2, i8 %t_2_1" [helper.cpp:151]   --->   Operation 164 'select' 't_2_2' <Predicate = (icmp_ln139)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 165 [1/2] (2.32ns)   --->   "%expandedKey_2_load = load i8* %expandedKey_2_addr_5, align 1" [helper.cpp:170]   --->   Operation 165 'load' 'expandedKey_2_load' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_8 : Operation 166 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln171_2 = xor i8 %expandedKey_2_load, %t_2_2" [helper.cpp:171]   --->   Operation 166 'xor' 'xor_ln171_2' <Predicate = (icmp_ln139)> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 167 [1/1] (0.00ns)   --->   "%zext_ln171_1 = zext i7 %lshr_ln171_1 to i64" [helper.cpp:171]   --->   Operation 167 'zext' 'zext_ln171_1' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_8 : Operation 168 [1/1] (0.00ns)   --->   "%expandedKey_2_addr_6 = getelementptr [44 x i8]* %expandedKey_2, i64 0, i64 %zext_ln171_1" [helper.cpp:171]   --->   Operation 168 'getelementptr' 'expandedKey_2_addr_6' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_8 : Operation 169 [1/1] (2.32ns)   --->   "store i8 %xor_ln171_2, i8* %expandedKey_2_addr_6, align 1" [helper.cpp:171]   --->   Operation 169 'store' <Predicate = (icmp_ln139)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 44> <RAM>
+ST_8 : Operation 170 [1/1] (0.00ns)   --->   "%empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str3, i32 %tmp)" [helper.cpp:174]   --->   Operation 170 'specregionend' 'empty_7' <Predicate = (icmp_ln139)> <Delay = 0.00>
+ST_8 : Operation 171 [1/1] (0.00ns)   --->   "br label %.preheader1" [helper.cpp:174]   --->   Operation 171 'br' <Predicate = (icmp_ln139)> <Delay = 0.00>
 
-State 9 <SV = 7> <Delay = 7.75>
-ST_9 : Operation 115 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str1) nounwind" [helper.cpp:131]   --->   Operation 115 'specloopname' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 116 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str1)" [helper.cpp:131]   --->   Operation 116 'specregionbegin' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 117 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [helper.cpp:132]   --->   Operation 117 'specpipeline' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 118 [1/2] (3.25ns)   --->   "%t_3 = load i8* %sbox_addr_3, align 1" [helper.cpp:43->helper.cpp:105->helper.cpp:144]   --->   Operation 118 'load' 't_3' <Predicate = (icmp_ln142)> <Delay = 3.25> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 8> <Depth = 255> <ROM>
-ST_9 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node xor_ln161_3)   --->   "%t_3_2 = select i1 %icmp_ln142, i8 %t_3, i8 %t_3_1" [helper.cpp:142]   --->   Operation 119 'select' 't_3_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_9 : Operation 120 [1/1] (1.91ns)   --->   "%currentSize = add i8 4, %currentSize_0" [helper.cpp:162]   --->   Operation 120 'add' 'currentSize' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 121 [1/1] (1.91ns)   --->   "%add_ln162 = add i9 1, %zext_ln162" [helper.cpp:162]   --->   Operation 121 'add' 'add_ln162' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 122 [1/1] (0.00ns)   --->   "%zext_ln161_5 = zext i9 %add_ln162 to i64" [helper.cpp:161]   --->   Operation 122 'zext' 'zext_ln161_5' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 123 [1/1] (0.00ns)   --->   "%expandedKey_addr_10 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_5" [helper.cpp:161]   --->   Operation 123 'getelementptr' 'expandedKey_addr_10' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 124 [1/1] (3.25ns)   --->   "store i8 %xor_ln161_2, i8* %expandedKey_addr_10, align 1" [helper.cpp:161]   --->   Operation 124 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_9 : Operation 125 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln161_3 = xor i8 %expandedKey_load_3, %t_3_2" [helper.cpp:161]   --->   Operation 125 'xor' 'xor_ln161_3' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_9 : Operation 126 [1/1] (0.00ns)   --->   "%zext_ln161_7 = zext i8 %or_ln162_1 to i64" [helper.cpp:161]   --->   Operation 126 'zext' 'zext_ln161_7' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 127 [1/1] (0.00ns)   --->   "%expandedKey_addr_12 = getelementptr [176 x i8]* %expandedKey, i64 0, i64 %zext_ln161_7" [helper.cpp:161]   --->   Operation 127 'getelementptr' 'expandedKey_addr_12' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 128 [1/1] (3.25ns)   --->   "store i8 %xor_ln161_3, i8* %expandedKey_addr_12, align 1" [helper.cpp:161]   --->   Operation 128 'store' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 176> <RAM>
-ST_9 : Operation 129 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str1, i32 %tmp)" [helper.cpp:164]   --->   Operation 129 'specregionend' 'empty_4' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 130 [1/1] (0.00ns)   --->   "br label %.preheader1" [helper.cpp:164]   --->   Operation 130 'br' <Predicate = true> <Delay = 0.00>
-
-State 10 <SV = 3> <Delay = 0.00>
-ST_10 : Operation 131 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:165]   --->   Operation 131 'ret' <Predicate = true> <Delay = 0.00>
+State 9 <SV = 3> <Delay = 0.00>
+ST_9 : Operation 172 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:175]   --->   Operation 172 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -240,60 +278,59 @@ ST_10 : Operation 131 [1/1] (0.00ns)   --->   "ret void" [helper.cpp:165]   --->
 ============================================================
 Target clock period: 10ns, clock uncertainty: 1.25ns.
 
- <State 1>: 1.77ns
+ <State 1>: 2.32ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('i') with incoming values : ('i', helper.cpp:126) [9]  (1.77 ns)
+	wire read on port 'key_7_read' (helper.cpp:117) [33]  (0 ns)
+	'store' operation ('store_ln136', helper.cpp:136) of variable 'key[7]', helper.cpp:117 on array 'expandedKey_3' [56]  (2.32 ns)
 
  <State 2>: 2.32ns
 The critical path consists of the following:
-	'phi' operation ('i') with incoming values : ('i', helper.cpp:126) [9]  (0 ns)
-	'getelementptr' operation ('key_addr', helper.cpp:127) [17]  (0 ns)
-	'load' operation ('key_load', helper.cpp:127) on array 'key' [18]  (2.32 ns)
+	wire read on port 'key_15_read' (helper.cpp:117) [25]  (0 ns)
+	'store' operation ('store_ln136', helper.cpp:136) of variable 'key[15]', helper.cpp:117 on array 'expandedKey_3' [72]  (2.32 ns)
 
- <State 3>: 5.58ns
+ <State 3>: 4.24ns
 The critical path consists of the following:
-	'load' operation ('key_load', helper.cpp:127) on array 'key' [18]  (2.32 ns)
-	'store' operation ('store_ln127', helper.cpp:127) of variable 'key_load', helper.cpp:127 on array 'expandedKey' [20]  (3.25 ns)
+	'phi' operation ('currentSize') with incoming values : ('currentSize', helper.cpp:172) [75]  (0 ns)
+	'add' operation ('add_ln145', helper.cpp:145) [85]  (1.92 ns)
+	'getelementptr' operation ('expandedKey_0_addr_4', helper.cpp:145) [88]  (0 ns)
+	'load' operation ('t[0]', helper.cpp:145) on array 'expandedKey_0' [89]  (2.32 ns)
 
- <State 4>: 5.17ns
+ <State 4>: 5.58ns
 The critical path consists of the following:
-	'phi' operation ('currentSize') with incoming values : ('currentSize', helper.cpp:162) [25]  (0 ns)
-	'add' operation ('add_ln136', helper.cpp:136) [35]  (1.92 ns)
-	'getelementptr' operation ('expandedKey_addr_1', helper.cpp:136) [37]  (0 ns)
-	'load' operation ('t[0]', helper.cpp:136) on array 'expandedKey' [38]  (3.25 ns)
+	'load' operation ('t[0]', helper.cpp:145) on array 'expandedKey_0' [89]  (2.32 ns)
+	'getelementptr' operation ('sbox_addr_3', helper.cpp:46->helper.cpp:110->helper.cpp:153) [117]  (0 ns)
+	'load' operation ('t[3]', helper.cpp:46->helper.cpp:110->helper.cpp:153) on array 'sbox' [118]  (3.25 ns)
 
- <State 5>: 6.51ns
+ <State 5>: 6.82ns
 The critical path consists of the following:
-	'load' operation ('t[1]', helper.cpp:136) on array 'expandedKey' [42]  (3.25 ns)
-	'getelementptr' operation ('sbox_addr', helper.cpp:43->helper.cpp:105->helper.cpp:144) [54]  (0 ns)
-	'load' operation ('sbox_load', helper.cpp:43->helper.cpp:105->helper.cpp:144) on array 'sbox' [55]  (3.25 ns)
+	'load' operation ('t[3]', helper.cpp:46->helper.cpp:110->helper.cpp:153) on array 'sbox' [118]  (3.25 ns)
+	'select' operation ('t[3]', helper.cpp:151) [124]  (0 ns)
+	'xor' operation ('xor_ln171_3', helper.cpp:171) [171]  (1.25 ns)
+	'store' operation ('store_ln171', helper.cpp:171) of variable 'xor_ln171_3', helper.cpp:171 on array 'expandedKey_3' [173]  (2.32 ns)
 
- <State 6>: 6.51ns
+ <State 6>: 6.82ns
 The critical path consists of the following:
-	'load' operation ('t[2]', helper.cpp:136) on array 'expandedKey' [46]  (3.25 ns)
-	'getelementptr' operation ('sbox_addr_1', helper.cpp:43->helper.cpp:105->helper.cpp:144) [57]  (0 ns)
-	'load' operation ('t[1]', helper.cpp:43->helper.cpp:105->helper.cpp:144) on array 'sbox' [58]  (3.25 ns)
+	'load' operation ('sbox_load', helper.cpp:46->helper.cpp:110->helper.cpp:153) on array 'sbox' [109]  (3.25 ns)
+	'xor' operation ('t[0]', helper.cpp:114->helper.cpp:153) [123]  (0 ns)
+	'select' operation ('t[0]', helper.cpp:151) [127]  (0 ns)
+	'xor' operation ('xor_ln171', helper.cpp:171) [135]  (1.25 ns)
+	'store' operation ('store_ln171', helper.cpp:171) of variable 'xor_ln171', helper.cpp:171 on array 'expandedKey_0' [139]  (2.32 ns)
 
- <State 7>: 5.17ns
+ <State 7>: 6.82ns
 The critical path consists of the following:
-	'add' operation ('add_ln161_2', helper.cpp:161) [96]  (1.92 ns)
-	'getelementptr' operation ('expandedKey_addr_9', helper.cpp:161) [99]  (0 ns)
-	'load' operation ('expandedKey_load_2', helper.cpp:161) on array 'expandedKey' [100]  (3.25 ns)
+	'load' operation ('t[1]', helper.cpp:46->helper.cpp:110->helper.cpp:153) on array 'sbox' [112]  (3.25 ns)
+	'select' operation ('t[1]', helper.cpp:151) [126]  (0 ns)
+	'xor' operation ('xor_ln171_1', helper.cpp:171) [148]  (1.25 ns)
+	'store' operation ('store_ln171', helper.cpp:171) of variable 'xor_ln171_1', helper.cpp:171 on array 'expandedKey_1' [150]  (2.32 ns)
 
- <State 8>: 4.5ns
+ <State 8>: 6.82ns
 The critical path consists of the following:
-	'load' operation ('t[2]', helper.cpp:43->helper.cpp:105->helper.cpp:144) on array 'sbox' [61]  (3.25 ns)
-	'select' operation ('t[2]', helper.cpp:142) [71]  (0 ns)
-	'xor' operation ('xor_ln161_2', helper.cpp:161) [101]  (1.25 ns)
+	'load' operation ('t[2]', helper.cpp:46->helper.cpp:110->helper.cpp:153) on array 'sbox' [115]  (3.25 ns)
+	'select' operation ('t[2]', helper.cpp:151) [125]  (0 ns)
+	'xor' operation ('xor_ln171_2', helper.cpp:171) [158]  (1.25 ns)
+	'store' operation ('store_ln171', helper.cpp:171) of variable 'xor_ln171_2', helper.cpp:171 on array 'expandedKey_2' [162]  (2.32 ns)
 
- <State 9>: 7.76ns
-The critical path consists of the following:
-	'load' operation ('t[3]', helper.cpp:43->helper.cpp:105->helper.cpp:144) on array 'sbox' [64]  (3.25 ns)
-	'select' operation ('t[3]', helper.cpp:142) [70]  (0 ns)
-	'xor' operation ('xor_ln161_3', helper.cpp:161) [112]  (1.25 ns)
-	'store' operation ('store_ln161', helper.cpp:161) of variable 'xor_ln161_3', helper.cpp:161 on array 'expandedKey' [115]  (3.25 ns)
-
- <State 10>: 0ns
+ <State 9>: 0ns
 The critical path consists of the following:
 
 
@@ -314,7 +351,6 @@ N/A
 	State 7
 	State 8
 	State 9
-	State 10
 
 
 ============================================================
