@@ -12,7 +12,8 @@ typedef ap_uint<LFSR_SEED_BITS> seed_type;
 
 
 // FUNCTIONS -------------------------------------------------------------
-seed_type lfsr(seed_type seed);
+// seed_type lfsr(seed_type seed);
+seed_type lfsr(seed_type seed, bool enable);
 
 
 #endif // LFSR_H

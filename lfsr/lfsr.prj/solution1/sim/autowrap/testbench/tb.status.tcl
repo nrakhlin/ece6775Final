@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/jjm469/ece6775/final_project/repo/lfsr/lfsr.prj/solution1/./sim/autowrap/testbench/lfsr.cpp_pre.cpp.tb.cpp
