@@ -25,4 +25,5 @@ obj/p2peda.o: ../../../../p2peda.cpp \
  ../../../../../../blowfish/blowfish.h \
  ../../../../../../blowfish/initial_data.h \
  ../../../../../../blowfish/blowfish.cpp \
- ../../../../../../blowfish/blowfish.h
+ ../../../../../../blowfish/blowfish.h ../../../../../../lfsr/lfsr.h \
+ ../../../../../../lfsr/lfsr.cpp ../../../../../../lfsr/lfsr.h

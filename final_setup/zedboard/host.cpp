@@ -153,7 +153,7 @@ std::string test_encrypt(int* fdw, int* fdr, std::string input_string, bool key)
   std::cout << "Input string = " << input_string << std::endl;
   send_to_accelerator(fdw, fdr, input_string, key, 1);
   received_inst = receive_from_accelerator(fdr);
-  std::cout << "Output string = " << received_inst.output_string << std::endl;
+  std::cout << "Output string = " << received_inst.output_string << "\n" << std::endl;
   return received_inst.output_string;
 }
 
@@ -163,15 +163,17 @@ std::string test_decrypt(int* fdw, int* fdr, std::string input_string, bool key)
   std::cout << "Input string = " << input_string << std::endl;
   send_to_accelerator(fdw, fdr, input_string, key, 0);
   received_inst = receive_from_accelerator(fdr);
-  std::cout << "Output string = " << received_inst.output_string << std::endl;
+  std::cout << "Output string = " << received_inst.output_string << "\n" << std::endl;
   return received_inst.output_string;
 }
 
-void test_loopback(int* fdw, int* fdr, std::string pt_input){
+std::string test_loopback(int* fdw, int* fdr, std::string pt_input){
   std::string ciphertext = test_encrypt(fdw, fdr, pt_input, 0);
   std::string pt_output = test_decrypt(fdw, fdr, ciphertext, 0);
-  assert (pt_input == pt_output.substr(0,pt_input.length()));
-  std::cout << "\n==========================================" << std::endl;
+  pt_output = pt_output.substr(0,pt_input.length());
+  assert (pt_input == pt_output);
+  std::cout << "==========================================" << std::endl;
+  return pt_output;
 }
 
 //------------------------------------------------------------------------
@@ -189,14 +191,38 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Failed to open Xillybus device channels\n");
     return -1;
   }
+  std::cout << "\n==========================================" << std::endl;
+
 
   test_loopback(&fdw, &fdr, "efg");
   test_loopback(&fdw, &fdr, "efghijkl");
   test_loopback(&fdw, &fdr, "efghijklmnopqrst");
   std::string cta = test_encrypt(&fdw, &fdr, "hello world", 0);
-  std::string ctb = test_encrypt(&fdw, &fdr, "zhiru zhang", 0);
+  std::string ctb = test_encrypt(&fdw, &fdr, "ECE 6750: HLS", 0);
   test_decrypt(&fdw, &fdr, cta, 0);
   test_decrypt(&fdw, &fdr, ctb, 0);
+
+  int temp;
+  bool testing = 1;
+  std::string input_string;
+  std::string exit_char;
+  while(testing){
+    std::cout << "\n==========================================" << std::endl;
+    std::string result = "";
+    std::cout << "Enter a string: ";
+    getline(std::cin, input_string);
+    temp = input_string.length();
+    temp = (temp + 15) / 16;
+    for (int i = 0; i < temp; i++){
+      result = result + test_loopback(&fdw, &fdr, input_string.substr(16*i, 16));
+    }
+    std::cout << "Output string (full): " << result << "\n";
+    // std::cout << "Enter 'q' to quit, or press 'enter' to continue: ";
+    // getline(std::cin, exit_char);
+    // if (exit_char == "q"){
+    //   testing = 0;
+    // }
+  }
 
   return 0;
 }

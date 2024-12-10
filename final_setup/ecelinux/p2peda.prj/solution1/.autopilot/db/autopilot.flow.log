@@ -1,7 +1,7 @@
-INFO-FLOW: Workspace /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1 opened at Wed Dec 04 19:55:46 EST 2024
+INFO-FLOW: Workspace /home/rdh247/ece6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1 opened at Mon Dec 09 23:42:10 EST 2024
 Execute     set_part xc7z020clg484-1 
 Execute       ap_part_info -name xc7z020clg484-1 -data single -quiet 
-Command       ap_part_info done; 1.71 sec.
+Command       ap_part_info done; 1.74 sec.
 Execute       ap_part_info -name xc7z020clg484-1 -data info 
 Execute       add_library xilinx/zynq/zynq:xc7z020:-clg484:-1 
 Execute         get_default_platform 
@@ -53,7 +53,7 @@ Execute         ap_part_info -name xc7z020-clg484-1 -data info
 Execute         config_chip_info -quiet -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP48E 220} {BRAM 280} {URAM 0} 
 Execute         ap_part_info -name xc7z020-clg484-1 -data info 
 Execute         config_chip_info -quiet -speed slow 
-Command       add_library done; 0.15 sec.
+Command       add_library done; 0.17 sec.
 Execute       add_library xilinx/zynq/zynq_fpv6 
 Execute         get_default_platform 
 Execute         open_platform DefaultPlatform 
@@ -71,146 +71,28 @@ Execute           source /opt/xilinx/Vivado/2019.2/common/technology/xilinx/comm
 INFO: [HLS 200-10] Setting target device to 'xc7z020-clg484-1'
 Execute       ap_part_info -name xc7z020-clg484-1 -data info 
 Execute       get_default_platform 
-Command     set_part done; 1.94 sec.
+Command     set_part done; 2.02 sec.
 Execute     create_clock -period 10 
 Execute       config_clock -quiet -name default -period 10 -default=false 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 Execute     csim_design 
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-Execute       is_encrypted /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
-Execute       is_xip /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
-Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/helper.cpp 
-Execute       is_xip /home/npr29/hls6775/ece6775Final/refactored/helper.cpp 
-Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/decrypt.cpp 
-Execute       is_xip /home/npr29/hls6775/ece6775Final/refactored/decrypt.cpp 
-Execute       is_encrypted /home/npr29/hls6775/ece6775Final/refactored/encrypt.cpp 
-Execute       is_xip /home/npr29/hls6775/ece6775Final/refactored/encrypt.cpp 
-Execute       is_encrypted /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
-Execute       is_xip /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
+Execute       is_encrypted /home/rdh247/ece6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
+Execute       is_xip /home/rdh247/ece6775/ece6775Final/final_setup/ecelinux/p2peda_test.cpp 
+Execute       is_encrypted /home/rdh247/ece6775/ece6775Final/refactored/helper.cpp 
+Execute       is_xip /home/rdh247/ece6775/ece6775Final/refactored/helper.cpp 
+Execute       is_encrypted /home/rdh247/ece6775/ece6775Final/refactored/decrypt.cpp 
+Execute       is_xip /home/rdh247/ece6775/ece6775Final/refactored/decrypt.cpp 
+Execute       is_encrypted /home/rdh247/ece6775/ece6775Final/refactored/encrypt.cpp 
+Execute       is_xip /home/rdh247/ece6775/ece6775Final/refactored/encrypt.cpp 
+Execute       is_encrypted /home/rdh247/ece6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
+Execute       is_xip /home/rdh247/ece6775/ece6775Final/final_setup/ecelinux/p2peda.cpp 
 Execute       ap_part_info -name xc7z020-clg484-1 -data info 
 Execute       source run_sim.tcl 
-INFO: [SIM 211-1] CSim done with 0 errors.
+Command       ap_source done; error code: 1; 169.7 sec.
+ERROR: [SIM 211-100] CSim failed with errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-Command     csim_design done; 2.58 sec.
-Execute     csynth_design 
-Execute       get_config_compile -dump_cfg 
-Execute       get_config_compile -effort 
-Execute       get_config_compile -enable_clang39 
-Execute       get_config_compile -g 
-Execute       get_config_compile -ng 
-Execute       get_config_compile -opt_fp 
-Execute       get_config_compile -skip_cdt 
-Execute       get_config_compile -skip_syncheck 
-Execute       get_config_compile -skip_transform 
-Execute       get_config_compile -keep_printf 
-Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
-Execute         get_config_schedule -relax_ii_for_timing 
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
-Execute         get_config_schedule -suppress_dependence_error_break 
-INFO: [HLS 200-10] Analyzing design file '../../refactored/helper.cpp' ... 
-INFO-FLOW: Compiling one TU...
-Execute         is_m_axi_addr64 
-INFO-FLOW: Handling ../../refactored/helper.cpp as C++
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-Execute         is_encrypted ../../refactored/helper.cpp 
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-INFO-FLOW: Running: GCC PP
-INFO-FLOW: Source preprocessing
-Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "../../refactored/helper.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E ../../refactored/helper.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp
-Command         clang done; 1.13 sec.
-Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-INFO-FLOW: Syntax Checking before pre-processing...
-Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
-Command         clang done; 1.19 sec.
-INFO-FLOW: Done: GCC PP time: 2.3 seconds per iteration
-Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
-Execute         source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
-Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/try/try.tcl 
-Execute         list_core -type functional_unit 
-Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-INFO-FLOW: Running: tidy-3.1 CDT preprocess
-Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Execute         get_config_dataflow -strict_mode 
-Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.helper.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.helper.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.helper.pp.0.cpp.err.log 
-Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp std=gnu++98 
-Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.helper.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.helper.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.helper.pp.0.cpp.err.log 
-Execute           source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
-Execute             source /opt/xilinx/Vivado/2019.2/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
-Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.helper.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.helper.pp.0.cpp.err.log 
-INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.1 seconds per iteration
-INFO-FLOW: Pragma Handling...
-Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.1.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-INFO-FLOW: Processing labels
-Execute         clang -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.bc" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/helper.bc
-Command         clang done; 1.11 sec.
-INFO: [HLS 200-10] Analyzing design file '../../refactored/decrypt.cpp' ... 
-INFO-FLOW: Compiling one TU...
-Execute         is_m_axi_addr64 
-INFO-FLOW: Handling ../../refactored/decrypt.cpp as C++
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-Execute         is_encrypted ../../refactored/decrypt.cpp 
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-INFO-FLOW: Running: GCC PP
-INFO-FLOW: Source preprocessing
-Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "../../refactored/decrypt.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E ../../refactored/decrypt.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp
-Command         clang done; 1.1 sec.
-Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-INFO-FLOW: Syntax Checking before pre-processing...
-Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
-Command         clang done; 1.12 sec.
-INFO-FLOW: Done: GCC PP time: 2.2 seconds per iteration
-Execute         list_core -type functional_unit 
-Execute         tidy_31 xilinx-systemc-detector /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-INFO-FLOW: Running: tidy-3.1 CDT preprocess
-Execute         tidy_31 xilinx-directive2pragma /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 -directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/all.directive.json -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Execute         get_config_dataflow -strict_mode 
-Execute         ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.decrypt.pp.0.cpp.diag.yml /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.decrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.decrypt.pp.0.cpp.err.log 
-Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp std=gnu++98 
-Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.decrypt.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.decrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/tidy-3.1.decrypt.pp.0.cpp.err.log 
-Execute           ap_eval exec -ignorestderr /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.decrypt.pp.0.cpp.out.log 2> /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/xilinx-legacy-rewriter.decrypt.pp.0.cpp.err.log 
-INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 0.1 seconds per iteration
-INFO-FLOW: Pragma Handling...
-Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.1.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-INFO-FLOW: Processing labels
-Execute         clang -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.bc" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/decrypt.bc
-Command         clang done; 1.12 sec.
-INFO: [HLS 200-10] Analyzing design file '../../refactored/encrypt.cpp' ... 
-INFO-FLOW: Compiling one TU...
-Execute         is_m_axi_addr64 
-INFO-FLOW: Handling ../../refactored/encrypt.cpp as C++
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-Execute         is_encrypted ../../refactored/encrypt.cpp 
-Execute         ap_part_info -name xc7z020-clg484-1 -data info 
-INFO-FLOW: Running: GCC PP
-INFO-FLOW: Source preprocessing
-Execute         clang  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "../../refactored/encrypt.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp" 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E ../../refactored/encrypt.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp
-Command         clang done; 1.11 sec.
-Execute         tidy_31 xilinx-xfmat-array-geometry /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp std=gnu++98 
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
-INFO-FLOW: Syntax Checking before pre-processing...
-Execute         clang -syntaxcheck -src /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/opt/xilinx/Vivado/2019.2/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot" -I "/opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp"  -o "/home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc"  
-INFO-FLOW: exec /opt/xilinx/Vivado/2019.2/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vivado/2019.2/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot -I /opt/xilinx/Vivado/2019.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/encrypt.pp.0.cpp -o /home/npr29/hls6775/ece6775Final/final_setup/ecelinux/p2peda.prj/solution1/.autopilot/db/useless.bc
-ERROR: [HLS 200-70] Compilation errors found: child killed: interrupt
-Command         clang done; error code: 2; 0.35 sec.
-Command       elaborate done; error code: 2; 8.81 sec.
-Command     csynth_design done; error code: 2; 8.82 sec.
-Command   ap_source done; error code: 1; 13.43 sec.
+Command     csim_design done; error code: 2; 172.98 sec.
+Command   ap_source done; error code: 1; 175.17 sec.
 Execute   cleanup_all 

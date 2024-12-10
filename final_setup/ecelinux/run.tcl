@@ -115,7 +115,7 @@ set_directive_unroll expandKey/EX_K_LOOP1
 # Simulate the C++ design
 csim_design
 # Synthesize the design
-csynth_design
+# csynth_design
 # Co-simulate the design
-cosim_design
+# cosim_design
 exit

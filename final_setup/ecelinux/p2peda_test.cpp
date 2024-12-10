@@ -141,7 +141,7 @@ std::string test_encrypt(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* 
   std::cout << "Input string = " << input_string << std::endl;
   send_to_accelerator(p2peda_in, p2peda_out, input_string, key, 1);
   received_inst = receive_from_accelerator(p2peda_out);
-  std::cout << "Output string = " << received_inst.output_string << std::endl;
+  std::cout << "Output string = " << received_inst.output_string << "\n" << std::endl;
 
   // printf("outside_accel: %d\n", received_inst.output_string);
   return received_inst.output_string;
@@ -155,15 +155,17 @@ std::string test_decrypt(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* 
   std::cout << "Input string = " << input_string << std::endl;
   send_to_accelerator(p2peda_in, p2peda_out, input_string, key, 0);
   received_inst = receive_from_accelerator(p2peda_out);
-  std::cout << "Output string = " << received_inst.output_string << std::endl;
+  std::cout << "Output string = " << received_inst.output_string << "\n" << std::endl;
   return received_inst.output_string;
 }
 
-void test_loopback(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* p2peda_out, std::string pt_input){
+std::string test_loopback(hls::stream<bit32_t>* p2peda_in, hls::stream<bit32_t>* p2peda_out, std::string pt_input){
   std::string ciphertext = test_encrypt(p2peda_in, p2peda_out, pt_input, 0);
   std::string pt_output = test_decrypt(p2peda_in, p2peda_out, ciphertext, 0);
-  assert (pt_input == pt_output.substr(0,pt_input.length()));
-  std::cout << "\n==========================================" << std::endl;
+  pt_output = pt_output.substr(0,pt_input.length());
+  assert (pt_input == pt_output);
+  std::cout << "==========================================" << std::endl;
+  return pt_output;
 }
 
 //------------------------------------------------------------------------
@@ -173,13 +175,38 @@ int main() {
   // HLS streams for communicating between CPU and FPGA
   hls::stream<bit32_t> p2peda_in;
   hls::stream<bit32_t> p2peda_out;
+  std::cout << "\n==========================================" << std::endl;
 
   test_loopback(&p2peda_in, &p2peda_out, "efg");
   test_loopback(&p2peda_in, &p2peda_out, "efghijkl");
   test_loopback(&p2peda_in, &p2peda_out, "efghijklmnopqrst");
-  std::string cta = test_encrypt(&p2peda_in, &p2peda_out, "hello world", 0);
-  std::string ctb = test_encrypt(&p2peda_in, &p2peda_out, "zhiru zhang     ", 0);
+  std::string cta = test_encrypt(&p2peda_in, &p2peda_out, "hello world!", 0);
+  std::string ctb = test_encrypt(&p2peda_in, &p2peda_out, "ece 6775: hls  ", 0);
   test_decrypt(&p2peda_in, &p2peda_out, cta, 0);
   test_decrypt(&p2peda_in, &p2peda_out, ctb, 0);
+  
+  // int temp;
+  // bool testing = 1;
+  // std::string input_string;
+  // std::string exit_char;
+  // while(testing){
+  //   std::string result = "";
+  //   std::cout << "Enter a string: ";
+  //   getline(std::cin, input_string);
+  //   std::cout << "Input string (long): " << input_string << "\n";
+  //   temp = input_string.length();
+  //   temp = (temp + 15) / 16;
+  //   for (int i = 0; i < temp; i++){
+  //     result = result + test_loopback(&p2peda_in, &p2peda_out, input_string.substr(16*i, 16));
+  //   }
+  //   std::cout << "Output string (long): " << result << "\n";
+  //   std::cout << "Enter 'q' to quit, or press 'enter' to continue: ";
+  //   getline(std::cin, exit_char);
+  //   if (exit_char == "q"){
+  //     testing = 0;
+  //   }
+  // }
+
+
   return 0;
 }
