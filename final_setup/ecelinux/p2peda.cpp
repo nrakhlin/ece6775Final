@@ -82,7 +82,7 @@ bit128_t decrypt_aes(bit128_t ciphertext){
 bit128_t encrypt_bf(bit128_t plaintext){
   bit128_t ciphertext;
   bit128_t plaintext_;
-  std::cout << "enc_plaintext 128-bit value: " << std::hex << plaintext << std::endl;
+  // std::cout << "enc_plaintext 128-bit value: " << std::hex << plaintext << std::endl;
   unsigned char plaintext1[BLOCK_SIZE];
   unsigned char plaintext2[BLOCK_SIZE];
 
@@ -99,14 +99,14 @@ bit128_t encrypt_bf(bit128_t plaintext){
   Blowfish_Encrypt(plaintext2, ciphertext2, P, S);
 
   ciphertext = combine_to_bit128(ciphertext1, ciphertext2);
-  std::cout << "enc_ciphertext 128-bit value: " << std::hex << ciphertext << std::endl;
+  // std::cout << "enc_ciphertext 128-bit value: " << std::hex << ciphertext << std::endl;
   return ciphertext;
 }
 
 
 bit128_t decrypt_bf(bit128_t ciphertext){
   bit128_t plaintext;
-  std::cout << "dec_ciphertext 128-bit value: " << std::hex << ciphertext << std::endl;
+  // std::cout << "dec_ciphertext 128-bit value: " << std::hex << ciphertext << std::endl;
 
   unsigned char ciphertext1[BLOCK_SIZE];
   unsigned char ciphertext2[BLOCK_SIZE];
@@ -121,7 +121,7 @@ bit128_t decrypt_bf(bit128_t ciphertext){
   Blowfish_Decrypt(ciphertext2, decryptedtext2, P, S);
 
   plaintext = combine_to_bit128(decryptedtext1, decryptedtext2);
-  std::cout << "dec_plaintext_ 128-bit value: " << std::hex << plaintext << std::endl;
+  // std::cout << "dec_plaintext_ 128-bit value: " << std::hex << plaintext << std::endl;
 
   return plaintext;
 }
@@ -191,18 +191,18 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
   }
 
 
-  if (!en){
-    std::cout << "encrypting" << std::endl;
+  if (en){
+    // std::cout << "encrypting" << std::endl;
     enc_seed = lfsr(enc_seed, true);
     lfsr_encrypt = enc_seed%2;
-    std::cout << "Random number " << enc_seed << std::endl;
+    // std::cout << "Random number " << enc_seed << std::endl;
     std::cout << "Blowfish: 0, AES: 1, lfsr_encrypt: " << lfsr_encrypt << std::endl;
     if (lfsr_encrypt){
-      std::cout << "AES encrypt" << std::endl;
+      // std::cout << "AES encrypt" << std::endl;
       output_message = encrypt_aes(input_message);
     }
     else {
-      std::cout << "BF encrypt" << std::endl;
+      // std::cout << "BF encrypt" << std::endl;
       output_message = encrypt_bf(input_message);
     }
     // std::cout << "output message: " << output_message << std::endl;
@@ -222,19 +222,19 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     }
   }
   else {
-    std::cout << "decrypting" << std::endl;
+    // std::cout << "decrypting" << std::endl;
     dec_seed = lfsr(dec_seed, true);
     lfsr_decrypt = dec_seed%2;
-    std::cout << "Random number " << dec_seed << std::endl;
+    // std::cout << "Random number " << dec_seed << std::endl;
     std::cout << "Blowfish: 0, AES: 1, lfsr_decrypt: " << lfsr_decrypt << std::endl;
 
     if (lfsr_decrypt){
-      std::cout << "AES decrypt" << std::endl;
+      // std::cout << "AES decrypt" << std::endl;
       output_message_aes = decrypt_aes(input_message);
       output_message = output_message_aes;
     }
     else {
-      std::cout << "BF decrypt" << std::endl;
+      // std::cout << "BF decrypt" << std::endl;
       output_message_bf = decrypt_bf(input_message);
       output_message = output_message_bf;
     }
