@@ -175,30 +175,37 @@ int main() {
   // HLS streams for communicating between CPU and FPGA
   hls::stream<bit32_t> p2peda_in;
   hls::stream<bit32_t> p2peda_out;
-  int temp;
   std::cout << "\n==========================================" << std::endl;
 
   test_loopback(&p2peda_in, &p2peda_out, "efg");
   test_loopback(&p2peda_in, &p2peda_out, "efghijkl");
   test_loopback(&p2peda_in, &p2peda_out, "efghijklmnopqrst");
-  std::string cta = test_encrypt(&p2peda_in, &p2peda_out, "hello world", 0);
+  std::string cta = test_encrypt(&p2peda_in, &p2peda_out, "hello world!", 0);
   std::string ctb = test_encrypt(&p2peda_in, &p2peda_out, "ece 6775: hls  ", 0);
   test_decrypt(&p2peda_in, &p2peda_out, cta, 0);
   test_decrypt(&p2peda_in, &p2peda_out, ctb, 0);
   
-  std::string input_string;
-  while(1){
-    std::string result = "";
-    std::cout << "Enter a string: ";
-    getline(std::cin, input_string);
-    std::cout << "Input string (long): " << input_string << "\n";
-    temp = input_string.length();
-    temp = (temp + 15) / 16;
-    for (int i = 0; i < temp; i++){
-      result = result + test_loopback(&p2peda_in, &p2peda_out, input_string.substr(16*i, 16));
-    }
-    std::cout << "Output string (long): " << result << "\n";
-  }
+  // int temp;
+  // bool testing = 1;
+  // std::string input_string;
+  // std::string exit_char;
+  // while(testing){
+  //   std::string result = "";
+  //   std::cout << "Enter a string: ";
+  //   getline(std::cin, input_string);
+  //   std::cout << "Input string (long): " << input_string << "\n";
+  //   temp = input_string.length();
+  //   temp = (temp + 15) / 16;
+  //   for (int i = 0; i < temp; i++){
+  //     result = result + test_loopback(&p2peda_in, &p2peda_out, input_string.substr(16*i, 16));
+  //   }
+  //   std::cout << "Output string (long): " << result << "\n";
+  //   std::cout << "Enter 'q' to quit, or press 'enter' to continue: ";
+  //   getline(std::cin, exit_char);
+  //   if (exit_char == "q"){
+  //     testing = 0;
+  //   }
+  // }
 
 
   return 0;
