@@ -25,6 +25,22 @@ int main() {
     unsigned int P[PARRAY_SIZE];
     unsigned int S[SBOX_SIZE_1][SBOX_SIZE_2];
 
+    // DEL?
+    // Manually copy data from initial_parray into P
+    PARRAY_INIT_1:
+    for (int i = 0; i < PARRAY_SIZE; i++) {
+        P[i] = initial_parray[i];
+    }
+
+    // Manually copy data from initial_sbox into S
+    SBOX_INIT_1:
+    for (int i = 0; i < SBOX_SIZE_1; ++i) {
+        SBOX_INIT_2:
+        for (int j = 0; j < SBOX_SIZE_2; ++j) {
+            S[i][j] = initial_sbox[i][j];
+        }
+    }
+
     if(mode == 1){
         // Key expansion
         Blowfish_SetKey(key, sizeof("My Key!!!")-1,P, S);
