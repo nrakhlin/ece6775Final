@@ -18,6 +18,8 @@
 #include <hls_stream.h>
 #include "typedefs.h"
 #include "p2peda.h"
+#include "timer.h"
+
 
 struct received{
   std::string output_string;
@@ -176,6 +178,37 @@ std::string test_loopback(int* fdw, int* fdr, std::string pt_input){
   return pt_output;
 }
 
+
+void microbenchmark_encrypt(int* fdw, int* fdr){
+  std::cout << "==========================================" << std::endl;
+  std::cout << "Encrypt_microbenchmark" << std::endl;
+  std::cout << "==========================================" << std::endl;
+  Timer timer("digitrec FPGA");
+  timer.start();
+  for (int i = 0; i < 10000; i++){
+    send_to_accelerator(fdw, fdr, "hello world", 0, 1);
+    receive_from_accelerator(fdr);
+  }
+
+  timer.stop();
+  std::cout << "------------------------------------------" << std::endl;
+}
+
+void microbenchmark_decrypt(int* fdw, int* fdr){
+  std::cout << "==========================================" << std::endl;
+  std::cout << "Decrypt_microbenchmark" << std::endl;
+  std::cout << "==========================================" << std::endl;
+  Timer timer("digitrec FPGA");
+  timer.start();
+  for (int i = 0; i < 10000; i++){
+    send_to_accelerator(fdw, fdr, "hello world", 0, 0);
+    receive_from_accelerator(fdr);
+  }
+
+  timer.stop();
+  std::cout << "------------------------------------------" << std::endl;
+}
+
 //------------------------------------------------------------------------
 // testbench
 //------------------------------------------------------------------------
@@ -201,6 +234,9 @@ int main(int argc, char **argv) {
   std::string ctb = test_encrypt(&fdw, &fdr, "ECE 6750: HLS", 0);
   test_decrypt(&fdw, &fdr, cta, 0);
   test_decrypt(&fdw, &fdr, ctb, 0);
+
+  microbenchmark_encrypt(&fdw, &fdr);
+  microbenchmark_decrypt(&fdw, &fdr);
 
   int temp;
   bool testing = 1;
