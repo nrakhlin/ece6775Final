@@ -17,7 +17,7 @@ void aes_main(unsigned char state[16], unsigned char expandedKey[EXPAND_KEY_SIZE
   int i = 0;
   int j, k;
   unsigned char roundKey[16];
-  #pragma HLS array_partition variable=roundKey complete dim=0
+  // #pragma HLS array_partition variable=roundKey complete dim=0
 
   createRoundKey(expandedKey, roundKey, 0);
   addRoundKey(state, roundKey);
@@ -44,7 +44,7 @@ void aes_encrypt(unsigned char input[16],
   unsigned char block[16]; // hard coded to 16
   int i, j;
   unsigned char expandedKey[EXPAND_KEY_SIZE];
-  #pragma HLS array_partition variable=expandedKey cyclic factor=4 dim=0
+  // #pragma HLS array_partition variable=expandedKey cyclic factor=4 dim=0
   // iterate over the columns
   for (i = 0; i < 4; i++)
   {

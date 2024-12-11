@@ -126,7 +126,7 @@ void expandKey(unsigned char expandedKey[EXPAND_KEY_SIZE],
   int i;
 
   unsigned char t[4] = {0}; // temporary 4-byte variable
-  #pragma HLS array_partition variable=t complete dim=0
+  // #pragma HLS array_partition variable=t complete dim=0
 
   int temp;
 
