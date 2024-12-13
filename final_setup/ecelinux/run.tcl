@@ -14,9 +14,6 @@ set_top dut
 
 # Add design and testbench files
 add_files p2peda.cpp
-add_files ../../refactored/encrypt.cpp
-add_files ../../refactored/decrypt.cpp
-add_files ../../refactored/helper.cpp
 add_files -tb p2peda_test.cpp
 
 
