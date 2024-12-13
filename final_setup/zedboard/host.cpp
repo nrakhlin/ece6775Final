@@ -179,9 +179,9 @@ std::string test_loopback(int* fdw, int* fdr, std::string pt_input){
 }
 
 
-void microbenchmark_encrypt(int* fdw, int* fdr){
+void microbenchmark_encrypt1(int* fdw, int* fdr){
   std::cout << "==========================================" << std::endl;
-  std::cout << "Encrypt_microbenchmark" << std::endl;
+  std::cout << "Encrypt_microbenchmark1" << std::endl;
   std::cout << "==========================================" << std::endl;
   Timer timer("digitrec FPGA");
   timer.start();
@@ -194,9 +194,9 @@ void microbenchmark_encrypt(int* fdw, int* fdr){
   std::cout << "------------------------------------------" << std::endl;
 }
 
-void microbenchmark_decrypt(int* fdw, int* fdr){
+void microbenchmark_decrypt1(int* fdw, int* fdr){
   std::cout << "==========================================" << std::endl;
-  std::cout << "Decrypt_microbenchmark" << std::endl;
+  std::cout << "Decrypt_microbenchmark1" << std::endl;
   std::cout << "==========================================" << std::endl;
   Timer timer("digitrec FPGA");
   timer.start();
@@ -208,6 +208,69 @@ void microbenchmark_decrypt(int* fdw, int* fdr){
   timer.stop();
   std::cout << "------------------------------------------" << std::endl;
 }
+
+
+void microbenchmark_encrypt2(int* fdw, int* fdr){
+  std::cout << "==========================================" << std::endl;
+  std::cout << "Encrypt_microbenchmark2" << std::endl;
+  std::cout << "==========================================" << std::endl;
+  Timer timer("digitrec FPGA");
+  timer.start();
+  for (int i = 0; i < 10000; i++){
+    send_to_accelerator(fdw, fdr, "hello worldhe", 0, 1);
+    receive_from_accelerator(fdr);
+  }
+
+  timer.stop();
+  std::cout << "------------------------------------------" << std::endl;
+}
+
+void microbenchmark_decrypt2(int* fdw, int* fdr){
+  std::cout << "==========================================" << std::endl;
+  std::cout << "Decrypt_microbenchmark2" << std::endl;
+  std::cout << "==========================================" << std::endl;
+  Timer timer("digitrec FPGA");
+  timer.start();
+  for (int i = 0; i < 10000; i++){
+    send_to_accelerator(fdw, fdr, "hello worldhe", 0, 0);
+    receive_from_accelerator(fdr);
+  }
+
+  timer.stop();
+  std::cout << "------------------------------------------" << std::endl;
+}
+
+
+void microbenchmark_encrypt3(int* fdw, int* fdr){
+  std::cout << "==========================================" << std::endl;
+  std::cout << "Encrypt_microbenchmark3" << std::endl;
+  std::cout << "==========================================" << std::endl;
+  Timer timer("digitrec FPGA");
+  timer.start();
+  for (int i = 0; i < 10000; i++){
+    send_to_accelerator(fdw, fdr, "hello worldhello", 0, 1);
+    receive_from_accelerator(fdr);
+  }
+
+  timer.stop();
+  std::cout << "------------------------------------------" << std::endl;
+}
+
+void microbenchmark_decrypt3(int* fdw, int* fdr){
+  std::cout << "==========================================" << std::endl;
+  std::cout << "Decrypt_microbenchmark3" << std::endl;
+  std::cout << "==========================================" << std::endl;
+  Timer timer("digitrec FPGA");
+  timer.start();
+  for (int i = 0; i < 10000; i++){
+    send_to_accelerator(fdw, fdr, "hello worldhello", 0, 0);
+    receive_from_accelerator(fdr);
+  }
+
+  timer.stop();
+  std::cout << "------------------------------------------" << std::endl;
+}
+
 
 //------------------------------------------------------------------------
 // testbench
@@ -235,8 +298,14 @@ int main(int argc, char **argv) {
   test_decrypt(&fdw, &fdr, cta, 0);
   test_decrypt(&fdw, &fdr, ctb, 0);
 
-  microbenchmark_encrypt(&fdw, &fdr);
-  microbenchmark_decrypt(&fdw, &fdr);
+  microbenchmark_encrypt1(&fdw, &fdr);
+  microbenchmark_decrypt1(&fdw, &fdr);
+
+  microbenchmark_encrypt2(&fdw, &fdr);
+  microbenchmark_decrypt2(&fdw, &fdr);
+
+  microbenchmark_encrypt3(&fdw, &fdr);
+  microbenchmark_decrypt3(&fdw, &fdr);
 
   int temp;
   bool testing = 1;
