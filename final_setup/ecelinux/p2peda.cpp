@@ -9,6 +9,9 @@
 //for aes:
 #include "../../refactored/encrypt.h"
 #include "../../refactored/decrypt.h"
+#include "../../refactored/helper.cpp"
+#include "../../refactored/encrypt.cpp"
+#include "../../refactored/decrypt.cpp"
 
 //for blowfish
 #include "../../blowfish/blowfish.h"
