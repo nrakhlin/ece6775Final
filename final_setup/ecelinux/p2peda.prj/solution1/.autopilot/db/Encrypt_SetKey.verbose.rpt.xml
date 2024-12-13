@@ -1,0 +1,170 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'Encrypt_SetKey'" level="0">
+<item name = "Date">Fri Dec 13 15:48:01 2024
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">p2peda.prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.358 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">49, 49, 0.490 us, 0.490 us, 49, 49, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- ENCRYPT_FEISTEL">48, 48, 3, -, -, 16, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 314, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 157, -</column>
+<column name="Register">-, -, 206, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln81_fu_483_p2">+, 0, 0, 39, 32, 32</column>
+<column name="feistel_result_fu_495_p2">+, 0, 0, 39, 32, 32</column>
+<column name="i_fu_357_p2">+, 0, 0, 15, 5, 1</column>
+<column name="ap_condition_387">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln18_fu_351_p2">icmp, 0, 0, 11, 5, 6</column>
+<column name="d_fu_435_p2">xor, 0, 0, 8, 8, 8</column>
+<column name="localLeft_fu_387_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="localRight_fu_501_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln19_1_fu_393_p2">xor, 0, 0, 16, 16, 16</column>
+<column name="xor_ln19_2_fu_399_p2">xor, 0, 0, 24, 24, 24</column>
+<column name="xor_ln26_fu_461_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln27_fu_466_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln81_fu_489_p2">xor, 0, 0, 32, 32, 32</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">27, 5, 1, 5</column>
+<column name="ap_phi_mux_phi_ln19_phi_fu_317_p32">85, 17, 32, 544</column>
+<column name="ap_return_0">9, 2, 32, 64</column>
+<column name="ap_return_1">9, 2, 32, 64</column>
+<column name="i_0_reg_303">9, 2, 5, 10</column>
+<column name="p_b_read_assign_reg_293">9, 2, 32, 64</column>
+<column name="p_tmp_reg_284">9, 2, 32, 64</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">4, 0, 4, 0</column>
+<column name="ap_return_0_preg">32, 0, 32, 0</column>
+<column name="ap_return_1_preg">32, 0, 32, 0</column>
+<column name="feistel_result_reg_639">32, 0, 32, 0</column>
+<column name="i_0_reg_303">5, 0, 5, 0</column>
+<column name="i_reg_609">5, 0, 5, 0</column>
+<column name="localLeft_reg_614">32, 0, 32, 0</column>
+<column name="p_b_read_assign_reg_293">32, 0, 32, 0</column>
+<column name="p_tmp_reg_284">32, 0, 32, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_return_0">out, 32, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="ap_return_1">out, 32, ap_ctrl_hs, Encrypt_SetKey, return value</column>
+<column name="left_read">in, 32, ap_none, left_read, scalar</column>
+<column name="right_read">in, 32, ap_none, right_read, scalar</column>
+<column name="P_0_read">in, 32, ap_none, P_0_read, scalar</column>
+<column name="P_1_read">in, 32, ap_none, P_1_read, scalar</column>
+<column name="P_2_read">in, 32, ap_none, P_2_read, scalar</column>
+<column name="P_3_read">in, 32, ap_none, P_3_read, scalar</column>
+<column name="P_4_read">in, 32, ap_none, P_4_read, scalar</column>
+<column name="P_5_read">in, 32, ap_none, P_5_read, scalar</column>
+<column name="P_6_read">in, 32, ap_none, P_6_read, scalar</column>
+<column name="P_7_read">in, 32, ap_none, P_7_read, scalar</column>
+<column name="P_8_read">in, 32, ap_none, P_8_read, scalar</column>
+<column name="P_9_read">in, 32, ap_none, P_9_read, scalar</column>
+<column name="P_10_read">in, 32, ap_none, P_10_read, scalar</column>
+<column name="P_11_read">in, 32, ap_none, P_11_read, scalar</column>
+<column name="P_12_read">in, 32, ap_none, P_12_read, scalar</column>
+<column name="P_13_read">in, 32, ap_none, P_13_read, scalar</column>
+<column name="P_14_read">in, 32, ap_none, P_14_read, scalar</column>
+<column name="P_15_read">in, 32, ap_none, P_15_read, scalar</column>
+<column name="P_16_read">in, 32, ap_none, P_16_read, scalar</column>
+<column name="P_17_read">in, 32, ap_none, P_17_read, scalar</column>
+<column name="S_0_address0">out, 8, ap_memory, S_0, array</column>
+<column name="S_0_ce0">out, 1, ap_memory, S_0, array</column>
+<column name="S_0_q0">in, 32, ap_memory, S_0, array</column>
+<column name="S_1_address0">out, 8, ap_memory, S_1, array</column>
+<column name="S_1_ce0">out, 1, ap_memory, S_1, array</column>
+<column name="S_1_q0">in, 32, ap_memory, S_1, array</column>
+<column name="S_2_address0">out, 8, ap_memory, S_2, array</column>
+<column name="S_2_ce0">out, 1, ap_memory, S_2, array</column>
+<column name="S_2_q0">in, 32, ap_memory, S_2, array</column>
+<column name="S_3_address0">out, 8, ap_memory, S_3, array</column>
+<column name="S_3_ce0">out, 1, ap_memory, S_3, array</column>
+<column name="S_3_q0">in, 32, ap_memory, S_3, array</column>
+</table>
+</item>
+</section>
+</profile>

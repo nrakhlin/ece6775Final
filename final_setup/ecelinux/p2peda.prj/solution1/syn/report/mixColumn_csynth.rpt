@@ -1,0 +1,213 @@
+
+
+================================================================
+== Vivado HLS Report for 'mixColumn'
+================================================================
+* Date:           Fri Dec 13 15:48:04 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 3.869 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       15|       15| 0.150 us | 0.150 us |   15|   15|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                 |                      |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |             Instance            |        Module        |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +---------------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_galois_multiplicatio_fu_91   |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_98   |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_105  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_112  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_119  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_126  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_133  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_140  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_147  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_154  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_161  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        |grp_galois_multiplicatio_fu_168  |galois_multiplicatio  |        9|        9| 90.000 ns | 90.000 ns |    9|    9|   none  |
+        +---------------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        4|        4|         1|          -|          -|     4|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    119|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|     420|   1413|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     66|    -|
+|Register         |        -|      -|     114|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     534|   1598|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |      3|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------------+----------------------+---------+-------+----+-----+-----+
+    |             Instance            |        Module        | BRAM_18K| DSP48E| FF | LUT | URAM|
+    +---------------------------------+----------------------+---------+-------+----+-----+-----+
+    |dut_mux_42_8_1_1_U169            |dut_mux_42_8_1_1      |        0|      0|   0|   21|    0|
+    |grp_galois_multiplicatio_fu_91   |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_98   |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_105  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_112  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_119  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_126  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_133  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_140  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_147  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_154  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_161  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    |grp_galois_multiplicatio_fu_168  |galois_multiplicatio  |        0|      0|  35|  116|    0|
+    +---------------------------------+----------------------+---------+-------+----+-----+-----+
+    |Total                            |                      |        0|      0| 420| 1413|    0|
+    +---------------------------------+----------------------+---------+-------+----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |i_fu_181_p2                      |     +    |      0|  0|  12|           3|           1|
+    |icmp_ln260_fu_175_p2             |   icmp   |      0|  0|   9|           3|           4|
+    |ap_block_state3_on_subcall_done  |    or    |      0|  0|   2|           1|           1|
+    |xor_ln267_1_fu_251_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln267_2_fu_257_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln267_fu_245_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln272_1_fu_269_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln272_2_fu_275_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln272_fu_263_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln277_1_fu_287_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln277_2_fu_293_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln277_fu_281_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln282_1_fu_305_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln282_2_fu_311_p2            |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln282_fu_299_p2              |    xor   |      0|  0|   8|           8|           8|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+    |Total                            |          |      0|  0| 119|         103|         102|
+    +---------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------+----+-----------+-----+-----------+
+    |     Name    | LUT| Input Size| Bits| Total Bits|
+    +-------------+----+-----------+-----+-----------+
+    |ap_NS_fsm    |  21|          4|    1|          4|
+    |ap_return_0  |   9|          2|    8|         16|
+    |ap_return_1  |   9|          2|    8|         16|
+    |ap_return_2  |   9|          2|    8|         16|
+    |ap_return_3  |   9|          2|    8|         16|
+    |i_0_reg_80   |   9|          2|    3|          6|
+    +-------------+----+-----------+-----+-----------+
+    |Total        |  66|         14|   36|         74|
+    +-------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------+---+----+-----+-----------+
+    |                     Name                     | FF| LUT| Bits| Const Bits|
+    +----------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                     |  3|   0|    3|          0|
+    |ap_return_0_preg                              |  8|   0|    8|          0|
+    |ap_return_1_preg                              |  8|   0|    8|          0|
+    |ap_return_2_preg                              |  8|   0|    8|          0|
+    |ap_return_3_preg                              |  8|   0|    8|          0|
+    |cpy_3_1_fu_44                                 |  8|   0|    8|          0|
+    |cpy_3_1_load_reg_403                          |  8|   0|    8|          0|
+    |cpy_3_2_fu_48                                 |  8|   0|    8|          0|
+    |cpy_3_2_load_reg_410                          |  8|   0|    8|          0|
+    |cpy_3_3_fu_52                                 |  8|   0|    8|          0|
+    |cpy_3_3_load_reg_417                          |  8|   0|    8|          0|
+    |cpy_3_fu_40                                   |  8|   0|    8|          0|
+    |cpy_3_load_reg_396                            |  8|   0|    8|          0|
+    |grp_galois_multiplicatio_fu_105_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_112_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_119_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_126_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_133_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_140_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_147_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_154_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_161_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_168_ap_start_reg  |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_91_ap_start_reg   |  1|   0|    1|          0|
+    |grp_galois_multiplicatio_fu_98_ap_start_reg   |  1|   0|    1|          0|
+    |i_0_reg_80                                    |  3|   0|    3|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+    |Total                                         |114|   0|  114|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------+-----+-----+------------+---------------+--------------+
+|   RTL Ports   | Dir | Bits|  Protocol  | Source Object |    C Type    |
++---------------+-----+-----+------------+---------------+--------------+
+|ap_clk         |  in |    1| ap_ctrl_hs |   mixColumn   | return value |
+|ap_rst         |  in |    1| ap_ctrl_hs |   mixColumn   | return value |
+|ap_start       |  in |    1| ap_ctrl_hs |   mixColumn   | return value |
+|ap_done        | out |    1| ap_ctrl_hs |   mixColumn   | return value |
+|ap_idle        | out |    1| ap_ctrl_hs |   mixColumn   | return value |
+|ap_ready       | out |    1| ap_ctrl_hs |   mixColumn   | return value |
+|ap_return_0    | out |    8| ap_ctrl_hs |   mixColumn   | return value |
+|ap_return_1    | out |    8| ap_ctrl_hs |   mixColumn   | return value |
+|ap_return_2    | out |    8| ap_ctrl_hs |   mixColumn   | return value |
+|ap_return_3    | out |    8| ap_ctrl_hs |   mixColumn   | return value |
+|column_0_read  |  in |    8|   ap_none  | column_0_read |    scalar    |
+|column_1_read  |  in |    8|   ap_none  | column_1_read |    scalar    |
+|column_2_read  |  in |    8|   ap_none  | column_2_read |    scalar    |
+|column_3_read  |  in |    8|   ap_none  | column_3_read |    scalar    |
++---------------+-----+-----+------------+---------------+--------------+
+
