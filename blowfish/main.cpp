@@ -11,9 +11,6 @@
 
 int main() {
     // Example key and plaintext
-    // unsigned char key[MAX_KEY_BYTE_LENGTH] = "My Key!!!";
-    // unsigned char plaintext[BLOCK_SIZE] = 'Wereisms';  // Plaintext as unsigned char array
-
     unsigned char key[MAX_KEY_BYTE_LENGTH] = {'M', 'y', ' ','K','e','y','!','!','!'};
     unsigned char plaintext[BLOCK_SIZE] = {'W','e', 'r', 'e', 'i', 's', 'm', 's'};
 

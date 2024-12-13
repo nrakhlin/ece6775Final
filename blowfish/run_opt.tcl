@@ -7,7 +7,8 @@
 # set hls_prj Blowfish_Setkey_Encrypt_Opt.prj
 # set hls_prj Blowfish_Setkey_Opt.prj
 # set hls_prj del.prj
-set hls_prj Blowfish_Setkey_Encrypt_Decrypt_Opt.prj
+# set hls_prj Blowfish_Setkey_Encrypt_Decrypt_Opt.prj
+set hls_prj Blowfish_opt.prj
 
 
 
@@ -15,11 +16,11 @@ set hls_prj Blowfish_Setkey_Encrypt_Decrypt_Opt.prj
 open_project ${hls_prj} -reset
 
 # Top function of the design is "dut"
-# set_top Blowfish_SetKey_Encrypt
+set_top Blowfish_SetKey_Encrypt
 # set_top Blowfish_Encrypt
 # set_top Blowfish_SetKey
 # set_top Blowfish_Decrypt
-set_top Blowfish_SetKey_Encrypt_Decrypt
+# set_top Blowfish_SetKey_Encrypt_Decrypt
 
 
 
@@ -39,32 +40,30 @@ create_clock -period 10
 # ===========================================
 # Array Pragmas
 # ===========================================
+# Uncomment these in Blowfish_Setkey
+# // // Parray
+# // #pragma HLS array_reshape variable=initial_parray complete dim=0
+# // #pragma HLS array_partition variable=P complete dim=0
 
-#pragma HLS array_reshape variable=initial_parray complete dim=0
-#pragma HLS array_partition variable=P complete dim=0
-#pragma HLS array_reshape variable=initial_sbox complete dim=1
-#pragma HLS array_partition variable=S complete dim=1
+# // // Sboxes
+# // #pragma HLS array_reshape variable=initial_sbox complete dim=1
+# // #pragma HLS array_partition variable=S complete dim=1
 
 # ===========================================
 # Blowfish_SetKey
 # ===========================================
-
-# Unroll loop initializing parray
-set_directive_unroll Blowfish_SetKey/PARRAY_INIT_1
-
-# Unroll loop initializing sboxes
-set_directive_unroll Blowfish_SetKey/SBOX_INIT_1
-# idk why this works without any array optimizations
-set_directive_unroll Blowfish_SetKey/SBOX_INIT_2 -factor 4
-
+# Pipelining these functions is really bad...
 # Unroll the XORing of the parray with the key 
 set_directive_unroll Blowfish_SetKey/XOR_PARRAY_2
+set_directive_unroll Blowfish_SetKey/XOR_PARRAY_1 -factor 2
 
 # Unroll the generation of the parrray
 set_directive_unroll Blowfish_SetKey/GENERATE_PARRAY_1
 
 # Unroll the generation of the sboxes (dim 1)
 set_directive_unroll Blowfish_SetKey/GENERATE_SBOX_1
+# set_directive_unroll Blowfish_SetKey/GENERATE_SBOX_2 -factor 2
+# set_directive_unroll Blowfish_SetKey/GENERATE_SBOX_2
 
 
 # ===========================================
@@ -99,8 +98,6 @@ set_directive_unroll Blowfish_Decrypt/DECRYPT_FEISTEL
 set_directive_pipeline feistel
 
 
-
-
 ############################################
 
 # Simulate the C++ design
@@ -109,6 +106,6 @@ csim_design
 # Synthesize the design
 csynth_design
 # Co-simulate the design
-# cosim_design
+cosim_design
 
 exit
