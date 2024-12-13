@@ -1,0 +1,181 @@
+
+
+================================================================
+== Vivado HLS Report for 'addRoundKey'
+================================================================
+* Date:           Fri Dec 13 14:33:50 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 3.312 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       15|       15| 0.150 us | 0.150 us |   15|   15|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    128|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|    343|    -|
+|Register         |        -|      -|     128|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     128|    471|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |xor_ln236_10_fu_387_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_11_fu_393_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_12_fu_399_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_13_fu_405_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_14_fu_411_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_15_fu_418_p2  |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_1_fu_332_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_2_fu_339_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_3_fu_345_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_4_fu_351_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_5_fu_357_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_6_fu_363_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_7_fu_369_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_8_fu_375_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_9_fu_381_p2   |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln236_fu_325_p2     |    xor   |      0|  0|   8|           8|           8|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 128|         128|         128|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+----+-----------+-----+-----------+
+    |      Name      | LUT| Input Size| Bits| Total Bits|
+    +----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm       |  85|         17|    1|         17|
+    |state_address0  |  85|         17|    4|         68|
+    |state_address1  |  85|         17|    4|         68|
+    |state_d0        |  44|          9|    8|         72|
+    |state_d1        |  44|          9|    8|         72|
+    +----------------+----+-----------+-----+-----------+
+    |Total           | 343|         69|   25|        297|
+    +----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------+----+----+-----+-----------+
+    |          Name         | FF | LUT| Bits| Const Bits|
+    +-----------------------+----+----+-----+-----------+
+    |ap_CS_fsm              |  16|   0|   16|          0|
+    |reg_317                |   8|   0|    8|          0|
+    |reg_321                |   8|   0|    8|          0|
+    |state_load_10_reg_525  |   8|   0|    8|          0|
+    |state_load_11_reg_530  |   8|   0|    8|          0|
+    |state_load_12_reg_545  |   8|   0|    8|          0|
+    |state_load_13_reg_550  |   8|   0|    8|          0|
+    |state_load_2_reg_445   |   8|   0|    8|          0|
+    |state_load_3_reg_450   |   8|   0|    8|          0|
+    |state_load_4_reg_465   |   8|   0|    8|          0|
+    |state_load_5_reg_470   |   8|   0|    8|          0|
+    |state_load_6_reg_485   |   8|   0|    8|          0|
+    |state_load_7_reg_490   |   8|   0|    8|          0|
+    |state_load_8_reg_505   |   8|   0|    8|          0|
+    |state_load_9_reg_510   |   8|   0|    8|          0|
+    +-----------------------+----+----+-----+-----------+
+    |Total                  | 128|   0|  128|          0|
+    +-----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+--------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
++----------------+-----+-----+------------+--------------+--------------+
+|ap_clk          |  in |    1| ap_ctrl_hs |  addRoundKey | return value |
+|ap_rst          |  in |    1| ap_ctrl_hs |  addRoundKey | return value |
+|ap_start        |  in |    1| ap_ctrl_hs |  addRoundKey | return value |
+|ap_done         | out |    1| ap_ctrl_hs |  addRoundKey | return value |
+|ap_idle         | out |    1| ap_ctrl_hs |  addRoundKey | return value |
+|ap_ready        | out |    1| ap_ctrl_hs |  addRoundKey | return value |
+|state_address0  | out |    4|  ap_memory |     state    |     array    |
+|state_ce0       | out |    1|  ap_memory |     state    |     array    |
+|state_we0       | out |    1|  ap_memory |     state    |     array    |
+|state_d0        | out |    8|  ap_memory |     state    |     array    |
+|state_q0        |  in |    8|  ap_memory |     state    |     array    |
+|state_address1  | out |    4|  ap_memory |     state    |     array    |
+|state_ce1       | out |    1|  ap_memory |     state    |     array    |
+|state_we1       | out |    1|  ap_memory |     state    |     array    |
+|state_d1        | out |    8|  ap_memory |     state    |     array    |
+|state_q1        |  in |    8|  ap_memory |     state    |     array    |
+|p_read          |  in |    8|   ap_none  |    p_read    |    scalar    |
+|p_read1         |  in |    8|   ap_none  |    p_read1   |    scalar    |
+|p_read2         |  in |    8|   ap_none  |    p_read2   |    scalar    |
+|p_read3         |  in |    8|   ap_none  |    p_read3   |    scalar    |
+|p_read4         |  in |    8|   ap_none  |    p_read4   |    scalar    |
+|p_read5         |  in |    8|   ap_none  |    p_read5   |    scalar    |
+|p_read6         |  in |    8|   ap_none  |    p_read6   |    scalar    |
+|p_read7         |  in |    8|   ap_none  |    p_read7   |    scalar    |
+|p_read8         |  in |    8|   ap_none  |    p_read8   |    scalar    |
+|p_read9         |  in |    8|   ap_none  |    p_read9   |    scalar    |
+|p_read10        |  in |    8|   ap_none  |   p_read10   |    scalar    |
+|p_read11        |  in |    8|   ap_none  |   p_read11   |    scalar    |
+|p_read12        |  in |    8|   ap_none  |   p_read12   |    scalar    |
+|p_read13        |  in |    8|   ap_none  |   p_read13   |    scalar    |
+|p_read14        |  in |    8|   ap_none  |   p_read14   |    scalar    |
+|p_read15        |  in |    8|   ap_none  |   p_read15   |    scalar    |
++----------------+-----+-----+------------+--------------+--------------+
+

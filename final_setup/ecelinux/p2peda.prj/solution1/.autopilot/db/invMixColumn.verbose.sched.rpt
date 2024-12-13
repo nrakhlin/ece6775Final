@@ -1,0 +1,148 @@
+
+
+================================================================
+== Vivado HLS Report for 'invMixColumn'
+================================================================
+* Date:           Fri Dec 13 14:33:37 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 5.982 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        0|        0|   0 ns   |   0 ns   |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 5.98>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%column_3_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_3_read)" [../../refactored/helper.cpp:398]   --->   Operation 2 'read' 'column_3_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%column_2_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_2_read)" [../../refactored/helper.cpp:398]   --->   Operation 3 'read' 'column_2_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%column_1_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_1_read)" [../../refactored/helper.cpp:398]   --->   Operation 4 'read' 'column_1_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%column_0_read_2 = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %column_0_read)" [../../refactored/helper.cpp:398]   --->   Operation 5 'read' 'column_0_read_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (4.99ns)   --->   "%tmp = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_2, i5 zeroext 14)" [../../refactored/helper.cpp:398]   --->   Operation 6 'call' 'tmp' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 7 [1/1] (4.99ns)   --->   "%tmp_s = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_2, i5 zeroext 9)" [../../refactored/helper.cpp:399]   --->   Operation 7 'call' 'tmp_s' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 8 [1/1] (4.99ns)   --->   "%tmp_11 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_2, i5 zeroext 13)" [../../refactored/helper.cpp:400]   --->   Operation 8 'call' 'tmp_11' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 9 [1/1] (4.99ns)   --->   "%tmp_12 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_2, i5 zeroext 11)" [../../refactored/helper.cpp:401]   --->   Operation 9 'call' 'tmp_12' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln401)   --->   "%xor_ln401_1 = xor i8 %tmp_s, %tmp" [../../refactored/helper.cpp:401]   --->   Operation 10 'xor' 'xor_ln401_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln401)   --->   "%xor_ln401_2 = xor i8 %tmp_11, %tmp_12" [../../refactored/helper.cpp:401]   --->   Operation 11 'xor' 'xor_ln401_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln401 = xor i8 %xor_ln401_2, %xor_ln401_1" [../../refactored/helper.cpp:401]   --->   Operation 12 'xor' 'xor_ln401' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (4.99ns)   --->   "%tmp_13 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_2, i5 zeroext 14)" [../../refactored/helper.cpp:402]   --->   Operation 13 'call' 'tmp_13' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 14 [1/1] (4.99ns)   --->   "%tmp_14 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_2, i5 zeroext 9)" [../../refactored/helper.cpp:403]   --->   Operation 14 'call' 'tmp_14' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 15 [1/1] (4.99ns)   --->   "%tmp_15 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_2, i5 zeroext 13)" [../../refactored/helper.cpp:404]   --->   Operation 15 'call' 'tmp_15' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 16 [1/1] (4.99ns)   --->   "%tmp_16 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_2, i5 zeroext 11)" [../../refactored/helper.cpp:405]   --->   Operation 16 'call' 'tmp_16' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln405)   --->   "%xor_ln405_1 = xor i8 %tmp_14, %tmp_13" [../../refactored/helper.cpp:405]   --->   Operation 17 'xor' 'xor_ln405_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node xor_ln405)   --->   "%xor_ln405_2 = xor i8 %tmp_15, %tmp_16" [../../refactored/helper.cpp:405]   --->   Operation 18 'xor' 'xor_ln405_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 19 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln405 = xor i8 %xor_ln405_2, %xor_ln405_1" [../../refactored/helper.cpp:405]   --->   Operation 19 'xor' 'xor_ln405' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (4.99ns)   --->   "%tmp_17 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_2, i5 zeroext 14)" [../../refactored/helper.cpp:406]   --->   Operation 20 'call' 'tmp_17' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 21 [1/1] (4.99ns)   --->   "%tmp_18 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_2, i5 zeroext 9)" [../../refactored/helper.cpp:407]   --->   Operation 21 'call' 'tmp_18' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 22 [1/1] (4.99ns)   --->   "%tmp_19 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_2, i5 zeroext 13)" [../../refactored/helper.cpp:408]   --->   Operation 22 'call' 'tmp_19' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 23 [1/1] (4.99ns)   --->   "%tmp_20 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_2, i5 zeroext 11)" [../../refactored/helper.cpp:409]   --->   Operation 23 'call' 'tmp_20' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node xor_ln409)   --->   "%xor_ln409_1 = xor i8 %tmp_18, %tmp_17" [../../refactored/helper.cpp:409]   --->   Operation 24 'xor' 'xor_ln409_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node xor_ln409)   --->   "%xor_ln409_2 = xor i8 %tmp_19, %tmp_20" [../../refactored/helper.cpp:409]   --->   Operation 25 'xor' 'xor_ln409_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln409 = xor i8 %xor_ln409_2, %xor_ln409_1" [../../refactored/helper.cpp:409]   --->   Operation 26 'xor' 'xor_ln409' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (4.99ns)   --->   "%tmp_21 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_3_read_2, i5 zeroext 14)" [../../refactored/helper.cpp:410]   --->   Operation 27 'call' 'tmp_21' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 28 [1/1] (4.99ns)   --->   "%tmp_22 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_2_read_2, i5 zeroext 9)" [../../refactored/helper.cpp:411]   --->   Operation 28 'call' 'tmp_22' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 29 [1/1] (4.99ns)   --->   "%tmp_23 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_1_read_2, i5 zeroext 13)" [../../refactored/helper.cpp:412]   --->   Operation 29 'call' 'tmp_23' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 30 [1/1] (4.99ns)   --->   "%tmp_24 = call fastcc zeroext i8 @galois_multiplicatio(i8 zeroext %column_0_read_2, i5 zeroext 11)" [../../refactored/helper.cpp:413]   --->   Operation 30 'call' 'tmp_24' <Predicate = true> <Delay = 4.99> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 31 [1/1] (0.00ns) (grouped into LUT with out node xor_ln413)   --->   "%xor_ln413_1 = xor i8 %tmp_22, %tmp_21" [../../refactored/helper.cpp:413]   --->   Operation 31 'xor' 'xor_ln413_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node xor_ln413)   --->   "%xor_ln413_2 = xor i8 %tmp_23, %tmp_24" [../../refactored/helper.cpp:413]   --->   Operation 32 'xor' 'xor_ln413_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln413 = xor i8 %xor_ln413_2, %xor_ln413_1" [../../refactored/helper.cpp:413]   --->   Operation 33 'xor' 'xor_ln413' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%mrv = insertvalue { i8, i8, i8, i8 } undef, i8 %xor_ln401, 0" [../../refactored/helper.cpp:414]   --->   Operation 34 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue { i8, i8, i8, i8 } %mrv, i8 %xor_ln405, 1" [../../refactored/helper.cpp:414]   --->   Operation 35 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%mrv_2 = insertvalue { i8, i8, i8, i8 } %mrv_1, i8 %xor_ln409, 2" [../../refactored/helper.cpp:414]   --->   Operation 36 'insertvalue' 'mrv_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%mrv_3 = insertvalue { i8, i8, i8, i8 } %mrv_2, i8 %xor_ln413, 3" [../../refactored/helper.cpp:414]   --->   Operation 37 'insertvalue' 'mrv_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "ret { i8, i8, i8, i8 } %mrv_3" [../../refactored/helper.cpp:414]   --->   Operation 38 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 5.98ns
+The critical path consists of the following:
+	wire read on port 'column_3_read' (../../refactored/helper.cpp:398) [5]  (0 ns)
+	'call' operation ('tmp_s', ../../refactored/helper.cpp:399) to 'galois_multiplicatio' [10]  (4.99 ns)
+	'xor' operation ('xor_ln401_1', ../../refactored/helper.cpp:401) [13]  (0 ns)
+	'xor' operation ('xor_ln401', ../../refactored/helper.cpp:401) [15]  (0.99 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

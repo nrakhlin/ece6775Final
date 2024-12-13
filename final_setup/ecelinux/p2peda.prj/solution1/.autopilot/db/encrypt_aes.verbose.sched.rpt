@@ -1,0 +1,499 @@
+
+
+================================================================
+== Vivado HLS Report for 'encrypt_aes'
+================================================================
+* Date:           Fri Dec 13 14:33:43 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+-----------+------------+
+    |  Clock |  Target  | Estimated | Uncertainty|
+    +--------+----------+-----------+------------+
+    |ap_clk  | 10.00 ns | 12.548 ns |   1.25 ns  |
+    +--------+----------+-----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      403|      403| 5.057 us | 5.057 us |  403|  403|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- memset_aes_input  |       15|       15|         1|          -|          -|    16|    no    |
+        |- memset_output     |       15|       15|         1|          -|          -|    16|    no    |
+        |- Loop 3            |       48|       48|         3|          -|          -|    16|    no    |
+        |- Loop 4            |       16|       16|         1|          -|          -|    16|    no    |
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 2 3 
+3 --> 3 4 
+4 --> 5 7 
+5 --> 6 
+6 --> 4 
+7 --> 8 
+8 --> 8 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%aes_input_0_0 = alloca i8"   --->   Operation 9 'alloca' 'aes_input_0_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%aes_input_1_0 = alloca i8"   --->   Operation 10 'alloca' 'aes_input_1_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%aes_input_2_0 = alloca i8"   --->   Operation 11 'alloca' 'aes_input_2_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%aes_input_3_0 = alloca i8"   --->   Operation 12 'alloca' 'aes_input_3_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%aes_input_4_0 = alloca i8"   --->   Operation 13 'alloca' 'aes_input_4_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%aes_input_5_0 = alloca i8"   --->   Operation 14 'alloca' 'aes_input_5_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%aes_input_6_0 = alloca i8"   --->   Operation 15 'alloca' 'aes_input_6_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%aes_input_7_0 = alloca i8"   --->   Operation 16 'alloca' 'aes_input_7_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%aes_input_8_0 = alloca i8"   --->   Operation 17 'alloca' 'aes_input_8_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%aes_input_9_0 = alloca i8"   --->   Operation 18 'alloca' 'aes_input_9_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%aes_input_10_0 = alloca i8"   --->   Operation 19 'alloca' 'aes_input_10_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%aes_input_11_0 = alloca i8"   --->   Operation 20 'alloca' 'aes_input_11_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%aes_input_12_0 = alloca i8"   --->   Operation 21 'alloca' 'aes_input_12_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%aes_input_13_0 = alloca i8"   --->   Operation 22 'alloca' 'aes_input_13_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%aes_input_14_1_0 = alloca i8"   --->   Operation 23 'alloca' 'aes_input_14_1_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%aes_input_15_0 = alloca i8"   --->   Operation 24 'alloca' 'aes_input_15_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%plaintext_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %plaintext_V)"   --->   Operation 25 'read' 'plaintext_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (1.76ns)   --->   "br label %meminst"   --->   Operation 26 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 2.06>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%phi_ln46 = phi i4 [ 0, %0 ], [ %add_ln46, %meminst ]" [p2peda.cpp:46]   --->   Operation 27 'phi' 'phi_ln46' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%aes_input_0_0_load = load i8* %aes_input_0_0"   --->   Operation 28 'load' 'aes_input_0_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%aes_input_1_0_load = load i8* %aes_input_1_0"   --->   Operation 29 'load' 'aes_input_1_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%aes_input_2_0_load = load i8* %aes_input_2_0"   --->   Operation 30 'load' 'aes_input_2_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%aes_input_3_0_load = load i8* %aes_input_3_0"   --->   Operation 31 'load' 'aes_input_3_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%aes_input_4_0_load = load i8* %aes_input_4_0"   --->   Operation 32 'load' 'aes_input_4_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%aes_input_5_0_load = load i8* %aes_input_5_0"   --->   Operation 33 'load' 'aes_input_5_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%aes_input_6_0_load = load i8* %aes_input_6_0"   --->   Operation 34 'load' 'aes_input_6_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%aes_input_7_0_load = load i8* %aes_input_7_0"   --->   Operation 35 'load' 'aes_input_7_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%aes_input_8_0_load = load i8* %aes_input_8_0"   --->   Operation 36 'load' 'aes_input_8_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%aes_input_9_0_load = load i8* %aes_input_9_0"   --->   Operation 37 'load' 'aes_input_9_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%aes_input_10_0_load = load i8* %aes_input_10_0"   --->   Operation 38 'load' 'aes_input_10_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%aes_input_11_0_load = load i8* %aes_input_11_0"   --->   Operation 39 'load' 'aes_input_11_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%aes_input_12_0_load = load i8* %aes_input_12_0"   --->   Operation 40 'load' 'aes_input_12_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%aes_input_13_0_load = load i8* %aes_input_13_0"   --->   Operation 41 'load' 'aes_input_13_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%aes_input_14_1_0_lo = load i8* %aes_input_14_1_0"   --->   Operation 42 'load' 'aes_input_14_1_0_lo' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%aes_input_15_0_load = load i8* %aes_input_15_0"   --->   Operation 43 'load' 'aes_input_15_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (1.73ns)   --->   "%add_ln46 = add i4 %phi_ln46, 1" [p2peda.cpp:46]   --->   Operation 44 'add' 'add_ln46' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 45 [1/1] (2.06ns)   --->   "%aes_input_0_s = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 0, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i8 %aes_input_0_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 45 'mux' 'aes_input_0_s' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 46 [1/1] (2.06ns)   --->   "%aes_input_1_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_1_0_load, i8 0, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i8 %aes_input_1_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 46 'mux' 'aes_input_1_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 47 [1/1] (2.06ns)   --->   "%aes_input_2_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 0, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i8 %aes_input_2_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 47 'mux' 'aes_input_2_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 48 [1/1] (2.06ns)   --->   "%aes_input_3_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 0, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i8 %aes_input_3_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 48 'mux' 'aes_input_3_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 49 [1/1] (2.06ns)   --->   "%aes_input_4_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 0, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i8 %aes_input_4_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 49 'mux' 'aes_input_4_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 50 [1/1] (2.06ns)   --->   "%aes_input_5_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 0, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i8 %aes_input_5_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 50 'mux' 'aes_input_5_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 51 [1/1] (2.06ns)   --->   "%aes_input_6_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 0, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i8 %aes_input_6_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 51 'mux' 'aes_input_6_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 52 [1/1] (2.06ns)   --->   "%aes_input_7_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 0, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i8 %aes_input_7_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 52 'mux' 'aes_input_7_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 53 [1/1] (2.06ns)   --->   "%aes_input_8_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 0, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i8 %aes_input_8_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 53 'mux' 'aes_input_8_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 54 [1/1] (2.06ns)   --->   "%aes_input_9_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 0, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i8 %aes_input_9_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 54 'mux' 'aes_input_9_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 55 [1/1] (2.06ns)   --->   "%aes_input_10_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 0, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i8 %aes_input_10_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 55 'mux' 'aes_input_10_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 56 [1/1] (2.06ns)   --->   "%aes_input_11_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 0, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i8 %aes_input_11_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 56 'mux' 'aes_input_11_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 57 [1/1] (2.06ns)   --->   "%aes_input_12_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 0, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i8 %aes_input_12_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 57 'mux' 'aes_input_12_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 58 [1/1] (2.06ns)   --->   "%aes_input_13_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i8 0, i8 %aes_input_13_0_load, i8 %aes_input_13_0_load, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 58 'mux' 'aes_input_13_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 59 [1/1] (2.06ns)   --->   "%aes_input_14_1_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 %aes_input_14_1_0_lo, i8 0, i8 %aes_input_14_1_0_lo, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 59 'mux' 'aes_input_14_1_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 60 [1/1] (2.06ns)   --->   "%aes_input_15_1 = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 %aes_input_15_0_load, i8 0, i4 %phi_ln46)" [p2peda.cpp:46]   --->   Operation 60 'mux' 'aes_input_15_1' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 61 [1/1] (1.30ns)   --->   "%icmp_ln46 = icmp eq i4 %phi_ln46, -1" [p2peda.cpp:46]   --->   Operation 61 'icmp' 'icmp_ln46' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @memset_aes_input_str)"   --->   Operation 62 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 63 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "store i8 %aes_input_15_1, i8* %aes_input_15_0" [p2peda.cpp:46]   --->   Operation 64 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "store i8 %aes_input_14_1_1, i8* %aes_input_14_1_0" [p2peda.cpp:46]   --->   Operation 65 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "store i8 %aes_input_13_1, i8* %aes_input_13_0" [p2peda.cpp:46]   --->   Operation 66 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "store i8 %aes_input_12_1, i8* %aes_input_12_0" [p2peda.cpp:46]   --->   Operation 67 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "store i8 %aes_input_11_1, i8* %aes_input_11_0" [p2peda.cpp:46]   --->   Operation 68 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "store i8 %aes_input_10_1, i8* %aes_input_10_0" [p2peda.cpp:46]   --->   Operation 69 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "store i8 %aes_input_9_1, i8* %aes_input_9_0" [p2peda.cpp:46]   --->   Operation 70 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "store i8 %aes_input_8_1, i8* %aes_input_8_0" [p2peda.cpp:46]   --->   Operation 71 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "store i8 %aes_input_7_1, i8* %aes_input_7_0" [p2peda.cpp:46]   --->   Operation 72 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "store i8 %aes_input_6_1, i8* %aes_input_6_0" [p2peda.cpp:46]   --->   Operation 73 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "store i8 %aes_input_5_1, i8* %aes_input_5_0" [p2peda.cpp:46]   --->   Operation 74 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "store i8 %aes_input_4_1, i8* %aes_input_4_0" [p2peda.cpp:46]   --->   Operation 75 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "store i8 %aes_input_3_1, i8* %aes_input_3_0" [p2peda.cpp:46]   --->   Operation 76 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "store i8 %aes_input_2_1, i8* %aes_input_2_0" [p2peda.cpp:46]   --->   Operation 77 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "store i8 %aes_input_1_1, i8* %aes_input_1_0" [p2peda.cpp:46]   --->   Operation 78 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "store i8 %aes_input_0_s, i8* %aes_input_0_0" [p2peda.cpp:46]   --->   Operation 79 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "br i1 %icmp_ln46, label %meminst87.preheader, label %meminst" [p2peda.cpp:46]   --->   Operation 80 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%output_068100 = alloca i8"   --->   Operation 81 'alloca' 'output_068100' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%output_169102 = alloca i8"   --->   Operation 82 'alloca' 'output_169102' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%output_270104 = alloca i8"   --->   Operation 83 'alloca' 'output_270104' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (0.00ns)   --->   "%output_371106 = alloca i8"   --->   Operation 84 'alloca' 'output_371106' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%output_472108 = alloca i8"   --->   Operation 85 'alloca' 'output_472108' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%output_573110 = alloca i8"   --->   Operation 86 'alloca' 'output_573110' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%output_674112 = alloca i8"   --->   Operation 87 'alloca' 'output_674112' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%output_775114 = alloca i8"   --->   Operation 88 'alloca' 'output_775114' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%output_876116 = alloca i8"   --->   Operation 89 'alloca' 'output_876116' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%output_977118 = alloca i8"   --->   Operation 90 'alloca' 'output_977118' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%output_1078120 = alloca i8"   --->   Operation 91 'alloca' 'output_1078120' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (0.00ns)   --->   "%output_1179122 = alloca i8"   --->   Operation 92 'alloca' 'output_1179122' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%output_1280124 = alloca i8"   --->   Operation 93 'alloca' 'output_1280124' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%output_1381126 = alloca i8"   --->   Operation 94 'alloca' 'output_1381126' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%output_1482128 = alloca i8"   --->   Operation 95 'alloca' 'output_1482128' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%output_1583130 = alloca i8"   --->   Operation 96 'alloca' 'output_1583130' <Predicate = (icmp_ln46)> <Delay = 0.00>
+ST_2 : Operation 97 [1/1] (1.76ns)   --->   "br label %meminst87" [p2peda.cpp:47]   --->   Operation 97 'br' <Predicate = (icmp_ln46)> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 2.06>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%phi_ln47 = phi i4 [ %add_ln47, %meminst87 ], [ 0, %meminst87.preheader ]" [p2peda.cpp:47]   --->   Operation 98 'phi' 'phi_ln47' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%output_068100_load = load i8* %output_068100"   --->   Operation 99 'load' 'output_068100_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%output_169102_load = load i8* %output_169102"   --->   Operation 100 'load' 'output_169102_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%output_270104_load = load i8* %output_270104"   --->   Operation 101 'load' 'output_270104_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%output_371106_load = load i8* %output_371106"   --->   Operation 102 'load' 'output_371106_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.00ns)   --->   "%output_472108_load = load i8* %output_472108"   --->   Operation 103 'load' 'output_472108_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%output_573110_load = load i8* %output_573110"   --->   Operation 104 'load' 'output_573110_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 105 [1/1] (0.00ns)   --->   "%output_674112_load = load i8* %output_674112"   --->   Operation 105 'load' 'output_674112_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%output_775114_load = load i8* %output_775114"   --->   Operation 106 'load' 'output_775114_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 107 [1/1] (0.00ns)   --->   "%output_876116_load = load i8* %output_876116"   --->   Operation 107 'load' 'output_876116_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%output_977118_load = load i8* %output_977118"   --->   Operation 108 'load' 'output_977118_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 109 [1/1] (0.00ns)   --->   "%output_1078120_load = load i8* %output_1078120"   --->   Operation 109 'load' 'output_1078120_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%output_1179122_load = load i8* %output_1179122"   --->   Operation 110 'load' 'output_1179122_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%output_1280124_load = load i8* %output_1280124"   --->   Operation 111 'load' 'output_1280124_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%output_1381126_load = load i8* %output_1381126"   --->   Operation 112 'load' 'output_1381126_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%output_1482128_load = load i8* %output_1482128"   --->   Operation 113 'load' 'output_1482128_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%output_1583130_load = load i8* %output_1583130"   --->   Operation 114 'load' 'output_1583130_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 115 [1/1] (1.73ns)   --->   "%add_ln47 = add i4 %phi_ln47, 1" [p2peda.cpp:47]   --->   Operation 115 'add' 'add_ln47' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 116 [1/1] (2.06ns)   --->   "%output_0_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 0, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i8 %output_068100_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 116 'mux' 'output_0_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 117 [1/1] (2.06ns)   --->   "%output_1_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_169102_load, i8 0, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i8 %output_169102_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 117 'mux' 'output_1_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 118 [1/1] (2.06ns)   --->   "%output_2_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_270104_load, i8 %output_270104_load, i8 0, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i8 %output_270104_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 118 'mux' 'output_2_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 119 [1/1] (2.06ns)   --->   "%output_3_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 0, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i8 %output_371106_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 119 'mux' 'output_3_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 120 [1/1] (2.06ns)   --->   "%output_4_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 0, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i8 %output_472108_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 120 'mux' 'output_4_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 121 [1/1] (2.06ns)   --->   "%output_5_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 0, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i8 %output_573110_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 121 'mux' 'output_5_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 122 [1/1] (2.06ns)   --->   "%output_6_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 0, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i8 %output_674112_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 122 'mux' 'output_6_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 123 [1/1] (2.06ns)   --->   "%output_7_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 0, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i8 %output_775114_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 123 'mux' 'output_7_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 124 [1/1] (2.06ns)   --->   "%output_8_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 0, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i8 %output_876116_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 124 'mux' 'output_8_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 125 [1/1] (2.06ns)   --->   "%output_9_read_assig = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 0, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i8 %output_977118_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 125 'mux' 'output_9_read_assig' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 126 [1/1] (2.06ns)   --->   "%output_10_read_assi = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 0, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i8 %output_1078120_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 126 'mux' 'output_10_read_assi' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 127 [1/1] (2.06ns)   --->   "%output_11_read_assi = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 0, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i8 %output_1179122_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 127 'mux' 'output_11_read_assi' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 128 [1/1] (2.06ns)   --->   "%output_12_read_assi = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i8 0, i8 %output_1280124_load, i8 %output_1280124_load, i8 %output_1280124_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 128 'mux' 'output_12_read_assi' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 129 [1/1] (2.06ns)   --->   "%output_13_read_assi = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 %output_1381126_load, i8 0, i8 %output_1381126_load, i8 %output_1381126_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 129 'mux' 'output_13_read_assi' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 130 [1/1] (2.06ns)   --->   "%output_14_read_assi = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 %output_1482128_load, i8 0, i8 %output_1482128_load, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 130 'mux' 'output_14_read_assi' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 131 [1/1] (2.06ns)   --->   "%output_15_read_assi = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 %output_1583130_load, i8 0, i4 %phi_ln47)" [p2peda.cpp:47]   --->   Operation 131 'mux' 'output_15_read_assi' <Predicate = true> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 132 [1/1] (1.30ns)   --->   "%icmp_ln47 = icmp eq i4 %phi_ln47, -1" [p2peda.cpp:47]   --->   Operation 132 'icmp' 'icmp_ln47' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 133 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([14 x i8]* @memset_output_str)"   --->   Operation 133 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 134 'speclooptripcount' 'empty_24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "store i8 %output_15_read_assi, i8* %output_1583130" [p2peda.cpp:47]   --->   Operation 135 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 136 [1/1] (0.00ns)   --->   "store i8 %output_14_read_assi, i8* %output_1482128" [p2peda.cpp:47]   --->   Operation 136 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "store i8 %output_13_read_assi, i8* %output_1381126" [p2peda.cpp:47]   --->   Operation 137 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "store i8 %output_12_read_assi, i8* %output_1280124" [p2peda.cpp:47]   --->   Operation 138 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "store i8 %output_11_read_assi, i8* %output_1179122" [p2peda.cpp:47]   --->   Operation 139 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "store i8 %output_10_read_assi, i8* %output_1078120" [p2peda.cpp:47]   --->   Operation 140 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 141 [1/1] (0.00ns)   --->   "store i8 %output_9_read_assig, i8* %output_977118" [p2peda.cpp:47]   --->   Operation 141 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 142 [1/1] (0.00ns)   --->   "store i8 %output_8_read_assig, i8* %output_876116" [p2peda.cpp:47]   --->   Operation 142 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 143 [1/1] (0.00ns)   --->   "store i8 %output_7_read_assig, i8* %output_775114" [p2peda.cpp:47]   --->   Operation 143 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 144 [1/1] (0.00ns)   --->   "store i8 %output_6_read_assig, i8* %output_674112" [p2peda.cpp:47]   --->   Operation 144 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 145 [1/1] (0.00ns)   --->   "store i8 %output_5_read_assig, i8* %output_573110" [p2peda.cpp:47]   --->   Operation 145 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 146 [1/1] (0.00ns)   --->   "store i8 %output_4_read_assig, i8* %output_472108" [p2peda.cpp:47]   --->   Operation 146 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 147 [1/1] (0.00ns)   --->   "store i8 %output_3_read_assig, i8* %output_371106" [p2peda.cpp:47]   --->   Operation 147 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 148 [1/1] (0.00ns)   --->   "store i8 %output_2_read_assig, i8* %output_270104" [p2peda.cpp:47]   --->   Operation 148 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 149 [1/1] (0.00ns)   --->   "store i8 %output_1_read_assig, i8* %output_169102" [p2peda.cpp:47]   --->   Operation 149 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 150 [1/1] (0.00ns)   --->   "store i8 %output_0_read_assig, i8* %output_068100" [p2peda.cpp:47]   --->   Operation 150 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 151 [1/1] (0.00ns)   --->   "br i1 %icmp_ln47, label %.preheader.preheader, label %meminst87" [p2peda.cpp:47]   --->   Operation 151 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%aes_input_15 = alloca i8"   --->   Operation 152 'alloca' 'aes_input_15' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 153 [1/1] (0.00ns)   --->   "%aes_input_15_3 = alloca i8"   --->   Operation 153 'alloca' 'aes_input_15_3' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 154 [1/1] (0.00ns)   --->   "%aes_input_15_4 = alloca i8"   --->   Operation 154 'alloca' 'aes_input_15_4' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 155 [1/1] (0.00ns)   --->   "%aes_input_15_5 = alloca i8"   --->   Operation 155 'alloca' 'aes_input_15_5' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 156 [1/1] (0.00ns)   --->   "%aes_input_15_6 = alloca i8"   --->   Operation 156 'alloca' 'aes_input_15_6' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 157 [1/1] (0.00ns)   --->   "%aes_input_15_7 = alloca i8"   --->   Operation 157 'alloca' 'aes_input_15_7' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 158 [1/1] (0.00ns)   --->   "%aes_input_15_8 = alloca i8"   --->   Operation 158 'alloca' 'aes_input_15_8' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 159 [1/1] (0.00ns)   --->   "%aes_input_15_9 = alloca i8"   --->   Operation 159 'alloca' 'aes_input_15_9' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 160 [1/1] (0.00ns)   --->   "%aes_input_15_10 = alloca i8"   --->   Operation 160 'alloca' 'aes_input_15_10' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 161 [1/1] (0.00ns)   --->   "%aes_input_15_11 = alloca i8"   --->   Operation 161 'alloca' 'aes_input_15_11' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 162 [1/1] (0.00ns)   --->   "%aes_input_15_12 = alloca i8"   --->   Operation 162 'alloca' 'aes_input_15_12' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 163 [1/1] (0.00ns)   --->   "%aes_input_15_13 = alloca i8"   --->   Operation 163 'alloca' 'aes_input_15_13' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 164 [1/1] (0.00ns)   --->   "%aes_input_15_14 = alloca i8"   --->   Operation 164 'alloca' 'aes_input_15_14' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 165 [1/1] (0.00ns)   --->   "%aes_input_15_15 = alloca i8"   --->   Operation 165 'alloca' 'aes_input_15_15' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 166 [1/1] (0.00ns)   --->   "%aes_input_15_16 = alloca i8"   --->   Operation 166 'alloca' 'aes_input_15_16' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 167 [1/1] (0.00ns)   --->   "%aes_input_15_2 = alloca i8"   --->   Operation 167 'alloca' 'aes_input_15_2' <Predicate = (icmp_ln47)> <Delay = 0.00>
+ST_3 : Operation 168 [1/1] (1.76ns)   --->   "store i8 %aes_input_15_1, i8* %aes_input_15_2" [p2peda.cpp:49]   --->   Operation 168 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 169 [1/1] (1.76ns)   --->   "store i8 %aes_input_14_1_1, i8* %aes_input_15_16" [p2peda.cpp:49]   --->   Operation 169 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 170 [1/1] (1.76ns)   --->   "store i8 %aes_input_13_1, i8* %aes_input_15_15" [p2peda.cpp:49]   --->   Operation 170 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 171 [1/1] (1.76ns)   --->   "store i8 %aes_input_12_1, i8* %aes_input_15_14" [p2peda.cpp:49]   --->   Operation 171 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 172 [1/1] (1.76ns)   --->   "store i8 %aes_input_11_1, i8* %aes_input_15_13" [p2peda.cpp:49]   --->   Operation 172 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 173 [1/1] (1.76ns)   --->   "store i8 %aes_input_10_1, i8* %aes_input_15_12" [p2peda.cpp:49]   --->   Operation 173 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 174 [1/1] (1.76ns)   --->   "store i8 %aes_input_9_1, i8* %aes_input_15_11" [p2peda.cpp:49]   --->   Operation 174 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 175 [1/1] (1.76ns)   --->   "store i8 %aes_input_8_1, i8* %aes_input_15_10" [p2peda.cpp:49]   --->   Operation 175 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 176 [1/1] (1.76ns)   --->   "store i8 %aes_input_7_1, i8* %aes_input_15_9" [p2peda.cpp:49]   --->   Operation 176 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 177 [1/1] (1.76ns)   --->   "store i8 %aes_input_6_1, i8* %aes_input_15_8" [p2peda.cpp:49]   --->   Operation 177 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 178 [1/1] (1.76ns)   --->   "store i8 %aes_input_5_1, i8* %aes_input_15_7" [p2peda.cpp:49]   --->   Operation 178 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 179 [1/1] (1.76ns)   --->   "store i8 %aes_input_4_1, i8* %aes_input_15_6" [p2peda.cpp:49]   --->   Operation 179 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 180 [1/1] (1.76ns)   --->   "store i8 %aes_input_3_1, i8* %aes_input_15_5" [p2peda.cpp:49]   --->   Operation 180 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 181 [1/1] (1.76ns)   --->   "store i8 %aes_input_2_1, i8* %aes_input_15_4" [p2peda.cpp:49]   --->   Operation 181 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 182 [1/1] (1.76ns)   --->   "store i8 %aes_input_1_1, i8* %aes_input_15_3" [p2peda.cpp:49]   --->   Operation 182 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 183 [1/1] (1.76ns)   --->   "store i8 %aes_input_0_s, i8* %aes_input_15" [p2peda.cpp:49]   --->   Operation 183 'store' <Predicate = (icmp_ln47)> <Delay = 1.76>
+ST_3 : Operation 184 [1/1] (1.76ns)   --->   "br label %.preheader" [p2peda.cpp:49]   --->   Operation 184 'br' <Predicate = (icmp_ln47)> <Delay = 1.76>
+
+State 4 <SV = 3> <Delay = 6.38>
+ST_4 : Operation 185 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ 0, %.preheader.preheader ], [ %i, %.preheader.backedge ]"   --->   Operation 185 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 186 [1/1] (1.36ns)   --->   "%icmp_ln49 = icmp eq i5 %i_0, -16" [p2peda.cpp:49]   --->   Operation 186 'icmp' 'icmp_ln49' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 187 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 187 'speclooptripcount' 'empty_25' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 188 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [p2peda.cpp:49]   --->   Operation 188 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 189 [1/1] (0.00ns)   --->   "br i1 %icmp_ln49, label %2, label %1" [p2peda.cpp:49]   --->   Operation 189 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 190 [1/1] (0.00ns)   --->   "%trunc_ln50 = trunc i5 %i_0 to i4" [p2peda.cpp:50]   --->   Operation 190 'trunc' 'trunc_ln50' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 191 [1/1] (0.00ns)   --->   "%Lo_assign = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %trunc_ln50, i3 0)" [p2peda.cpp:50]   --->   Operation 191 'bitconcatenate' 'Lo_assign' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 192 [1/1] (0.00ns)   --->   "%or_ln50 = or i7 %Lo_assign, 7" [p2peda.cpp:50]   --->   Operation 192 'or' 'or_ln50' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 193 [1/1] (1.48ns)   --->   "%icmp_ln681 = icmp ugt i7 %Lo_assign, %or_ln50" [p2peda.cpp:50]   --->   Operation 193 'icmp' 'icmp_ln681' <Predicate = (!icmp_ln49)> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 194 [1/1] (0.00ns)   --->   "%zext_ln681 = zext i7 %Lo_assign to i8" [p2peda.cpp:50]   --->   Operation 194 'zext' 'zext_ln681' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 195 [1/1] (0.00ns)   --->   "%zext_ln681_8 = zext i7 %or_ln50 to i8" [p2peda.cpp:50]   --->   Operation 195 'zext' 'zext_ln681_8' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 196 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%tmp = call i128 @llvm.part.select.i128(i128 %plaintext_V_read, i32 127, i32 0)" [p2peda.cpp:50]   --->   Operation 196 'partselect' 'tmp' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 197 [1/1] (1.87ns)   --->   "%sub_ln681 = sub i8 %zext_ln681, %zext_ln681_8" [p2peda.cpp:50]   --->   Operation 197 'sub' 'sub_ln681' <Predicate = (!icmp_ln49)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 198 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%xor_ln681 = xor i8 %zext_ln681, 127" [p2peda.cpp:50]   --->   Operation 198 'xor' 'xor_ln681' <Predicate = (!icmp_ln49)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 199 [1/1] (1.87ns)   --->   "%sub_ln681_6 = sub i8 %zext_ln681_8, %zext_ln681" [p2peda.cpp:50]   --->   Operation 199 'sub' 'sub_ln681_6' <Predicate = (!icmp_ln49)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 200 [1/1] (0.00ns) (grouped into LUT with out node sub_ln681_7)   --->   "%select_ln681 = select i1 %icmp_ln681, i8 %sub_ln681, i8 %sub_ln681_6" [p2peda.cpp:50]   --->   Operation 200 'select' 'select_ln681' <Predicate = (!icmp_ln49)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 201 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_6 = select i1 %icmp_ln681, i128 %tmp, i128 %plaintext_V_read" [p2peda.cpp:50]   --->   Operation 201 'select' 'select_ln681_6' <Predicate = (!icmp_ln49)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 202 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_7 = select i1 %icmp_ln681, i8 %xor_ln681, i8 %zext_ln681" [p2peda.cpp:50]   --->   Operation 202 'select' 'select_ln681_7' <Predicate = (!icmp_ln49)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 203 [1/1] (1.91ns) (out node of the LUT)   --->   "%sub_ln681_7 = sub i8 127, %select_ln681" [p2peda.cpp:50]   --->   Operation 203 'sub' 'sub_ln681_7' <Predicate = (!icmp_ln49)> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 204 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%zext_ln681_9 = zext i8 %select_ln681_7 to i128" [p2peda.cpp:50]   --->   Operation 204 'zext' 'zext_ln681_9' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 205 [1/1] (4.89ns) (out node of the LUT)   --->   "%lshr_ln681 = lshr i128 %select_ln681_6, %zext_ln681_9" [p2peda.cpp:50]   --->   Operation 205 'lshr' 'lshr_ln681' <Predicate = (!icmp_ln49)> <Delay = 4.89> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 206 [1/1] (0.00ns)   --->   "%aes_input_15_load = load i8* %aes_input_15" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 206 'load' 'aes_input_15_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 207 [1/1] (0.00ns)   --->   "%aes_input_15_3_load = load i8* %aes_input_15_3" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 207 'load' 'aes_input_15_3_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 208 [1/1] (0.00ns)   --->   "%aes_input_15_4_load = load i8* %aes_input_15_4" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 208 'load' 'aes_input_15_4_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 209 [1/1] (0.00ns)   --->   "%aes_input_15_5_load = load i8* %aes_input_15_5" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 209 'load' 'aes_input_15_5_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 210 [1/1] (0.00ns)   --->   "%aes_input_15_6_load = load i8* %aes_input_15_6" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 210 'load' 'aes_input_15_6_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 211 [1/1] (0.00ns)   --->   "%aes_input_15_7_load = load i8* %aes_input_15_7" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 211 'load' 'aes_input_15_7_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 212 [1/1] (0.00ns)   --->   "%aes_input_15_8_load = load i8* %aes_input_15_8" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 212 'load' 'aes_input_15_8_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 213 [1/1] (0.00ns)   --->   "%aes_input_15_9_load = load i8* %aes_input_15_9" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 213 'load' 'aes_input_15_9_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 214 [1/1] (0.00ns)   --->   "%aes_input_15_10_loa = load i8* %aes_input_15_10" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 214 'load' 'aes_input_15_10_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 215 [1/1] (0.00ns)   --->   "%aes_input_15_11_loa = load i8* %aes_input_15_11" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 215 'load' 'aes_input_15_11_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 216 [1/1] (0.00ns)   --->   "%aes_input_15_12_loa = load i8* %aes_input_15_12" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 216 'load' 'aes_input_15_12_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 217 [1/1] (0.00ns)   --->   "%aes_input_15_13_loa = load i8* %aes_input_15_13" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 217 'load' 'aes_input_15_13_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 218 [1/1] (0.00ns)   --->   "%aes_input_15_14_loa = load i8* %aes_input_15_14" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 218 'load' 'aes_input_15_14_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 219 [1/1] (0.00ns)   --->   "%aes_input_15_15_loa = load i8* %aes_input_15_15" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 219 'load' 'aes_input_15_15_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 220 [1/1] (0.00ns)   --->   "%aes_input_15_16_loa = load i8* %aes_input_15_16" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 220 'load' 'aes_input_15_16_loa' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 221 [1/1] (0.00ns)   --->   "%aes_input_15_2_load = load i8* %aes_input_15_2" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 221 'load' 'aes_input_15_2_load' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 222 [2/2] (0.00ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } @aes_encrypt(i8 %aes_input_15_load, i8 %aes_input_15_3_load, i8 %aes_input_15_4_load, i8 %aes_input_15_5_load, i8 %aes_input_15_6_load, i8 %aes_input_15_7_load, i8 %aes_input_15_8_load, i8 %aes_input_15_9_load, i8 %aes_input_15_10_loa, i8 %aes_input_15_11_loa, i8 %aes_input_15_12_loa, i8 %aes_input_15_13_loa, i8 %aes_input_15_14_loa, i8 %aes_input_15_15_loa, i8 %aes_input_15_16_loa, i8 %aes_input_15_2_load, i8 %output_0_read_assig, i8 %output_1_read_assig, i8 %output_2_read_assig, i8 %output_3_read_assig, i8 %output_4_read_assig, i8 %output_5_read_assig, i8 %output_6_read_assig, i8 %output_7_read_assig, i8 %output_8_read_assig, i8 %output_9_read_assig, i8 %output_10_read_assi, i8 %output_11_read_assi, i8 %output_12_read_assi, i8 %output_13_read_assi, i8 %output_14_read_assi, i8 %output_15_read_assi)" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 222 'call' 'call_ret' <Predicate = (icmp_ln49)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 4.91>
+ST_5 : Operation 223 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%zext_ln681_10 = zext i8 %sub_ln681_7 to i128" [p2peda.cpp:50]   --->   Operation 223 'zext' 'zext_ln681_10' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 224 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%lshr_ln681_4 = lshr i128 -1, %zext_ln681_10" [p2peda.cpp:50]   --->   Operation 224 'lshr' 'lshr_ln681_4' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 225 [1/1] (3.14ns) (out node of the LUT)   --->   "%p_Result_s = and i128 %lshr_ln681, %lshr_ln681_4" [p2peda.cpp:50]   --->   Operation 225 'and' 'p_Result_s' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 226 [1/1] (0.00ns)   --->   "%aes_input_0 = trunc i128 %p_Result_s to i8" [p2peda.cpp:50]   --->   Operation 226 'trunc' 'aes_input_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 227 [1/1] (1.42ns)   --->   "switch i4 %trunc_ln50, label %branch31 [
+    i4 0, label %..preheader.backedge_crit_edge
+    i4 1, label %branch17
+    i4 2, label %branch18
+    i4 3, label %branch19
+    i4 4, label %branch20
+    i4 5, label %branch21
+    i4 6, label %branch22
+    i4 7, label %branch23
+    i4 -8, label %branch24
+    i4 -7, label %branch25
+    i4 -6, label %branch26
+    i4 -5, label %branch27
+    i4 -4, label %branch28
+    i4 -3, label %branch29
+    i4 -2, label %branch30
+  ]" [p2peda.cpp:50]   --->   Operation 227 'switch' <Predicate = true> <Delay = 1.42>
+ST_5 : Operation 228 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_16" [p2peda.cpp:50]   --->   Operation 228 'store' <Predicate = (trunc_ln50 == 14)> <Delay = 1.76>
+ST_5 : Operation 229 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 229 'br' <Predicate = (trunc_ln50 == 14)> <Delay = 0.00>
+ST_5 : Operation 230 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_15" [p2peda.cpp:50]   --->   Operation 230 'store' <Predicate = (trunc_ln50 == 13)> <Delay = 1.76>
+ST_5 : Operation 231 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 231 'br' <Predicate = (trunc_ln50 == 13)> <Delay = 0.00>
+ST_5 : Operation 232 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_14" [p2peda.cpp:50]   --->   Operation 232 'store' <Predicate = (trunc_ln50 == 12)> <Delay = 1.76>
+ST_5 : Operation 233 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 233 'br' <Predicate = (trunc_ln50 == 12)> <Delay = 0.00>
+ST_5 : Operation 234 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_13" [p2peda.cpp:50]   --->   Operation 234 'store' <Predicate = (trunc_ln50 == 11)> <Delay = 1.76>
+ST_5 : Operation 235 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 235 'br' <Predicate = (trunc_ln50 == 11)> <Delay = 0.00>
+ST_5 : Operation 236 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_12" [p2peda.cpp:50]   --->   Operation 236 'store' <Predicate = (trunc_ln50 == 10)> <Delay = 1.76>
+ST_5 : Operation 237 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 237 'br' <Predicate = (trunc_ln50 == 10)> <Delay = 0.00>
+ST_5 : Operation 238 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_11" [p2peda.cpp:50]   --->   Operation 238 'store' <Predicate = (trunc_ln50 == 9)> <Delay = 1.76>
+ST_5 : Operation 239 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 239 'br' <Predicate = (trunc_ln50 == 9)> <Delay = 0.00>
+ST_5 : Operation 240 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_10" [p2peda.cpp:50]   --->   Operation 240 'store' <Predicate = (trunc_ln50 == 8)> <Delay = 1.76>
+ST_5 : Operation 241 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 241 'br' <Predicate = (trunc_ln50 == 8)> <Delay = 0.00>
+ST_5 : Operation 242 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_9" [p2peda.cpp:50]   --->   Operation 242 'store' <Predicate = (trunc_ln50 == 7)> <Delay = 1.76>
+ST_5 : Operation 243 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 243 'br' <Predicate = (trunc_ln50 == 7)> <Delay = 0.00>
+ST_5 : Operation 244 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_8" [p2peda.cpp:50]   --->   Operation 244 'store' <Predicate = (trunc_ln50 == 6)> <Delay = 1.76>
+ST_5 : Operation 245 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 245 'br' <Predicate = (trunc_ln50 == 6)> <Delay = 0.00>
+ST_5 : Operation 246 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_7" [p2peda.cpp:50]   --->   Operation 246 'store' <Predicate = (trunc_ln50 == 5)> <Delay = 1.76>
+ST_5 : Operation 247 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 247 'br' <Predicate = (trunc_ln50 == 5)> <Delay = 0.00>
+ST_5 : Operation 248 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_6" [p2peda.cpp:50]   --->   Operation 248 'store' <Predicate = (trunc_ln50 == 4)> <Delay = 1.76>
+ST_5 : Operation 249 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 249 'br' <Predicate = (trunc_ln50 == 4)> <Delay = 0.00>
+ST_5 : Operation 250 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_5" [p2peda.cpp:50]   --->   Operation 250 'store' <Predicate = (trunc_ln50 == 3)> <Delay = 1.76>
+ST_5 : Operation 251 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 251 'br' <Predicate = (trunc_ln50 == 3)> <Delay = 0.00>
+ST_5 : Operation 252 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_4" [p2peda.cpp:50]   --->   Operation 252 'store' <Predicate = (trunc_ln50 == 2)> <Delay = 1.76>
+ST_5 : Operation 253 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 253 'br' <Predicate = (trunc_ln50 == 2)> <Delay = 0.00>
+ST_5 : Operation 254 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_3" [p2peda.cpp:50]   --->   Operation 254 'store' <Predicate = (trunc_ln50 == 1)> <Delay = 1.76>
+ST_5 : Operation 255 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 255 'br' <Predicate = (trunc_ln50 == 1)> <Delay = 0.00>
+ST_5 : Operation 256 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15" [p2peda.cpp:50]   --->   Operation 256 'store' <Predicate = (trunc_ln50 == 0)> <Delay = 1.76>
+ST_5 : Operation 257 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 257 'br' <Predicate = (trunc_ln50 == 0)> <Delay = 0.00>
+ST_5 : Operation 258 [1/1] (1.76ns)   --->   "store i8 %aes_input_0, i8* %aes_input_15_2" [p2peda.cpp:50]   --->   Operation 258 'store' <Predicate = (trunc_ln50 == 15)> <Delay = 1.76>
+ST_5 : Operation 259 [1/1] (0.00ns)   --->   "br label %.preheader.backedge" [p2peda.cpp:50]   --->   Operation 259 'br' <Predicate = (trunc_ln50 == 15)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 260 [1/1] (0.00ns)   --->   "br label %.preheader"   --->   Operation 260 'br' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 4> <Delay = 1.76>
+ST_7 : Operation 261 [1/2] (1.24ns)   --->   "%call_ret = call fastcc { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } @aes_encrypt(i8 %aes_input_15_load, i8 %aes_input_15_3_load, i8 %aes_input_15_4_load, i8 %aes_input_15_5_load, i8 %aes_input_15_6_load, i8 %aes_input_15_7_load, i8 %aes_input_15_8_load, i8 %aes_input_15_9_load, i8 %aes_input_15_10_loa, i8 %aes_input_15_11_loa, i8 %aes_input_15_12_loa, i8 %aes_input_15_13_loa, i8 %aes_input_15_14_loa, i8 %aes_input_15_15_loa, i8 %aes_input_15_16_loa, i8 %aes_input_15_2_load, i8 %output_0_read_assig, i8 %output_1_read_assig, i8 %output_2_read_assig, i8 %output_3_read_assig, i8 %output_4_read_assig, i8 %output_5_read_assig, i8 %output_6_read_assig, i8 %output_7_read_assig, i8 %output_8_read_assig, i8 %output_9_read_assig, i8 %output_10_read_assi, i8 %output_11_read_assi, i8 %output_12_read_assi, i8 %output_13_read_assi, i8 %output_14_read_assi, i8 %output_15_read_assi)" [../../refactored/encrypt.cpp:81->p2peda.cpp:53]   --->   Operation 261 'call' 'call_ret' <Predicate = true> <Delay = 1.24> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_7 : Operation 262 [1/1] (0.00ns)   --->   "%output_0 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 0" [p2peda.cpp:53]   --->   Operation 262 'extractvalue' 'output_0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 263 [1/1] (0.00ns)   --->   "%output_1 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 1" [p2peda.cpp:53]   --->   Operation 263 'extractvalue' 'output_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 264 [1/1] (0.00ns)   --->   "%output_2 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 2" [p2peda.cpp:53]   --->   Operation 264 'extractvalue' 'output_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 265 [1/1] (0.00ns)   --->   "%output_3 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 3" [p2peda.cpp:53]   --->   Operation 265 'extractvalue' 'output_3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 266 [1/1] (0.00ns)   --->   "%output_4 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 4" [p2peda.cpp:53]   --->   Operation 266 'extractvalue' 'output_4' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 267 [1/1] (0.00ns)   --->   "%output_5 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 5" [p2peda.cpp:53]   --->   Operation 267 'extractvalue' 'output_5' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 268 [1/1] (0.00ns)   --->   "%output_6 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 6" [p2peda.cpp:53]   --->   Operation 268 'extractvalue' 'output_6' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 269 [1/1] (0.00ns)   --->   "%output_7 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 7" [p2peda.cpp:53]   --->   Operation 269 'extractvalue' 'output_7' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 270 [1/1] (0.00ns)   --->   "%output_8 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 8" [p2peda.cpp:53]   --->   Operation 270 'extractvalue' 'output_8' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 271 [1/1] (0.00ns)   --->   "%output_9 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 9" [p2peda.cpp:53]   --->   Operation 271 'extractvalue' 'output_9' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 272 [1/1] (0.00ns)   --->   "%output_10 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 10" [p2peda.cpp:53]   --->   Operation 272 'extractvalue' 'output_10' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 273 [1/1] (0.00ns)   --->   "%output_11 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 11" [p2peda.cpp:53]   --->   Operation 273 'extractvalue' 'output_11' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 274 [1/1] (0.00ns)   --->   "%output_12 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 12" [p2peda.cpp:53]   --->   Operation 274 'extractvalue' 'output_12' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 275 [1/1] (0.00ns)   --->   "%output_13 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 13" [p2peda.cpp:53]   --->   Operation 275 'extractvalue' 'output_13' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 276 [1/1] (0.00ns)   --->   "%output_14 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 14" [p2peda.cpp:53]   --->   Operation 276 'extractvalue' 'output_14' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 277 [1/1] (0.00ns)   --->   "%output_15 = extractvalue { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 } %call_ret, 15" [p2peda.cpp:53]   --->   Operation 277 'extractvalue' 'output_15' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 278 [1/1] (1.76ns)   --->   "br label %3" [p2peda.cpp:55]   --->   Operation 278 'br' <Predicate = true> <Delay = 1.76>
+
+State 8 <SV = 5> <Delay = 7.13>
+ST_8 : Operation 279 [1/1] (0.00ns)   --->   "%p_Val2_s = phi i128 [ undef, %2 ], [ %p_Result_7, %4 ]"   --->   Operation 279 'phi' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 280 [1/1] (0.00ns)   --->   "%i1_0 = phi i5 [ 0, %2 ], [ %i_4, %4 ]"   --->   Operation 280 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 281 [1/1] (1.36ns)   --->   "%icmp_ln55 = icmp eq i5 %i1_0, -16" [p2peda.cpp:55]   --->   Operation 281 'icmp' 'icmp_ln55' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 282 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 282 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 283 [1/1] (1.78ns)   --->   "%i_4 = add i5 %i1_0, 1" [p2peda.cpp:55]   --->   Operation 283 'add' 'i_4' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 284 [1/1] (0.00ns)   --->   "br i1 %icmp_ln55, label %5, label %4" [p2peda.cpp:55]   --->   Operation 284 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 285 [1/1] (0.00ns)   --->   "%trunc_ln56 = trunc i5 %i1_0 to i4" [p2peda.cpp:56]   --->   Operation 285 'trunc' 'trunc_ln56' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 286 [1/1] (0.00ns)   --->   "%Lo_assign_4 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %trunc_ln56, i3 0)" [p2peda.cpp:56]   --->   Operation 286 'bitconcatenate' 'Lo_assign_4' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 287 [1/1] (0.00ns)   --->   "%or_ln56 = or i7 %Lo_assign_4, 7" [p2peda.cpp:56]   --->   Operation 287 'or' 'or_ln56' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 288 [1/1] (2.06ns)   --->   "%val_assign = call i8 @_ssdm_op_Mux.ap_auto.16i8.i4(i8 %output_0, i8 %output_1, i8 %output_2, i8 %output_3, i8 %output_4, i8 %output_5, i8 %output_6, i8 %output_7, i8 %output_8, i8 %output_9, i8 %output_10, i8 %output_11, i8 %output_12, i8 %output_13, i8 %output_14, i8 %output_15, i4 %trunc_ln56)" [p2peda.cpp:56]   --->   Operation 288 'mux' 'val_assign' <Predicate = (!icmp_ln55)> <Delay = 2.06> <Core = "MuxnS">   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.06> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 289 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%tmp_V = zext i8 %val_assign to i128" [p2peda.cpp:56]   --->   Operation 289 'zext' 'tmp_V' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 290 [1/1] (1.48ns)   --->   "%icmp_ln388 = icmp ugt i7 %Lo_assign_4, %or_ln56" [p2peda.cpp:56]   --->   Operation 290 'icmp' 'icmp_ln388' <Predicate = (!icmp_ln55)> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 291 [1/1] (0.00ns)   --->   "%zext_ln388 = zext i7 %Lo_assign_4 to i8" [p2peda.cpp:56]   --->   Operation 291 'zext' 'zext_ln388' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 292 [1/1] (0.00ns)   --->   "%zext_ln388_10 = zext i7 %or_ln56 to i8" [p2peda.cpp:56]   --->   Operation 292 'zext' 'zext_ln388_10' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 293 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%xor_ln388 = xor i8 %zext_ln388, 127" [p2peda.cpp:56]   --->   Operation 293 'xor' 'xor_ln388' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 294 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388 = select i1 %icmp_ln388, i8 %zext_ln388, i8 %zext_ln388_10" [p2peda.cpp:56]   --->   Operation 294 'select' 'select_ln388' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 295 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388_8 = select i1 %icmp_ln388, i8 %zext_ln388_10, i8 %zext_ln388" [p2peda.cpp:56]   --->   Operation 295 'select' 'select_ln388_8' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 296 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%select_ln388_9 = select i1 %icmp_ln388, i8 %xor_ln388, i8 %zext_ln388" [p2peda.cpp:56]   --->   Operation 296 'select' 'select_ln388_9' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 297 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%xor_ln388_6 = xor i8 %select_ln388, 127" [p2peda.cpp:56]   --->   Operation 297 'xor' 'xor_ln388_6' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 298 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%zext_ln388_11 = zext i8 %select_ln388_9 to i128" [p2peda.cpp:56]   --->   Operation 298 'zext' 'zext_ln388_11' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 299 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_12 = zext i8 %select_ln388_8 to i128" [p2peda.cpp:56]   --->   Operation 299 'zext' 'zext_ln388_12' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 300 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_13 = zext i8 %xor_ln388_6 to i128" [p2peda.cpp:56]   --->   Operation 300 'zext' 'zext_ln388_13' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 301 [1/1] (3.14ns) (out node of the LUT)   --->   "%shl_ln388 = shl i128 %tmp_V, %zext_ln388_11" [p2peda.cpp:56]   --->   Operation 301 'shl' 'shl_ln388' <Predicate = (!icmp_ln55)> <Delay = 3.14> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 302 [1/1] (0.00ns) (grouped into LUT with out node p_Result_7)   --->   "%tmp_9 = call i128 @llvm.part.select.i128(i128 %shl_ln388, i32 127, i32 0)" [p2peda.cpp:56]   --->   Operation 302 'partselect' 'tmp_9' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 303 [1/1] (0.00ns) (grouped into LUT with out node p_Result_7)   --->   "%select_ln388_10 = select i1 %icmp_ln388, i128 %tmp_9, i128 %shl_ln388" [p2peda.cpp:56]   --->   Operation 303 'select' 'select_ln388_10' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 304 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%shl_ln388_4 = shl i128 -1, %zext_ln388_12" [p2peda.cpp:56]   --->   Operation 304 'shl' 'shl_ln388_4' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 305 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%lshr_ln388 = lshr i128 -1, %zext_ln388_13" [p2peda.cpp:56]   --->   Operation 305 'lshr' 'lshr_ln388' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 306 [1/1] (3.14ns) (out node of the LUT)   --->   "%and_ln388 = and i128 %shl_ln388_4, %lshr_ln388" [p2peda.cpp:56]   --->   Operation 306 'and' 'and_ln388' <Predicate = (!icmp_ln55)> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 307 [1/1] (0.00ns) (grouped into LUT with out node p_Result_7)   --->   "%xor_ln388_7 = xor i128 %and_ln388, -1" [p2peda.cpp:56]   --->   Operation 307 'xor' 'xor_ln388_7' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 308 [1/1] (0.00ns) (grouped into LUT with out node p_Result_7)   --->   "%and_ln388_6 = and i128 %p_Val2_s, %xor_ln388_7" [p2peda.cpp:56]   --->   Operation 308 'and' 'and_ln388_6' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 309 [1/1] (0.00ns) (grouped into LUT with out node p_Result_7)   --->   "%and_ln388_7 = and i128 %select_ln388_10, %and_ln388" [p2peda.cpp:56]   --->   Operation 309 'and' 'and_ln388_7' <Predicate = (!icmp_ln55)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 310 [1/1] (1.92ns) (out node of the LUT)   --->   "%p_Result_7 = or i128 %and_ln388_6, %and_ln388_7" [p2peda.cpp:56]   --->   Operation 310 'or' 'p_Result_7' <Predicate = (!icmp_ln55)> <Delay = 1.92> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 311 [1/1] (0.00ns)   --->   "br label %3" [p2peda.cpp:55]   --->   Operation 311 'br' <Predicate = (!icmp_ln55)> <Delay = 0.00>
+ST_8 : Operation 312 [1/1] (0.00ns)   --->   "ret i128 %p_Val2_s" [p2peda.cpp:58]   --->   Operation 312 'ret' <Predicate = (icmp_ln55)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('phi_ln46', p2peda.cpp:46) with incoming values : ('add_ln46', p2peda.cpp:46) [25]  (1.77 ns)
+
+ <State 2>: 2.06ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln46', p2peda.cpp:46) with incoming values : ('add_ln46', p2peda.cpp:46) [25]  (0 ns)
+	'mux' operation ('aes_input_0_s', p2peda.cpp:46) [43]  (2.06 ns)
+
+ <State 3>: 2.06ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln47', p2peda.cpp:47) with incoming values : ('add_ln47', p2peda.cpp:47) [98]  (0 ns)
+	'mux' operation ('output[0]', p2peda.cpp:47) [116]  (2.06 ns)
+
+ <State 4>: 6.38ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', p2peda.cpp:49) [187]  (0 ns)
+	'icmp' operation ('icmp_ln681', p2peda.cpp:50) [196]  (1.49 ns)
+	'select' operation ('select_ln681_6', p2peda.cpp:50) [204]  (0 ns)
+	'lshr' operation ('lshr_ln681', p2peda.cpp:50) [209]  (4.89 ns)
+
+ <State 5>: 4.92ns
+The critical path consists of the following:
+	'lshr' operation ('lshr_ln681_4', p2peda.cpp:50) [210]  (0 ns)
+	'and' operation ('__Result__', p2peda.cpp:50) [211]  (3.15 ns)
+	'store' operation ('store_ln50', p2peda.cpp:50) of variable 'aes_input[0]', p2peda.cpp:50 on local variable 'aes_input[15]' [236]  (1.77 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('__Result__') with incoming values : ('__Result__', p2peda.cpp:56) [300]  (1.77 ns)
+
+ <State 8>: 7.14ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', p2peda.cpp:55) [301]  (0 ns)
+	'mux' operation ('val', p2peda.cpp:56) [310]  (2.06 ns)
+	'shl' operation ('shl_ln388', p2peda.cpp:56) [323]  (3.15 ns)
+	'select' operation ('select_ln388_10', p2peda.cpp:56) [325]  (0 ns)
+	'and' operation ('and_ln388_7', p2peda.cpp:56) [331]  (0 ns)
+	'or' operation ('__Result__', p2peda.cpp:56) [332]  (1.92 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

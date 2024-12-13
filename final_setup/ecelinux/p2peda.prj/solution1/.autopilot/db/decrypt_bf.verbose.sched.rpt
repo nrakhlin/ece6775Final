@@ -1,0 +1,406 @@
+
+
+================================================================
+== Vivado HLS Report for 'decrypt_bf'
+================================================================
+* Date:           Fri Dec 13 14:33:36 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.358 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      155|      155| 1.550 us | 1.550 us |  155|  155|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |       16|       16|         2|          -|          -|     8|    no    |
+        |- Loop 2  |       16|       16|         2|          -|          -|     8|    no    |
+        |- Loop 3  |       16|       16|         2|          -|          -|     8|    no    |
+        |- Loop 4  |       16|       16|         2|          -|          -|     8|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 12
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 5 6 
+5 --> 4 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 11 
+10 --> 9 
+11 --> 12 
+12 --> 11 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%ciphertext_V_read = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %ciphertext_V)"   --->   Operation 13 'read' 'ciphertext_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%ciphertext1 = alloca [8 x i8], align 1" [p2peda.cpp:111]   --->   Operation 14 'alloca' 'ciphertext1' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%ciphertext2 = alloca [8 x i8], align 1" [p2peda.cpp:112]   --->   Operation 15 'alloca' 'ciphertext2' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%decryptedtext1 = alloca [8 x i8], align 1"   --->   Operation 16 'alloca' 'decryptedtext1' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%decryptedtext2 = alloca [8 x i8], align 1"   --->   Operation 17 'alloca' 'decryptedtext2' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%lower_64_V = trunc i128 %ciphertext_V_read to i64" [./../../blowfish/blowfish.cpp:269->p2peda.cpp:117]   --->   Operation 18 'trunc' 'lower_64_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%upper_64_V = call i64 @_ssdm_op_PartSelect.i64.i128.i32.i32(i128 %ciphertext_V_read, i32 64, i32 127)" [./../../blowfish/blowfish.cpp:270->p2peda.cpp:117]   --->   Operation 19 'partselect' 'upper_64_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.76ns)   --->   "br label %1" [./../../blowfish/blowfish.cpp:271->p2peda.cpp:117]   --->   Operation 20 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 6.02>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%i_0_i = phi i4 [ 0, %0 ], [ %i, %2 ]"   --->   Operation 21 'phi' 'i_0_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.30ns)   --->   "%icmp_ln271 = icmp eq i4 %i_0_i, -8" [./../../blowfish/blowfish.cpp:271->p2peda.cpp:117]   --->   Operation 22 'icmp' 'icmp_ln271' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 23 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (1.73ns)   --->   "%i = add i4 %i_0_i, 1" [./../../blowfish/blowfish.cpp:271->p2peda.cpp:117]   --->   Operation 24 'add' 'i' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "br i1 %icmp_ln271, label %.preheader.i.preheader, label %2" [./../../blowfish/blowfish.cpp:271->p2peda.cpp:117]   --->   Operation 25 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%trunc_ln275 = trunc i4 %i_0_i to i3" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 26 'trunc' 'trunc_ln275' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%Lo_assign = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %trunc_ln275, i3 0)" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 27 'bitconcatenate' 'Lo_assign' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%or_ln275 = or i6 %Lo_assign, 7" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 28 'or' 'or_ln275' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (1.42ns)   --->   "%icmp_ln681 = icmp ugt i6 %Lo_assign, %or_ln275" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 29 'icmp' 'icmp_ln681' <Predicate = (!icmp_ln271)> <Delay = 1.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln681 = zext i6 %Lo_assign to i7" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 30 'zext' 'zext_ln681' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln681_11 = zext i6 %or_ln275 to i7" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 31 'zext' 'zext_ln681_11' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%tmp = call i64 @_ssdm_op_PartSelect.i64.i128.i32.i32(i128 %ciphertext_V_read, i32 63, i32 0)" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 32 'partselect' 'tmp' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (1.82ns)   --->   "%sub_ln681 = sub i7 %zext_ln681, %zext_ln681_11" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 33 'sub' 'sub_ln681' <Predicate = (!icmp_ln271)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%xor_ln681 = xor i7 %zext_ln681, 63" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 34 'xor' 'xor_ln681' <Predicate = (!icmp_ln271)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 35 [1/1] (1.82ns)   --->   "%sub_ln681_8 = sub i7 %zext_ln681_11, %zext_ln681" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 35 'sub' 'sub_ln681_8' <Predicate = (!icmp_ln271)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 36 [1/1] (0.00ns) (grouped into LUT with out node sub_ln681_9)   --->   "%select_ln681 = select i1 %icmp_ln681, i7 %sub_ln681, i7 %sub_ln681_8" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 36 'select' 'select_ln681' <Predicate = (!icmp_ln271)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 37 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_8 = select i1 %icmp_ln681, i64 %tmp, i64 %lower_64_V" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 37 'select' 'select_ln681_8' <Predicate = (!icmp_ln271)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 38 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%select_ln681_9 = select i1 %icmp_ln681, i7 %xor_ln681, i7 %zext_ln681" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 38 'select' 'select_ln681_9' <Predicate = (!icmp_ln271)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (1.87ns) (out node of the LUT)   --->   "%sub_ln681_9 = sub i7 63, %select_ln681" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 39 'sub' 'sub_ln681_9' <Predicate = (!icmp_ln271)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 40 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681)   --->   "%zext_ln681_12 = zext i7 %select_ln681_9 to i64" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 40 'zext' 'zext_ln681_12' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (4.59ns) (out node of the LUT)   --->   "%lshr_ln681 = lshr i64 %select_ln681_8, %zext_ln681_12" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 41 'lshr' 'lshr_ln681' <Predicate = (!icmp_ln271)> <Delay = 4.59> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 42 [1/1] (1.76ns)   --->   "br label %.preheader.i" [./../../blowfish/blowfish.cpp:279->p2peda.cpp:117]   --->   Operation 42 'br' <Predicate = (icmp_ln271)> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 5.36>
+ST_3 : Operation 43 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%zext_ln681_13 = zext i7 %sub_ln681_9 to i64" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 43 'zext' 'zext_ln681_13' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns) (grouped into LUT with out node p_Result_s)   --->   "%lshr_ln681_5 = lshr i64 -1, %zext_ln681_13" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 44 'lshr' 'lshr_ln681_5' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 45 [1/1] (3.04ns) (out node of the LUT)   --->   "%p_Result_s = and i64 %lshr_ln681, %lshr_ln681_5" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 45 'and' 'p_Result_s' <Predicate = true> <Delay = 3.04> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%trunc_ln275_2 = trunc i64 %p_Result_s to i8" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 46 'trunc' 'trunc_ln275_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%zext_ln275 = zext i4 %i_0_i to i64" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 47 'zext' 'zext_ln275' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "%ciphertext1_addr = getelementptr [8 x i8]* %ciphertext1, i64 0, i64 %zext_ln275" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 48 'getelementptr' 'ciphertext1_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (2.32ns)   --->   "store i8 %trunc_ln275_2, i8* %ciphertext1_addr, align 1" [./../../blowfish/blowfish.cpp:275->p2peda.cpp:117]   --->   Operation 49 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "br label %1" [./../../blowfish/blowfish.cpp:271->p2peda.cpp:117]   --->   Operation 50 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 6.02>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%i1_0_i = phi i4 [ %i_9, %3 ], [ 0, %.preheader.i.preheader ]"   --->   Operation 51 'phi' 'i1_0_i' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (1.30ns)   --->   "%icmp_ln279 = icmp eq i4 %i1_0_i, -8" [./../../blowfish/blowfish.cpp:279->p2peda.cpp:117]   --->   Operation 52 'icmp' 'icmp_ln279' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 53 'speclooptripcount' 'empty_39' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (1.73ns)   --->   "%i_9 = add i4 %i1_0_i, 1" [./../../blowfish/blowfish.cpp:279->p2peda.cpp:117]   --->   Operation 54 'add' 'i_9' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %icmp_ln279, label %split_bit128.exit, label %3" [./../../blowfish/blowfish.cpp:279->p2peda.cpp:117]   --->   Operation 55 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%trunc_ln283 = trunc i4 %i1_0_i to i3" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 56 'trunc' 'trunc_ln283' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%Lo_assign_7 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %trunc_ln283, i3 0)" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 57 'bitconcatenate' 'Lo_assign_7' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%or_ln283 = or i6 %Lo_assign_7, 7" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 58 'or' 'or_ln283' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (1.42ns)   --->   "%icmp_ln681_2 = icmp ugt i6 %Lo_assign_7, %or_ln283" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 59 'icmp' 'icmp_ln681_2' <Predicate = (!icmp_ln279)> <Delay = 1.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%zext_ln681_14 = zext i6 %Lo_assign_7 to i7" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 60 'zext' 'zext_ln681_14' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "%zext_ln681_15 = zext i6 %or_ln283 to i7" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 61 'zext' 'zext_ln681_15' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681_6)   --->   "%tmp_21 = call i64 @_ssdm_op_PartSelect.i64.i128.i32.i32(i128 %ciphertext_V_read, i32 127, i32 64)" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 62 'partselect' 'tmp_21' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (1.82ns)   --->   "%sub_ln681_10 = sub i7 %zext_ln681_14, %zext_ln681_15" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 63 'sub' 'sub_ln681_10' <Predicate = (!icmp_ln279)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 64 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681_6)   --->   "%xor_ln681_2 = xor i7 %zext_ln681_14, 63" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 64 'xor' 'xor_ln681_2' <Predicate = (!icmp_ln279)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 65 [1/1] (1.82ns)   --->   "%sub_ln681_11 = sub i7 %zext_ln681_15, %zext_ln681_14" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 65 'sub' 'sub_ln681_11' <Predicate = (!icmp_ln279)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node sub_ln681_12)   --->   "%select_ln681_10 = select i1 %icmp_ln681_2, i7 %sub_ln681_10, i7 %sub_ln681_11" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 66 'select' 'select_ln681_10' <Predicate = (!icmp_ln279)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681_6)   --->   "%select_ln681_11 = select i1 %icmp_ln681_2, i64 %tmp_21, i64 %upper_64_V" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 67 'select' 'select_ln681_11' <Predicate = (!icmp_ln279)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681_6)   --->   "%select_ln681_12 = select i1 %icmp_ln681_2, i7 %xor_ln681_2, i7 %zext_ln681_14" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 68 'select' 'select_ln681_12' <Predicate = (!icmp_ln279)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 69 [1/1] (1.87ns) (out node of the LUT)   --->   "%sub_ln681_12 = sub i7 63, %select_ln681_10" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 69 'sub' 'sub_ln681_12' <Predicate = (!icmp_ln279)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 70 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln681_6)   --->   "%zext_ln681_16 = zext i7 %select_ln681_12 to i64" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 70 'zext' 'zext_ln681_16' <Predicate = (!icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (4.59ns) (out node of the LUT)   --->   "%lshr_ln681_6 = lshr i64 %select_ln681_11, %zext_ln681_16" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 71 'lshr' 'lshr_ln681_6' <Predicate = (!icmp_ln279)> <Delay = 4.59> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "%P_0_load = load i32* @P_0, align 4" [p2peda.cpp:120]   --->   Operation 72 'load' 'P_0_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (0.00ns)   --->   "%P_1_load = load i32* @P_1, align 4" [p2peda.cpp:120]   --->   Operation 73 'load' 'P_1_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%P_2_load = load i32* @P_2, align 4" [p2peda.cpp:120]   --->   Operation 74 'load' 'P_2_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "%P_3_load = load i32* @P_3, align 4" [p2peda.cpp:120]   --->   Operation 75 'load' 'P_3_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 76 [1/1] (0.00ns)   --->   "%P_4_load = load i32* @P_4, align 4" [p2peda.cpp:120]   --->   Operation 76 'load' 'P_4_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 77 [1/1] (0.00ns)   --->   "%P_5_load = load i32* @P_5, align 4" [p2peda.cpp:120]   --->   Operation 77 'load' 'P_5_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%P_6_load = load i32* @P_6, align 4" [p2peda.cpp:120]   --->   Operation 78 'load' 'P_6_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%P_7_load = load i32* @P_7, align 4" [p2peda.cpp:120]   --->   Operation 79 'load' 'P_7_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%P_8_load = load i32* @P_8, align 4" [p2peda.cpp:120]   --->   Operation 80 'load' 'P_8_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "%P_9_load = load i32* @P_9, align 4" [p2peda.cpp:120]   --->   Operation 81 'load' 'P_9_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 82 [1/1] (0.00ns)   --->   "%P_10_load = load i32* @P_10, align 4" [p2peda.cpp:120]   --->   Operation 82 'load' 'P_10_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%P_11_load = load i32* @P_11, align 4" [p2peda.cpp:120]   --->   Operation 83 'load' 'P_11_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 84 [1/1] (0.00ns)   --->   "%P_12_load = load i32* @P_12, align 4" [p2peda.cpp:120]   --->   Operation 84 'load' 'P_12_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "%P_13_load = load i32* @P_13, align 4" [p2peda.cpp:120]   --->   Operation 85 'load' 'P_13_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (0.00ns)   --->   "%P_14_load = load i32* @P_14, align 4" [p2peda.cpp:120]   --->   Operation 86 'load' 'P_14_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 87 [1/1] (0.00ns)   --->   "%P_15_load = load i32* @P_15, align 4" [p2peda.cpp:120]   --->   Operation 87 'load' 'P_15_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 88 [1/1] (0.00ns)   --->   "%P_16_load = load i32* @P_16, align 4" [p2peda.cpp:120]   --->   Operation 88 'load' 'P_16_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 89 [1/1] (0.00ns)   --->   "%P_17_load = load i32* @P_17, align 4" [p2peda.cpp:120]   --->   Operation 89 'load' 'P_17_load' <Predicate = (icmp_ln279)> <Delay = 0.00>
+ST_4 : Operation 90 [2/2] (1.76ns)   --->   "call fastcc void @Blowfish_Decrypt([8 x i8]* %ciphertext1, [8 x i8]* %decryptedtext1, i32 %P_0_load, i32 %P_1_load, i32 %P_2_load, i32 %P_3_load, i32 %P_4_load, i32 %P_5_load, i32 %P_6_load, i32 %P_7_load, i32 %P_8_load, i32 %P_9_load, i32 %P_10_load, i32 %P_11_load, i32 %P_12_load, i32 %P_13_load, i32 %P_14_load, i32 %P_15_load, i32 %P_16_load, i32 %P_17_load, [256 x i32]* @S_0, [256 x i32]* @S_1, [256 x i32]* @S_2, [256 x i32]* @S_3)" [p2peda.cpp:120]   --->   Operation 90 'call' <Predicate = (icmp_ln279)> <Delay = 1.76> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 3> <Delay = 5.36>
+ST_5 : Operation 91 [1/1] (0.00ns) (grouped into LUT with out node p_Result_14)   --->   "%zext_ln681_17 = zext i7 %sub_ln681_12 to i64" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 91 'zext' 'zext_ln681_17' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 92 [1/1] (0.00ns) (grouped into LUT with out node p_Result_14)   --->   "%lshr_ln681_7 = lshr i64 -1, %zext_ln681_17" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 92 'lshr' 'lshr_ln681_7' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 93 [1/1] (3.04ns) (out node of the LUT)   --->   "%p_Result_14 = and i64 %lshr_ln681_6, %lshr_ln681_7" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 93 'and' 'p_Result_14' <Predicate = true> <Delay = 3.04> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 94 [1/1] (0.00ns)   --->   "%trunc_ln283_2 = trunc i64 %p_Result_14 to i8" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 94 'trunc' 'trunc_ln283_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln283 = zext i4 %i1_0_i to i64" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 95 'zext' 'zext_ln283' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 96 [1/1] (0.00ns)   --->   "%ciphertext2_addr = getelementptr [8 x i8]* %ciphertext2, i64 0, i64 %zext_ln283" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 96 'getelementptr' 'ciphertext2_addr' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 97 [1/1] (2.32ns)   --->   "store i8 %trunc_ln283_2, i8* %ciphertext2_addr, align 1" [./../../blowfish/blowfish.cpp:283->p2peda.cpp:117]   --->   Operation 97 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_5 : Operation 98 [1/1] (0.00ns)   --->   "br label %.preheader.i" [./../../blowfish/blowfish.cpp:279->p2peda.cpp:117]   --->   Operation 98 'br' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 0.00>
+ST_6 : Operation 99 [1/2] (0.00ns)   --->   "call fastcc void @Blowfish_Decrypt([8 x i8]* %ciphertext1, [8 x i8]* %decryptedtext1, i32 %P_0_load, i32 %P_1_load, i32 %P_2_load, i32 %P_3_load, i32 %P_4_load, i32 %P_5_load, i32 %P_6_load, i32 %P_7_load, i32 %P_8_load, i32 %P_9_load, i32 %P_10_load, i32 %P_11_load, i32 %P_12_load, i32 %P_13_load, i32 %P_14_load, i32 %P_15_load, i32 %P_16_load, i32 %P_17_load, [256 x i32]* @S_0, [256 x i32]* @S_1, [256 x i32]* @S_2, [256 x i32]* @S_3)" [p2peda.cpp:120]   --->   Operation 99 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 4> <Delay = 1.76>
+ST_7 : Operation 100 [1/1] (0.00ns)   --->   "%P_0_load_2 = load i32* @P_0, align 4" [p2peda.cpp:121]   --->   Operation 100 'load' 'P_0_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 101 [1/1] (0.00ns)   --->   "%P_1_load_2 = load i32* @P_1, align 4" [p2peda.cpp:121]   --->   Operation 101 'load' 'P_1_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 102 [1/1] (0.00ns)   --->   "%P_2_load_2 = load i32* @P_2, align 4" [p2peda.cpp:121]   --->   Operation 102 'load' 'P_2_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 103 [1/1] (0.00ns)   --->   "%P_3_load_2 = load i32* @P_3, align 4" [p2peda.cpp:121]   --->   Operation 103 'load' 'P_3_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 104 [1/1] (0.00ns)   --->   "%P_4_load_2 = load i32* @P_4, align 4" [p2peda.cpp:121]   --->   Operation 104 'load' 'P_4_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 105 [1/1] (0.00ns)   --->   "%P_5_load_2 = load i32* @P_5, align 4" [p2peda.cpp:121]   --->   Operation 105 'load' 'P_5_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 106 [1/1] (0.00ns)   --->   "%P_6_load_2 = load i32* @P_6, align 4" [p2peda.cpp:121]   --->   Operation 106 'load' 'P_6_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 107 [1/1] (0.00ns)   --->   "%P_7_load_2 = load i32* @P_7, align 4" [p2peda.cpp:121]   --->   Operation 107 'load' 'P_7_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 108 [1/1] (0.00ns)   --->   "%P_8_load_2 = load i32* @P_8, align 4" [p2peda.cpp:121]   --->   Operation 108 'load' 'P_8_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 109 [1/1] (0.00ns)   --->   "%P_9_load_2 = load i32* @P_9, align 4" [p2peda.cpp:121]   --->   Operation 109 'load' 'P_9_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 110 [1/1] (0.00ns)   --->   "%P_10_load_2 = load i32* @P_10, align 4" [p2peda.cpp:121]   --->   Operation 110 'load' 'P_10_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 111 [1/1] (0.00ns)   --->   "%P_11_load_2 = load i32* @P_11, align 4" [p2peda.cpp:121]   --->   Operation 111 'load' 'P_11_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 112 [1/1] (0.00ns)   --->   "%P_12_load_2 = load i32* @P_12, align 4" [p2peda.cpp:121]   --->   Operation 112 'load' 'P_12_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 113 [1/1] (0.00ns)   --->   "%P_13_load_2 = load i32* @P_13, align 4" [p2peda.cpp:121]   --->   Operation 113 'load' 'P_13_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 114 [1/1] (0.00ns)   --->   "%P_14_load_2 = load i32* @P_14, align 4" [p2peda.cpp:121]   --->   Operation 114 'load' 'P_14_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 115 [1/1] (0.00ns)   --->   "%P_15_load_2 = load i32* @P_15, align 4" [p2peda.cpp:121]   --->   Operation 115 'load' 'P_15_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 116 [1/1] (0.00ns)   --->   "%P_16_load_2 = load i32* @P_16, align 4" [p2peda.cpp:121]   --->   Operation 116 'load' 'P_16_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 117 [1/1] (0.00ns)   --->   "%P_17_load_2 = load i32* @P_17, align 4" [p2peda.cpp:121]   --->   Operation 117 'load' 'P_17_load_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 118 [2/2] (1.76ns)   --->   "call fastcc void @Blowfish_Decrypt([8 x i8]* %ciphertext2, [8 x i8]* %decryptedtext2, i32 %P_0_load_2, i32 %P_1_load_2, i32 %P_2_load_2, i32 %P_3_load_2, i32 %P_4_load_2, i32 %P_5_load_2, i32 %P_6_load_2, i32 %P_7_load_2, i32 %P_8_load_2, i32 %P_9_load_2, i32 %P_10_load_2, i32 %P_11_load_2, i32 %P_12_load_2, i32 %P_13_load_2, i32 %P_14_load_2, i32 %P_15_load_2, i32 %P_16_load_2, i32 %P_17_load_2, [256 x i32]* @S_0, [256 x i32]* @S_1, [256 x i32]* @S_2, [256 x i32]* @S_3)" [p2peda.cpp:121]   --->   Operation 118 'call' <Predicate = true> <Delay = 1.76> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 5> <Delay = 1.76>
+ST_8 : Operation 119 [1/2] (0.00ns)   --->   "call fastcc void @Blowfish_Decrypt([8 x i8]* %ciphertext2, [8 x i8]* %decryptedtext2, i32 %P_0_load_2, i32 %P_1_load_2, i32 %P_2_load_2, i32 %P_3_load_2, i32 %P_4_load_2, i32 %P_5_load_2, i32 %P_6_load_2, i32 %P_7_load_2, i32 %P_8_load_2, i32 %P_9_load_2, i32 %P_10_load_2, i32 %P_11_load_2, i32 %P_12_load_2, i32 %P_13_load_2, i32 %P_14_load_2, i32 %P_15_load_2, i32 %P_16_load_2, i32 %P_17_load_2, [256 x i32]* @S_0, [256 x i32]* @S_1, [256 x i32]* @S_2, [256 x i32]* @S_3)" [p2peda.cpp:121]   --->   Operation 119 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_8 : Operation 120 [1/1] (1.76ns)   --->   "br label %4" [./../../blowfish/blowfish.cpp:292->p2peda.cpp:123]   --->   Operation 120 'br' <Predicate = true> <Delay = 1.76>
+
+State 9 <SV = 6> <Delay = 2.32>
+ST_9 : Operation 121 [1/1] (0.00ns)   --->   "%p_Val2_12 = phi i128 [ 0, %split_bit128.exit ], [ %p_Result_17, %5 ]"   --->   Operation 121 'phi' 'p_Val2_12' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 122 [1/1] (0.00ns)   --->   "%i_0_i25 = phi i4 [ 0, %split_bit128.exit ], [ %i_10, %5 ]"   --->   Operation 122 'phi' 'i_0_i25' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 123 [1/1] (1.30ns)   --->   "%icmp_ln292 = icmp eq i4 %i_0_i25, -8" [./../../blowfish/blowfish.cpp:292->p2peda.cpp:123]   --->   Operation 123 'icmp' 'icmp_ln292' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 124 [1/1] (0.00ns)   --->   "%empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 124 'speclooptripcount' 'empty_40' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 125 [1/1] (1.73ns)   --->   "%i_10 = add i4 %i_0_i25, 1" [./../../blowfish/blowfish.cpp:292->p2peda.cpp:123]   --->   Operation 125 'add' 'i_10' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 126 [1/1] (0.00ns)   --->   "br i1 %icmp_ln292, label %.preheader.i32.preheader, label %5" [./../../blowfish/blowfish.cpp:292->p2peda.cpp:123]   --->   Operation 126 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 127 [1/1] (0.00ns)   --->   "%trunc_ln293 = trunc i4 %i_0_i25 to i3" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 127 'trunc' 'trunc_ln293' <Predicate = (!icmp_ln292)> <Delay = 0.00>
+ST_9 : Operation 128 [1/1] (0.00ns)   --->   "%zext_ln293 = zext i4 %i_0_i25 to i64" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 128 'zext' 'zext_ln293' <Predicate = (!icmp_ln292)> <Delay = 0.00>
+ST_9 : Operation 129 [1/1] (0.00ns)   --->   "%decryptedtext1_addr = getelementptr [8 x i8]* %decryptedtext1, i64 0, i64 %zext_ln293" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 129 'getelementptr' 'decryptedtext1_addr' <Predicate = (!icmp_ln292)> <Delay = 0.00>
+ST_9 : Operation 130 [2/2] (2.32ns)   --->   "%decryptedtext1_load = load i8* %decryptedtext1_addr, align 1" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 130 'load' 'decryptedtext1_load' <Predicate = (!icmp_ln292)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_9 : Operation 131 [1/1] (1.76ns)   --->   "br label %.preheader.i32" [./../../blowfish/blowfish.cpp:297->p2peda.cpp:123]   --->   Operation 131 'br' <Predicate = (icmp_ln292)> <Delay = 1.76>
+
+State 10 <SV = 7> <Delay = 7.39>
+ST_10 : Operation 132 [1/1] (0.00ns)   --->   "%Lo_assign_8 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %trunc_ln293, i3 0)" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 132 'bitconcatenate' 'Lo_assign_8' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 133 [1/1] (0.00ns)   --->   "%or_ln293 = or i6 %Lo_assign_8, 7" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 133 'or' 'or_ln293' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 134 [1/2] (2.32ns)   --->   "%decryptedtext1_load = load i8* %decryptedtext1_addr, align 1" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 134 'load' 'decryptedtext1_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_10 : Operation 135 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%tmp_V = zext i8 %decryptedtext1_load to i128" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 135 'zext' 'tmp_V' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 136 [1/1] (1.42ns)   --->   "%icmp_ln388 = icmp ugt i6 %Lo_assign_8, %or_ln293" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 136 'icmp' 'icmp_ln388' <Predicate = true> <Delay = 1.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 137 [1/1] (0.00ns)   --->   "%zext_ln388 = zext i6 %Lo_assign_8 to i8" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 137 'zext' 'zext_ln388' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 138 [1/1] (0.00ns)   --->   "%zext_ln388_14 = zext i6 %or_ln293 to i8" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 138 'zext' 'zext_ln388_14' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%xor_ln388 = xor i8 %zext_ln388, 127" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 139 'xor' 'xor_ln388' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 140 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388 = select i1 %icmp_ln388, i8 %zext_ln388, i8 %zext_ln388_14" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 140 'select' 'select_ln388' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 141 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%select_ln388_11 = select i1 %icmp_ln388, i8 %zext_ln388_14, i8 %zext_ln388" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 141 'select' 'select_ln388_11' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%select_ln388_12 = select i1 %icmp_ln388, i8 %xor_ln388, i8 %zext_ln388" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 142 'select' 'select_ln388_12' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 143 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%xor_ln388_8 = xor i8 %select_ln388, 127" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 143 'xor' 'xor_ln388_8' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 144 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388)   --->   "%zext_ln388_15 = zext i8 %select_ln388_12 to i128" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 144 'zext' 'zext_ln388_15' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 145 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_16 = zext i8 %select_ln388_11 to i128" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 145 'zext' 'zext_ln388_16' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 146 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%zext_ln388_17 = zext i8 %xor_ln388_8 to i128" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 146 'zext' 'zext_ln388_17' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 147 [1/1] (3.14ns) (out node of the LUT)   --->   "%shl_ln388 = shl i128 %tmp_V, %zext_ln388_15" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 147 'shl' 'shl_ln388' <Predicate = true> <Delay = 3.14> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 148 [1/1] (0.00ns) (grouped into LUT with out node p_Result_17)   --->   "%tmp_22 = call i128 @llvm.part.select.i128(i128 %shl_ln388, i32 127, i32 0)" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 148 'partselect' 'tmp_22' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 149 [1/1] (0.00ns) (grouped into LUT with out node p_Result_17)   --->   "%select_ln388_13 = select i1 %icmp_ln388, i128 %tmp_22, i128 %shl_ln388" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 149 'select' 'select_ln388_13' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_10 : Operation 150 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%shl_ln388_5 = shl i128 -1, %zext_ln388_16" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 150 'shl' 'shl_ln388_5' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 151 [1/1] (0.00ns) (grouped into LUT with out node and_ln388)   --->   "%lshr_ln388 = lshr i128 -1, %zext_ln388_17" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 151 'lshr' 'lshr_ln388' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 152 [1/1] (3.14ns) (out node of the LUT)   --->   "%and_ln388 = and i128 %shl_ln388_5, %lshr_ln388" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 152 'and' 'and_ln388' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 153 [1/1] (0.00ns) (grouped into LUT with out node p_Result_17)   --->   "%xor_ln388_9 = xor i128 %and_ln388, -1" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 153 'xor' 'xor_ln388_9' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 154 [1/1] (0.00ns) (grouped into LUT with out node p_Result_17)   --->   "%and_ln388_8 = and i128 %p_Val2_12, %xor_ln388_9" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 154 'and' 'and_ln388_8' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 155 [1/1] (0.00ns) (grouped into LUT with out node p_Result_17)   --->   "%and_ln388_9 = and i128 %select_ln388_13, %and_ln388" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 155 'and' 'and_ln388_9' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 156 [1/1] (1.92ns) (out node of the LUT)   --->   "%p_Result_17 = or i128 %and_ln388_8, %and_ln388_9" [./../../blowfish/blowfish.cpp:293->p2peda.cpp:123]   --->   Operation 156 'or' 'p_Result_17' <Predicate = true> <Delay = 1.92> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 157 [1/1] (0.00ns)   --->   "br label %4" [./../../blowfish/blowfish.cpp:292->p2peda.cpp:123]   --->   Operation 157 'br' <Predicate = true> <Delay = 0.00>
+
+State 11 <SV = 7> <Delay = 2.32>
+ST_11 : Operation 158 [1/1] (0.00ns)   --->   "%p_Val2_13 = phi i128 [ %p_Result_18, %6 ], [ %p_Val2_12, %.preheader.i32.preheader ]"   --->   Operation 158 'phi' 'p_Val2_13' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 159 [1/1] (0.00ns)   --->   "%i1_0_i31 = phi i4 [ %i_11, %6 ], [ 0, %.preheader.i32.preheader ]"   --->   Operation 159 'phi' 'i1_0_i31' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 160 [1/1] (1.30ns)   --->   "%icmp_ln297 = icmp eq i4 %i1_0_i31, -8" [./../../blowfish/blowfish.cpp:297->p2peda.cpp:123]   --->   Operation 160 'icmp' 'icmp_ln297' <Predicate = true> <Delay = 1.30> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 161 [1/1] (0.00ns)   --->   "%empty_41 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 161 'speclooptripcount' 'empty_41' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 162 [1/1] (1.73ns)   --->   "%i_11 = add i4 %i1_0_i31, 1" [./../../blowfish/blowfish.cpp:297->p2peda.cpp:123]   --->   Operation 162 'add' 'i_11' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 163 [1/1] (0.00ns)   --->   "br i1 %icmp_ln297, label %combine_to_bit128.exit, label %6" [./../../blowfish/blowfish.cpp:297->p2peda.cpp:123]   --->   Operation 163 'br' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 164 [1/1] (0.00ns)   --->   "%trunc_ln298 = trunc i4 %i1_0_i31 to i3" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 164 'trunc' 'trunc_ln298' <Predicate = (!icmp_ln297)> <Delay = 0.00>
+ST_11 : Operation 165 [1/1] (0.00ns)   --->   "%zext_ln298 = zext i4 %i1_0_i31 to i64" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 165 'zext' 'zext_ln298' <Predicate = (!icmp_ln297)> <Delay = 0.00>
+ST_11 : Operation 166 [1/1] (0.00ns)   --->   "%decryptedtext2_addr = getelementptr [8 x i8]* %decryptedtext2, i64 0, i64 %zext_ln298" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 166 'getelementptr' 'decryptedtext2_addr' <Predicate = (!icmp_ln297)> <Delay = 0.00>
+ST_11 : Operation 167 [2/2] (2.32ns)   --->   "%decryptedtext2_load = load i8* %decryptedtext2_addr, align 1" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 167 'load' 'decryptedtext2_load' <Predicate = (!icmp_ln297)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_11 : Operation 168 [1/1] (0.00ns)   --->   "ret i128 %p_Val2_13" [p2peda.cpp:126]   --->   Operation 168 'ret' <Predicate = (icmp_ln297)> <Delay = 0.00>
+
+State 12 <SV = 8> <Delay = 7.39>
+ST_12 : Operation 169 [1/1] (0.00ns)   --->   "%shl_ln = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %trunc_ln298, i3 0)" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 169 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 170 [1/1] (0.00ns)   --->   "%or_ln298 = or i6 %shl_ln, 7" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 170 'or' 'or_ln298' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 171 [1/1] (0.00ns)   --->   "%Hi_assign_9 = call i7 @_ssdm_op_BitConcatenate.i7.i1.i6(i1 true, i6 %or_ln298)" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 171 'bitconcatenate' 'Hi_assign_9' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 172 [1/1] (0.00ns)   --->   "%Lo_assign_9 = call i7 @_ssdm_op_BitConcatenate.i7.i1.i3.i3(i1 true, i3 %trunc_ln298, i3 0)" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 172 'bitconcatenate' 'Lo_assign_9' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 173 [1/2] (2.32ns)   --->   "%decryptedtext2_load = load i8* %decryptedtext2_addr, align 1" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 173 'load' 'decryptedtext2_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_12 : Operation 174 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388_6)   --->   "%tmp_V_5 = zext i8 %decryptedtext2_load to i128" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 174 'zext' 'tmp_V_5' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 175 [1/1] (1.48ns)   --->   "%icmp_ln388_2 = icmp ugt i7 %Lo_assign_9, %Hi_assign_9" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 175 'icmp' 'icmp_ln388_2' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 176 [1/1] (0.00ns)   --->   "%zext_ln388_18 = zext i7 %Lo_assign_9 to i8" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 176 'zext' 'zext_ln388_18' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 177 [1/1] (0.00ns)   --->   "%zext_ln388_19 = zext i7 %Hi_assign_9 to i8" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 177 'zext' 'zext_ln388_19' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 178 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388_6)   --->   "%xor_ln388_10 = xor i8 %zext_ln388_18, 127" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 178 'xor' 'xor_ln388_10' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 179 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%select_ln388_14 = select i1 %icmp_ln388_2, i8 %zext_ln388_18, i8 %zext_ln388_19" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 179 'select' 'select_ln388_14' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 180 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%select_ln388_15 = select i1 %icmp_ln388_2, i8 %zext_ln388_19, i8 %zext_ln388_18" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 180 'select' 'select_ln388_15' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 181 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388_6)   --->   "%select_ln388_16 = select i1 %icmp_ln388_2, i8 %xor_ln388_10, i8 %zext_ln388_18" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 181 'select' 'select_ln388_16' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 182 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%xor_ln388_11 = xor i8 %select_ln388_14, 127" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 182 'xor' 'xor_ln388_11' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 183 [1/1] (0.00ns) (grouped into LUT with out node shl_ln388_6)   --->   "%zext_ln388_20 = zext i8 %select_ln388_16 to i128" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 183 'zext' 'zext_ln388_20' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 184 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%zext_ln388_21 = zext i8 %select_ln388_15 to i128" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 184 'zext' 'zext_ln388_21' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 185 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%zext_ln388_22 = zext i8 %xor_ln388_11 to i128" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 185 'zext' 'zext_ln388_22' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 186 [1/1] (3.14ns) (out node of the LUT)   --->   "%shl_ln388_6 = shl i128 %tmp_V_5, %zext_ln388_20" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 186 'shl' 'shl_ln388_6' <Predicate = true> <Delay = 3.14> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 187 [1/1] (0.00ns) (grouped into LUT with out node p_Result_18)   --->   "%tmp_23 = call i128 @llvm.part.select.i128(i128 %shl_ln388_6, i32 127, i32 0)" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 187 'partselect' 'tmp_23' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 188 [1/1] (0.00ns) (grouped into LUT with out node p_Result_18)   --->   "%select_ln388_17 = select i1 %icmp_ln388_2, i128 %tmp_23, i128 %shl_ln388_6" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 188 'select' 'select_ln388_17' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.92> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 189 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%shl_ln388_7 = shl i128 -1, %zext_ln388_21" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 189 'shl' 'shl_ln388_7' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 190 [1/1] (0.00ns) (grouped into LUT with out node and_ln388_10)   --->   "%lshr_ln388_2 = lshr i128 -1, %zext_ln388_22" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 190 'lshr' 'lshr_ln388_2' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 3.14> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 191 [1/1] (3.14ns) (out node of the LUT)   --->   "%and_ln388_10 = and i128 %shl_ln388_7, %lshr_ln388_2" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 191 'and' 'and_ln388_10' <Predicate = true> <Delay = 3.14> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 192 [1/1] (0.00ns) (grouped into LUT with out node p_Result_18)   --->   "%xor_ln388_12 = xor i128 %and_ln388_10, -1" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 192 'xor' 'xor_ln388_12' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 193 [1/1] (0.00ns) (grouped into LUT with out node p_Result_18)   --->   "%and_ln388_11 = and i128 %p_Val2_13, %xor_ln388_12" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 193 'and' 'and_ln388_11' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 194 [1/1] (0.00ns) (grouped into LUT with out node p_Result_18)   --->   "%and_ln388_12 = and i128 %select_ln388_17, %and_ln388_10" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 194 'and' 'and_ln388_12' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 195 [1/1] (1.92ns) (out node of the LUT)   --->   "%p_Result_18 = or i128 %and_ln388_11, %and_ln388_12" [./../../blowfish/blowfish.cpp:298->p2peda.cpp:123]   --->   Operation 195 'or' 'p_Result_18' <Predicate = true> <Delay = 1.92> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 196 [1/1] (0.00ns)   --->   "br label %.preheader.i32" [./../../blowfish/blowfish.cpp:297->p2peda.cpp:123]   --->   Operation 196 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', ./../../blowfish/blowfish.cpp:271->p2peda.cpp:117) [35]  (1.77 ns)
+
+ <State 2>: 6.02ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ./../../blowfish/blowfish.cpp:271->p2peda.cpp:117) [35]  (0 ns)
+	'icmp' operation ('icmp_ln681', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117) [44]  (1.43 ns)
+	'select' operation ('select_ln681_8', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117) [52]  (0 ns)
+	'lshr' operation ('lshr_ln681', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117) [57]  (4.59 ns)
+
+ <State 3>: 5.37ns
+The critical path consists of the following:
+	'lshr' operation ('lshr_ln681_5', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117) [58]  (0 ns)
+	'and' operation ('__Result__', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117) [59]  (3.04 ns)
+	'store' operation ('store_ln275', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117) of variable 'trunc_ln275_2', ./../../blowfish/blowfish.cpp:275->p2peda.cpp:117 on array 'ciphertext1', p2peda.cpp:111 [63]  (2.32 ns)
+
+ <State 4>: 6.02ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ./../../blowfish/blowfish.cpp:279->p2peda.cpp:117) [68]  (0 ns)
+	'icmp' operation ('icmp_ln681_2', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117) [77]  (1.43 ns)
+	'select' operation ('select_ln681_11', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117) [85]  (0 ns)
+	'lshr' operation ('lshr_ln681_6', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117) [90]  (4.59 ns)
+
+ <State 5>: 5.37ns
+The critical path consists of the following:
+	'lshr' operation ('lshr_ln681_7', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117) [91]  (0 ns)
+	'and' operation ('__Result__', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117) [92]  (3.04 ns)
+	'store' operation ('store_ln283', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117) of variable 'trunc_ln283_2', ./../../blowfish/blowfish.cpp:283->p2peda.cpp:117 on array 'ciphertext2', p2peda.cpp:112 [96]  (2.32 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 1.77ns
+The critical path consists of the following:
+	'load' operation ('P_0_load_2', p2peda.cpp:121) on global variable 'P_0' [118]  (0 ns)
+	'call' operation ('call_ln121', p2peda.cpp:121) to 'Blowfish_Decrypt' [136]  (1.77 ns)
+
+ <State 8>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('__Result__') with incoming values : ('__Result__', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) [139]  (1.77 ns)
+
+ <State 9>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ./../../blowfish/blowfish.cpp:292->p2peda.cpp:123) [140]  (0 ns)
+	'getelementptr' operation ('decryptedtext1_addr', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) [150]  (0 ns)
+	'load' operation ('val', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) on array 'decryptedtext1' [151]  (2.32 ns)
+
+ <State 10>: 7.39ns
+The critical path consists of the following:
+	'load' operation ('val', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) on array 'decryptedtext1' [151]  (2.32 ns)
+	'shl' operation ('shl_ln388', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) [164]  (3.15 ns)
+	'select' operation ('select_ln388_13', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) [166]  (0 ns)
+	'and' operation ('and_ln388_9', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) [172]  (0 ns)
+	'or' operation ('__Result__', ./../../blowfish/blowfish.cpp:293->p2peda.cpp:123) [173]  (1.92 ns)
+
+ <State 11>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', ./../../blowfish/blowfish.cpp:297->p2peda.cpp:123) [179]  (0 ns)
+	'getelementptr' operation ('decryptedtext2_addr', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) [191]  (0 ns)
+	'load' operation ('val', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) on array 'decryptedtext2' [192]  (2.32 ns)
+
+ <State 12>: 7.39ns
+The critical path consists of the following:
+	'load' operation ('val', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) on array 'decryptedtext2' [192]  (2.32 ns)
+	'shl' operation ('shl_ln388_6', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) [205]  (3.15 ns)
+	'select' operation ('select_ln388_17', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) [207]  (0 ns)
+	'and' operation ('and_ln388_12', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) [213]  (0 ns)
+	'or' operation ('__Result__', ./../../blowfish/blowfish.cpp:298->p2peda.cpp:123) [214]  (1.92 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

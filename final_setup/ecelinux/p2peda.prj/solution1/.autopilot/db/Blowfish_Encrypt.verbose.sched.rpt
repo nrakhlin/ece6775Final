@@ -1,0 +1,358 @@
+
+
+================================================================
+== Vivado HLS Report for 'Blowfish_Encrypt'
+================================================================
+* Date:           Fri Dec 13 14:33:40 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.358 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       42|       42| 0.420 us | 0.420 us |   42|   42|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- ENCRYPT_FEISTEL  |       33|       33|         4|          2|          1|    16|    yes   |
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 13
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 4, States = { 6 7 8 9 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 10 7 
+7 --> 8 
+8 --> 9 
+9 --> 6 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.32>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%plaintext_addr = getelementptr [8 x i8]* %plaintext, i64 0, i64 0" [./../../blowfish/blowfish.cpp:234->./../../blowfish/blowfish.cpp:72]   --->   Operation 14 'getelementptr' 'plaintext_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [2/2] (2.32ns)   --->   "%plaintext_load = load i8* %plaintext_addr, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 15 'load' 'plaintext_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%plaintext_addr_1 = getelementptr [8 x i8]* %plaintext, i64 0, i64 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 16 'getelementptr' 'plaintext_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [2/2] (2.32ns)   --->   "%plaintext_load_1 = load i8* %plaintext_addr_1, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 17 'load' 'plaintext_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 2 <SV = 1> <Delay = 2.32>
+ST_2 : Operation 18 [1/2] (2.32ns)   --->   "%plaintext_load = load i8* %plaintext_addr, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 18 'load' 'plaintext_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 19 [1/2] (2.32ns)   --->   "%plaintext_load_1 = load i8* %plaintext_addr_1, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 19 'load' 'plaintext_load_1' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%plaintext_addr_2 = getelementptr [8 x i8]* %plaintext, i64 0, i64 2" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 20 'getelementptr' 'plaintext_addr_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [2/2] (2.32ns)   --->   "%plaintext_load_2 = load i8* %plaintext_addr_2, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 21 'load' 'plaintext_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%plaintext_addr_3 = getelementptr [8 x i8]* %plaintext, i64 0, i64 3" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 22 'getelementptr' 'plaintext_addr_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (2.32ns)   --->   "%plaintext_load_3 = load i8* %plaintext_addr_3, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 23 'load' 'plaintext_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 3 <SV = 2> <Delay = 2.32>
+ST_3 : Operation 24 [1/2] (2.32ns)   --->   "%plaintext_load_2 = load i8* %plaintext_addr_2, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 24 'load' 'plaintext_load_2' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_3 : Operation 25 [1/2] (2.32ns)   --->   "%plaintext_load_3 = load i8* %plaintext_addr_3, align 1" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 25 'load' 'plaintext_load_3' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%plaintext_addr_4 = getelementptr [8 x i8]* %plaintext, i64 0, i64 4" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 26 'getelementptr' 'plaintext_addr_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [2/2] (2.32ns)   --->   "%plaintext_load_4 = load i8* %plaintext_addr_4, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 27 'load' 'plaintext_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%plaintext_addr_5 = getelementptr [8 x i8]* %plaintext, i64 0, i64 5" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 28 'getelementptr' 'plaintext_addr_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [2/2] (2.32ns)   --->   "%plaintext_load_5 = load i8* %plaintext_addr_5, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 29 'load' 'plaintext_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 4 <SV = 3> <Delay = 2.32>
+ST_4 : Operation 30 [1/2] (2.32ns)   --->   "%plaintext_load_4 = load i8* %plaintext_addr_4, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 30 'load' 'plaintext_load_4' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_4 : Operation 31 [1/2] (2.32ns)   --->   "%plaintext_load_5 = load i8* %plaintext_addr_5, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 31 'load' 'plaintext_load_5' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%plaintext_addr_6 = getelementptr [8 x i8]* %plaintext, i64 0, i64 6" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 32 'getelementptr' 'plaintext_addr_6' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [2/2] (2.32ns)   --->   "%plaintext_load_6 = load i8* %plaintext_addr_6, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 33 'load' 'plaintext_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%plaintext_addr_7 = getelementptr [8 x i8]* %plaintext, i64 0, i64 7" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 34 'getelementptr' 'plaintext_addr_7' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [2/2] (2.32ns)   --->   "%plaintext_load_7 = load i8* %plaintext_addr_7, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 35 'load' 'plaintext_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 5 <SV = 4> <Delay = 2.32>
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "%P_17_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_17_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 36 'read' 'P_17_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 37 [1/1] (0.00ns)   --->   "%P_16_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_16_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 37 'read' 'P_16_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%P_15_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_15_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 38 'read' 'P_15_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 39 [1/1] (0.00ns)   --->   "%P_14_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_14_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 39 'read' 'P_14_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 40 [1/1] (0.00ns)   --->   "%P_13_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_13_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 40 'read' 'P_13_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "%P_12_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_12_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 41 'read' 'P_12_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%P_11_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_11_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 42 'read' 'P_11_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%P_10_read11 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_10_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 43 'read' 'P_10_read11' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%P_9_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_9_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 44 'read' 'P_9_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%P_8_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_8_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 45 'read' 'P_8_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%P_7_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_7_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 46 'read' 'P_7_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "%P_6_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_6_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 47 'read' 'P_6_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%P_5_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_5_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 48 'read' 'P_5_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%P_4_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_4_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 49 'read' 'P_4_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%P_3_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_3_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 50 'read' 'P_3_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (0.00ns)   --->   "%P_2_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_2_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 51 'read' 'P_2_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%P_1_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_1_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 52 'read' 'P_1_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%P_0_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %P_0_read)" [./../../blowfish/blowfish.cpp:70]   --->   Operation 53 'read' 'P_0_read_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%left_3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %plaintext_load, i8 %plaintext_load_1, i8 %plaintext_load_2, i8 %plaintext_load_3)" [./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72]   --->   Operation 54 'bitconcatenate' 'left_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/2] (2.32ns)   --->   "%plaintext_load_6 = load i8* %plaintext_addr_6, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 55 'load' 'plaintext_load_6' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_5 : Operation 56 [1/2] (2.32ns)   --->   "%plaintext_load_7 = load i8* %plaintext_addr_7, align 1" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 56 'load' 'plaintext_load_7' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%right_3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %plaintext_load_4, i8 %plaintext_load_5, i8 %plaintext_load_6, i8 %plaintext_load_7)" [./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72]   --->   Operation 57 'bitconcatenate' 'right_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 58 [1/1] (1.76ns)   --->   "br label %1" [./../../blowfish/blowfish.cpp:76]   --->   Operation 58 'br' <Predicate = true> <Delay = 1.76>
+
+State 6 <SV = 5> <Delay = 4.24>
+ST_6 : Operation 59 [1/1] (0.00ns)   --->   "%left_4 = phi i32 [ %right_3, %0 ], [ %left_7, %ENCRYPT_FEISTEL_end ]"   --->   Operation 59 'phi' 'left_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 60 [1/1] (0.00ns)   --->   "%right_4 = phi i32 [ %left_3, %0 ], [ %right, %ENCRYPT_FEISTEL_end ]"   --->   Operation 60 'phi' 'right_4' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ 0, %0 ], [ %i, %ENCRYPT_FEISTEL_end ]"   --->   Operation 61 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (1.36ns)   --->   "%icmp_ln76 = icmp eq i5 %i_0, -16" [./../../blowfish/blowfish.cpp:76]   --->   Operation 62 'icmp' 'icmp_ln76' <Predicate = true> <Delay = 1.36> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.36> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16)"   --->   Operation 63 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 64 [1/1] (1.78ns)   --->   "%i = add i5 %i_0, 1" [./../../blowfish/blowfish.cpp:76]   --->   Operation 64 'add' 'i' <Predicate = true> <Delay = 1.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "br i1 %icmp_ln76, label %2, label %ENCRYPT_FEISTEL_begin" [./../../blowfish/blowfish.cpp:76]   --->   Operation 65 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (2.19ns)   --->   "switch i5 %i_0, label %branch15 [
+    i5 0, label %ENCRYPT_FEISTEL_end
+    i5 1, label %branch1
+    i5 2, label %branch2
+    i5 3, label %branch3
+    i5 4, label %branch4
+    i5 5, label %branch5
+    i5 6, label %branch6
+    i5 7, label %branch7
+    i5 8, label %branch8
+    i5 9, label %branch9
+    i5 10, label %branch10
+    i5 11, label %branch11
+    i5 12, label %branch12
+    i5 13, label %branch13
+    i5 14, label %branch14
+  ]" [./../../blowfish/blowfish.cpp:77]   --->   Operation 66 'switch' <Predicate = (!icmp_ln76)> <Delay = 2.19>
+ST_6 : Operation 67 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 67 'br' <Predicate = (!icmp_ln76 & i_0 == 14)> <Delay = 2.19>
+ST_6 : Operation 68 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 68 'br' <Predicate = (!icmp_ln76 & i_0 == 13)> <Delay = 2.19>
+ST_6 : Operation 69 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 69 'br' <Predicate = (!icmp_ln76 & i_0 == 12)> <Delay = 2.19>
+ST_6 : Operation 70 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 70 'br' <Predicate = (!icmp_ln76 & i_0 == 11)> <Delay = 2.19>
+ST_6 : Operation 71 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 71 'br' <Predicate = (!icmp_ln76 & i_0 == 10)> <Delay = 2.19>
+ST_6 : Operation 72 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 72 'br' <Predicate = (!icmp_ln76 & i_0 == 9)> <Delay = 2.19>
+ST_6 : Operation 73 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 73 'br' <Predicate = (!icmp_ln76 & i_0 == 8)> <Delay = 2.19>
+ST_6 : Operation 74 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 74 'br' <Predicate = (!icmp_ln76 & i_0 == 7)> <Delay = 2.19>
+ST_6 : Operation 75 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 75 'br' <Predicate = (!icmp_ln76 & i_0 == 6)> <Delay = 2.19>
+ST_6 : Operation 76 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 76 'br' <Predicate = (!icmp_ln76 & i_0 == 5)> <Delay = 2.19>
+ST_6 : Operation 77 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 77 'br' <Predicate = (!icmp_ln76 & i_0 == 4)> <Delay = 2.19>
+ST_6 : Operation 78 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 78 'br' <Predicate = (!icmp_ln76 & i_0 == 3)> <Delay = 2.19>
+ST_6 : Operation 79 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 79 'br' <Predicate = (!icmp_ln76 & i_0 == 2)> <Delay = 2.19>
+ST_6 : Operation 80 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 80 'br' <Predicate = (!icmp_ln76 & i_0 == 1)> <Delay = 2.19>
+ST_6 : Operation 81 [1/1] (2.19ns)   --->   "br label %ENCRYPT_FEISTEL_end" [./../../blowfish/blowfish.cpp:77]   --->   Operation 81 'br' <Predicate = (!icmp_ln76 & i_0 != 0 & i_0 != 1 & i_0 != 2 & i_0 != 3 & i_0 != 4 & i_0 != 5 & i_0 != 6 & i_0 != 7 & i_0 != 8 & i_0 != 9 & i_0 != 10 & i_0 != 11 & i_0 != 12 & i_0 != 13 & i_0 != 14)> <Delay = 2.19>
+
+State 7 <SV = 6> <Delay = 4.24>
+ST_7 : Operation 82 [1/1] (0.00ns)   --->   "%phi_ln77 = phi i32 [ %P_1_read_2, %branch1 ], [ %P_2_read_2, %branch2 ], [ %P_3_read_2, %branch3 ], [ %P_4_read_2, %branch4 ], [ %P_5_read_2, %branch5 ], [ %P_6_read_2, %branch6 ], [ %P_7_read_2, %branch7 ], [ %P_8_read_2, %branch8 ], [ %P_9_read_2, %branch9 ], [ %P_10_read11, %branch10 ], [ %P_11_read_2, %branch11 ], [ %P_12_read_2, %branch12 ], [ %P_13_read_2, %branch13 ], [ %P_14_read_2, %branch14 ], [ %P_15_read_2, %branch15 ], [ %P_0_read_2, %ENCRYPT_FEISTEL_begin ]" [./../../blowfish/blowfish.cpp:77]   --->   Operation 82 'phi' 'phi_ln77' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_7 : Operation 83 [1/1] (0.99ns)   --->   "%left_7 = xor i32 %right_4, %phi_ln77" [./../../blowfish/blowfish.cpp:77]   --->   Operation 83 'xor' 'left_7' <Predicate = (!icmp_ln76)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 84 [2/2] (3.25ns)   --->   "%tmp_10 = call fastcc i32 @feistel(i32 %left_7, [256 x i32]* %S_0, [256 x i32]* %S_1, [256 x i32]* %S_2, [256 x i32]* %S_3)" [./../../blowfish/blowfish.cpp:78]   --->   Operation 84 'call' 'tmp_10' <Predicate = (!icmp_ln76)> <Delay = 3.25> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 8.35>
+ST_8 : Operation 85 [1/2] (8.35ns)   --->   "%tmp_10 = call fastcc i32 @feistel(i32 %left_7, [256 x i32]* %S_0, [256 x i32]* %S_1, [256 x i32]* %S_2, [256 x i32]* %S_3)" [./../../blowfish/blowfish.cpp:78]   --->   Operation 85 'call' 'tmp_10' <Predicate = (!icmp_ln76)> <Delay = 8.35> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 5.24>
+ST_9 : Operation 86 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([16 x i8]* @p_str12) nounwind" [./../../blowfish/blowfish.cpp:76]   --->   Operation 86 'specloopname' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_9 : Operation 87 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([16 x i8]* @p_str12)" [./../../blowfish/blowfish.cpp:76]   --->   Operation 87 'specregionbegin' 'tmp' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_9 : Operation 88 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str113) nounwind" [./../../blowfish/blowfish.cpp:77]   --->   Operation 88 'specpipeline' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_9 : Operation 89 [1/1] (0.99ns)   --->   "%right = xor i32 %left_4, %tmp_10" [./../../blowfish/blowfish.cpp:78]   --->   Operation 89 'xor' 'right' <Predicate = (!icmp_ln76)> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 90 [1/1] (0.00ns)   --->   "%empty_156 = call i32 (...)* @_ssdm_op_SpecRegionEnd([16 x i8]* @p_str12, i32 %tmp)" [./../../blowfish/blowfish.cpp:80]   --->   Operation 90 'specregionend' 'empty_156' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+ST_9 : Operation 91 [1/1] (0.00ns)   --->   "br label %1" [./../../blowfish/blowfish.cpp:76]   --->   Operation 91 'br' <Predicate = (!icmp_ln76)> <Delay = 0.00>
+
+State 10 <SV = 6> <Delay = 3.35>
+ST_10 : Operation 92 [1/1] (0.00ns)   --->   "%trunc_ln82 = trunc i32 %P_16_read_2 to i8" [./../../blowfish/blowfish.cpp:82]   --->   Operation 92 'trunc' 'trunc_ln82' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 93 [1/1] (0.00ns)   --->   "%trunc_ln82_1 = trunc i32 %right_4 to i8" [./../../blowfish/blowfish.cpp:82]   --->   Operation 93 'trunc' 'trunc_ln82_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 94 [1/1] (0.00ns)   --->   "%trunc_ln82_2 = trunc i32 %P_16_read_2 to i24" [./../../blowfish/blowfish.cpp:82]   --->   Operation 94 'trunc' 'trunc_ln82_2' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 95 [1/1] (0.00ns)   --->   "%trunc_ln82_3 = trunc i32 %right_4 to i24" [./../../blowfish/blowfish.cpp:82]   --->   Operation 95 'trunc' 'trunc_ln82_3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 96 [1/1] (0.00ns)   --->   "%trunc_ln82_4 = trunc i32 %P_16_read_2 to i16" [./../../blowfish/blowfish.cpp:82]   --->   Operation 96 'trunc' 'trunc_ln82_4' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 97 [1/1] (0.00ns)   --->   "%trunc_ln82_5 = trunc i32 %right_4 to i16" [./../../blowfish/blowfish.cpp:82]   --->   Operation 97 'trunc' 'trunc_ln82_5' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 98 [1/1] (0.99ns)   --->   "%right_5 = xor i32 %right_4, %P_16_read_2" [./../../blowfish/blowfish.cpp:82]   --->   Operation 98 'xor' 'right_5' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 99 [1/1] (0.99ns)   --->   "%xor_ln82_1 = xor i16 %trunc_ln82_5, %trunc_ln82_4" [./../../blowfish/blowfish.cpp:82]   --->   Operation 99 'xor' 'xor_ln82_1' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 100 [1/1] (1.03ns)   --->   "%xor_ln82_2 = xor i24 %trunc_ln82_3, %trunc_ln82_2" [./../../blowfish/blowfish.cpp:82]   --->   Operation 100 'xor' 'xor_ln82_2' <Predicate = true> <Delay = 1.03> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 101 [1/1] (0.00ns)   --->   "%trunc_ln83 = trunc i32 %P_17_read_2 to i8" [./../../blowfish/blowfish.cpp:83]   --->   Operation 101 'trunc' 'trunc_ln83' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 102 [1/1] (0.00ns)   --->   "%trunc_ln83_2 = trunc i32 %P_17_read_2 to i24" [./../../blowfish/blowfish.cpp:83]   --->   Operation 102 'trunc' 'trunc_ln83_2' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 103 [1/1] (0.00ns)   --->   "%trunc_ln83_3 = trunc i32 %left_4 to i24" [./../../blowfish/blowfish.cpp:83]   --->   Operation 103 'trunc' 'trunc_ln83_3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 104 [1/1] (0.00ns)   --->   "%trunc_ln83_4 = trunc i32 %P_17_read_2 to i16" [./../../blowfish/blowfish.cpp:83]   --->   Operation 104 'trunc' 'trunc_ln83_4' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 105 [1/1] (0.00ns)   --->   "%trunc_ln83_5 = trunc i32 %left_4 to i16" [./../../blowfish/blowfish.cpp:83]   --->   Operation 105 'trunc' 'trunc_ln83_5' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 106 [1/1] (0.99ns)   --->   "%left = xor i32 %left_4, %P_17_read_2" [./../../blowfish/blowfish.cpp:83]   --->   Operation 106 'xor' 'left' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 107 [1/1] (0.99ns)   --->   "%xor_ln83_1 = xor i16 %trunc_ln83_5, %trunc_ln83_4" [./../../blowfish/blowfish.cpp:83]   --->   Operation 107 'xor' 'xor_ln83_1' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 108 [1/1] (1.03ns)   --->   "%xor_ln83_2 = xor i24 %trunc_ln83_3, %trunc_ln83_2" [./../../blowfish/blowfish.cpp:83]   --->   Operation 108 'xor' 'xor_ln83_2' <Predicate = true> <Delay = 1.03> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 109 [1/1] (0.00ns)   --->   "%ciphertext_addr = getelementptr [8 x i8]* %ciphertext, i64 0, i64 0" [./../../blowfish/blowfish.cpp:240->./../../blowfish/blowfish.cpp:84]   --->   Operation 109 'getelementptr' 'ciphertext_addr' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 110 [1/1] (0.00ns)   --->   "%trunc_ln = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %left, i32 24, i32 31)" [./../../blowfish/blowfish.cpp:241->./../../blowfish/blowfish.cpp:84]   --->   Operation 110 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 111 [1/1] (2.32ns)   --->   "store i8 %trunc_ln, i8* %ciphertext_addr, align 1" [./../../blowfish/blowfish.cpp:241->./../../blowfish/blowfish.cpp:84]   --->   Operation 111 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_10 : Operation 112 [1/1] (0.00ns)   --->   "%trunc_ln1 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %xor_ln83_2, i32 16, i32 23)" [./../../blowfish/blowfish.cpp:242->./../../blowfish/blowfish.cpp:84]   --->   Operation 112 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 113 [1/1] (0.00ns)   --->   "%ciphertext_addr_1 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 1" [./../../blowfish/blowfish.cpp:242->./../../blowfish/blowfish.cpp:84]   --->   Operation 113 'getelementptr' 'ciphertext_addr_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 114 [1/1] (2.32ns)   --->   "store i8 %trunc_ln1, i8* %ciphertext_addr_1, align 1" [./../../blowfish/blowfish.cpp:242->./../../blowfish/blowfish.cpp:84]   --->   Operation 114 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_10 : Operation 115 [1/1] (0.00ns)   --->   "%trunc_ln2 = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %xor_ln83_1, i32 8, i32 15)" [./../../blowfish/blowfish.cpp:243->./../../blowfish/blowfish.cpp:84]   --->   Operation 115 'partselect' 'trunc_ln2' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 116 [1/1] (0.00ns)   --->   "%trunc_ln3 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %right_5, i32 24, i32 31)" [./../../blowfish/blowfish.cpp:245->./../../blowfish/blowfish.cpp:84]   --->   Operation 116 'partselect' 'trunc_ln3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 117 [1/1] (0.00ns)   --->   "%trunc_ln4 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %xor_ln82_2, i32 16, i32 23)" [./../../blowfish/blowfish.cpp:246->./../../blowfish/blowfish.cpp:84]   --->   Operation 117 'partselect' 'trunc_ln4' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 118 [1/1] (0.00ns)   --->   "%trunc_ln5 = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %xor_ln82_1, i32 8, i32 15)" [./../../blowfish/blowfish.cpp:247->./../../blowfish/blowfish.cpp:84]   --->   Operation 118 'partselect' 'trunc_ln5' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 119 [1/1] (0.99ns)   --->   "%xor_ln248 = xor i8 %trunc_ln82_1, %trunc_ln82" [./../../blowfish/blowfish.cpp:248->./../../blowfish/blowfish.cpp:84]   --->   Operation 119 'xor' 'xor_ln248' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 7> <Delay = 3.31>
+ST_11 : Operation 120 [1/1] (0.00ns)   --->   "%trunc_ln83_1 = trunc i32 %left_4 to i8" [./../../blowfish/blowfish.cpp:83]   --->   Operation 120 'trunc' 'trunc_ln83_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 121 [1/1] (0.00ns)   --->   "%ciphertext_addr_2 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 2" [./../../blowfish/blowfish.cpp:243->./../../blowfish/blowfish.cpp:84]   --->   Operation 121 'getelementptr' 'ciphertext_addr_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 122 [1/1] (2.32ns)   --->   "store i8 %trunc_ln2, i8* %ciphertext_addr_2, align 1" [./../../blowfish/blowfish.cpp:243->./../../blowfish/blowfish.cpp:84]   --->   Operation 122 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_11 : Operation 123 [1/1] (0.99ns)   --->   "%xor_ln244 = xor i8 %trunc_ln83_1, %trunc_ln83" [./../../blowfish/blowfish.cpp:244->./../../blowfish/blowfish.cpp:84]   --->   Operation 123 'xor' 'xor_ln244' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 124 [1/1] (0.00ns)   --->   "%ciphertext_addr_3 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 3" [./../../blowfish/blowfish.cpp:244->./../../blowfish/blowfish.cpp:84]   --->   Operation 124 'getelementptr' 'ciphertext_addr_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 125 [1/1] (2.32ns)   --->   "store i8 %xor_ln244, i8* %ciphertext_addr_3, align 1" [./../../blowfish/blowfish.cpp:244->./../../blowfish/blowfish.cpp:84]   --->   Operation 125 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 12 <SV = 8> <Delay = 2.32>
+ST_12 : Operation 126 [1/1] (0.00ns)   --->   "%ciphertext_addr_4 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 4" [./../../blowfish/blowfish.cpp:245->./../../blowfish/blowfish.cpp:84]   --->   Operation 126 'getelementptr' 'ciphertext_addr_4' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 127 [1/1] (2.32ns)   --->   "store i8 %trunc_ln3, i8* %ciphertext_addr_4, align 1" [./../../blowfish/blowfish.cpp:245->./../../blowfish/blowfish.cpp:84]   --->   Operation 127 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_12 : Operation 128 [1/1] (0.00ns)   --->   "%ciphertext_addr_5 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 5" [./../../blowfish/blowfish.cpp:246->./../../blowfish/blowfish.cpp:84]   --->   Operation 128 'getelementptr' 'ciphertext_addr_5' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 129 [1/1] (2.32ns)   --->   "store i8 %trunc_ln4, i8* %ciphertext_addr_5, align 1" [./../../blowfish/blowfish.cpp:246->./../../blowfish/blowfish.cpp:84]   --->   Operation 129 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+
+State 13 <SV = 9> <Delay = 2.32>
+ST_13 : Operation 130 [1/1] (0.00ns)   --->   "%ciphertext_addr_6 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 6" [./../../blowfish/blowfish.cpp:247->./../../blowfish/blowfish.cpp:84]   --->   Operation 130 'getelementptr' 'ciphertext_addr_6' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 131 [1/1] (2.32ns)   --->   "store i8 %trunc_ln5, i8* %ciphertext_addr_6, align 1" [./../../blowfish/blowfish.cpp:247->./../../blowfish/blowfish.cpp:84]   --->   Operation 131 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_13 : Operation 132 [1/1] (0.00ns)   --->   "%ciphertext_addr_7 = getelementptr [8 x i8]* %ciphertext, i64 0, i64 7" [./../../blowfish/blowfish.cpp:248->./../../blowfish/blowfish.cpp:84]   --->   Operation 132 'getelementptr' 'ciphertext_addr_7' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 133 [1/1] (2.32ns)   --->   "store i8 %xor_ln248, i8* %ciphertext_addr_7, align 1" [./../../blowfish/blowfish.cpp:248->./../../blowfish/blowfish.cpp:84]   --->   Operation 133 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 8> <RAM>
+ST_13 : Operation 134 [1/1] (0.00ns)   --->   "ret void" [./../../blowfish/blowfish.cpp:85]   --->   Operation 134 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('plaintext_addr', ./../../blowfish/blowfish.cpp:234->./../../blowfish/blowfish.cpp:72) [43]  (0 ns)
+	'load' operation ('plaintext_load', ./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72) on array 'plaintext' [44]  (2.32 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('plaintext_load', ./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72) on array 'plaintext' [44]  (2.32 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('plaintext_load_2', ./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72) on array 'plaintext' [48]  (2.32 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('plaintext_load_4', ./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72) on array 'plaintext' [53]  (2.32 ns)
+
+ <State 5>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('plaintext_load_6', ./../../blowfish/blowfish.cpp:236->./../../blowfish/blowfish.cpp:72) on array 'plaintext' [57]  (2.32 ns)
+
+ <State 6>: 4.25ns
+The critical path consists of the following:
+	'phi' operation ('right') with incoming values : ('left', ./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72) ('right', ./../../blowfish/blowfish.cpp:78) [64]  (0 ns)
+	'xor' operation ('left', ./../../blowfish/blowfish.cpp:77) [107]  (0.993 ns)
+	'call' operation ('tmp_10', ./../../blowfish/blowfish.cpp:78) to 'feistel' [108]  (3.25 ns)
+
+ <State 7>: 4.25ns
+The critical path consists of the following:
+	'phi' operation ('phi_ln77', ./../../blowfish/blowfish.cpp:77) with incoming values : ('P[15]', ./../../blowfish/blowfish.cpp:70) ('P[14]', ./../../blowfish/blowfish.cpp:70) ('P[13]', ./../../blowfish/blowfish.cpp:70) ('P[12]', ./../../blowfish/blowfish.cpp:70) ('P[11]', ./../../blowfish/blowfish.cpp:70) ('P[10]', ./../../blowfish/blowfish.cpp:70) ('P[9]', ./../../blowfish/blowfish.cpp:70) ('P[8]', ./../../blowfish/blowfish.cpp:70) ('P[7]', ./../../blowfish/blowfish.cpp:70) ('P[6]', ./../../blowfish/blowfish.cpp:70) ('P[5]', ./../../blowfish/blowfish.cpp:70) ('P[4]', ./../../blowfish/blowfish.cpp:70) ('P[3]', ./../../blowfish/blowfish.cpp:70) ('P[2]', ./../../blowfish/blowfish.cpp:70) ('P[1]', ./../../blowfish/blowfish.cpp:70) ('P[0]', ./../../blowfish/blowfish.cpp:70) [106]  (0 ns)
+	'xor' operation ('left', ./../../blowfish/blowfish.cpp:77) [107]  (0.993 ns)
+	'call' operation ('tmp_10', ./../../blowfish/blowfish.cpp:78) to 'feistel' [108]  (3.25 ns)
+
+ <State 8>: 8.36ns
+The critical path consists of the following:
+	'call' operation ('tmp_10', ./../../blowfish/blowfish.cpp:78) to 'feistel' [108]  (8.36 ns)
+
+ <State 9>: 5.24ns
+The critical path consists of the following:
+	'xor' operation ('right', ./../../blowfish/blowfish.cpp:78) [109]  (0.993 ns)
+	'phi' operation ('right') with incoming values : ('left', ./../../blowfish/blowfish.cpp:235->./../../blowfish/blowfish.cpp:72) ('right', ./../../blowfish/blowfish.cpp:78) [64]  (0 ns)
+	'xor' operation ('left', ./../../blowfish/blowfish.cpp:77) [107]  (0.993 ns)
+	'call' operation ('tmp_10', ./../../blowfish/blowfish.cpp:78) to 'feistel' [108]  (3.25 ns)
+
+ <State 10>: 3.36ns
+The critical path consists of the following:
+	'xor' operation ('xor_ln83_2', ./../../blowfish/blowfish.cpp:83) [130]  (1.03 ns)
+	'store' operation ('store_ln242', ./../../blowfish/blowfish.cpp:242->./../../blowfish/blowfish.cpp:84) of variable 'trunc_ln1', ./../../blowfish/blowfish.cpp:242->./../../blowfish/blowfish.cpp:84 on array 'ciphertext' [136]  (2.32 ns)
+
+ <State 11>: 3.31ns
+The critical path consists of the following:
+	'xor' operation ('xor_ln244', ./../../blowfish/blowfish.cpp:244->./../../blowfish/blowfish.cpp:84) [140]  (0.99 ns)
+	'store' operation ('store_ln244', ./../../blowfish/blowfish.cpp:244->./../../blowfish/blowfish.cpp:84) of variable 'xor_ln244', ./../../blowfish/blowfish.cpp:244->./../../blowfish/blowfish.cpp:84 on array 'ciphertext' [142]  (2.32 ns)
+
+ <State 12>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('ciphertext_addr_4', ./../../blowfish/blowfish.cpp:245->./../../blowfish/blowfish.cpp:84) [144]  (0 ns)
+	'store' operation ('store_ln245', ./../../blowfish/blowfish.cpp:245->./../../blowfish/blowfish.cpp:84) of variable 'trunc_ln3', ./../../blowfish/blowfish.cpp:245->./../../blowfish/blowfish.cpp:84 on array 'ciphertext' [145]  (2.32 ns)
+
+ <State 13>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('ciphertext_addr_6', ./../../blowfish/blowfish.cpp:247->./../../blowfish/blowfish.cpp:84) [150]  (0 ns)
+	'store' operation ('store_ln247', ./../../blowfish/blowfish.cpp:247->./../../blowfish/blowfish.cpp:84) of variable 'trunc_ln5', ./../../blowfish/blowfish.cpp:247->./../../blowfish/blowfish.cpp:84 on array 'ciphertext' [151]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,141 @@
+
+
+================================================================
+== Vivado HLS Report for 'galois_multiplicatio'
+================================================================
+* Date:           Fri Dec 13 14:33:37 2024
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        p2peda.prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 4.992 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        0|        0|   0 ns   |   0 ns   |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.99>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%b_read = call i5 @_ssdm_op_Read.ap_auto.i5(i5 %b) nounwind" [../../refactored/helper.cpp:238]   --->   Operation 2 'read' 'b_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%a_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %a) nounwind" [../../refactored/helper.cpp:238]   --->   Operation 3 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%trunc_ln245 = trunc i5 %b_read to i1" [../../refactored/helper.cpp:245]   --->   Operation 4 'trunc' 'trunc_ln245' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%select_ln245 = select i1 %trunc_ln245, i8 %a_read, i8 0" [../../refactored/helper.cpp:245]   --->   Operation 5 'select' 'select_ln245' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln248 = shl i8 %a_read, 1" [../../refactored/helper.cpp:248]   --->   Operation 6 'shl' 'shl_ln248' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node select_ln249)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %a_read, i32 7)" [../../refactored/helper.cpp:249]   --->   Operation 7 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node select_ln249)   --->   "%xor_ln250 = xor i8 %shl_ln248, 27" [../../refactored/helper.cpp:250]   --->   Operation 8 'xor' 'xor_ln250' <Predicate = (tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln249 = select i1 %tmp, i8 %xor_ln250, i8 %shl_ln248" [../../refactored/helper.cpp:249]   --->   Operation 9 'select' 'select_ln249' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 1)" [../../refactored/helper.cpp:245]   --->   Operation 10 'bitselect' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%select_ln245_1 = select i1 %tmp_1, i8 %select_ln249, i8 0" [../../refactored/helper.cpp:245]   --->   Operation 11 'select' 'select_ln245_1' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%shl_ln248_1 = shl i8 %select_ln249, 1" [../../refactored/helper.cpp:248]   --->   Operation 12 'shl' 'shl_ln248_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns) (grouped into LUT with out node select_ln249_1)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %select_ln249, i32 7)" [../../refactored/helper.cpp:249]   --->   Operation 13 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node select_ln249_1)   --->   "%xor_ln250_1 = xor i8 %shl_ln248_1, 27" [../../refactored/helper.cpp:250]   --->   Operation 14 'xor' 'xor_ln250_1' <Predicate = (tmp_2)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (1.24ns) (out node of the LUT)   --->   "%select_ln249_1 = select i1 %tmp_2, i8 %xor_ln250_1, i8 %shl_ln248_1" [../../refactored/helper.cpp:249]   --->   Operation 15 'select' 'select_ln249_1' <Predicate = true> <Delay = 1.24> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 2)" [../../refactored/helper.cpp:245]   --->   Operation 16 'bitselect' 'tmp_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%select_ln245_2 = select i1 %tmp_3, i8 %select_ln249_1, i8 0" [../../refactored/helper.cpp:245]   --->   Operation 17 'select' 'select_ln245_2' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%shl_ln248_2 = shl i8 %select_ln249_1, 1" [../../refactored/helper.cpp:248]   --->   Operation 18 'shl' 'shl_ln248_2' <Predicate = (tmp_5)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%tmp_4 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %select_ln249_1, i32 7)" [../../refactored/helper.cpp:249]   --->   Operation 19 'bitselect' 'tmp_4' <Predicate = (tmp_5)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%xor_ln250_2 = xor i8 %shl_ln248_2, 27" [../../refactored/helper.cpp:250]   --->   Operation 20 'xor' 'xor_ln250_2' <Predicate = (tmp_4 & tmp_5)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%select_ln249_2 = select i1 %tmp_4, i8 %xor_ln250_2, i8 %shl_ln248_2" [../../refactored/helper.cpp:249]   --->   Operation 21 'select' 'select_ln249_2' <Predicate = (tmp_5)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %b_read, i32 3)" [../../refactored/helper.cpp:245]   --->   Operation 22 'bitselect' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_2)   --->   "%select_ln245_3 = select i1 %tmp_5, i8 %select_ln249_2, i8 0" [../../refactored/helper.cpp:245]   --->   Operation 23 'select' 'select_ln245_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.24> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node xor_ln245_1)   --->   "%xor_ln245 = xor i8 %select_ln245, %select_ln245_2" [../../refactored/helper.cpp:245]   --->   Operation 24 'xor' 'xor_ln245' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln245_1 = xor i8 %xor_ln245, %select_ln245_1" [../../refactored/helper.cpp:245]   --->   Operation 25 'xor' 'xor_ln245_1' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (1.24ns) (out node of the LUT)   --->   "%xor_ln245_2 = xor i8 %select_ln245_3, %xor_ln245_1" [../../refactored/helper.cpp:245]   --->   Operation 26 'xor' 'xor_ln245_2' <Predicate = true> <Delay = 1.24> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "ret i8 %xor_ln245_2" [../../refactored/helper.cpp:253]   --->   Operation 27 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 4.99ns
+The critical path consists of the following:
+	wire read on port 'a' (../../refactored/helper.cpp:238) [4]  (0 ns)
+	'select' operation ('select_ln249', ../../refactored/helper.cpp:249) [10]  (1.25 ns)
+	'shl' operation ('shl_ln248_1', ../../refactored/helper.cpp:248) [13]  (0 ns)
+	'select' operation ('select_ln249_1', ../../refactored/helper.cpp:249) [16]  (1.25 ns)
+	'select' operation ('select_ln245_2', ../../refactored/helper.cpp:245) [18]  (0 ns)
+	'xor' operation ('xor_ln245', ../../refactored/helper.cpp:245) [25]  (0 ns)
+	'xor' operation ('xor_ln245_1', ../../refactored/helper.cpp:245) [26]  (1.25 ns)
+	'xor' operation ('xor_ln245_2', ../../refactored/helper.cpp:245) [27]  (1.25 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
