@@ -3,10 +3,13 @@ To run optimized blowfish, run
 ```
 vivado_hls -f run_opt.tcl
 ```
+
 To run unoptimized blowfish, run 
 ```
 vivado_hls -f run.tcl
 ```
+
+When running optimized, ensure the array pragmas in the setkey function are uncommented! Similarly, for unoptimized, ensure they are commented. The pragmas are in the *Blowfish_SetKey* Function in blowfish.cpp! 
 
 ## Steps for running blowfish <br>
 1. Set the parray and sboxes using the *Blowfish_SetKey* function
