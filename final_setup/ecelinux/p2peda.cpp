@@ -200,7 +200,7 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     // lfsr_encrypt = enc_seed%2;
     lfsr_encrypt = enc_seed.range(0, 0);
     // std::cout << "Random number " << enc_seed << std::endl;
-    std::cout << "Blowfish: 0, AES: 1, lfsr_encrypt: " << lfsr_encrypt << std::endl;
+    // std::cout << "Blowfish: 0, AES: 1, lfsr_encrypt: " << lfsr_encrypt << std::endl;
     if (lfsr_encrypt){
       // std::cout << "AES encrypt" << std::endl;
       output_message = encrypt_aes(input_message);
@@ -231,7 +231,7 @@ void dut(hls::stream<bit32_t> &strm_in, hls::stream<bit32_t> &strm_out) {
     // lfsr_decrypt = dec_seed%2;
     lfsr_decrypt = dec_seed.range(0, 0);
     // std::cout << "Random number " << dec_seed << std::endl;
-    std::cout << "Blowfish: 0, AES: 1, lfsr_decrypt: " << lfsr_decrypt << std::endl;
+    // std::cout << "Blowfish: 0, AES: 1, lfsr_decrypt: " << lfsr_decrypt << std::endl;
 
     if (lfsr_decrypt){
       // std::cout << "AES decrypt" << std::endl;
