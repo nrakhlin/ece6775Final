@@ -1,3 +1,13 @@
+## Running csim, csynth, and cosim
+To run optimized blowfish, run 
+```
+vivado_hls -f run_opt.tcl
+```
+To run unoptimized blowfish, run 
+```
+vivado_hls -f run.tcl
+```
+
 ## Steps for running blowfish <br>
 1. Set the parray and sboxes using the *Blowfish_SetKey* function
 2. Encrypt the ciphertext using the *Blowfish_Encrypt* function
